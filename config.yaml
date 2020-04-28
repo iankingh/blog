@@ -1,0 +1,71 @@
+Title: ianhuang 筆記
+LanguageCode: zh-tw
+BaseUrl: 'https://github.com/iankingh'
+Theme: next
+MetaDataFormat: yaml
+CanonifyUrls: true
+BuildDrafts: false
+PaginatePath: p
+Paginate: 8
+DisablePathToLower: false
+HasCJKLanguage: true
+PreserveTaxonomyNames: false
+UglyUrls: false
+PygmentsStyle: monokai
+pygmentsCodefences: true
+pygmentsCodefencesGuessSyntax: true
+DefaultContentLanguage: zh-tw
+blackfriday:
+  extensionsmask:
+    - hardLineBreak
+    - backslashLineBreak
+Params:
+  Introduce: Programmer & Architect
+  Description: 筆記 | 軟體 | 架構 | Java | Golang
+  Keywords: '程式師,架構師,個人,思考,讀書,筆記,技術,分享,Golang'
+  Subtitle: 總有一天，你的日積月累，會變成他人的望塵莫及
+  Imglogo: /img/logo.png
+  AuthorImg: /img/author.jpg
+  DateFormat: '2006-01-02'
+  YearFormat: 2006年
+  MonthFormat: 01-02
+  RevolverMapId: 5b4f2ucxar6
+  Fancybox: true
+  Share:
+    Baidu: true
+  Socials:
+    - Name: GitHub
+      Icon: github
+      URL: 'https://github.com/iankingh'
+Author:
+  Name: ianhuang
+Menu:
+  Main:
+    - Name: 首頁
+      Pre: home
+      URL: /
+      Weight: 1
+    - Name: 技術
+      Pre: code
+      URL: /categories/技術/
+      Weight: 2
+    - Name: 感想
+      Pre: tint
+      URL: /categories/感想/
+      Weight: 3
+    - Name: 筆記
+      Pre: book
+      URL: /categories/筆記/
+      Weight: 4
+    - Name: 雜記
+      Pre: leaf
+      URL: /categories/雜記/
+      Weight: 5
+    - Name: 歸檔
+      Pre: archive
+      URL: /post/
+      Weight: 6
+    - Name: 關於
+      Pre: user
+      URL: /about/
+      Weight: 7
