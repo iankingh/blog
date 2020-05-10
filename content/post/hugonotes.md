@@ -13,7 +13,8 @@ tags:
 建立及設定部落格專案
 我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面， 接著新增四個我們想加到模板 Menu 的頁面: about, history, tags, categories. 最後則是新增一篇空白的文章到專案內。
 
-```
+```Shell Script
+
 1.create the project
 
 $ hugo new site myblog
@@ -32,19 +33,16 @@ $ hugo new categories.md
 
 $ hugo new post/welcome.md
 
-
 ```
 
 
 
 
+參考
 
 右上角github 貓  
-
 GitHub Corners  
 http://tholman.com/github-corners/  
-
-參考
 
 在 Github Pages 建立 Hugo 靜態網站 · Kaichu.io  
 https://kaichu.io/2015/07/12/my-first-post/
@@ -56,3 +54,12 @@ https://github.com/xtfly/xtfly.github.io/tree/hugo/themes/next
 
 使用 Hugo 打造個人部落格  
 https://blog.walker088.tw/post/intro-hugo/
+
+Hugo 加入 Disqus 整合性留言管理系統  
+https://coreychen71.github.io/posts/2019-05/hugoadddisqus/
+
+给Hugo添加disqus评论服务 - Marvin's Blog【程式人生】  
+https://zh4ui.net/post/2017-04-20-hugo-with-disqus/
+
+为你博客添加disqus评论系统 | 23.9K | Vineo  
+https://vineo.cn/config-disqus.html
