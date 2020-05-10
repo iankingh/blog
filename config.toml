@@ -11,11 +11,12 @@ DisablePathToLower =  false
 HasCJKLanguage = true
 PreserveTaxonomyNames = false
 UglyUrls = false
+DefaultContentLanguage = "zh-TW"
+#disqus
+disqusShortname = "https-iankingh-github-io"
+#預設代碼區塊
 pygmentsCodefences = false
 pygmentsCodefencesGuessSyntax = false
-DefaultContentLanguage = "zh"
-disqusShortname = "https-iankingh-github-io"
-
 
 [Params]
   Introduce = "Programmer & Architect"
@@ -27,8 +28,6 @@ disqusShortname = "https-iankingh-github-io"
   DateFormat = "2006-01-02"
   YearFormat = "2006年"
   MonthFormat = "01-02"
-  #BaiduStatsId = "0b07433b4ab8d587dae7d34e71973839"
-  #QQStatsId = "58416275"
   RevolverMapId = "5b4f2ucxar6"
   Fancybox = true
 
@@ -36,8 +35,6 @@ disqusShortname = "https-iankingh-github-io"
   Name = "ianhuang"
 
 [Params.Share]
-  #DuoShuo = "lanlingzi"
-  Baidu = true
 
 [[Menu.Main]]
   Name = "首頁"

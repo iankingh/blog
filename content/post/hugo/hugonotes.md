@@ -7,7 +7,7 @@ tags:
  - "notes"
 ---
 
-# 紀錄如何使用Hugo
+# Hugo使用筆記
 <!--more-->
 
 建立及設定部落格專案
@@ -55,11 +55,3 @@ https://github.com/xtfly/xtfly.github.io/tree/hugo/themes/next
 使用 Hugo 打造個人部落格  
 https://blog.walker088.tw/post/intro-hugo/
 
-Hugo 加入 Disqus 整合性留言管理系統  
-https://coreychen71.github.io/posts/2019-05/hugoadddisqus/
-
-给Hugo添加disqus评论服务 - Marvin's Blog【程式人生】  
-https://zh4ui.net/post/2017-04-20-hugo-with-disqus/
-
-为你博客添加disqus评论系统 | 23.9K | Vineo  
-https://vineo.cn/config-disqus.html

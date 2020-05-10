@@ -2,14 +2,14 @@
     
      <entry>
         <title>Hugo使用筆記</title>
-        <url>https://iankingh.github.io/post/hugonotes/</url>
+        <url>https://iankingh.github.io/post/hugo/hugonotes/</url>
         <categories>
           <category>筆記</category>
         </categories>
         <tags>
           <tag>notes</tag>
         </tags>
-        <content type="html"> 紀錄如何使用Hugo 建立及設定部落格專案 我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面， 接著新增四個我們想加到模板 Menu 的頁面: about, history, tags, categories. 最後則是新增一篇空白的文章到專案內。
+        <content type="html"> Hugo使用筆記 建立及設定部落格專案 我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面， 接著新增四個我們想加到模板 Menu 的頁面: about, history, tags, categories. 最後則是新增一篇空白的文章到專案內。
 1.create the project $ hugo new site myblog 2.add a theme $ git submodule add https://github.com/laozhu/hugo-nuo themes/hugo-nuo 3.add new pages $ hugo new about.md $ hugo new hisroty.md $ hugo new tags.md $ hugo new categories.md 4.add new article $ hugo new post/welcome.md  參考
 右上角github 貓
 GitHub Corners
@@ -21,7 +21,43 @@ https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hug
 https://github.com/xtfly/xtfly.github.io/tree/hugo/themes/next
 使用 Hugo 打造個人部落格
 https://blog.walker088.tw/post/intro-hugo/
-Hugo 加入 Disqus 整合性留言管理系統
+</content>
+    </entry>
+    
+     <entry>
+        <title>prism使用筆記</title>
+        <url>https://iankingh.github.io/post/hugo/prism/</url>
+        <categories>
+          <category>筆記</category>
+        </categories>
+        <tags>
+          <tag>notes</tag>
+        </tags>
+        <content type="html"> 紀錄如何使用prism 使用prism.js 做為代碼高量的工具
+ 參考
+</content>
+    </entry>
+    
+     <entry>
+        <title>Hugo 使用 disqus</title>
+        <url>https://iankingh.github.io/post/hugo/hugoaddisqus/</url>
+        <categories>
+          <category>筆記</category>
+        </categories>
+        <tags>
+          <tag>notes</tag>
+        </tags>
+        <content type="html"> Hugo ADD disqus Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網路形式，向網路社區提供網站留言服務的公司。 該公司的平台提供不同的功能，例如與不同社群網路服務連結、社群網路、用戶個人檔案、垃圾宣傳及審核工具、資料分析、電子郵件通知和在行動裝置留言等。
+Config.toml 開啟網站全域配置檔 Config.toml，加入下方參數，後面的 DisqusShortname 記得要改成您註冊時所填的 Shortname
+disqusShortname = &amp;quot;DisqusShortname&amp;quot; 新增 disqus.html 接著在根目錄 /layouts/partials/ 裡新增 disqus.html 檔案，然後把官方提供的 Script 貼到 disqus.html 檔案裡並存檔。 注意：若您在根目錄 /layouts 下看不到 /partials 目錄，請您自行新增此目錄。
+官方提供的 Script 如下：
+&amp;lt;div id=&amp;quot;disqus_thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;(function () {// Don&#39;t ever inject Disqus on localhost--it creates unwanted// discussions from &#39;localhost:1313&#39; on your Disqus account...if (window.location.hostname == &amp;quot;localhost&amp;quot;)return;var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;var disqus_shortname = &#39;{{ .Site.DisqusShortname }}&#39;;dsq.src = &#39;//&#39; &#43; disqus_shortname &#43; &#39;.disqus.com/embed.js&#39;;(document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);})();&amp;lt;/script&amp;gt;&amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&amp;quot;http://disqus.com/?ref_noscript&amp;quot;&amp;gt;comments powered byDisqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;&amp;lt;a href=&amp;quot;http://disqus.com/&amp;quot; class=&amp;quot;dsq-brlink&amp;quot;&amp;gt;comments powered by &amp;lt;span class=&amp;quot;logo-disqus&amp;quot;&amp;gt;Disqus&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt; 設定 disqus.html 再到您 Hugo 主題的目錄下，找到 single.html 檔案， 以我所使用的 AllinOne 主題來說，它的路徑如下： /themes/AllinOne/layouts/_default/single.html， 請將 single.html Copy 至根目錄 /layouts/_default/ 下。 一樣，若您在根目錄 /layouts 下看不到 /_default 目錄，請您自行新增此目錄。
+開啟剛剛 Copy 至根目錄 /layouts/_default/single.html 檔案，找到適當的位置，貼上下方語法
+&amp;lt;div class=&amp;quot;disqus markdown&amp;quot;&amp;gt;{{ partial &amp;quot;disqus.html&amp;quot; . }}&amp;lt;/div&amp;gt; 何謂適當的位置，這必要需要看您所採用的主題為何，基本上就是要把上述那段語法貼在文章結束的位置，這樣 Disqus 才會出現在文章下方，以我所採用的 AllinOne 主題來說，我選擇把它貼在下圖中的位置，所以請您依您採用的主題進行微調。 single.html 大致上這樣就完成了 Hugo 加上 Disqus 的配置，這時我們把本地端的 Sever 運行起來看一下文章下方是否已經出現 Disqus？這時您會發現，咦！怎麼都沒看到 Disqus！可是卻能看到一個 comments powered by Disqus 連結。 NoDisqus
+關閉 localhost 不顯示 這是因為官方所提供的 Script 裡面其中一段語法的關係
+if (window.location.hostname == &amp;ldquo;localhost&amp;rdquo;) return; 它的作用是當本地端 Server 運行時，就 return 中止，所以我們才會看不到 Disqus，這是因為當自己在編輯文章並運行 Server 進行預覽時，不需要用到留言的功能，所以才會採用這個判斷式來避免本地端的 Server 模式啟用Disqus功能。若您希望在本地端 Server 模式下，也能看到 Disqus，只要把上述那二行給註解掉並存檔就可以了。 Annotation
+這時再看一下剛剛開啟的文章最下方，就可以看到 Disqus 出現了。 ShowDisqus
+參考 Hugo 加入 Disqus 整合性留言管理系統
 https://coreychen71.github.io/posts/2019-05/hugoadddisqus/
 给Hugo添加disqus评论服务 - Marvin&amp;rsquo;s Blog【程式人生】
 https://zh4ui.net/post/2017-04-20-hugo-with-disqus/
