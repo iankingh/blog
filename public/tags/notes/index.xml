@@ -6,10 +6,21 @@
     <description>Recent content in notes on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Tue, 21 Apr 2020 22:29:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 22:29:36 +0800</lastBuildDate>
     
 	<atom:link href="https://iankingh.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo 使用 disqus</title>
+      <link>https://iankingh.github.io/post/hugo/hugoaddisqus/</link>
+      <pubDate>Fri, 08 May 2020 22:29:36 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/hugo/hugoaddisqus/</guid>
+      <description>&lt;h1 id=&#34;hugo-add-disqus&#34;&gt;Hugo ADD disqus&lt;/h1&gt;
+&lt;p&gt;Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網路形式，向網路社區提供網站留言服務的公司。
+該公司的平台提供不同的功能，例如與不同社群網路服務連結、社群網路、用戶個人檔案、垃圾宣傳及審核工具、資料分析、電子郵件通知和在行動裝置留言等。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hugo使用筆記</title>
@@ -27,17 +38,6 @@
       
       <guid>https://iankingh.github.io/post/hugo/prism/</guid>
       <description>&lt;h1 id=&#34;紀錄如何使用prism&#34;&gt;紀錄如何使用prism&lt;/h1&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hugo 使用 disqus</title>
-      <link>https://iankingh.github.io/post/hugo/hugoaddisqus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://iankingh.github.io/post/hugo/hugoaddisqus/</guid>
-      <description>&lt;h1 id=&#34;hugo-add-disqus&#34;&gt;Hugo ADD disqus&lt;/h1&gt;
-&lt;p&gt;Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網路形式，向網路社區提供網站留言服務的公司。
-該公司的平台提供不同的功能，例如與不同社群網路服務連結、社群網路、用戶個人檔案、垃圾宣傳及審核工具、資料分析、電子郵件通知和在行動裝置留言等。&lt;/p&gt;</description>
     </item>
     
   </channel>

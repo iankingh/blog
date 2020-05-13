@@ -11,7 +11,7 @@ DisablePathToLower =  false
 HasCJKLanguage = true
 PreserveTaxonomyNames = false
 UglyUrls = false
-DefaultContentLanguage = "zh-TW"
+DefaultContentLanguage = "zh"
 #disqus
 disqusShortname = "https-iankingh-github-io"
 #預設代碼區塊

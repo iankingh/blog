@@ -4,7 +4,7 @@ date: 2020-05-08T22:29:36+08:00
 categories:
  - "筆記"
 tags:
- - "notes"
+ - "hugo"
 ---
 
 # Hugo ADD disqus
@@ -17,16 +17,15 @@ Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網�
 
 ##  Config.toml
 
-開啟網站全域配置檔 Config.toml，加入下方參數，後面的 DisqusShortname 記得要改成您註冊時所填的 Shortname
+開啟Hugo配置檔 Config.toml，設定 DisqusShortname。 
 
 ```toml
-disqusShortname = "DisqusShortname"
+disqusShortname = "yourDisqusShortname"
 ```
 
 ## 新增 disqus.html
-接著在根目錄 /layouts/partials/ 裡新增 disqus.html 檔案，然後把官方提供的 Script 貼到 disqus.html 檔案裡並存檔。
-注意：若您在根目錄 /layouts 下看不到 /partials 目錄，請您自行新增此目錄。
-
+在根目錄 /layouts/partials/ 裡新增 disqus.html 檔案，
+然後把官方提供的 Script 貼到 disqus.html 檔案裡並存檔。
 官方提供的 Script 如下：
 
 ```html
@@ -51,13 +50,9 @@ disqusShortname = "DisqusShortname"
 ```
 
 ## 設定  disqus.html
-再到您 Hugo 主題的目錄下，找到 single.html 檔案，
-以我所使用的 AllinOne 主題來說，它的路徑如下：
-/themes/AllinOne/layouts/_default/single.html，
-請將 single.html Copy 至根目錄 /layouts/_default/ 下。
-一樣，若您在根目錄 /layouts 下看不到 /_default 目錄，請您自行新增此目錄。
-
-開啟剛剛 Copy 至根目錄 /layouts/_default/single.html 檔案，找到適當的位置，貼上下方語法
+到 Hugo 主題的目錄下，找到 single.html 檔案，
+將 Hugo 主題的目錄下 single.html Copy 至 /layouts/_default/ 下。
+開啟 /layouts/_default/single.html 檔案，貼上下方語法
 
 ```html
 <div class="disqus markdown">
@@ -65,23 +60,18 @@ disqusShortname = "DisqusShortname"
 </div>
 ```
 
-何謂適當的位置，這必要需要看您所採用的主題為何，基本上就是要把上述那段語法貼在文章結束的位置，這樣 Disqus 才會出現在文章下方，以我所採用的 AllinOne 主題來說，我選擇把它貼在下圖中的位置，所以請您依您採用的主題進行微調。
-single.html
-大致上這樣就完成了 Hugo 加上 Disqus 的配置，這時我們把本地端的 Sever 運行起來看一下文章下方是否已經出現 Disqus？這時您會發現，咦！怎麼都沒看到 Disqus！可是卻能看到一個 comments powered by Disqus 連結。
+這樣就完成了 Hugo 加上 Disqus 的配置，這時我們把本地端的 Sever 運行起來看一下文章下方是否已經出現 Disqus？這時您會發現，咦！怎麼都沒看到 Disqus！可是卻能看到一個 comments powered by Disqus 連結。
 NoDisqus
 
-## 關閉 localhost 不顯示
-這是因為官方所提供的 Script 裡面其中一段語法的關係
+## 解決 localhost 不顯示 的問題
 
+這是因為官方所提供的 Script 裡面其中一段語法的關係
 if (window.location.hostname == "localhost")
   return;
 它的作用是當本地端 Server 運行時，就 return 中止，所以我們才會看不到 Disqus，這是因為當自己在編輯文章並運行 Server 進行預覽時，不需要用到留言的功能，所以才會採用這個判斷式來避免本地端的 Server 模式啟用Disqus功能。若您希望在本地端 Server 模式下，也能看到 Disqus，只要把上述那二行給註解掉並存檔就可以了。
-Annotation
 
 這時再看一下剛剛開啟的文章最下方，就可以看到 Disqus 出現了。
 ShowDisqus
-
-
 
 
 # 參考

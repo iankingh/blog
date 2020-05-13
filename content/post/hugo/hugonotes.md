@@ -4,7 +4,7 @@ date: 2020-04-21T22:29:36+08:00
 categories:
  - "筆記"
 tags:
- - "notes"
+ - "hugo"
 ---
 
 # Hugo使用筆記
