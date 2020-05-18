@@ -10,8 +10,13 @@ tags:
 # Hugo使用筆記
 <!--more-->
 
-建立及設定部落格專案
-我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面， 接著新增四個我們想加到模板 Menu 的頁面: about, history, tags, categories. 最後則是新增一篇空白的文章到專案內。
+建立及設定部落格專案  
+
+我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面  
+
+接著新增四個我們想加到模板 Menu 的頁面: about, history, tags, categories   
+
+最後則是新增一篇空白的文章到專案內。
 
 ```Shell Script
 
@@ -38,7 +43,7 @@ $ hugo new post/welcome.md
 
 
 
-參考
+# 參考
 
 右上角github 貓  
 GitHub Corners  

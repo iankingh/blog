@@ -6,6 +6,7 @@ categories:
 tags:
  - "ubuntu"
 toc: true
+draft: true
 ---
 
 

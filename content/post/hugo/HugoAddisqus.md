@@ -60,8 +60,6 @@ disqusShortname = "yourDisqusShortname"
 </div>
 ```
 
-這樣就完成了 Hugo 加上 Disqus 的配置，這時我們把本地端的 Sever 運行起來看一下文章下方是否已經出現 Disqus？這時您會發現，咦！怎麼都沒看到 Disqus！可是卻能看到一個 comments powered by Disqus 連結。
-NoDisqus
 
 ## 解決 localhost 不顯示 的問題
 
@@ -69,8 +67,6 @@ NoDisqus
 if (window.location.hostname == "localhost")
   return;
 它的作用是當本地端 Server 運行時，就 return 中止，所以我們才會看不到 Disqus，這是因為當自己在編輯文章並運行 Server 進行預覽時，不需要用到留言的功能，所以才會採用這個判斷式來避免本地端的 Server 模式啟用Disqus功能。若您希望在本地端 Server 模式下，也能看到 Disqus，只要把上述那二行給註解掉並存檔就可以了。
-
-這時再看一下剛剛開啟的文章最下方，就可以看到 Disqus 出現了。
 ShowDisqus
 
 
