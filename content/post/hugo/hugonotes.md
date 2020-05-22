@@ -60,3 +60,6 @@ https://github.com/xtfly/xtfly.github.io/tree/hugo/themes/next
 使用 Hugo 打造個人部落格  
 https://blog.walker088.tw/post/intro-hugo/
 
+hugo搭建静态博客 | 生信笔记
+https://www.bioinfo-scrounger.com/archives/809/
+
