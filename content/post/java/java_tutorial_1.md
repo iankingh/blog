@@ -1,6 +1,4 @@
 ---
-
-
 title: "Java_tutorial_1"
 date: 2020-05-19T06:22:46+08:00
 draft: true

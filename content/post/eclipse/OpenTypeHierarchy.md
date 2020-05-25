@@ -16,4 +16,4 @@ toc: true
 
 在方法或類名上點擊右鍵，選擇Open Type Hierarchy即可，快捷鍵是F4。
 
-![snapshot](/images/eclipse/huOpenTypeHierarchy.png)
+![snapshot](/images/eclipse/OpenTypeHierarchy.png)
