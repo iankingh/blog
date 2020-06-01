@@ -1,5 +1,5 @@
 ---
-title: "Java_DecimalFormat"
+title: "Java DecimalFormat(數字格式)"
 date: 2020-05-26T08:59:50+08:00
 draft: false
 categories:
@@ -9,17 +9,15 @@ tags:
 toc: true
 
 ---
-
-# Java Use DecimalFormat(數字格式)
-
-
-<!--more-->
-
 ## 簡介
 
 `java.text`提供了`NumberFormat`類別來讓我們更方便的格式化數字的呈現方式
 
 `DecimalFormat`是`NumberFormat`該格式的具體子類， 其格式為小數。它具有多種功能，旨在使可以在任何語言環境中解析和格式化數字，包括對西方，阿拉伯和印度數字的支持。它還支持各種數字，包括整數（123），定點數字（123.4），科學計數法（1.23E4），百分比（12％）和貨幣金額（$ 123）。所有這些都可以本地化。
+
+<!--more-->
+
+
 
 ## 基本用法
 

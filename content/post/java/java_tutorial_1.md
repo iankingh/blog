@@ -1,7 +1,7 @@
 ---
-title: "Java_tutorial_1"
+title: "[從 0 開始的 JAVA 生活]No.2 Java 基本的資料型態(Primitive Data Types)"
 date: 2020-05-19T06:22:46+08:00
-draft: true
+draft: false
 categories:
   - "筆記"
   - "技術"
@@ -10,7 +10,6 @@ tags:
 toc: true
 ---
 
-# [從 0 開始的 JAVA 生活]No.2 Java 基本的資料型態(Primitive Data Types)
 <!--more-->
 
 ## Java 基本的資料型態(Primitive Data Types)
@@ -25,6 +24,8 @@ toc: true
 | 6    | double   | 64bit   | Double    | 0.0D     | 4.9E-324~1.7976931348623157E308          |
 | 7    | char     | 16bit   | Character | '\u0000' | 0~65535                                  |
 | 8    | boolean  | 8bit    | Boolean   | false    | true或false                              |
+
+
 
 ### 範例
 

@@ -1,7 +1,7 @@
 ---
-title: "Java_tutorial_0"
+title: "[從 0 開始的 JAVA 生活]No.0 java環境變數 (Environment Variable)設定"
 date: 2020-05-25T07:54:27+08:00
-draft: true
+draft: false
 categories:
   - "筆記"
   - "技術"
@@ -10,15 +10,23 @@ tags:
 toc: true
 ---
 
-# java環境變數設定
+
 <!--more-->
 
 
-## JAVA_HOME
+## 設定JAVA_HOME
 C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
-
+![JAVA_HOME](/images/java/JAVA_HOME.png)
 ## Path
 %JAVA_HOME%\bin;
+![Path](/images/java/Path.png)
 
+## 測試
 
-test
+``` shell
+java -vresion
+
+javac -version
+```
+
+![test_java_version](/images/java/test_java_version.png)
