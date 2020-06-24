@@ -12,3 +12,32 @@ toc: true
 
 # 筆記
 <!--more-->
+
+建立一個HelloJava.java 的檔案
+
+```java
+class HelloJava{
+    public static void main(String args[]){
+        System.out.println("Hello Java");
+    }
+}
+```
+
+class 基本組成
+
+```java
+Modifier(修飾子預設pr) class className {
+
+	Modifier type name;
+    
+    Modifier retrun_type name (){
+        
+    }
+
+}
+```
+
+
+
+
+
