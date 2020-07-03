@@ -3,10 +3,9 @@ title: "LinuxCommand"
 date: 2020-06-22T19:01:50+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "Linux"
 toc: true
 ---
 

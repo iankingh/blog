@@ -3,10 +3,10 @@ title: "CentOS 8 Install"
 date: 2020-06-29T08:51:38+08:00
 draft: false
 categories:
- - "xx"
+ - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "Linux"
+ - "CentOS"
 toc: true
 ---
 
