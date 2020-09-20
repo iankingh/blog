@@ -394,7 +394,7 @@ Spring Data JPA為此提供了一些表達條件查詢的關鍵字，大致如�
 ```java
 public interface  CustomerRepository extends  CrudRepository<Customer,  Long> 
 	{   
-      @Query("select a from Customer a WHERE  a.firstName = ?1")
+      @Query("select a from Customer a WHERE  a.firstName = ?")
       List<Customer> findByQuery(StringfirstName);  
 	}  
 ```
@@ -408,7 +408,6 @@ EX:
     *	@return
     **/
    @Query("select p from ProductInfoEntity p where p.productName like '%米%' ")
-
    List<ProductInfoEntity> findProductInfo();
 
 
@@ -428,10 +427,6 @@ EX:
 
    List<ProductInfoEntity> findMaxPrice();
  ```
-
-
-
- 
 
  
 

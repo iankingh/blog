@@ -8,6 +8,7 @@ tags:
  - "Linux"
  - "CentOS"
 toc: true
+typora-root-url: ..\..\..\static
 ---
 
 ## CentOS 8 Install
@@ -44,41 +45,31 @@ CentOS 8 所需的最低硬體配置:
 dd if=CentOS-8-x86_64-1905-dvd1.iso of=/dev/sdb
 ```
 
-
-
 ## Step 3:Start with the installation process
 
 當系統從 CentOS 8 ISO 啟動介質啟動之後，就可以看到以下這個介面。
 
 使用 CentOS 8 安裝檔開機會有下述三種模式：
 
-\1.   Install CentOS Linux 8：正常安裝系統流程。
+1. Install CentOS Linux 8：正常安裝系統流程。
 
-\2.   Test this media & install CentOS Linux 8：測試媒體後在進入安裝系統流程。
+2. Test this media & install CentOS Linux 8：測試媒體後在進入安裝系統流程。
 
-\3.   Troubleshooting：進入【除錯模式】，能夠救授 CentOS 系統和執行記憶體測試 (Run a memory test) ...。
+3. Troubleshooting：進入【除錯模式】，能夠救授 CentOS 系統和執行記憶體測試 (Run a memory test) ...。
 
 選擇“Install CentOS Linux 8.0”（安裝 CentOS Linux 8.0）選項。
 
-
-
-![image-20200628221546004](C:\Users\Ian\AppData\Roaming\Typora\typora-user-images\image-20200628221546004.png)
-
-再選擇
-
-
+![Start with the installation process](/images/Linux/Start with the installation process.png)
 
 
 
 ## Step 4: Choose the language for the installation process
 
- 第四步：選擇系統語言
+ 選擇系統語言
 
 選擇想要在 CentOS 8 安裝過程中使用的語言，然後繼續。
 
-
-
-![image-20200628221723578](C:\Users\Ian\AppData\Roaming\Typora\typora-user-images\image-20200628221723578.png)
+![Choose the language for the installation process](/images/LinuX/Choose the language for the installation process.png)
 
 ## Step5 : Select the keyboard language for the installation process
 

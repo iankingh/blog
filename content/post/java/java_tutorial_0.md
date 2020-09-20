@@ -8,8 +8,8 @@ categories:
 tags:
  - "java"
 toc: true
+typora-root-url: ..\..\..\static
 ---
-
 
 <!--more-->
 
@@ -17,6 +17,7 @@ toc: true
 ## 設定JAVA_HOME
 C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
 ![JAVA_HOME](/images/java/JAVA_HOME.png)
+
 ## Path
 %JAVA_HOME%\bin;
 ![Path](/images/java/Path.png)
@@ -30,3 +31,4 @@ javac -version
 ```
 
 ![test_java_version](/images/java/test_java_version.png)
+

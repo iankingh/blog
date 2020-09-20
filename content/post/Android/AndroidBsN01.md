@@ -18,29 +18,27 @@ toc: true
 
 1. 安裝最新版本的 [Android Studio](https://developer.android.com/studio/)。
 
-2. 在“ **歡迎使用****Android Studio”**窗口中，單擊“ **啟動新的****Android Studio****項目****”**。
+2. 在**Welcome to Android Studio**窗口中，單擊啟動新的**Strat a new Android Studio project**。
 
-![img](file:///C:/Users/Ian/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+   ![Welcome to Android Studio](/images/Android/Welcome to Android Studio.png)
 
-**圖****1.** Android Studio歡迎屏幕
+3.  在**Select a Project Template**窗口中，選擇“ **Empty Activity”**，然後單擊“ **next”**。
 
-如果您已經打開了一個項目，請選擇**File> New> New Project**。
+   ![Select a Project Template](/images/Android/Select a Project Template.png)
 
-3. 在“ **選擇項目模板****”**窗口中，選擇“ **清空活動****”**，然後單擊“ **下一步****”**。
+4.  在“ **Configure Your Project”**窗口中，完成以下操作：
 
-4. 在“ **配置項目****”**窗口中，完成以下操作：
+   ![Configure Your Project](/images/Android/Configure Your Project.png)
 
-·    在**名稱**字段中輸入“我的第一個應用程序” 。
+·    在**Name**輸入“Myfirstapp” 。
 
-·    在“ **程序包名稱****”**字段中輸入“ com.example.myfirstapp” 。
+·    在“ **Package name”**字段中輸入“ com.example.myfirstapp” 。
 
-·    如果要將項目放置在其他文件夾中，請更改其**保存**位置。
+·    Save Location 預設專案放置位置，如果要將項目放置在其他文件夾中，請更改其**保存**位置。
 
-·    從 **語言**下拉菜單中選擇**Java**或**Kotlin**。
+·    從” Language”下拉菜單中選擇**Java**或**Kotlin**。
 
-·    在**最低****SDK**字段中選擇您的應用將支持的**最低** Android版本。
-
-·    如果您的應用需要舊版庫支持，**請**選中**使用舊版****android.support****庫**複選框。
+·    在”Minimum SDK”選擇您的應用將支持的**最低** Android版本。
 
 ·    保留其他選項不變。
 
@@ -48,23 +46,23 @@ toc: true
 
 經過一段時間的處理後，出現Android Studio主窗口。
 
-![img](file:///C:/Users/Ian/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
 
-**圖****2.** Android Studio主窗口
+
+ Android Studio主窗口
 
 現在花點時間查看最重要的文件。
 
-首先，請確保已打開“ **項目****”**窗口（選擇“ **視圖****”>“****工具窗口****”>“****項目****”**），並且從該窗口頂部的下拉列表中選擇了Android視圖。然後，您可以看到以下文件：
+首先，請確保已打開項目窗口（選擇“視圖>工具窗口>項目），並且從該窗口頂部的下拉列表中選擇了Android視圖。然後，您可以看到以下文件：
 
-**應用****> Java> com.example.myfirstapp> MainActivity**
+應用> Java> com.example.myfirstapp> MainActivity
 
 這是主要活動。這是您的應用程序的切入點。在構建和運行應用程序時，系統將啟動該應用程序的實例 [Activity](https://developer.android.com/reference/android/app/Activity) 並加載其佈局。
 
-**應用程序****> res>****佈局****> activity_main.xml**
+應用程序> res>佈局> activity_main.xml
 
 此XML文件定義活動的用戶界面（UI）的佈局。它包含一個[TextView](https://developer.android.com/reference/android/widget/TextView)帶有文本“ Hello，World！” 的 元素。
 
-**應用****>****清單****> AndroidManifest.xml**
+**應用>清單****> AndroidManifest.xml**
 
 該[清單文件](https://developer.android.com/guide/topics/manifest/manifest-intro)描述了應用程序的基本特徵，並限定它的每一個組件。
 

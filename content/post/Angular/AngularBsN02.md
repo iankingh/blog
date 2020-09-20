@@ -18,7 +18,7 @@ toc: true
 
 ## angular.json
 
-Angular CLI 的設定檔 ，Angular　CLI v6 之前檔名 angular-cli.json為。
+Angular CLI 的設定檔 ，Angular CLI v6 之前檔名 angular-cli.json為。
 
 ## .editorconfig
 
@@ -74,8 +74,6 @@ angular 應用程式地進入點。
 
 ### style.css
 
-`You can add global styles to this file, and also import other style files`
-
 在這裡它是 「global styles」也就是整個應用程式都會套用到的 CSS 定義，全部都可以寫在這裡。
 
 ### main.ts
@@ -101,7 +99,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 ### app.module.ts 
 
-在main.ts 當中引入的 ./app/app.module
+根目錄的TS module
 
 ```typescript
 
@@ -143,7 +141,7 @@ export class AppComponent {
 }
 ```
 
-在main.ts 當中引入的 ./app.component
+根目錄的TS controller
 
 ### assets(資產) 資料夾
 
