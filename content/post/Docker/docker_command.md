@@ -13,13 +13,13 @@ toc: true
 
 ##  images
 
-### see images(看鏡像)
+### see images(看映像)
 
 ```shell
 docker images
 ```
 
-### docker pull
+### docker pull(下載映像)
 
 ```sell
 docker pull
@@ -66,7 +66,7 @@ docker ps -q
 #### -f:  過濾器
 
 ```shell
-docker ps -f id=ContainerId
+docker ps -f id(ContainerId)
 ```
 
 ### Container Stop (停掉Container)
