@@ -38,6 +38,8 @@ $ hugo new categories.md
 
 $ hugo new post/welcome.md
 
+hugo server -D
+
 ```
 
 

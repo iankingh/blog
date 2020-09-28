@@ -1,12 +1,18 @@
 ---
-typora-root-url: ..\..\..\static
+title: "GitLab error"
+date: 2020-05-15T16:36:13+08:00
+draft: false
+categories:
+ - "筆記"
+tags:
+ - "git"
+toc: true
 ---
 
+<!--more-->
 
 
 # 連線GitLab問題處理
-
-
 
 問題1 : 在連線 gitlab 遇到fatal: Authentication failed for.... 的問題
 
