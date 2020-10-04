@@ -5,10 +5,60 @@ categories:
  - "筆記"
 tags:
  - "hugo"
+
 ---
 
 # Hugo使用筆記
 <!--more-->
+
+
+
+## 安裝
+
+```shell
+scoop install hugo
+hugo version
+```
+
+## 建立新Blog
+
+```
+hugo new site blog
+```
+
+## 新增文章
+
+```shell
+hugo new post/文章名稱.md
+```
+
+生成的文件默認為會帶上 draft: true標記，不會發布。
+
+
+
+
+
+```shell
+hugo server -D
+```
+
+
+
+
+
+## 插入圖片
+
+```shell
+![Example image](/static/image.png)
+```
+
+![useImageRootPath](images/hugo/useImageRootPath.png)
+
+
+
+
+
+![image-20200930075548139](C:\Users\Ian\AppData\Roaming\Typora\typora-user-images\image-20200930075548139.png)
 
 建立及設定部落格專案  
 
@@ -64,4 +114,8 @@ https://blog.walker088.tw/post/intro-hugo/
 
 hugo搭建静态博客 | 生信笔记
 https://www.bioinfo-scrounger.com/archives/809/
+
+使用Hugo搭建博客系统 - XniLe - Ops 2.0
+
+https://blog.dianduidian.com/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/
 

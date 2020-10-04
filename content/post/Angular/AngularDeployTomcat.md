@@ -83,6 +83,8 @@ service.bat install
 
 ##  5. 404 如何解決
 
+因為 Angular 是 SPA，所以在網頁伺服器要將所有的 request 全部導回到 index.html 才可以正常地顯示，如果在沒有設定下直接打開網址 web/home，他會去找 home 資料夾下的 index.html
+
 **(1)將以下代碼放在部署文件夾的web.xml中：**
 
 ```xml
@@ -129,11 +131,11 @@ app-routing.module.ts
 
 (3.2)在rewrite.config中寫入重寫規則 
 
-創建目錄結構–〜/ conf / Catalina / localhost /並使用以下內容在其中創建rewrite.config文件。注意-這裡我考慮將其`/hello`作為應用程序的上下文路徑。
+創建目錄結構–〜/ conf / Catalina / localhost /並使用以下內容在其中創建rewrite.config文件。注意-這裡我考慮將其`/web`作為應用程序的上下文路徑。
 
 ```xml
 RewriteCond %{REQUEST_PATH} !-f
-RewriteRule ^/hello/(.*) /hello/index.html
+RewriteRule ^/web/(.*) /web/index.html
 ```
 
 參考
@@ -145,3 +147,7 @@ https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html
 https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server
 
 https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS
+
+
+
+https://forum.angular.tw/t/topic/1839/2
