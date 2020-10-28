@@ -9,14 +9,8 @@ tags:
 toc: true
 ---
 
-# 筆記
+# NGINX 基礎入門(Windows 版) 筆記
 <!--more-->
-
-
-
-
-
-### NGINX 基礎入門(Windows 版)
 
 # NGINX 基礎入門(Windows 版)
 

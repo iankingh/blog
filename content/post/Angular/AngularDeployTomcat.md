@@ -148,6 +148,8 @@ https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8
 
 https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS
 
+<base href="/"> 與 <base href="./"> 的差別 ? - General - 台灣 Angular 技術論壇
 
+https://forum.angular.tw/t/topic/881/12
 
 https://forum.angular.tw/t/topic/1839/2

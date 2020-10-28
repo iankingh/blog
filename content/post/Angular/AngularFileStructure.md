@@ -34,6 +34,7 @@ File Structure
 │   │   ├── app-routing.module.ts # 路由定義 
 │   │   ├── components # component資料夾
 │   │   ├── services #service資料夾
+│   │   ├── directives #directives資料夾
 │   │   ├── shared # 共用的資料夾 不會被路由開啟的 component
 │   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
 │   │   ├── browser #
