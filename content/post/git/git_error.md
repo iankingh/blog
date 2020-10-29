@@ -22,7 +22,7 @@ error: Your local changes to the following files would be overwritten by merge:
 
 解決方法如下：
 
-###  方法1：使用pop
+###  方法1： 使用stash
 如果你想保留剛才本地修改的程式碼，並把git伺服器上的程式碼pull到本地（本地剛才修改的程式碼將會被暫時封存起來）
 
 ```shell
@@ -60,7 +60,7 @@ $ git merge master
 
 
 
-**注：**  感謝KFC 前輩的提供正確解決衝突的教學
+**注：**  感謝 **KFC 前輩**的提供正確解決衝突的教學
 
 
 
