@@ -1,5 +1,5 @@
 ---
-title: "Git_error"
+title: "Git_pull_error"
 date: 2020-10-06T21:45:42+08:00
 draft: false
 categories:
@@ -15,12 +15,25 @@ toc: true
 
 ```
 error: Your local changes to the following files would be overwritten by merge:
-
 ```
 
 意思是本地新修改的程式碼檔案，將會被git伺服器上的程式碼覆蓋
 
-解決方法如下：
+
+
+git pull == git fetch + git merge
+
+發生衝突時 可以先試以下步驟
+```
+先
+git fetch 
+再
+git merge origin/master
+```
+
+
+如果還是無法解決可以使用的解決方法如下：
+
 
 ###  方法1： 使用stash
 如果你想保留剛才本地修改的程式碼，並把git伺服器上的程式碼pull到本地（本地剛才修改的程式碼將會被暫時封存起來）
@@ -39,12 +52,13 @@ $ git stash pop
 ```shell
 $ git reset --hard
 $ git pull origin master
-
 ```
 
 **注：** 其中origin master表示git的主分支。
 
 ### 方法3 : 使用分支( 推薦 正統)
+
+
 
 1. 切分支出去commit
 2. 在切回 master fetch
@@ -55,10 +69,7 @@ $ git checkout -b <branch>
 $ git commit -m "add dev" 
 $ git checkout master 
 $ git merge master
-
 ```
-
-
 
 **注：**  感謝 **KFC 前輩**的提供正確解決衝突的教學
 
