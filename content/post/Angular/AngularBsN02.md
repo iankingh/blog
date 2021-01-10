@@ -12,8 +12,6 @@ toc: true
 
 # 從 0 開始的 Angular 生活 第2天-認識 Angular CLI 建立的專案架構
 
-
-
 <!--more-->
 
 ## angular.json
