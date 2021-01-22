@@ -68,7 +68,10 @@ $ git pull origin master
 $ git checkout -b <branch>
 $ git commit -m "add dev" 
 $ git checkout master 
-$ git merge master
+$ git merge branch
+
+EX
+
 ```
 
 **注：**  感謝 **KFC 前輩**的提供正確解決衝突的教學
