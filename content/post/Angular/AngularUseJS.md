@@ -30,3 +30,10 @@ toc: true
 
 
 ```
+
+參考
+angular在ts中使用第三方js_weixin_43182222的博客-CSDN博客
+https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control
+
+How to call JavaScript functions from Typescript in Angular 5? - Stack Overflow
+https://stackoverflow.com/questions/49526681/how-to-call-javascript-functions-from-typescript-in-angular-5
