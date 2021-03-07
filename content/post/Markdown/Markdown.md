@@ -27,7 +27,8 @@ toc: true
 
 ## 超連結
 
-[連接名稱](網址 , 標題)
+
+[顯示文字](網址 , 標題)
 
 EX:
 
@@ -35,7 +36,7 @@ EX:
 
 直接展示連結的寫法：<http://www.izhangbo.cn>
 
-鍵盤鍵
+## 鍵盤鍵
 
 <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>
 
@@ -95,6 +96,10 @@ Pipe     | $1
 
 參考
 
-http://www.izhangbo.cn/info/57e1d9a3c2cb6....
+
+https://hackmd.io/@wootu/SkY0M5wsZ?type=view
+
+
+http://www.izhangbo.cn/info/57e1d9a3c2cb6
 
 
