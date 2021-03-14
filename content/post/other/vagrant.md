@@ -3,7 +3,7 @@ title: "Vagrant"
 date: 2021-03-03T13:45:46+08:00
 draft: false
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "vagrant"
 toc: true
@@ -14,7 +14,7 @@ toc: true
 
 
 
-vagrant scp  
+# vagrant scp  
 
 # 停止虛擬機
 
@@ -28,15 +28,15 @@ vagrant halt
 vagrant ssh-config
 ```
 
-# vagrant init 
+# vagrant init  : 
 
-# vagrant up
+# vagrant up : 
 
 # Vagrantfile
 
 ```
 Vagrant.configure("2") do |config|
-  
+
   #pull images centos/8
   config.vm.box = "centos/8"
   

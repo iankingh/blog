@@ -48,60 +48,27 @@ SSL 讓瀏覽器（所謂的 client）要連到一個遠端網站（所謂的 se
 
 在 TCP Three-way Handshake 完成之後，如果 Alice 有希望使用 SSL 加密時就會開始做 SSL Handshake。時序圖如下：
 
- 
-
-```
-@startuml
-Alice -> Bob: (1) hello
-note left
-  Highest SSL version
-  Cipher supported
-  Data Compression Method
-  etc.
-end note
-Alice <- Bob: (2) hello
-note right
-  Selected SSL version
-  Selected Cipher
-  Selected Data Compression Method
-  Certificate
-  etc.
-end note
-Alice -> Alice: (3) Validate Certificate
-Alice -> Bob: (4) Certificate
-Bob -> Bob: (5) Validate Certificate
-Alice -> Bob: (6) Key exchange
-Alice -> Bob: (7) Change Cipher Spec
-Alice -> Bob: (8) Finished
-Alice <- Bob: (9) Change Cipher Spec
-Alice <- Bob: (10) Finished
-Alice <-> Bob: (11) Encrypted Data Transfer
-@enduml
-```
 
 
+SSL在傳輸之前事先用來溝通雙方（用戶端與伺服器端）所使用的加密演算法或密鑰交換演算法，或是在伺服器和用戶端之間安全地交換密鑰及雙方的身分認證等相關規則，讓雙方有所遵循。在身分認證方面，SSLHandshake可用來認證伺服器的身分。SSL Handshake的運作流程如下所述：
 
-\1.  首先第一步 Alice 跟 Bob 要求要用 SSL 加密，於是 Alice 先跟 Bob 說她支援什麼樣的版本與相關資訊等
+(1) SSL用戶端利用Client Hello訊息將本身支援的SSL版本、加密演算法、演算法等資訊發送給SSL伺服器。
 
-\2.  Bob 如果有支援的話，就會回傳他選了哪些版本，同時也會把 Certificate 傳送給 Alice 驗證
+(2) SSL伺服器收到Client Hello訊息並確定本次通訊採用的SSL版本和加密套件後，利用Server Hello訊息回覆給SSL用戶端。
 
-\3.  Alice 拿到 Certificate 後，會先驗看看是不是合法的，若是不合法的，則會提出警告訊息給使用者
+(3) SSL伺服器將利用Certificate訊息將本身公鑰的數位憑證傳給SSL用戶端。
 
-\4.  第二步 Bob 可以要求 Alice 也提供 Certificate，如果有的話就會傳給 Bob
+(4) SSL伺服器發送Server Hello Done訊息，通知SSL用戶端版本和加密套件協商結束，並開始進行密鑰交換。
 
-\5.  同第三步驗證
+(5) 當SSL用戶端驗證SSL伺服器的證書合法後，利用伺服器的證書中之公鑰加密SSL用戶端隨機生成的Premaster Secret（這是一個用在對稱加密密鑰產生中的46位元組的亂數字），並透過Client Key Exchange消息發送給SSL伺服器。
 
-\6.  再來就是金鑰（key）交換，這裡會隨機產生一組做為對稱式加密使用的密鑰（secret）
+(6) SSL用戶端發送Change Cipher Spec消息，通知SSL伺服器後續報文將採用協商好的密鑰和加密套件進行加密。
 
-\7.  Alice 會跟 Bob 說好，接下來要用什麼樣的方法來做資料加密
+(7) SSL用戶端計算已交互的握手消息的Hash值，利用協商好的密鑰和加密演算法處理Hash值，並透過Finished消息發送給SSL伺服器。SSL伺服器利用同樣的方法計算已交互的握手消息的Hash值，並與Finished消息的解密結果比較，如果兩者相同，則證明密鑰和加密套件協商成功。
 
-\8.  Bob 收到訊息並確認這是 Alice 發送出來的
+(8) SSL伺服器發送Change Cipher Spec訊息，通知SSL用戶端後續傳輸將採用協商好的密鑰和加密套件進行加密。
 
-\9.  Bob 也發送訊息通知 Alice 要用什麼方法做資料加密
-
-\10.   Alice 拿到訊息，也確認完成
-
-\11.   到此為止，已可開始使用加密資料傳輸了
+(9) SSL伺服器計算已交互的握手消息的Hash值，利用協商好的密鑰和加密套件處理Hash值，並透過Finished消息發送給SSL用戶端。SSL用戶端利用同樣的方法計算已交互的握手消息的Hash值，並與Finished消息的解密結果比較，如果兩者相同，且MAC值驗證成功，則證明密鑰和加密套件協商成功。在SSL用戶端接收到SSL伺服器發送的Finished消息後，如果解密成功，則可以判斷SSL伺服器是數位證書的擁有者，即SSL伺服器身分驗證成功。這是因為只有擁有私鑰的SSL伺服器才能從Client Key Exchange消息中解密得到Premaster Secret，從而間接地實現了SSL用戶端對SSL伺服器的身分驗證。
 
 
 
@@ -161,11 +128,11 @@ Alice -> Bob: ACK
 
 簡單來說，這過程有點像在打電話：
 
-\1.  Alice：「喂？」
+1. Alice：「喂？」
 
-\2.  Bob：「喂？有聽到嗎？」
+2. Bob：「喂？有聽到嗎？」
 
-\3.  Alice：「有聽到了！」
+3. Alice：「有聽到了！」
 
 然後就可以開始正常講話了。
 
@@ -247,13 +214,13 @@ HTTPS (Hyper Text Transfer Protocol Secure，超級文字傳輸協議安全) 會
 
 所以流程是這樣：
 
-\1.  你要進行 HTTPS 連線，雙方做 Hello
+1. 你要進行 HTTPS 連線，雙方做 Hello
 
-\2.  伺服器丟一張憑證給你，憑證上面寫說他被某 CA 簽了
+2. 伺服器丟一張憑證給你，憑證上面寫說他被某 CA 簽了
 
-\3.  你剛好有這家 CA 的公鑰，拿公鑰解他的憑證，看是不是解的出來，內容是否正常
+3. 你剛好有這家 CA 的公鑰，拿公鑰解他的憑證，看是不是解的出來，內容是否正常
 
-\4.  繼續下一步
+4. 繼續下一步
 
 另外，這個方式可以連結很多張憑證，不過憑證一多，就要多花一點時間去檢查（重複2和3）。
 
@@ -268,14 +235,6 @@ HTTPS (Hyper Text Transfer Protocol Secure，超級文字傳輸協議安全) 會
 前述提到，曾經發生過授權中心被除名的狀況。因為這些授權中心是可以讓任何憑證在大家的裝置上變得可用，因此，他們需要以非常嚴謹的態度來對待每一個憑證申請。被除名的 CNNIC，是因為某一間公司用中介證書簽了幾個 Google 網域底下的證書給其他人，而這張中介證書的根憑證是來自 CNNIC 的。因此，CNNIC 沒有做好管控措施，且這家公司是把憑證拿來做「竄改連線」的用途，因此就被除名了。
 
 HTTPS 或是任何一個系統，都不是完全安全的。他防止不了有 CA 違規的情形、也防止不了你在服務裡面寫 shit logic。但是它還是一個很有效的資料傳輸方式。
-
-
-
-
-
-
-
-
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: "[從 0 開始的 JAVA 生活]No.0 java環境變數 (Environment Variable)設定"
-date: 2020-05-25T07:54:27+08:00
+date: 2020-05-19T06:22:46+08:00
 draft: false
 categories:
   - "筆記"
@@ -8,8 +8,8 @@ categories:
 tags:
  - "java"
 toc: true
-typora-root-url: ..\..\..\static
 ---
+
 
 <!--more-->
 
@@ -32,3 +32,5 @@ javac -version
 
 ![test_java_version](/images/java/test_java_version.png)
 
+
+ ## 參考

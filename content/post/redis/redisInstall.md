@@ -1,5 +1,5 @@
 ---
-title: "RedisInstall"
+title: "Redis簡介"
 date: 2020-05-20T10:11:13+08:00
 draft: false
 categories:
@@ -9,7 +9,10 @@ tags:
 toc: true
 ---
 
-## 簡介
+<!-- 簡介 -->
+<!--more-->
+
+## Redis簡介
 
 Redis是一個使用ANSI C編寫的開源、支援網路、基於記憶體、可選永續性的鍵值對儲存資料庫。
 
@@ -20,7 +23,7 @@ Redis是一個使用ANSI C編寫的開源、支援網路、基於記憶體、可
 
 <!--more-->
 
-## 安裝
+## RedisInstall 安裝
 
 ### Window 下 安裝
 

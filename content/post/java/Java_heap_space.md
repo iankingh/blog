@@ -33,6 +33,11 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     ```
 
 2. 程式的寫法要注意要 close 資料流
+
+
+3. IMAGEIO讀取JPEG文件
+
+JPEG可以很好地壓縮圖像。但是在內存中，僅用於原始數據的BufferedImage通常每個像素需要4個字節，因此無論文件有多大，其大小均為6480 * 4320 * 4 = 112 MB。
    
 
 
@@ -53,3 +58,5 @@ https://www.itread01.com/content/1546839425.html
 https://crunchify.com/how-to-change-jvm-heap-setting-xms-xmx-of-tomcat/
 
 https://aprentis.net/how-to-increase-the-java-heap-size-in-tomcat-application-server/
+
+https://coderanch.com/t/604430/java/OutofMemory-reading-JPEG-file-IMAGEIO

@@ -10,6 +10,9 @@ tags:
 toc: true
 ---
 
+
+<!-- 簡介 -->
+
 <!--more-->
 
 ## Java 基本的資料型態(Primitive Data Types)
@@ -115,7 +118,7 @@ public class PrimitiveDataTypesTest {
 
 
 
-參考
+## 參考
 
 Java中8種基本數據類型默認的默認值_java_飛月程序人生-CSDN博客
 

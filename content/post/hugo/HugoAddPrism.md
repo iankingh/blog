@@ -7,7 +7,7 @@ tags:
  - "hugo"
 ---
 
-# hugo使用Prism.js
+## hugo使用Prism.js
 
 使用 prism.js 做為代碼高量的工具
 
@@ -16,12 +16,12 @@ Prism是一種輕量級的，可擴展的語法突出顯示工具，其構建考
 <!--more-->
 
 
-## 下載
+### 下載
 
 https://prismjs.com/
 
 
-## 使用
+### 使用
 ```Shell Script
 你的Hugo部落格資料夾位置
 ├── static
@@ -31,7 +31,7 @@ https://prismjs.com/
 
 ```
 
-##  Config.toml
+###  Config.toml
 
 
 開啟Hugo配置檔 Config.toml，設定將預設代碼高亮設定false
@@ -45,7 +45,7 @@ pygmentsCodefencesGuessSyntax = false
 
 
 
-# 參考
+## 參考
 
 Hugo動態加載prism.js    
 https://www.ariesme.com/post/2019/add_prism_for_hugo_automatically/

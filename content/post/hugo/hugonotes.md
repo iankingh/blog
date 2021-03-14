@@ -8,25 +8,34 @@ tags:
 
 ---
 
-# Hugo使用筆記
+## Hugo使用筆記
+
+前言
+
 <!--more-->
 
+## Hugo 基本指令
 
+### 安裝 
 
-## 安裝
+透過Chocolatey 安裝
 
 ```shell
-scoop install hugo
+choco install hugo -confirm
+```
+
+ **Check version:**
+```shell
 hugo version
 ```
 
-## 建立新Blog
+### 建立新Blog
 
-```
+```shell 
 hugo new site blog
 ```
 
-## 新增文章
+### 新增文章
 
 ```shell
 hugo new post/文章名稱.md
@@ -34,33 +43,30 @@ hugo new post/文章名稱.md
 
 生成的文件默認為會帶上 draft: true標記，不會發布。
 
+### run server 
 
-
-
-
+不 run  draft: true 的標記
+```shell
+hugo server
+```
+run  全部
 ```shell
 hugo server -D
 ```
 
 
-
-
-
-## 插入圖片
+### 插入圖片
 
 ```shell
 ![Example image](/static/image.png)
 ```
 
-![useImageRootPath](images/hugo/useImageRootPath.png)
-
-
-
+![useImageRootPath](/images/hugo/useImageRootPath.png)
 
 
 ![image-20200930075548139](C:\Users\Ian\AppData\Roaming\Typora\typora-user-images\image-20200930075548139.png)
 
-建立及設定部落格專案  
+## 建立及設定部落格專案  
 
 我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面  
 
@@ -95,7 +101,7 @@ hugo server -D
 
 
 
-# 參考
+## 參考
 
 右上角github 貓  
 GitHub Corners  

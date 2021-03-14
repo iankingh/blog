@@ -32,9 +32,11 @@ toc: true
 
 EX:
 
+[link](https://iankingh.github.io/)
+
 [連結名](https://iankingh.github.io/, "這是標題")
 
-直接展示連結的寫法：<http://www.izhangbo.cn>
+:+1: **Check point:**
 
 ## 鍵盤鍵
 

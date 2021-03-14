@@ -1,7 +1,7 @@
 ---
 title: "AndroidBsN01"
 date: 2020-05-25T10:50:35+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -11,7 +11,7 @@ tags:
 toc: true
 ---
 
-# Create an Android project(創建一個Android項目)
+## Create an Android project(創建一個Android項目)
 <!--more-->
 
 要創建新的Android項目，請按照以下步驟操作：
@@ -19,34 +19,31 @@ toc: true
 1. 安裝最新版本的 [Android Studio](https://developer.android.com/studio/)。
 
 2. 在**Welcome to Android Studio**窗口中，單擊啟動新的**Strat a new Android Studio project**。
+   ![Welcome to Android Studio](/images/Android/Welcome_to_Android_Studio.png)
 
-   ![Welcome to Android Studio](/images/Android/Welcome to Android Studio.png)
+1.  在**Select a Project Template**窗口中，選擇" **Empty Activity**，然後單擊**next**。
 
-3.  在**Select a Project Template**窗口中，選擇“ **Empty Activity”**，然後單擊“ **next”**。
+   ![Configure Your Project](/images/Android/Select_a_Project_Template.png)
 
-   ![Select a Project Template](/images/Android/Select a Project Template.png)
+4.  在**Configure Your Project**窗口中，完成以下操作：
 
-4.  在“ **Configure Your Project”**窗口中，完成以下操作：
+   ![Configure Your Project](/images/Android/Configure_Your_Project.png)
 
-   ![Configure Your Project](/images/Android/Configure Your Project.png)
+·    在**Name**輸入 "Myfirstapp" 。
 
-·    在**Name**輸入“Myfirstapp” 。
-
-·    在“ **Package name”**字段中輸入“ com.example.myfirstapp” 。
+·    在**Package name**字段中輸入"com.example.myfirstapp" 。
 
 ·    Save Location 預設專案放置位置，如果要將項目放置在其他文件夾中，請更改其**保存**位置。
 
-·    從” Language”下拉菜單中選擇**Java**或**Kotlin**。
+·    從" Language"下拉菜單中選擇**Java**或**Kotlin**。
 
-·    在”Minimum SDK”選擇您的應用將支持的**最低** Android版本。
+·    在"Minimum SDK"選擇您的應用將支持的**最低** Android版本。
 
 ·    保留其他選項不變。
 
-5. 點擊**完成**。
+1. 點擊**完成**。
 
 經過一段時間的處理後，出現Android Studio主窗口。
-
-
 
  Android Studio主窗口
 

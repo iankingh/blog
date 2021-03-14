@@ -7,7 +7,7 @@ tags:
  - "hugo"
 ---
 
-# Hugo ADD disqus
+## Hugo 使用 disqus
 
 Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網路形式，向網路社區提供網站留言服務的公司。
 該公司的平台提供不同的功能，例如與不同社群網路服務連結、社群網路、用戶個人檔案、垃圾宣傳及審核工具、資料分析、電子郵件通知和在行動裝置留言等。
@@ -15,7 +15,7 @@ Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網�
 <!--more-->
 
 
-##  Config.toml
+###  Config.toml
 
 開啟Hugo配置檔 Config.toml，設定 DisqusShortname。 
 
@@ -23,7 +23,7 @@ Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網�
 disqusShortname = "yourDisqusShortname"
 ```
 
-## 新增 disqus.html
+### 新增 disqus.html
 在根目錄 /layouts/partials/ 裡新增 disqus.html 檔案，
 然後把官方提供的 Script 貼到 disqus.html 檔案裡並存檔。
 官方提供的 Script 如下：
@@ -49,7 +49,7 @@ disqusShortname = "yourDisqusShortname"
 
 ```
 
-## 設定  disqus.html
+### 設定  disqus.html
 到 Hugo 主題的目錄下，找到 single.html 檔案，
 將 Hugo 主題的目錄下 single.html Copy 至 /layouts/_default/ 下。
 開啟 /layouts/_default/single.html 檔案，貼上下方語法
@@ -61,7 +61,7 @@ disqusShortname = "yourDisqusShortname"
 ```
 
 
-## 解決 localhost 不顯示 的問題
+### 解決 localhost 不顯示 的問題
 
 這是因為官方所提供的 Script 裡面其中一段語法的關係
 if (window.location.hostname == "localhost")
@@ -70,7 +70,7 @@ if (window.location.hostname == "localhost")
 ShowDisqus
 
 
-# 參考
+## 參考
 
 Hugo 加入 Disqus 整合性留言管理系統  
 https://coreychen71.github.io/posts/2019-05/hugoadddisqus/

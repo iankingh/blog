@@ -10,10 +10,10 @@ tags:
 toc: true
 ---
 
-# 筆記
+##  從 0 開始的 JAVA 生活 No.3 Java 第一支 java 程式
 <!--more-->
 
-建立一個HelloJava.java 的檔案
+### 建立一個HelloJava.java 的檔案
 
 ```java
 class HelloJava{
