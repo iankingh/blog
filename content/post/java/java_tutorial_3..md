@@ -11,7 +11,7 @@ toc: true
 ---
 
 
-# java變數筆記
+<!-- # [從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們 -->
 <!--more-->
 
 
@@ -39,6 +39,11 @@ toc: true
 EX : int i = 0;
 
 -區域變數(local variables):
+
+
+
+參考 :
+
 
 
 

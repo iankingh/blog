@@ -1,7 +1,7 @@
 ---
-title: "LinuxCommand"
+title: "Linux指令"
 date: 2020-06-22T19:01:50+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -9,10 +9,10 @@ tags:
 toc: true
 ---
 
-# Linux指令
+## Linux指令
 <!--more-->
 
-### 修改檔案權限
+## 修改檔案權限
 
 ```shell
 chmod 777 file(資料夾名)
@@ -25,7 +25,7 @@ chmod -R 777 * --> 修改權
 
 
 
-### 看目錄
+## 看目錄
 
 ```shell
 pwd --->當前目錄
@@ -37,11 +37,7 @@ cd   $home  //到現在使用者下的目錄
 ```
 
 
-
-
-
-
-ps -ef
+<!-- ps -ef
 ./XXX.sh 執行目錄下的.sh檔案
 Ctrl+c 停止
 
@@ -50,6 +46,7 @@ exit 離開
 
 chown -R
 
-gunzip -d  ‘要解壓縮的檔案’ //-d 表示 刪除壓縮檔
+gunzip -d  ‘要解壓縮的檔案’ //-d 表示 刪除壓縮檔 -->
 
 
+## 參考 :
