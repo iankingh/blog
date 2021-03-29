@@ -42,13 +42,9 @@ SSL 讓瀏覽器（所謂的 client）要連到一個遠端網站（所謂的 se
 
 
 
-
-
 ### SSL Handshake
 
 在 TCP Three-way Handshake 完成之後，如果 Alice 有希望使用 SSL 加密時就會開始做 SSL Handshake。時序圖如下：
-
-
 
 SSL在傳輸之前事先用來溝通雙方（用戶端與伺服器端）所使用的加密演算法或密鑰交換演算法，或是在伺服器和用戶端之間安全地交換密鑰及雙方的身分認證等相關規則，讓雙方有所遵循。在身分認證方面，SSLHandshake可用來認證伺服器的身分。SSL Handshake的運作流程如下所述：
 
@@ -77,17 +73,7 @@ SSL在傳輸之前事先用來溝通雙方（用戶端與伺服器端）所使�
 - `SSL 3.0` 1996 年發布，2015     年棄用。後來     IETF 也將此協定特別發布了 [RFC      6101](https://tools.ietf.org/html/rfc6101) 作為歷史記錄。
 
 
-
-
-
-
-
-
-
-
-
 ## TLS
-
 
 
 TSL 的全名是 Transport Layer Security 傳輸層安全性)是更新、更安全的 SSL 版本。我們仍將安全性憑證稱為 SSL，因為這是較常用的詞彙，不過當您透過DigiCert[購買 SSL ](https://www.websecurity.digicert.com/zh/tw/ssl-certificate?inid=infoctr_buylink_sslhome)時，您所購買的其實是最新的 TLS 憑證及 [ECC、RSA 或 DSA 的加密選項](https://www.websecurity.digicert.com/zh/tw/security-topics/how-ssl-works)。

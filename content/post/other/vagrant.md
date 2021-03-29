@@ -12,25 +12,53 @@ toc: true
 # vagrant 使用筆記
 <!--more-->
 
+## 初始化虛擬機
+```
+vagrant init
+```
+## 啟動 虛擬機 
+```
+vagrant up 
+```
 
+## 啟動 已存在的 虛擬機
 
-# vagrant scp  
+vagrant provision
 
-# 停止虛擬機
+## 停止虛擬機
 
 ```
 vagrant halt
 ```
 
-# 新增 SSL 
+## 新增 虛擬主機的 SSL private key 
+```
+  vagrant ssh-config
+```
+
+## 砍掉 虛擬機
 
 ```
-vagrant ssh-config
+vagrant destroy
 ```
 
-# vagrant init  : 
 
-# vagrant up : 
+# vagrant scp  
+
+安裝網址:
+https://github.com/invernizzi/vagrant-scp
+
+Install
+```
+vagrant plugin install vagrant-scp
+
+```
+
+Usage
+```
+
+```
+
 
 # Vagrantfile
 
