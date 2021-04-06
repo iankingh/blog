@@ -8,21 +8,31 @@ categories:
 tags:
  - "java"
 toc: true
+typora-root-url: ..\..\..\static
 ---
-
 
 <!--more-->
 
+## JAVA 環境安裝
 
-## 設定JAVA_HOME
+### 於環境變數設定JAVA_HOME
+
+```
 C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
+```
+
 ![JAVA_HOME](/images/java/JAVA_HOME.png)
 
-## Path
+### 設定Path
+```
+
 %JAVA_HOME%\bin;
+```
+
+
 ![Path](/images/java/Path.png)
 
-## 測試
+### 測試
 
 ``` shell
 java -vresion

@@ -3,10 +3,10 @@ title: "Cmd"
 date: 2021-02-04T13:33:19+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "windows"
+ - "CMD"
 toc: true
 ---
 
@@ -23,8 +23,7 @@ cls      清空命令
 該命令將刪除當前盤的當前目錄下的TEXT3檔案 
 
 查看哪些進程佔用了埠
-原創zhuxiongxian 最後發佈於2014-01-06 16:32:10 閱讀數 17207  收藏
-展開
+
 1.CTRL + R ——打開“運行”
 2.在“運行”輸入“cmd”彈出DOS命令列視窗
 3.假如我要查的是埠“8080”，則輸入命令：netstat -aon|findstr "8080"
@@ -35,7 +34,9 @@ cls      清空命令
 6.再在DOS下輸入命令查看下該埠是否還被佔用：
      netstat -aon|findstr "8080"
 7.可以看到，再也沒有進程佔用了該埠，OK，佔用該埠的進程被殺死了，那麼埠被佔用也已經解決了。
-參考
+
+
+## 參考
 查看哪些進程佔用了埠 - zhuxiongxian的挨踢博客 - CSDN博客
 https://blog.csdn.net/cryhelyxx/article/details/17919897
 

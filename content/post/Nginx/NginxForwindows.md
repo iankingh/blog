@@ -12,8 +12,6 @@ toc: true
 # NGINX 基礎入門(Windows 版) 筆記
 <!--more-->
 
-# NGINX 基礎入門(Windows 版)
-
 當我們啟用 nginx.exe 之後，需要透過 `-s signal` 來與 nginx.exe 溝通。
 
 ```dos

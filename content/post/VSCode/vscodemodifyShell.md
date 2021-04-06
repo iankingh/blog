@@ -5,12 +5,13 @@ categories:
  - "筆記"
 tags:
  - "ubuntu"
+ - "Visual Studio Code"
 toc: true
 draft: true
 ---
 
 
-# 修改Visual Studio Code Terminal
+##  修改 Visual Studio Code Terminal
 <!--more-->
 
 Visual Studio Code Terminal   使用（Zsh）
