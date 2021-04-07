@@ -97,6 +97,37 @@ redis> set foo bar
 redis> get foo  
 ```
 
+### 3. cntos install redis
+
+#### 更新 dnf
+
+```
+sudo dnf update -y
+```
+
+#### 下載 redis 
+1. 下載
+```
+sudo dnf install redis -y
+```
+2. 啟動
+```
+sudo systemctl start redis 
+
+sudo systemctl enable redis
+```
+
+3. 確認啟動
+```
+sudo systemctl status redis
+```
+
+4. 看占用的port
+
+ sudo netstat -pnltu | grep redis
+
+
+
 ### 3.使用Docker
 
 #### 安裝
@@ -132,6 +163,9 @@ https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/
 
 Redis系列 - 環境建置篇 - Jed's blog  
 https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html
+
+如何在CentOS 8 / RHEL 8上安裝Redis服務器
+https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/
 
 
 
