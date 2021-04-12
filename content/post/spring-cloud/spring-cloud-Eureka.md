@@ -15,11 +15,11 @@ toc: true
 
 
 
-1. 添加依赖
+1. 添加依賴
 
-2. 添加启动代码中添加@EnableEurekaServer注解
+2. 在啟動代碼添加@EnableEurekaServer註解
 
-3. 配置文件 application.properties
+3. 配置文件 application.properties OR application.yml
 
 
 
