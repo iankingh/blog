@@ -26,7 +26,7 @@ Text file encoding 選擇Other: UTF-8
 New text file delimiter 選擇Other: Unix
 設定完後點選 Apply and Close 
 
-![ eclipseSettigUtf-8 ](/images/eclipse/eclipseSettigUtf-8.png)
+![ eclipseSettingUtf-8 ](/images/eclipse/eclipseSettingUtf-8.png)
 
 
 
