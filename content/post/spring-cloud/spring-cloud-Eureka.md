@@ -22,6 +22,9 @@ toc: true
 
 3. 配置文件 application.properties OR application.yml
 
+如果 Server 有2台 用 , 隔開
+
+
 
 
 參考

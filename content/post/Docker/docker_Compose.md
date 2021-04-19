@@ -9,58 +9,47 @@ tags:
 toc: true
 ---
 
-# Docker_Compose筆記
+## Docker_Compose筆記
 <!--more-->
 
 
 
-## 安裝Compose
+## 安裝 docker-compose
 
-#### 1.下載
-
-```shell
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-```
-
-#### 2.安裝
+### 下載
 
 ```shell
-chmod +x /usr/local/bin/docker-compose
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-#### 3.查看版本
+### 安裝
+
+```shell
+$ chmod +x /usr/local/bin/docker-compose
+```
+
+### 查看版本
 
 ````shell
-docker-compose version
+$ docker-compose version
 ````
 
+### 測試
 
-
-測試
-
-### 第一步，創建 Spring boot 服務
-
-在
+#### 第一步，創建 Spring boot 服務
 
 ```
 
 ```
 
-### 第二步，创建 Dockerfile
-
-同样在此目录下，我们创建一个 Dockerfile 文件。
+### 第二步，創建 Dockerfile
 
 ```dockerfile
-FROM python:3.4-alpine
-ADD . /code
-WORKDIR /codeDㄟ
-RUN pip install -r requirements.txt
-CMD ["python", "app.py"]
+
 ```
 
-### 第三步，使用 Compose 文件定义一个服务
+### 第三步，使用 docker-compose 定義一個文件
 
-在当期目录下，我们创建一个 docker-compose.yml 文件，内容如下：
 
 ```dockerfile
 version: '2'
@@ -132,7 +121,7 @@ composetest_redis_1   docker-entrypoint.sh redis ...   Up      6379/tcp
 composetest_web_1     python app.py                    Up      0.0.0.0:5000->5000/tcp
 ```
 
-使用`docker-compose stop`停止服务。
+使用`docker-compose stop`停止服務。
 
 ```
 [root@localhost composetest]# docker-compose stop
@@ -142,56 +131,60 @@ Stopping composetest_redis_1 ... done
 
 **其它常用命令**
 
+##### 查看幫助
 ```
-#查看帮助
 docker-compose -h
+```
 
-# -f  指定使用的 Compose 模板文件，默认为 docker-compose.yml，可以多次指定。
+
+```
+# -f  指定使用的 Compose 範本檔，預設為 docker-compose.yml，可以多次指定。
 docker-compose -f docker-compose.yml up -d 
 
-#启动所有容器，-d 将会在后台启动并运行所有的容器
+#啟動所有容器，-d 將會在後臺啟動並運行所有的容器
 docker-compose up -d
 
-#停用移除所有容器以及网络相关
+#停用移除所有容器以及網路相關
 docker-compose down
 
-#查看服务容器的输出
+#查看服務容器的輸出
 docker-compose logs
 
-#列出项目中目前的所有容器
+#列出專案中目前的所有容器
 docker-compose ps
 
-#构建（重新构建）项目中的服务容器。服务容器一旦构建后，将会带上一个标记名，例如对于 web 项目中的一个 db 容器，可能是 web_db。可以随时在项目目录下运行 docker-compose build 来重新构建服务
+#構建（重新構建）專案中的服務容器。服務容器一旦構建後，將會帶上一個標記名，例如對於 web 項目中的一個 db 容器，可能是 web_db。可以隨時在專案目錄下運行 docker-compose build 來重新構建服務
 docker-compose build
 
-#拉取服务依赖的镜像
+#拉取服務依賴的鏡像
 docker-compose pull
 
-#重启项目中的服务
+#重啟專案中的服務
 docker-compose restart
 
-#删除所有（停止状态的）服务容器。推荐先执行 docker-compose stop 命令来停止容器。
+#刪除所有（停止狀態的）服務容器。推薦先執行 docker-compose stop 命令來停止容器。
 docker-compose rm 
 
-#在指定服务上执行一个命令。
+#在指定服務上執行一個命令。
 docker-compose run ubuntu ping docker.com
 
-#设置指定服务运行的容器个数。通过 service=num 的参数来设置数量
+#設置指定服務運行的容器個數。通過 service=num 的參數來設置數量
 docker-compose scale web=3 db=2
 
-#启动已经存在的服务容器。
+#啟動已經存在的服務容器。
 docker-compose start
 
-#停止已经处于运行状态的容器，但不删除它。通过 docker-compose start 可以再次启动这些容器。
+#停止已經處於運行狀態的容器，但不刪除它。通過 docker-compose start 可以再次啟動這些容器。
 docker-compose stop
+
 ```
 
 
 
-### 參考
+## 參考
 
-Docker(四)：Docker 三剑客之 Docker Compose - 纯洁的微笑博客
 
-http://www.ityouknow.com/docker/2018/03/22/docker-compose.htm
+[Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
 
-https://docs.docker.com/compose/install/
+[使用 docker-compose 替代 docker run - 张志敏的技术专栏](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
+

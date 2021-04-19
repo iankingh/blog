@@ -127,9 +127,15 @@ management:
 
 
 
+
+
+
+
 ## 參考
 
 [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
 
 [SpringCloud gateway （史上最全） - 疯狂创客圈 - 博客园](https://www.cnblogs.com/crazymakercircle/p/11704077.html)
+
+[Spring Cloud Gateway 开发指南（五） Actuator API | OnePiece](https://cdrcool.github.io/2020/02/27/Spring%20Cloud%20Gateway%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97(%E4%BA%94)%20Actuator%20API/)
 
