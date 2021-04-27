@@ -34,7 +34,7 @@ Active-Active：不中斷服務
 
 
 
-## A-S (Active Standby)Mode
+## A-S (Active-Standby)Mode
 
 一台做活動的伺服器，另一台做待命伺服器，待命的機器也開機。
 
