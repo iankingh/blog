@@ -12,39 +12,47 @@ toc: true
 
 # SSL、TLS 以及 HTTPS
 
-
-
 當我們瀏覽網頁時：網址列的開頭是不是有個 🔒鎖的圖案。
 
-這個鎖代表你現在連線到的網站是安全可信任的。這個鎖的記號代表你與這個網站是使用安全的 [HTTPS (HTTP Secure)](https://en.wikipedia.org/wiki/HTTPS) 連線，而不是使用不安全的[ HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)。
+這個鎖代表你現在連線到的網站是安全可信任的。
+
+即使用[HTTPS (HTTP Secure)](https://en.wikipedia.org/wiki/HTTPS) 連線，而不是使用不安全的[ HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)。
 
 <!--more-->
 
-
-
 ## SSL憑證(SSL certificate)的原理
 
-SSL 的全名是 **Secure Sockets Layer**，即安全通訊端層，簡而言之，這是一種標準的技術，用於保持網際網路連線安全以及防止在兩個系統之間發送的所有敏感資料被罪犯讀取及修改任何傳輸的資訊，包括潛在的個人詳細資料。兩個系統可以是伺服器與用戶端 (例如購物網站與瀏覽器)，或者伺服器至伺服器 (例如，含有個人身份資訊或含有薪資資訊的應用程式)。
+SSL 的全名是 **Secure Sockets Layer**，即安全通訊端層，這是一種標準的技術，用於保持網際網路連線安全以及防止在兩個系統之間發送的所有敏感資料被罪犯讀取及修改任何傳輸的資訊，包括潛在的個人詳細資料。兩個系統可以是伺服器與用戶端 (例如購物網站與瀏覽器)，或者伺服器至伺服器 (例如，含有個人身份資訊或含有薪資資訊的應用程式)。
 
 這樣做是為了確保使用者與網站、或兩個系統之間傳輸的任何資料保持無法被讀取的狀態。此技術可使用加密演算法以混淆輸送中的資料，防止駭客在資料透過連線發送時讀取資料。此資訊可能是任何敏感或個人資訊，包括信用卡號與其他財務資訊、姓名與地址。
 
 SSL 讓瀏覽器（所謂的 client）要連到一個遠端網站（所謂的 server）之前，先要求這個網站提供身分認證，跟這個網站約定暗號（交換鑰匙），打好交情（建立加密的 session），才會心甘情願地跟這個網站連線。
 
-步驟：
+總共有 三個步驟 1. 建立連線 2. 憑證交換 3. 金鑰交換
 
-1. 確認連線  - 客戶端和伺服器官表示想要發起 HTTPS 連線，說明自己支持的 SSL/TLS 版本和加密算法。伺服器端會回應客戶端說可以使用哪一種組合。瀏覽器對想要連線的網站送出連線請求，同時要求網站驗證自己。
-2. 憑證交換 - 伺服器必須照明_自己是誰_。伺服器會拿出一張憑證，基本上這張憑證記載了伺服器的身份、位置（網址）、憑證的公鑰、有效日期和數位簽章。客戶端會確認是否要相信這張憑證，要麼這張憑證是被設定要信任，要麼這張憑證是由某個信任的機構 (CA) 簽署的。另外，這個機制其實可以雙向使用，伺服器端驗證客戶端的身份，不過這個機制很少用到
-3. 憑證交換 - 網站將自己的 SSL 數位憑證 (SSL certificate) 回傳給 client，裡面包含了網站的 public key
-4. 憑證交換 - 瀏覽器驗證網站回傳的的 root certificate，透過 [chain of trust 機制](https://jennycodes.me/posts/security-ssl-https#chainoftrust) 確認這個證明文件是否可以被信認，同時也確認這個憑證是否過期。
-5. 金鑰交換- 當認證通過，瀏覽器會用網站的 public key 建立一個 [symmetric session key](https://en.wikipedia.org/wiki/Session_key)。
-6. 金鑰交換 - 網站用自己的 private key 解讀 session key，並且回傳一個確認訊息，開始一個被 SSL 保護的 session。
-7. 金鑰交換 - 這個 session key 會被用來加密所有之後瀏覽器與網站之間傳送的資料。
+步驟如下：
+
+1.1  建立連線  - 客戶端和伺服器官表示想要發起 HTTPS 連線，說明自己支持的 SSL/TLS 版本和加密算法。伺服器端會回應客戶端說可以使用哪一種組合。瀏覽器對想要連線的網站送出連線請求，同時要求網站驗證自己。
+
+2.1  憑證交換 - 伺服器必須照明_自己是誰_。伺服器會拿出一張憑證，基本上這張憑證記載了伺服器的身份、位置（網址）、憑證的公鑰、有效日期和數位簽章。客戶端會確認是否要相信這張憑證，要麼這張憑證是被設定要信任，要麼這張憑證是由某個信任的機構 (CA) 簽署的。另外，這個機制其實可以雙向使用，伺服器端驗證客戶端的身份，不過這個機制很少用到
+
+2.2  憑證交換 - 網站將自己的 SSL 數位憑證 (SSL certificate) 回傳給 client，裡面包含了網站的 public key
+
+2.3  憑證交換 - 瀏覽器驗證網站回傳的的 root certificate，透過 [chain of trust 機制](https://jennycodes.me/posts/security-ssl-https#chainoftrust) 確認這個證明文件是否可以被信認，同時也確認這個憑證是否過期。
+
+3.1  金鑰交換- 當認證通過，瀏覽器會用網站的 public key 建立一個 [symmetric session key](https://en.wikipedia.org/wiki/Session_key)。
+
+3.2  金鑰交換 - 網站用自己的 private key 解讀 session key，並且回傳一個確認訊息，開始一個被 SSL 保護的 session。
+
+3.3  金鑰交換 - 這個 session key 會被用來加密所有之後瀏覽器與網站之間傳送的資料。
 
 
 
 ### SSL Handshake
 
-在 TCP Three-way Handshake 完成之後，如果 Alice 有希望使用 SSL 加密時就會開始做 SSL Handshake。時序圖如下：
+在 TCP Three-way Handshake 完成之後，如果 Alice 有希望使用 SSL 加密時就會開始做 SSL Handshake。
+
+時序圖如下：
 
 SSL在傳輸之前事先用來溝通雙方（用戶端與伺服器端）所使用的加密演算法或密鑰交換演算法，或是在伺服器和用戶端之間安全地交換密鑰及雙方的身分認證等相關規則，讓雙方有所遵循。在身分認證方面，SSLHandshake可用來認證伺服器的身分。SSL Handshake的運作流程如下所述：
 
@@ -102,8 +110,6 @@ TLS 在 [OSI 模型](https://en.wikipedia.org/wiki/OSI_model)裡，它屬於傳�
 
 
 
- 
-
 ```
 @startuml
 Alice -> Bob: SYN
@@ -122,8 +128,6 @@ Alice -> Bob: ACK
 
 然後就可以開始正常講話了。
 
-
-
 ### HTTPS
 
 HTTPS 全名 [超文本傳輸安全協定](https://zh.wikipedia.org/wiki/超文本传输安全协议)，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 [SSL/TLS](https://zh.wikipedia.org/wiki/傳輸層安全性協定) 進行加密，藉由類似於前述的加密方式，在 HTTP 之上定義了相對安全的資料傳輸方法。
@@ -132,61 +136,37 @@ HTTPS 全名 [超文本傳輸安全協定](https://zh.wikipedia.org/wiki/超文�
 
 HTTPS (Hyper Text Transfer Protocol Secure，超級文字傳輸協議安全) 會在網站受到 SSL 憑證保護時在網址中出現。該憑證的詳細資料包括發行機構與網站擁有人的企業名稱，可以透過按一下瀏覽器列上的鎖定標記進行檢視。
 
-
-
-基本的public key, private key 和 https的關系如下：
-
- 
+基本的public key, private key 和 https的關系如下： 
 
 (1)  主機(server)上要先生成private key, public key兩把key。( 可以互相上鎖、解鎖 )
 
-   其中，private key要留在主機裡，public key則是公開給全世界知道
+   其中，private key要留在主機裡，public key則是公開給全世界知道 
 
- 
+(2) 當一般使用者在瀏覽網頁時拿到這台主機的public key之後，browser就可以靠public key來加密，由此而建立https 
 
-(2) 當一般使用者在瀏覽網頁時拿到這台主機的public key之後，browser就可以靠public key來加密，由此而建立https
+然而，實際上，在(2) 的步驟，一般使用者拿到public key時，他心裡有一個疑問，「我怎麼知道，現在給我public key的你，沒有被別人冒用了呢？」 這種時候，使用者的瀏覽器就會冒出警告訊息，說收到的public key並沒有被認證過。 
 
- 
-
-然而，實際上，在(2) 的步驟，一般使用者拿到public key時，他心裡有一個疑問，「我怎麼知道，現在給我public key的你，沒有被別人冒用了呢？」 這種時候，使用者的瀏覽器就會冒出警告訊息，說收到的public key並沒有被認證過。
-
- 
-
-於是，為了電子商務的安全性，就要由第三方公正機關 「憑證中心」來代為處理這個「信賴」的問題。將上述的模型複雜化，引入了「憑證中心」這個角色之後，就變成如下：
-
- 
+於是，為了電子商務的安全性，就要由第三方公正機關 「憑證中心」來代為處理這個「信賴」的問題。將上述的模型複雜化，引入了「憑證中心」這個角色之後，就變成如下： 
 
 (1) 主機(server)上要先生成private key, public key兩把key。( 可以互相上鎖、解鎖 )
 
-   其中，private key要留在主機裡，public key則是要先做加工之後，才可以讓全世界得知。
+   其中，private key要留在主機裡，public key則是要先做加工之後，才可以讓全世界得知。 
 
- 
-
-(2) public key送給憑證中心簽署認證。這種時候，因為要送public key和相關的一些網站基本資訊出去給憑證中心簽署認證，需要把public key放進一個文件檔，這個文件檔就叫做certificate signing request，副檔名通常是CSR )
-
- 
+(2) public key送給憑證中心簽署認證。這種時候，因為要送public key和相關的一些網站基本資訊出去給憑證中心簽署認證，需要把public key放進一個文件檔，這個文件檔就叫做certificate signing request，副檔名通常是CSR 
 
 (3) 憑證中心簽署完畢後的public key，又可以稱之為ceriticate 。
 
-   certificate自憑證中心取回之後，要安裝入主機(server)，作為SSL的public key 來使用
-
- 
+   certificate自憑證中心取回之後，要安裝入主機(server)，作為SSL的public key 來使用 
 
 (4) 當一般使用者在瀏覽網頁時拿到這台主機的public key( 這時候可以叫它certificate )之後，browser裡頭早就預先安裝好的憑證中心public key會認証這個certificate，然後回報說，這個網站的https是沒有問題的。於是browser就可以用public key來加密，由此而建立https ( 如此一來，browser就不會跳出警告訊息了。)
-
- 
-
-
-
-
 
 ### 憑證的信任機制
 
 一般來說，憑證要被信任，要滿足以下兩種需求之一：
 
-\1.  這張憑證是由某一個你信任的組織 (CA, Certificate Authority, 憑證授權中心) 簽發的 (root certificate, 根憑證)
+1. 這張憑證是由某一個你信任的組織 (CA, Certificate Authority, 憑證授權中心) 簽發的 (root certificate, 根憑證)
 
-\2.  憑證本身的 CA，又能夠證明是被 #1 裡面的 CA 信任的 (intermidiate certificate, 中介證書)
+2. 憑證本身的 CA，又能夠證明是被 #1 裡面的 CA 信任的 (intermidiate certificate, 中介證書)
 
 通常 #1 比較單純，各家瀏覽器都會內建一份清單，記載有什麼 CA 是可以被相信的。要進入這個名單的流程非常的嚴謹，而且，由於事關重大，若 CA 做了什麼不太好的事情，那很快就會從這個清單內驅逐出去。不過實務上，除了看瀏覽器裡面的清單以外，也會看作業系統內帶的清單。兩份清單都可以自己做增減。
 
@@ -226,11 +206,11 @@ HTTPS 或是任何一個系統，都不是完全安全的。他防止不了有 C
 
 ## SSL 相關名詞
 
-### TLS: Transport Layer Security Protocol
+#### TLS: Transport Layer Security Protocol
 
 在[上一篇文](https://jennycodes.me/posts/security-ssh#sshvsssl)中有稍微提到 TLS 的歷史，簡而言之，由於 SSL 已經不再安全（[POODLE](https://en.wikipedia.org/wiki/POODLE) 與 [DROWN](https://drownattack.com/) 是兩個曾經發生過的著名攻擊），所以現在已經被 TLS protocol 取代。慣性使然，當我們說 SSL（比如說 SSL 憑證）時，大部分情況其實是在說 TLS。
 
-### CA: Certificate Authority
+#### CA: Certificate Authority
 
 [數位憑證認證機構，簡稱 CA](https://en.wikipedia.org/wiki/Certificate_authority)，是負責發放與管理數位憑證 （certificate）的單位。前面提到進行 SSL 連線的前置作業是 server 要提供數位憑證讓瀏覽器驗證，但瀏覽器要怎麼驗證？它會去看這個憑證是不是被一個它相信的 CA 簽署的。如果是，那瀏覽器就相信這個 server 可以信任，如果不是，那瀏覽器就再看這個 CA 有沒有它自己的 certificate，如果有，而這個 certificate 是被一個瀏覽器信任的 CA 簽的，那就放行，如果沒有，就再往下找。如果一路找下去，找不到可以信任的 CA，就失敗。
 
@@ -238,7 +218,7 @@ HTTPS 或是任何一個系統，都不是完全安全的。他防止不了有 C
 
 所以 CA 其實很像保證人的角色，它向瀏覽器保證一個網域的合法性，讓想要連線的那一方確保自己的連線對象是安全的。
 
-### Chain of Trust
+#### Chain of Trust
 
 這樣一層一層檢查 certificate，直到找到信任的 CA 的機制，叫做 [chain of trust](https://en.wikipedia.org/wiki/Chain_of_trust)。你可能會疑惑，為什麼不直接讓所有 server 都帶著 CA 丙簽的 certificate 就好了？為什麼還需要經過這麼多層？主要原因是安全。如果今天壞人 B 找到一個破解 CA 甲的方法，可以偽造甲的簽名，這個漏洞一旦被發現，所有被甲簽過的憑證就都沒有意義了，那些網域必須要重新找 CA 來擔保自己的合法性。
 
@@ -254,11 +234,7 @@ LibreSSL 2.6.5
 
 可以先打開終端機，試試 `version` 指令，如果有回傳版本給你，就代表你的電腦已經有 OpenSSL 了。
 
-用 `$openssl help`（或是任何 OpenSSL 不認得的指令…）就可以看到 OpenSSL 提供的指令包。
-
- 
-
-​                               
+用 `$openssl help`（或是任何 OpenSSL 不認得的指令…）就可以看到 OpenSSL 提供的指令包。                
 
 openssh commands
 
