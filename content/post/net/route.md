@@ -46,8 +46,59 @@ gateway     指定要走的Gateway
 interface   指定送出封包時的網卡ID
 METRIC    可視為封包傳遞的優先權，數字愈低優先權愈高。
 
-### 一、查詢route：
+intra 內部
 
+DMZ
+
+sticky 黏
+
+subnet
+
+HA 
+
+tls
+
+dtls
+
+render
+
+local decode encode
+
+ipref
+
+checkpoint
+
+bandwidth
+
+question
+
+which
+
+F5 VIP
+
+SNAT
+
+NAT
+
+port forwarding
+
+pass-through
+
+pooling
+
+UDP hole punching
+
+STUN TURN
+
+port mapping
+
+ICMP
+
+high latency
+
+
+
+### 一、查詢route：
 
 
 IPv4 路由表
@@ -148,8 +199,6 @@ ipconfig /renew
 參考
 Windows route初體驗 @ Jemmy Walker :: 痞客邦 ::
 https://jemmywalker.pixnet.net/blog/post/38323627
-
-http://www.w-type.com.tw/wepalm_email/47.htm
 
 http://ctwivan.blogspot.com/2010/08/windowsstatic-route.html
 

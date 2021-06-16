@@ -23,21 +23,7 @@ class HelloJava{
 }
 ```
 
-class 基本組成
-
-```java
-Modifier(修飾子預設pr) class className {
-
-	Modifier type name;
-    
-    Modifier retrun_type name (){
-        
-    }
-
-}
-```
-
-
+編譯 HelloJava.java
 
 
 

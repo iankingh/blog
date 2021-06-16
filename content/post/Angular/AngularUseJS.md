@@ -16,12 +16,12 @@ toc: true
 
 第一步 : 把js文件放到assets 目錄下
 
-第二步 : 在tsconfig.json，属性compilerOptions，添加 “allowJs”: true
-
+第二步 : 在tsconfig.json，属性compilerOptions，添加 "allowJs": true,
+    "allowJs": true,
 
 第三步 : 引入JS  
 1. 可以在 angular.json文件，在scripts中配置js文件路径
-2. 或是在 index.html
+2. 或是在 index.html 引入
 
 
 第四步，在當前组件.ts中使用函数添加js

@@ -23,9 +23,8 @@ C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
 
 ![JAVA_HOME](/images/java/JAVA_HOME.png)
 
-### 設定Path
+### 設定Path (environment variable)
 ```
-
 %JAVA_HOME%\bin;
 ```
 
