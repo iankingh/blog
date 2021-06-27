@@ -10,7 +10,7 @@ tags:
 toc: true
 ---
 
-# Angualr IE 11 使用筆記
+## Angualr IE 11 使用筆記
 在IE 11 上的 使用
 <!--more-->
 
@@ -34,7 +34,7 @@ toc: true
 
 ## 第二點
 
-如果要引用外部js 盡量在 angular.json 的scripts 地方做全局引用
+如果要引用外部js 可以在 angular.json 的scripts 地方做全局引用 ,他會在要用到的地方引用
 
 ``` json
   "scripts": [
@@ -189,7 +189,7 @@ if (!window.console.assert) window.console.assert = function () { };
 ```
 
 
-
+### ps 祝大家工作上都不要碰到IE
 
 
 

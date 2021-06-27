@@ -10,7 +10,6 @@ toc: true
 description: Markdown 筆記 
 ---
 # 目錄
-
 [TOC]
 
 
@@ -100,6 +99,22 @@ Pipe     | $1
 
 >- 塊引用裡使用清單，需要和上面的內容隔開一個空行
 >- 記得加空格哦。
+
+
+#### 時序圖
+
+```seq
+A->B: Message
+B->C: Message
+C->A: Message
+```
+
+```sequence
+Andrew->China: Says Hello 
+Note right of China: China thinks\nabout it 
+China-->Andrew: How are you? 
+Andrew->>China: I am good thanks!
+```
 
 參考
 
