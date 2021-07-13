@@ -1,4 +1,4 @@
-Select a Project Template---
+---
 title: "連線GitLab問題處理"
 date: 2020-05-15T16:36:13+08:00
 draft: false
@@ -9,6 +9,8 @@ tags:
  - "gitLab"
 toc: true
 ---
+
+
 
 <!--more-->
 
@@ -39,6 +41,5 @@ Credential Manager / Windows Credentials/
 
 ## 參考
 
-在gitlab 遇到fatal: Authentication failed for.... 的問題 | Frank的探索之旅 - 點部落
+[在gitlab 遇到fatal: Authentication failed for.... 的問題 | Frank的探索之旅 - 點部落](https://dotblogs.com.tw/zeroade/2018/10/11/111941)
 
-https://dotblogs.com.tw/zeroade/2018/10/11/111941

@@ -1,6 +1,6 @@
 ---
 title: "[從 0 開始的 JAVA 生活]No.2 Java 基本的資料型態(Primitive Data Types)"
-date: 2020-05-19T06:22:46+08:00
+date: 2020-05-30T06:22:46+08:00
 draft: false
 categories:
   - "筆記"

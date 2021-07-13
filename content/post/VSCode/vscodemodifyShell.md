@@ -11,7 +11,7 @@ draft: true
 ---
 
 
-##  修改 Visual Studio Code Terminal
+## 修改 Visual Studio Code Terminal
 <!--more-->
 
 Visual Studio Code Terminal   使用（Zsh）
@@ -27,9 +27,8 @@ $cd ..
 $rm -rf fonts  
 ```
 
+## 設定Zsh theme
 
-
-## 設定Zsh Theme
 使用Powerlevel9k
 
 ```Shell script
@@ -40,12 +39,14 @@ $source ~/.zshrc
 ```
 
 ## 設定VS Code
+
 進入VS Code
 進入[喜好設定]>[設定]
 
 ```json
 {
-    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    // 更黑紗體：
+    "terminal.integrated.fontFamily": "Sarasa Mono SC",
     "terminal.integrated.fontSize": 14  
 }
 ```
@@ -63,7 +64,5 @@ $source ~/.zshrc
 
 
 參考
+[Powershell 美化作戰 —— 字型、執行原則和 oh-my-posh | 伊果的沒人看筆記本](https://igouist.github.io/post/2020/08/powershell-beauty/)
 
-讓 Visual Studio Code Terminal 漂漂（Zsh）
-
-https://www.jazz321254.com/visual-studio-code-zsh/

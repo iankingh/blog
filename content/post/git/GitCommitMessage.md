@@ -63,11 +63,10 @@ subject是commit目的的臨時描述，不超過50個字符。
 開頭不加句號或其他標點符號。
 根據以上規範git commit message將是如下的格式：
 
-## 總結
+### 總結
 
-參考
-如何规范你的Git commit？-阿里云开发者社区
-https://developer.aliyun.com/article/770277
+### 參考
 
-Git Commit Message 這樣寫會更好，替專案引入規範與範例
-https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html
+[如何规范你的Git commit？-阿里云开发者社区](https://developer.aliyun.com/article/770277)
+
+[Git Commit Message 這樣寫會更好，替專案引入規範與範例](https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html)

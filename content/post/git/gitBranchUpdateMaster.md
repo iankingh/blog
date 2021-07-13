@@ -12,7 +12,8 @@ toc: true
 
 
 
-# Git dev-branch Update master-branch
+## Git dev-branch Update master-branch
+
 <!--more-->
 
 ## 前言
@@ -25,8 +26,5 @@ toc: true
 
 再把dev-1  跟新的分支合併
 
-
-
-參考
-Git: 四種將分支與主線同步的方法 | Summer。桑莫。夏天
-https://cythilya.github.io/2018/06/19/git-merge-branch-into-master/
+## 參考
+[Git: 四種將分支與主線同步的方法 | Summer。桑莫。夏天](https://cythilya.github.io/2018/06/19/git-merge-branch-into-master/)
