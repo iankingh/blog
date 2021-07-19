@@ -14,8 +14,7 @@ Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網�
 
 <!--more-->
 
-
-###  Config.toml
+### Config.toml
 
 開啟Hugo配置檔 Config.toml，設定 DisqusShortname。 
 
@@ -24,6 +23,7 @@ disqusShortname = "yourDisqusShortname"
 ```
 
 ### 新增 disqus.html
+
 在根目錄 /layouts/partials/ 裡新增 disqus.html 檔案，
 然後把官方提供的 Script 貼到 disqus.html 檔案裡並存檔。
 官方提供的 Script 如下：
@@ -50,6 +50,7 @@ disqusShortname = "yourDisqusShortname"
 ```
 
 ### 設定  disqus.html
+
 到 Hugo 主題的目錄下，找到 single.html 檔案，
 將 Hugo 主題的目錄下 single.html Copy 至 /layouts/_default/ 下。
 開啟 /layouts/_default/single.html 檔案，貼上下方語法
@@ -59,7 +60,6 @@ disqusShortname = "yourDisqusShortname"
   {{ partial "disqus.html" . }}
 </div>
 ```
-
 
 ### 解決 localhost 不顯示 的問題
 
@@ -72,11 +72,8 @@ ShowDisqus
 
 ## 參考
 
-Hugo 加入 Disqus 整合性留言管理系統  
-https://coreychen71.github.io/posts/2019-05/hugoadddisqus/
+[Hugo 加入 Disqus 整合性留言管理系統](https://coreychen71.github.io/posts/2019-05/hugoadddisqus/)  
 
-给Hugo添加disqus评论服务 - Marvin's Blog【程式人生】  
-https://zh4ui.net/post/2017-04-20-hugo-with-disqus/
+[给Hugo添加disqus评论服务 - Marvin's Blog【程式人生】](https://zh4ui.net/post/2017-04-20-hugo-with-disqus/)  
 
-为你博客添加disqus评论系统 | 23.9K | Vineo  
-https://vineo.cn/config-disqus.html
+[为你博客添加disqus评论系统 | 23.9K | Vineo](https://vineo.cn/config-disqus.html)
