@@ -14,7 +14,7 @@ toc: true
 <!-- # [從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們 -->
 <!--more-->
 
-
+instance variable -
 
 ## 變數的種類與有效範圍(Variable Scope)
 基本觀念

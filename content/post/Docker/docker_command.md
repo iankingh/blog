@@ -9,31 +9,39 @@ tags:
 toc: true
 ---
 
+
+
+# Docker 指令
+
 <!--more-->
 
-##  images
+## Images 相關的指令
 
-### see images(看映像)
+#### bulid images
+
+
+
+#### see images(看映像)
 
 ```shell
 docker images
 ```
 
-### docker pull(下載映像)
+#### docker pull(下載映像)
 
 ```sell
 docker pull
 ```
 
-## see registry images 
+#### see registry images()
 
 ```sell
-curl -XGET 172.22.11.11:5000/v2/_catalog
+curl -XGET 192.168.x.x:5000/v2/_catalog
 ```
 
 ## container 
 
-### docker container ls (看容器) 
+#### docker container ls (看容器) 
 
 ```sell
 docker container ls
@@ -236,13 +244,10 @@ docker service update --image 172.22.11.11:5000/dockerImageName:tag swarmS_Name
 
 ## 參考
 
-docker 官網
 
-Docker常用命令小记_程序员欣宸的博客-CSDN博客
+[Docker常用命令小记_程序员欣宸的博客-CSDN博客](https://blog.csdn.net/boling_cavalry/article/details/101145739)
 
-https://blog.csdn.net/boling_cavalry/article/details/101145739
+[docker container ls命令 - Docker教程™](https://www.yiibai.com/docker/container_ls.html)
 
-docker container ls命令 - Docker教程™
-
-https://www.yiibai.com/docker/container_ls.html
+[[Docker] Docker 指令小抄 - Miles's Journey](https://mileslin.github.io/2019/04/Docker-%E6%8C%87%E4%BB%A4%E5%B0%8F%E6%8A%84/)
 
