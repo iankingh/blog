@@ -14,9 +14,14 @@ Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網�
 
 <!--more-->
 
+
+### 先申請 disqus
+
+取得 disqusShortname
+
 ### Config.toml
 
-開啟Hugo配置檔 Config.toml，設定 DisqusShortname。 
+開啟Hugo配置檔 Config.toml，設定 DisqusShortname。
 
 ```toml
 disqusShortname = "yourDisqusShortname"

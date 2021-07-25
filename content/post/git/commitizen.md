@@ -17,17 +17,13 @@ toc: true
 ## 第一步 安裝 git && node.js
 
 
+
 ## 安裝 commitizen
 
-```shell
-npm install -g commitizen 
-```
 
 ## 安裝  change log 的套件
 
-```shell
-npm install -g conventional-changelog-cli 
-```
+
 
 
 

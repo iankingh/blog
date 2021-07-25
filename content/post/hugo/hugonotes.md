@@ -104,7 +104,7 @@ hugo server -D
 
 ## 參考
 
-[右上角github 貓 GitHub Corners](http://tholman.com/github-corners/)
+[右上角github 貓 GitHub Corners](https://tholman.com/github-corners/#)
 
 [在 Github Pages 建立 Hugo 靜態網站 · Kaichu.io](https://kaichu.io/2015/07/12/my-first-post/)
 
