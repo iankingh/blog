@@ -17,27 +17,25 @@ toc: true
 
 <!--more-->
 
-
-
 ## 基本用法
 
 ### NumberFormat
 
 ```java
-//	由於NumberFormat是一個抽象類別，必須用getInstance()來取得他裡面的方法
+//由於NumberFormat是一個抽象類別，必須用getInstance()來取得他裡面的方法
 NumberFormat nf = NumberFormat.getInstance();
-//	NumberFormat物件格式化的方式是固定的，都是以每三位數一個逗號的方式格式化數字，浮點數欄位則是有的時候顯示，沒有就不顯示。所以可以得到1,234,567.89。
+//NumberFormat物件格式化的方式是固定的，都是以每三位數一個逗號的方式格式化數字，浮點數欄位則是有的時候顯示，沒有就不顯示。所以可以得到1,234,567.89。
 System.out.println(nf.format(1234567.89));
 ```
 
 ### DecimalFormat
 
-​	DecimalFormat實作了NumberFormat，並提供更客製化的格式選擇，用法如下： 
+​DecimalFormat實作了NumberFormat，並提供更客製化的格式選擇，用法如下：
 
 ```java
 Double value = 123456.789;
 String pattern = "###,###.###" ;
-//	宣告了一個DecimalFormat物件，並可以在宣告時帶入要格式化的格式，若不帶入參數，格式規則和NumberFormat相同。
+//宣告了一個DecimalFormat物件，並可以在宣告時帶入要格式化的格式，若不帶入參數，格式規則和NumberFormat相同。
 DecimalFormat myFormatter = new DecimalFormat(pattern);
 String output = myFormatter.format(value);
 System.out.println("執行結果為：" + value + " " + pattern + " " + output);
@@ -59,12 +57,13 @@ System.out.println("執行結果為：" + value + " " + pattern + " " + output);
 DecimalFormat df = new DecimalFormat("$#,##0.00");
 System.out.println(df.format(1234567.2));
 ```
-​		格式化的字串中0代表一定要有值，#則代表不一定要有值，
-    因此#,##0.00表示至少要有個位數及小數點後兩位，且每三位數以一個逗號分開，若格式化的數字沒有個位數或小數點後兩位，就會以0代替。
 
-​		根據需求在前後加上需要的文字，例如$符號，所以上例執行的結果就會是$1,234,567.20。
+​格式化的字串中0代表一定要有值，#則代表不一定要有值，
+因此#,##0.00表示至少要有個位數及小數點後兩位，且每三位數以一個逗號分開，若格式化的數字沒有個位數或小數點後兩位，就會以0代替。
 
-這邊要注意若是我們在格式化字串結尾加上百分比符號『%』，DecimalFormat會自動幫我們將數值乘以100以符合字面意義，例如： 
+​根據需求在前後加上需要的文字，例如$符號，所以上例執行的結果就會是$1,234,567.20。
+
+這邊要注意若是我們在格式化字串結尾加上百分比符號『%』，DecimalFormat會自動幫我們將數值乘以100以符合字面意義，例如：
 
 ```java
 DecimalFormat df = new DecimalFormat("#,##0.00%");
@@ -90,45 +89,25 @@ public class DecimalFormatTest {
     System.out.println(decimalFormat2.format(d));
     double pi = 3.1415927;// 圓周率
     // 取一位元整數
-
     System.out.println(new DecimalFormat("0").format(pi));// 3
-
     // 取一位元整數和兩位元小數
-
     System.out.println(new DecimalFormat("0.00").format(pi));// 3.14
-
     // 取兩位元整數和三位元小數，整數不足部分以0填補。
-
     System.out.println(new DecimalFormat("00.000").format(pi));// 03.142
-
     // 取所有整數部分
-
     System.out.println(new DecimalFormat("#").format(pi));// 3
-
     // 以百分比方式計數，並取兩位小數
-
     System.out.println(new DecimalFormat("#.##%").format(pi));// 314.16%
-
     long c = 299792458;// 光速
-
     // 顯示為科學計數法，並取五位小數
-
     System.out.println(new DecimalFormat("#.#####E0").format(c));// 2.99792E8
-
     // 顯示為兩位元整數的科學計數法，並取四位小數
-
     System.out.println(new DecimalFormat("00.####E0").format(c));// 29.9792E7
-
     // 每三位以逗號進行分隔。
-
     System.out.println(new DecimalFormat(",###").format(c));// 299,792,458
-
     // 將格式嵌入文本
-
     System.out.println(new DecimalFormat("光速大小為每秒,###米").format(c)); // 光速大小為每秒299,792,458米
-
   }
-
 }
 
  ```
@@ -137,20 +116,15 @@ public class DecimalFormatTest {
 
 ## 參考
 
-[Java] 13-8 數字輸出格式 @ 給你魚竿 :: 痞客邦  
-https://rx1226.pixnet.net/blog/post/335106917
+[[Java] 13-8 數字輸出格式 @ 給你魚竿 :: 痞客邦](https://rx1226.pixnet.net/blog/post/335106917)  
 
-數字格式(NumberFormat、DecimalFormat) @ Penguin 工作室，一起JAVA吧！ :: 隨意窩 Xuite日誌  
-https://blog.xuite.net/jane17512001/PenguinDesign/116288108-%E6%95%B8%E5%AD%97%E6%A0%BC%E5%BC%8F%28NumberFormat%E3%80%81DecimalFormat%29
+[數字格式(NumberFormat、DecimalFormat) @ Penguin 工作室，一起JAVA吧！ :: 隨意窩 Xuite日誌](https://blog.xuite.net/jane17512001/PenguinDesign/116288108-%E6%95%B8%E5%AD%97%E6%A0%BC%E5%BC%8F%28NumberFormat%E3%80%81DecimalFormat%29)
 
-（轉）Java DecimalFormat 用法（數位格式化） - 濫好人 - 博客園  
-https://www.cnblogs.com/hq233/p/6539107.html
+[（轉）Java DecimalFormat 用法（數位格式化） - 濫好人 - 博客園 ](https://www.cnblogs.com/hq233/p/6539107.html)
+
 
 https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html
 
 https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html
 
-
-
- 
 

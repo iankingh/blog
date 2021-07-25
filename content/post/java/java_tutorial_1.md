@@ -25,13 +25,13 @@ class HelloJava{
 
 ### 編譯程式
 
-語法 ：
+語法 ： javac xxxx.java
 
 ```shell
 javac xxxx.java
 ```
 
-EX :
+EX: 
 
 ```shell
 javac HelloJava.java
@@ -39,12 +39,10 @@ javac HelloJava.java
 
 ### 執行程式
 
-語法 ：
+語法 ： java xxxx
 
 ```shell
-
 java xxxx
-
 ```
 
 EX :
@@ -52,3 +50,5 @@ EX :
 ```shell
 java HelloJava
 ```
+
+## 參考

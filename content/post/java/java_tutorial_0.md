@@ -19,7 +19,7 @@ typora-root-url: ..\..\..\static
 
 於系統path 添加 java環境變數 (Environment Variable)
 
-```
+```cmd
 C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
 ```
 
@@ -31,7 +31,7 @@ C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
 
 於Path設定啟動 (environment variable)
 
-```
+```cmd
 %JAVA_HOME%\bin;
 ```
 

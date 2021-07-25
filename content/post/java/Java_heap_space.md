@@ -20,18 +20,19 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
 
 ### 可以在windows 更改系統環境變數加上 JAVA_OPTS && CATALINA_OPTS
 
-    ```shell
+```shell
     JAVA_OPTS=-Xms1024m -Xmx2048m
     CATALINA_OPTS=-Xms2048M -Xmx4096M
-    ```
+```
 
-    EX:
-    ```shell
+EX:
+
+```shell
     Variable name : CATALINA_OPTS
     Variable value: =-Xms2048M -Xmx4096M
-    ```
+```
 
-    ![JAVA_HOME](/images/java/調整JVM的大小.png)
+![JAVA_HOME](/images/java/調整JVM的大小.png)
 
 ### 程式的寫法要注意要 close 資料流
 

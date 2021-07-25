@@ -17,7 +17,7 @@ toc: true
 
 ## Java 基本的資料型態(Primitive Data Types)
 
-8大
+基本數據類型（8種）
 
 | 數據類型 | 大小/位 | 封裝類    | 默認值   | 可表示數據范圍                           |
 | :------- | ------- | --------- | -------- | ---------------------------------------- |
@@ -31,7 +31,6 @@ toc: true
 | boolean  | 8bit    | Boolean   | false    | true或false                              |
 
 ### 範例
-
 
 ```java
 package ch1;
@@ -100,11 +99,9 @@ public class PrimitiveDataTypesTest {
 }
 ```
 
-
-
 ## JAVA  跳脫字元 Escape Characters 
 
-```
+``` java
 - \' : 單引號
 - \" : 雙引號
 - \\ : 反斜線
@@ -116,10 +113,6 @@ public class PrimitiveDataTypesTest {
 
 ```
 
-
-
 ## 參考
 
-Java中8種基本數據類型默認的默認值_java_飛月程序人生-CSDN博客
-
-https://blog.csdn.net/fysuccess/article/details/40656761
+[Java中8種基本數據類型默認的默認值_java_飛月程序人生-CSDN博客](https://blog.csdn.net/fysuccess/article/details/40656761)
