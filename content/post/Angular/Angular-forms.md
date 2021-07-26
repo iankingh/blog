@@ -73,4 +73,35 @@ Model-Driven Form (Reactive Forms)- (響應式表單) 的特點
 易於單元測試
 
 
+### formcontrol
+
+`Angular forms` 裡面有個 `formcontrol` (表單控制項)實體
+
+他可以追蹤form表單中控制元件的值及驗證狀態
+
+1. `template-driven form` 中主要是用 NgModel 主要是建立一個 FormControl 還要加上 name =""
+
+EX:
+ `<input type="email" [ngModel]="email" #mEmail="ngModel" name="email" required email>`
+
+
+2. `Reactive forms` 中主要是用 FormControlName 建立一個formcontrol
+
+EX: 
+`<input type="email" formControlName="email">`
+
+
+
+`template-driven form` 與 `Reactive forms` 其目的都是要建立一個 `formcontrol` 
+
+`FormControl` の主要用途
+用來追蹤使用者在表單欄位輸入或選取的 `value` (值)
+用來追蹤使用者在表單欄位上的互動狀態 ( `pristine, dirty, touched, untouched` )
+用來追蹤表單欄位的驗證狀態 (errors)
+用來維持與元件中 `Model` 進行同步 (單向屬性繫結或雙向繫結)
+
+
 ## 參考
+
+https://angular.io/api/forms/FormControl
+

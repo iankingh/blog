@@ -61,10 +61,33 @@ tracert www.google.com
 
 
 
+網頁出不來故障排除
 
-參考
-ping、telnet、tracert簡介與使用 - IT閱讀  
-https://www.itread01.com/content/1550289784.html  
+如果連不上先ping 看看 
 
-windows網絡命令：ping、ipconfig、tracert、netstat、arp - 每日頭條  
-https://kknews.cc/zh-tw/code/o3jx8z5.html
+如果ping 不成功表示 DNS 或是防火牆沒有設定
+
+nslookup : DNS偵錯工具
+
+powershell指令 : tnc : 測試 port 有沒有通 
+
+Test-NetConnection -ComputerName "www.google.com" -Port 443
+
+可以簡寫tnc
+
+tnc  "www.google.com" -Port 443
+
+
+
+
+
+
+## 參考
+
+[ping、telnet、tracert簡介與使用 - IT閱讀](https://www.itread01.com/content/1550289784.html)  
+  
+
+[windows網絡命令：ping、ipconfig、tracert、netstat、arp - 每日頭條](https://kknews.cc/zh-tw/code/o3jx8z5.html)  
+
+
+https://medium.com/@CarterTsai/%E5%88%A9%E7%94%A8powershell%E7%9A%84test-netconnection%E4%BE%86%E5%8F%96%E4%BB%A3telnet%E4%BE%86%E6%AA%A2%E6%9F%A5%E7%B6%B2%E7%AB%99%E7%9A%84port%E6%9C%89%E6%B2%92%E6%9C%89%E8%A2%AB%E9%96%8B%E5%95%9F-5bc18909ce67

@@ -30,6 +30,9 @@ toc: true
 | char     | 16bit   | Character | '\u0000' | 0~65535                                  |
 | boolean  | 8bit    | Boolean   | false    | true或false                              |
 
+
+如果兩運算為基本型別，至少會轉為int
+
 ### 範例
 
 ```java

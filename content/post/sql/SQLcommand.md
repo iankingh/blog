@@ -43,7 +43,54 @@ ALTER TABLE customer ADD DEFAULT '未知' FOR Address;
 ```
 EX: 
 
-##
+## CREATE LOGIN [Account]
+
+```sql
+CREATE LOGIN [Account] WITH PASSWORD=N'!qaz2wsx', DEFAULT_DATABASE=[DATABASE_Name], DEFAULT_LANGUAGE=[Traditional Chinese], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+```
+
+## CREATE USER
+
+```sql
+USE [DATABASE_Name]
+GO
+CREATE USER [user_name] FOR LOGIN [Account];
+GO
+
+
+CREATE LOGIN Account WITH PASSWORD = '!qaz2wsx';  
+
+CREATE USER  user_name FOR LOGIN user_name; 
+
+```
+
+### DROP USER 
+
+```sql
+DROP USER user_name
+GO
+```
+
+### GRANT CREATE 
+
+```sql
+GRANT CREATE ANY DATABASE TO [user_name]
+GO
+```
+
+### Grant select to user
+
+```sql
+Grant select to vvs
+GO
+```
+
+
+-------------- SQL server 
+sql cluster 是提供服務的
+
+sql server 是提供連線服務介面的
+
 
 
 
