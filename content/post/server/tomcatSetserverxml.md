@@ -10,13 +10,34 @@ tags:
 toc: true
 ---
 
-## 筆記
+## Tomcat server set server xml筆記
 <!-- 簡介 -->
 <!--more-->
 
-於apache-tomcat-9.0.43/conf/servetr.xml 中可以設定 上傳大小
+### 設定路徑
 
+apache-tomcat/conf/server.xml
+
+### 設定檔案上傳大小
+
+設定大小
+
+```xml
+ <Connector connectionTimeout="20000" maxPostSize="209715200" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+```
+
+**調整如下**
 ![JAVA_HOME](/images/java/調整Tomcat上傳檔案大小.png)
 
+### 設定路徑及檔案位址
+
+```xml
+  <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
+
+<Context docBase="restApi" path="/restApi" reloadable="true" source="../SpringProjectRestApi"/>
+
+
+</Host>
+```
 
 ## 參考

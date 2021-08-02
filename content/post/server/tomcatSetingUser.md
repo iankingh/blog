@@ -14,12 +14,11 @@ toc: true
 
 <!--more-->
 
-
-## 配置Tomcat 的使用者
+## 配置 Tomcat 的使用者
 
 於 tomcat 的 conf/tomcat-users.xml
 
-```
+```xml
   <!-- 配置角色 -->
   <role rolename="manager-gui"/>
   <role rolename="admin-gui"/>
@@ -29,9 +28,8 @@ toc: true
 
 ```
 
-參考
-tomcat配置管理员-走后门 - WhyWin - 博客园
-https://www.cnblogs.com/0201zcr/p/6668010.html
+## 參考
 
-如何进入tomcat的管理页面 - begin27的博客 - CSDN博客
-https://blog.csdn.net/begin27/article/details/50966261
+[tomcat配置管理员-走后门 - WhyWin - 博客园](https://www.cnblogs.com/0201zcr/p/6668010.html)
+
+[如何进入tomcat的管理页面 - begin27的博客 - CSDN博客](https://blog.csdn.net/begin27/article/details/50966261)
