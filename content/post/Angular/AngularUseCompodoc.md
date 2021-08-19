@@ -11,6 +11,7 @@ toc: true
 ---
 
 # Angularg use compodoc 
+
 compodoc是一個用於產生 Angular 靜態網頁的工具
 
 Angular 使用 compodoc 產生說明文件
@@ -22,36 +23,51 @@ Angular 使用 compodoc 產生說明文件
 ### 以 local 模式安裝
 
 ```shell
-$ npm install --save-dev @compodoc/compodoc
+npm install --save-dev @compodoc/compodoc
+```
+
+#### 產生檔案
+
+```shell
+./node_modules/.bin/compodoc -p tsconfig.json
+```
+
+#### RUN server
+
+```shell
+./node_modules/.bin/compodoc -s 
 ```
 
 ### 以global(全域) 模式安裝
 
 ```shell
-$ npm install -g @compodoc/compodoc
+npm install -g @compodoc/compodoc
 ```
 
-### 產生文件
+#### 產生文件
 
 ```sh
-$ compodoc -p tsconfig.json
+compodoc -p tsconfig.json
 ```
 
-### 啟用本地文件網站
+#### 啟用本地文件網站
 
 ```shell
 compodoc -p tsconfig.json -s
 ```
 
-```sh
-compodoc -p src\tsconfig.app.json -s -r 8888
+### 使用 npx(推薦)
 
-compodoc -p tsconfig.app.json src -s -r 8888
-
+```shell
 npx compodoc -p tsconfig.json -s -r 8888
-
-npx compodoc -p tsconfig.base.json -s -r 8888
 ```
+
+### 指令
+
+-p : 表示 產生文件
+
+-s : 啟用文件網站
+
 
 ### jsDoc Tags
 
@@ -73,7 +89,6 @@ export class HelloService{
 }
 ```
 
- 
 
 ## 參考
 
@@ -83,6 +98,4 @@ export class HelloService{
 
 [Javascript文檔註解規則使用方式@use JSDoc | ucamc](https://www.ucamc.com/e-learning/javascript/250-javascript-use-jsdoc)
 
-
 [你寫的文件別人看得懂嗎？：compodoc | Jonny Huang 的學習筆記](https://jonny-huang.github.io/angular/training/23_compodoc/)
-
