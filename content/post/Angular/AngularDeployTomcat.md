@@ -138,15 +138,16 @@ RewriteCond %{REQUEST_PATH} !-f
 RewriteRule ^/web/(.*) /web/index.html
 ```
 
-參考
+### 參考
 
-https://angular.io/guide/deployment
+[Angular](https://angular.io/guide/deployment)
 
-https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html
+[Apache Tomcat 9 (9.0.53) - Windows Service How-To](https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html)
 
-https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server
+[maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow](https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server)
 
-https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS
+[如何將 Angular 2 含有路由機制的 SPA 網頁應用程式部署到 IIS 網站伺服器 | The Will Will Web](https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS)
+
 
 <base href="/"> 與 <base href="./"> 的差別 ? - General - 台灣 Angular 技術論壇
 

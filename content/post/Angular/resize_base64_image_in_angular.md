@@ -16,6 +16,7 @@ toc: true
 ## 方法 1 
 
 新增方法至 component 
+
 ```
 
   /**
@@ -42,6 +43,7 @@ toc: true
     });
   }
 ```
+
 call 方法
 ```
 compressImage(base64, 100, 100).then(compressed => {
