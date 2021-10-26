@@ -54,7 +54,6 @@ compressImage(base64, 100, 100).then(compressed => {
 ## 方法 2 新增一個Service
 
 參考
-
 typescript - how to resize base64 image in angular - Stack Overflow
 https://stackoverflow.com/questions/56967991/how-to-resize-base64-image-in-angular
 
