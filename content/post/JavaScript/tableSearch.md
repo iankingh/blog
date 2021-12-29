@@ -80,20 +80,15 @@ toc: true
 
     <table class="order-table" border="1">
         <tbody>
-    <!-- 
-            if 0 +tr 
-            +i
-            if 2 +/tr 
- -->
             <tr>
-            0    <td>004 臺灣銀行 <button>選我</button></td>
-             1   <td>005 土地銀行 <button>選我</button></td>
-              2  <td>006 合庫商銀 <button>選我</button></td>
+                <td>004 臺灣銀行 <button>選我</button></td>
+                <td>005 土地銀行 <button>選我</button></td>
+                <td>006 合庫商銀 <button>選我</button></td>
             </tr>
             <tr>
-               3 <td>007 第一銀行 <button>選我</button></td>
-               4 <td>008 華南銀行 <button>選我</button></td>
-                5<td>009 彰化銀行 <button>選我</button></td>
+                <td>007 第一銀行 <button>選我</button></td>
+                <td>008 華南銀行 <button>選我</button></td>
+                <td>009 彰化銀行 <button>選我</button></td>
             </tr>
             <tr>
                 <td>011 上海銀行 <button>選我</button></td>

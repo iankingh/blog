@@ -2,17 +2,19 @@
 title: "AngularUseJS"
 date: 2021-01-22T13:38:06+08:00
 draft: false
-categories:
- - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
+categories: "筆記"
 toc: true
 ---
 
-# Angular 使用 JavaScript
 
-在實務上我們可以在npm 上面找到要用的 js 來引用 , 有時可能找不到 , 有時可能要匯入自己寫的js ,如果功能不複雜 ,可以轉成ts
+## Angular 使用 JavaScript
+
+## 前言
+
+在實務上我們可以在npm上面找到要用的 js 來引用 , 有時可能找不到 , 有時可能要匯入自己寫的js ,如果功能不複雜 ,可以轉成ts
 <!--more-->
 
 ## 方法一
@@ -28,7 +30,6 @@ toc: true
 ```
 eX: /assets/Hello.js
 ```
-
 
 ##  第二步 設定 "allowJs": true
 
@@ -74,8 +75,6 @@ eX: /assets/Hello.js
 
 第四步，在當前组件.ts中使用函数添加js
 
-
-```
 
 ## 參考
 
