@@ -89,7 +89,6 @@ index.html 裡的 : <base href="/web/">
 ```
 
 
-
 ## Multiple Modules
 
 ```markdown
@@ -240,4 +239,3 @@ PS：特別感謝Java 社群的 GC 大神的指導
 [Angular 4 File Structure | John Wu's Blog](https://blog.johnwu.cc/article/angular-4-file-structure.html)
 
 [為中大型的Angular專案設計專案結構. 最近有一個新專案要用 Angular 8開發，因為之前開發的都是以傳統C#… | by Tim Tsai | Medium](https://medium.com/@sky22357168/angular-8-file-structure-6cda90142ba4)
-
