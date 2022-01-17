@@ -48,7 +48,6 @@ pygmentsCodefencesGuessSyntax = false
 
 ## 參考
 
-[Hugo動態加載prism.js](https://www.ariesme.com/post/2019/add_prism_for_hugo_automatically/)
 
 [Hugo / 如何在 Hugo 中用 Prism.js 提供程式碼色彩標註 | sujj blog](https://sujingjhong.com/posts/how-to-add-prismjs-into-hugo/)  
 

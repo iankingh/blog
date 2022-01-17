@@ -30,13 +30,11 @@ toc: true
 | char     | 16bit   | Character | '\u0000' | 0~65535                                  |
 | boolean  | 8bit    | Boolean   | false    | true或false                              |
 
-
 如果兩運算為基本型別，至少會轉為int
 
 ### 範例
 
 ```java
-package ch1;
 
 /**
  * 
@@ -65,10 +63,6 @@ public class PrimitiveDataTypesTest {
         static char c;
         static boolean bo;
 
-        // String不是基本類型
-        static String str1 = "";// 生成一個String類型的引用，而且分配記憶體空間來存放"";
-        static String str2; // 只生成一個string類型的引用；不分配記憶體空間,預設為null
-
         public static void main(String[] args) {
 
                 System.out.println("byte的大小：" + Byte.SIZE + " byte的預設值：" + b + " byte的資料範圍：" + Byte.MIN_VALUE + "~"
@@ -94,13 +88,11 @@ public class PrimitiveDataTypesTest {
                 System.out.println("----------------------------------------------------");
                 System.out.println("boolean的大小：" + Byte.SIZE + " boolean的預設值：" + bo + " boolean的資料範圍：" + Byte.MIN_VALUE
                                 + "~" + Byte.MAX_VALUE);
-
-                System.out.println("String字串的預設值：" + str1 + "str的默認長度：" + str1.length());
-                System.out.println("String字串的預設值：" + str2);
-
         }
 }
 ```
+
+
 
 ## JAVA  跳脫字元 Escape Characters 
 
@@ -118,4 +110,4 @@ public class PrimitiveDataTypesTest {
 
 ## 參考
 
-[Java中8種基本數據類型默認的默認值_java_飛月程序人生-CSDN博客](https://blog.csdn.net/fysuccess/article/details/40656761)
+[Java中8种基本数据类型及其默认值_飞月程序人生-CSDN博客_float默认值](https://blog.csdn.net/fysuccess/article/details/40656761)
