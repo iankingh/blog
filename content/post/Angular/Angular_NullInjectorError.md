@@ -20,8 +20,6 @@ NullInjectorError: No provider for  Pipe!
 
 ## 圖待補
 
-
-
 需註冊
 
 ```
