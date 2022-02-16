@@ -132,8 +132,9 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
       <pubDate>Fri, 22 Jan 2021 13:38:06 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/angular/angularusejs/</guid>
-      <description>&lt;h1 id=&#34;angular-使用-javascript&#34;&gt;Angular 使用 JavaScript&lt;/h1&gt;
-&lt;p&gt;在實務上我們可以在npm 上面找到要用的 js 來引用 , 有時可能找不到 , 有時可能要匯入自己寫的js ,如果功能不複雜 ,可以轉成ts&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;angular-使用-javascript&#34;&gt;Angular 使用 JavaScript&lt;/h2&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;在實務上我們可以在npm上面找到要用的 js 來引用 , 有時可能找不到 , 有時可能要匯入自己寫的js ,如果功能不複雜 ,可以轉成ts&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -175,7 +176,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
 &lt;p&gt;&lt;strong&gt;IP 位址是唯一的。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;IPv4 的位址空間為 232 或 4,294,967,296。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IPv4 的位址空間為 232 或 4,294,967,296。&lt;/strong&gt; &lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description>
     </item>
@@ -233,7 +234,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Sun, 05 Jul 2020 19:02:31 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/angular/angularbsn02/</guid>
-      <description>&lt;h1 id=&#34;從-0-開始的-angular-生活-第2天-認識-angular-cli-建立的專案架構&#34;&gt;從 0 開始的 Angular 生活 第2天-認識 Angular CLI 建立的專案架構&lt;/h1&gt;</description>
+      <description>&lt;h2 id=&#34;從-0-開始的-angular-生活-第2天--angular-cli-建立的專案架構&#34;&gt;&lt;strong&gt;從 0 開始的 Angular 生活 第2天- Angular CLI 建立的專案架構&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -293,7 +294,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Fri, 29 May 2020 06:50:51 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/java/java_tutorial_1/</guid>
-      <description>&lt;h2 id=&#34;從-0-開始的-java-生活-no1-java-第一支-java-程式&#34;&gt;從 0 開始的 JAVA 生活 No.1 Java 第一支 java 程式&lt;/h2&gt;</description>
+      <description>&lt;h2 id=&#34;從-0-開始的-java-生活-no1-java-第一支-java-程式&#34;&gt;&lt;strong&gt;從 0 開始的 JAVA 生活 No.1 Java 第一支 java 程式&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
     
     <item>
