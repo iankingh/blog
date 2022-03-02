@@ -1,7 +1,7 @@
 ---
 title: "Angular_NullInjectorError"
 date: 2020-10-27T21:28:57+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -10,7 +10,7 @@ tags:
 toc: true
 ---
 
-# Angular NullInjectorError 
+## Angular NullInjectorError
 <!--more-->
 
 NullInjectorError: No provider for  Pipe!

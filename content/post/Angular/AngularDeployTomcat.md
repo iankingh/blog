@@ -10,7 +10,7 @@ toc: true
 ---
 
 
-# Angular Deploy Tomcat 
+## Angular Deploy Tomcat 
 <!--more-->
 
 
@@ -138,7 +138,7 @@ RewriteCond %{REQUEST_PATH} !-f
 RewriteRule ^/web/(.*) /web/index.html
 ```
 
-### 參考
+## 參考
 
 [Angular](https://angular.io/guide/deployment)
 

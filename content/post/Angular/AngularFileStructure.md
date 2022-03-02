@@ -1,7 +1,7 @@
 ---
 title: "AngularFileStructure"
 date: 2020-08-03T09:18:12+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -10,7 +10,7 @@ tags:
 toc: true
 ---
 
-# Angular 代碼目錄結構
+## Angular 代碼目錄結構
 <!--more-->
 
 ## Build
