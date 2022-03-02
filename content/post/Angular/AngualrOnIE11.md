@@ -1,7 +1,7 @@
 ---
 title: "AngualrOnIE11"
 date: 2021-03-10T13:21:43+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -11,16 +11,17 @@ toc: true
 ---
 
 ## Angualr IE 11 使用筆記
+
 在IE 11 上的 使用
 <!--more-->
 
-## 前言 
+## 前言
 
 基本上Angualr 與 IE11 不是很 OK ,建議不要再使用IE,如果有不幸的用到有幾點要注意
 
 ## 第一點
 
-於index.html 加上 
+於index.html 加上
 
 ``` html
     <meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11" >
@@ -185,13 +186,10 @@ if (!window.console.assert) window.console.assert = function () { };
 }());
 
 
-
 ```
 
 
 ### ps 祝大家工作上都不要碰到IE
-
-
 
 
 ## 參考

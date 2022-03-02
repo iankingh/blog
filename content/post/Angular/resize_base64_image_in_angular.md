@@ -3,22 +3,21 @@ title: "Resize_base64_image_in_angular"
 date: 2021-03-12T09:28:08+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "Angular"
 toc: true
 ---
 
-# Anguarl 調整 Base64 圖片大小筆記
+## Anguarl 調整 Base64 圖片大小筆記
+
 <!--more-->
 
-## 方法 1 
+## 方法 1
 
-新增方法至 component 
+新增方法至 component
 
-```
-
+```javascript
   /**
    * 縮放圖片的方法
    * @param src 圖片
@@ -45,13 +44,16 @@ toc: true
 ```
 
 call 方法
-```
+
+```javascript
 compressImage(base64, 100, 100).then(compressed => {
   this.resizedBase64 = compressed;
 })
 ```
 
 ## 方法 2 新增一個Service
+
+
 
 參考
 typescript - how to resize base64 image in angular - Stack Overflow

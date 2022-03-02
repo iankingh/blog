@@ -1,7 +1,7 @@
 ---
 title: "SpringBoot_ConditionalOnProperty"
 date: 2021-02-03T11:41:55+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -11,14 +11,17 @@ tags:
 toc: true
 ---
 
-# Spring ConditionalOnProperty的作用和用法 
+## Spring ConditionalOnProperty的作用和用法
 <!--more-->
 
+## 前言
 
+   在spring 中有時會希望在某些特定環境底下才能生效的component，例如:建立假資料等，但我們在正式環境底下又不希望使用時，可以使用@ConditionalOnProperty 來達成
 
+## @ConditionalOnProperty的作用和用法
 
-@ConditionalOnProperty的作用和用法
-在spring boot中有時候需要控制配置類是否生效,可以使用@ConditionalOnProperty注解來控制@Configuration是否生效
+在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty注解來控@Configuration是否生效
+
 ConditionalOnProperty的使用
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target({ElementType.TYPE, ElementType.METHOD})
@@ -72,7 +75,8 @@ filter.loginFilter=true
 
 
 
-### 參考
+## 參考
+
 @ConditionalOnProperty的作用和用法_sqlgao22的博客-CSDN博客
 https://blog.csdn.net/sqlgao22/article/details/96476754
 

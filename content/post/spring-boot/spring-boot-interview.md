@@ -3,7 +3,7 @@ title: "Spring_interview"
 date: 2021-03-16T13:17:45+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "spring"
  - "spring Boot"
@@ -11,9 +11,7 @@ toc: true
 ---
 
 ## Spring boot 面試題
-<!-- 簡介 -->
 <!--more-->
-
 ### 1、什麼是 Spring Boot？
 
 Spring Boot 是 Spring 開源組織的子專案，是 Spring 組件一站式解決方案，主要是簡化了使用 Spring 的難度，不必繁重的配置，提供了各種啟動器，開發者能快速上手。

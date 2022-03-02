@@ -10,7 +10,7 @@ tags:
 toc: true
 ---
 
-# Angularg use compodoc 
+## Angularg use compodoc
 
 compodoc是一個用於產生 Angular 靜態網頁的工具
 
