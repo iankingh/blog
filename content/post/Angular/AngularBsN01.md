@@ -1,5 +1,5 @@
 ---
-title: "AngularBsN01"
+title: "從 0 開始的 Angular 生活 第1天-安裝Angular"
 date: 2020-07-05T19:02:19+08:00
 draft: true
 categories:
@@ -10,5 +10,5 @@ tags:
 toc: true
 ---
 
-# 從 0 開始的 Angular 生活 第1天-安裝Angular 
+## 從 0 開始的 Angular 生活 第1天-安裝Angular
 <!--more-->

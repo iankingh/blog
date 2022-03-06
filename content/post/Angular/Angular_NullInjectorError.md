@@ -10,29 +10,36 @@ tags:
 toc: true
 ---
 
-## Angular NullInjectorError
 <!--more-->
 
-NullInjectorError: No provider for  Pipe!
-如果遇到 NullInjectorError 表示 沒有註冊
+### 前言
+
+NullInjectorError: No provider for Pipe!
+
+如果遇到 NullInjectorError 表示 沒有注入提供者
 
 這邊是沒有註冊 Pipe
 
-## 圖待補
+需註冊在 module 或是 component
 
-
-
-需註冊
-
-```
+```tsx
 @NgModule({
-  imports:      [ .. ],
-  declarations: [ CustomPipe ],
-  exports:    [ CustomPipe ],
-  providers:    [ CustomPipe ]
-})
-export class SharedModule { }
 
+imports: [ .. ],
+
+declarations: [ CustomPipe ],
+
+exports: [ CustomPipe ],
+
+providers: [ CustomPipe ]
+
+})
+
+export class SharedModule { }
 ```
-參考
-https://stackoverflow.com/questions/46299952/no-provider-for-custompipe-angular-4
+
+## 參考
+
+[No Provider for CustomPipe - angular 4 - Stack Overflow](https://stackoverflow.com/questions/46299952/no-provider-for-custompipe-angular-4)
+
+[Angular依赖注入的一个常见错误NullInjectorError,No provider for XXX - 云+社区 - 腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1700456)
