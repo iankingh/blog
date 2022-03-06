@@ -9,10 +9,12 @@ tags:
 toc: true
 ---
 
+
+
 <!--more-->
 # Dockerfile 
 
- Dockerfile 是用來描述映像檔（image）的文件。
+Dockerfile 是用來描述映像檔（image）的文件。
 
 所謂的 `Image`，就是生產 `Container` 的模版，你可以從 Docker Hub 官方下載或是根據官方的 Image 自己加工後打包成 Image 或是完全自己使用 Dockerfile 描述 Image 內容來製作 Image。
 

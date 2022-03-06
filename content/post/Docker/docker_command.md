@@ -10,8 +10,7 @@ toc: true
 ---
 
 
-
-# Docker 指令
+## Docker 指令
 
 <!--more-->
 
@@ -236,6 +235,7 @@ docker service update --env-add envKey=envValue serviceName
 ```
 
 ### update service
+
 ```sell
 docker service update --image 172.22.11.11:5000/dockerImageName:tag swarmS_Name
 ```
