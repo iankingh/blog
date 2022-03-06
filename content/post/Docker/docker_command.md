@@ -16,7 +16,7 @@ toc: true
 
 ## Images 相關的指令
 
-#### bulid images
+### bulid images
 
 
 

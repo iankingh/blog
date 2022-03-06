@@ -1,13 +1,12 @@
 ---
 title: "EclipseSettigUtf 8"
 date: 2021-04-12T09:08:22+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
  - "eclispe"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 
@@ -27,10 +26,5 @@ New text file delimiter 選擇Other: Unix
 設定完後點選 Apply and Close 
 
 ![ eclipseSettingUtf-8 ](/images/eclipse/eclipseSettingUtf-8.png)
-
-
-
-
-
 
 ## 參考

@@ -1,7 +1,7 @@
 ---
 title: "GitCommitMessage"
 date: 2021-02-04T12:52:04+08:00
-draft: false
+draft: true
 categories:
  - "學習"
 tags:
@@ -9,11 +9,12 @@ tags:
 toc: true
 ---
 
-# Git Commit Message 規範
+## Git Commit Message 規範
 <!--more-->
 
 ## 前言
-   一般來說Git Commit 要包含 
+
+一般來說Git Commit 要包含 
 
 ## Commit Message 規範
 

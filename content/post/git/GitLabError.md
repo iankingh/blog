@@ -10,12 +10,9 @@ tags:
 toc: true
 ---
 
-
-
+## 連線GitLab問題處理
 <!--more-->
 
-
-## 連線GitLab問題處理
 
 ### 問題1 : 在連線 gitlab 遇到fatal: Authentication failed for.... 的問題
 
