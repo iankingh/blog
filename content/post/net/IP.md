@@ -55,7 +55,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
    下一個負責中繼的路由器、與路由器互相連接的來源端 Port，然後繼續傳輸到正確的目標主機 B。如下圖所示： 
 
 
-參考
+## 參考
 
 http://dns-learning.twnic.net.tw/internet/intro7.html
 

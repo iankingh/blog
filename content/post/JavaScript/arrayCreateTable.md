@@ -1,7 +1,7 @@
 ---
 title: "ArrayCreateTable"
 date: 2021-03-16T09:55:35+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -9,7 +9,7 @@ tags:
 toc: true
 ---
 
-## 筆記
+## JavaScript利用ArrayCreateTable筆記
 <!-- 簡介 -->
 <!--more-->
 
@@ -57,10 +57,6 @@ toc: true
             }
 
         }
-
-
-
-
     </script>
 </head>
 

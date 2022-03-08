@@ -9,7 +9,7 @@ tags:
 toc: true
 ---
 
-# java Error 筆記
+## java Error 筆記
 
 <!--more-->
 
@@ -23,7 +23,6 @@ java build path
 設置 Java compiler 和 Project Facets
 
 ## 常見的RuntimeException
-
 
 參考
 [java.lang.Error: Unresolved compilation problems:解决方案 - huangbaokang的博客 - CSDN博客](https://blog.csdn.net/huangbaokang/article/details/75287126)

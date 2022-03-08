@@ -1,7 +1,7 @@
 ---
 title: "HiddenBtnByprint"
 date: 2021-03-16T09:51:39+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -12,7 +12,6 @@ toc: true
 ## hiddenBtnByprint 筆記
 <!-- 簡介 -->
 <!--more-->
-
 
 ```html
 <div media="print">
@@ -39,4 +38,4 @@ toc: true
 
 ## 參考
 
-https://awpluway.pixnet.net/blog/post/361202835
+[在列印時不顯示列印按鈕 @ 柯佳思吃吃吃 :: 痞客邦 :: (pixnet.net)](https://awpluway.pixnet.net/blog/post/361202835)

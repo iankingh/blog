@@ -1,7 +1,7 @@
 ---
 title: "如何偵測使用者的裝置是否為行動裝置"
 date: 2021-03-15T09:20:44+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -14,7 +14,7 @@ toc: true
 <!--more-->
 
 轉貼 
-[如何偵測使用者的裝置是否為行動裝置 | Jason's BLOG](https://tso1158687.github.io/blog/2019/03/10/detect-mobile-device/, "如何偵測使用者的裝置是否為行動裝置 | Jason's BLOG")
+
 
 ```javascript
 function isMobileDevice() {
@@ -24,8 +24,6 @@ function isMobileDevice() {
 }
 ```
 
+## 參考 
 
-
-## 參考
-如何偵測使用者的裝置是否為行動裝置 - Jason's BLOG
-https://tso1158687.github.io/blog/2019/03/10/detect-mobile-device/
+[如何偵測使用者的裝置是否為行動裝置 | Jason's BLOG](https://tso1158687.github.io/blog/2019/03/10/detect-mobile-device/, "如何偵測使用者的裝置是否為行動裝置 | Jason's BLOG")

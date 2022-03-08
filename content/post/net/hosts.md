@@ -1,33 +1,27 @@
 ---
 title: "hosts"
 date: 2021-04-06T09:40:12+08:00
-draft: true
+draft: false
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "net"
  - "hosts"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 ## hosts筆記
 <!-- 簡介 -->
-
-
 
 在架設網站時，除了伺服主機的網路設定之外，還要配合 DNS 伺服器才能讓網站正常運作，而 DNS 上面的記錄在變更之後，通常都會需要幾個小時才會生效，所以很多人在架設網站初期都會浪費許多時間在等待 DNS 生效，才進行後續的設定，其實我們可以在 DNS 生效之前，以動的方式自行先設定自己電腦上的 hosts 檔，加速網站的建置工作。
 
 <!--more-->
 
 ## hosts 設定檔？？
+
 對於網際網路的基礎知識有瞭解的人應該都清楚網址與 IP 的對應關係，每個網站的網址都會對應一個或多個 IP 位址，當使用者要連上一個網站之前，要先知道網站的網址（如 www.google.com），接著連線至 DNS 伺服器，查詢該網址所對應的 IP 位址，獲得網站的實際 IP 位址之後，才能連上該網站瀏覽上面的內容。
 
-
-
 ![ DNS01](/images/net/DNS01.png)
-
-
 
 **DNS** **的作用**
 
@@ -38,8 +32,6 @@ DNS 伺服器的作用就是負責將網址轉換成 IP 位址，而 hosts 設�
 
 
 這個 hosts 設定檔在台電腦中都有，只是一般人可能沒注意到它的存在，也沒有在這個檔案加入任何對應的內容，當這個檔案沒有任何內容時，就等於沒有任何作用，所有的網址與 IP 位址的對應還是會依賴 DNS 伺服起來處理，絕大部分的電腦應該都是處於這樣的狀況。
-
-
 
 ## 如何設定 hosts 檔？？
 
@@ -100,5 +92,6 @@ $ sudo vi /etc/hosts
 
 
 ## 參考
+
 手動設定網址與 IP 對應的 hosts 檔教學，適用 Windows、Mac OS X 與 Linux 系統 - G. T. Wang
 https://blog.gtwang.org/windows/windows-linux-hosts-file-configuration/
