@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技術 on ianhuang筆記</title>
-    <link>https://iankingh.github.io/categories/%E6%8A%80%E8%A1%93/</link>
+    <link>https://iankingh.github.io/blog/categories/%E6%8A%80%E8%A1%93/</link>
     <description>Recent content in 技術 on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 25 Jul 2021 20:58:15 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 20:58:15 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java_tutorial_4</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_4/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_4/</link>
       <pubDate>Sun, 25 Jul 2021 20:58:15 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_4/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_4/</guid>
       <description>&lt;h1 id=&#34;從-0-開始的-java-生活no4-java-物件導向簡介&#34;&gt;[從 0 開始的 JAVA 生活]No.4 java 物件導向簡介&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>IP</title>
-      <link>https://iankingh.github.io/post/net/ip/</link>
+      <link>https://iankingh.github.io/blog/post/net/ip/</link>
       <pubDate>Tue, 06 Oct 2020 22:18:37 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/net/ip/</guid>
+      <guid>https://iankingh.github.io/blog/post/net/ip/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在 TCP/IP 通訊協定組的 IP 層裡，用來辨識每台電腦的東西，稱為網際網路位址 ( Internet address ) 或 IP 位址 ( IP address )。
 IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一的定義 Internet 上的一台電腦或一台路由器。
@@ -41,37 +41,37 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
     
     <item>
       <title>[從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_3./</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_3./</link>
       <pubDate>Mon, 15 Jun 2020 06:20:37 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_3./</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_3./</guid>
       <description>&lt;h1 id=&#34;從-0-開始的-java-生活no3-變數與它的小夥伴們&#34;&gt;[從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>[從 0 開始的 JAVA 生活]No.2 Java 基本的資料型態(Primitive Data Types)</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_2/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_2/</link>
       <pubDate>Sat, 30 May 2020 06:22:46 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_2/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_2/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>[從 0 開始的 JAVA 生活] No.1 Java 第一支 java 程式</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_1/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_1/</link>
       <pubDate>Fri, 29 May 2020 06:50:51 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_1/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_1/</guid>
       <description>&lt;h2 id=&#34;從-0-開始的-java-生活-no1-java-第一支-java-程式&#34;&gt;&lt;strong&gt;從 0 開始的 JAVA 生活 No.1 Java 第一支 java 程式&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>[從 0 開始的 JAVA 生活] No.0  JAVA 環境安裝</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_0/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_0/</link>
       <pubDate>Tue, 19 May 2020 06:22:46 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_0/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_0/</guid>
       <description></description>
     </item>
     

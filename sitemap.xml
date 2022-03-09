@@ -2,7 +2,7 @@
     
      <entry>
         <title>GIT Export Diff File</title>
-        <url>https://iankingh.github.io/post/git/git-export-diff-file/</url>
+        <url>https://iankingh.github.io/blog/post/git/git-export-diff-file/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -25,7 +25,7 @@ git 匯出差異清單和檔案. 匯出特定版本中新增或修改過的檔�
     
      <entry>
         <title>Java_tutorial_4</title>
-        <url>https://iankingh.github.io/post/java/java_tutorial_4/</url>
+        <url>https://iankingh.github.io/blog/post/java/java_tutorial_4/</url>
         <categories>
           <category>筆記</category><category>技術</category>
         </categories>
@@ -40,7 +40,7 @@ git 匯出差異清單和檔案. 匯出特定版本中新增或修改過的檔�
     
      <entry>
         <title>GitNote</title>
-        <url>https://iankingh.github.io/post/git/gitnote/</url>
+        <url>https://iankingh.github.io/blog/post/git/gitnote/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -57,7 +57,7 @@ git push &amp;ndash;tags &amp;hellip;.&amp;gt; 推送tag
     
      <entry>
         <title>AngularinstllNPMError</title>
-        <url>https://iankingh.github.io/post/angular/angularinstllnpmerror/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angularinstllnpmerror/</url>
         <categories>
           <category>Angular</category>
         </categories>
@@ -74,7 +74,7 @@ npm install npm@6.14.13 -g 或是用Yarn
     
      <entry>
         <title>Heic2any</title>
-        <url>https://iankingh.github.io/post/javascript/heic2any/</url>
+        <url>https://iankingh.github.io/blog/post/javascript/heic2any/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -89,7 +89,7 @@ npm install npm@6.14.13 -g 或是用Yarn
     
      <entry>
         <title>HikariPool-1 - Connection is not available, request timed out after 30000ms</title>
-        <url>https://iankingh.github.io/post/java/hikaripool-1-error/</url>
+        <url>https://iankingh.github.io/blog/post/java/hikaripool-1-error/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -110,7 +110,7 @@ JavaWeb問題集錦: 資料庫連線池請求超時 HikariPool-1 - Connection is
     
      <entry>
         <title>EclipseSettigUtf 8</title>
-        <url>https://iankingh.github.io/post/eclipse/eclipsesettingutf-8/</url>
+        <url>https://iankingh.github.io/blog/post/eclipse/eclipsesettingutf-8/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -124,7 +124,7 @@ JavaWeb問題集錦: 資料庫連線池請求超時 HikariPool-1 - Connection is
     
      <entry>
         <title>ChromeTools</title>
-        <url>https://iankingh.github.io/post/net/chrometools/</url>
+        <url>https://iankingh.github.io/blog/post/net/chrometools/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -150,7 +150,7 @@ https://developer.chrome.com/blog/new-in-devtools-65/#overrides
     
      <entry>
         <title>hosts</title>
-        <url>https://iankingh.github.io/post/net/hosts/</url>
+        <url>https://iankingh.github.io/blog/post/net/hosts/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -183,7 +183,7 @@ $ sudo vi /etc/hosts hosts 設定檔用途 大部分的使用者可能不會需
     
      <entry>
         <title>算錢用浮點，遲早被人扁</title>
-        <url>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</url>
+        <url>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -205,7 +205,7 @@ https://0.30000000000000004.com/
     
      <entry>
         <title>ArrayCreateTable</title>
-        <url>https://iankingh.github.io/post/javascript/arraycreatetable/</url>
+        <url>https://iankingh.github.io/blog/post/javascript/arraycreatetable/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -217,7 +217,7 @@ https://0.30000000000000004.com/
     
      <entry>
         <title>HiddenBtnByprint</title>
-        <url>https://iankingh.github.io/post/javascript/hiddenbtnbyprint/</url>
+        <url>https://iankingh.github.io/blog/post/javascript/hiddenbtnbyprint/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -230,7 +230,7 @@ https://0.30000000000000004.com/
     
      <entry>
         <title>使用notepad指令救援資料</title>
-        <url>https://iankingh.github.io/post/other/%E4%BD%BF%E7%94%A8notepad%E6%8C%87%E4%BB%A4%E6%95%91%E6%8F%B4%E8%B3%87%E6%96%99/</url>
+        <url>https://iankingh.github.io/blog/post/other/%E4%BD%BF%E7%94%A8notepad%E6%8C%87%E4%BB%A4%E6%95%91%E6%8F%B4%E8%B3%87%E6%96%99/</url>
         <categories>
           <category>other</category>
         </categories>
@@ -247,7 +247,7 @@ https://0.30000000000000004.com/
     
      <entry>
         <title>如何偵測使用者的裝置是否為行動裝置</title>
-        <url>https://iankingh.github.io/post/javascript/detect-mobile-device/</url>
+        <url>https://iankingh.github.io/blog/post/javascript/detect-mobile-device/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -261,7 +261,7 @@ function isMobileDevice() {const mobileDevice = [&#39;Android&#39;, &#39;webOS&
     
      <entry>
         <title>AngualrOnIE11</title>
-        <url>https://iankingh.github.io/post/angular/angualronie11/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angualronie11/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -285,7 +285,7 @@ https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js
     
      <entry>
         <title>Vagrant</title>
-        <url>https://iankingh.github.io/post/other/vagrant/</url>
+        <url>https://iankingh.github.io/blog/post/other/vagrant/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -301,7 +301,7 @@ vagrant plugin install vagrant-scp Usage
     
      <entry>
         <title>前後端分離</title>
-        <url>https://iankingh.github.io/post/other/%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%88%86%E9%9B%A2/</url>
+        <url>https://iankingh.github.io/blog/post/other/%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%88%86%E9%9B%A2/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -323,7 +323,7 @@ https://kknews.cc/zh-tw/code/8oomk6q.html
     
      <entry>
         <title>tomcatSetingUser</title>
-        <url>https://iankingh.github.io/post/server/tomcatsetinguser/</url>
+        <url>https://iankingh.github.io/blog/post/server/tomcatsetinguser/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -338,7 +338,7 @@ https://kknews.cc/zh-tw/code/8oomk6q.html
     
      <entry>
         <title>Java_heap_space</title>
-        <url>https://iankingh.github.io/post/java/java_heap_space/</url>
+        <url>https://iankingh.github.io/blog/post/java/java_heap_space/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -361,7 +361,7 @@ OutofMemory while reading JPEG file Using IMAGEIO (Performance forum at Coderanc
     
      <entry>
         <title>Cmd</title>
-        <url>https://iankingh.github.io/post/windows/cmd/</url>
+        <url>https://iankingh.github.io/blog/post/windows/cmd/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -380,7 +380,7 @@ ipconfig cls : 清空命令
     
      <entry>
         <title>SpringBoot_ConditionalOnProperty</title>
-        <url>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</url>
+        <url>https://iankingh.github.io/blog/post/spring-boot/spring-boot-conditionalonproperty/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -406,7 +406,7 @@ java - Spring @ConditionalOnExpression with OR statement - Stack Overflow https:
     
      <entry>
         <title>GitBranchUpdateMaster</title>
-        <url>https://iankingh.github.io/post/git/gitbranchupdatemaster/</url>
+        <url>https://iankingh.github.io/blog/post/git/gitbranchupdatemaster/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -423,7 +423,7 @@ java - Spring @ConditionalOnExpression with OR statement - Stack Overflow https:
     
      <entry>
         <title>Route</title>
-        <url>https://iankingh.github.io/post/net/route/</url>
+        <url>https://iankingh.github.io/blog/post/net/route/</url>
         <categories>
           <category>categories</category>
         </categories>
@@ -489,7 +489,7 @@ http://ctwivan.blogspot.com/2010/08/windowsstatic-route.html
     
      <entry>
         <title>AngularUseJavaScript</title>
-        <url>https://iankingh.github.io/post/angular/angularusejs/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angularusejs/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -515,7 +515,7 @@ Angular引入自己写的js或者其他_qq_43205711的博客-程序员宅基地_
     
      <entry>
         <title>WindowsNetCmd</title>
-        <url>https://iankingh.github.io/post/net/windowsnetcmd/</url>
+        <url>https://iankingh.github.io/blog/post/net/windowsnetcmd/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -545,7 +545,7 @@ https://medium.com/@CarterTsai/%E5%88%A9%E7%94%A8powershell%E7%9A%84test-netconn
     
      <entry>
         <title>SSlAndTLS</title>
-        <url>https://iankingh.github.io/post/net/sslandtlsandhttps/</url>
+        <url>https://iankingh.github.io/blog/post/net/sslandtlsandhttps/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -656,7 +656,7 @@ https://www.netadmin.com.tw/netadmin/zh-tw/technology/6F6D669EB83E4DC9BEA42F1C94
     
      <entry>
         <title>Angular_NullInjectorError</title>
-        <url>https://iankingh.github.io/post/angular/angular_nullinjectorerror/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angular_nullinjectorerror/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -674,7 +674,7 @@ Angular依赖注入的一个常见错误NullInjectorError,No provider for XXX - 
     
      <entry>
         <title>IP</title>
-        <url>https://iankingh.github.io/post/net/ip/</url>
+        <url>https://iankingh.github.io/blog/post/net/ip/</url>
         <categories>
           <category>技術</category>
         </categories>
@@ -698,7 +698,7 @@ http://kevin.hwai.edu.tw/~kevin/material/EAssistant/IP_Class.htm
     
      <entry>
         <title>Git_pull_error</title>
-        <url>https://iankingh.github.io/post/git/git_error/</url>
+        <url>https://iankingh.github.io/blog/post/git/git_error/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -725,7 +725,7 @@ git reset --hardgit pull origin master 注： 其中origin master表示git的�
     
      <entry>
         <title>EmbracingJUnitwithEclipse</title>
-        <url>https://iankingh.github.io/post/eclipse/eclipseusejunit/</url>
+        <url>https://iankingh.github.io/blog/post/eclipse/eclipseusejunit/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -743,7 +743,7 @@ Enbironment : 可以選擇 環境變數
     
      <entry>
         <title>docker-compose</title>
-        <url>https://iankingh.github.io/post/docker/docker_compose/</url>
+        <url>https://iankingh.github.io/blog/post/docker/docker_compose/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -770,7 +770,7 @@ Angular — Local Development With Docker-Compose | by Bhargav Bachina | Bachina
     
      <entry>
         <title>AngularDeployTomcat</title>
-        <url>https://iankingh.github.io/post/angular/angulardeploytomcat/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angulardeploytomcat/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -806,7 +806,7 @@ maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow
     
      <entry>
         <title>DockerFile</title>
-        <url>https://iankingh.github.io/post/docker/dockerfile/</url>
+        <url>https://iankingh.github.io/blog/post/docker/dockerfile/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -835,7 +835,7 @@ http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html
     
      <entry>
         <title>AngularCLInotes</title>
-        <url>https://iankingh.github.io/post/angular/angularclinotes/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angularclinotes/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -857,7 +857,7 @@ ng build --configuration=production
     
      <entry>
         <title>AngularFileStructure</title>
-        <url>https://iankingh.github.io/post/angular/angularfilestructure/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angularfilestructure/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -881,7 +881,7 @@ Angular 4 File Structure | John Wu&amp;rsquo;s Blog
     
      <entry>
         <title>Angular use compodoc</title>
-        <url>https://iankingh.github.io/post/angular/angularusecompodoc/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angularusecompodoc/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -900,7 +900,7 @@ Javascript文檔註解規則使用方式@use JSDoc - ucamc
     
      <entry>
         <title>AngularBsN02</title>
-        <url>https://iankingh.github.io/post/angular/angularbsn02/</url>
+        <url>https://iankingh.github.io/blog/post/angular/angularbsn02/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -940,7 +940,7 @@ Angular CLI 7.3 使用 ES2015 的 nomodule 屬性載入 Polyfills 函式庫 | Th
     
      <entry>
         <title>Linux指令</title>
-        <url>https://iankingh.github.io/post/linux/linuxcommand/</url>
+        <url>https://iankingh.github.io/blog/post/linux/linuxcommand/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -952,7 +952,7 @@ Angular CLI 7.3 使用 ES2015 的 nomodule 屬性載入 Polyfills 函式庫 | Th
     
      <entry>
         <title>[從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們</title>
-        <url>https://iankingh.github.io/post/java/java_tutorial_3./</url>
+        <url>https://iankingh.github.io/blog/post/java/java_tutorial_3./</url>
         <categories>
           <category>筆記</category><category>技術</category>
         </categories>
@@ -970,7 +970,7 @@ Angular CLI 7.3 使用 ES2015 的 nomodule 屬性載入 Polyfills 函式庫 | Th
     
      <entry>
         <title>SpringDataJapNotes</title>
-        <url>https://iankingh.github.io/post/spring/springdatajapnotes/</url>
+        <url>https://iankingh.github.io/blog/post/spring/springdatajapnotes/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1031,7 +1031,7 @@ public interface CustomerRepository extends CrudRepository&amp;lt;Customer, Long
     
      <entry>
         <title>docker 指令</title>
-        <url>https://iankingh.github.io/post/docker/docker_command/</url>
+        <url>https://iankingh.github.io/blog/post/docker/docker_command/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1057,7 +1057,7 @@ docker container ls命令 - Docker教程™
     
      <entry>
         <title>[從 0 開始的 JAVA 生活]No.2 Java 基本的資料型態(Primitive Data Types)</title>
-        <url>https://iankingh.github.io/post/java/java_tutorial_2/</url>
+        <url>https://iankingh.github.io/blog/post/java/java_tutorial_2/</url>
         <categories>
           <category>筆記</category><category>技術</category>
         </categories>
@@ -1072,7 +1072,7 @@ docker container ls命令 - Docker教程™
     
      <entry>
         <title>[從 0 開始的 JAVA 生活] No.1 Java 第一支 java 程式</title>
-        <url>https://iankingh.github.io/post/java/java_tutorial_1/</url>
+        <url>https://iankingh.github.io/blog/post/java/java_tutorial_1/</url>
         <categories>
           <category>筆記</category><category>技術</category>
         </categories>
@@ -1086,7 +1086,7 @@ java HelloJava 參考</content>
     
      <entry>
         <title>Java DecimalFormat(數字格式)</title>
-        <url>https://iankingh.github.io/post/java/java_decimalformat/</url>
+        <url>https://iankingh.github.io/blog/post/java/java_decimalformat/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1113,7 +1113,7 @@ Customizing Formats (The Java™ Tutorials &amp;gt; Internationalization &amp;gt
     
      <entry>
         <title>Create an Android project(創建一個Android項目)</title>
-        <url>https://iankingh.github.io/post/android/androidbsn01/</url>
+        <url>https://iankingh.github.io/blog/post/android/androidbsn01/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1140,7 +1140,7 @@ Android Studio主窗口
     
      <entry>
         <title>Redis簡介</title>
-        <url>https://iankingh.github.io/post/redis/redisinstall/</url>
+        <url>https://iankingh.github.io/blog/post/redis/redisinstall/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1167,7 +1167,7 @@ https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuratio
     
      <entry>
         <title>[從 0 開始的 JAVA 生活] No.0  JAVA 環境安裝</title>
-        <url>https://iankingh.github.io/post/java/java_tutorial_0/</url>
+        <url>https://iankingh.github.io/blog/post/java/java_tutorial_0/</url>
         <categories>
           <category>筆記</category><category>技術</category>
         </categories>
@@ -1184,7 +1184,7 @@ java -vresionjavac -version 輸出如下圖
     
      <entry>
         <title>Eclipse 用 Open Type Hierarchy 查看類的繼承關係</title>
-        <url>https://iankingh.github.io/post/eclipse/opentypehierarchy/</url>
+        <url>https://iankingh.github.io/blog/post/eclipse/opentypehierarchy/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1199,7 +1199,7 @@ java -vresionjavac -version 輸出如下圖
     
      <entry>
         <title>連線GitLab問題處理</title>
-        <url>https://iankingh.github.io/post/git/gitlaberror/</url>
+        <url>https://iankingh.github.io/blog/post/git/gitlaberror/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1217,7 +1217,7 @@ Credential Manager / Windows Credentials/  找到 對應的 gitlab 把他移除
     
      <entry>
         <title>Hugo 使用 disqus</title>
-        <url>https://iankingh.github.io/post/hugo/hugoaddisqus/</url>
+        <url>https://iankingh.github.io/blog/post/hugo/hugoaddisqus/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1238,7 +1238,7 @@ disqusShortname = &amp;quot;yourDisqusShortname&amp;quot; 新增 disqus.html �
     
      <entry>
         <title>Prism.js使用筆記</title>
-        <url>https://iankingh.github.io/post/hugo/hugoaddprism/</url>
+        <url>https://iankingh.github.io/blog/post/hugo/hugoaddprism/</url>
         <categories>
           <category>筆記</category>
         </categories>
@@ -1257,7 +1257,7 @@ Prism是一種輕量級的，可擴展的語法突出顯示工具，其構建考
     
      <entry>
         <title>Hugo使用筆記</title>
-        <url>https://iankingh.github.io/post/hugo/hugonotes/</url>
+        <url>https://iankingh.github.io/blog/post/hugo/hugonotes/</url>
         <categories>
           <category>筆記</category>
         </categories>

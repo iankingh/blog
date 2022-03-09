@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java on ianhuang筆記</title>
-    <link>https://iankingh.github.io/tags/java/</link>
+    <link>https://iankingh.github.io/blog/tags/java/</link>
     <description>Recent content in java on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 25 Jul 2021 20:58:15 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 20:58:15 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java_tutorial_4</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_4/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_4/</link>
       <pubDate>Sun, 25 Jul 2021 20:58:15 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_4/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_4/</guid>
       <description>&lt;h1 id=&#34;從-0-開始的-java-生活no4-java-物件導向簡介&#34;&gt;[從 0 開始的 JAVA 生活]No.4 java 物件導向簡介&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>HikariPool-1 - Connection is not available, request timed out after 30000ms</title>
-      <link>https://iankingh.github.io/post/java/hikaripool-1-error/</link>
+      <link>https://iankingh.github.io/blog/post/java/hikaripool-1-error/</link>
       <pubDate>Thu, 06 May 2021 21:18:55 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/hikaripool-1-error/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/hikaripool-1-error/</guid>
       <description>&lt;h2 id=&#34;hikaripool-1---connection-is-not-available-request-timed-out-after-30000ms&#34;&gt;HikariPool-1 - Connection is not available, request timed out after 30000ms&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;HikariPool是連接池管理類，負責管理數據庫連接。&lt;/p&gt;
@@ -31,29 +31,29 @@
     
     <item>
       <title>算錢用浮點，遲早被人扁</title>
-      <link>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</link>
+      <link>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</link>
       <pubDate>Mon, 22 Mar 2021 11:14:01 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</guid>
+      <guid>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</guid>
       <description>&lt;h2 id=&#34;算錢用浮點遲早被人扁&#34;&gt;算錢用浮點，遲早被人扁&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>tomcatSetingUser</title>
-      <link>https://iankingh.github.io/post/server/tomcatsetinguser/</link>
+      <link>https://iankingh.github.io/blog/post/server/tomcatsetinguser/</link>
       <pubDate>Wed, 03 Mar 2021 13:33:50 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/server/tomcatsetinguser/</guid>
+      <guid>https://iankingh.github.io/blog/post/server/tomcatsetinguser/</guid>
       <description>&lt;h2 id=&#34;配置tomcat-的使用者&#34;&gt;配置Tomcat 的使用者&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>Java_heap_space</title>
-      <link>https://iankingh.github.io/post/java/java_heap_space/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_heap_space/</link>
       <pubDate>Tue, 02 Mar 2021 14:35:25 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_heap_space/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_heap_space/</guid>
       <description>&lt;h2 id=&#34;javalangoutofmemoryerror-java-heap-space-jvm記憶體設定&#34;&gt;java.lang.OutOfMemoryError: Java heap space JVM記憶體設定&lt;/h2&gt;
 &lt;p&gt;使用Java程式從資料庫中查詢大量的資料時出現異常:java.lang.OutOfMemoryError: Java heap space
 在JVM中如果98%的時間是用於GC且可用的 Heap size 不足2%的時候將丟擲此異常資訊。
@@ -62,28 +62,28 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     
     <item>
       <title>SpringBoot_ConditionalOnProperty</title>
-      <link>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</link>
+      <link>https://iankingh.github.io/blog/post/spring-boot/spring-boot-conditionalonproperty/</link>
       <pubDate>Wed, 03 Feb 2021 11:41:55 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</guid>
+      <guid>https://iankingh.github.io/blog/post/spring-boot/spring-boot-conditionalonproperty/</guid>
       <description>&lt;h2 id=&#34;spring-conditionalonproperty的作用和用法&#34;&gt;Spring ConditionalOnProperty的作用和用法&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>[從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_3./</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_3./</link>
       <pubDate>Mon, 15 Jun 2020 06:20:37 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_3./</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_3./</guid>
       <description>&lt;h1 id=&#34;從-0-開始的-java-生活no3-變數與它的小夥伴們&#34;&gt;[從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>SpringDataJapNotes</title>
-      <link>https://iankingh.github.io/post/spring/springdatajapnotes/</link>
+      <link>https://iankingh.github.io/blog/post/spring/springdatajapnotes/</link>
       <pubDate>Thu, 04 Jun 2020 05:45:59 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/spring/springdatajapnotes/</guid>
+      <guid>https://iankingh.github.io/blog/post/spring/springdatajapnotes/</guid>
       <description>&lt;h2 id=&#34;spring-data-jpa-介紹&#34;&gt;Spring Data JPA 介紹&lt;/h2&gt;
 &lt;h3 id=&#34;spring-data-概述&#34;&gt;Spring-Data 概述&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Spring Data&lt;/strong&gt; 是一個資料訪問框架 ，用於簡化資料庫訪問，旨在提供一致的資料庫訪問模型，同時仍然保留不同資料庫底層資料存儲的特點，&lt;strong&gt;Spring&lt;/strong&gt; &lt;strong&gt;Data&lt;/strong&gt; 採用了&lt;strong&gt;領域驅動模型&lt;/strong&gt;的設計思想，實現了訪問關係型數據庫、非關係型數據庫的統一的介面，只需要定義好領域模型（&lt;strong&gt;Entity&lt;/strong&gt;），後續的創建表、&lt;strong&gt;CURD&lt;/strong&gt;、排序操作不需要手動添加任何&lt;strong&gt;SQL&lt;/strong&gt;語句，同時也支持手動擴展功能。&lt;/p&gt;
@@ -95,37 +95,37 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     
     <item>
       <title>[從 0 開始的 JAVA 生活]No.2 Java 基本的資料型態(Primitive Data Types)</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_2/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_2/</link>
       <pubDate>Sat, 30 May 2020 06:22:46 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_2/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_2/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>[從 0 開始的 JAVA 生活] No.1 Java 第一支 java 程式</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_1/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_1/</link>
       <pubDate>Fri, 29 May 2020 06:50:51 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_1/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_1/</guid>
       <description>&lt;h2 id=&#34;從-0-開始的-java-生活-no1-java-第一支-java-程式&#34;&gt;&lt;strong&gt;從 0 開始的 JAVA 生活 No.1 Java 第一支 java 程式&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>Java DecimalFormat(數字格式)</title>
-      <link>https://iankingh.github.io/post/java/java_decimalformat/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_decimalformat/</link>
       <pubDate>Tue, 26 May 2020 08:59:50 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_decimalformat/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_decimalformat/</guid>
       <description>&lt;h2 id=&#34;java-decimalformat數字格式&#34;&gt;Java DecimalFormat(數字格式)&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>[從 0 開始的 JAVA 生活] No.0  JAVA 環境安裝</title>
-      <link>https://iankingh.github.io/post/java/java_tutorial_0/</link>
+      <link>https://iankingh.github.io/blog/post/java/java_tutorial_0/</link>
       <pubDate>Tue, 19 May 2020 06:22:46 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/java/java_tutorial_0/</guid>
+      <guid>https://iankingh.github.io/blog/post/java/java_tutorial_0/</guid>
       <description></description>
     </item>
     

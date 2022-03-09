@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring on ianhuang筆記</title>
-    <link>https://iankingh.github.io/tags/spring/</link>
+    <link>https://iankingh.github.io/blog/tags/spring/</link>
     <description>Recent content in Spring on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 03 Feb 2021 11:41:55 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Feb 2021 11:41:55 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SpringBoot_ConditionalOnProperty</title>
-      <link>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</link>
+      <link>https://iankingh.github.io/blog/post/spring-boot/spring-boot-conditionalonproperty/</link>
       <pubDate>Wed, 03 Feb 2021 11:41:55 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</guid>
+      <guid>https://iankingh.github.io/blog/post/spring-boot/spring-boot-conditionalonproperty/</guid>
       <description>&lt;h2 id=&#34;spring-conditionalonproperty的作用和用法&#34;&gt;Spring ConditionalOnProperty的作用和用法&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>SpringDataJapNotes</title>
-      <link>https://iankingh.github.io/post/spring/springdatajapnotes/</link>
+      <link>https://iankingh.github.io/blog/post/spring/springdatajapnotes/</link>
       <pubDate>Thu, 04 Jun 2020 05:45:59 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/spring/springdatajapnotes/</guid>
+      <guid>https://iankingh.github.io/blog/post/spring/springdatajapnotes/</guid>
       <description>&lt;h2 id=&#34;spring-data-jpa-介紹&#34;&gt;Spring Data JPA 介紹&lt;/h2&gt;
 &lt;h3 id=&#34;spring-data-概述&#34;&gt;Spring-Data 概述&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Spring Data&lt;/strong&gt; 是一個資料訪問框架 ，用於簡化資料庫訪問，旨在提供一致的資料庫訪問模型，同時仍然保留不同資料庫底層資料存儲的特點，&lt;strong&gt;Spring&lt;/strong&gt; &lt;strong&gt;Data&lt;/strong&gt; 採用了&lt;strong&gt;領域驅動模型&lt;/strong&gt;的設計思想，實現了訪問關係型數據庫、非關係型數據庫的統一的介面，只需要定義好領域模型（&lt;strong&gt;Entity&lt;/strong&gt;），後續的創建表、&lt;strong&gt;CURD&lt;/strong&gt;、排序操作不需要手動添加任何&lt;strong&gt;SQL&lt;/strong&gt;語句，同時也支持手動擴展功能。&lt;/p&gt;

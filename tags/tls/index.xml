@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TLS on ianhuang筆記</title>
-    <link>https://iankingh.github.io/tags/tls/</link>
+    <link>https://iankingh.github.io/blog/tags/tls/</link>
     <description>Recent content in TLS on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 23 Dec 2020 11:38:01 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/tags/tls/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Dec 2020 11:38:01 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/tls/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSlAndTLS</title>
-      <link>https://iankingh.github.io/post/net/sslandtlsandhttps/</link>
+      <link>https://iankingh.github.io/blog/post/net/sslandtlsandhttps/</link>
       <pubDate>Wed, 23 Dec 2020 11:38:01 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/net/sslandtlsandhttps/</guid>
+      <guid>https://iankingh.github.io/blog/post/net/sslandtlsandhttps/</guid>
       <description>&lt;h1 id=&#34;ssltls-以及-https&#34;&gt;SSL、TLS 以及 HTTPS&lt;/h1&gt;
 &lt;p&gt;當我們瀏覽網頁時：網址列的開頭是不是有個 🔒鎖的圖案。&lt;/p&gt;
 &lt;p&gt;這個鎖代表你現在連線到的網站是安全可信任的。&lt;/p&gt;
