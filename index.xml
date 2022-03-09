@@ -6,7 +6,17 @@
     <description>Recent content on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 25 Jul 2021 20:58:15 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 18:13:27 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIT Export Diff File</title>
+      <link>https://iankingh.github.io/post/git/git-export-diff-file/</link>
+      <pubDate>Wed, 23 Feb 2022 18:13:27 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/git/git-export-diff-file/</guid>
+      <description>&lt;h2 id=&#34;git-匯出差異檔案&#34;&gt;GIT 匯出差異檔案&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
     <item>
       <title>Java_tutorial_4</title>
       <link>https://iankingh.github.io/post/java/java_tutorial_4/</link>
@@ -28,12 +38,97 @@
     </item>
     
     <item>
+      <title>AngularinstllNPMError</title>
+      <link>https://iankingh.github.io/post/angular/angularinstllnpmerror/</link>
+      <pubDate>Sun, 04 Jul 2021 18:05:34 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/angular/angularinstllnpmerror/</guid>
+      <description>&lt;h2 id=&#34;紀錄angualr-安裝-npm-套件時遇到的錯誤&#34;&gt;紀錄Angualr 安裝 npm 套件時遇到的錯誤&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Heic2any</title>
+      <link>https://iankingh.github.io/post/javascript/heic2any/</link>
+      <pubDate>Mon, 28 Jun 2021 04:22:43 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/heic2any/</guid>
+      <description>&lt;h2 id=&#34;heic2any-使用筆記&#34;&gt;Heic2any 使用筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;客戶端（瀏覽器端，使用 Javascript）將HEIC/HEIF圖像文件轉換為 JPEG、PNG 或 GIF。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HikariPool-1 - Connection is not available, request timed out after 30000ms</title>
+      <link>https://iankingh.github.io/post/java/hikaripool-1-error/</link>
+      <pubDate>Thu, 06 May 2021 21:18:55 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/java/hikaripool-1-error/</guid>
+      <description>&lt;h2 id=&#34;hikaripool-1---connection-is-not-available-request-timed-out-after-30000ms&#34;&gt;HikariPool-1 - Connection is not available, request timed out after 30000ms&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;HikariPool是連接池管理類，負責管理數據庫連接。&lt;/p&gt;
+&lt;p&gt;HikariPool-1 - Connection is not available, request timed out after 30000ms&lt;/p&gt;
+&lt;p&gt;表示資料庫連線池請求超時&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>EclipseSettigUtf 8</title>
+      <link>https://iankingh.github.io/post/eclipse/eclipsesettingutf-8/</link>
+      <pubDate>Mon, 12 Apr 2021 09:08:22 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/eclipse/eclipsesettingutf-8/</guid>
+      <description>&lt;h2 id=&#34;eclipse-設定-utf-8&#34;&gt;Eclipse 設定 UTF-8&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>ChromeTools</title>
+      <link>https://iankingh.github.io/post/net/chrometools/</link>
+      <pubDate>Sun, 11 Apr 2021 19:11:37 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/net/chrometools/</guid>
+      <description>&lt;h2 id=&#34;chrome-筆記&#34;&gt;chrome 筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>hosts</title>
+      <link>https://iankingh.github.io/post/net/hosts/</link>
+      <pubDate>Tue, 06 Apr 2021 09:40:12 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/net/hosts/</guid>
+      <description>&lt;h2 id=&#34;hosts筆記&#34;&gt;hosts筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;在架設網站時，除了伺服主機的網路設定之外，還要配合 DNS 伺服器才能讓網站正常運作，而 DNS 上面的記錄在變更之後，通常都會需要幾個小時才會生效，所以很多人在架設網站初期都會浪費許多時間在等待 DNS 生效，才進行後續的設定，其實我們可以在 DNS 生效之前，以動的方式自行先設定自己電腦上的 hosts 檔，加速網站的建置工作。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>算錢用浮點，遲早被人扁</title>
       <link>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</link>
       <pubDate>Mon, 22 Mar 2021 11:14:01 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</guid>
       <description>&lt;h2 id=&#34;算錢用浮點遲早被人扁&#34;&gt;算錢用浮點，遲早被人扁&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>ArrayCreateTable</title>
+      <link>https://iankingh.github.io/post/javascript/arraycreatetable/</link>
+      <pubDate>Tue, 16 Mar 2021 09:55:35 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/arraycreatetable/</guid>
+      <description>&lt;h2 id=&#34;javascript利用arraycreatetable筆記&#34;&gt;JavaScript利用ArrayCreateTable筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>HiddenBtnByprint</title>
+      <link>https://iankingh.github.io/post/javascript/hiddenbtnbyprint/</link>
+      <pubDate>Tue, 16 Mar 2021 09:51:39 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/hiddenbtnbyprint/</guid>
+      <description>&lt;h2 id=&#34;hiddenbtnbyprint-筆記&#34;&gt;hiddenBtnByprint 筆記&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
@@ -45,6 +140,26 @@
       <guid>https://iankingh.github.io/post/other/%E4%BD%BF%E7%94%A8notepad%E6%8C%87%E4%BB%A4%E6%95%91%E6%8F%B4%E8%B3%87%E6%96%99/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何偵測使用者的裝置是否為行動裝置</title>
+      <link>https://iankingh.github.io/post/javascript/detect-mobile-device/</link>
+      <pubDate>Mon, 15 Mar 2021 09:20:44 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/detect-mobile-device/</guid>
+      <description>&lt;h2 id=&#34;如何偵測使用者的裝置是否為行動裝置&#34;&gt;如何偵測使用者的裝置是否為行動裝置&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngualrOnIE11</title>
+      <link>https://iankingh.github.io/post/angular/angualronie11/</link>
+      <pubDate>Wed, 10 Mar 2021 13:21:43 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/angular/angualronie11/</guid>
+      <description>&lt;h2 id=&#34;angualr-ie-11-使用筆記&#34;&gt;&lt;strong&gt;Angualr IE 11 使用筆記&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;在IE 11 上的 使用 Angular&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -96,12 +211,12 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     </item>
     
     <item>
-      <title>GitCommitMessage</title>
-      <link>https://iankingh.github.io/post/git/gitcommitmessage/</link>
-      <pubDate>Thu, 04 Feb 2021 12:52:04 +0800</pubDate>
+      <title>SpringBoot_ConditionalOnProperty</title>
+      <link>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</link>
+      <pubDate>Wed, 03 Feb 2021 11:41:55 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/post/git/gitcommitmessage/</guid>
-      <description>&lt;h1 id=&#34;git-commit-message-規範&#34;&gt;Git Commit Message 規範&lt;/h1&gt;</description>
+      <guid>https://iankingh.github.io/post/spring-boot/spring-boot-conditionalonproperty/</guid>
+      <description>&lt;h2 id=&#34;spring-conditionalonproperty的作用和用法&#34;&gt;Spring ConditionalOnProperty的作用和用法&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -127,14 +242,14 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     </item>
     
     <item>
-      <title>AngularUseJS</title>
+      <title>AngularUseJavaScript</title>
       <link>https://iankingh.github.io/post/angular/angularusejs/</link>
       <pubDate>Fri, 22 Jan 2021 13:38:06 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/angular/angularusejs/</guid>
-      <description>&lt;h2 id=&#34;angular-使用-javascript&#34;&gt;Angular 使用 JavaScript&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;angular引入javascript&#34;&gt;&lt;strong&gt;Angular引入&lt;/strong&gt;JavaScript&lt;/h2&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;在實務上我們可以在npm上面找到要用的 js 來引用 , 有時可能找不到 , 有時可能要匯入自己寫的js ,如果功能不複雜 ,可以轉成ts&lt;/p&gt;</description>
+&lt;p&gt;在實務上我們可以在npm上面找到要用的 JavaScript 來引用 , 有時可能找不到 , 也有時可能要匯入自己寫的JavaScript ,如果功能不複雜 ,可以轉成TypeScript&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -159,6 +274,15 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     </item>
     
     <item>
+      <title>Angular_NullInjectorError</title>
+      <link>https://iankingh.github.io/post/angular/angular_nullinjectorerror/</link>
+      <pubDate>Tue, 27 Oct 2020 21:28:57 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/angular/angular_nullinjectorerror/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>IP</title>
       <link>https://iankingh.github.io/post/net/ip/</link>
       <pubDate>Tue, 06 Oct 2020 22:18:37 +0800</pubDate>
@@ -176,7 +300,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
 &lt;p&gt;&lt;strong&gt;IP 位址是唯一的。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;IPv4 的位址空間為 232 或 4,294,967,296。&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IPv4 的位址空間為 232 或 4,294,967,296。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description>
     </item>
@@ -191,7 +315,16 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
     </item>
     
     <item>
-      <title>Docker_Compose</title>
+      <title>EmbracingJUnitwithEclipse</title>
+      <link>https://iankingh.github.io/post/eclipse/eclipseusejunit/</link>
+      <pubDate>Tue, 29 Sep 2020 22:13:19 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/eclipse/eclipseusejunit/</guid>
+      <description>&lt;h2 id=&#34;junit-with-eclipse&#34;&gt;Junit with Eclipse&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
       <link>https://iankingh.github.io/post/docker/docker_compose/</link>
       <pubDate>Mon, 28 Sep 2020 21:53:46 +0800</pubDate>
       
@@ -205,7 +338,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Fri, 25 Sep 2020 20:40:28 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/angular/angulardeploytomcat/</guid>
-      <description>&lt;h1 id=&#34;angular-deploy-tomcat&#34;&gt;Angular Deploy Tomcat&lt;/h1&gt;</description>
+      <description>&lt;h2 id=&#34;angular-deploy-tomcat&#34;&gt;&lt;strong&gt;Angular Deploy Tomcat&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -218,12 +351,30 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
     </item>
     
     <item>
-      <title>AngularUseCompodoc</title>
+      <title>AngularCLInotes</title>
+      <link>https://iankingh.github.io/post/angular/angularclinotes/</link>
+      <pubDate>Mon, 03 Aug 2020 11:42:02 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/angular/angularclinotes/</guid>
+      <description>Angular維運指令 啟動本機開發server ng serve : 啟動本機server 預設4200 npm start : 啟動本機server 預設4200 會跑 ng serve build : 編譯P</description>
+    </item>
+    
+    <item>
+      <title>AngularFileStructure</title>
+      <link>https://iankingh.github.io/post/angular/angularfilestructure/</link>
+      <pubDate>Mon, 03 Aug 2020 09:18:12 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/angular/angularfilestructure/</guid>
+      <description>Angular 代碼目錄結構 初學者小專案可以用 MVC ├── README.md # ├── angular.json # Angular CLI 的設定檔 ├── node_modules # npm ├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm inst</description>
+    </item>
+    
+    <item>
+      <title>Angular use compodoc</title>
       <link>https://iankingh.github.io/post/angular/angularusecompodoc/</link>
       <pubDate>Mon, 20 Jul 2020 16:17:45 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/angular/angularusecompodoc/</guid>
-      <description>&lt;h1 id=&#34;angularg-use-compodoc&#34;&gt;Angularg use compodoc&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;angular-use-compodoc&#34;&gt;&lt;strong&gt;Angular use compodoc&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;compodoc是一個用於產生 Angular 靜態網頁的工具&lt;/p&gt;
 &lt;p&gt;Angular 使用 compodoc 產生說明文件&lt;/p&gt;</description>
     </item>
@@ -276,7 +427,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Sun, 31 May 2020 17:40:46 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/docker/docker_command/</guid>
-      <description>&lt;h1 id=&#34;docker-指令&#34;&gt;Docker 指令&lt;/h1&gt;</description>
+      <description>&lt;h2 id=&#34;docker-指令&#34;&gt;Docker 指令&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -303,13 +454,11 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Tue, 26 May 2020 08:59:50 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/java/java_decimalformat/</guid>
-      <description>&lt;h2 id=&#34;簡介&#34;&gt;簡介&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;java.text&lt;/code&gt;提供了&lt;code&gt;NumberFormat&lt;/code&gt;類別來讓我們更方便的格式化數字的呈現方式&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;DecimalFormat&lt;/code&gt;是&lt;code&gt;NumberFormat&lt;/code&gt;該格式的具體子類， 其格式為小數。它具有多種功能，旨在使可以在任何語言環境中解析和格式化數字，包括對西方，阿拉伯和印度數字的支持。它還支持各種數字，包括整數（123），定點數字（123.4），科學計數法（1.23E4），百分比（12％）和貨幣金額（$ 123）。所有這些都可以本地化。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;java-decimalformat數字格式&#34;&gt;Java DecimalFormat(數字格式)&lt;/h2&gt;</description>
     </item>
     
     <item>
-      <title>AndroidBsN01</title>
+      <title>Create an Android project(創建一個Android項目)</title>
       <link>https://iankingh.github.io/post/android/androidbsn01/</link>
       <pubDate>Mon, 25 May 2020 10:50:35 +0800</pubDate>
       
@@ -351,7 +500,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Fri, 15 May 2020 16:36:13 +0800</pubDate>
       
       <guid>https://iankingh.github.io/post/git/gitlaberror/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;連線gitlab問題處理&#34;&gt;連線GitLab問題處理&lt;/h2&gt;</description>
     </item>
     
     <item>

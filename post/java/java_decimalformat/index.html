@@ -168,37 +168,46 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">閱讀：</span>
-<span class="leancloud-visitors-count">1530 字 ~4分鐘</span>
+<span class="leancloud-visitors-count">1569 字 ~4分鐘</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <h2 id="簡介">簡介</h2>
+    <h2 id="java-decimalformat數字格式">Java DecimalFormat(數字格式)</h2>
+<h2 id="簡介"><strong>簡介</strong></h2>
 <p><code>java.text</code>提供了<code>NumberFormat</code>類別來讓我們更方便的格式化數字的呈現方式</p>
 <p><code>DecimalFormat</code>是<code>NumberFormat</code>該格式的具體子類， 其格式為小數。它具有多種功能，旨在使可以在任何語言環境中解析和格式化數字，包括對西方，阿拉伯和印度數字的支持。它還支持各種數字，包括整數（123），定點數字（123.4），科學計數法（1.23E4），百分比（12％）和貨幣金額（$ 123）。所有這些都可以本地化。</p>
-<h2 id="基本用法">基本用法</h2>
-<h3 id="numberformat">NumberFormat</h3>
+<h2 id="基本用法"><strong>基本用法</strong></h2>
+<h3 id="numberformat"><strong>NumberFormat</strong></h3>
 <pre><code class="language-java">//由於NumberFormat是一個抽象類別，必須用getInstance()來取得他裡面的方法
+
 NumberFormat nf = NumberFormat.getInstance();
+
 //NumberFormat物件格式化的方式是固定的，都是以每三位數一個逗號的方式格式化數字，浮點數欄位則是有的時候顯示，沒有就不顯示。所以可以得到1,234,567.89。
+
 System.out.println(nf.format(1234567.89));
 </code></pre>
-<h3 id="decimalformat">DecimalFormat</h3>
-<p>​DecimalFormat實作了NumberFormat，並提供更客製化的格式選擇，用法如下：</p>
+<h3 id="decimalformat"><strong>DecimalFormat</strong></h3>
+<p>DecimalFormat實作了NumberFormat，並提供更客製化的格式選擇，用法如下：</p>
 <pre><code class="language-java">Double value = 123456.789;
+
 String pattern = &quot;###,###.###&quot; ;
+
 //宣告了一個DecimalFormat物件，並可以在宣告時帶入要格式化的格式，若不帶入參數，格式規則和NumberFormat相同。
+
 DecimalFormat myFormatter = new DecimalFormat(pattern);
+
 String output = myFormatter.format(value);
+
 System.out.println(&quot;執行結果為：&quot; + value + &quot; &quot; + pattern + &quot; &quot; + output);
 </code></pre>
-<p>​	下表描述了前幾行代碼的輸出.  <code>value</code> 是要格式化的數字(<code>double</code>) ,<code>pattern</code> 是指定格式設置屬性的字符串.The <code>output</code>, 輸出是字符串，表示格式化的數字。</p>
+<p>下表描述了前幾行代碼的輸出.  <code>value</code>是要格式化的數字(<code>double</code>) ,<code>pattern</code> 是指定格式設置屬性的字符串 <code>output</code>, 輸出是字符串，表示格式化的數字。</p>
 <table>
 <thead>
 <tr>
-<th><code>value</code></th>
-<th><code>pattern</code></th>
-<th><code>output</code></th>
+<th>value</th>
+<th>pattern</th>
+<th>output</th>
 <th>Explanation</th>
 </tr>
 </thead>
@@ -213,83 +222,113 @@ System.out.println(&quot;執行結果為：&quot; + value + &quot; &quot; + patt
 <td>123456.789</td>
 <td>###.##</td>
 <td>123456.79</td>
-<td><code>value</code> 在小數點右邊有三位數, 而 <code>pattern</code> 只有兩位. <code>format</code>通過四捨五入來解決這個問題。</td>
+<td>value 在小數點右邊有三位數, 而 pattern 只有兩位. format通過四捨五入來解決這個問題。</td>
 </tr>
 <tr>
 <td>123.78</td>
 <td>000000.000</td>
 <td>000123.780</td>
-<td><code>pattern</code> 指定前導零和尾隨零，因為使用0字符代替了井號（＃）。</td>
+<td>pattern 指定前導零和尾隨零，因為使用0字符代替了井號（＃）。</td>
 </tr>
 <tr>
 <td>12345.67</td>
 <td>$###,###.###</td>
 <td>$12,345.67</td>
-<td><code>pattern</code>中的第一個字符是美元符號（$）。注意，它緊接在格式為<code>output</code>的最左邊的數字之前。</td>
+<td>pattern中的第一個字符是美元符號（$）。注意，它緊接在格式為output的最左邊的數字之前。</td>
 </tr>
 <tr>
 <td>12345.67</td>
 <td>\u00A5###,###.###</td>
 <td>¥12,345.67</td>
-<td><code>pattern</code> 使用Unicode值00A5指定日元（¥）的貨幣符號。</td>
+<td>pattern 使用Unicode值00A5指定日元（¥）的貨幣符號。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="其他用法">其他用法</h2>
+<h2 id="其他用法"><strong>其他用法</strong></h2>
 <pre><code class="language-java">DecimalFormat df = new DecimalFormat(&quot;$#,##0.00&quot;);
+
 System.out.println(df.format(1234567.2));
 </code></pre>
-<p>​格式化的字串中0代表一定要有值，#則代表不一定要有值，
-因此#,##0.00表示至少要有個位數及小數點後兩位，且每三位數以一個逗號分開，若格式化的數字沒有個位數或小數點後兩位，就會以0代替。</p>
-<p>​根據需求在前後加上需要的文字，例如$符號，所以上例執行的結果就會是$1,234,567.20。</p>
+<p>格式化的字串中0代表一定要有值，#則代表不一定要有值，</p>
+<p>因此#,##0.00表示至少要有個位數及小數點後兩位，且每三位數以一個逗號分開，若格式化的數字沒有個位數或小數點後兩位，就會以0代替。</p>
+<p>根據需求在前後加上需要的文字，例如$符號，所以上例執行的結果就會是$1,234,567.20。</p>
 <p>這邊要注意若是我們在格式化字串結尾加上百分比符號『%』，DecimalFormat會自動幫我們將數值乘以100以符合字面意義，例如：</p>
 <pre><code class="language-java">DecimalFormat df = new DecimalFormat(&quot;#,##0.00%&quot;);
-System.out.println(&quot;執行結果為：&quot; + df.format(1234567.2));//  執行結果為：123,456,720.00%
+
+System.out.println(&quot;執行結果為：&quot; + df.format(1234567.2));//  執行結果為：123,456,720.00%
 </code></pre>
 <p>DecimalFormat 類主要靠 # 和 0 兩種預留位置號來指定數位長度。</p>
 <p>0 表示如果位數不足則以 0 填充，# 表示只要有可能就把數字拉上這個位置。</p>
-<pre><code class="language-java">
-/**
-* DecimalFormatTest
-*/
-public class DecimalFormatTest {
- public static void main(String[] args) {
+<pre><code class="language-java">/**
 
-   double d = 123456789;
-   DecimalFormat decimalFormat = new DecimalFormat(&quot;#,###.##&quot;);
-   System.out.println(decimalFormat.format(d));
-   DecimalFormat decimalFormat2 = new DecimalFormat(&quot;#,###.00&quot;);
-   System.out.println(decimalFormat2.format(d));
-   double pi = 3.1415927;// 圓周率
-   // 取一位元整數
-   System.out.println(new DecimalFormat(&quot;0&quot;).format(pi));// 3
-   // 取一位元整數和兩位元小數
-   System.out.println(new DecimalFormat(&quot;0.00&quot;).format(pi));// 3.14
-   // 取兩位元整數和三位元小數，整數不足部分以0填補。
-   System.out.println(new DecimalFormat(&quot;00.000&quot;).format(pi));// 03.142
-   // 取所有整數部分
-   System.out.println(new DecimalFormat(&quot;#&quot;).format(pi));// 3
-   // 以百分比方式計數，並取兩位小數
-   System.out.println(new DecimalFormat(&quot;#.##%&quot;).format(pi));// 314.16%
-   long c = 299792458;// 光速
-   // 顯示為科學計數法，並取五位小數
-   System.out.println(new DecimalFormat(&quot;#.#####E0&quot;).format(c));// 2.99792E8
-   // 顯示為兩位元整數的科學計數法，並取四位小數
-   System.out.println(new DecimalFormat(&quot;00.####E0&quot;).format(c));// 29.9792E7
-   // 每三位以逗號進行分隔。
-   System.out.println(new DecimalFormat(&quot;,###&quot;).format(c));// 299,792,458
-   // 將格式嵌入文本
-   System.out.println(new DecimalFormat(&quot;光速大小為每秒,###米&quot;).format(c)); // 光速大小為每秒299,792,458米
- }
+* DecimalFormatTest
+
+*/
+
+public class DecimalFormatTest {
+
+public static void main(String[] args) {
+
+double d = 123456789;
+
+DecimalFormat decimalFormat = new DecimalFormat(&quot;#,###.##&quot;);
+
+System.out.println(decimalFormat.format(d));
+
+DecimalFormat decimalFormat2 = new DecimalFormat(&quot;#,###.00&quot;);
+
+System.out.println(decimalFormat2.format(d));
+
+double pi = 3.1415927;// 圓周率
+
+// 取一位元整數
+
+System.out.println(new DecimalFormat(&quot;0&quot;).format(pi));// 3
+
+// 取一位元整數和兩位元小數
+
+System.out.println(new DecimalFormat(&quot;0.00&quot;).format(pi));// 3.14
+
+// 取兩位元整數和三位元小數，整數不足部分以0填補。
+
+System.out.println(new DecimalFormat(&quot;00.000&quot;).format(pi));// 03.142
+
+// 取所有整數部分
+
+System.out.println(new DecimalFormat(&quot;#&quot;).format(pi));// 3
+
+// 以百分比方式計數，並取兩位小數
+
+System.out.println(new DecimalFormat(&quot;#.##%&quot;).format(pi));// 314.16%
+
+long c = 299792458;// 光速
+
+// 顯示為科學計數法，並取五位小數
+
+System.out.println(new DecimalFormat(&quot;#.#####E0&quot;).format(c));// 2.99792E8
+
+// 顯示為兩位元整數的科學計數法，並取四位小數
+
+System.out.println(new DecimalFormat(&quot;00.####E0&quot;).format(c));// 29.9792E7
+
+// 每三位以逗號進行分隔。
+
+System.out.println(new DecimalFormat(&quot;,###&quot;).format(c));// 299,792,458
+
+// 將格式嵌入文本
+
+System.out.println(new DecimalFormat(&quot;光速大小為每秒,###米&quot;).format(c)); // 光速大小為每秒299,792,458米
+
 }
 
+}
 </code></pre>
-<h2 id="參考">參考</h2>
-<p><a href="https://rx1226.pixnet.net/blog/post/335106917">[Java] 13-8 數字輸出格式 @ 給你魚竿 :: 痞客邦</a></p>
-<p><a href="https://blog.xuite.net/jane17512001/PenguinDesign/116288108-%E6%95%B8%E5%AD%97%E6%A0%BC%E5%BC%8F%28NumberFormat%E3%80%81DecimalFormat%29">數字格式(NumberFormat、DecimalFormat) @ Penguin 工作室，一起JAVA吧！ :: 隨意窩 Xuite日誌</a></p>
-<p><a href="https://www.cnblogs.com/hq233/p/6539107.html">（轉）Java DecimalFormat 用法（數位格式化） - 濫好人 - 博客園 </a></p>
-<p><a href="https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html">https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html</a></p>
-<p><a href="https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html">https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html</a></p>
+<h2 id="參考"><strong>參考</strong></h2>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html">DecimalFormat (Java Platform SE 8 ) (oracle.com)</a></p>
+<p><a href="https://rx1226.pixnet.net/blog/post/335106917">[Java] 13-8 數字輸出格式 @ 給你魚竿 :: 痞客邦 :: (pixnet.net)</a></p>
+<p><a href="https://www.cnblogs.com/hq233/p/6539107.html">（转）Java DecimalFormat 用法（数字格式化） - 滥好人 - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html">Customizing Formats (The Java™ Tutorials &gt; Internationalization &gt; Formatting) (oracle.com)</a></p>
+<p><a href="https://blog.xuite.net/jane17512001/PenguinDesign/116288108-%E6%95%B8%E5%AD%97%E6%A0%BC%E5%BC%8F%28NumberFormat%E3%80%81DecimalFormat%29">數字格式(NumberFormat、DecimalFormat) @ Penguin 工作室，一起JAVA吧！ :: 隨意窩 Xuite日誌</a>)</p>
     </div>
     <footer class="post-footer">
      
@@ -313,8 +352,8 @@ public class DecimalFormatTest {
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="https://iankingh.github.io/post/android/androidbsn01/" rel="prev" title="AndroidBsN01">
-        AndroidBsN01 <i class="fa fa-chevron-right"></i>
+        <a href="https://iankingh.github.io/post/android/androidbsn01/" rel="prev" title="Create an Android project(創建一個Android項目)">
+        Create an Android project(創建一個Android項目) <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -388,7 +427,7 @@ public class DecimalFormatTest {
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="https://iankingh.github.io/post/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">日誌</span>
       </a>
     </div>
@@ -405,7 +444,7 @@ public class DecimalFormatTest {
     <div class="site-state-item site-state-tags">
         <a href="https://iankingh.github.io/tags/">
          
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">34</span>
         
         <span class="site-state-item-name">標籤</span>
         </a>
@@ -437,15 +476,16 @@ public class DecimalFormatTest {
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
   <ul>
-    <li><a href="#簡介">簡介</a></li>
-    <li><a href="#基本用法">基本用法</a>
+    <li><a href="#java-decimalformat數字格式">Java DecimalFormat(數字格式)</a></li>
+    <li><a href="#簡介"><strong>簡介</strong></a></li>
+    <li><a href="#基本用法"><strong>基本用法</strong></a>
       <ul>
-        <li><a href="#numberformat">NumberFormat</a></li>
-        <li><a href="#decimalformat">DecimalFormat</a></li>
+        <li><a href="#numberformat"><strong>NumberFormat</strong></a></li>
+        <li><a href="#decimalformat"><strong>DecimalFormat</strong></a></li>
       </ul>
     </li>
-    <li><a href="#其他用法">其他用法</a></li>
-    <li><a href="#參考">參考</a></li>
+    <li><a href="#其他用法"><strong>其他用法</strong></a></li>
+    <li><a href="#參考"><strong>參考</strong></a></li>
   </ul>
 </nav></div>
     </div>
@@ -466,7 +506,7 @@ public class DecimalFormatTest {
   <span class="author" itemprop="copyrightHolder">ianhuang筆記</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.89.3</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.88.1</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

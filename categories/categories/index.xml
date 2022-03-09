@@ -20,14 +20,5 @@
 &lt;p&gt;使用Windows的『route』指令可以設定Static Route，變更順序。&lt;/p&gt;</description>
     </item>
     
-    <item>
-      <title>WindowsNetCmd</title>
-      <link>https://iankingh.github.io/post/net/windowsnetcmd/</link>
-      <pubDate>Sun, 10 Jan 2021 18:04:51 +0800</pubDate>
-      
-      <guid>https://iankingh.github.io/post/net/windowsnetcmd/</guid>
-      <description>&lt;h2 id=&#34;windowsnetcmd筆記&#34;&gt;WindowsNetCmd筆記&lt;/h2&gt;</description>
-    </item>
-    
   </channel>
 </rss>

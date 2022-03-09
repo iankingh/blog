@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>版控 on ianhuang筆記</title>
+    <link>https://iankingh.github.io/tags/%E7%89%88%E6%8E%A7/</link>
+    <description>Recent content in 版控 on ianhuang筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 23 Feb 2022 18:13:27 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/tags/%E7%89%88%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIT Export Diff File</title>
+      <link>https://iankingh.github.io/post/git/git-export-diff-file/</link>
+      <pubDate>Wed, 23 Feb 2022 18:13:27 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/git/git-export-diff-file/</guid>
+      <description>&lt;h2 id=&#34;git-匯出差異檔案&#34;&gt;GIT 匯出差異檔案&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git_pull_error</title>
+      <link>https://iankingh.github.io/post/git/git_error/</link>
+      <pubDate>Tue, 06 Oct 2020 21:45:42 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/git/git_error/</guid>
+      <description>&lt;h2 id=&#34;git-pull-error筆記&#34;&gt;git pull error筆記&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>javaScript on ianhuang筆記</title>
+    <title>JavaScript on ianhuang筆記</title>
     <link>https://iankingh.github.io/tags/javascript/</link>
-    <description>Recent content in javaScript on ianhuang筆記</description>
+    <description>Recent content in JavaScript on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 22 Mar 2021 11:14:01 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 04:22:43 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Heic2any</title>
+      <link>https://iankingh.github.io/post/javascript/heic2any/</link>
+      <pubDate>Mon, 28 Jun 2021 04:22:43 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/heic2any/</guid>
+      <description>&lt;h2 id=&#34;heic2any-使用筆記&#34;&gt;Heic2any 使用筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;客戶端（瀏覽器端，使用 Javascript）將HEIC/HEIF圖像文件轉換為 JPEG、PNG 或 GIF。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>算錢用浮點，遲早被人扁</title>
       <link>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</link>
@@ -14,6 +25,36 @@
       
       <guid>https://iankingh.github.io/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</guid>
       <description>&lt;h2 id=&#34;算錢用浮點遲早被人扁&#34;&gt;算錢用浮點，遲早被人扁&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>ArrayCreateTable</title>
+      <link>https://iankingh.github.io/post/javascript/arraycreatetable/</link>
+      <pubDate>Tue, 16 Mar 2021 09:55:35 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/arraycreatetable/</guid>
+      <description>&lt;h2 id=&#34;javascript利用arraycreatetable筆記&#34;&gt;JavaScript利用ArrayCreateTable筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>HiddenBtnByprint</title>
+      <link>https://iankingh.github.io/post/javascript/hiddenbtnbyprint/</link>
+      <pubDate>Tue, 16 Mar 2021 09:51:39 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/hiddenbtnbyprint/</guid>
+      <description>&lt;h2 id=&#34;hiddenbtnbyprint-筆記&#34;&gt;hiddenBtnByprint 筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何偵測使用者的裝置是否為行動裝置</title>
+      <link>https://iankingh.github.io/post/javascript/detect-mobile-device/</link>
+      <pubDate>Mon, 15 Mar 2021 09:20:44 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/post/javascript/detect-mobile-device/</guid>
+      <description>&lt;h2 id=&#34;如何偵測使用者的裝置是否為行動裝置&#34;&gt;如何偵測使用者的裝置是否為行動裝置&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     

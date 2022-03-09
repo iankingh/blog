@@ -16,13 +16,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>AngularUseJS - ianhuang筆記</title>
+    <title>AngularUseJavaScript - ianhuang筆記</title>
     <meta name="keywords" content="程式師,架構師,個人,筆記,技術">
     
-    <meta property="og:title" content="AngularUseJS">
+    <meta property="og:title" content="AngularUseJavaScript">
     <meta property="og:site_name" content="ianhuang筆記">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="AngularUseJS - ianhuang筆記" />
+    <meta name="title" content="AngularUseJavaScript - ianhuang筆記" />
     <meta name="description" content="筆記 | 軟體 | 架構 | Java "> 
     <link rel="shortcut icon" href="https://iankingh.github.io/img/favicon.ico" />
     <link rel="apple-touch-icon" href="https://iankingh.github.io/img/apple-touch-icon.png" />
@@ -130,7 +130,7 @@
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="https://iankingh.github.io/post/angular/angularusejs/" itemprop="url">
-        AngularUseJS
+        AngularUseJavaScript
         </a>
       </h1>
       <div class="post-meta">
@@ -168,24 +168,38 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">閱讀：</span>
-<span class="leancloud-visitors-count">338 字 ~1分鐘</span>
+<span class="leancloud-visitors-count">602 字 ~2分鐘</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <h2 id="angular-使用-javascript">Angular 使用 JavaScript</h2>
+    <h2 id="angular引入javascript"><strong>Angular引入</strong>JavaScript</h2>
 <h2 id="前言">前言</h2>
-<p>在實務上我們可以在npm上面找到要用的 js 來引用 , 有時可能找不到 , 有時可能要匯入自己寫的js ,如果功能不複雜 ,可以轉成ts</p>
+<p>在實務上我們可以在npm上面找到要用的 JavaScript 來引用 , 有時可能找不到 , 也有時可能要匯入自己寫的JavaScript ,如果功能不複雜 ,可以轉成TypeScript</p>
 <h2 id="方法一">方法一</h2>
-<p>如果JS 不複雜可以轉成 ts</p>
-<h2 id="方法-二-引入第三方的js">方法 二 引入第三方的JS</h2>
-<h2 id="第一步-安裝下載js">第一步 安裝下載js</h2>
-<p>把js文件放到 /assets目錄下</p>
-<pre><code>eX: /assets/Hello.js
+<p>如果JavaScript  不複雜可以轉成 TypeScript</p>
+<h2 id="方法-二-引入第三方的javascript">方法 二 引入第三方的JavaScript</h2>
+<h3 id="第一步-安裝下載javascript">第一步 安裝下載JavaScript</h3>
+<p>準備一個 JavaScript</p>
+<p><strong><strong>ex.</strong></strong></p>
+<pre><code class="language-jsx">function Hello(){
+	alert(&quot;Hello&quot;)
+}
 </code></pre>
-<h2 id="第二步-設定-allowjs-true">第二步 設定 &ldquo;allowJs&rdquo;: true</h2>
-<p>在tsconfig.json，属性compilerOptions，添加 &ldquo;allowJs&rdquo;: true,
-&ldquo;allowJs&rdquo;: true,</p>
+<p><strong>把js文件放到 /assets目錄下</strong></p>
+<p><strong><strong>ex.</strong></strong></p>
+<pre><code> /assets/js/Hello.js
+</code></pre>
+<h3 id="第二步-設置compileroptions的allowjs屬性為true">第二步 設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true</h3>
+<p>打開 tsconfig.json，找到<strong>compilerOptions</strong>  ，並設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true;，添加 &ldquo;<strong>allowJs</strong>&quot;: true,</p>
+<p><strong>ex.</strong> 添加 <strong>&ldquo;allowJs&rdquo;: true,</strong></p>
+<pre><code class="language-json"> &quot;compilerOptions&quot;: {
+    .....................
+    &quot;allowJs&quot;: true,
+	  .....................
+  }
+</code></pre>
+<p>tsconfig.json完整如下</p>
 <pre><code class="language-json">{
   &quot;compileOnSave&quot;: false,
   &quot;compilerOptions&quot;: {
@@ -212,17 +226,43 @@
   }
 }
 
-
 </code></pre>
-<h2 id="第三步--引入js">第三步 : 引入JS</h2>
-<ol>
-<li>可以在 angular.json文件，在scripts中配置js文件路径</li>
-<li>或是在 index.html 引入</li>
-</ol>
-<p>第四步，在當前组件.ts中使用函数添加js</p>
+<h3 id="第三步--引入javascript">第三步 : 引入javaScript</h3>
+<h3 id="在-angularjsonscripts區塊配置js文件路径">在 angular.json，scripts區塊配置js文件路径</h3>
+<pre><code class="language-json">&quot;scripts&quot;: [
+              &quot;src/assets/js/Hello.js&quot;,
+            ]
+</code></pre>
+<h3 id="在-indexhtml-引入">在 index.html 引入</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>index.html</strong></p>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;Hello&lt;/title&gt;
+  &lt;base href=&quot;/&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,IE=11&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;&gt;
+  &lt;script src=&quot;assets/js/Hello.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+
+&lt;body class=&quot;mat-typography&quot;&gt;
+  &lt;app-root&gt;&lt;/app-root&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3 id="第四步--在當前组件ts中使用函数添加js">第四步 : 在當前组件.ts中使用函数添加js</h3>
+<p><code>import 'src/assets/js/Hello.js';</code></p>
 <h2 id="參考">參考</h2>
 <p><a href="https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control">angular在ts中使用第三方js_weixin_43182222的博客-CSDN博客</a></p>
 <p><a href="https://stackoverflow.com/questions/49526681/how-to-call-javascript-functions-from-typescript-in-angular-5">How to call JavaScript functions from Typescript in Angular 5? - Stack Overflow</a></p>
+<p><a href="https://www.cxyzjd.com/article/qq_43205711/84139445">Angular引入自己写的js或者其他_qq_43205711的博客-程序员宅基地_angular引用自己的js - 程序员宅基地 (cxyzjd.com)</a></p>
     </div>
     <footer class="post-footer">
      
@@ -323,7 +363,7 @@
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="https://iankingh.github.io/post/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">日誌</span>
       </a>
     </div>
@@ -340,7 +380,7 @@
     <div class="site-state-item site-state-tags">
         <a href="https://iankingh.github.io/tags/">
          
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">34</span>
         
         <span class="site-state-item-name">標籤</span>
         </a>
@@ -372,13 +412,19 @@
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
   <ul>
-    <li><a href="#angular-使用-javascript">Angular 使用 JavaScript</a></li>
+    <li><a href="#angular引入javascript"><strong>Angular引入</strong>JavaScript</a></li>
     <li><a href="#前言">前言</a></li>
     <li><a href="#方法一">方法一</a></li>
-    <li><a href="#方法-二-引入第三方的js">方法 二 引入第三方的JS</a></li>
-    <li><a href="#第一步-安裝下載js">第一步 安裝下載js</a></li>
-    <li><a href="#第二步-設定-allowjs-true">第二步 設定 &ldquo;allowJs&rdquo;: true</a></li>
-    <li><a href="#第三步--引入js">第三步 : 引入JS</a></li>
+    <li><a href="#方法-二-引入第三方的javascript">方法 二 引入第三方的JavaScript</a>
+      <ul>
+        <li><a href="#第一步-安裝下載javascript">第一步 安裝下載JavaScript</a></li>
+        <li><a href="#第二步-設置compileroptions的allowjs屬性為true">第二步 設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true</a></li>
+        <li><a href="#第三步--引入javascript">第三步 : 引入javaScript</a></li>
+        <li><a href="#在-angularjsonscripts區塊配置js文件路径">在 angular.json，scripts區塊配置js文件路径</a></li>
+        <li><a href="#在-indexhtml-引入">在 index.html 引入</a></li>
+        <li><a href="#第四步--在當前组件ts中使用函数添加js">第四步 : 在當前组件.ts中使用函数添加js</a></li>
+      </ul>
+    </li>
     <li><a href="#參考">參考</a></li>
   </ul>
 </nav></div>
@@ -400,7 +446,7 @@
   <span class="author" itemprop="copyrightHolder">ianhuang筆記</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.89.3</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.88.1</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
