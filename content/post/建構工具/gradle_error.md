@@ -1,7 +1,7 @@
 ---
-title: "Gradle"
+title: "Gradle 錯誤"
 date: 2021-07-01T10:08:21+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -12,10 +12,7 @@ toc: true
 ## gradle Error
 <!-- 簡介 -->
 <!--more-->
-
-
 ## Error1. for encoding x-windows-950
-
 
 表示表編碼是Window 需要指定編碼 
 

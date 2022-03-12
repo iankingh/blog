@@ -45,7 +45,6 @@ https://github.com/flameshot-org/flameshot
 
 #### Oracle VM VirtualBox
 
-#### TYpora 
 
 
 #### Slack

@@ -13,9 +13,9 @@ toc: true
 ## VSCode 使用 Remote 套件 進行遠端連線開發
 <!--more-->
 
-## 前言 
-有時需要連線到遠端主機，此時使用可以使用 shh 的方式連線過去，但每一次都要輸入連線密碼，且看不到資料夾的狀態， 此時可以用 VS code 安裝
+## 前言
 
+有時需要連線到遠端主機，此時使用可以使用 shh 的方式連線過去，但每一次都要輸入連線密碼，且看不到資料夾的狀態， 此時可以用 VS code 安裝
 
 [Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
 
@@ -33,23 +33,24 @@ toc: true
 
 
 ## 設定
-按下 `ctrl +shift + p` 
 
-open ssh configuration 
+按下 `ctrl +shift + p`
+
+open ssh configuration
 打開 .ssh\config
-設定 remote 
+設定 remote
 
-```
+```shell
 Host  40.124.99.20
   HostName 40.124.99.20
   User azureuser
   IdentityFile C:/Users/Ian/azureuser.pem
 ```
 
-Host LabServer                 #填寫別名例如 LabSever
+Host LabServer      #填寫別名例如 LabSever
 HostName 127.0.0.1  #主機名稱或是ip位置
-User root                            #登入的使用者名稱
-Port                                     #如果有指定的Port號
+User root           #登入的使用者名稱
+Port                #如果有指定的Port號
 
 ## 測試連線
 
