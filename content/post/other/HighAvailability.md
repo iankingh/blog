@@ -3,10 +3,9 @@ title: "HighAvailability"
 date: 2021-04-18T15:42:33+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "架構"
- - "xxx"
 toc: true
 ---
 
@@ -57,6 +56,7 @@ https://ithelp.ithome.com.tw/upload/images/20200925/20000181MLtJh1ovAp.jpg
 
 
 ## 虛擬化 (Virtualization) 架構
+
 佈署上需要搭配虛擬機完成，郵件系統軟體 (Software) 連同作業系統 (Guest OS) 同時安裝在虛擬機。如果是單台虛擬機運作，則資料直接儲存在本機端，可以針對架構進行壓測，確認單台虛擬機的運作效能以不影響郵件處理反應時間為主，如果有差異建議仍以外部儲存設備的提供資料存取 ; 如果是多台虛擬機運作，由於郵件系統讀寫頻率頻繁，建議搭配外部儲存設備進行運作。
 https://ithelp.ithome.com.tw/upload/images/20200925/20000181HRkVDrKMQp.jpg
 虛擬機的備援機制建議直接使用虛擬系統本身提供虛擬機擴充功能 (ex. Vmware vMotion) 建立並複製一台虛擬機提供運行。除了用虛擬機達成單台或多台運作架構外，在大型架構下，可以利用虛擬機的優勢，將郵件系統服務分別建立 SMTP、POP3、IMAP、HTTP (WebMail)的服務分散系統負載。

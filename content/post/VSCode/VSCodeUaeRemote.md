@@ -1,7 +1,7 @@
 ---
 title: "VSCodeUaeRemote"
 date: 2021-02-08T11:11:01+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -23,11 +23,11 @@ toc: true
 
 ## 安裝
 
-1.安裝 [ssh client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
+1. 安裝 [ssh client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
 
-2.安裝 visual studio Code
+2. 安裝 visual studio Code
 
-3.安裝遠程開發擴展包(Remote - SSH )。
+3. 安裝遠程開發擴展包(Remote - SSH )。
 
 在Extension搜尋remote就可以看到了，這邊我們選擇安裝SSH的
 
@@ -57,11 +57,14 @@ Port                #如果有指定的Port號
 ### 連線到 vagrant  
 
 到有 `Vagrantfile` 目錄執行
-```
+
+```shell
 vagrant ssh-config
 ```
+
 得到
-```
+
+```shell
 Host ian-centos8
   HostName 127.0.0.1
   User vagrant
@@ -75,8 +78,7 @@ Host ian-centos8
 
 ```
 
-點選對應的 Remote 進行連線 
-
+點選對應的 Remote 進行連線
 
 **注：**  感謝 **KFC 前輩**的提供 remote 的方法
 

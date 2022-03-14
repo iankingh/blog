@@ -3,7 +3,7 @@ title: "SQLcommand"
 date: 2021-03-15T09:31:14+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "xxx"
  - "xxx"

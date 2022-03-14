@@ -7,7 +7,6 @@ categories:
 tags:
  - "redis"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 ## redis command
@@ -15,11 +14,13 @@ typora-root-url: ..\..\..\static
 <!--more-->
 
 ### 來查看目前 Redis 的狀況
-```
+
+```shell
 redis-cli info 
 ```
 
-### 亦可以使用 Get、Set 等指令來塞入值和取得值
+### 可以使用 Get、Set 等指令來塞入值和取得值
+
 set
 ```
 

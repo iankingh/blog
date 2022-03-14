@@ -9,7 +9,7 @@ tags:
 toc: true
 ---
 
-# vagrant 使用筆記
+## vagrant 使用筆記
 <!--more-->
 
 ## 初始化虛擬機
@@ -78,3 +78,5 @@ Vagrant.configure("2") do |config|
     end
 end
 ```
+
+## 參考

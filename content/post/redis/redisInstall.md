@@ -7,7 +7,6 @@ categories:
 tags:
  - "redis"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 
@@ -35,23 +34,23 @@ Redis是一個使用ANSI C編寫的開源、支援、基於記憶體、可選永
 
 ## Redis Install
 
-### 1.Window 下 安裝
+## 1.Window 下 安裝
 
-####  安裝網址
+### 安裝網址
 
 https://github.com/microsoftarchive/redis/releases
 
-####  啟動指令
+### 啟動指令
 
 ```powershell
 redis-server.exe redis.windows.conf
 ```
 
-#### 啟動畫面
+### 啟動畫面
 
 ![runRedisWin](/images/redis/runRedisWin.png)
 
-#### 測試  
+### 測試  
 
 ```powershell
 #連線指令
@@ -65,7 +64,7 @@ Get testkey
 ![redisWinTest](/images/redis/redisWinTest.png)
 
 
-### 2.Linux 安裝
+## 2.Linux 安裝
 
 
 ```shell
@@ -77,14 +76,15 @@ $ cd redis-6.0.3
 $ make
 ```
 
-#### 啟動 
+### 啟動 
+
 ``` shell
 src/redis-server
 ```
 
 ![runRedisUbuntu](/images/redis/runRedisUbuntu.png)
 
-#### 測試
+### 測試
 
 ![redisUbuntuTest](/images/redis/redisUbuntuTest.png)
 
@@ -99,13 +99,13 @@ redis> get foo
 
 ### 3. cntos install redis
 
-#### 更新 dnf
+### 更新 dnf
 
-```
+```shell
 sudo dnf update -y
 ```
 
-#### 下載 redis 
+### 下載 redis 
 1. 下載
 ```
 sudo dnf install redis -y

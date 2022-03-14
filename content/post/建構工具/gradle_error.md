@@ -1,5 +1,5 @@
 ---
-title: "Gradle 錯誤"
+title: "Gradle Error"
 date: 2021-07-01T10:08:21+08:00
 draft: false
 categories:
@@ -14,7 +14,7 @@ toc: true
 <!--more-->
 ## Error1. for encoding x-windows-950
 
-表示表編碼是Window 需要指定編碼 
+表示表編碼是Window 需要指定編碼
 
 於build.gradle 下新增編碼 options.encoding = 'UTF-8'
 
@@ -59,7 +59,5 @@ javadoc {
 
 
 ```
-
-
 
 ## 參考

@@ -1,12 +1,11 @@
 ---
 title: "TomcatSetEnvironment"
 date: 2021-04-05T16:33:28+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
- - "Server"
- - "Environment"
+ - "AP Server"
  - "tomcat"
 toc: true
 ---

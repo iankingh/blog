@@ -7,7 +7,6 @@ categories:
 tags:
  - "redis"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 ## redis config
