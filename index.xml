@@ -48,6 +48,16 @@
     </item>
     
     <item>
+      <title>Gradle Error</title>
+      <link>https://iankingh.github.io/blog/post/%E5%BB%BA%E6%A7%8B%E5%B7%A5%E5%85%B7/gradle_error/</link>
+      <pubDate>Thu, 01 Jul 2021 10:08:21 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/%E5%BB%BA%E6%A7%8B%E5%B7%A5%E5%85%B7/gradle_error/</guid>
+      <description>&lt;h2 id=&#34;gradle-error&#34;&gt;gradle Error&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
       <title>Heic2any</title>
       <link>https://iankingh.github.io/blog/post/javascript/heic2any/</link>
       <pubDate>Mon, 28 Jun 2021 04:22:43 +0800</pubDate>
@@ -92,6 +102,16 @@
     </item>
     
     <item>
+      <title>Linux_必裝</title>
+      <link>https://iankingh.github.io/blog/post/linux/linuxinstall/</link>
+      <pubDate>Wed, 07 Apr 2021 09:54:34 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/linux/linuxinstall/</guid>
+      <description>&lt;h2 id=&#34;linux_必裝&#34;&gt;Linux_必裝&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
       <title>hosts</title>
       <link>https://iankingh.github.io/blog/post/net/hosts/</link>
       <pubDate>Tue, 06 Apr 2021 09:40:12 +0800</pubDate>
@@ -103,12 +123,22 @@
     </item>
     
     <item>
-      <title>算錢用浮點，遲早被人扁</title>
-      <link>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</link>
-      <pubDate>Mon, 22 Mar 2021 11:14:01 +0800</pubDate>
+      <title>TomcatSetserverxml</title>
+      <link>https://iankingh.github.io/blog/post/server/tomcatsetserverxml/</link>
+      <pubDate>Tue, 06 Apr 2021 09:29:21 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</guid>
-      <description>&lt;h2 id=&#34;算錢用浮點遲早被人扁&#34;&gt;算錢用浮點，遲早被人扁&lt;/h2&gt;
+      <guid>https://iankingh.github.io/blog/post/server/tomcatsetserverxml/</guid>
+      <description>&lt;h2 id=&#34;tomcat-server-set-server-xml筆記&#34;&gt;Tomcat server set server xml筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>TomcatSetEnvironment</title>
+      <link>https://iankingh.github.io/blog/post/server/tomcatsetenvironment/</link>
+      <pubDate>Mon, 05 Apr 2021 16:33:28 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/server/tomcatsetenvironment/</guid>
+      <description>&lt;h2 id=&#34;tomcat-設定-環境變數&#34;&gt;Tomcat 設定 環境變數&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
@@ -168,7 +198,7 @@
       <pubDate>Wed, 03 Mar 2021 13:45:46 +0800</pubDate>
       
       <guid>https://iankingh.github.io/blog/post/other/vagrant/</guid>
-      <description>&lt;h1 id=&#34;vagrant-使用筆記&#34;&gt;vagrant 使用筆記&lt;/h1&gt;</description>
+      <description>&lt;h2 id=&#34;vagrant-使用筆記&#34;&gt;vagrant 使用筆記&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -202,11 +232,20 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
     </item>
     
     <item>
+      <title>VSCodeUaeRemote</title>
+      <link>https://iankingh.github.io/blog/post/vscode/vscodeuaeremote/</link>
+      <pubDate>Mon, 08 Feb 2021 11:11:01 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/vscode/vscodeuaeremote/</guid>
+      <description>&lt;h2 id=&#34;vscode-使用-remote-套件-進行遠端連線開發&#34;&gt;VSCode 使用 Remote 套件 進行遠端連線開發&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
       <title>Cmd</title>
-      <link>https://iankingh.github.io/blog/post/windows/cmd/</link>
+      <link>https://iankingh.github.io/blog/post/net/cmd/</link>
       <pubDate>Thu, 04 Feb 2021 13:33:19 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/blog/post/windows/cmd/</guid>
+      <guid>https://iankingh.github.io/blog/post/net/cmd/</guid>
       <description>&lt;h2 id=&#34;windows-cmd指令&#34;&gt;Windows CMD指令&lt;/h2&gt;</description>
     </item>
     
@@ -541,7 +580,7 @@ IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一�
       <pubDate>Mon, 01 Jun 2009 00:00:00 +0000</pubDate>
       
       <guid>https://iankingh.github.io/blog/about/</guid>
-      <description>關於本站 紀錄關於所學的筆記。 內容 紀錄關於所學的筆記。 聲明</description>
+      <description>關於本站 本人為java工程師，目前主要以開發Angular 及Spring boot 為主 內容 紀錄關於所學的筆記。 聲明</description>
     </item>
     
   </channel>

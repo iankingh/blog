@@ -6,7 +6,17 @@
     <description>Recent content in Linux on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 22 Jun 2020 19:01:50 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 09:54:34 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux_必裝</title>
+      <link>https://iankingh.github.io/blog/post/linux/linuxinstall/</link>
+      <pubDate>Wed, 07 Apr 2021 09:54:34 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/linux/linuxinstall/</guid>
+      <description>&lt;h2 id=&#34;linux_必裝&#34;&gt;Linux_必裝&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
     <item>
       <title>Linux指令</title>
       <link>https://iankingh.github.io/blog/post/linux/linuxcommand/</link>

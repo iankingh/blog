@@ -73,6 +73,22 @@ npm install npm@6.14.13 -g 或是用Yarn
     </entry>
     
      <entry>
+        <title>Gradle Error</title>
+        <url>https://iankingh.github.io/blog/post/%E5%BB%BA%E6%A7%8B%E5%B7%A5%E5%85%B7/gradle_error/</url>
+        <categories>
+          <category>筆記</category>
+        </categories>
+        <tags>
+          <tag>gradle</tag>
+        </tags>
+        <content type="html"> gradle Error Error1. for encoding x-windows-950 表示表編碼是Window 需要指定編碼
+於build.gradle 下新增編碼 options.encoding = &amp;lsquo;UTF-8&amp;rsquo;
+plugins {------------------------------}dependencies {--------------------}//要執行的任務新增即可javadoc {options.encoding = &#39;UTF-8&#39;} Error2 Task :javadoc FAILED FAILURE: Build failed with an exception.
+於 build.gradle 下新增compileJava 編碼 [compileJava, compileTestJava].options.encoding = &amp;lsquo;UTF-8&amp;rsquo;
+plugins {-----------------------------------}// 新增在這裡[compileJava, compileTestJava]*.options*.encoding = &#39;UTF-8&#39;dependencies {--------------------------------------}javadoc {options.encoding = &#39;UTF-8&#39;} 參考</content>
+    </entry>
+    
+     <entry>
         <title>Heic2any</title>
         <url>https://iankingh.github.io/blog/post/javascript/heic2any/</url>
         <categories>
@@ -149,6 +165,23 @@ https://developer.chrome.com/blog/new-in-devtools-65/#overrides
     </entry>
     
      <entry>
+        <title>Linux_必裝</title>
+        <url>https://iankingh.github.io/blog/post/linux/linuxinstall/</url>
+        <categories>
+          <category>筆記</category>
+        </categories>
+        <tags>
+          <tag>Linux</tag>
+        </tags>
+        <content type="html"> Linux_必裝 netstat netstat 是一個網路工具
+ 安裝指令  sudo yum -y install net-tools -測試
+netstat  觀看服務  sudo netstat -pnltu | grep redis firewallds 防火牆管理工具
+ 安裝指令  sudo dnf install firewalld  啟用  sudo systemctl enable firewalldsudo systemctl start firewalld  測試  sudo firewall-cmd --state  Output  public 參考 How To Set Up a Firewall Using firewalld on CentOS 8 | DigitalOcean https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-8
+netstat Command not found on CentOS 8 / RHEL 8 - Quick Fix - | ITzGeek https://www.itzgeek.com/how-tos/linux/centos-how-tos/netstat-command-not-found-on-centos-8-rhel-8-quick-fix.html
+</content>
+    </entry>
+    
+     <entry>
         <title>hosts</title>
         <url>https://iankingh.github.io/blog/post/net/hosts/</url>
         <categories>
@@ -182,25 +215,30 @@ $ sudo vi /etc/hosts hosts 設定檔用途 大部分的使用者可能不會需
     </entry>
     
      <entry>
-        <title>算錢用浮點，遲早被人扁</title>
-        <url>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</url>
+        <title>TomcatSetserverxml</title>
+        <url>https://iankingh.github.io/blog/post/server/tomcatsetserverxml/</url>
         <categories>
           <category>筆記</category>
         </categories>
         <tags>
-          <tag>java</tag><tag>javaScript</tag>
+          <tag>AP Server</tag><tag>tomcat</tag>
         </tags>
-        <content type="html"> 算錢用浮點，遲早被人扁 前言 簡單來說 , 在部分程式語言 ,在計算&#43;法時是使用 float 來計算的
-EX : JavaScript 0.1&#43;0.2 = ?
-0.1&#43;0.20.30000000000000004 會有誤差
-有個網站叫
-https://0.30000000000000004.com/
-提供許多 解法
-例如 : java 使用 BigDecimal
-參考 算錢學問大 | iThome
-CODE-分贓程式的寫法-黑暗執行緒
-https://0.30000000000000004.com/
-</content>
+        <content type="html"> Tomcat server set server xml筆記 設定路徑 apache-tomcat/conf/server.xml
+設定檔案上傳大小 設定大小
+&amp;lt;Connector connectionTimeout=&amp;quot;20000&amp;quot; maxPostSize=&amp;quot;209715200&amp;quot; port=&amp;quot;8080&amp;quot; protocol=&amp;quot;HTTP/1.1&amp;quot; redirectPort=&amp;quot;8443&amp;quot;/&amp;gt; 調整如下 設定部屬路徑及檔案位址 &amp;lt;Host appBase=&amp;quot;webapps&amp;quot; autoDeploy=&amp;quot;true&amp;quot; name=&amp;quot;localhost&amp;quot; unpackWARs=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;Context docBase=&amp;quot;restApi&amp;quot; path=&amp;quot;/restApi&amp;quot; reloadable=&amp;quot;true&amp;quot; source=&amp;quot;../SpringProjectRestApi&amp;quot;/&amp;gt;&amp;lt;/Host&amp;gt; 參考</content>
+    </entry>
+    
+     <entry>
+        <title>TomcatSetEnvironment</title>
+        <url>https://iankingh.github.io/blog/post/server/tomcatsetenvironment/</url>
+        <categories>
+          <category>筆記</category>
+        </categories>
+        <tags>
+          <tag>AP Server</tag><tag>tomcat</tag>
+        </tags>
+        <content type="html"> Tomcat 設定 環境變數 於apache-tomcat-9.0.43/conf/context.xml 中可以設定 Environment
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;Context&amp;gt;&amp;lt;Environment name=&amp;quot;ENV&amp;quot; value=&amp;quot;uat&amp;quot; type=&amp;quot;java.lang.String&amp;quot; override=&amp;quot;false&amp;quot;/&amp;gt;&amp;lt;Environment name=&amp;quot;SPRING_PROFILES_ACTIVE&amp;quot; value=&amp;quot;sit&amp;quot; type=&amp;quot;java.lang.String&amp;quot; override=&amp;quot;false&amp;quot;/&amp;gt; 參考</content>
     </entry>
     
      <entry>
@@ -296,7 +334,7 @@ https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js
 停止虛擬機 vagrant halt 新增 虛擬主機的 SSL private key  vagrant ssh-config 砍掉 虛擬機 vagrant destroy vagrant scp 安裝網址: https://github.com/invernizzi/vagrant-scp
 Install
 vagrant plugin install vagrant-scp Usage
- Vagrantfile Vagrant.configure(&amp;quot;2&amp;quot;) do |config|#pull images centos/8config.vm.box = &amp;quot;centos/8&amp;quot;#採用橋接，共享主機網絡config.vm.network &amp;quot;public_network&amp;quot;#虛擬機名字heaton-centos8，內存，核數config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.memory = &amp;quot;4096&amp;quot;vb.name= &amp;quot;ian-centos8&amp;quot;vb.cpus= 2endend</content>
+ Vagrantfile Vagrant.configure(&amp;quot;2&amp;quot;) do |config|#pull images centos/8config.vm.box = &amp;quot;centos/8&amp;quot;#採用橋接，共享主機網絡config.vm.network &amp;quot;public_network&amp;quot;#虛擬機名字heaton-centos8，內存，核數config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.memory = &amp;quot;4096&amp;quot;vb.name= &amp;quot;ian-centos8&amp;quot;vb.cpus= 2endend 參考</content>
     </entry>
     
      <entry>
@@ -328,7 +366,7 @@ https://kknews.cc/zh-tw/code/8oomk6q.html
           <category>筆記</category>
         </categories>
         <tags>
-          <tag>java</tag><tag>tomcat</tag>
+          <tag>AP Server</tag><tag>tomcat</tag>
         </tags>
         <content type="html"> 配置Tomcat 的使用者 配置 Tomcat 的使用者 於 tomcat 的 conf/tomcat-users.xml
 &amp;lt;!-- 配置角色 --&amp;gt;&amp;lt;role rolename=&amp;quot;manager-gui&amp;quot;/&amp;gt;&amp;lt;role rolename=&amp;quot;admin-gui&amp;quot;/&amp;gt;&amp;lt;!-- 配置管理帳號及權限 --&amp;gt;&amp;lt;user username=&amp;quot;用戶名&amp;quot; password=&amp;quot;密碼&amp;quot; roles=&amp;quot;admin-gui,manager-gui&amp;quot;/&amp;gt; 參考 tomcat配置管理员-走后门 - WhyWin - 博客园
@@ -360,21 +398,49 @@ OutofMemory while reading JPEG file Using IMAGEIO (Performance forum at Coderanc
     </entry>
     
      <entry>
+        <title>VSCodeUaeRemote</title>
+        <url>https://iankingh.github.io/blog/post/vscode/vscodeuaeremote/</url>
+        <categories>
+          <category>筆記</category>
+        </categories>
+        <tags>
+          <tag>Remote</tag><tag>VSCode</tag>
+        </tags>
+        <content type="html"> VSCode 使用 Remote 套件 進行遠端連線開發 前言 有時需要連線到遠端主機，此時使用可以使用 shh 的方式連線過去，但每一次都要輸入連線密碼，且看不到資料夾的狀態， 此時可以用 VS code 安裝
+Remote - SSH
+這一套 擴充插件 ，來進行SSH 連線
+安裝   安裝 ssh client
+  安裝 visual studio Code
+  安裝遠程開發擴展包(Remote - SSH )。
+  在Extension搜尋remote就可以看到了，這邊我們選擇安裝SSH的
+設定 按下 ctrl &#43;shift &#43; p
+open ssh configuration 打開 .ssh\config 設定 remote
+Host 40.124.99.20HostName 40.124.99.20User azureuserIdentityFile C:/Users/Ian/azureuser.pem Host LabServer #填寫別名例如 LabSever HostName 127.0.0.1 #主機名稱或是ip位置 User root #登入的使用者名稱 Port #如果有指定的Port號
+測試連線 連線到 vagrant 到有 Vagrantfile 目錄執行
+vagrant ssh-config 得到
+Host ian-centos8HostName 127.0.0.1User vagrantPort 2222UserKnownHostsFile /dev/nullStrictHostKeyChecking noPasswordAuthentication noIdentityFile &amp;quot;/XXX/private_key&amp;quot;IdentitiesOnly yesLogLevel FATAL 點選對應的 Remote 進行連線
+注： 感謝 KFC 前輩的提供 remote 的方法
+參考 https://hackmd.io/@brick9450/vscode-remote
+vscode remote vagrant ssh
+https://code.visualstudio.com/blogs/2019/07/25/remote-ssh
+</content>
+    </entry>
+    
+     <entry>
         <title>Cmd</title>
-        <url>https://iankingh.github.io/blog/post/windows/cmd/</url>
+        <url>https://iankingh.github.io/blog/post/net/cmd/</url>
         <categories>
           <category>筆記</category>
         </categories>
         <tags>
           <tag>windows</tag><tag>CMD</tag>
         </tags>
-        <content type="html"> Windows CMD指令 快速打開
-1.CTRL &#43; R ——打開 &amp;ldquo;運行&amp;rdquo;
+        <content type="html"> Windows CMD指令 快速打開 cmd 1.CTRL &#43; R ——打開 &amp;ldquo;運行&amp;rdquo;
 2.在&amp;quot;運行&amp;quot;輸入&amp;quot;cmd&amp;quot;彈出DOS命令列視窗
 ipconfig : 查IP
-使用
-ipconfig cls : 清空命令
-查看哪些進程佔用了埠 3.假如我要查的是埠&amp;quot;8080&amp;quot;，則輸入命令：netstat -aon|findstr &amp;quot;8080&amp;quot;4.如上，得到了進程號&amp;quot;4060&amp;quot;，再輸入命令：tasklist|findstr &amp;quot;4060&amp;quot;,得到了進程映射名稱，好了，下一步我們將解決埠號佔用的問題，就是kill掉該進程映射名稱的進程。5.CTRL &#43; ALT &#43; delete彈出工作管理員，找到名字為&amp;quot;javaw.exe&amp;quot;的進程，點擊它，並殺死它(結束進程)。6.再在DOS下輸入命令查看下該埠是否還被佔用：netstat -aon|findstr &amp;quot;8080&amp;quot;7.可以看到，再也沒有進程佔用了該埠，OK，佔用該埠的進程被殺死了，那麼埠被佔用也已經解決了。 參考 查看哪些進程佔用了埠 - zhuxiongxian的挨踢博客 - CSDN博客
+使用 ipconfig ipconfig cls 清空命令
+netstat 查看哪些進程佔用了埠
+3.假如我要查的是埠&amp;quot;8080&amp;quot;，則輸入命令：netstat -aon|findstr &amp;quot;8080&amp;quot;4.如上，得到了進程號&amp;quot;4060&amp;quot;，再輸入命令：tasklist|findstr &amp;quot;4060&amp;quot;,得到了進程映射名稱，好了，下一步我們將解決埠號佔用的問題，就是kill掉該進程映射名稱的進程。5.CTRL &#43; ALT &#43; delete彈出工作管理員，找到名字為&amp;quot;javaw.exe&amp;quot;的進程，點擊它，並殺死它(結束進程)。6.再在DOS下輸入命令查看下該埠是否還被佔用：netstat -aon|findstr &amp;quot;8080&amp;quot;7.可以看到，再也沒有進程佔用了該埠，OK，佔用該埠的進程被殺死了，那麼埠被佔用也已經解決了。 參考 查看哪些進程佔用了埠 - zhuxiongxian的挨踢博客 - CSDN博客
 </content>
     </entry>
     

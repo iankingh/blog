@@ -9,7 +9,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-WF6NBSJFE5');
 </script>
   
@@ -49,7 +48,6 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> <div class="site-meta  custom-logo ">
-
   <div class="custom-logo-site-title">
     <a href="https://iankingh.github.io/blog/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
@@ -59,7 +57,6 @@
   </div>
   <p class="site-subtitle">總有一天，你的日積月累，會變成他人的望塵莫及</p>
 </div>
-
 <div class="site-nav-toggle">
   <button>
     <span class="btn-bar"></span>
@@ -67,7 +64,6 @@
     <span class="btn-bar"></span>
   </button>
 </div>
-
 <nav class="site-nav">
     <ul id="menu" class="menu">
       
@@ -182,15 +178,15 @@
 <p>作者則說它是一個Data Structures Server，顧名思義，它提供了很多種資料結構及相對應的指令去操作這些資料。由於它是以In-Memory的方式為主，另一個很明顯的特性就是它很快，非常快，正確使用下可以輕鬆的處理每秒上萬的請求。</p>
 <!-- raw HTML omitted -->
 <h2 id="redis-install-1">Redis Install</h2>
-<h3 id="1window-下-安裝">1.Window 下 安裝</h3>
-<h4 id="安裝網址">安裝網址</h4>
+<h2 id="1window-下-安裝">1.Window 下 安裝</h2>
+<h3 id="安裝網址">安裝網址</h3>
 <p><a href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></p>
-<h4 id="啟動指令">啟動指令</h4>
+<h3 id="啟動指令">啟動指令</h3>
 <pre><code class="language-powershell">redis-server.exe redis.windows.conf
 </code></pre>
-<h4 id="啟動畫面">啟動畫面</h4>
+<h3 id="啟動畫面">啟動畫面</h3>
 <p><img src="https://iankingh.github.io/blog/images/redis/runRedisWin.png" alt="runRedisWin"></p>
-<h4 id="測試">測試</h4>
+<h3 id="測試">測試</h3>
 <pre><code class="language-powershell">#連線指令
 redis-cli.exe -h 127.0.0.1 -p 6379
 #塞值
@@ -199,7 +195,7 @@ Set testkey testvalue
 Get testkey
 </code></pre>
 <p><img src="https://iankingh.github.io/blog/images/redis/redisWinTest.png" alt="redisWinTest"></p>
-<h3 id="2linux-安裝">2.Linux 安裝</h3>
+<h2 id="2linux-安裝">2.Linux 安裝</h2>
 <pre><code class="language-shell">#用wget從Redis官網下載最新的Redis安裝包，
 #下載完成後解壓縮到你想要放的位置，然後執行make進行編譯
 $ wget http://download.redis.io/releases/redis-6.0.3.tar.gz
@@ -207,11 +203,11 @@ $ tar xzf redis-6.0.3.tar.gz
 $ cd redis-6.0.3
 $ make
 </code></pre>
-<h4 id="啟動">啟動</h4>
+<h3 id="啟動">啟動</h3>
 <pre><code class="language-shell">src/redis-server
 </code></pre>
 <p><img src="https://iankingh.github.io/blog/images/redis/runRedisUbuntu.png" alt="runRedisUbuntu"></p>
-<h4 id="測試-1">測試</h4>
+<h3 id="測試-1">測試</h3>
 <p><img src="https://iankingh.github.io/blog/images/redis/redisUbuntuTest.png" alt="redisUbuntuTest"></p>
 <pre><code class="language-shell">#連線指令
 src/redis-cli  
@@ -221,10 +217,10 @@ redis&gt; set foo bar
 redis&gt; get foo  
 </code></pre>
 <h3 id="3-cntos-install-redis">3. cntos install redis</h3>
-<h4 id="更新-dnf">更新 dnf</h4>
-<pre><code>sudo dnf update -y
+<h3 id="更新-dnf">更新 dnf</h3>
+<pre><code class="language-shell">sudo dnf update -y
 </code></pre>
-<h4 id="下載-redis">下載 redis</h4>
+<h3 id="下載-redis">下載 redis</h3>
 <ol>
 <li>下載</li>
 </ol>
@@ -309,7 +305,8 @@ redis-cli
     </footer>
 
     <div class="disqus markdown">
-      <div id="disqus_thread"></div>
+      
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     (function () {
         
@@ -367,7 +364,7 @@ redis-cli
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="https://iankingh.github.io/blog/post/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日誌</span>
       </a>
     </div>
@@ -384,7 +381,7 @@ redis-cli
     <div class="site-state-item site-state-tags">
         <a href="https://iankingh.github.io/blog/tags/">
          
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">38</span>
         
         <span class="site-state-item-name">標籤</span>
         </a>
@@ -418,11 +415,22 @@ redis-cli
   <ul>
     <li><a href="#redis-install">Redis Install</a></li>
     <li><a href="#redis簡介">Redis簡介</a></li>
-    <li><a href="#redis-install-1">Redis Install</a>
+    <li><a href="#redis-install-1">Redis Install</a></li>
+    <li><a href="#1window-下-安裝">1.Window 下 安裝</a>
       <ul>
-        <li><a href="#1window-下-安裝">1.Window 下 安裝</a></li>
-        <li><a href="#2linux-安裝">2.Linux 安裝</a></li>
+        <li><a href="#安裝網址">安裝網址</a></li>
+        <li><a href="#啟動指令">啟動指令</a></li>
+        <li><a href="#啟動畫面">啟動畫面</a></li>
+        <li><a href="#測試">測試</a></li>
+      </ul>
+    </li>
+    <li><a href="#2linux-安裝">2.Linux 安裝</a>
+      <ul>
+        <li><a href="#啟動">啟動</a></li>
+        <li><a href="#測試-1">測試</a></li>
         <li><a href="#3-cntos-install-redis">3. cntos install redis</a></li>
+        <li><a href="#更新-dnf">更新 dnf</a></li>
+        <li><a href="#下載-redis">下載 redis</a></li>
         <li><a href="#3使用docker">3.使用Docker</a></li>
       </ul>
     </li>
