@@ -456,7 +456,12 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
       
       <guid>https://iankingh.github.io/blog/post/redis/redisinstall/</guid>
       <description>&lt;h2 id=&#34;redis-install&#34;&gt;Redis Install&lt;/h2&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;redis簡介&#34;&gt;Redis簡介&lt;/h2&gt;
+&lt;p&gt;Redis是一個使用ANSI C編寫的開源、支援、基於記憶體、可選永續性的鍵值對儲存資料庫。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Redis&lt;/code&gt; 是一个使用 &lt;code&gt;ANSI C&lt;/code&gt; 編寫的開源、支援 &lt;strong&gt;網路&lt;/strong&gt;、基於&lt;strong&gt;記憶體(內存)&lt;/strong&gt;、&lt;strong&gt;單線程&lt;/strong&gt;、**可選永續性 **的 &lt;strong&gt;鍵值儲存資料庫&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;以官方的解釋，Redis是一套Open source的In-memory NoSQL database，可以應用在Cache、Database及簡單的Message broker。&lt;/p&gt;
+&lt;p&gt;作者則說它是一個Data Structures Server，顧名思義，它提供了很多種資料結構及相對應的指令去操作這些資料。由於它是以In-Memory的方式為主，另一個很明顯的特性就是它很快，非常快，正確使用下可以輕鬆的處理每秒上萬的請求。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -515,7 +520,7 @@ JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體�
       
       <guid>https://iankingh.github.io/blog/post/hugo/hugonotes/</guid>
       <description>&lt;h2 id=&#34;hugo使用筆記&#34;&gt;Hugo使用筆記&lt;/h2&gt;
-&lt;p&gt;前言&lt;/p&gt;</description>
+&lt;p&gt;紀錄Hugo使用的筆記&lt;/p&gt;</description>
     </item>
     
   </channel>

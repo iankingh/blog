@@ -214,7 +214,7 @@ filter.loginFilter=true</p>
 <p>總結:
 通過@ConditionalOnProperty控制配置類是否生效,可以將配置與代碼進行分離,實現了更好的控制配置.
 @ConditionalOnProperty實現是通過havingValue與設定檔中的值對比,返回為true則配置類生效,反之失效.</p>
-<p>@ConditionalOnExpression(&quot;{&lsquo;prod&rsquo;, &lsquo;alsoProd&rsquo;}.contains('${env.name}')&quot;)</p>
+<p>@ConditionalOnExpression(&quot;{&lsquo;prod&rsquo;, &lsquo;alsoProd&rsquo;}.contains(&rsquo;${env.name}&rsquo;)&quot;)</p>
 <h2 id="參考">參考</h2>
 <p>@ConditionalOnProperty的作用和用法_sqlgao22的博客-CSDN博客
 <a href="https://blog.csdn.net/sqlgao22/article/details/96476754">https://blog.csdn.net/sqlgao22/article/details/96476754</a></p>
@@ -402,7 +402,7 @@ filter.loginFilter=true</p>
   <span class="author" itemprop="copyrightHolder">ianhuang筆記</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.88.1</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.96.0</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

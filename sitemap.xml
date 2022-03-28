@@ -461,7 +461,7 @@ ConditionalOnProperty的使用 @Retention(RetentionPolicy.RUNTIME) @Target({Elem
 測試 當設定檔中值為true時:輸出了&amp;quot;篩檢程式&amp;quot;三個字,說明loginFilter生效了,說明配置類生效了.
 當設定檔中值為false時:沒有輸出了&amp;quot;篩檢程式&amp;quot;三個字,說明loginFilter沒有生效,說明配置類沒有生效.
 總結: 通過@ConditionalOnProperty控制配置類是否生效,可以將配置與代碼進行分離,實現了更好的控制配置. @ConditionalOnProperty實現是通過havingValue與設定檔中的值對比,返回為true則配置類生效,反之失效.
-@ConditionalOnExpression(&amp;quot;{&amp;lsquo;prod&amp;rsquo;, &amp;lsquo;alsoProd&amp;rsquo;}.contains(&#39;${env.name}&#39;)&amp;quot;)
+@ConditionalOnExpression(&amp;quot;{&amp;lsquo;prod&amp;rsquo;, &amp;lsquo;alsoProd&amp;rsquo;}.contains(&amp;rsquo;${env.name}&amp;rsquo;)&amp;quot;)
 參考 @ConditionalOnProperty的作用和用法_sqlgao22的博客-CSDN博客 https://blog.csdn.net/sqlgao22/article/details/96476754
 Conditional Beans with Spring Boot https://reflectoring.io/spring-boot-conditionals/
 ConditionalOnProperty的使用_堅持，讓夢想閃耀！-CSDN博客 https://blog.csdn.net/u010002184/article/details/79353696
@@ -568,7 +568,7 @@ http://ctwivan.blogspot.com/2010/08/windowsstatic-route.html
 ex.
 function Hello(){alert(&amp;quot;Hello&amp;quot;)} 把js文件放到 /assets目錄下
 ex.
- /assets/js/Hello.js 第二步 設置compilerOptions的allowJs屬性為true 打開 tsconfig.json，找到compilerOptions ，並設置compilerOptions的allowJs屬性為true;，添加 &amp;ldquo;allowJs&amp;quot;: true,
+ /assets/js/Hello.js 第二步 設置compilerOptions的allowJs屬性為true 打開 tsconfig.json，找到compilerOptions ，並設置compilerOptions的allowJs屬性為true;，添加 &amp;ldquo;allowJs&amp;rdquo;: true,
 ex. 添加 &amp;ldquo;allowJs&amp;rdquo;: true,
 &amp;quot;compilerOptions&amp;quot;: {.....................&amp;quot;allowJs&amp;quot;: true,.....................} tsconfig.json完整如下
 {&amp;quot;compileOnSave&amp;quot;: false,&amp;quot;compilerOptions&amp;quot;: {&amp;quot;baseUrl&amp;quot;: &amp;quot;./&amp;quot;,&amp;quot;outDir&amp;quot;: &amp;quot;./dist/out-tsc&amp;quot;,&amp;quot;sourceMap&amp;quot;: true,&amp;quot;declaration&amp;quot;: false,&amp;quot;downlevelIteration&amp;quot;: true,&amp;quot;experimentalDecorators&amp;quot;: true,&amp;quot;module&amp;quot;: &amp;quot;esnext&amp;quot;,&amp;quot;moduleResolution&amp;quot;: &amp;quot;node&amp;quot;,&amp;quot;allowJs&amp;quot;: true,&amp;quot;importHelpers&amp;quot;: true,&amp;quot;target&amp;quot;: &amp;quot;es5&amp;quot;,&amp;quot;lib&amp;quot;: [&amp;quot;es2018&amp;quot;,&amp;quot;dom&amp;quot;]},&amp;quot;angularCompilerOptions&amp;quot;: {&amp;quot;fullTemplateTypeCheck&amp;quot;: true,&amp;quot;strictInjectionParameters&amp;quot;: true,&amp;quot;enableIvy&amp;quot;: false}} 第三步 : 引入javaScript 在 angular.json，scripts區塊配置js文件路径 &amp;quot;scripts&amp;quot;: [&amp;quot;src/assets/js/Hello.js&amp;quot;,] 在 index.html 引入 index.html
@@ -750,8 +750,7 @@ Angular依赖注入的一个常见错误NullInjectorError,No provider for XXX - 
         <content type="html"> 前言 在 TCP/IP 通訊協定組的 IP 層裡，用來辨識每台電腦的東西，稱為網際網路位址 ( Internet address ) 或 IP 位址 ( IP address )。 IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一的定義 Internet 上的一台電腦或一台路由器。 所有 IP 位址都是唯一的。「唯一」是指一個位址只定義一個與 Internet 的連接 ( connection )。Internet 上不可以有兩台裝置有著相同的 IP 位址。
   一個 IP 位址為一個 32 位元的位址。
   IP 位址是唯一的。
-  IPv4 的位址空間為 232 或 4,294,967,296。
-  私有網路 IP 範圍    RFC1918 規定區塊名 IP位址區段 IP數量 分類網路 說明 最大CIDR區塊 （子網路遮罩） 主機端位長     24位元區塊 10.0.0.0 – 10.255.255.255 16,777,216 單個A類網路 10.0.0.0/8 (255.0.0.0) 24位元   20位區塊 172.16.0.0 – 172.31.255.255 1,048,576 16個連續B類網路 172.16.0.0/12 (255.240.0.0) 20位   16位元區塊 192.168.0.0 – 192.168.255.255 65,536 256個連續C類網路 192.168.0.0/16 (255.255.0.0) 16位元    正是由於這些限制，當我們使用這些私有位址來設定網路的時候，就無需擔心會和其它也使用相同位址的網路衝突。而這些無需註冊就能自由使用的 IP ，我們稱之為 私有 IP( Private IP )。當我們架設 IP 網路的時候，私有 IP 給與我們很大的方便。比方說：您目前的公司還沒有連上Internet，且也沒有或得公共 IP 的註冊。倘若使用公共 IP 的話，等到以後真正要連上網路的時候，就很可能和別人衝突了。其壞處是：由於您的 IP 不是合法授權使用的，別人跟本連不進來，而且，與您衝突的 IP 您卻永遠沒法連上去(若對方是您的最大客戶可就慘了)。若是那時候再重新規劃 IP 的話，將是件非常頭痛的問題！
+  IPv4 的位址空間為 232 或 4,294,967,296。   私有網路 IP 範圍    RFC1918 規定區塊名 IP位址區段 IP數量 分類網路 說明 最大CIDR區塊 （子網路遮罩） 主機端位長     24位元區塊 10.0.0.0 – 10.255.255.255 16,777,216 單個A類網路 10.0.0.0/8 (255.0.0.0) 24位元   20位區塊 172.16.0.0 – 172.31.255.255 1,048,576 16個連續B類網路 172.16.0.0/12 (255.240.0.0) 20位   16位元區塊 192.168.0.0 – 192.168.255.255 65,536 256個連續C類網路 192.168.0.0/16 (255.255.0.0) 16位元    正是由於這些限制，當我們使用這些私有位址來設定網路的時候，就無需擔心會和其它也使用相同位址的網路衝突。而這些無需註冊就能自由使用的 IP ，我們稱之為 私有 IP( Private IP )。當我們架設 IP 網路的時候，私有 IP 給與我們很大的方便。比方說：您目前的公司還沒有連上Internet，且也沒有或得公共 IP 的註冊。倘若使用公共 IP 的話，等到以後真正要連上網路的時候，就很可能和別人衝突了。其壞處是：由於您的 IP 不是合法授權使用的，別人跟本連不進來，而且，與您衝突的 IP 您卻永遠沒法連上去(若對方是您的最大客戶可就慘了)。若是那時候再重新規劃 IP 的話，將是件非常頭痛的問題！
 解決的辦法是：我們可以先利用私有位址來架設網路，等到真要連上 intetnet 的時候，我們可以使用代理伺服器( proxy )或 IP 轉換( NAT &amp;mdash; Network Addresss Translation) 等技術，配合新註冊的 IP 就可以了。
 由於私有位址在 Internet 上是不能路由的，用來架設企業內部網路，在安全上面也是有所幫助的。
 路由器 兩個不同的網域是無法透過廣播來資料的傳遞，此時便需要 IP 的路徑選擇 (routing) 功能，才能決定要透過哪個網路來傳送封包， 路由器乃是決定最佳路徑的方式，如果沒有路由器的話，就無法在不同網域之間傳送資料了。 例如，192.168.0.0 與 192.168.1.0 是不同網域，所以主機 A 與主機 B 是不能直接互通資料，必須有路由器找尋需要經過哪些網路才能到達 B 網域的主機 B。
@@ -1085,7 +1084,7 @@ Spring Data JPA為此提供了一些表達條件查詢的關鍵字，大致如�
 如果是 @Query 中有 LIKE 關鍵字，後面的參數需要前面或者後面加 %，這樣在傳遞參數值的時候就可以不加 %：
 @Query注解 這種查詢可以聲明在 Repository 方法中，擺脫像命名查詢那樣的約束，將查詢直接在相應的介面方法中聲明，結構更為清晰，這是 Spring data 的特有實現。
 自訂 Repository 方法 定義一個介面: 聲明要添加的, 並自實現的方法 提供該介面的實現類: 類名需在要聲明的 Repository 後添加 Impl, 並實現方法 聲明 Repository 介面, 並繼承 1) 聲明的介面 使用. 注意: 預設情況下, Spring Data 會在 base-package 中查找 &amp;ldquo;介面名Impl&amp;rdquo; 作為實現類. 也可以通過　repository-impl-postfix　聲明尾碼
-@Query(&amp;quot;select o from UserModel o where o.name like %?1&amp;quot;) @Query來指定本地查詢 使用**@Query**來指定本地查詢，只要設置**nativeQuery**為**true**
+@Query(&amp;quot;select o from UserModel o where o.name like %?1&amp;quot;) @Query來指定本地查詢 使用**@Query來指定本地查詢，只要設置nativeQuery為true**
 @Query(value=&amp;quot;select * from tbl_user where name like %?1&amp;quot; ,nativeQuery=true) @Query 與 @Modifying 這兩個 annotation一起聲明，可定義個性化更新操作，例如只涉及某些欄位更新時最為常用
 Springdata支援JPQL 語句對查詢進行擴展，
 例子如下：
@@ -1218,16 +1217,12 @@ Redis 是一个使用 ANSI C 編寫的開源、支援 網路、基於記憶體(�
 以官方的解釋，Redis是一套Open source的In-memory NoSQL database，可以應用在Cache、Database及簡單的Message broker。
 作者則說它是一個Data Structures Server，顧名思義，它提供了很多種資料結構及相對應的指令去操作這些資料。由於它是以In-Memory的方式為主，另一個很明顯的特性就是它很快，非常快，正確使用下可以輕鬆的處理每秒上萬的請求。
 Redis Install 1.Window 下 安裝 安裝網址 https://github.com/microsoftarchive/redis/releases
-啟動指令 redis-server.exe redis.windows.conf 啟動畫面 測試 #連線指令redis-cli.exe -h 127.0.0.1 -p 6379#塞值Set testkey testvalue#取值Get testkey 2.Linux 安裝 #用wget從Redis官網下載最新的Redis安裝包，#下載完成後解壓縮到你想要放的位置，然後執行make進行編譯$ wget http://download.redis.io/releases/redis-6.0.3.tar.gz$ tar xzf redis-6.0.3.tar.gz$ cd redis-6.0.3$ make 啟動 src/redis-server 測試 #連線指令src/redis-cli # 塞值redis&amp;gt; set foo bar # 取值redis&amp;gt; get foo  3. cntos install redis 更新 dnf sudo dnf update -y 下載 redis  下載  sudo dnf install redis -y 啟動  sudo systemctl start redis sudo systemctl enable redis 確認啟動  sudo systemctl status redis 看占用的port  sudo netstat -pnltu | grep redis
-3.使用Docker 安裝 已經安裝好Docker的環境，只要輸入下列指令就能快速的跑起來一個Redis instance
+啟動指令 redis-server.exe redis.windows.conf 啟動畫面 測試 #連線指令redis-cli.exe -h 127.0.0.1 -p 6379#塞值Set testkey testvalue#取值Get testkey 2.Linux 安裝 #用wget從Redis官網下載最新的Redis安裝包，#下載完成後解壓縮到你想要放的位置，然後執行make進行編譯$ wget http://download.redis.io/releases/redis-6.0.3.tar.gz$ tar xzf redis-6.0.3.tar.gz$ cd redis-6.0.3$ make 啟動 src/redis-server 測試 #連線指令src/redis-cli # 塞值redis&amp;gt; set foo bar # 取值redis&amp;gt; get foo  3. cntos install redis 更新 dnf sudo dnf update -y 下載 redis  下載  sudo dnf install redis -y 啟動  sudo systemctl start redis sudo systemctl enable redis 確認啟動  sudo systemctl status redis 看占用的port  sudo netstat -pnltu | grep redis 3.使用Docker 安裝 已經安裝好Docker的環境，只要輸入下列指令就能快速的跑起來一個Redis instance
 docker run --name MyRedisCache -d -p 6379:6369 redis 測試 進入 container 測試
-#連線指令redis-cli# 塞值127.0.0.1:6379&amp;gt; set hello &amp;quot;hello world&amp;quot;# 取值127.0.0.1:6379&amp;gt; get hello 參考 Redis - 維基百科，自由的百科全書
-https://zh.wikipedia.org/wiki/Redis
-Redis - 在 Windows 上建立高可用性的 Redis | 天空的垃圾場
-https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/
-Redis系列 - 環境建置篇 - Jed&amp;rsquo;s blog
-https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html
-如何在CentOS 8 / RHEL 8上安裝Redis服務器 https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/
+#連線指令redis-cli# 塞值127.0.0.1:6379&amp;gt; set hello &amp;quot;hello world&amp;quot;# 取值127.0.0.1:6379&amp;gt; get hello 參考 Redis - 维基百科，自由的百科全书 (wikipedia.org)
+Redis系列 - 環境建置篇 - Jed&amp;rsquo;s blog (jed1978.github.io)
+How to Install Redis Server on CentOS 8 / RHEL 8 (linuxtechi.com)
+Redis - 在 Windows 上建立高可用性的 Redis :: 天空的垃圾場 v3 (skychang.github.io)
 </content>
     </entry>
     
@@ -1330,7 +1325,7 @@ Prism是一種輕量級的，可擴展的語法突出顯示工具，其構建考
         <tags>
           <tag>hugo</tag>
         </tags>
-        <content type="html"> Hugo使用筆記 前言
+        <content type="html"> Hugo使用筆記 紀錄Hugo使用的筆記
 Hugo 基本指令 安裝 透過Chocolatey 安裝
 choco install hugo -confirm Check version:
 hugo version 建立新Blog hugo new site blog 新增文章 hugo new post/文章名稱.md 生成的文件默認為會帶上 draft: true標記，不會發布。
