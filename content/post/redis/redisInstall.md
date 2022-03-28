@@ -9,16 +9,9 @@ tags:
 toc: true
 ---
 
-
-
 ## Redis Install
 
 <!-- 簡介 -->
-
-
-
-<!--more-->
-
 ## Redis簡介
 
 Redis是一個使用ANSI C編寫的開源、支援、基於記憶體、可選永續性的鍵值對儲存資料庫。
@@ -66,7 +59,6 @@ Get testkey
 
 ## 2.Linux 安裝
 
-
 ```shell
 #用wget從Redis官網下載最新的Redis安裝包，
 #下載完成後解壓縮到你想要放的位置，然後執行make進行編譯
@@ -76,7 +68,7 @@ $ cd redis-6.0.3
 $ make
 ```
 
-### 啟動 
+### 啟動
 
 ``` shell
 src/redis-server
@@ -106,27 +98,32 @@ sudo dnf update -y
 ```
 
 ### 下載 redis 
+
 1. 下載
-```
+
+```shell
 sudo dnf install redis -y
 ```
+
 2. 啟動
-```
+
+```shell
 sudo systemctl start redis 
 
 sudo systemctl enable redis
 ```
 
 3. 確認啟動
-```
+
+```shell
 sudo systemctl status redis
 ```
 
 4. 看占用的port
 
+```shell
  sudo netstat -pnltu | grep redis
-
-
+```
 
 ### 3.使用Docker
 
@@ -155,17 +152,10 @@ redis-cli
 
 ## 參考
 
-Redis - 維基百科，自由的百科全書  
-https://zh.wikipedia.org/wiki/Redis  
+[Redis - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/Redis)
 
-Redis - 在 Windows 上建立高可用性的 Redis | 天空的垃圾場  
-https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/  
+[Redis系列 - 環境建置篇 - Jed's blog (jed1978.github.io)](https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html)
 
-Redis系列 - 環境建置篇 - Jed's blog  
-https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html
+[How to Install Redis Server on CentOS 8 / RHEL 8 (linuxtechi.com)](https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/)
 
-如何在CentOS 8 / RHEL 8上安裝Redis服務器
-https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/
-
-
-
+[Redis - 在 Windows 上建立高可用性的 Redis :: 天空的垃圾場 v3 (skychang.github.io)](https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/)
