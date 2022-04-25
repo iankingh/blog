@@ -1,13 +1,12 @@
 ---
 title: "EmbracingJUnitwithEclipse"
 date: 2020-09-29T22:13:19+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
  - "eclispe"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 ## Junit with Eclipse
@@ -37,15 +36,11 @@ typora-root-url: ..\..\..\static
 
 ![ JavaBuildPath-2.png](/images/eclipse/JavaBuildPath-2.png)
 
-
-
 ### 2.Junit 參數設定
 
 1.點選 於 Test.java(測試的類別) 點右鍵 >>>Run AS >>>>Run Configuations 
 
 ![juint.png](/images/eclipse/juint.png)
-
-
 
 2.打開設定
 
@@ -65,9 +60,9 @@ Enbironment  : 可以選擇 環境變數
 
 
 
-# 參考
+## 參考
 
-https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php
+[Embracing JUnit 5 with Eclipse | The Eclipse Foundation](https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php)
 
 
 

@@ -13,8 +13,7 @@ toc: true
 ## Windows CMD指令
 <!--more-->
 
-
-快速打開 
+## 快速打開 cmd
 
 1.CTRL + R ——打開 "運行"
 
@@ -22,16 +21,21 @@ toc: true
 
 ipconfig  : 查IP
 
-使用
+## 使用
+
+### ipconfig
 
 ``` cmd
 ipconfig
 ```
 
-cls       : 清空命令
+### cls
 
+清空命令
 
-### 查看哪些進程佔用了埠
+### netstat 
+
+查看哪些進程佔用了埠
 
 ```cmd
 
@@ -48,5 +52,3 @@ cls       : 清空命令
 ## 參考
 
 [查看哪些進程佔用了埠 - zhuxiongxian的挨踢博客 - CSDN博客](https://blog.csdn.net/cryhelyxx/article/details/17919897)
-
-

@@ -3,13 +3,13 @@ title: "NginxForwindows"
 date: 2020-09-30T07:03:04+08:00
 draft: true
 categories:
- - "Nginx"
+ - "筆記"
 tags:
  - "Nginx"
 toc: true
 ---
 
-# NGINX 基礎入門(Windows 版) 筆記
+## NGINX 基礎入門(Windows 版) 筆記
 <!--more-->
 
 當我們啟用 nginx.exe 之後，需要透過 `-s signal` 來與 nginx.exe 溝通。
@@ -362,7 +362,7 @@ upstream dynamic {
 - [error_log](http://nginx.org/en/docs/ngx_core_module.html#error_log)：日誌的路徑與等級的指定。
 - [gzip](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)：預設為 off。可修改為 on。其中，[gzip_proxied](http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_proxied) 影響 Proxy 的 gzip 行為。
 
-### 小結
+## 小結
 
 有了以上的基礎，你可以看一下 NGINX 官方有一份比較大型的配置 [Full Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/) 範例，絕大部分你現在應該都能看得懂。
 
@@ -373,7 +373,7 @@ upstream dynamic {
 
 
 
-參考
+## 參考
 
 KingKong Bruce記事: NGINX 基礎入門(Windows 版)
 

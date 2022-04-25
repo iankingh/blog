@@ -11,9 +11,8 @@ tags:
 toc: true
 ---
 
-# Spring Cloud Eureka筆記
+## Spring Cloud Eureka筆記
 <!--more-->
-
 
 
 1. 添加依賴
@@ -23,7 +22,6 @@ toc: true
 3. 配置文件 application.properties OR application.yml
 
 如果 Server 有2台 用 , 隔開
-
 
 
 

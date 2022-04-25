@@ -1,22 +1,13 @@
 ---
-title: "AngularUseJS"
+title: "AngularUseJavaScript"
 date: 2021-01-22T13:38:06+08:00
 draft: false
 categories:
 - "筆記"
 tags:
-<<<<<<< HEAD
 - "Angular"
 - "FrontEnd"
-=======
- - "Angular"
- - "FrontEnd"
-categories: 
-- "筆記"
->>>>>>> 58e499eb8d014cda0ae218d90058021491aad73b
-toc: true
 ---
-
 ## **Angular引入**JavaScript
 
 ## 前言
@@ -45,7 +36,6 @@ function Hello(){
 **把js文件放到 /assets目錄下**
 
 ****ex.****
-
 ```
  /assets/Hello.js
 ```
@@ -56,6 +46,17 @@ function Hello(){
 
 ex. 添加 **"allowJs": true,**
 
+```
+ /assets/js/Hello.js
+```
+
+### 第二步 設置**compilerOptions**的**allowJs**屬性為true
+
+打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，添加 "**allowJs**": true,
+
+**ex.** 添加 **"allowJs": true,**
+>>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
+
 ```json
  "compilerOptions": {
     .....................
@@ -65,6 +66,7 @@ ex. 添加 **"allowJs": true,**
 ```
 
 完整如下
+tsconfig.json完整如下
 
 ```json
 {
@@ -96,11 +98,51 @@ ex. 添加 **"allowJs": true,**
 ```
 
 ### 第三步 : 引入JS
+### 第三步 : 引入javaScript
 
-1. 可以在 angular.json文件，在scripts中配置js文件路径
-2. 或是在 index.html 引入
+### 在 angular.json，scripts區塊配置js文件路径
+
+```json
+"scripts": [
+              "src/assets/js/Hello.js",
+            ]
+```
 
 ### 第四步，在當前组件.ts中使用函数添加js
+### 在 index.html 引入
+
+<!-- Hello js -->
+
+<script src="assets/js/Hello.js" type="text/javascript"></script>
+
+**index.html**
+
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello</title>
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="assets/js/Hello.js" type="text/javascript"></script>
+
+</head>
+
+<body class="mat-typography">
+  <app-root></app-root>
+</body>
+
+</html>
+```
+
+### 第四步 : 在當前组件.ts中使用函数添加js
+
+`import 'src/assets/js/Hello.js';`
+>>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 
 ## 參考
 

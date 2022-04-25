@@ -10,7 +10,7 @@ tags:
 toc: true
 ---
 
-# Angular Cheat Sheet (Angular 小抄)
+## Angular Cheat Sheet (Angular 小抄)
 <!--more-->
 
 ## Angular CLI(Angular 指令)

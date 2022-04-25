@@ -8,7 +8,6 @@ tags:
  - "Linux"
  - "CentOS"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 ## CentOS 8 Install

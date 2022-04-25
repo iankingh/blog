@@ -8,7 +8,6 @@ categories:
 tags:
  - "java"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 <!--more-->

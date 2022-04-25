@@ -1,7 +1,7 @@
 ---
 title: "Heic2any"
 date: 2021-06-28T04:22:43+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -15,7 +15,6 @@ toc: true
 
 客戶端（瀏覽器端，使用 Javascript）將HEIC/HEIF圖像文件轉換為 JPEG、PNG 或 GIF。
 <!--more-->
-
 
 範例環境：
 
@@ -82,4 +81,5 @@ toc: true
 
 
 ## 參考
+
 [Heic2any: Client-side conversion of HEIC/HEIF image files to JPEG, PNG, or GIF in the browser.](https://alexcorvi.github.io/heic2any/)

@@ -92,9 +92,7 @@ public class PrimitiveDataTypesTest {
 }
 ```
 
-
-
-## JAVA  跳脫字元 Escape Characters 
+## JAVA  跳脫字元 Escape Characters
 
 ``` java
 - \' : 單引號

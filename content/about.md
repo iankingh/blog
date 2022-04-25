@@ -7,7 +7,7 @@ url: "/about/"
 
 ## 關於本站
 
- 紀錄關於所學的筆記。
+本人為java工程師，目前主要以開發Angular 及Spring boot 為主
 
 ## 內容
 

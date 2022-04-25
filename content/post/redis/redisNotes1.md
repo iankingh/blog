@@ -7,7 +7,6 @@ categories:
 tags:
  - "redis"
 toc: true
-typora-root-url: ..\..\..\static
 ---
 
 ## 筆記
@@ -17,5 +16,6 @@ typora-root-url: ..\..\..\static
 
 
 ## 參考
+
 深入剖析Redis系列(一) - Redis入门简介与主从搭建
 https://juejin.cn/post/6844903661223542792

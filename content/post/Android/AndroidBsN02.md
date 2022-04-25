@@ -5,12 +5,11 @@ draft: true
 categories:
  - "筆記"
 tags:
- - "java"
  - "Kotlin"
  - "Android"
 toc: true
 ---
 
-# 筆記
+## 筆記
 
 <!--more-->

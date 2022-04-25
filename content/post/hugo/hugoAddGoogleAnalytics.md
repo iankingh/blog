@@ -13,12 +13,11 @@ toc: true
 <!-- 簡介 -->
 <!--more-->
 
-
 1. 先申請 Google Analytics v4 (gtag.js)
    於toml 加入
    googleAnalytics = "G-MEASUREMENT_ID"
 
-2.Use the Google Analytics Template 
+2.Use the Google Analytics Template
 
 
 ## 參考

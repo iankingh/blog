@@ -1,17 +1,14 @@
 ---
 title: "ChromeTools"
 date: 2021-04-11T19:11:37+08:00
-draft: true
+draft: false
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "net"
  - "chrome"
 toc: true
-typora-root-url: ..\..\..\static
 ---
-
-<!-- 不上傳 -->
 
 ## chrome 筆記 
 <!-- 簡介 -->
@@ -31,7 +28,6 @@ overrides 是 chrome 在 65推出的新功能
 以前，重新加載頁面時，您在DevTools中所做的任何更改都將丟失。
 本地替代適用於大多數文件類型，但有一些例外。
 
-https://developer.chrome.com/blog/new-in-devtools-65/#overrides
 
 ### 操作步驟
 
@@ -71,22 +67,8 @@ https://developer.chrome.com/blog/new-in-devtools-65/#overrides
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 參考
 [Chrome Dev Tool 的好用功能 - overrides](https://pvencs.blogspot.com/2019/01/chrome-dev-tool-overrides.html)
 
 https://developer.chrome.com/blog/new-in-devtools-65/#overrides
+

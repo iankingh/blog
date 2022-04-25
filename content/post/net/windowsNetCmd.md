@@ -3,7 +3,7 @@ title: "WindowsNetCmd"
 date: 2021-01-10T18:04:51+08:00
 draft: false
 categories:
- - "categories"
+ - "筆記"
 tags:
  - "Windows"
  - "Cmd"

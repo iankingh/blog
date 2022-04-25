@@ -3,10 +3,9 @@ title: "JavaScript 實作簡易網頁表格資料搜尋與篩選功能 "
 date: 2021-03-16T10:02:22+08:00
 draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "JavaScript"
 toc: true
 ---
 
@@ -112,5 +111,6 @@ toc: true
 
 
 ## 參考
+
 JavaScript 實作簡易網頁表格資料搜尋與篩選功能 - G. T. Wang
 https://blog.gtwang.org/web-development/light-javascript-table-filter-tutorial/

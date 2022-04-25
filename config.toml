@@ -1,6 +1,6 @@
 Title =  "ianhuang筆記"
 LanguageCode = "zh-TW"
-BaseUrl = "https://iankingh.github.io/"
+BaseUrl = "https://iankingh.github.io/blog/"
 Theme =  "next"
 MetaDataFormat =  "yaml"
 CanonifyUrls =  true

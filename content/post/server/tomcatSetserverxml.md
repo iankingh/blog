@@ -1,11 +1,11 @@
 ---
 title: "TomcatSetserverxml"
 date: 2021-04-06T09:29:21+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
- - "java"
+ - "AP Server"
  - "tomcat"
 toc: true
 ---
@@ -29,7 +29,7 @@ apache-tomcat/conf/server.xml
 **調整如下**
 ![JAVA_HOME](/images/java/調整Tomcat上傳檔案大小.png)
 
-### 設定路徑及檔案位址
+### 設定部屬路徑及檔案位址
 
 ```xml
   <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">

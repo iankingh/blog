@@ -6,6 +6,7 @@ categories:
  - "筆記"
 tags:
  - "git"
+ - "版控"
 toc: true
 ---
 ## git pull error筆記
@@ -30,6 +31,7 @@ git fetch
 ```
 
 再
+
 ```shell
 git merge origin/master
 ```

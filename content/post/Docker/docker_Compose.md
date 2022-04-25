@@ -1,11 +1,12 @@
 ---
-title: "Docker_Compose"
+title: "docker-compose"
 date: 2020-09-28T21:53:46+08:00
 draft: false
 categories:
   - "筆記"
 tags:
  - "docker"
+ - "compose"
 toc: true
 ---
 
@@ -130,11 +131,6 @@ Stopping composetest_redis_1 ... done
 ```
 
 `docker-compose restart` ：重啟專案中的服務
-
-
-
-
-
 
 ## docker-compose 命令
 
