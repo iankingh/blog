@@ -5,8 +5,15 @@ draft: false
 categories:
 - "筆記"
 tags:
+<<<<<<< HEAD
 - "Angular"
 - "FrontEnd"
+=======
+ - "Angular"
+ - "FrontEnd"
+categories: 
+- "筆記"
+>>>>>>> 58e499eb8d014cda0ae218d90058021491aad73b
 toc: true
 ---
 
