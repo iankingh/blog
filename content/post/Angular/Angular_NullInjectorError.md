@@ -22,7 +22,13 @@ NullInjectorError: No provider for Pipe!
 
 需註冊在 module 或是 component
 
+<<<<<<< HEAD
+需註冊
+
+```
+=======
 ```tsx
+>>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 @NgModule({
 
 imports: [ .. ],

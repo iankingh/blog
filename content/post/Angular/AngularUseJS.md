@@ -2,12 +2,11 @@
 title: "AngularUseJavaScript"
 date: 2021-01-22T13:38:06+08:00
 draft: false
-tags:
- - "Angular"
- - "FrontEnd"
-categories: 
+categories:
 - "筆記"
-toc: true
+tags:
+- "Angular"
+- "FrontEnd"
 ---
 ## **Angular引入**JavaScript
 
@@ -28,7 +27,7 @@ toc: true
 
 ****ex.**** 
 
-```jsx
+```javascript
 function Hello(){
 	alert("Hello")
 }
@@ -37,6 +36,15 @@ function Hello(){
 **把js文件放到 /assets目錄下**
 
 ****ex.****
+```
+ /assets/Hello.js
+```
+
+## 第二步 設置**compilerOptions**的**allowJs**屬性為true
+
+打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，添加 "**allowJs**": true,
+
+ex. 添加 **"allowJs": true,**
 
 ```
  /assets/js/Hello.js
@@ -47,6 +55,7 @@ function Hello(){
 打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，添加 "**allowJs**": true,
 
 **ex.** 添加 **"allowJs": true,**
+>>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 
 ```json
  "compilerOptions": {
@@ -56,6 +65,7 @@ function Hello(){
   }
 ```
 
+完整如下
 tsconfig.json完整如下
 
 ```json
@@ -87,6 +97,7 @@ tsconfig.json完整如下
 
 ```
 
+### 第三步 : 引入JS
 ### 第三步 : 引入javaScript
 
 ### 在 angular.json，scripts區塊配置js文件路径
@@ -97,6 +108,7 @@ tsconfig.json完整如下
             ]
 ```
 
+### 第四步，在當前组件.ts中使用函数添加js
 ### 在 index.html 引入
 
 <!-- Hello js -->
@@ -130,6 +142,7 @@ tsconfig.json完整如下
 ### 第四步 : 在當前组件.ts中使用函数添加js
 
 `import 'src/assets/js/Hello.js';`
+>>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 
 ## 參考
 
