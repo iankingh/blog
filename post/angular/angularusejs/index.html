@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html lang="zh-TW">
 <head>
@@ -42,10 +41,8 @@
 </script>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
 <div class="container one-collumn sidebar-position-left page-home  ">
     <div class="headband"></div>
-
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> <div class="site-meta  custom-logo ">
   <div class="custom-logo-site-title">
@@ -115,7 +112,6 @@
 
  </div>
     </header>
-
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
@@ -164,7 +160,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">閱讀：</span>
-<span class="leancloud-visitors-count">602 字 ~2分鐘</span>
+<span class="leancloud-visitors-count">751 字 ~2分鐘</span>
 </span>
       </div>
     </header>
@@ -178,24 +174,45 @@
 <h3 id="第一步-安裝下載javascript">第一步 安裝下載JavaScript</h3>
 <p>準備一個 JavaScript</p>
 <p><strong><strong>ex.</strong></strong></p>
-<pre><code class="language-jsx">function Hello(){
+<pre><code class="language-javascript">function Hello(){
 	alert(&quot;Hello&quot;)
 }
 </code></pre>
 <p><strong>把js文件放到 /assets目錄下</strong></p>
 <p><strong><strong>ex.</strong></strong></p>
+<pre><code> /assets/Hello.js
+</code></pre>
+<h2 id="第二步-設置compileroptions的allowjs屬性為true">第二步 設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true</h2>
+<p>打開 tsconfig.json，找到<strong>compilerOptions</strong>  ，並設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true;，添加 &ldquo;<strong>allowJs</strong>&rdquo;: true,</p>
+<p>ex. 添加 <strong>&ldquo;allowJs&rdquo;: true,</strong></p>
 <pre><code> /assets/js/Hello.js
 </code></pre>
-<h3 id="第二步-設置compileroptions的allowjs屬性為true">第二步 設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true</h3>
+<h3 id="第二步-設置compileroptions的allowjs屬性為true-1">第二步 設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true</h3>
 <p>打開 tsconfig.json，找到<strong>compilerOptions</strong>  ，並設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true;，添加 &ldquo;<strong>allowJs</strong>&rdquo;: true,</p>
 <p><strong>ex.</strong> 添加 <strong>&ldquo;allowJs&rdquo;: true,</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <pre><code class="language-json"> &quot;compilerOptions&quot;: {
     .....................
     &quot;allowJs&quot;: true,
 	  .....................
   }
 </code></pre>
-<p>tsconfig.json完整如下</p>
+<p>完整如下
+tsconfig.json完整如下</p>
 <pre><code class="language-json">{
   &quot;compileOnSave&quot;: false,
   &quot;compilerOptions&quot;: {
@@ -223,12 +240,14 @@
 }
 
 </code></pre>
+<h3 id="第三步--引入js">第三步 : 引入JS</h3>
 <h3 id="第三步--引入javascript">第三步 : 引入javaScript</h3>
 <h3 id="在-angularjsonscripts區塊配置js文件路径">在 angular.json，scripts區塊配置js文件路径</h3>
 <pre><code class="language-json">&quot;scripts&quot;: [
               &quot;src/assets/js/Hello.js&quot;,
             ]
 </code></pre>
+<h3 id="第四步在當前组件ts中使用函数添加js">第四步，在當前组件.ts中使用函数添加js</h3>
 <h3 id="在-indexhtml-引入">在 index.html 引入</h3>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -255,6 +274,21 @@
 </code></pre>
 <h3 id="第四步--在當前组件ts中使用函数添加js">第四步 : 在當前组件.ts中使用函数添加js</h3>
 <p><code>import 'src/assets/js/Hello.js';</code></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h2 id="參考">參考</h2>
 <p><a href="https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control">angular在ts中使用第三方js_weixin_43182222的博客-CSDN博客</a></p>
 <p><a href="https://stackoverflow.com/questions/49526681/how-to-call-javascript-functions-from-typescript-in-angular-5">How to call JavaScript functions from Typescript in Angular 5? - Stack Overflow</a></p>
@@ -297,33 +331,8 @@
 
 
 
-     
+
     </footer>
-
-    <div class="disqus markdown">
-      
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    (function () {
-        
-        
-        
-        
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        var disqus_shortname = 'https-iankingh-github-io';
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the 
-    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
-
-
   </article>
 </section>
 
@@ -339,16 +348,7 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-  <ul class="sidebar-nav motion-element">
-    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-      文章目錄
-    </li>
-    <li class="sidebar-nav-overview" data-target="site-overview">
-      網站概覽
-    </li>
-  </ul>
-
-    <section class="site-overview sidebar-panel ">
+    <section class="site-overview sidebar-panel  sidebar-panel-active ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="https://iankingh.github.io/blog/img/author.jpg"
@@ -405,29 +405,6 @@
 
     </section>
     
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-    <div class="post-toc">
-        <div class="post-toc-content"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#angular引入javascript"><strong>Angular引入</strong>JavaScript</a></li>
-    <li><a href="#前言">前言</a></li>
-    <li><a href="#方法一">方法一</a></li>
-    <li><a href="#方法-二-引入第三方的javascript">方法 二 引入第三方的JavaScript</a>
-      <ul>
-        <li><a href="#第一步-安裝下載javascript">第一步 安裝下載JavaScript</a></li>
-        <li><a href="#第二步-設置compileroptions的allowjs屬性為true">第二步 設置<strong>compilerOptions</strong>的<strong>allowJs</strong>屬性為true</a></li>
-        <li><a href="#第三步--引入javascript">第三步 : 引入javaScript</a></li>
-        <li><a href="#在-angularjsonscripts區塊配置js文件路径">在 angular.json，scripts區塊配置js文件路径</a></li>
-        <li><a href="#在-indexhtml-引入">在 index.html 引入</a></li>
-        <li><a href="#第四步--在當前组件ts中使用函数添加js">第四步 : 在當前组件.ts中使用函数添加js</a></li>
-      </ul>
-    </li>
-    <li><a href="#參考">參考</a></li>
-  </ul>
-</nav></div>
-    </div>
-</section>
-
   </div>
 </aside>
 

@@ -568,12 +568,16 @@ http://ctwivan.blogspot.com/2010/08/windowsstatic-route.html
 ex.
 function Hello(){alert(&amp;quot;Hello&amp;quot;)} 把js文件放到 /assets目錄下
 ex.
+ /assets/Hello.js 第二步 設置compilerOptions的allowJs屬性為true 打開 tsconfig.json，找到compilerOptions ，並設置compilerOptions的allowJs屬性為true;，添加 &amp;ldquo;allowJs&amp;rdquo;: true,
+ex. 添加 &amp;ldquo;allowJs&amp;rdquo;: true,
  /assets/js/Hello.js 第二步 設置compilerOptions的allowJs屬性為true 打開 tsconfig.json，找到compilerOptions ，並設置compilerOptions的allowJs屬性為true;，添加 &amp;ldquo;allowJs&amp;rdquo;: true,
 ex. 添加 &amp;ldquo;allowJs&amp;rdquo;: true,
-&amp;quot;compilerOptions&amp;quot;: {.....................&amp;quot;allowJs&amp;quot;: true,.....................} tsconfig.json完整如下
-{&amp;quot;compileOnSave&amp;quot;: false,&amp;quot;compilerOptions&amp;quot;: {&amp;quot;baseUrl&amp;quot;: &amp;quot;./&amp;quot;,&amp;quot;outDir&amp;quot;: &amp;quot;./dist/out-tsc&amp;quot;,&amp;quot;sourceMap&amp;quot;: true,&amp;quot;declaration&amp;quot;: false,&amp;quot;downlevelIteration&amp;quot;: true,&amp;quot;experimentalDecorators&amp;quot;: true,&amp;quot;module&amp;quot;: &amp;quot;esnext&amp;quot;,&amp;quot;moduleResolution&amp;quot;: &amp;quot;node&amp;quot;,&amp;quot;allowJs&amp;quot;: true,&amp;quot;importHelpers&amp;quot;: true,&amp;quot;target&amp;quot;: &amp;quot;es5&amp;quot;,&amp;quot;lib&amp;quot;: [&amp;quot;es2018&amp;quot;,&amp;quot;dom&amp;quot;]},&amp;quot;angularCompilerOptions&amp;quot;: {&amp;quot;fullTemplateTypeCheck&amp;quot;: true,&amp;quot;strictInjectionParameters&amp;quot;: true,&amp;quot;enableIvy&amp;quot;: false}} 第三步 : 引入javaScript 在 angular.json，scripts區塊配置js文件路径 &amp;quot;scripts&amp;quot;: [&amp;quot;src/assets/js/Hello.js&amp;quot;,] 在 index.html 引入 index.html
+       c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
+       &amp;quot;compilerOptions&amp;quot;: {.....................&amp;quot;allowJs&amp;quot;: true,.....................} 完整如下 tsconfig.json完整如下
+{&amp;quot;compileOnSave&amp;quot;: false,&amp;quot;compilerOptions&amp;quot;: {&amp;quot;baseUrl&amp;quot;: &amp;quot;./&amp;quot;,&amp;quot;outDir&amp;quot;: &amp;quot;./dist/out-tsc&amp;quot;,&amp;quot;sourceMap&amp;quot;: true,&amp;quot;declaration&amp;quot;: false,&amp;quot;downlevelIteration&amp;quot;: true,&amp;quot;experimentalDecorators&amp;quot;: true,&amp;quot;module&amp;quot;: &amp;quot;esnext&amp;quot;,&amp;quot;moduleResolution&amp;quot;: &amp;quot;node&amp;quot;,&amp;quot;allowJs&amp;quot;: true,&amp;quot;importHelpers&amp;quot;: true,&amp;quot;target&amp;quot;: &amp;quot;es5&amp;quot;,&amp;quot;lib&amp;quot;: [&amp;quot;es2018&amp;quot;,&amp;quot;dom&amp;quot;]},&amp;quot;angularCompilerOptions&amp;quot;: {&amp;quot;fullTemplateTypeCheck&amp;quot;: true,&amp;quot;strictInjectionParameters&amp;quot;: true,&amp;quot;enableIvy&amp;quot;: false}} 第三步 : 引入JS 第三步 : 引入javaScript 在 angular.json，scripts區塊配置js文件路径 &amp;quot;scripts&amp;quot;: [&amp;quot;src/assets/js/Hello.js&amp;quot;,] 第四步，在當前组件.ts中使用函数添加js 在 index.html 引入 index.html
 &amp;lt;!doctype html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;title&amp;gt;Hello&amp;lt;/title&amp;gt;&amp;lt;base href=&amp;quot;/&amp;quot;&amp;gt;&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=edge,IE=11&amp;quot;&amp;gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0&amp;quot;&amp;gt;&amp;lt;link rel=&amp;quot;icon&amp;quot; type=&amp;quot;image/x-icon&amp;quot; href=&amp;quot;favicon.ico&amp;quot;&amp;gt;&amp;lt;script src=&amp;quot;assets/js/Hello.js&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body class=&amp;quot;mat-typography&amp;quot;&amp;gt;&amp;lt;app-root&amp;gt;&amp;lt;/app-root&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt; 第四步 : 在當前组件.ts中使用函数添加js import &#39;src/assets/js/Hello.js&#39;;
-參考 angular在ts中使用第三方js_weixin_43182222的博客-CSDN博客
+       c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
+       參考 angular在ts中使用第三方js_weixin_43182222的博客-CSDN博客
 How to call JavaScript functions from Typescript in Angular 5? - Stack Overflow
 Angular引入自己写的js或者其他_qq_43205711的博客-程序员宅基地_angular引用自己的js - 程序员宅基地 (cxyzjd.com)
 </content>
@@ -733,7 +737,8 @@ https://www.netadmin.com.tw/netadmin/zh-tw/technology/6F6D669EB83E4DC9BEA42F1C94
 如果遇到 NullInjectorError 表示 沒有注入提供者
 這邊是沒有註冊 Pipe
 需註冊在 module 或是 component
-@NgModule({imports: [ .. ],declarations: [ CustomPipe ],exports: [ CustomPipe ],providers: [ CustomPipe ]})export class SharedModule { } 參考 No Provider for CustomPipe - angular 4 - Stack Overflow
+&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt; HEAD 需註冊
+=======```tsx&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6@NgModule({imports: [ .. ],declarations: [ CustomPipe ],exports: [ CustomPipe ],providers: [ CustomPipe ]})export class SharedModule { } 參考 No Provider for CustomPipe - angular 4 - Stack Overflow
 Angular依赖注入的一个常见错误NullInjectorError,No provider for XXX - 云&#43;社区 - 腾讯云 (tencent.com)
 </content>
     </entry>
