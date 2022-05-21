@@ -1,15 +1,16 @@
 ---
 title: "Gradle Error"
 date: 2021-07-01T10:08:21+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "gradle"
 toc: true
+draft: false
 ---
 
 ## gradle Error
+以下為 gradle 錯誤訊息的紀錄
 <!-- 簡介 -->
 <!--more-->
 ## Error1. for encoding x-windows-950

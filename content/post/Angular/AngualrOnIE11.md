@@ -1,13 +1,13 @@
 ---
 title: "AngualrOnIE11"
 date: 2021-03-10T13:21:43+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: false
 ---
 
 ## **Angualr IE 11 使用筆記**

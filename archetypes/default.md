@@ -1,14 +1,13 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
 categories:
 - "筆記"
 tags:
 - "tag1"
 - "tag2"
 toc: true
-
+draft: true
 ---
 
 <!-- 簡介 -->

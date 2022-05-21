@@ -1,7 +1,7 @@
 - id: StatsCats
-  translation: 目前共計 {{ len .Data.Terms }} 個分類
+  translation: 目前共計 {{ len .Data.Term }} 個分類
 - id: StatsTags
-  translation: 目前共計 {{ len .Data.Terms }} 個標籤
+  translation: 目前共計 {{ len .Data.Term }} 個標籤
 - id: StatsBlogs
   translation: 目前共計 {{ .Count }} 篇日誌。 繼續努力。
 - id: Blog

@@ -6,7 +6,7 @@ categories:
  - "筆記"
 tags:
  - "Remote"
- - "VSCode"
+ - "Visual Studio Code"
 toc: true
 ---
 
@@ -84,9 +84,9 @@ Host ian-centos8
 
 ## 參考
 
-https://hackmd.io/@brick9450/vscode-remote
+[使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote
+)
 
 
-vscode remote vagrant ssh
+[vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
 
-https://code.visualstudio.com/blogs/2019/07/25/remote-ssh

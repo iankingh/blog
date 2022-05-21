@@ -1,7 +1,7 @@
 - id: StatsCats
-  translation: Total {{ len .Data.Terms }} categories
+  translation: Total {{ len .Data.Term }} categories
 - id: StatsTags
-  translation: Total {{ len .Data.Terms }} tags
+  translation: Total {{ len .Data.Term }} tags
 - id: StatsBlogs
   translation: Well! Total {{ .Count }} blogs, let's press on. 
 - id: Blog
