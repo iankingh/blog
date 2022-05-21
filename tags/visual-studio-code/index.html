@@ -14,19 +14,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>HikariPool-1 - Connection is not available, request timed out after 30000ms - ianhuang筆記</title>
+    <title>Visual Studio Code - ianhuang筆記</title>
     <meta name="keywords" content="程式師,架構師,個人,筆記,技術">
     
-    <meta property="og:title" content="HikariPool-1 - Connection is not available, request timed out after 30000ms">
+    <meta property="og:title" content="Visual Studio Code">
     <meta property="og:site_name" content="ianhuang筆記">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="HikariPool-1 - Connection is not available, request timed out after 30000ms - ianhuang筆記" />
+    <meta name="title" content="Visual Studio Code - ianhuang筆記" />
     <meta name="description" content="筆記 | 軟體 | 架構 | Java "> 
     <link rel="shortcut icon" href="https://iankingh.github.io/blog/img/favicon.ico" />
     <link rel="apple-touch-icon" href="https://iankingh.github.io/blog/img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="https://iankingh.github.io/blog/img/apple-touch-icon.png" />
     <link href="https://iankingh.github.io/blog/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="https://iankingh.github.io/blog/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    
     <link href="https://iankingh.github.io/blog/css/main.css" rel="stylesheet" type="text/css" />
     
     <link href="https://iankingh.github.io/blog/prism.css" rel="stylesheet"   type="text/css"/>
@@ -35,13 +35,13 @@
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
-     fancybox: true, 
+    fancybox: false, 
     motion: true
   };
 </script>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<div class="container one-collumn sidebar-position-left page-home  ">
+<div class="container one-collumn sidebar-position-left   ">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> <div class="site-meta  custom-logo ">
@@ -117,135 +117,134 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-<section id="posts" class="posts-expand">
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://iankingh.github.io/blog/post/java/hikaripool-1-error/" itemprop="url">
-        HikariPool-1 - Connection is not available, request timed out after 30000ms
-        </a>
-      </h1>
-      <div class="post-meta">
-      
-<span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">時間：</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2021-05-06">
-    2021-05-06
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">分類：</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="https://iankingh.github.io/blog/categories/%E7%AD%86%E8%A8%98" itemprop="url" rel="index">
-        <span itemprop="name">筆記</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-      
-<span>
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-    </span>
-    <span class="post-meta-item-text">閱讀：</span>
-    <span class="leancloud-visitors-count">291 字 ~1分鐘</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    <h2 id="hikaripool-1---connection-is-not-available-request-timed-out-after-30000ms">HikariPool-1 - Connection is not available, request timed out after 30000ms</h2>
-<!-- raw HTML omitted -->
-<p>HikariPool是連接池管理類，負責管理數據庫連接。</p>
-<p>HikariPool-1 - Connection is not available, request timed out after 30000ms</p>
-<p>表示資料庫連線池請求超時</p>
-<p>報錯日誌:</p>
-<pre><code class="language-prolog">java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.
-</code></pre>
-<h3 id="原因一--由於網絡延遲或某些查詢執行時間過長超過30000毫秒因此數據庫未在30000毫秒這是默認的connectiontimeout屬性內未獲得連接"><strong>原因一 : 由於網絡延遲或某些查詢執行時間過長（超過30000毫秒），因此數據庫未在（30000毫秒，這是默認的connectionTimeout屬性）內未獲得連接。</strong></h3>
-<p>可以試看看增加Timeout的時間</p>
-<p>YML配置示例：</p>
-<pre><code class="language-yaml">spring:
-	datasource:
-		hikari:
-		#最小連線數
-		minimumIdle: 2
-		#最大連線數
-		maximumPoolSize: 10
-		idleTimeout: 120000
-		connectionTimeout: 300000
-		leakDetectionThreshold: 300000
-</code></pre>
-<p>Java Config示例：</p>
-<pre><code class="language-java">HikariConfig config = new HikariConfig();
-
-config.setMaximumPoolSize(20);
-
-config.setConnectionTimeout(300000);
-
-config.setConnectionTimeout(120000);
-
-config.setLeakDetectionThreshold(300000);
-</code></pre>
-<h2 id="參考"><strong>參考</strong></h2>
-<p><a href="https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for">java - HikariPool-1 - Connection is not available, request timed out after 30000ms for very tiny load server - Stack Overflow</a></p>
-<p><a href="https://www.itread01.com/content/1543459742.html">JavaWeb問題集錦: 資料庫連線池請求超時 HikariPool-1 - Connection is not available, request timed out after 30000ms - IT閱讀 (itread01.com)</a></p>
-    </div>
-    <footer class="post-footer">
-     
- 
-<div class="post-tags">     
-     
-    <a href="https://iankingh.github.io/blog/tags/java" rel="tag" title="java">#java#</a>
+<div id="posts" class="posts-expand">
     
-    <a href="https://iankingh.github.io/blog/tags/%e9%80%a3%e7%b7%9a%e6%b1%a0" rel="tag" title="連線池">#連線池#</a>
-    
+
+      
+       <div class="tag-cloud">
+        <div class="tag-cloud-title">
+            目前共計 18 個標籤
+        </div>
+        <div class="tag-cloud-tags">
+            
+             <a href="https://iankingh.github.io/blog/tags/android" style="font-size: 24.5px; color: #212121">android</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/angular" style="font-size: 24.5px; color: #212121">angular</a>
+             <span class="tag-list-count"><sup>9</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/ap-server" style="font-size: 24.5px; color: #212121">ap-server</a>
+             <span class="tag-list-count"><sup>3</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/chrome" style="font-size: 24.5px; color: #212121">chrome</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/cmd" style="font-size: 24.5px; color: #212121">cmd</a>
+             <span class="tag-list-count"><sup>3</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/compose" style="font-size: 24.5px; color: #212121">compose</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/docker" style="font-size: 24.5px; color: #212121">docker</a>
+             <span class="tag-list-count"><sup>3</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/eclispe" style="font-size: 24.5px; color: #212121">eclispe</a>
+             <span class="tag-list-count"><sup>3</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/frontend" style="font-size: 24.5px; color: #212121">frontend</a>
+             <span class="tag-list-count"><sup>7</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/git" style="font-size: 24.5px; color: #212121">git</a>
+             <span class="tag-list-count"><sup>5</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/gitlab" style="font-size: 24.5px; color: #212121">gitlab</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/gradle" style="font-size: 24.5px; color: #212121">gradle</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/heic2any" style="font-size: 24.5px; color: #212121">heic2any</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/hosts" style="font-size: 24.5px; color: #212121">hosts</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/hugo" style="font-size: 24.5px; color: #212121">hugo</a>
+             <span class="tag-list-count"><sup>3</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/internet" style="font-size: 24.5px; color: #212121">internet</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/ip" style="font-size: 24.5px; color: #212121">ip</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/java" style="font-size: 24.5px; color: #212121">java</a>
+             <span class="tag-list-count"><sup>10</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/javascript" style="font-size: 24.5px; color: #212121">javascript</a>
+             <span class="tag-list-count"><sup>4</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/kotlin" style="font-size: 24.5px; color: #212121">kotlin</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/linux" style="font-size: 24.5px; color: #212121">linux</a>
+             <span class="tag-list-count"><sup>2</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/net" style="font-size: 24.5px; color: #212121">net</a>
+             <span class="tag-list-count"><sup>2</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/npm" style="font-size: 24.5px; color: #212121">npm</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/other" style="font-size: 24.5px; color: #212121">other</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/redis" style="font-size: 24.5px; color: #212121">redis</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/remote" style="font-size: 24.5px; color: #212121">remote</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/spring" style="font-size: 24.5px; color: #212121">spring</a>
+             <span class="tag-list-count"><sup>2</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/spring-boot" style="font-size: 24.5px; color: #212121">spring-boot</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/spring-data-jpa" style="font-size: 24.5px; color: #212121">spring-data-jpa</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/ssl" style="font-size: 24.5px; color: #212121">ssl</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/tls" style="font-size: 24.5px; color: #212121">tls</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/tomcat" style="font-size: 24.5px; color: #212121">tomcat</a>
+             <span class="tag-list-count"><sup>3</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/vagrant" style="font-size: 24.5px; color: #212121">vagrant</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/visual-studio-code" style="font-size: 24.5px; color: #212121">visual-studio-code</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/windows" style="font-size: 24.5px; color: #212121">windows</a>
+             <span class="tag-list-count"><sup>4</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/%e5%89%8d%e5%be%8c%e7%ab%af%e5%88%86%e9%9b%a2" style="font-size: 24.5px; color: #212121">前後端分離</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/%e7%89%88%e6%8e%a7" style="font-size: 24.5px; color: #212121">版控</a>
+             <span class="tag-list-count"><sup>2</sup></span>
+             
+             <a href="https://iankingh.github.io/blog/tags/%e9%80%a3%e7%b7%9a%e6%b1%a0" style="font-size: 24.5px; color: #212121">連線池</a>
+             <span class="tag-list-count"><sup>1</sup></span>
+             
+        </div>
+       </div>
+      
 </div>
-
-
-
-     
-<div class="post-nav">
-    <div class="post-nav-next post-nav-item">
-        
-        <a href="https://iankingh.github.io/blog/post/javascript/heic2any/" rel="next" title="Heic2any">
-            <i class="fa fa-chevron-left"></i> Heic2any
-        </a>
-        
-    </div>
-
-    <div class="post-nav-prev post-nav-item">
-        
-        <a href="https://iankingh.github.io/blog/post/eclipse/eclipsesettingutf-8/" rel="prev" title="EclipseSettigUtf 8">
-            EclipseSettigUtf 8 <i class="fa fa-chevron-right"></i>
-        </a>
-        
-    </div>
-
-</div>
-     
-     
-     
-
-
-
-
-    </footer>
-  </article>
-</section>
 
           </div>
         </div>
@@ -259,16 +258,7 @@ config.setLeakDetectionThreshold(300000);
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-  <ul class="sidebar-nav motion-element">
-    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-      文章目錄
-    </li>
-    <li class="sidebar-nav-overview" data-target="site-overview">
-      網站概覽
-    </li>
-  </ul>
-
-    <section class="site-overview sidebar-panel ">
+    <section class="site-overview sidebar-panel  sidebar-panel-active ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="https://iankingh.github.io/blog/img/author.jpg"
@@ -304,6 +294,13 @@ config.setLeakDetectionThreshold(300000);
     </div>
 </nav>
       
+<div class="feed-link motion-element">
+<a href="https://iankingh.github.io/blog/tags/visual-studio-code/index.xml" rel="alternate" type="application/rss+xml" target="_blank">
+    <i class="fa fa-rss"></i>
+    RSS 訂閱
+</a>
+</div>
+
       
 <div class="links-of-author motion-element">
     
@@ -325,21 +322,6 @@ config.setLeakDetectionThreshold(300000);
 
     </section>
     
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-    <div class="post-toc">
-        <div class="post-toc-content"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#hikaripool-1---connection-is-not-available-request-timed-out-after-30000ms">HikariPool-1 - Connection is not available, request timed out after 30000ms</a>
-      <ul>
-        <li><a href="#原因一--由於網絡延遲或某些查詢執行時間過長超過30000毫秒因此數據庫未在30000毫秒這是默認的connectiontimeout屬性內未獲得連接"><strong>原因一 : 由於網絡延遲或某些查詢執行時間過長（超過30000毫秒），因此數據庫未在（30000毫秒，這是默認的connectionTimeout屬性）內未獲得連接。</strong></a></li>
-      </ul>
-    </li>
-    <li><a href="#參考"><strong>參考</strong></a></li>
-  </ul>
-</nav></div>
-    </div>
-</section>
-
   </div>
 </aside>
 
@@ -386,18 +368,16 @@ config.setLeakDetectionThreshold(300000);
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="https://iankingh.github.io/blog/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
-<script src="https://iankingh.github.io/blog/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/utils.js"></script>
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/motion.js"></script>
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/affix.js"></script>
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="https://iankingh.github.io/blog/js/scrollspy.js"></script>
-<script type="text/javascript" src="https://iankingh.github.io/blog/js/post-details.js"></script>
-<script type="text/javascript" src="https://iankingh.github.io/blog/js/toc.js"></script>
-
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/bootstrap.js"></script>
+
+<script type="text/javascript" id="motion.page.archive">
+  $('.archive-year').velocity('transition.slideLeftIn');
+</script>
 
 <script type="text/javascript" src="https://iankingh.github.io/blog/js/search.js"></script>
 <script type="text/x-mathjax-config">
