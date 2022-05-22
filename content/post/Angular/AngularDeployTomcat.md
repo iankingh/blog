@@ -1,12 +1,12 @@
 ---
 title: "AngularDeployTomcat"
 date: 2020-09-25T20:40:28+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "Angular"
 toc: true
+draft: false
 ---
 
 

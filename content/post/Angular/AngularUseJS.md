@@ -1,18 +1,21 @@
 ---
 title: "AngularUseJavaScript"
 date: 2021-01-22T13:38:06+08:00
-draft: false
 categories:
 - "筆記"
 tags:
 - "Angular"
 - "FrontEnd"
+draft: false
 ---
-## **Angular引入**JavaScript
+## Angular引入JavaScript
 
 ## 前言
 
-在實務上我們可以在npm上面找到要用的 JavaScript 來引用 , 有時可能找不到 , 也有時可能要匯入自己寫的JavaScript ,如果功能不複雜 ,可以轉成TypeScript
+在實務上我們可以在npm上面找到要用的 JavaScript 來引用 , 但有時可能會遇到以下狀況
+
+1. mpm 找不到
+2. 需要匯入匯入自己寫的JavaScript 
 <!--more-->
 
 ## 方法一
@@ -25,7 +28,7 @@ tags:
 
 準備一個 JavaScript 
 
-****ex.**** 
+**ex.**
 
 ```javascript
 function Hello(){
@@ -96,8 +99,6 @@ tsconfig.json完整如下
 }
 
 ```
-
-### 第三步 : 引入JS
 ### 第三步 : 引入javaScript
 
 ### 在 angular.json，scripts區塊配置js文件路径
@@ -109,7 +110,8 @@ tsconfig.json完整如下
 ```
 
 ### 第四步，在當前组件.ts中使用函数添加js
-### 在 index.html 引入
+
+**在 index.html 引入**
 
 <!-- Hello js -->
 
@@ -142,7 +144,6 @@ tsconfig.json完整如下
 ### 第四步 : 在當前组件.ts中使用函数添加js
 
 `import 'src/assets/js/Hello.js';`
->>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 
 ## 參考
 

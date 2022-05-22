@@ -1,12 +1,12 @@
 ---
 title: "docker 指令"
 date: 2020-05-31T17:40:46+08:00
-draft: false
 categories:
   - "筆記"
 tags:
  - "docker"
 toc: true
+draft: false
 ---
 
 
@@ -40,13 +40,13 @@ curl -XGET 192.168.x.x:5000/v2/_catalog
 
 ## container 
 
-#### docker container ls (看容器) 
+### docker container ls (看容器) 
 
 ```sell
 docker container ls
 ```
 
-###  docker ps (看容器) 
+### docker ps (看容器)
 
 ```sell
 docker ps
@@ -243,7 +243,6 @@ docker service update --image 172.22.11.11:5000/dockerImageName:tag swarmS_Name
   
 
 ## 參考
-
 
 [Docker常用命令小记_程序员欣宸的博客-CSDN博客](https://blog.csdn.net/boling_cavalry/article/details/101145739)
 

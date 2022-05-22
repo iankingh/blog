@@ -1,27 +1,14 @@
 ---
 title: "angular Resize_base64_image"
 date: 2021-03-12T09:28:08+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "Base64"
 toc: true
+draft: true
 ---
-
-## Anguarl 調整 Base64 圖片大小筆記
-<!--more-->
-
-## 方法 1  新增方法至 component 
-
-```typescript
-toc: true
----
-
-## 還沒寫完
-
-
 ## Anguarl 調整 Base64 圖片大小
 
 <!--more-->
@@ -31,7 +18,6 @@ toc: true
 新增方法至 component
 
 ```javascript
->>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6:content/post/Angular/angular_resize_base64_image0.md
   /**
    * 縮放圖片的方法
    * @param src 圖片
@@ -68,10 +54,12 @@ compressImage(base64, 100, 100).then(compressed => {
 ## 方法 2 新增一個Service
 
 
+
+
 ## 參考
 
-typescript - how to resize base64 image in angular - Stack Overflow
-https://stackoverflow.com/questions/56967991/how-to-resize-base64-image-in-angular
+[typescript - how to resize base64 image in angular - Stack Overflow](https://stackoverflow.com/questions/56967991/how-to-resize-base64-image-in-angular)
 
-angular7中实现图片上传、图片压缩、图片裁剪功能_yw00yw的博客-CSDN博客
-https://blog.csdn.net/yw00yw/article/details/90450000
+
+[angular7中实现图片上传、图片压缩、图片裁剪功能_yw00yw的博客-CSDN博客](https://blog.csdn.net/yw00yw/article/details/90450000)
+

@@ -1,18 +1,18 @@
 ---
 title: "Angular_NullInjectorError"
 date: 2020-10-27T21:28:57+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: false
 ---
 
 <!--more-->
 
-### 前言
+## 前言
 
 NullInjectorError: No provider for Pipe!
 
@@ -22,13 +22,7 @@ NullInjectorError: No provider for Pipe!
 
 需註冊在 module 或是 component
 
-<<<<<<< HEAD
-需註冊
-
 ```
-=======
-```tsx
->>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 @NgModule({
 
 imports: [ .. ],

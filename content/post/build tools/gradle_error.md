@@ -10,6 +10,7 @@ draft: false
 ---
 
 ## gradle Error
+
 以下為 gradle 錯誤訊息的紀錄
 <!-- 簡介 -->
 <!--more-->

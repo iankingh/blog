@@ -1,13 +1,13 @@
 ---
 title: "Angular Forms"
 date: 2021-06-24T14:00:58+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: true
 ---
 
 ## Angular Forms 

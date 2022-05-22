@@ -1,13 +1,13 @@
 ---
 title: "AngularFileStructure"
 date: 2020-08-03T09:18:12+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: false
 ---
 ## Angular 代碼目錄結構
 

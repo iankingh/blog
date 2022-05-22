@@ -1,13 +1,13 @@
 ---
 title: "AngularinstllNPMError"
 date: 2021-07-04T18:05:34+08:00
-draft: false
 categories:
  - "Angular"
 tags:
  - "Angular"
  - "npm"
 toc: true
+draft: false
 ---
 
 ## 紀錄Angualr 安裝 npm 套件時遇到的錯誤
