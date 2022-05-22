@@ -15,13 +15,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>前後端分離 - ianhuang筆記</title>
+    <title>DockerFile - ianhuang筆記</title>
     <meta name="keywords" content="程式師,架構師,個人,筆記,技術">
     
-    <meta property="og:title" content="前後端分離">
+    <meta property="og:title" content="DockerFile">
     <meta property="og:site_name" content="ianhuang筆記">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="前後端分離 - ianhuang筆記" />
+    <meta name="title" content="DockerFile - ianhuang筆記" />
     <meta name="description" content="筆記 | 軟體 | 架構 | Java "> 
     <link rel="shortcut icon" href="https://iankingh.github.io/blog/img/favicon.ico" />
     <link rel="apple-touch-icon" href="https://iankingh.github.io/blog/img/apple-touch-icon.png" />
@@ -125,8 +125,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://iankingh.github.io/blog/post/other/%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%88%86%E9%9B%A2/" itemprop="url">
-        前後端分離
+        <a class="post-title-link" href="https://iankingh.github.io/blog/post/docker/dockerfiles/" itemprop="url">
+        DockerFile
         </a>
       </h1>
       <div class="post-meta">
@@ -136,8 +136,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">時間：</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2021-03-03">
-    2021-03-03
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2020-09-20">
+    2020-09-20
 </time>
 </span> 
       
@@ -166,37 +166,64 @@
         <i class="fa fa-eye"></i>
     </span>
     <span class="post-meta-item-text">閱讀：</span>
-    <span class="leancloud-visitors-count">536 字 ~2分鐘</span>
+    <span class="leancloud-visitors-count">724 字 ~2分鐘</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <h2 id="前言">前言</h2>
-<p>前後端分離帶來的影響</p>
-<h2 id="前後端分離-好處">前後端分離 好處</h2>
-<ol>
-<li>分開部屬 , EX: 有 2包專案web(Angular) + Api(Spring) 在部屬 web,Api可以不用下來</li>
-<li>加速部屬 , Project 可以比較小部屬也會比較快</li>
-<li>節省流量,</li>
-<li>開放API ,</li>
-</ol>
-<p>動態資源和靜態資源全部耦合在一起，伺服器壓力大，因為伺服器會收到各種http請求，例如css的http請求，js的，圖片的等等。一旦伺服器出現狀況，前後台一起玩完，用戶體驗極差。</p>
-<p>2、UI出好設計圖後，前端工程師只負責將設計圖切成html，需要由java工程師來將html套成jsp頁面，出錯率較高（因為頁面中經常會出現大量的js代碼），修改問題時需要雙方協同開發，效率低下。</p>
-<p>3、jsp必須要在支持java的web伺服器里運行（例如tomcat，jetty，resin等），無法使用nginx等（nginx據說單實例http並發高達5w，這個優勢要用上），性能提不上來。</p>
-<p>4、第一次請求jsp，必須要在web伺服器中編譯成servlet，第一次運行會較慢。</p>
-<p>5、每次請求jsp都是訪問servlet再用輸出流輸出的html頁面，效率沒有直接使用html高</p>
-<p>6、jsp內有較多標籤和表達式，前端工程師在修改頁面時會捉襟見肘，遇到很多痛點。</p>
-<p>7、如果jsp中的內容很多，頁面響應會很慢，因為是同步加載。</p>
-<p>參考</p>
-<p><a href="https://kknews.cc/zh-tw/code/8oomk6q.html">https://kknews.cc/zh-tw/code/8oomk6q.html</a></p>
+    <h1 id="dockerfile">Dockerfile</h1>
+<p>Dockerfile 是用來描述映像檔（image）的文件。</p>
+<p>所謂的 <code>Image</code>，就是生產 <code>Container</code> 的模版，你可以從 Docker Hub 官方下載或是根據官方的 Image 自己加工後打包成 Image 或是完全自己使用 Dockerfile 描述 Image 內容來製作 Image。</p>
+<p>而 Container 則是透過 Image 產生隔離的執行環境，稱之為 Container，也就是我們一般用來提供 microservice 的最小單位。</p>
+<h3 id="簡單示例">簡單示例</h3>
+<p>Dockerfile 一般位於構建上下文的根目錄下，也可以通過-f指定該檔的位置：</p>
+<pre><code>$ docker build -f /path/to/a/Dockerfile .
+</code></pre>
+<p>構建時，還可以通過-t參數指定構建成鏡像的倉庫、標籤。</p>
+<p>映像標籤</p>
+<pre><code>$ docker build -t nginx:v1 .
+</code></pre>
+<p>命令最後有一個. 表示目前的目錄</p>
+<pre><code class="language-dockerfile">#從Docker hub 下載基礎的 image，可能是作業系統環境或是程式語言環境
+FROM nginx
+#維護者資訊
+MAINTAINER ianhunag@gmail.com 
+# 鏡像操作指令執行 CMD 指令跑的指令
+RUN echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+</code></pre>
+<p>使用 docker run 命令來啟動容器</p>
+<pre><code class="language-shell">$ docker run --name docker_nginx_v1  -d -p 80:80 nginx:v1
+</code></pre>
+<p>這條命令會用 nginx 鏡像啟動一個容器，命名為docker_nginx_v1，並且映射了 80 埠，這樣我們可以用流覽器去訪問這個 nginx 伺服器：</p>
+<p><strong>緩存</strong></p>
+<p>Docker 守護進程會一條一條的執行 Dockerfile 中的指令，而且會在每一步提交並生成一個新鏡像，最後會輸出最終映像的ID。生成完成後，Docker 守護進程會自動清理你發送的上下文。</p>
+<p>Dockerfile檔中的每條指令會被獨立執行，並會創建一個新鏡像，RUN cd /tmp等命令不會對下條指令產生影響。</p>
+<p>Docker 會重用已生成的中間鏡像，以加速docker build的構建速度。以下是一個使用了緩存鏡像的執行過程：</p>
+<pre><code class="language-shell">$ docker build -t svendowideit/ambassador .
+</code></pre>
+<pre><code class="language-shell">Sending build context to Docker daemon  2.048kB
+Step 1/3 : FROM nginx
+ ---&gt; 7e4d58f0e5f3
+Step 2/3 : MAINTAINER ianhunag@gmail.com
+ ---&gt; Using cache
+ ---&gt; d0140a7f8c8e
+Step 3/3 : RUN echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+ ---&gt; Using cache
+ ---&gt; 81a660be4e2b
+Successfully built 81a660be4e2b
+Successfully tagged svendowideit/ambassador:latest
 
+</code></pre>
+<p>構建緩存僅會使用本地父生成鏈上的鏡像，如果不想使用本地緩存的鏡像，也可以通過&ndash;cache-from指定緩存。指定後將不再使用本地生成的鏡像鏈，而是從鏡像倉庫中下載。</p>
+<h2 id="參考">參考</h2>
+<p><a href="http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html">Dockerfile <strong>使用介紹 -</strong> <strong>純潔的微笑博客</strong></a></p>
     </div>
     <footer class="post-footer">
      
  
 <div class="post-tags">     
      
-    <a href="https://iankingh.github.io/blog/tags/%e5%89%8d%e5%be%8c%e7%ab%af%e5%88%86%e9%9b%a2" rel="tag" title="前後端分離">#前後端分離#</a>
+    <a href="https://iankingh.github.io/blog/tags/docker" rel="tag" title="docker">#docker#</a>
     
 </div>
 
@@ -206,16 +233,16 @@
 <div class="post-nav">
     <div class="post-nav-next post-nav-item">
         
-        <a href="https://iankingh.github.io/blog/post/other/vagrant/" rel="next" title="Vagrant">
-            <i class="fa fa-chevron-left"></i> Vagrant
+        <a href="https://iankingh.github.io/blog/post/angular/angulardeploytomcat/" rel="next" title="AngularDeployTomcat">
+            <i class="fa fa-chevron-left"></i> AngularDeployTomcat
         </a>
         
     </div>
 
     <div class="post-nav-prev post-nav-item">
         
-        <a href="https://iankingh.github.io/blog/post/server/tomcatsetinguser/" rel="prev" title="tomcatSetingUser">
-            tomcatSetingUser <i class="fa fa-chevron-right"></i>
+        <a href="https://iankingh.github.io/blog/post/angular/angularclinotes/" rel="prev" title="AngularCLInotes">
+            AngularCLInotes <i class="fa fa-chevron-right"></i>
         </a>
         
     </div>
@@ -339,8 +366,12 @@
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
   <ul>
-    <li><a href="#前言">前言</a></li>
-    <li><a href="#前後端分離-好處">前後端分離 好處</a></li>
+    <li>
+      <ul>
+        <li><a href="#簡單示例">簡單示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#參考">參考</a></li>
   </ul>
 </nav></div>
     </div>

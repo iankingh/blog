@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="zh-TW">
 <head>
@@ -41,8 +42,10 @@
 </script>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
 <div class="container one-collumn sidebar-position-left page-home  ">
     <div class="headband"></div>
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> <div class="site-meta  custom-logo ">
   <div class="custom-logo-site-title">
@@ -112,6 +115,7 @@
 
  </div>
     </header>
+
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
@@ -162,24 +166,24 @@
         <i class="fa fa-eye"></i>
     </span>
     <span class="post-meta-item-text">閱讀：</span>
-    <span class="leancloud-visitors-count">906 字 ~2分鐘</span>
+    <span class="leancloud-visitors-count">875 字 ~2分鐘</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <h2 id="angualr-ie-11-使用筆記"><strong>Angualr IE 11 使用筆記</strong></h2>
+    <h2 id="angualr-ie-11-使用筆記">Angualr IE 11 使用筆記</h2>
 <p>在IE 11 上的 使用 Angular</p>
-<h2 id="前言"><strong>前言</strong></h2>
+<h2 id="前言">前言</h2>
 <p>基本上Angualr 在 IE11 不是很 OK ,建議不要再使用IE,如果有不幸的用到有幾點要注意</p>
-<p><strong>設定Index</strong>
+<p>設定Index
 於<code>index.html</code>  加上</p>
 <pre><code class="language-html">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,IE=11&quot; &gt;
 
 </code></pre>
-<h3 id="在-angularjson-的scripts-引用">****在 angular.json 的scripts 引用</h3>
+<h3 id="在-angularjson-的scripts-引用">在 angular.json 的scripts 引用</h3>
 <p>如果要引用外部js 可以在 angular.json 的scripts 地方做全局引用 ,他會在要用到的地方引用</p>
-<p><strong>程式碼的部分</strong></p>
-<p><strong><strong>ex.</strong></strong></p>
+<p>程式碼的部分</p>
+<p>ex.</p>
 <pre><code class="language-json">&quot;scripts&quot;: [
 
 &quot;src/assets/js/jquery.js&quot; ,
@@ -188,11 +192,11 @@
 
 ]
 </code></pre>
-<h3 id="引用-iejs-">引用 ie.js ****</h3>
+<h3 id="引用-iejs">引用 ie.js</h3>
 <p>引用 ie.js ;新建一個 ie.js ,再引用內容如下</p>
 <p><a href="https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js">https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js</a></p>
-<p><strong>程式碼的部分</strong>
-<strong><strong>ex.</strong></strong></p>
+<p>程式碼的部分
+ex.</p>
 <pre><code class="language-jsx">// function.name (all IE)
 
 /*! @source http://stackoverflow.com/questions/6903762/function-name-not-supported-in-ie*/
@@ -433,12 +437,11 @@ clearTimeout(id);
 
 }());
 </code></pre>
-<h2 id="summary"><strong>Summary</strong></h2>
+<h2 id="summary">Summary</h2>
 <p>在IE 上使用Angular 十分麻煩</p>
-<h3 id="-祝大家工作上都不要碰到ie">**** 祝大家工作上都不要碰到IE**</h3>
-<h2 id="參考"><strong>參考</strong></h2>
+<p><strong>祝大家工作上都不要碰到IE</strong></p>
+<h2 id="參考">參考</h2>
 <p><a href="https://github.com/angular/angular-cli/issues/9508">IE 11 Syntax error after doing ng serve · Issue #9508 · angular/angular-cli (github.com)</a></p>
-<p><a href="http://ymblog.azurewebsites.net/%E9%80%8F%E9%81%8E-angular-cli-%E7%94%A2%E7%94%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E7%A8%8B%E5%BC%8F%E5%9C%A8-ie11-%E7%84%A1%E6%B3%95%E6%AD%A3%E7%A2%BA%E5%9F%B7%E8%A1%8C/">透過 Angular CLI 產生的前端程式在 IE11 無法正確執行 – Keep Coding (ymblog.azurewebsites.net)</a></p>
     </div>
     <footer class="post-footer">
      
@@ -478,8 +481,33 @@ clearTimeout(id);
 
 
 
-
+     
     </footer>
+
+    <div class="disqus markdown">
+      
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        
+        
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        var disqus_shortname = 'https-iankingh-github-io';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+
   </article>
 </section>
 
@@ -516,7 +544,7 @@ clearTimeout(id);
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="https://iankingh.github.io/blog/post/">
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">日誌</span>
       </a>
     </div>
@@ -533,7 +561,7 @@ clearTimeout(id);
     <div class="site-state-item site-state-tags">
         <a href="https://iankingh.github.io/blog/tags/">
          
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">37</span>
         
         <span class="site-state-item-name">標籤</span>
         </a>
@@ -565,19 +593,15 @@ clearTimeout(id);
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
   <ul>
-    <li><a href="#angualr-ie-11-使用筆記"><strong>Angualr IE 11 使用筆記</strong></a></li>
-    <li><a href="#前言"><strong>前言</strong></a>
+    <li><a href="#angualr-ie-11-使用筆記">Angualr IE 11 使用筆記</a></li>
+    <li><a href="#前言">前言</a>
       <ul>
-        <li><a href="#在-angularjson-的scripts-引用">****在 angular.json 的scripts 引用</a></li>
-        <li><a href="#引用-iejs-">引用 ie.js ****</a></li>
+        <li><a href="#在-angularjson-的scripts-引用">在 angular.json 的scripts 引用</a></li>
+        <li><a href="#引用-iejs">引用 ie.js</a></li>
       </ul>
     </li>
-    <li><a href="#summary"><strong>Summary</strong></a>
-      <ul>
-        <li><a href="#-祝大家工作上都不要碰到ie">**** 祝大家工作上都不要碰到IE**</a></li>
-      </ul>
-    </li>
-    <li><a href="#參考"><strong>參考</strong></a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#參考">參考</a></li>
   </ul>
 </nav></div>
     </div>
