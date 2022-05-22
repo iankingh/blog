@@ -1,13 +1,13 @@
 ---
 title: "Install_docker_on_centos"
 date: 2021-03-25T10:21:24+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "linux"
  - "docker"
 toc: true
+draft: true
 ---
 
 ## 安裝 Docker 在 centos8

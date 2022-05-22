@@ -1,12 +1,12 @@
 ---
 title: "DockerFile"
 date: 2020-09-20T19:45:16+08:00
-draft: false
 categories:
   - "筆記"
 tags:
  - "docker"
 toc: true
+draft: false
 ---
 
 
@@ -92,8 +92,7 @@ Successfully tagged svendowideit/ambassador:latest
 
 
 
-**參考**
+## 參考
 
-Dockerfile **使用介紹 -** **純潔的微笑博客**
+[Dockerfile **使用介紹 -** **純潔的微笑博客**](http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html)
 
-http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html

@@ -1,13 +1,13 @@
 ---
 title: "WindowsInstallWSL"
 date: 2021-06-16T17:10:10+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "windows"
  - "docker"
 toc: true
+draft: true
 ---
 
 ## Windows Install WSL2筆記
