@@ -7,7 +7,7 @@ tags:
  - "windows"
  - "docker"
 toc: true
-draft: true
+draft: false
 ---
 
 ## Windows Install WSL2筆記
@@ -16,13 +16,14 @@ draft: true
 
 ## WSL2 的 Error 0x80370102 解决方案
 
-```
+```shell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-```
+
+```shell
 bcdedit /set hypervisorlaunchtype auto
 ```
 

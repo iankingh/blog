@@ -12,35 +12,43 @@ draft: false
 
 ## Docker 指令
 
+紀錄一些常用的Docker指令
+
 <!--more-->
 
 ## Images 相關的指令
 
 ### bulid images
 
+建立一個docker image  
 
+```shell
+    docker build -t <image_name> .
+```
 
-#### see images(看映像)
+### see images(看映像)
 
 ```shell
 docker images
 ```
 
-#### docker pull(下載映像)
+### pull image(下載映像)
 
 ```sell
-docker pull
+docker pull <image_name>
 ```
 
-#### see registry images()
+### see registry images(看 registry 映像)
 
 ```sell
 curl -XGET 192.168.x.x:5000/v2/_catalog
 ```
 
-## container 
+## container 相關的指令
 
-### docker container ls (看容器) 
+### docker container ls(看容器)
+
+看container(容器)狀態
 
 ```sell
 docker container ls
@@ -76,58 +84,55 @@ docker ps -q
 docker ps -f id(ContainerId)
 ```
 
-### Container Stop (停掉Container)
+### docker Stop container (停掉Container)
 
 ```sell
-docker stop 
+docker stop <container_id>
 ```
 
-### Container remove(移除停掉的Container)
+### docker remove container (移除停掉的Container)
 
 ```sell
-docker rm
+docker rm   <container_id>
 ```
 
-### see log 
+
+#### docker see Container's logs (看log once) 
 
 ```sell
-docker logs
+docker logs <container_id>
 ```
 
-#### Show Container's logs (once) 
+#### docker see Container's logs continuing
 
 ```sell
-docker logs ContainerId
-```
-
-#### Log countinuing
-
-```sell
-docker logs -f ContainerId
+docker logs -f  <container_id>
 ```
 
 ### See Container ENV
 
+獲取容器/鏡像的 ENV
+
 ```sell
-docker inspect Cid > Y.txt  (獲取容器/鏡像的 ENV。)
+docker inspect Cid > Y.txt 
+```
+
+### stop && rm docker container
+
+```sell
+docker stop  <container_id> && docker rm <container_id>
 ```
 
 ### Into Container (進入 container 裡面)
 
 ```sell
-docker exec -it containerID bash 
+docker exec -it <container_id> bash 
 ```
 
 ### into 執行命令
 
 ```sell
-docker exec -it ebbeb7c38404 bash -c 'echo "$envKey"'
-```
-
-## stop && rm docker container
-
-```sell
-docker stop ContainerId && docker rm ContainerId
+docker exec -it <container_id> bash -c 'echo "$envKey"'
 ```
 
 ## Container status (查看docker 容器使用的資源)
@@ -143,6 +148,8 @@ docker commit cID
 ```
 
 ## docker system
+
+看系統容器的狀態
 
 ### docker system df (空間分佈)
 
@@ -214,33 +221,7 @@ docker image prune -a
 docker volume prune
 ````
 
-## Docker swarm
 
-### see swarm service ls
-
-```sell
-docker service ls
-```
-
-### see swarm service status
-
-```sell
-docker service ps serviceID
-```
-
-### update service env
-
-```sell
-docker service update --env-add envKey=envValue serviceName
-```
-
-### update service
-
-```sell
-docker service update --image 172.22.11.11:5000/dockerImageName:tag swarmS_Name
-```
-
-  
 
 ## 參考
 

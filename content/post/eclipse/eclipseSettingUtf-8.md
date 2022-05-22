@@ -17,7 +17,7 @@ draft: false
 
 ## 打開設定畫面
 
-Window -->> Preferences -->> Workspace 
+Window -->> Preferences -->> Workspace
 
 ## 設定UTF-8
 

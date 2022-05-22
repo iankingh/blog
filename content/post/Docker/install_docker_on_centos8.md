@@ -7,7 +7,7 @@ tags:
  - "linux"
  - "docker"
 toc: true
-draft: true
+draft: false
 ---
 
 ## 安裝 Docker 在 centos8
@@ -16,7 +16,7 @@ draft: true
 
 ## centOS-8_install_docker
 
-### 2.1.install Docker 
+### install Docker 
 
 ```sh
 # 更新yum 
@@ -45,7 +45,7 @@ $ docker run hello-world
 
 ```
 
-### 2.2.加入docker 群組
+### 加入docker 群組
 
 ```shell
 # 新增Docker 群組
@@ -73,12 +73,12 @@ $ newgrp docker
 
 ## 參考
 
-CentOS 8 install Docker - Pocket Admin
-https://pocketadmin.tech/en/centos-8-install-docker/
+[linux-docker.sock](https://stackoverflow.com/questions/48568172/docker-sock-permission-denied)	
 
-linux-docker.sock	
-https://stackoverflow.com/questions/48568172/docker-sock-permission-denied
+[CentOS 8 install Docker - Pocket Admin](https://pocketadmin.tech/en/centos-8-install-docker/)
 
-https://docs.docker.com/engine/install/linux-postinstall/
 
-https://morosedog.gitlab.io/docker-20190601-docker13/
+[Post-installation steps for Linux | Docker Documentation](https://docs.docker.com/engine/install/linux-postinstall/)
+
+[Docker - 第十三章 | 安裝Apache Server | J.J.'s Blogs](https://morosedog.gitlab.io/docker-20190601-docker13/)
+

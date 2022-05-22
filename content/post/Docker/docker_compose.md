@@ -95,7 +95,7 @@ Hello World! I have been seen 2 times.
 
 不断的刷新数字会不断的增长。
 
-## Docker Compose 常用命令
+## docker-compose 命令
 
 使用`docker-compose up -d` 在後台啟動服務
 
@@ -131,8 +131,6 @@ Stopping composetest_redis_1 ... done
 ```
 
 `docker-compose restart` ：重啟專案中的服務
-
-## docker-compose 命令
 
 ### docker-compose -h 查看幫助
 
