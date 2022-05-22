@@ -1,5 +1,4 @@
 {{ define "main_class"}}{{ end}}
-
 {{ define "main_content" }}
 <div id="posts" class="posts-expand">
     {{ if eq .Data.Plural  "categories" }}
@@ -19,7 +18,6 @@
         </div>
       </div>
       {{ end }}
-
       {{ if eq .Data.Plural  "tags" }}
        <div class="tag-cloud">
         <div class="tag-cloud-title">
