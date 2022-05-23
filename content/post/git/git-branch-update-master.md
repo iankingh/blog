@@ -1,12 +1,12 @@
 ---
 title: "GitBranchUpdateMaster"
 date: 2021-02-02T22:04:27+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "git"
 toc: true
+draft: false
 ---
 
 ## Git dev-branch Update master-branch

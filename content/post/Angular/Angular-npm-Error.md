@@ -1,5 +1,5 @@
 ---
-title: "AngularinstllNPMError"
+title: "AngularNpmError"
 date: 2021-07-04T18:05:34+08:00
 categories:
  - "Angular"
@@ -29,7 +29,10 @@ npm install npm@6.14.13 -g
 
 或是用Yarn
 
-團隊在開發時建議是可以同步 node.js 及 npm 及Angular 版y本
+團隊在開發時建議是可以同步 node.js 及 npm 及Angular 版本
 
-良心建議如果可以手動解決盡量自己刻,就自己刻,有些套件依賴很嚴重, 一升級就爆了
+
+有時如果可以就自己刻,有些套件依賴很嚴重, 一升級就爆了
+
+
 ## 參考
