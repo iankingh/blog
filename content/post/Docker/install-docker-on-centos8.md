@@ -42,7 +42,6 @@ $ docker ps
 
 # 確認Docker pull run 
 $ docker run hello-world
-
 ```
 
 ### 加入docker 群組
@@ -70,9 +69,7 @@ $ docker ps
 $ newgrp docker
 ```
 
-
 ## 參考
-
 [linux-docker.sock](https://stackoverflow.com/questions/48568172/docker-sock-permission-denied)	
 
 [CentOS 8 install Docker - Pocket Admin](https://pocketadmin.tech/en/centos-8-install-docker/)

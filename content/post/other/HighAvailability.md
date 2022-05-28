@@ -1,12 +1,12 @@
 ---
 title: "HighAvailability"
 date: 2021-04-18T15:42:33+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "架構"
 toc: true
+draft: true
 ---
 
 ## 高可用性網路架構 High Availability  

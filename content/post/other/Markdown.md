@@ -114,12 +114,7 @@ China-->Andrew: How are you?
 Andrew->>China: I am good thanks!
 ```
 
-參考
+## 參考
 
-
-https://hackmd.io/@wootu/SkY0M5wsZ?type=view
-
-
-http://www.izhangbo.cn/info/57e1d9a3c2cb6
-
+[markdown語法介紹 - HackMD](https://hackmd.io/@wootu/SkY0M5wsZ?type=view)
 

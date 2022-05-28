@@ -1,16 +1,16 @@
 ---
-title: "CentOS 8 Install"
+title: "Install-CentOS-8"
 date: 2020-06-29T08:51:38+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "Linux"
  - "CentOS"
 toc: true
+draft: true
 ---
 
-## CentOS 8 Install
+## Install-CentOS-8
 <!--more-->
 
 

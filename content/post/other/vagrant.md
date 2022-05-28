@@ -1,68 +1,90 @@
 ---
 title: "Vagrant"
 date: 2021-03-03T13:45:46+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "vagrant"
 toc: true
+draft: false
 ---
 
 ## vagrant 使用筆記
 <!--more-->
+### 初始化虛擬機
 
-## 初始化虛擬機
-```
+```shell
 vagrant init
 ```
-## 啟動 虛擬機 
-```
+
+### 啟動 虛擬機
+
+```shell
 vagrant up 
 ```
 
-## 啟動 已存在的 虛擬機
+### 啟動 已存在的 虛擬機
 
+```shell
 vagrant provision
-
-## 停止虛擬機
-
 ```
+
+### 停止虛擬機
+
+```shell
 vagrant halt
 ```
 
-## 新增 虛擬主機的 SSL private key 
-```
-  vagrant ssh-config
+### 新增 虛擬主機的 SSL private key 
+
+```shell
+vagrant ssh-config
 ```
 
-## 砍掉 虛擬機
+### 砍掉 虛擬機
 
-```
+```shell
 vagrant destroy
 ```
 
+## vagrant scp
 
-# vagrant scp  
+### 安裝網址
 
-安裝網址:
-https://github.com/invernizzi/vagrant-scp
+[invernizzi/vagrant-scp: Copy files to a Vagrant VM via SCP.](https://github.com/invernizzi/vagrant-scp)
 
-Install
-```
+### Install
+
+```shell
 vagrant plugin install vagrant-scp
 
 ```
 
-Usage
-```
+### 使用方法
+
+If you have just a single Vagrant guest, you can copy files over like this:
 
 ```
+vagrant scp <some_local_file_or_dir> <somewhere_on_the_vm>
+```
 
-
-# Vagrantfile
+If you have multiple VMs, you can specify it.
 
 ```
+vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
+```
+
+Copying files out of the guest works in the same fashion
+
+```
+vagrant scp [vm_name]:<somewhere_on_the_vm> <some_local_file_or_dir>
+```
+
+
+
+## Vagrantfile
+
+```vagrantfile
 Vagrant.configure("2") do |config|
 
   #pull images centos/8

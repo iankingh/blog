@@ -1,5 +1,5 @@
 ---
-title: "HiddenBtnByprint"
+title: "Hide (Disable) Button when printing in JavaScript"
 date: 2021-03-16T09:51:39+08:00
 draft: false
 categories:
@@ -9,7 +9,7 @@ tags:
 toc: true
 ---
 
-## hiddenBtnByprint 筆記
+## Hide (Disable) Button when printing in JavaScript 筆記
 <!-- 簡介 -->
 <!--more-->
 

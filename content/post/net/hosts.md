@@ -1,13 +1,13 @@
 ---
 title: "hosts"
 date: 2021-04-06T09:40:12+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "net"
  - "hosts"
 toc: true
+draft: false
 ---
 
 ## hosts筆記

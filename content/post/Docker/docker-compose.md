@@ -48,7 +48,6 @@ docker-compose version
 ```dockerfile
 
 
-
 ```
 
 ### 第三步，使用 docker-compose 定義一個文件
@@ -83,7 +82,7 @@ docker-compose up
 Hello World! I have been seen 1 times.
 ```
 
-## img  要放圖片
+#  img  要放圖片
 
 刷新再次访问返回
 
@@ -91,7 +90,7 @@ Hello World! I have been seen 1 times.
 Hello World! I have been seen 2 times.
 ```
 
-## img 要放圖片
+# img 要放圖片
 
 不断的刷新数字会不断的增长。
 

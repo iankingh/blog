@@ -1,7 +1,6 @@
 ---
-title: "SpringDataJapNotes"
+title: "SpringDataJpaNotes"
 date: 2020-06-04T05:45:59+08:00
-draft: false
 categories:
  - "筆記"
 tags:
@@ -9,6 +8,7 @@ tags:
  - "Spring"
  - "Spring Data JPA"
 toc: true
+draft: false
 ---
 
 ## Spring Data JPA 介紹
@@ -527,3 +527,5 @@ public class ProductInfoService {
 
 
 
+
+## 參考

@@ -32,7 +32,8 @@ bcdedit /set hypervisorlaunchtype auto
 C:\Users\電腦使用者名稱ㄌ\AppData\Local\Packages
 
 1. 第一步 找到  CanonicalGroupLimited.Ubuntu<br>
-   並點選右鍵 -> 內容。
+
+並點選右鍵 -> 內容。
 
 2. 點選「進階」
 

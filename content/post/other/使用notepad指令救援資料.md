@@ -1,13 +1,13 @@
 ---
 title: "使用notepad指令救援資料"
 date: 2021-03-15T09:50:02+08:00
-draft: false
 categories:
  - "other"
 tags:
  - "windows"
  - "other"
 toc: true
+draft: false
 ---
 
 <!-- ##  -->

@@ -23,7 +23,7 @@ draft: false
 建立一個docker image  
 
 ```shell
-    docker build -t <image_name> .
+docker build -t <image_name> .
 ```
 
 ### see images(看映像)
@@ -93,11 +93,16 @@ docker stop <container_id>
 ### docker remove container (移除停掉的Container)
 
 ```sell
-docker rm   <container_id>
+docker rm  <container_id>
 ```
 
+### stop && rm docker container
 
-#### docker see Container's logs (看log once) 
+```sell
+docker stop  <container_id> && docker rm <container_id>
+```
+
+#### docker see Container's logs (看log once)
 
 ```sell
 docker logs <container_id>
@@ -114,13 +119,7 @@ docker logs -f  <container_id>
 獲取容器/鏡像的 ENV
 
 ```sell
-docker inspect Cid > Y.txt 
-```
-
-### stop && rm docker container
-
-```sell
-docker stop  <container_id> && docker rm <container_id>
+docker inspect <container_id> > Y.txt 
 ```
 
 ### Into Container (進入 container 裡面)
@@ -141,10 +140,10 @@ docker exec -it <container_id> bash -c 'echo "$envKey"'
 docker stats  
 ```
 
-## 提交一個commit
+## commit container to images (把容器轉成映像)
 
 ```sell
-docker commit cID
+docker commit <container_id>
 ```
 
 ## docker system
@@ -157,7 +156,7 @@ docker commit cID
 docker system df
 ```
 
-可用於查詢鏡像（Images）、容器（Containers）和本地卷（Local Volumes）等空間使用大戶的空間佔用情況。
+可用於查詢（Images）、（Containers）和（Local Volumes）等空間使用大戶的空間佔用情況。
 
 #### -v 表示細節查看空間佔用細節
 
@@ -191,37 +190,35 @@ WARNING! This will remove:
 
 ·    指令結尾處會顯示總計清理釋放的空間大小。
 
-#### 刪除已經停止的容器：
+#### 刪除已經停止的容器
 
 ```sell
 docker container prune
 ```
 
-#### 刪除未被使用的網路：
+#### 刪除未被使用的網路
 
 ```sell
 docker network prune
 ```
 
-#### 刪除沒有Tag的鏡像：
+#### 刪除沒有Tag的鏡像
 
 ```sell
 docker image prune
 ```
 
-#### 刪除沒有容器的鏡像：
+#### 刪除沒有容器的鏡像
 
 ````sell
 docker image prune -a
 ````
 
-#### 刪除未被使用的資料卷：
+#### 刪除未被使用的資料卷
 
 ````sell
 docker volume prune
 ````
-
-
 
 ## 參考
 
