@@ -861,8 +861,8 @@ Spring Web 服務：使用 Dockerfile 。將 Web 容器内部的5000端口映射
 redis服務：官網的redis。
 第四步，使用 Compose 使用命令docker-compose up启动
 docker-compose up運行成功之後，在browser ：http://ipaddress:8080/ ，返回如下：
-Hello World! I have been seen 1 times.img 要放圖片 刷新再次访问返回
-Hello World! I have been seen 2 times.img 要放圖片 不断的刷新数字会不断的增长。
+Hello World! I have been seen 1 times.刷新再次访问返回
+Hello World! I have been seen 2 times.不斷的刷新數字會不斷的增長。
 docker-compose 命令 使用docker-compose up -d 在後台啟動服務
 啟動所有容器，-d 將會在後臺啟動並運行所有的容器
 docker-compose up -d使用docker-compose ps 查看啟動的服務
