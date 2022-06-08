@@ -74,5 +74,6 @@ Android Studio主窗口
 有兩個名稱相同的文件：一個用於項目" Project：My First App"，另一個用於應用程序模塊" Module：app"。每個模塊都有自己的build.gradle文件，但是該項目當前只有一個模塊。使用每個模塊build.file來控制[Gradle插件](https://developer.android.com/studio/releases/gradle-plugin)如何構建您的應用程序。有關此文件的更多信息，請參見 [配置構建]([Configure your build | Android Developers](https://developer.android.com/studio/build#module-level))。
 
 ## 參考
-
 [Create an Android project | Android Developers](https://developer.android.com/training/basics/firstapp/creating-project)
+
+
