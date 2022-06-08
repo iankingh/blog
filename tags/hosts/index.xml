@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hosts on ianhuang筆記</title>
+    <link>https://iankingh.github.io/blog/tags/hosts/</link>
+    <description>Recent content in hosts on ianhuang筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 06 Apr 2021 09:40:12 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/hosts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hosts</title>
+      <link>https://iankingh.github.io/blog/post/net/hosts/</link>
+      <pubDate>Tue, 06 Apr 2021 09:40:12 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/net/hosts/</guid>
+      <description>&lt;h2 id=&#34;hosts筆記&#34;&gt;hosts筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;在架設網站時，除了伺服主機的網路設定之外，還要配合 DNS 伺服器才能讓網站正常運作，而 DNS 上面的記錄在變更之後，通常都會需要幾個小時才會生效，所以很多人在架設網站初期都會浪費許多時間在等待 DNS 生效，才進行後續的設定，其實我們可以在 DNS 生效之前，以動的方式自行先設定自己電腦上的 hosts 檔，加速網站的建置工作。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

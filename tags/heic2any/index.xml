@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heic2any on ianhuang筆記</title>
+    <link>https://iankingh.github.io/blog/tags/heic2any/</link>
+    <description>Recent content in Heic2any on ianhuang筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 28 Jun 2021 04:22:43 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/heic2any/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Heic2any</title>
+      <link>https://iankingh.github.io/blog/post/javascript/heic2any/</link>
+      <pubDate>Mon, 28 Jun 2021 04:22:43 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/javascript/heic2any/</guid>
+      <description>&lt;h2 id=&#34;heic2any-使用筆記&#34;&gt;Heic2any 使用筆記&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;客戶端（瀏覽器端，使用 Javascript）將HEIC/HEIF圖像文件轉換為 JPEG、PNG 或 GIF。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>連線池 on ianhuang筆記</title>
+    <link>https://iankingh.github.io/blog/tags/%E9%80%A3%E7%B7%9A%E6%B1%A0/</link>
+    <description>Recent content in 連線池 on ianhuang筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Thu, 06 May 2021 21:18:55 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/%E9%80%A3%E7%B7%9A%E6%B1%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HikariPool-1 - Connection is not available, request timed out after 30000ms</title>
+      <link>https://iankingh.github.io/blog/post/java/hikaripool-1-error/</link>
+      <pubDate>Thu, 06 May 2021 21:18:55 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/java/hikaripool-1-error/</guid>
+      <description>&lt;h2 id=&#34;hikaripool-1---connection-is-not-available-request-timed-out-after-30000ms&#34;&gt;HikariPool-1 - Connection is not available, request timed out after 30000ms&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;HikariPool是連接池管理類，負責管理數據庫連接。&lt;/p&gt;
+&lt;p&gt;HikariPool-1 - Connection is not available, request timed out after 30000ms&lt;/p&gt;
+&lt;p&gt;表示資料庫連線池請求超時&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

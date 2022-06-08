@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on ianhuang筆記</title>
+    <link>https://iankingh.github.io/blog/tags/git/</link>
+    <description>Recent content in git on ianhuang筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 23 Feb 2022 18:13:27 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIT Export Diff File</title>
+      <link>https://iankingh.github.io/blog/post/git/git-export-diff-file/</link>
+      <pubDate>Wed, 23 Feb 2022 18:13:27 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/git/git-export-diff-file/</guid>
+      <description>&lt;h2 id=&#34;git-匯出差異檔案&#34;&gt;GIT 匯出差異檔案&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>GitNote</title>
+      <link>https://iankingh.github.io/blog/post/git/git-note/</link>
+      <pubDate>Tue, 13 Jul 2021 22:07:36 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/git/git-note/</guid>
+      <description>&lt;h2 id=&#34;git-實戰用法&#34;&gt;git 實戰用法&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;紀錄一些 git 用法&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GitBranchUpdateMaster</title>
+      <link>https://iankingh.github.io/blog/post/git/git-branch-update-master/</link>
+      <pubDate>Tue, 02 Feb 2021 22:04:27 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/git/git-branch-update-master/</guid>
+      <description>&lt;h2 id=&#34;git-dev-branch-update-master-branch&#34;&gt;Git dev-branch Update master-branch&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git_pull_error</title>
+      <link>https://iankingh.github.io/blog/post/git/git-error/</link>
+      <pubDate>Tue, 06 Oct 2020 21:45:42 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/git/git-error/</guid>
+      <description>&lt;h2 id=&#34;git-pull-error筆記&#34;&gt;git pull error筆記&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>連線GitLab問題處理</title>
+      <link>https://iankingh.github.io/blog/post/git/gitlab-error/</link>
+      <pubDate>Fri, 15 May 2020 16:36:13 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/git/gitlab-error/</guid>
+      <description>&lt;h2 id=&#34;連線gitlab問題處理&#34;&gt;連線GitLab問題處理&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
