@@ -1,12 +1,12 @@
 ---
 title: "docker 指令"
 date: 2020-05-31T17:40:46+08:00
+toc: true
+draft: false
 categories:
   - "筆記"
 tags:
  - "docker"
-toc: true
-draft: false
 ---
 
 
@@ -134,13 +134,13 @@ docker exec -it <container_id> bash
 docker exec -it <container_id> bash -c 'echo "$envKey"'
 ```
 
-## Container status (查看docker 容器使用的資源)
+### Container status (查看docker 容器使用的資源)
 
 ```sell
 docker stats  
 ```
 
-## commit container to images (把容器轉成映像)
+### commit container to images (把容器轉成映像)
 
 ```sell
 docker commit <container_id>

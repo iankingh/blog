@@ -23,7 +23,7 @@ toc: true
 透過Chocolatey 安裝
 
 ```shell
-choco install hugo -confirm
+hchoco install hugo -confirm
 ```
 
  **Check version:**

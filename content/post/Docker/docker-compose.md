@@ -7,7 +7,7 @@ tags:
  - "docker"
  - "compose"
 toc: true
-draft: true
+draft: false
 ---
 
 ## Docker_Compose 筆記
@@ -38,10 +38,7 @@ docker-compose version
 
 #### 第一步，創建 Spring boot 服務
 
-```shell
-
-
-```
+通過Spring Initializru頁面，創建一個 Spring boot 服務，並且指定要使用的項目。
 
 ### 第二步，創建 Dockerfile
 
@@ -58,15 +55,16 @@ services:
   web:
     build: .
     ports:
-     - "5000:5000"
+     - "8080:8080"
   redis:
     image: "redis:alpine"
 ```
 
 這個 compose.yml 定義2個服務，一是Spring boot  一個是 redis 服務。
 
-- Pyhon Web 服务：使用 Dockerfile 构建了当前镜像。将 Web 容器内部的5000端口映射到 host 的5000端口；并将 Web 容器与 redis 容器连接。
-- redis服务：该容器直接由官方的 redis 镜像创建。
+- Spring Web 服務：使用 Dockerfile 。將 Web 容器内部的5000端口映射到 host 的5000端口；並將 Web 容器與 redis 容器連結。
+
+- redis服務：官網的redis。
 
 ### 第四步，使用 Compose
 
@@ -76,7 +74,7 @@ services:
 docker-compose up
 ```
 
-启动成功之后，在浏览器访问：`http://ipaddress:8080/` ，返回如下：
+運行成功之後，在browser ：`http://ipaddress:8080/` ，返回如下：
 
 ```shell
 Hello World! I have been seen 1 times.
@@ -85,6 +83,7 @@ Hello World! I have been seen 1 times.
 #  img  要放圖片
 
 刷新再次访问返回
+
 
 ```shell
 Hello World! I have been seen 2 times.
@@ -242,3 +241,5 @@ docker-compose scale web=3 db=2
 [使用 docker-compose 替代 docker run - 张志敏的技术专栏](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
 
 [Angular — Local Development With Docker-Compose | by Bhargav Bachina | Bachina Labs | Medium](https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42)
+
+[Docker(四)：Docker 三剑客之 Docker Compose](https://mp.weixin.qq.com/s/DCqjeXtGoHnM7Wfm5Sme6w?)

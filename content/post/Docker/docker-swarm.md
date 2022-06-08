@@ -40,8 +40,6 @@ docker service update --env-add envKey=envValue serviceName
 docker service update --image 192.x.x.xx:5000/dockerImageName:tag swarmS_Name
 ```
 
-  
-
 
 ## Summary
 
