@@ -166,13 +166,22 @@
         <i class="fa fa-eye"></i>
     </span>
     <span class="post-meta-item-text">閱讀：</span>
-    <span class="leancloud-visitors-count">780 字 ~2分鐘</span>
+    <span class="leancloud-visitors-count">1184 字 ~3分鐘</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     <h2 id="windowsnetcmd筆記">WindowsNetCmd筆記</h2>
 <h2 id="前言">前言</h2>
+<p>1.CTRL + R ——打開 &ldquo;運行&rdquo;</p>
+<p>2.在&quot;運行&quot;輸入&quot;cmd&quot;彈出DOS命令列視窗</p>
+<p>ipconfig  : 查IP</p>
+<h2 id="使用">使用</h2>
+<h3 id="ipconfig">ipconfig</h3>
+<pre><code class="language-cmd">ipconfig
+</code></pre>
+<h3 id="cls">cls</h3>
+<p>清空命令</p>
 <p>在網路的世界有 Client 端 及 Server 端 ，有時Server 時要對Cleint 端 開放 特殊服務的Port 才可以正常使用服務</p>
 <h2 id="windows網路指令">Windows網路指令:</h2>
 <h3 id="ping-ip">ping ip</h3>
@@ -208,7 +217,20 @@ netstat -au # 列出所有UDP埠
 <p>Test-NetConnection -ComputerName &ldquo;<a href="https://www.google.com">www.google.com</a>&rdquo; -Port 443</p>
 <p>可以簡寫tnc</p>
 <p>tnc  &ldquo;<a href="https://www.google.com">www.google.com</a>&rdquo; -Port 443</p>
+<h3 id="netstat-1">netstat</h3>
+<p>查看哪些進程佔用了埠</p>
+<pre><code class="language-cmd">
+
+3.假如我要查的是埠&quot;8080&quot;，則輸入命令：netstat -aon|findstr &quot;8080&quot;
+4.如上，得到了進程號&quot;4060&quot;，再輸入命令：tasklist|findstr &quot;4060&quot;,
+  得到了進程映射名稱，好了，下一步我們將解決埠號佔用的問題，就是kill掉該進程映射名稱的進程。
+5.CTRL + ALT + delete彈出工作管理員，找到名字為&quot;javaw.exe&quot;的進程，點擊它，並殺死它(結束進程)。
+6.再在DOS下輸入命令查看下該埠是否還被佔用：
+     netstat -aon|findstr &quot;8080&quot;
+7.可以看到，再也沒有進程佔用了該埠，OK，佔用該埠的進程被殺死了，那麼埠被佔用也已經解決了。
+</code></pre>
 <h2 id="參考">參考</h2>
+<p><a href="https://blog.csdn.net/cryhelyxx/article/details/17919897">查看哪些進程佔用了埠 - zhuxiongxian的挨踢博客 - CSDN博客</a></p>
 <p><a href="https://www.itread01.com/content/1550289784.html">ping、telnet、tracert簡介與使用 - IT閱讀</a></p>
 <p><a href="https://kknews.cc/zh-tw/code/o3jx8z5.html">windows網絡命令：ping、ipconfig、tracert、netstat、arp - 每日頭條</a></p>
 <p><a href="https://medium.com/@CarterTsai/%E5%88%A9%E7%94%A8powershell%E7%9A%84test-netconnection%E4%BE%86%E5%8F%96%E4%BB%A3telnet%E4%BE%86%E6%AA%A2%E6%9F%A5%E7%B6%B2%E7%AB%99%E7%9A%84port%E6%9C%89%E6%B2%92%E6%9C%89%E8%A2%AB%E9%96%8B%E5%95%9F-5bc18909ce67">https://medium.com/@CarterTsai/%E5%88%A9%E7%94%A8powershell%E7%9A%84test-netconnection%E4%BE%86%E5%8F%96%E4%BB%A3telnet%E4%BE%86%E6%AA%A2%E6%9F%A5%E7%B6%B2%E7%AB%99%E7%9A%84port%E6%9C%89%E6%B2%92%E6%9C%89%E8%A2%AB%E9%96%8B%E5%95%9F-5bc18909ce67</a></p>
@@ -230,7 +252,7 @@ netstat -au # 列出所有UDP埠
 <div class="post-nav">
     <div class="post-nav-next post-nav-item">
         
-        <a href="https://iankingh.github.io/blog/post/angular/angularusejs/" rel="next" title="AngularUseJavaScript">
+        <a href="https://iankingh.github.io/blog/post/angular/angularusejavascript/" rel="next" title="AngularUseJavaScript">
             <i class="fa fa-chevron-left"></i> AngularUseJavaScript
         </a>
         
@@ -314,7 +336,7 @@ netstat -au # 列出所有UDP埠
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="https://iankingh.github.io/blog/post/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">日誌</span>
       </a>
     </div>
@@ -331,7 +353,7 @@ netstat -au # 列出所有UDP埠
     <div class="site-state-item site-state-tags">
         <a href="https://iankingh.github.io/blog/tags/">
          
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         
         <span class="site-state-item-name">標籤</span>
         </a>
@@ -365,12 +387,19 @@ netstat -au # 列出所有UDP埠
   <ul>
     <li><a href="#windowsnetcmd筆記">WindowsNetCmd筆記</a></li>
     <li><a href="#前言">前言</a></li>
+    <li><a href="#使用">使用</a>
+      <ul>
+        <li><a href="#ipconfig">ipconfig</a></li>
+        <li><a href="#cls">cls</a></li>
+      </ul>
+    </li>
     <li><a href="#windows網路指令">Windows網路指令:</a>
       <ul>
         <li><a href="#ping-ip">ping ip</a></li>
         <li><a href="#telnet-ip-port">telnet ip port</a></li>
         <li><a href="#netstat">netstat</a></li>
         <li><a href="#tracert">tracert</a></li>
+        <li><a href="#netstat-1">netstat</a></li>
       </ul>
     </li>
     <li><a href="#參考">參考</a></li>
@@ -394,7 +423,7 @@ netstat -au # 列出所有UDP埠
   <span class="author" itemprop="copyrightHolder">ianhuang筆記</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.96.0</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.100.1</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

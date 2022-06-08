@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tomcat on ianhuang筆記</title>
+    <title>Tomcat on ianhuang筆記</title>
     <link>https://iankingh.github.io/blog/tags/tomcat/</link>
-    <description>Recent content in tomcat on ianhuang筆記</description>
+    <description>Recent content in Tomcat on ianhuang筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
     <lastBuildDate>Tue, 06 Apr 2021 09:29:21 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
@@ -34,6 +34,15 @@
       
       <guid>https://iankingh.github.io/blog/post/server/tomcatsetinguser/</guid>
       <description>&lt;h2 id=&#34;配置tomcat-的使用者&#34;&gt;配置Tomcat 的使用者&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularDeployTomcat</title>
+      <link>https://iankingh.github.io/blog/post/angular/angulardeploytomcat/</link>
+      <pubDate>Fri, 25 Sep 2020 20:40:28 +0800</pubDate>
+      
+      <guid>https://iankingh.github.io/blog/post/angular/angulardeploytomcat/</guid>
+      <description>&lt;h2 id=&#34;angular-deploy-tomcat&#34;&gt;&lt;strong&gt;Angular Deploy Tomcat&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
     
   </channel>

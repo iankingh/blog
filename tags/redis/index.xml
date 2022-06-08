@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 20 May 2020 10:11:13 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis簡介</title>
-      <link>https://iankingh.github.io/blog/post/redis/redisinstall/</link>
+      <link>https://iankingh.github.io/blog/post/redis/redis-install/</link>
       <pubDate>Wed, 20 May 2020 10:11:13 +0800</pubDate>
       
-      <guid>https://iankingh.github.io/blog/post/redis/redisinstall/</guid>
+      <guid>https://iankingh.github.io/blog/post/redis/redis-install/</guid>
       <description>&lt;h2 id=&#34;redis-install&#34;&gt;Redis Install&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;redis簡介&#34;&gt;Redis簡介&lt;/h2&gt;

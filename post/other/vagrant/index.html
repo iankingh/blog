@@ -166,41 +166,49 @@
         <i class="fa fa-eye"></i>
     </span>
     <span class="post-meta-item-text">閱讀：</span>
-    <span class="leancloud-visitors-count">136 字 ~1分鐘</span>
+    <span class="leancloud-visitors-count">193 字 ~1分鐘</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     <h2 id="vagrant-使用筆記">vagrant 使用筆記</h2>
-<h2 id="初始化虛擬機">初始化虛擬機</h2>
-<pre><code>vagrant init
+<h3 id="初始化虛擬機">初始化虛擬機</h3>
+<pre><code class="language-shell">vagrant init
 </code></pre>
-<h2 id="啟動-虛擬機">啟動 虛擬機</h2>
-<pre><code>vagrant up 
+<h3 id="啟動-虛擬機">啟動 虛擬機</h3>
+<pre><code class="language-shell">vagrant up 
 </code></pre>
-<h2 id="啟動-已存在的-虛擬機">啟動 已存在的 虛擬機</h2>
-<p>vagrant provision</p>
-<h2 id="停止虛擬機">停止虛擬機</h2>
-<pre><code>vagrant halt
+<h3 id="啟動-已存在的-虛擬機">啟動 已存在的 虛擬機</h3>
+<pre><code class="language-shell">vagrant provision
 </code></pre>
-<h2 id="新增-虛擬主機的-ssl-private-key">新增 虛擬主機的 SSL private key</h2>
-<pre><code>  vagrant ssh-config
+<h3 id="停止虛擬機">停止虛擬機</h3>
+<pre><code class="language-shell">vagrant halt
 </code></pre>
-<h2 id="砍掉-虛擬機">砍掉 虛擬機</h2>
-<pre><code>vagrant destroy
+<h3 id="新增-虛擬主機的-ssl-private-key">新增 虛擬主機的 SSL private key</h3>
+<pre><code class="language-shell">vagrant ssh-config
 </code></pre>
-<h1 id="vagrant-scp">vagrant scp</h1>
-<p>安裝網址:
-<a href="https://github.com/invernizzi/vagrant-scp">https://github.com/invernizzi/vagrant-scp</a></p>
-<p>Install</p>
-<pre><code>vagrant plugin install vagrant-scp
+<h3 id="砍掉-虛擬機">砍掉 虛擬機</h3>
+<pre><code class="language-shell">vagrant destroy
+</code></pre>
+<h2 id="vagrant-scp">vagrant scp</h2>
+<h3 id="安裝網址">安裝網址</h3>
+<p><a href="https://github.com/invernizzi/vagrant-scp">invernizzi/vagrant-scp: Copy files to a Vagrant VM via SCP.</a></p>
+<h3 id="install">Install</h3>
+<pre><code class="language-shell">vagrant plugin install vagrant-scp
 
 </code></pre>
-<p>Usage</p>
-<pre><code>
+<h3 id="使用方法">使用方法</h3>
+<p>If you have just a single Vagrant guest, you can copy files over like this:</p>
+<pre><code>vagrant scp &lt;some_local_file_or_dir&gt; &lt;somewhere_on_the_vm&gt;
 </code></pre>
-<h1 id="vagrantfile">Vagrantfile</h1>
-<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
+<p>If you have multiple VMs, you can specify it.</p>
+<pre><code>vagrant scp &lt;some_local_file_or_dir&gt; [vm_name]:&lt;somewhere_on_the_vm&gt;
+</code></pre>
+<p>Copying files out of the guest works in the same fashion</p>
+<pre><code>vagrant scp [vm_name]:&lt;somewhere_on_the_vm&gt; &lt;some_local_file_or_dir&gt;
+</code></pre>
+<h2 id="vagrantfile">Vagrantfile</h2>
+<pre><code class="language-vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
 
   #pull images centos/8
   config.vm.box = &quot;centos/8&quot;
@@ -240,8 +248,8 @@ end
 
     <div class="post-nav-prev post-nav-item">
         
-        <a href="https://iankingh.github.io/blog/post/other/%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%88%86%E9%9B%A2/" rel="prev" title="前後端分離">
-            前後端分離 <i class="fa fa-chevron-right"></i>
+        <a href="https://iankingh.github.io/blog/post/server/tomcatsetinguser/" rel="prev" title="tomcatSetingUser">
+            tomcatSetingUser <i class="fa fa-chevron-right"></i>
         </a>
         
     </div>
@@ -316,7 +324,7 @@ end
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="https://iankingh.github.io/blog/post/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">日誌</span>
       </a>
     </div>
@@ -333,7 +341,7 @@ end
     <div class="site-state-item site-state-tags">
         <a href="https://iankingh.github.io/blog/tags/">
          
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         
         <span class="site-state-item-name">標籤</span>
         </a>
@@ -365,16 +373,24 @@ end
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
   <ul>
-    <li><a href="#vagrant-使用筆記">vagrant 使用筆記</a></li>
-    <li><a href="#初始化虛擬機">初始化虛擬機</a></li>
-    <li><a href="#啟動-虛擬機">啟動 虛擬機</a></li>
-    <li><a href="#啟動-已存在的-虛擬機">啟動 已存在的 虛擬機</a></li>
-    <li><a href="#停止虛擬機">停止虛擬機</a></li>
-    <li><a href="#新增-虛擬主機的-ssl-private-key">新增 虛擬主機的 SSL private key</a></li>
-    <li><a href="#砍掉-虛擬機">砍掉 虛擬機</a></li>
-  </ul>
-
-  <ul>
+    <li><a href="#vagrant-使用筆記">vagrant 使用筆記</a>
+      <ul>
+        <li><a href="#初始化虛擬機">初始化虛擬機</a></li>
+        <li><a href="#啟動-虛擬機">啟動 虛擬機</a></li>
+        <li><a href="#啟動-已存在的-虛擬機">啟動 已存在的 虛擬機</a></li>
+        <li><a href="#停止虛擬機">停止虛擬機</a></li>
+        <li><a href="#新增-虛擬主機的-ssl-private-key">新增 虛擬主機的 SSL private key</a></li>
+        <li><a href="#砍掉-虛擬機">砍掉 虛擬機</a></li>
+      </ul>
+    </li>
+    <li><a href="#vagrant-scp">vagrant scp</a>
+      <ul>
+        <li><a href="#安裝網址">安裝網址</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#使用方法">使用方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#vagrantfile">Vagrantfile</a></li>
     <li><a href="#參考">參考</a></li>
   </ul>
 </nav></div>
@@ -396,7 +412,7 @@ end
   <span class="author" itemprop="copyrightHolder">ianhuang筆記</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.96.0</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.100.1</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
