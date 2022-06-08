@@ -1,16 +1,16 @@
 ---
 title: "ChromeTools"
 date: 2021-04-11T19:11:37+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "net"
  - "chrome"
 toc: true
+draft: false
 ---
 
-## chrome 筆記 
+## chrome 筆記
 <!-- 簡介 -->
 
 
@@ -68,6 +68,7 @@ overrides 是 chrome 在 65推出的新功能
 
 
 ## 參考
+
 [Chrome Dev Tool 的好用功能 - overrides](https://pvencs.blogspot.com/2019/01/chrome-dev-tool-overrides.html)
 
 https://developer.chrome.com/blog/new-in-devtools-65/#overrides

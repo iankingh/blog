@@ -5,6 +5,7 @@ draft: false
 categories:
  - "技術"
 tags:
+ - "net"
  - "ip"
  - "internet"
 toc: true

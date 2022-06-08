@@ -1,12 +1,12 @@
 ---
 title: "EmbracingJUnitwithEclipse"
 date: 2020-09-29T22:13:19+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "eclispe"
 toc: true
+draft: false
 ---
 
 ## Junit with Eclipse

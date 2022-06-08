@@ -1,13 +1,13 @@
 ---
 title: "Angular use compodoc"
 date: 2020-07-20T16:17:45+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: false
 ---
 
 ## **Angular use compodoc**

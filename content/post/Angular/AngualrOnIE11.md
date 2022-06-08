@@ -1,26 +1,26 @@
 ---
 title: "AngualrOnIE11"
 date: 2021-03-10T13:21:43+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: false
 ---
 
-## **Angualr IE 11 使用筆記**
+## Angualr IE 11 使用筆記
 
 在IE 11 上的 使用 Angular
 
 <!--more-->
 
-## **前言**
+## 前言
 
 基本上Angualr 在 IE11 不是很 OK ,建議不要再使用IE,如果有不幸的用到有幾點要注意
 
-**設定Index**
+設定Index
 於`index.html`  加上
 
 ```html
@@ -28,13 +28,13 @@ toc: true
 
 ```
 
-### ****在 angular.json 的scripts 引用
+### 在 angular.json 的scripts 引用
 
 如果要引用外部js 可以在 angular.json 的scripts 地方做全局引用 ,他會在要用到的地方引用
 
-**程式碼的部分**
+程式碼的部分
 
-****ex.**** 
+ex. 
 
 ```json
 "scripts": [
@@ -46,14 +46,14 @@ toc: true
 ]
 ```
 
-### 引用 ie.js ****
+### 引用 ie.js 
 
 引用 ie.js ;新建一個 ie.js ,再引用內容如下
 
 [https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js](https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js)
 
-**程式碼的部分**
-****ex.**** 
+程式碼的部分
+ex. 
 
 ```jsx
 // function.name (all IE)
@@ -297,14 +297,12 @@ clearTimeout(id);
 }());
 ```
 
-## **Summary**
+## Summary
 
 在IE 上使用Angular 十分麻煩
 
-### **** 祝大家工作上都不要碰到IE**
+**祝大家工作上都不要碰到IE**
 
-## **參考**
+## 參考
 
 [IE 11 Syntax error after doing ng serve · Issue #9508 · angular/angular-cli (github.com)](https://github.com/angular/angular-cli/issues/9508)
-
-[透過 Angular CLI 產生的前端程式在 IE11 無法正確執行 – Keep Coding (ymblog.azurewebsites.net)](http://ymblog.azurewebsites.net/%E9%80%8F%E9%81%8E-angular-cli-%E7%94%A2%E7%94%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E7%A8%8B%E5%BC%8F%E5%9C%A8-ie11-%E7%84%A1%E6%B3%95%E6%AD%A3%E7%A2%BA%E5%9F%B7%E8%A1%8C/)

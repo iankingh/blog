@@ -23,8 +23,6 @@ SD則是根據規格和Ｍodel做更多在軟體架構或 更細部的Model設�
 
 U5
 
-
-
 大概都是這樣流程啦
 從wireframe 開始 到 手繪 到UI/UX
 然後出prototype

@@ -1,13 +1,13 @@
 ---
 title: "AngularCheatSheet"
 date: 2020-11-06T22:11:38+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+draft: true
 ---
 
 ## Angular Cheat Sheet (Angular 小抄)
@@ -344,3 +344,5 @@ to use a pipe in our component we can do this:
 Angular Cheat Sheet - DEV
 
 https://dev.to/suniljoshi19/angular-cheat-sheet-46bo?fbclid=IwAR1hL9OTHVIthSFCqOH4pGuMK3447-ru5vPxKT-EI4AAOyGoLAJ3iiQ7K8I
+
+https://gist.github.com/doggy8088/7f148e6288cdd8a3588f0ebbd57735ef?fbclid=IwAR2vPjd4AFcPZFHW_74n43bL5eQ-420yFGbntB-mTNoftuTPIOfjScgVddw

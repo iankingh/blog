@@ -1,27 +1,21 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
 categories:
- - "筆記"
+- "筆記"
 tags:
- - "xxx"
- - "xxx"
+- "tag1"
+- "tag2"
 toc: true
-
+draft: true
 ---
-
-## 文章開頭 H1
 
 <!-- 簡介 -->
 <!--more-->
 
+# 這是範本的使用
+
 ## 前言
-
-
-這是範本的使用
-
-## 標題1
 
 ## 用 H2 作為各章節的標題
 
@@ -41,6 +35,7 @@ toc: true
 const s = "範本應用"
 alert(s);
 ```
+
 
 ## Summary
 

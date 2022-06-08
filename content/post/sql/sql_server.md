@@ -1,13 +1,13 @@
 ---
 title: "Sql_server"
 date: 2021-08-02T22:03:19+08:00
-draft: true
 categories:
- - "xx"
+ - "筆記"
 tags:
  - "sql"
  - "sql Server"
 toc: true
+draft: true
 ---
 
 ## SQL Server 筆記

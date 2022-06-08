@@ -22,8 +22,14 @@
      {{ partial "post/prenext.html" .}}
      {{ partial "widgets/baidushare.html" .}}
      {{ partial "widgets/duoshuoshare.html" .}}
-     {{ partial "widgets/comment.html" .}}
+     {{ partial "widgets/comment.html" .}}     
     </footer>
+
+    <div class="disqus markdown">
+      {{ partial "disqus.html" . }}
+    </div>
+
+
   </article>
 </section>
 {{ end }}

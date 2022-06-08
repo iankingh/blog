@@ -1,12 +1,12 @@
 ---
 title: "NginxForwindows"
 date: 2020-09-30T07:03:04+08:00
-draft: true
 categories:
  - "筆記"
 tags:
  - "Nginx"
 toc: true
+draft: true
 ---
 
 ## NGINX 基礎入門(Windows 版) 筆記

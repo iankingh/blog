@@ -12,7 +12,7 @@ toc: true
 
 ## Hugo使用筆記
 
-前言
+紀錄Hugo使用的筆記
 
 <!--more-->
 
@@ -23,7 +23,7 @@ toc: true
 透過Chocolatey 安裝
 
 ```shell
-choco install hugo -confirm
+hchoco install hugo -confirm
 ```
 
  **Check version:**
@@ -54,7 +54,7 @@ hugo new post/文章名稱.md
 hugo server
 ```
 
-**run  全部**
+**run 全部**
 
 ```shell
 hugo server -D

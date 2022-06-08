@@ -1,12 +1,12 @@
 ---
 title: "EclipseSettigUtf 8"
 date: 2021-04-12T09:08:22+08:00
-draft: false
 categories:
  - "筆記"
 tags:
  - "eclispe"
 toc: true
+draft: false
 ---
 
 
@@ -17,7 +17,7 @@ toc: true
 
 ## 打開設定畫面
 
-Window -->> Preferences -->> Workspace 
+Window -->> Preferences -->> Workspace
 
 ## 設定UTF-8
 
