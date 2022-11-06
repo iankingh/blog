@@ -19,7 +19,7 @@ toc: true
 
 [Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
 
-這一套 擴充插件 ，來進行SSH 連線
+這一套擴充插件，來進行`SSH`連線。
 
 ## 安裝
 
@@ -31,8 +31,9 @@ toc: true
 
 在Extension搜尋remote就可以看到了，這邊我們選擇安裝SSH的
 
+## 連線到 Azure
 
-## 設定
+### 設定
 
 按下 `ctrl +shift + p`
 
@@ -41,20 +42,21 @@ open ssh configuration
 設定 remote
 
 ```shell
-Host  40.124.99.20
+  Host     40.124.99.20
   HostName 40.124.99.20
-  User azureuser
+  User     azureuser
   IdentityFile C:/Users/Ian/azureuser.pem
 ```
 
-Host LabServer      #填寫別名例如 LabSever
-HostName 127.0.0.1  #主機名稱或是ip位置
-User root           #登入的使用者名稱
-Port                #如果有指定的Port號
+- Host LabServer      # 填寫別名例如 LabSever
+- HostName 127.0.0.1  # 主機名稱或是ip位置
+- User root           # 登入的使用者名稱
+- Port                # 如果有指定的Port號
 
-## 測試連線
+### 測試連線
 
-### 連線到 vagrant  
+
+## 連線到 vagrant  
 
 到有 `Vagrantfile` 目錄執行
 
@@ -65,7 +67,7 @@ vagrant ssh-config
 得到
 
 ```shell
-Host ian-centos8
+  Host ian-centos8
   HostName 127.0.0.1
   User vagrant
   Port 2222
@@ -84,9 +86,10 @@ Host ian-centos8
 
 ## 參考
 
+[vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
+
 [使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote
 )
 
 
-[vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
 
