@@ -13,6 +13,8 @@ draft: false
 
 ## Spring Data JPA 介紹
 
+<!--more -->
+
 ### Spring-Data 概述
 
   **Spring Data** 是一個資料訪問框架 ，用於簡化資料庫訪問，旨在提供一致的資料庫訪問模型，同時仍然保留不同資料庫底層資料存儲的特點，**Spring** **Data** 採用了**領域驅動模型**的設計思想，實現了訪問關係型數據庫、非關係型數據庫的統一的介面，只需要定義好領域模型（**Entity**），後續的創建表、**CURD**、排序操作不需要手動添加任何**SQL**語句，同時也支持手動擴展功能。
@@ -43,7 +45,7 @@ draft: false
 
 ### Repository介面
 
-**Repository** 介面是 **Spring Data** 的一個核心介面，是一個抽象的介面，使用者通過繼承該介面來實現資料的訪問，它不提供任何方法，開發者需要在自己定義的介面中聲明需要的方法
+  **Repository** 介面是 **Spring Data** 的一個核心介面，是一個抽象的介面，使用者通過繼承該介面來實現資料的訪問，它不提供任何方法，開發者需要在自己定義的介面中聲明需要的方法
 
 ```java
 public interface Repository<T, ID> { }
@@ -63,7 +65,7 @@ public interface CustomerRepository extends Repository<CustomerEntity,Long> { }
 
 `在spring boot中如果使用了 spring-boot-starter-data-jpa ,會自動掃描所有擴展了Repository介面的類`
 
-###  CrudRepository 介面
+### CrudRepository 介面
 
 **CrudRepository** 介面繼承**Repository**，提供對實體類(**CRUD**)增刪改查方法，可以直接調用。 
 
@@ -101,7 +103,7 @@ public interface CustomerRepository extends CrudRepository<CustomerEntity, Long>
 }
 ```
 
-````java
+```java
 
 package com.example.demo;
 
@@ -162,14 +164,17 @@ public class CustomerRepositoryTest {
 
 }
 
-````
+```
 
-    // 刪 delete(id),delete(entity),delete(entities),deleteAll
+```java
+    // 刪 
+    delete(id),delete(entity),delete(entities),deleteAll
     
-    // 查 findOne(id) ,findAll, exits(id)
+    // 查 
+    findOne(id),findAll,exits(id)
     
     // save***只要 id一樣,就會更新,而不是添加.
-
+```
 
 ### PagingAndSortingRepository 介面 
 
@@ -526,6 +531,10 @@ public class ProductInfoService {
  ````
 
 
-
-
 ## 參考
+
+[Spring Data](https://spring.io/projects/spring-data)
+
+[Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
+
+[Spring For All 社区 Spring Data JPA 从入门到进阶系列教程 | Spring For All (spring4all.com)](http://www.spring4all.com/article/500)

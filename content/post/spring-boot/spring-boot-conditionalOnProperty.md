@@ -20,7 +20,7 @@ toc: true
 
 ## @ConditionalOnProperty的作用和用法
 
-在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty注解來控@Configuration是否生效
+   在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty注解來控@Configuration是否生效
 
 ConditionalOnProperty的使用
 	@Retention(RetentionPolicy.RUNTIME)
@@ -77,8 +77,7 @@ filter.loginFilter=true
 
 ## 參考
 
-@ConditionalOnProperty的作用和用法_sqlgao22的博客-CSDN博客
-https://blog.csdn.net/sqlgao22/article/details/96476754
+[@ConditionalOnProperty的作用和用法_sqlgao22的博客-CSDN博客](https://blog.csdn.net/sqlgao22/article/details/96476754)
 
 Conditional Beans with Spring Boot
 https://reflectoring.io/spring-boot-conditionals/

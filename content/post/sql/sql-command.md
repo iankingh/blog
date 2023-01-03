@@ -5,8 +5,7 @@ draft: true
 categories:
  - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "SQL"
 toc: true
 ---
 
@@ -14,33 +13,30 @@ toc: true
 <!-- 簡介 -->
 <!--more-->
 
-
-
-
-## ALTER TABLE   
+## ALTER TABLE
 
 ALTER TABLE 是用來對已存在的資料表結構作更改。語法型式如下：
-
 
 增加欄位 (ADD COLUMN)
 語法
 
-```
+```SQL
 ALTER TABLE table_name ADD column_name datatype;
 ```
+
 EX :
 
 ```
 ```
 
-
 如果要加上 預設值
 
 語法
-```
-ALTER TABLE customer ADD DEFAULT '未知' FOR Address;
 
+```SQL
+ALTER TABLE customer ADD DEFAULT '未知' FOR Address;
 ```
+
 EX: 
 
 ## CREATE LOGIN [Account]
@@ -90,9 +86,6 @@ GO
 sql cluster 是提供服務的
 
 sql server 是提供連線服務介面的
-
-
-
 
 
 ## 參考
