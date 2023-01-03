@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/iankingh/blog.git
 	branch = gh-pages
+[submodule "themes/hugo-theme-next"]
+	path = themes/hugo-theme-next
+	url = https://github.com/hugo-next/hugo-theme-next.git
