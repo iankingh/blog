@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>redis on ianhuang筆記</title><link>https://iankingh.github.io/blog/tags/redis/</link><description>Recent content in redis on ianhuang筆記</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Wed, 20 May 2020 10:11:13 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/redis/rss.xml" rel="self" type="application/rss+xml"/><item><title>Redis簡介</title><link>https://iankingh.github.io/blog/post/redis/redis-install/</link><pubDate>Wed, 20 May 2020 10:11:13 +0800</pubDate><guid>https://iankingh.github.io/blog/post/redis/redis-install/</guid><description>&lt;h2 id="redis-install">Redis Install&lt;/h2>
+&lt;!-- 簡介 -->
+&lt;h2 id="redis簡介">Redis簡介&lt;/h2>
+&lt;p>Redis是一個使用ANSI C編寫的開源、支援、基於記憶體、可選永續性的鍵值對儲存資料庫。&lt;/p>
+&lt;p>&lt;code>Redis&lt;/code> 是一个使用 &lt;code>ANSI C&lt;/code> 編寫的開源、支援 &lt;strong>網路&lt;/strong>、基於&lt;strong>記憶體(內存)&lt;/strong>、&lt;strong>單線程&lt;/strong>、**可選永續性 **的 &lt;strong>鍵值儲存資料庫&lt;/strong>。&lt;/p>
+&lt;p>以官方的解釋，Redis是一套Open source的In-memory NoSQL database，可以應用在Cache、Database及簡單的Message broker。&lt;/p>
+&lt;p>作者則說它是一個Data Structures Server，顧名思義，它提供了很多種資料結構及相對應的指令去操作這些資料。由於它是以In-Memory的方式為主，另一個很明顯的特性就是它很快，非常快，正確使用下可以輕鬆的處理每秒上萬的請求。&lt;/p></description></item></channel></rss>

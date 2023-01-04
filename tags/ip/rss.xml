@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ip on ianhuang筆記</title><link>https://iankingh.github.io/blog/tags/ip/</link><description>Recent content in ip on ianhuang筆記</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Tue, 06 Oct 2020 22:18:37 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/ip/rss.xml" rel="self" type="application/rss+xml"/><item><title>IP</title><link>https://iankingh.github.io/blog/post/net/ip/</link><pubDate>Tue, 06 Oct 2020 22:18:37 +0800</pubDate><guid>https://iankingh.github.io/blog/post/net/ip/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>在 TCP/IP 通訊協定組的 IP 層裡，用來辨識每台電腦的東西，稱為網際網路位址 ( Internet address ) 或 IP 位址 ( IP address )。
+IP 位址是一個 32 位元的二進制數字，具有全域性，用來唯一的定義 Internet 上的一台電腦或一台路由器。
+所有 IP 位址都是唯一的。「唯一」是指一個位址只定義一個與 Internet 的連接 ( connection )。Internet 上不可以有兩台裝置有著相同的 IP 位址。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>一個 IP 位址為一個 32 位元的位址。&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>IP 位址是唯一的。&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>IPv4 的位址空間為 232 或 4,294,967,296。&lt;/strong> &lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

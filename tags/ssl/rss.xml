@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSL on ianhuang筆記</title><link>https://iankingh.github.io/blog/tags/ssl/</link><description>Recent content in SSL on ianhuang筆記</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Wed, 23 Dec 2020 11:38:01 +0800</lastBuildDate><atom:link href="https://iankingh.github.io/blog/tags/ssl/rss.xml" rel="self" type="application/rss+xml"/><item><title>SSlAndTLS</title><link>https://iankingh.github.io/blog/post/net/sslandtlsandhttps/</link><pubDate>Wed, 23 Dec 2020 11:38:01 +0800</pubDate><guid>https://iankingh.github.io/blog/post/net/sslandtlsandhttps/</guid><description>&lt;h1 id="ssltls-以及-https">SSL、TLS 以及 HTTPS&lt;/h1>
+&lt;p>當我們瀏覽網頁時：網址列的開頭是不是有個 🔒鎖的圖案。&lt;/p>
+&lt;p>這個鎖代表你現在連線到的網站是安全可信任的。&lt;/p>
+&lt;p>即使用
+&lt;a href="https://en.wikipedia.org/wiki/HTTPS" title="HTTPS (HTTP Secure)" rel="noopener external nofollow noreferrer" target="_blank" class=" exturl">
+HTTPS (HTTP Secure)
+&lt;i class="fa fa-external-link-alt">&lt;/i>
+&lt;/a> 連線，而不是使用不安全的
+&lt;a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title=" HTTP protocol" rel="noopener external nofollow noreferrer" target="_blank" class=" exturl">
+HTTP protocol
+&lt;i class="fa fa-external-link-alt">&lt;/i>
+&lt;/a>。&lt;/p></description></item></channel></rss>
