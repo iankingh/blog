@@ -1,0 +1,155 @@
+{
+  "main": {
+    "id": "653eaed5dd4116e4",
+    "type": "split",
+    "children": [
+      {
+        "id": "04223bcab391b6d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "01d41a6b021c94e6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f0b2e7a5004fe242",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9ed9b0601feb83d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df794b59a7ea3bbb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d26ce29b41db250a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "38e329db55bba3b0",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "52e12140774447d6",
+    "type": "split",
+    "children": [
+      {
+        "id": "73b3035817db353e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4d8a7d59750c835",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3dc7e21a9dbba97d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e1078b339dfcfdde",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "6bdc55d1e03d2ceb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:開啟快速切換": false,
+      "graph:查看關聯圖": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:開啟今天的每日筆記": false,
+      "templates:插入模板": false,
+      "command-palette:開啟命令面板": false,
+      "zk-prefixer:建立新唯一筆記": false
+    }
+  },
+  "active": "01d41a6b021c94e6",
+  "lastOpenFiles": [
+    "202301041741.md",
+    "readme.md",
+    "archetypes/default.md",
+    "未命名.canvas",
+    "images/chromeTools/chromeUseOverridesModifyPageJs1.png.md",
+    "content/post/net/chromeTools.md",
+    "images/java/調整Tomcat上傳檔案大小.png.md",
+    "images/eclipse/juint.png.md",
+    "content/post/angular/Angular-forms.md",
+    "content/post/java/Java-heap-space.md"
+  ]
+}
