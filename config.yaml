@@ -34,7 +34,7 @@ paginate: 10
 # 开启支持表情符号
 # Enable Emoji support
 enableEmoji: true
-# 让 Makedown 文档支持 HTML 语法，高亮，文章目录等功能
+# 让 Makedown 文檔支持 HTML 語法，高亮，文章目录等功能
 # Make markdown content support HTML syntax, highlight, toc etc.
 markup:
   goldmark:
@@ -66,7 +66,7 @@ markup:
     startLevel: 2
     endLevel: 4
 
-# 站点文章导航文件
+# 站點文章導航文件
 # Site map of all articles
 sitemap:
   filename: "sitemap.xml"
@@ -143,7 +143,7 @@ menus:
       weight: 3
     - identifier: archives
       name: 歸檔
-      pageref: /post
+      pageref: /archives
       pre: archive
       weight: 4
     - identifier: about
@@ -182,10 +182,10 @@ params:
 
   # 站点基本信息
   # Site Information Settings
-  author: NexT 主题
-  subtitle: 為 Hugo 打造的主题
-  description: 保持简单的易用性和强大的功能。
-  keywords: Hugo,NexT,主题,简单,强大
+  author: Ian Huang 
+  subtitle: "總有一天，你的日積月累，會變成他人的望塵莫及"
+  description: 筆記 | 軟體 | 架構 | Java
+  keywords: Programmer & Architect ,程式師,架構師,個人,筆記,技術
 
   # 不同尺寸站点图标
   # Different size of favicon
