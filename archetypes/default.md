@@ -17,6 +17,16 @@ draft: true
 
 ## 前言
 
+### 環境
+
+- java版本:
+- 後端框架：Spring Boot
+- 前端框架：Angular
+- 資料庫  ：MySQL
+- 專案管理：Maven
+- 開發工具：Visual Studio Code
+- 開發環境：Windows
+
 ## 用 H2 作為各章節的標題
 
 ### 用 H3作為各章節的分段
@@ -29,13 +39,12 @@ draft: true
 
 ### 程式碼的部分
 
-****ex.**** 
+****ex.****
 
 ```javascript
 const s = "範本應用"
 alert(s);
 ```
-
 
 ## Summary
 
