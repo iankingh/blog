@@ -26,19 +26,19 @@ toc: true
 
 在**Welcome to Android Studio**窗口中，單擊啟動新的**Strat a new Android Studio project**。
 
-![Welcome to Android Studio](/images/Android/Welcome_to_Android_Studio.png)
+![Welcome to Android Studio](../images/Android/Welcome_to_Android_Studio.png)
 
 ### 3. 選擇模板
 
 在**Select a Project Template**窗口中，選擇**Empty Activity**，然後單擊**next**。
 
-![Configure Your Project](/images/Android/Select_a_Project_Template.png)
+![Configure Your Project](../images/Android/Select_a_Project_Template.png)
 
 ### 4. 設定專案配置
 
 在**Configure Your Project**窗口中，完成以下操作：
 
-![Configure Your Project](/images/Android/Configure_Your_Project.png)
+![Configure Your Project](../images/Android/Configure_Your_Project.png)
 
 - 在**Name**輸入 "Myfirstapp" 。
 - 在**Package name**字段中輸入"com.example.myfirstapp" 。

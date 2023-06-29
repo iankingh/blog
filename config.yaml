@@ -512,8 +512,7 @@ params:
     reward:
       wechatpay: /imgs/wechat-pay.png
       alipay: /imgs/ali-pay.png
-      #paypal: /images/paypal.png
-      #bitcoin: /images/bitcoin.png
+
 
   # 提供其它订阅站点文章的方式
   # 用例： `key: 名称 || 链接（图像地址）|| icon名称`
@@ -1104,20 +1103,8 @@ params:
     # Available values: local | unpkg | cdnjs| qiniu | bootcdn | custom
     # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
     plugins: qiniu
-    # TODO
-    # Custom CDN URL
-    # For example:
-    # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}
-    # custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${cdnjs_file}
-    #custom_cdn_url:
 
-  # TODO
-  # Assets
-  # Accelerate delivery of static files using a CDN
-  # The js option is only valid when vendors.internal is local.
-  css: css
-  js: js
-  images: imgs
+
 
 #disqus
 disqusShortname: https-iankingh-github-io
