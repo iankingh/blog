@@ -3,6 +3,7 @@
 &lt;p>HikariPool是連接池管理類，負責管理數據庫連接。&lt;/p>
 &lt;p>HikariPool-1 - Connection is not available, request timed out after 30000ms&lt;/p>
 &lt;p>表示資料庫連線池請求超時&lt;/p></description></item><item><title>算錢用浮點，遲早被人扁</title><link>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</link><pubDate>Mon, 22 Mar 2021 11:14:01 +0800</pubDate><guid>https://iankingh.github.io/blog/post/other/%E7%AE%97%E9%8C%A2%E7%94%A8%E6%B5%AE%E9%BB%9E%E9%81%B2%E6%97%A9%E8%A2%AB%E4%BA%BA%E6%89%81/</guid><description>&lt;h2 id="算錢用浮點遲早被人扁">算錢用浮點，遲早被人扁&lt;/h2>
+&lt;!-- 簡介 --></description></item><item><title>Java人員必備技能</title><link>https://iankingh.github.io/blog/post/other/java%E6%8A%80%E8%A1%93%E4%BA%BA%E5%93%A1%E6%8A%80%E8%83%BD/</link><pubDate>Mon, 15 Mar 2021 09:33:44 +0800</pubDate><guid>https://iankingh.github.io/blog/post/other/java%E6%8A%80%E8%A1%93%E4%BA%BA%E5%93%A1%E6%8A%80%E8%83%BD/</guid><description>&lt;h2 id="筆記">筆記&lt;/h2>
 &lt;!-- 簡介 --></description></item><item><title>Java_heap_space</title><link>https://iankingh.github.io/blog/post/java/java-heap-space/</link><pubDate>Tue, 02 Mar 2021 14:35:25 +0800</pubDate><guid>https://iankingh.github.io/blog/post/java/java-heap-space/</guid><description>&lt;h2 id="javalangoutofmemoryerror-java-heap-space-jvm記憶體設定">java.lang.OutOfMemoryError: Java heap space JVM記憶體設定&lt;/h2>
 &lt;p>使用Java程式從資料庫中查詢大量的資料時出現異常:java.lang.OutOfMemoryError: Java heap space
 在JVM中如果98%的時間是用於GC且可用的 Heap size 不足2%的時候將丟擲此異常資訊。
