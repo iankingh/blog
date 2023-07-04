@@ -52,15 +52,15 @@ git diff-tree -r --no-commit-id --name-status --text --diff-filter=ACDMRT  commi
 
  `git log`
 
-![git log](../images/git/git log.png)
+ ![git log](../images/git/git-log.png)
+
 
 ```bash
 git diff-tree -r --no-commit-id  --name-status --text --diff-filter=ACDMRT  c19c 9676 > differences.txt
 ```
 
-差異如下
-
-![git log](../images/git/git diff.png)
+**差異如下**
+![git log](../images/git/git-diff.png)
 
 ## 匯出差異檔
 
