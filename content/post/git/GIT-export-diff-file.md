@@ -10,8 +10,6 @@ toc: true
 draft: false
 ---
 
-
-
 ## GIT 匯出差異檔案
 <!-- 簡介 -->
 <!--more-->
@@ -54,7 +52,7 @@ git diff-tree -r --no-commit-id --name-status --text --diff-filter=ACDMRT  commi
 
  `git log`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83e720b7-a115-4806-b679-51ecb921f952/Untitled.png)
+![git log](../images/git/git log.png)
 
 ```bash
 git diff-tree -r --no-commit-id  --name-status --text --diff-filter=ACDMRT  c19c 9676 > differences.txt
@@ -62,7 +60,7 @@ git diff-tree -r --no-commit-id  --name-status --text --diff-filter=ACDMRT  c19c
 
 差異如下
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5415a082-7721-4051-aa2f-c2f200253a4c/Untitled.png)
+![git log](../images/git/git diff.png)
 
 ## 匯出差異檔
 

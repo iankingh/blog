@@ -14,7 +14,7 @@
 # Website domain, eg: https://hugo-next.eu.org
 baseURL: https://iankingh.github.io/blog/
 # 此參數設置影響的是若你想把站點內網址，從相對網址 /a/url，轉為絕對網址 http://your.baseurl.dev/a/url，你必須追加 canonifyURLs: true 配置到你的 config 檔案中，否則會使用預設的 false (不轉換)
-CanonifyUrls: true
+# canonifyURLs: true
 # 站點標題
 # Website title
 title: ianhuang筆記
@@ -964,7 +964,7 @@ params:
     enable: true
     # 搜索索引文件路径
     # Indexes file path for search
-    path: /searchindexes.xml
+    path: /blog/searchindexes.xml
     # 是立即搜索当输入关键字时，可选值： auto | manual
     # If auto, trigger search by changing input.
     # If manual, trigger search by pressing enter key or search button.
