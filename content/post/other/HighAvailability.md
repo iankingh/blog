@@ -6,11 +6,12 @@ categories:
 tags:
  - "架構"
 toc: true
-draft: true
+draft: false
 ---
-
 ## 高可用性網路架構 High Availability  
-<!-- 簡介 -->
+
+記錄一些常用的HA架構
+<!-- more -->
 
 高可用性網路架構 High Availability   簡稱 HA
 
@@ -65,16 +66,10 @@ https://ithelp.ithome.com.tw/upload/images/20200925/20000181HRkVDrKMQp.jpg
 
 
 ## 參考
-
-[Cluster專用的名詞AP Mode/AA Mode](http://slashview.com/archive2013/20131206.html)
-
 [Active-Standby Mode](https://docs.tibco.com/pub/trns/1.1.0/doc/html/GUID-6B16E55F-D833-4A96-A8FC-5BB5F8E07E30.html)
-
+[Cluster專用的名詞AP Mode/AA Mode](http://slashview.com/archive2013/20131206.html)
 [高可用性網路架構High Availability,AA Mode | 景佳科技 FansySoft](https://www.fansysoft.com/liferay-high-availability)
-
-[2個防火牆做HA, 應該設定成Active-Active 還是 Active Standby? - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/questions/10199789)
-
-
 [企業郵件系統常見高可用性 (HA) 架構整理 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10243564?sc=rss.iron)
+[2個防火牆做HA, 應該設定成Active-Active 還是 Active Standby? - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/questions/10199789)
 
 

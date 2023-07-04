@@ -8,12 +8,11 @@ tags:
 toc: true
 draft: false
 ---
-
 <!-- 簡介 -->
 <!--more-->
-# 如何問問題
+## 如何問問題
 
-## 問問題模板
+## 問問題模板 1
 
 - 實際的需求
     - 你的原始需求是什麼？
@@ -29,6 +28,14 @@ draft: false
     - 錯誤的 log + stacktrace(有的話)
     - Browser F12 的錯誤 (有的話)
 
+## 問問題模板 2
+1. 請提供問題描述
+ 
+2. 請提供複製問題的步驟
+
+3. 請提供預期結果與當前結果
+
+
 ## Debug四重奏
 
 1. 告知他人你原本預期到什麼效果，但目前得出的結果如何，和預期有多少偏差。
@@ -38,12 +45,6 @@ draft: false
 3. 附上的圖片請傳高解析度的，且影像方向擺正，不要讓幫忙的人得歪頭歪腦，還要當偵探破解你的低解析圖，以及善用電腦截圖，手機拍電腦螢幕會有摩爾紋加反光，我們不是來辦案的，沒有專業偵蒐工具。
 
 4. 明確告知你已經掌握的基本訊息以及你曾經嘗試過的解決辦法，並且提供方向給幫忙者。
-
-擷取自公司SQ SOP ：
-
-1. 請提供問題描述
-2. 請提供複製問題的步驟
-3. 請提供預期結果與當前結果
 
 
 
@@ -70,17 +71,16 @@ draft: false
 
 best practices下關鍵字真的可以搜到很多有用的東西！
 
-EX:
-
 1. best practice to get laid
 
 2. best practice for dating
 
 ## 參考
 
-[如何用 ORID 提問框架，記錄心得、回顧發現、內化學習｜ALPHA Camp Blog](https://tw.alphacamp.co/blog/orid-objective-reflective-interpretive-decisional)
 
 [Taiwan 程式語言讀書會 [JAVA,C,C++,C#,VB...等不拘] | Debug四重奏： | Facebook](https://www.facebook.com/groups/1403852566495675/permalink/3258494011031512)
+
+[如何用 ORID 提問框架，記錄心得、回顧發現、內化學習｜ALPHA Camp Blog](https://tw.alphacamp.co/blog/orid-objective-reflective-interpretive-decisional)
 
 [ryanhanwu/How-To-Ask-Questions-The-Smart-Way: 本文原文由知名 Hacker Eric S. Raymond 所撰寫，教你如何正確的提出技術問題並獲得你滿意的答案。 (github.com)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)
 

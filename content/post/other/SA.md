@@ -1,12 +1,11 @@
 ---
 title: "SA"
 date: 2021-03-15T09:34:44+08:00
-draft: true
+draft: false
 categories:
- - "xx"
+ - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "SA"
 toc: true
 ---
 

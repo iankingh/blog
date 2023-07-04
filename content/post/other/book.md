@@ -3,14 +3,13 @@ title: "Book"
 date: 2021-03-15T10:02:31+08:00
 draft: true
 categories:
- - "xx"
+ - "自我成長"
 tags:
- - "xxx"
- - "xxx"
 toc: true
 ---
 
 ## 筆記
+要看的書
 <!-- 簡介 -->
 <!--more-->
 

@@ -6,7 +6,7 @@ categories:
 tags:
  - "api"
 toc: true
-draft: true
+draft: falsess
 ---
 
 ## 記錄一些寫API文件的工具
@@ -22,4 +22,7 @@ draft: true
 
 
 ## 參考
-[Slate - 為你打造漂亮的 API 文件 - 噗噗。故我在](https://weijutu.github.io/2018/08/02/tools/slate-api-document/)
+
+[API文件和模擬工具 - HackMD](https://hackmd.io/@YuTingKung/HkrFjefxt#SwaggerHub-API-Auto-Mocking)
+[建立漂亮的靜態 API 文件開源工具 - Soft & Share (softnshare.com)](https://softnshare.com/opensource-slate/)
+[Slate - 為你打造漂亮的 API 文件 | 丸匠筆記 (weijutu.github.io)](https://weijutu.github.io/2018/08/02/tools/slate-api-document/)

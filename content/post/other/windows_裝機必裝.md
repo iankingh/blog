@@ -1,12 +1,11 @@
 ---
 title: "Windows_裝機必裝"
 date: 2021-10-06T09:12:56+08:00
-draft: true
+draft: fa;se
 categories:
  - "筆記"
 tags:
- - "xxx"
- - "xxx"
+ - "windows"
 toc: true
 ---
 
@@ -42,14 +41,7 @@ https://github.com/flameshot-org/flameshot
 
 #### VMWare Workstaion 
 
-
 #### Oracle VM VirtualBox
-
-
-
-#### Slack
-
-#### Line 
 
 
 #### Wireshark 
@@ -77,9 +69,6 @@ https://github.com/flameshot-org/flameshot
 
 
 #### Go Programming 
-
-
-####  Adobe creative Cloud XD
 
 
 ## 參考

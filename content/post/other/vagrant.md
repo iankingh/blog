@@ -57,7 +57,6 @@ vagrant destroy
 
 ```shell
 vagrant plugin install vagrant-scp
-
 ```
 
 ### 使用方法
