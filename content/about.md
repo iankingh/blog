@@ -1,6 +1,6 @@
 ---
 title: "inaghug 筆記"
-date: "2009-06-01"
+date: "2019-06-01"
 description: "紀錄一些程式方面的筆記"
 url: "/about/"
 ---

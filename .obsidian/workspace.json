@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/post/other/寫程式API文件的工具.md",
+                "file": "content/post/sql/sql-command.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/other/寫程式API文件的工具.md",
+                "file": "content/post/sql/sql-command.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/post/other/寫程式API文件的工具.md",
+                "file": "content/post/sql/sql-command.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/post/other/寫程式API文件的工具.md"
+                "file": "content/post/sql/sql-command.md"
               }
             }
           }
@@ -158,6 +158,7 @@
   "lastOpenFiles": [
     "content/post/other/使用notepad指令救援資料.md",
     "content/post/other/名詞.md",
+    "content/post/other/寫程式API文件的工具.md",
     "content/post/other/ask-questions.md",
     "content/post/other/vagrant.md",
     "content/post/other/windows_裝機必裝.md",
@@ -166,7 +167,6 @@
     "content/post/other/Java技術人員技能.md",
     "content/post/other/HighAvailability.md",
     "content/post/other/book.md",
-    "content/post/other/寫程式API文件的工具.md",
     "content/post/other/前後端分離.md",
     "images/other/使用notepad指令救援資料-03.jpg.md",
     "images/other/使用notepad指令救援資料-02.jpg.md",
