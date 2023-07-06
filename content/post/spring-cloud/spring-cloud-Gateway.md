@@ -1,7 +1,7 @@
 ---
 title: "Spring Cloud Gateway"
 date: 2021-04-12T14:08:40+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -16,14 +16,9 @@ toc: true
 
 ## Spring Cloud Gateway 簡介
 
-
-
 Spring生態系統之上構建的API網關，包括：Spring 5，Spring Boot 2和Project Reactor。Spring Cloud Gateway旨在提供一種簡單而有效的方法來路由到API，並基於Filter 提供 gateway的基本功能，例如：安全性，監視/指標和彈性。
 
-
 <!--more-->
-
-
 
 ## Spring Cloud Gateway 監控
 
@@ -31,7 +26,9 @@ Spring生態系統之上構建的API網關，包括：Spring 5，Spring Boot 2�
 
 ```build.gradle
 implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+
 implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 ```
 
@@ -40,13 +37,16 @@ implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-cl
 該/gateway驅動器的端點允許監視和使用Spring的雲網關應用程序進行交互。為了可遠程訪問，必須在應用程序屬性中通過HTTP或JMX啟用和公開端點。
 
 application.properties
+
 ```properties
-management.endpoint.gateway.enabled=true # default value
+# default value
+management.endpoint.gateway.enabled=true 
+
 management.endpoints.web.exposure.include=gateway
 ```
 
-
 application.yml
+
 ```yml
 management:
   endpoint:
@@ -58,8 +58,6 @@ management:
         include: gateway
 
 ```
-
-
 
 ### 得到所有route的資訊
 **{IP}/actuator/gateway/routes**
@@ -124,9 +122,6 @@ management:
 
 
 ## Spring Cloud Gateway 使用
-
-
-
 
 
 

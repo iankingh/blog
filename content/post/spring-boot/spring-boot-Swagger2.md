@@ -16,14 +16,21 @@ toc: true
 <!--more-->
 
 ## Spring Boot中使用Swagger2構建RESTful API文檔
-   •	由於介面眾多，並且細節複雜（需要考慮不同的HTTP請求類型、HTTP頭部資訊、HTTP請求內容等），高品質地創建這份文檔本身就是件非常吃力的事，下游的抱怨聲不絕於耳。 
-   •	隨著時間推移，不斷修改介面實現的時候都必須同步修改介面文檔，而文檔與代碼又處於兩個不同的媒介，除非有嚴格的管理機制，不然很容易導致不一致現象。 
-   為解決上面這樣的問題，本文將介紹RESTful API的好夥伴Swagger2，它可以輕鬆的整合到Spring Boot中，並與Spring MVC程式配合組織出強大RESTful API文檔。它既可以減少我們創建文檔的工作量，同時說明內容又整合入實現代碼中，讓維護文檔和修改代碼整合為一體，可以讓我們在修改代碼邏輯的同時方便的修改文檔說明。另外Swagger2也提供了強大的頁面測試功能來調試每個RESTful API。具體效果如下圖所示： 
-   本文主要內容是： 
-   •	先利用 SpringFox 庫生成即時文檔； 
-   •	再利用 Swagger2Markup Maven外掛程式生成 asciidoc 文檔；  
-   •	最後利用 asciidoctor Maven外掛程式生成 html 或 pdf 檔； 
-   環境： SpringBoot + SpringFox + Swagger2Markup + Maven 
+
+- 由於介面眾多，並且細節複雜（需要考慮不同的HTTP請求類型、HTTP頭部資訊、HTTP請求內容等），高品質地創建這份文檔本身就是件非常吃力的事，下游的抱怨聲不絕於耳。 
+
+- 隨著時間推移，不斷修改介面實現的時候都必須同步修改介面文檔，而文檔與代碼又處於兩個不同的媒介，除非有嚴格的管理機制，不然很容易導致不一致現象。 
+
+- 為解決上面這樣的問題，本文將介紹RESTful API的好夥伴Swagger2，它可以輕鬆的整合到Spring Boot中，並與Spring MVC程式配合組織出強大RESTful API文檔。它既可以減少我們創建文檔的工作量，同時說明內容又整合入實現代碼中，讓維護文檔和修改代碼整合為一體，可以讓我們在修改代碼邏輯的同時方便的修改文檔說明。另外Swagger2也提供了強大的頁面測試功能來調試每個RESTful API。具體效果如下圖所示： 
+
+本文主要內容是： 
+
+- 先利用 SpringFox 庫生成即時文檔； 
+
+- 再利用 Swagger2Markup Maven外掛程式生成 asciidoc 文檔；  
+- 最後利用 asciidoctor Maven外掛程式生成 html 或 pdf 檔； 
+ 
+環境： SpringBoot + SpringFox + Swagger2Markup + Maven 
 <!--more-->
 
 下面我們直接進入正題，如何在spring boot專案中使用Swagger。總共分為三部 

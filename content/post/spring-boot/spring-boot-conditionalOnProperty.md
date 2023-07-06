@@ -1,7 +1,7 @@
 ---
 title: "SpringBoot_ConditionalOnProperty"
 date: 2021-02-03T11:41:55+08:00
-draft: false
+draft: true
 categories:
  - "筆記"
 tags:
@@ -11,7 +11,7 @@ tags:
 toc: true
 ---
 
-## Spring ConditionalOnProperty的作用和用法
+## TODO Spring ConditionalOnProperty的作用和用法
 <!--more-->
 
 ## 前言
@@ -22,7 +22,9 @@ toc: true
 
    在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty注解來控@Configuration是否生效
 
-ConditionalOnProperty的使用
+### ConditionalOnProperty的使用
+
+```java
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target({ElementType.TYPE, ElementType.METHOD})
 	@Documented
@@ -38,12 +40,13 @@ ConditionalOnProperty的使用
  
 	    boolean matchIfMissing() default false;//缺少該property時是否可以載入。如果為true，沒有該property也會正常載入；反之報錯
 
-	    boolean relaxedNames() default true;//是否可以鬆散匹配，至今不知道怎麼使用的
+	    boolean relaxedNames() default true;//是否可以鬆散匹配
 	}
- 
+```
 
+### 配置類代碼:
 
-配置類代碼:
+```java
 @Configuration
 @ConditionalOnProperty(prefix = "filter",name = "loginFilter",havingValue = "true")
 public class FilterConfig {
@@ -57,11 +60,16 @@ public class FilterConfig {
         return filterRegistration;
     }
 }
+```
 
-設定檔中的代碼
+### 設定檔中的代碼
+
+```java
 filter.loginFilter=true
+```
 
-測試
+### 測試
+
 當設定檔中值為true時:輸出了"篩檢程式"三個字,說明loginFilter生效了,說明配置類生效了.
  
 當設定檔中值為false時:沒有輸出了"篩檢程式"三個字,說明loginFilter沒有生效,說明配置類沒有生效.

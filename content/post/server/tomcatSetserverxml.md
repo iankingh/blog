@@ -6,7 +6,7 @@ categories:
  - "筆記"
 tags:
  - "AP Server"
- - "tomcat"
+ - "Tomcat"
 toc: true
 ---
 
@@ -27,16 +27,13 @@ apache-tomcat/conf/server.xml
 ```
 
 **調整如下**
-![JAVA_HOME](/images/java/調整Tomcat上傳檔案大小.png)
+![調整Tomcat上傳檔案大小](../images/tomcat/調整Tomcat上傳檔案大小.png)
 
 ### 設定部屬路徑及檔案位址
 
 ```xml
   <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
-
 <Context docBase="restApi" path="/restApi" reloadable="true" source="../SpringProjectRestApi"/>
-
-
 </Host>
 ```
 

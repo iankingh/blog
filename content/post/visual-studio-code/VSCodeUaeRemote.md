@@ -87,7 +87,8 @@ vagrant ssh-config
 ## 參考
 
 [vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
-[使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote
+
+[使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote)
 
 
 

@@ -14,8 +14,6 @@ toc: true
 
 <!--more-->
 
-## 配置 Tomcat 的使用者
-
 於 tomcat 的 conf/tomcat-users.xml
 
 ```xml
