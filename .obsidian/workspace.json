@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b9382fb0e3bcf0a4",
+        "id": "510ceb8a1f4e8016",
         "type": "tabs",
         "children": [
           {
-            "id": "c625029280b0f11f",
+            "id": "bef554a12030c039",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/post/sql/sql-command.md",
+                "file": "content/post/other/mongodb_install.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/post/sql/sql-command.md",
+                "file": "content/post/other/mongodb_install.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/post/sql/sql-command.md",
+                "file": "content/post/other/mongodb_install.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/post/sql/sql-command.md"
+                "file": "content/post/other/mongodb_install.md"
               }
             }
           }
@@ -154,37 +154,42 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "c625029280b0f11f",
+  "active": "bef554a12030c039",
   "lastOpenFiles": [
-    "resources/_gen/assets/scss/css/main.scss_e472d9ad59bd9c6a701b78021f88e5cb.json",
-    "resources/_gen/assets/scss/css/main.scss_e472d9ad59bd9c6a701b78021f88e5cb.content",
-    "resources/_gen/assets/scss/css",
-    "resources/_gen/assets/scss",
-    "resources/_gen/images",
-    "resources/_gen/assets",
-    "resources/_gen",
-    "resources",
-    "content/post/server/images/tomcat/調整Tomcat上傳檔案大小.png",
-    "content/post/images/tomcat/調整Tomcat上傳檔案大小.png",
-    "content/post/images/tomcat",
-    "content/post/images/tomcat copy/調整JVM的大小.png",
-    "content/post/images/tomcat copy",
-    "content/post/server/images/tomcat/調整JVM的大小.png",
-    "content/post/server/images/tomcat",
-    "content/post/server/images/調整JVM的大小.png",
-    "content/post/spring-boot/spring-boot-active-profile.md",
+    "content/post/other/vagrant.md",
+    "content/post/other/SA.md",
+    "content/post/other/mongodb_install.md",
+    "content/post/other/Markdown.md",
+    "content/post/other/HighAvailability.md",
+    "content/post/other/FTPvsFTPSvsSFTP.md",
+    "content/post/other/book.md",
+    "content/post/other/ask-questions.md",
+    "content/post/other/寫程式API文件的工具.md",
+    "content/post/other/算錢用浮點，遲早被人扁.md",
+    "content/post/other/畫流程圖的工具.md",
+    "content/post/other/前後端分離.md",
     "content/post/other/使用notepad指令救援資料.md",
     "content/post/other/名詞.md",
-    "content/post/other/寫程式API文件的工具.md",
-    "content/post/other/ask-questions.md",
-    "content/post/other/vagrant.md",
+    "content/post/sql/sql-command.md",
+    "public/post/spring-boot/spring-boot-interview/index.html",
+    "public/post/spring-boot/spring-boot-interview",
+    "public/post/spring-cloud/spring-cloud-gateway/index.html",
+    "public/post/spring-cloud/spring-cloud-gateway",
+    "public/post/spring-cloud",
+    "public/post/sql/sql-command/index.html",
+    "public/post/sql/sql-command",
+    "public/post/server/images/tomcat/調整Tomcat上傳檔案大小.png",
+    "public/post/server/images/tomcat",
+    "public/post/server/images",
+    "public/tags/spring-cloid/page/1/index.html",
+    "content/post/server/images/tomcat/調整Tomcat上傳檔案大小.png",
+    "content/post/images/tomcat/調整Tomcat上傳檔案大小.png",
+    "content/post/images/tomcat copy/調整JVM的大小.png",
+    "content/post/server/images/tomcat/調整JVM的大小.png",
+    "content/post/server/images/調整JVM的大小.png",
+    "content/post/spring-boot/spring-boot-active-profile.md",
     "content/post/other/windows_裝機必裝.md",
-    "content/post/other/SA.md",
-    "content/post/other/Markdown.md",
     "content/post/other/Java技術人員技能.md",
-    "content/post/other/HighAvailability.md",
-    "content/post/other/book.md",
-    "content/post/other/前後端分離.md",
     "images/other/使用notepad指令救援資料-03.jpg.md",
     "images/other/使用notepad指令救援資料-02.jpg.md",
     "images/other/使用notepad指令救援資料-01.jpg.md",
@@ -192,16 +197,11 @@
     "content/post/other/images/VSCode/Remote-SSH-install.png",
     "content/post/other/images/VSCode/Remote-SSH-Connect-OK.png",
     "content/post/other/images/VSCode/Remote-SSH-config.png",
-    "content/post/other/images/VSCode/Remote-SSH-config-setting.png",
-    "content/post/other/算錢用浮點，遲早被人扁.md",
     "content/about.md",
     "content/post/angular/Angular-forms.md",
     "content/post/angular/AngualrOnIE11.md",
     "content/post/visual-studio-code/VSCodeUaeRemote.md",
     "content/post/android/AndroidBsN01.md",
-    "content/post/android/AndroidBsN02.md",
-    "readme.md",
-    "content/post/eclipse/eclipseUseJUnit.md",
     "未命名.canvas"
   ]
 }
