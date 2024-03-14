@@ -6,6 +6,10 @@
 
 git submodule add -b gh-pages -- "https://github.com/iankingh/blog.git" "public"
 
+git submodule add --force https://github.com/hugo-next/hugo-theme-next.git themes/hugo-theme-next
+
+git submodule add https://github.com/hugo-next/hugo-theme-next.git themes/hugo-theme-next
+
 git add出現 “fatal: in unpopulated submodule XXX” 錯誤：
 
 git rm -rf --cached public
