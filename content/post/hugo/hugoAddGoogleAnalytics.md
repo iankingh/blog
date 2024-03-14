@@ -1,7 +1,7 @@
 ---
 title: "HugoAddGoogleAnalytics"
 date: 2021-07-22T18:37:13+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -14,10 +14,10 @@ toc: true
 <!--more-->
 
 1. 先申請 Google Analytics v4 (gtag.js)
-   於toml 加入
+   於toml加入
    googleAnalytics = "G-MEASUREMENT_ID"
 
-2.Use the Google Analytics Template
+2. Use the Google Analytics Template
 
 
 ## 參考

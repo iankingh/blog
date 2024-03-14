@@ -10,7 +10,7 @@ toc: true
 ---
 
 
-## hugo使用Prism.js
+# hugo使用Prism.js
 
 使用 prism.js 做為代碼高量的工具
 
@@ -32,7 +32,6 @@ https://prismjs.com/
 │   ├── prism.js
 │   └── prism.css
 
-
 ```
 
 ### Config.toml
@@ -47,8 +46,6 @@ pygmentsCodefencesGuessSyntax = false
 
 
 ## 參考
-
-
 [Hugo / 如何在 Hugo 中用 Prism.js 提供程式碼色彩標註 | sujj blog](https://sujingjhong.com/posts/how-to-add-prismjs-into-hugo/)  
 
 [漂亮的代碼語法高亮插件Prism.js簡單使用文檔 - 嚴穎專欄 -SegmentFault 思否](https://segmentfault.com/a/1190000009122617)

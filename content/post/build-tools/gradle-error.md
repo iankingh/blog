@@ -16,7 +16,7 @@ draft: false
 <!--more-->
 ## Error1. for encoding x-windows-950
 
-表示表編碼是Window 需要指定編碼
+表示表編碼是Windows需要指定編碼
 
 於build.gradle 下新增編碼 options.encoding = 'UTF-8'
 
