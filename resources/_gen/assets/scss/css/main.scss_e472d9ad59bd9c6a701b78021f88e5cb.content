@@ -2964,6 +2964,11 @@ header.header {
   height: 0;
 }
 
+#comments-count {
+  cursor: pointer;
+  border-bottom: 1px solid #999;
+}
+
 .post-nav {
   border-top: 1px solid #eee;
   display: flex;
@@ -3062,6 +3067,10 @@ header.header {
   margin: 1em 0;
   border: none;
   background: none;
+}
+
+.post-copyright ul li {
+  word-break: break-all;
 }
 
 .post-tags {
@@ -3173,52 +3182,6 @@ header.header {
   }
 }
 
-.followme {
-  color: #bbb;
-  /* padding: 1em 1.5em; */
-  text-align: center;
-  background: var(--card-bg-color);
-  border-left: 3px solid #ff2a2a;
-  margin: 1em 0;
-  border-left: none;
-  border-bottom: #46b404 solid 5px;
-}
-
-.followme .social-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.followme .social-list .social-item {
-  margin: .5em 2em;
-}
-
-.followme .social-list .social-item a:hover {
-  font-weight: bold;
-}
-
-@media (max-width: 991px) {
-  .followme .social-list .social-item {
-    margin: .5em .75em;
-  }
-}
-
-.followme .social-list .social-link {
-  border: 0;
-  display: inline-block;
-  text-align: center;
-}
-
-.followme .social-list .social-link .icon {
-  font-size: 1.75em;
-}
-
-.followme .social-list .social-link .label {
-  display: block;
-  font-size: 14px;
-}
-
 .category-all-page {
   min-height: 700px;
 }
@@ -3238,12 +3201,21 @@ header.header {
   padding: 0;
 }
 
-.category-all-page .category-list-item {
+.category-all-page .category-list .category-list-item:before {
+  font-family: var(--fa-style-family, "Font Awesome 6 Free");
+  font-weight: var(--fa-style, 900);
+  content: "\f07c";
+  margin-right: 5px;
+}
+
+.category-all-page .category-list .category-list-item {
   margin: 5px 10px;
+  font-weight: bold;
 }
 
 .category-all-page .category-list-count {
   color: #bbb;
+  padding: 0 2px;
 }
 
 .category-all-page .category-list-count::before {
@@ -3254,8 +3226,20 @@ header.header {
   content: ') ';
 }
 
-.category-all-page .category-list-child {
-  padding-left: 10px;
+.category-all-page .category-children-list {
+  padding-left: 38px;
+  list-style: none;
+}
+
+.category-all-page .category-children-list .category-children-list-item:before {
+  font-family: var(--fa-style-family, "Font Awesome 6 Free");
+  font-weight: var(--fa-style, 900);
+  content: "\f0ae";
+  margin-right: 5px;
+}
+
+.category-all-page .category-children-list .category-children-list-item {
+  font-size: 0.925em;
 }
 
 @keyframes dot-flash {
