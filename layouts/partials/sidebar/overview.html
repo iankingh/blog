@@ -3,8 +3,9 @@
 {{ $author := .Site.Params.author }}
 <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   {{ with .Site.Params.avatar.url }}
+  http://localhost:1313/blog/imgs/author.png
     <img class="site-author-image" itemprop="image" alt="{{ $author }}"
-    src="/imgs/img-lazy-loading.gif" data-src="{{ . }}">
+    src="imgs/img-lazy-loading.gif" data-src="{{ . }}">
   {{- end }}
   <p class="site-author-name" itemprop="name">{{ $author }}</p>
   <div class="site-description" itemprop="description">{{ .Site.Params.description }}</div>
@@ -66,7 +67,7 @@
 {{ if .sidebar }}
 <div class="cc-license animated" itemprop="license">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.{{ substr $.Site.LanguageCode 0 2 }}" class="cc-opacity" rel="noopener" target="_blank" title="{{ T "CCLinkTitle" }}">
-    <img src="/imgs/img-lazy-loading.gif" data-src="/imgs/cc/{{ .size }}/{{ replace .license "-" "_" }}.svg" alt="{{ T "CCLinkTitle" }}">
+    <img src="imgs/img-lazy-loading.gif" data-src="/imgs/cc/{{ .size }}/{{ replace .license "-" "_" }}.svg" alt="{{ T "CCLinkTitle" }}">
   </a>
 </div>
 {{ end }}
