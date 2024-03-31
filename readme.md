@@ -2,9 +2,15 @@
 
 ## hugo
 
+部落格主頁
+https://iankingh.github.io/blog/
+
 ## ADD submodule
 
 git submodule add -b gh-pages -- "https://github.com/iankingh/blog.git" "public"
+
+git submodule add -b gh-pages --force "https://github.com/iankingh/blog.git" "public"
+
 
 git submodule add --force https://github.com/hugo-next/hugo-theme-next.git themes/hugo-theme-next
 
