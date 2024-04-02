@@ -14,7 +14,7 @@
 # Website domain, eg: https://hugo-next.eu.org
 baseURL: https://iankingh.github.io/blog/
 # 此參數設置影響的是若你想把站點內網址，從相對網址 /a/url，轉為絕對網址 http://your.baseurl.dev/a/url，你必須追加 canonifyURLs: true 配置到你的 config 檔案中，否則會使用預設的 false (不轉換)
-canonifyURLs: true
+# canonifyURLs: true
 # 站點標題
 # Website title
 title: ianhuang筆記
@@ -288,7 +288,7 @@ params:
   avatar:
     # 设置显示头像的相对路径
     # Replace the default image and set the url here.
-    url: /imgs/author.png
+    url: imgs/author.png
     # 开启头像的圆形显示效果
     # If true, the avatar will be displayed in circle.
     rounded: true
