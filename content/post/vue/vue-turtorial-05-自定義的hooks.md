@@ -13,25 +13,25 @@ draft: true
 <!-- 簡介 -->
 <!--more-->
 
-# 這是範本的使用（標題）
+# 這是範本的使用(標題)
 
-## 前言（各章節）
+## 前言(各章節)
 
-import ｛ref, reactive｝ from 'vue'
+import {ref, reactive} from 'vue'
 import axios from'axios'
 
 11 数据
-let sum = ref（0）
-let doglist = reactive（［
+let sum = ref(0)
+let doglist = reactive([
 
-'https://images.dog.ceo/breeds/pembroke/ne2113023_4373.jpg' ］）
+'https://images.dog.ceo/breeds/pembroke/ne2113023_4373.jpg' ])
 
 // 方法
 
-function add（）5.
+function add()5.
 
-hooks ？？.js / ？？.tsasync function getDog（） ｛⋯
-｝
+hooks ??.js / ??.tsasync function getDog() {⋯
+}
 </script>
 
 <style scoped〉…
@@ -43,61 +43,61 @@ useTeacher
 
 
 ```
-import ｛reactive｝ from 'vue'
+import {reactive} from 'vue'
 
 import axios from 'axios'
 
-export default function （）｛
+export default function (){
 7/数据
 
-let doglist = reactive（［
+let doglist = reactive([
 'https://images.dog.ceo/breeds/pembroke/n@2113023_4373.jpg'
 
-）
+)
 
 / 方法
 
-async function getDog（）｛
+async function getDog(){
 
-try｛
+try{
 
-let result = await axios.get（'https://dog.ceo/api/breed/pembroke/images/ndogList.push（result.data.message）
+let result = await axios.get('https://dog.ceo/api/breed/pembroke/images/ndogList.push(result.data.message)
 
-｝ catch （error）｛
-alert（error）
-｝
+} catch (error){
+alert(error)
+}
 
 回外部提供东西
-return ｛doglist, getDog｝
+return {doglist, getDog}
 
-｝
+}
 ```
 
 ```
-import ｛ ref ｝from 'vue'
-export default function （）｛
+import { ref }from 'vue'
+export default function (){
 / 数据
-let sum = ref（0）
+let sum = ref(0)
 
 11 方法
-function add（）｛
+function add(){
 
 sum.value += 1
 
-｝
+}
 
 // 给外部提供东西
-return ［sum,addj
+return [sum,addj
 ```
 
 ```
 <template〉
 
 <div class="penson">
-<h2>当前求和为：｛｛ sum ｝｝</h2>
+<h2>当前求和为:{{ sum }}</h2>
 <button @click="add">点我sum+1</button>
 <hr>
-<img v-for="（dog,index） in dogList" ：src="dog" ：key="index"><br>
+<img v-for="(dog,index) in dogList" :src="dog" :key="index"><br>
 <button @click="getDog">再来一只小狗</button>
 </div>
 
@@ -108,8 +108,8 @@ import useSum from'@/hooks/useSum'
 
 import useDog from '@/hooks/useDog'
 
-const ｛sum, add｝ = useSum（）
-const ｛dogList, getDog｝ = useDog（）
+const {sum, add} = useSum()
+const {dogList, getDog} = useDog()
 
 </script>
 
@@ -122,10 +122,10 @@ I
 ```
 <template〉
 <div class="penson">
-＜h2>当前求和为：｛｛ sum ｝｝，放大10倍后： ｛｛ bigsum ｝｝</h2>
+＜h2>当前求和为:{{ sum }},放大10倍后: {{ bigsum }}</h2>
 
 <button @click="add">点我sum+1</button〉 <hr>
-<img v-for="（dog, index） ） in dogList" ：src="dog" ：key="index">
+<img v-for="(dog, index) ) in dogList" :src="dog" :key="index">
 
 <br>
 <button @click="getDog">再来一只小狗</button></div>
@@ -135,13 +135,15 @@ I
 import useSum from '@/hooks/useSum'
 import useDog from'@/hooks/useDog'
 
-const ｛sum,add, bigsum｝ = useSum（）
-const ｛dogList,getDog｝ = useDog （）
+const {sum,add, bigsum} = useSum()
+const {dogList,getDog} = useDog ()
 </script>
 
 <style scoped>…
 </style〉
 ```
+
+
 
 
 ## Summary
