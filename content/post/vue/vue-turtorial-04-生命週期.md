@@ -17,22 +17,22 @@ draft: true
 
 ## 前言(各章節)
 
-绝件的生命周期:
+绝件的生命週期:
 
-【时刻】【调用特定的函数】
-创建 created
+【時刻】【調用特定的函數】
+創建 created
 
-挂载 mounted
+掛載 mounted
 
 更新
 销毁
 
-生命周期、生命周期函数、生命周期钩子
+生命週期、生命週期函數、生命週期鉤子
 
-创建 (创建前,创建完毕)
+創建 (創建前,創建完毕)
 
 
-挂载 (挂载前,挂载完毕)
+掛載 (掛載前,掛載完毕)
 
 
 更新 (更新前,更新完毕)
@@ -42,59 +42,59 @@ draft: true
 
 
 
-概心: Vue组件实例住创建时要经历一系外的制始化步球,在此过程中 Vue 会仕合適的 商健港特感開,1
-数,从而让开发者有机会在特定阶段运行自己的代码,这些特定的函数统称为:生命周期钩子
+概心: Vue組件實例住創建时要經歷一系外的制始化步球,在此過程中 Vue 会仕合適的 商健港特感開,1
+数,从而让開發者有機會在特定階段運行自己的程式碼,这些特定的函數統稱为:生命週期鉤子
  · 规律:
 
-生命周期整体分为四个阶段,分别是:创建、挂载、更新、销毁,每个阶段都有两个钩子,一前一后.
+生命週期整体分为四个階段,分别是:創建、掛載、更新、销毁,每个階段都有两个鉤子,一前一后.
 
- · Vue2 的生命周期
+ · Vue2 的生命週期
 
-创建阶段: beforeCreate、 created
+創建階段: beforeCreate、 created
 
-挂载阶段: beforeMount、 mounted
+掛載階段: beforeMount、 mounted
 
-更新阶段: beforeUpdate、 updated
+更新階段: beforeUpdate、 updated
 
-销毁阶段 beforeDestroy、 destroyed
+销毁階段 beforeDestroy、 destroyed
 
- · Vue3 的生命周期
+ · Vue3 的生命週期
 
-创建阶段: setup
+創建階段: setup
 
-挂载阶段: onBeforeMount、 onMounted
+掛載階段: onBeforeMount、 onMounted
 
-更新阶段: onBeforeUpdate、 onupdated
+更新階段: onBeforeUpdate、 onupdated
 
-销毁阶段: onBeforeUnmount onUnmounted
+销毁階段: onBeforeUnmount onUnmounted
 
- · 常用的钩子: onMounted(挂载完毕)、 onupdated (更新完毕)、 onBeforeUnmount (卸载之前)
+ · 常用的鉤子: onMounted(掛載完毕)、 onupdated (更新完毕)、 onBeforeUnmount (卸载之前)
 
- · 示例代码:
+ · 示例程式碼:
 
- 尚硅谷 创建阶段: beforeCreate、 created
+ 尚硅谷 創建階段: beforeCreate、 created
 
-14:3Z 挂载阶段: beforeMount、 mounted
+14:3Z 掛載階段: beforeMount、 mounted
 
-更新阶段: beforeUpdate、 updated
+更新階段: beforeUpdate、 updated
 
-销毁阶段: beforeDestroy、 destroyed
+销毁階段: beforeDestroy、 destroyed
 
-Vue3 的生命周期
+Vue3 的生命週期
 
-创建阶段: setup
+創建階段: setup
 
-挂载阶段: onBeforeMount、 onMounted
+掛載階段: onBeforeMount、 onMounted
 
-更新阶段: onBeforeUpdate、 onUpdated
+更新階段: onBeforeUpdate、 onUpdated
 
-卸载阶段: onBeforeUnmount onUnmounted
+卸载階段: onBeforeUnmount onUnmounted
 
-常用的钩子: onMountea( 挂载完毕)、 onUpdated (更新完毕)、 onBeforeUnmount(卸载之前) 示例代码:
+常用的鉤子: onMountea( 掛載完毕)、 onUpdated (更新完毕)、 onBeforeUnmount(卸载之前) 示例程式碼:
 
 <template〉
 
-＜h2>当前求和为:{{ sum }}/h2>
+＜h2>當前求和为:{{ sum }}/h2>
 <button @click="changeSum">点我sum+1</button></div>
 
 </template>
@@ -103,7 +103,7 @@ Vue3 的生命周期
 <template〉
 
 <div class="person">
-<h2>当前求和为:{{ sum }}</h2>
+<h2>當前求和为:{{ sum }}</h2>
 <button @click="add">点我sum+1</button>
 <hr>
 <img v-for="(dog,index)in dogList" :src="dog" :key="index">
@@ -198,8 +198,8 @@ export default [ /* eslint-disable */ name: 'Person',
 methods:{…
 }, I
 
-// 创建前的钩子
-beforeCreate(){ console.1og('创建前') },
+// 創建前的鉤子
+beforeCreate(){ console.1og('創建前') },
 
 
 ```
@@ -208,32 +208,32 @@ beforeCreate(){ console.1og('创建前') },
 methods:{…
 },
 
-// 创建前的钩子beforeCreate(){… },
+// 創建前的鉤子beforeCreate(){… },
 
-// 创建完毕的钩子
+// 創建完毕的鉤子
 created(){…
 
 },
 
-// 挂载前
+// 掛載前
 
 beforeMount(){
-console.1og('挂载前'DF},
+console.1og('掛載前'DF},
 
-// 挂载完毕
+// 掛載完毕
 mounted(){
 
-console.1og('挂载完毕') }s
+console.1og('掛載完毕') }s
 ```
 
 ```
 created(){…
 
-/ 挂载前beforeMount(){ console.1og('挂载前') },
-挂载完毕
+/ 掛載前beforeMount(){ console.1og('掛載前') },
+掛載完毕
 mounted(){
 
-console.1og('挂载完毕') / 更新前beforeUpdate(){ console.1og('更新前') },
+console.1og('掛載完毕') / 更新前beforeUpdate(){ console.1og('更新前') },
 
 / 更新完毕
 updated(){
@@ -243,8 +243,8 @@ console.1og(更新完毕:) }
 }
 ```
 
-创建(创建前 i beforeCreate,创建完毕 created)
-挂载(挂载前,挂载完毕)
+創建(創建前 i beforeCreate,創建完毕 created)
+掛載(掛載前,掛載完毕)
 
 更新(更新前,更新完毕)
 
@@ -252,13 +252,13 @@ console.1og(更新完毕:) }
 
 ```
 beforeMount(){
-console.1og('挂载前') },
+console.1og('掛載前') },
 
-// 挂载完毕
+// 掛載完毕
 
 mounted(){
 
-console.1og('挂载完毕') // 更新前
+console.1og('掛載完毕') // 更新前
 
 IbeforeUpdate(){
 console.1og('更新前') // 更新完毕
@@ -295,7 +295,7 @@ function add(){
 sum.value += 1
 
 一> setup }
-// 创建 beforeCreate created
+// 創建 beforeCreate created
 
 </script>
 
@@ -305,13 +305,13 @@ sum.value += 1
 ```
 }
 
-// 创建
+// 創建
 
-console.1og('创建') // 挂载前
+console.1og('創建') // 掛載前
 
-onBeforeMount(()=>{ console.log('挂载前') })
+onBeforeMount(()=>{ console.log('掛載前') })
 
-挂载完毕onMounted(()=>{ console.1og('挂载完毕') })
+掛載完毕onMounted(()=>{ console.1og('掛載完毕') })
 
 // 更新前onBeforeUpdate(()=>{ console.log('更新前') })
 
@@ -345,11 +345,11 @@ import Person from'./components/Person.vue' import {ref, onMounted} from 'vue'
 
 let isShow = ref(true)
 
-// 挂载完毕
+// 掛載完毕
 
 onMounted(()=>{
 
-console.1og('父---挂载完毕"】
+console.1og('父---掛載完毕"】
 
 }
 
@@ -360,7 +360,7 @@ console.1og('父---挂载完毕"】
 <template》
 <div class-"penson"
 
-<h2>当前冰和为:{ sum }s/h2>
+<h2>當前冰和为:{ sum }s/h2>
 《button @click-"add">点我sum+1</button>
 
 </div>
@@ -375,16 +375,16 @@ function addC)f
 
 sum.value +- 1
 
-1/ 创建
-console.1og('创建:)
+1/ 創建
+console.1og('創建:)
 
-1/ 挂载前
+1/ 掛載前
 
 onBeforeMlount(()-x{
 
 // console.1og('挂前")
 
-// 挂载完毕
+// 掛載完毕
 onMounted(()-2/
 
 console.1og(' - -挂 完毕”)

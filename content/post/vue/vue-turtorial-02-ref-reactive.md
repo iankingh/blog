@@ -16,19 +16,19 @@ draft: true
 
 # Vue 學習
 
-标签的 ref 属性
+標籤的 ref 屬性
 
-作用:用于注册模板引用.
-• 用在普通DOM 标签上,获取的是DOM节点.
-• 用在组件标签上,获取的是组件实例对象.
-用在普通DOM 标签上:
+作用:用於注册模板引用.
+• 用在普通DOM 標籤上,獲取的是DOM節點.
+• 用在組件標籤上,獲取的是組件實例對象.
+用在普通DOM 標籤上:
 <template>
 ‹div class="person" ›
 <h1 ref="title1">尚硅谷</h1>
 <h2 ref="title2">前端</h2>
 <h3 ref="title3" >Vue</h3>
 <input type="text" ref="inpt"> <bry<bry
-<button @click="showLog">点我打印内容</button>
+<button @click="showLog">点我打印內容</button>
 ‹/div›
 ‹/template>
 < script lang="ts" setup name="Person">
@@ -37,7 +37,7 @@ let titlel = ref()
 let title2 = ref()
 
 ```
-1/ 定义一个接口,用于限制person对象的具体属性
+1/ 定義一个介面,用於限制person對象的具體屬性
 export interface PersonInter {
 id:string,
 
@@ -46,7 +46,7 @@ age:number
 
 }
 
-// 一个自定义类型
+// 一个自定義类型
 // export type Persons = Array<PersonInter>
 export type Persons = PersonInten[]
 ```

@@ -45,9 +45,9 @@ function Hello(){
 
 ## 第二步 設置**compilerOptions**的**allowJs**屬性為true
 
-打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，添加 "**allowJs**": true,
+打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，新增 "**allowJs**": true,
 
-ex. 添加 **"allowJs": true,**
+ex. 新增 **"allowJs": true,**
 
 ```
  /assets/js/Hello.js
@@ -55,9 +55,9 @@ ex. 添加 **"allowJs": true,**
 
 ### 第二步 設置**compilerOptions**的**allowJs**屬性為true
 
-打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，添加 "**allowJs**": true,
+打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，新增 "**allowJs**": true,
 
-**ex.** 添加 **"allowJs": true,**
+**ex.** 新增 **"allowJs": true,**
 >>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
 
 ```json
@@ -109,7 +109,7 @@ tsconfig.json完整如下
             ]
 ```
 
-### 第四步，在當前组件.ts中使用函数添加js
+### 第四步，在當前組件.ts中使用函數新增js
 
 **在 index.html 引入**
 
@@ -141,7 +141,7 @@ tsconfig.json完整如下
 </html>
 ```
 
-### 第四步 : 在當前组件.ts中使用函数添加js
+### 第四步 : 在當前組件.ts中使用函數新增js
 
 `import 'src/assets/js/Hello.js';`
 

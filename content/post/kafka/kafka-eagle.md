@@ -32,8 +32,8 @@ set JAVA_HOME=D:\tools\jdk1.8.0_73
 kafka 0.9.x以后的版本新增了advertised.listeners配置，kafka 0.9.x以后的版本不要使用 advertised.host.name 和 advertised.host.port 已经deprecated  
 host.name 和 port 为 deprecated，使用listeners代替。  
 
-listeners：就是主要用来定义Kafka Broker的Listener的配置项，listeners是kafka真正bind的地址。  
-advertised.listeners：参数的作用就是将Broker的Listener信息发布到Zookeeper中，是暴露给外部的listeners，如果没有设置，会用listeners。  
+listeners：就是主要用来定義Kafka Broker的Listener的配置项，listeners是kafka真正bind的地址。  
+advertised.listeners：參數的作用就是将Broker的Listener資訊發布到Zookeeper中，是暴露给外部的listeners，如果没有設置，会用listeners。  
 listener.security.protocol.map：配置监听者的安全协议的，主要有以下几种协议：  
 PLAINTEXT => PLAINTEXT 不需要授权,非加密通道  
 SSL => SSL 使用SSL加密通道  
@@ -81,7 +81,7 @@ efak.webui.port=8048
 # EFAK enable distributed，启用分布式部署
 ######################################
 efak.distributed.enable=false
-# 设置节点类型slave or master
+# 設置節點类型slave or master
 # master worknode set status to master, other node set status to slave
 efak.cluster.mode.status=master
 efak.worknode.master.host=localhost
@@ -105,10 +105,10 @@ cluster1.efak.offset.storage=kafka
 
 ######################################
 # kafka jmx uri
-# kafka jmx 地址，默认Apache发布的Kafka基本是这个默认值，
-# 对于一些公有云Kafka厂商，它们会修改这个值，
+# kafka jmx 地址，默认Apache發布的Kafka基本是这个默认值，
+# 对于一些公有云Kafka廠商，它们会修改这个值，
 # 比如会将jmxrmi修改为kafka或者是其它的值，
-# 若是选择的公有云厂商的Kafka，可以根据实际的值来设置该属性
+# 若是選擇的公有云廠商的Kafka，可以根據實際的值来設置该屬性
 ######################################
 cluster1.efak.jmx.uri=service:jmx:rmi:///jndi/rmi://%s/jmxrmi
 
@@ -206,7 +206,7 @@ ke.sh統計數據	查看linux 操作系統中的EFAK 句柄數。
 ke.sh 查找 [類名]	在jar 中找到類名的位置。
 ke.shGC	查看EFAK 進程gc。
 ke.sh版本	查看EFAK 版本。
-ke.sh jdk	查看EFAK 安裝的jdk 詳細信息。
+ke.sh jdk	查看EFAK 安裝的jdk 詳細資訊。
 ke.sh 日期	查看EFAK 啟動日期。
 ke.sh集群啟動	查看EFAK 集群分佈式啟動。
 ke.sh集群狀態	查看EFAK 集群分佈式狀態。

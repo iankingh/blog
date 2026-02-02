@@ -94,7 +94,7 @@ return [sum,addj
 <template〉
 
 <div class="penson">
-<h2>当前求和为:{{ sum }}</h2>
+<h2>當前求和为:{{ sum }}</h2>
 <button @click="add">点我sum+1</button>
 <hr>
 <img v-for="(dog,index) in dogList" :src="dog" :key="index"><br>
@@ -122,7 +122,7 @@ I
 ```
 <template〉
 <div class="penson">
-＜h2>当前求和为:{{ sum }},放大10倍后: {{ bigsum }}</h2>
+＜h2>當前求和为:{{ sum }},放大10倍后: {{ bigsum }}</h2>
 
 <button @click="add">点我sum+1</button〉 <hr>
 <img v-for="(dog, index) ) in dogList" :src="dog" :key="index">
