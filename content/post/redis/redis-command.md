@@ -13,7 +13,7 @@ toc: true
 <!-- 簡介 -->
 <!--more-->
 
-### 來查看目前 Redis 的狀況
+### 來檢視目前 Redis 的狀況
 
 ```shell
 redis-cli info 

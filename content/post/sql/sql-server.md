@@ -16,14 +16,14 @@ draft: false
 
 ## 建立帳號、使用者、DB與授權角色
 
-### 創建DB
+### 建立DB
 
 ```sql
 CREATE DATABASE [DBName]
 GO
 ```
 
-### 創建帳號
+### 建立帳號
 
 ```sql
 CREATE LOGIN [Account] WITH PASSWORD=N'Password', DEFAULT_DATABASE=[DBName], DEFAULT_LANGUAGE=[Traditional Chinese], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF

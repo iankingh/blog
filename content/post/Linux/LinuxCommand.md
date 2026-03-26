@@ -12,7 +12,7 @@ toc: true
 ## Linux指令
 <!--more-->
 
-## 修改檔案權限
+## 修改檔案許可權
 
 ```shell
 chmod 777 file(資料夾名)
@@ -30,8 +30,8 @@ chmod -R 777 * --> 修改權
 ```shell
 pwd --->當前目錄
 ll 看目錄
-ls -ltr --->看目錄資料權限
-ls -al  >>> 看權限
+ls -ltr --->看目錄資料許可權
+ls -al  >>> 看許可權
 cd   $home  //到現在使用者下的目錄
 
 ```

@@ -13,7 +13,7 @@ draft: true
 <!-- 簡介 -->
 <!--more-->
 
-# kafka-eagle Kafka 可視化工具
+# kafka-eagle Kafka 視覺化工具
 
 ## 步驟一：配置 KE_HOME
 
@@ -26,19 +26,19 @@ set JAVA_HOME=D:\tools\jdk1.8.0_73
 
 ```
 
-## 步驟二：配置文件修改
+## 步驟二：配置檔案修改
 
 
-kafka 0.9.x以后的版本新增了advertised.listeners配置，kafka 0.9.x以后的版本不要使用 advertised.host.name 和 advertised.host.port 已经deprecated  
-host.name 和 port 为 deprecated，使用listeners代替。  
+kafka 0.9.x以後的版本新增了advertised.listeners配置，kafka 0.9.x以後的版本不要使用 advertised.host.name 和 advertised.host.port 已經deprecated  
+host.name 和 port 為 deprecated，使用listeners代替。  
 
-listeners：就是主要用来定義Kafka Broker的Listener的配置项，listeners是kafka真正bind的地址。  
-advertised.listeners：參數的作用就是将Broker的Listener資訊發布到Zookeeper中，是暴露给外部的listeners，如果没有設置，会用listeners。  
-listener.security.protocol.map：配置监听者的安全协议的，主要有以下几种协议：  
-PLAINTEXT => PLAINTEXT 不需要授权,非加密通道  
+listeners：就是主要用來定義Kafka Broker的Listener的配置項，listeners是kafka真正bind的地址。  
+advertised.listeners：引數的作用就是將Broker的Listener資訊發布到Zookeeper中，是暴露給外部的listeners，如果沒有設定，會用listeners。  
+listener.security.protocol.map：配置監聽者的安全協議的，主要有以下幾種協議：  
+PLAINTEXT => PLAINTEXT 不需要授權,非加密通道  
 SSL => SSL 使用SSL加密通道  
-SASL_PLAINTEXT => SASL_PLAINTEXT 使用SASL认证非加密通道  
-SASL_SSL => SASL_SSL 使用SASL认证并且SSL加密通道  
+SASL_PLAINTEXT => SASL_PLAINTEXT 使用SASL認證非加密通道  
+SASL_SSL => SASL_SSL 使用SASL認證並且SSL加密通道  
 
 ### system-config.properties
 
@@ -78,10 +78,10 @@ efak.webui.port=8048
 
 ######################################
 # EFAK enable distributed
-# EFAK enable distributed，启用分布式部署
+# EFAK enable distributed，啟用分散式部署
 ######################################
 efak.distributed.enable=false
-# 設置節點类型slave or master
+# 設定節點型別slave or master
 # master worknode set status to master, other node set status to slave
 efak.cluster.mode.status=master
 efak.worknode.master.host=localhost
@@ -105,10 +105,10 @@ cluster1.efak.offset.storage=kafka
 
 ######################################
 # kafka jmx uri
-# kafka jmx 地址，默认Apache發布的Kafka基本是这个默认值，
-# 对于一些公有云Kafka廠商，它们会修改这个值，
-# 比如会将jmxrmi修改为kafka或者是其它的值，
-# 若是選擇的公有云廠商的Kafka，可以根據實際的值来設置该屬性
+# kafka jmx 地址，預設Apache發布的Kafka基本是這個預設值，
+# 對於一些公有云Kafka廠商，它們會修改這個值，
+# 比如會將jmxrmi修改為kafka或者是其它的值，
+# 若是選擇的公有云廠商的Kafka，可以根據實際的值來設定該屬性
 ######################################
 cluster1.efak.jmx.uri=service:jmx:rmi:///jndi/rmi://%s/jmxrmi
 
@@ -167,7 +167,7 @@ efak.topic.token=keadmin
 
 ######################################
 # kafka sqlite jdbc driver address
-# 关闭自带的sqlite数据库，使用外部的mysql数据库
+# 關閉自帶的sqlite資料庫，使用外部的mysql資料庫
 ######################################
 #efak.driver=org.sqlite.JDBC
 #efak.url=jdbc:sqlite:/hadoop/kafka-eagle/db/ke.db
@@ -176,7 +176,7 @@ efak.topic.token=keadmin
 
 ######################################
 # kafka mysql jdbc driver address
-# 生產環境建議使用MySQL來存儲相關數據
+# 生產環境建議使用MySQL來儲存相關資料
 ######################################
 efak.driver=com.mysql.cj.jdbc.Driver
 efak.url=jdbc:mysql://localhost:3306/ke_schema?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
@@ -184,34 +184,34 @@ efak.username=root
 efak.password=ian22982
 ```
 
-五、kafka eagle的启动
-cmd 进入到 kafka eagle的 bin 目录下，输入 ke.bat，按回车键即可。
+五、kafka eagle的啟動
+cmd 進入到 kafka eagle的 bin 目錄下，輸入 ke.bat，按回車鍵即可。
 
 web UI：http://192.168.0.113:8048/
 賬號密碼：admin/123456
 
-默认端口号是 8048
-用户名默认：admin
-密码：123456
+預設埠號是 8048
+使用者名稱預設：admin
+密碼：123456
 
 2）EFAK常用命令
-$KE_HOME/bin/ke.sh啟動腳本中包含以下命令：
+$KE_HOME/bin/ke.sh啟動指令碼中包含以下命令：
 
 命令	描述
-ke.sh 啟動	啟動EFAK 服務器。
-ke.sh狀態	查看EFAK 運行狀態。
-ke.sh 停止	停止EFAK 服務器。
-ke.sh 重新啟動	重新啟動EFAK 服務器。
-ke.sh統計數據	查看linux 操作系統中的EFAK 句柄數。
-ke.sh 查找 [類名]	在jar 中找到類名的位置。
-ke.shGC	查看EFAK 進程gc。
-ke.sh版本	查看EFAK 版本。
-ke.sh jdk	查看EFAK 安裝的jdk 詳細資訊。
-ke.sh 日期	查看EFAK 啟動日期。
-ke.sh集群啟動	查看EFAK 集群分佈式啟動。
-ke.sh集群狀態	查看EFAK 集群分佈式狀態。
-ke.sh集群停止	查看EFAK 集群分佈式停止。
-ke.sh集群重啟	查看EFAK 集群分佈式重啟
+ke.sh 啟動	啟動EFAK 伺服器。
+ke.sh狀態	檢視EFAK 執行狀態。
+ke.sh 停止	停止EFAK 伺服器。
+ke.sh 重新啟動	重新啟動EFAK 伺服器。
+ke.sh統計資料	檢視linux 作業系統中的EFAK 控制程式碼數。
+ke.sh 查詢 [類名]	在jar 中找到類名的位置。
+ke.shGC	檢視EFAK 程式gc。
+ke.sh版本	檢視EFAK 版本。
+ke.sh jdk	檢視EFAK 安裝的jdk 詳細資訊。
+ke.sh 日期	檢視EFAK 啟動日期。
+ke.sh叢集啟動	檢視EFAK 叢集分散式啟動。
+ke.sh叢集狀態	檢視EFAK 叢集分散式狀態。
+ke.sh叢集停止	檢視EFAK 叢集分散式停止。
+ke.sh叢集重啟	檢視EFAK 叢集分散式重啟
 
 
 
@@ -220,14 +220,14 @@ ke.sh集群重啟	查看EFAK 集群分佈式重啟
 ## 參考  
 
 
-[Kafka Eagle分布式模式 - 哥不是小萝莉 - 博客园 (cnblogs.com)](https://www.cnblogs.com/smartloli/p/15732794.html)
+[Kafka Eagle分散式模式 - 哥不是小蘿莉 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/smartloli/p/15732794.html)
 
-[Kafka Eagle 3.0.1功能预览 - 哥不是小萝莉 - 博客园 (cnblogs.com)](https://www.cnblogs.com/smartloli/p/16728995.html)
+[Kafka Eagle 3.0.1功能預覽 - 哥不是小蘿莉 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/smartloli/p/16728995.html)
 
-[大数据Hadoop之——Kafka 图形化工具 EFAK（EFAK环境部署） - 大数据老司机 - 博客园 (cnblogs.com)](https://www.cnblogs.com/liugp/p/16307589.html)
+[大資料Hadoop之——Kafka 圖形化工具 EFAK（EFAK環境部署） - 大資料老司機 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/liugp/p/16307589.html)
 
-[大数据Hadoop之——EFAK和Confluent KSQL简单使用（kafka listeners 和 advertised.listeners） - 大数据老司机 - 博客园 (cnblogs.com)](https://www.cnblogs.com/liugp/p/16898002.html)
+[大資料Hadoop之——EFAK和Confluent KSQL簡單使用（kafka listeners 和 advertised.listeners） - 大資料老司機 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/liugp/p/16898002.html)
 
-[(2条消息) 【kafka可视化工具】kafka-eagle在windows环境的下载、安装、启动与访问_kafka eagle windows_No8g攻城狮的博客-CSDN博客](https://blog.csdn.net/weixin_44299027/article/details/125378413)
+[(2條訊息) 【kafka視覺化工具】kafka-eagle在windows環境的下載、安裝、啟動與訪問_kafka eagle windows_No8g攻城獅的部落格-CSDN部落格](https://blog.csdn.net/weixin_44299027/article/details/125378413)
 
-[【kafka可视化工具】kafka-eagle在windows环境的下载、安装、启动与访问_51CTO博客_kafka 可视化工具](https://blog.51cto.com/no8g/6344266)
+[【kafka視覺化工具】kafka-eagle在windows環境的下載、安裝、啟動與訪問_51CTO部落格_kafka 視覺化工具](https://blog.51cto.com/no8g/6344266)

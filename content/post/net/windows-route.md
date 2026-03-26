@@ -17,7 +17,7 @@ draft: false
 <!-- 簡介 -->
 駐點在外，客戶端不能上Internet是件痛苦事。幸虧一位contract介紹用route，可以同時連測試機與無線外網，有陣子可以通，雖然有時秀逗。在DOS下執行以下的command：
 
-前一陣子到總公司上課時，臨時要使用內部網路走VPN連回公司處理問題，而同時間又需要使用Wireless上網。可是當我的Wireless連接上時，Notebook的Default Gateway就會變成Wireless設定的Gateway，此時就無法透過內部的網路走VPN連回公司。
+前一陣子到總公司上課時，臨時要使用內部網路走VPN連回公司處理問題，而同時間又需要使用Wireless上網。可是當我的Wireless連線上時，Notebook的Default Gateway就會變成Wireless設定的Gateway，此時就無法透過內部的網路走VPN連回公司。
 
 使用Windows的『route』指令可以設定Static Route，變更順序。
 
@@ -44,7 +44,7 @@ Command    包含以下命令
 destination  路由的目標IP位址或網段。
 netmask    子網路遮罩
 gateway     指定要走的Gateway
-interface   指定送出封包時的網卡ID
+interface   指定送出封包時的網路卡ID
 METRIC    可視為封包傳遞的優先權，數字愈低優先權愈高。
 
 intra 內部
@@ -125,7 +125,7 @@ Network Destination： 表示路由的網路目的地，可以是 IP 網段或IP
 Netmask：表示子網路遮罩，用來配合 Network Destination 的運算。
 Gateway：是封包欲送往的 IP 位址，如果目的 IP 位址與 Netmask 作 AND 邏輯運算，剛好與 Network Destination 相同，封包就會送到此 Gateway 的 IP 位址。
 Interface： 是此電腦送出封包的 IP 位址。
-Metric： 則是傳送成本的參考數字，通常與網路連接速度有關，越低的 Metric 表示速度越快。
+Metric： 則是傳送成本的參考數字，通常與網路連線速度有關，越低的 Metric 表示速度越快。
 
 
 
@@ -134,10 +134,10 @@ Metric： 則是傳送成本的參考數字，通常與網路連接速度有關�
 前2筆代表著，要連至不存在Routing Table中的其他所有位址都由該Gateway出去。
 但由於2者的Metric都是20，因此無法控制固定由哪個Gateway出去
 
-因此可使用以下的命令來修改Metric的值【調整Gateway的優先權】，讓所有對外的連線固定透過無線網卡出去。
+因此可使用以下的命令來修改Metric的值【調整Gateway的優先權】，讓所有對外的連線固定透過無線網路卡出去。
 `route change 0.0.0.0 mask 0.0.0.0 10.10.1.1 if 0x2 metric 10`
 
-另外，若要透過有線網卡連VPN回公司，則可新增下列一筆路由
+另外，若要透過有線網路卡連VPN回公司，則可新增下列一筆路由
 `route add 192.168.99.0 mask 255.255.255.0 192.168.1.1 if 0x2 metric 20`
 
 如果要刪除新增的路由，則可使用以下命令
@@ -145,7 +145,7 @@ Metric： 則是傳送成本的參考數字，通常與網路連接速度有關�
 
 
 
-　　上表的紅色粗體字的資訊，介面192.168.11.27是無線網路分配給我的IP，192.168.11.1則是無線站台的Gateway，處在第一列表示為default route，所以會先搜到無線站台，就可以上網；第二列起是Local Network的IP迴路。
+　　上表的紅色粗體字的資訊，介面192.168.11.27是無線網路分配給我的IP，192.168.11.1則是無線站臺的Gateway，處在第一列表示為default route，所以會先搜到無線站臺，就可以上網；第二列起是Local Network的IP迴路。
 至於像胖兄介紹的迴路路徑不是在第二列，而排得那麼後面，不得而知，也許和我下設定的command有關。
 
 二、設定route
@@ -159,7 +159,7 @@ Wireless LAN adapter Wi-Fi:
    Default Gateway . . . . . . . . . : 192.168.43.1
 
 
-Wifl 網卡 gateway ip :192.168.43.1
+Wifl 網路卡 gateway ip :192.168.43.1
 
 route delete 0.0.0.0
 route delete 10.0.0.0

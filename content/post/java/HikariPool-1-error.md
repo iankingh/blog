@@ -14,7 +14,7 @@ toc: true
 
 <!-- 簡介 -->
 
-HikariPool是連接池管理類，負責管理數據庫連接。
+HikariPool是連線池管理類，負責管理資料庫連線。
 
 HikariPool-1 - Connection is not available, request timed out after 30000ms
 
@@ -28,7 +28,7 @@ HikariPool-1 - Connection is not available, request timed out after 30000ms
 java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.
 ```
 
-### **原因一 : 由於網絡延遲或某些查詢執行時間過長（超過30000毫秒），因此數據庫未在（30000毫秒，這是默認的connectionTimeout屬性）內未獲得連接。**
+### **原因一 : 由於網路延遲或某些查詢執行時間過長（超過30000毫秒），因此資料庫未在（30000毫秒，這是預設的connectionTimeout屬性）內未獲得連線。**
 
 可以試看看增加Timeout的時間
 

@@ -26,10 +26,10 @@ Model-Driven Forms (基本上都說是 Reactive Forms)- 響應式的表單
 
 #### Template-Driven Forms
 
-Template-driven forms是將組件驗證控制的功能寫在像是
+Template-driven forms是將元件驗證控制的功能寫在像是
 的標籤內，並利用ngModel來確認是否輸入了合法的內容。
-使用表單驅動驗證不需要自己創建control objects，因為angular已經為我們建好了。
-ngModel會處理使用者改變與輸入表單的事件，並更新ngModel裡面的可變數據，讓我們可以去處理後續的事。
+使用表單驅動驗證不需要自己建立control objects，因為angular已經為我們建好了。
+ngModel會處理使用者改變與輸入表單的事件，並更新ngModel裡面的可變資料，讓我們可以去處理後續的事。
 也因此ngModel並不是ReactiveFormsModule的一部份。
 這代表著使用表單驅動驗證，我們需要撰寫的程式碼更少。
 但是如果我們的表單需要很複雜的驗證步驟並且要顯示很多不同的錯誤訊息時，使用表單驅動驗證會使事情變得更複雜並難以維護。
@@ -56,7 +56,7 @@ Template-Driven Forms (範本驅動表單) 的特點
 適合固定欄位數量的表單
 會員註冊、登入、線上下單、修改會員資料、…
 
-透過 ngModel 進行數據綁定
+透過 ngModel 進行資料繫結
 
 不易於單元測試
 
@@ -66,7 +66,7 @@ Model-Driven Form (Reactive Forms)- (響應式表單) 的特點
 採用程式的方式建立表單 (較為繁瑣) (程式碼維護較為麻煩)
 
 適合動態欄位數量的表單 (動態表單)
-由後台定義的動態問卷系統、變動選項的投票系統、…
+由後臺定義的動態問卷系統、變動選項的投票系統、…
 
 把部分邏輯抽離Template至component
 

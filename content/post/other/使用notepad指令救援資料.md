@@ -31,7 +31,7 @@ draft: false
 
 ![使用notepad指令救援資料-02](../images/other/使用notepad指令救援資料-02.jpg)
 
-### 步驟三 : 拷貝檔案 
+### 步驟三 : 複製檔案 
 
 點所有檔案>這時按所有檔案
 

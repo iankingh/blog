@@ -28,7 +28,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compo
 chmod +x /usr/local/bin/docker-compose
 ```
 
-### 查看版本
+### 檢視版本
 
 ````shell
 docker-compose version
@@ -36,18 +36,18 @@ docker-compose version
 
 ### 測試
 
-#### 第一步，創建 Spring boot 服務
+#### 第一步，建立 Spring boot 服務
 
-通過Spring Initializru頁面，創建一個 Spring boot 服務，並且指定要使用的項目。
+透過Spring Initializru頁面，建立一個 Spring boot 服務，並且指定要使用的專案。
 
-### 第二步，創建 Dockerfile
+### 第二步，建立 Dockerfile
 
 ```dockerfile
 
 
 ```
 
-### 第三步，使用 docker-compose 定義一個文件
+### 第三步，使用 docker-compose 定義一個檔案
 
 ```yml
 version: '2'
@@ -62,19 +62,19 @@ services:
 
 這個 compose.yml 定義2個服務，一是Spring boot  一個是 redis 服務。
 
-- Spring Web 服務：使用 Dockerfile 。將 Web 容器内部的5000端口映射到 host 的5000端口；並將 Web 容器與 redis 容器連結。
+- Spring Web 服務：使用 Dockerfile 。將 Web 容器內部的5000埠對映到 host 的5000埠；並將 Web 容器與 redis 容器連結。
 
 - redis服務：官網的redis。
 
 ### 第四步，使用 Compose
 
-使用命令`docker-compose up`启动
+使用命令`docker-compose up`啟動
 
 ```shell
 docker-compose up
 ```
 
-運行成功之後，在browser ：`http://ipaddress:8080/` ，返回如下：
+執行成功之後，在browser ：`http://ipaddress:8080/` ，返回如下：
 
 ```shell
 Hello World! I have been seen 1 times.
@@ -82,7 +82,7 @@ Hello World! I have been seen 1 times.
 
 #  img  要放圖片
 
-刷新再次访问返回
+重新整理再次訪問返回
 
 
 ```shell
@@ -91,19 +91,19 @@ Hello World! I have been seen 2 times.
 
 # img 要放圖片
 
-不断的刷新数字会不断的增长。
+不斷的重新整理數字會不斷的增長。
 
 ## docker-compose 命令
 
-使用`docker-compose up -d` 在後台啟動服務
+使用`docker-compose up -d` 在後臺啟動服務
 
-啟動所有容器，-d 將會在後臺啟動並運行所有的容器
+啟動所有容器，-d 將會在後臺啟動並執行所有的容器
 
 ```shell
 docker-compose up -d
 ```
 
-使用`docker-compose ps`  查看啟動的服務
+使用`docker-compose ps`  檢視啟動的服務
 
 列出專案中目前的所有容器
 
@@ -130,7 +130,7 @@ Stopping composetest_redis_1 ... done
 
 `docker-compose restart` ：重啟專案中的服務
 
-### docker-compose -h 查看幫助
+### docker-compose -h 檢視幫助
 
 ```shell
 docker-compose -h 
@@ -154,7 +154,7 @@ docker-compose -d up
 docker-compose up <service-name>
 ```
 
-### stop services 停止已經處於運行狀態的容器，但不刪除它。通過 docker-compose start 可以再次啟動這些容器
+### stop services 停止已經處於執行狀態的容器，但不刪除它。透過 docker-compose start 可以再次啟動這些容器
 
 ```shell
 docker-compose stop
@@ -202,7 +202,7 @@ docker-compose rm
 docker-compose kill
 ```
 
-### 查看服務容器的輸出
+### 檢視服務容器的輸出
 
 ```shell
 docker-compose logs
@@ -210,13 +210,13 @@ docker-compose logs
 
 ### 構建（重新構建）專案中的服務容器
 
-服務容器一旦構建後，將會帶上一個標記名，例如對於 web 項目中的一個 db 容器，可能是 web_db。可以隨時在專案目錄下運行 docker-compose build 來重新構建服務
+服務容器一旦構建後，將會帶上一個標記名，例如對於 web 專案中的一個 db 容器，可能是 web_db。可以隨時在專案目錄下執行 docker-compose build 來重新構建服務
 
 ```shell
 docker-compose build
 ```
 
-### 拉取服務依賴的鏡像
+### 拉取服務依賴的映象
 
 ```shell
 docker-compose pull
@@ -228,7 +228,7 @@ docker-compose pull
 docker-compose run ubuntu ping docker.com
 ```
 
-### 設置指定服務運行的容器個數。通過 service=num 的參數來設置數量
+### 設定指定服務執行的容器個數。透過 service=num 的引數來設定數量
 
 ```shell
 docker-compose scale web=3 db=2
@@ -238,8 +238,8 @@ docker-compose scale web=3 db=2
 
 [Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
 
-[使用 docker-compose 替代 docker run - 张志敏的技术专栏](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
+[使用 docker-compose 替代 docker run - 張志敏的技術專欄](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
 
 [Angular — Local Development With Docker-Compose | by Bhargav Bachina | Bachina Labs | Medium](https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42)
 
-[Docker(四)：Docker 三剑客之 Docker Compose](https://mp.weixin.qq.com/s/DCqjeXtGoHnM7Wfm5Sme6w?)
+[Docker(四)：Docker 三劍客之 Docker Compose](https://mp.weixin.qq.com/s/DCqjeXtGoHnM7Wfm5Sme6w?)

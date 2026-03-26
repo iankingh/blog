@@ -14,9 +14,9 @@ toc: true
 <!--more-->
 ### 1、什麼是 Spring Boot？
 
-Spring Boot 是 Spring 開源組織的子專案，是 Spring 組件一站式解決方案，主要是簡化了使用 Spring 的難度，不必繁重的配置，提供了各種啟動器，開發者能快速上手。
+Spring Boot 是 Spring 開源組織的子專案，是 Spring 元件一站式解決方案，主要是簡化了使用 Spring 的難度，不必繁重的配置，提供了各種啟動器，開發者能快速上手。
 
-SpringBoot是非常適合開發Web應用的，因為他內嵌有Tomcat、Jetty、Undertow或者Netty。大部分的應用可以通過載入spring-boot-starter-web模組能夠快速的創建並啟動一個Web應用。
+SpringBoot是非常適合開發Web應用的，因為他內嵌有Tomcat、Jetty、Undertow或者Netty。大部分的應用可以透過載入spring-boot-starter-web模組能夠快速的建立並啟動一個Web應用。
 
 
 
@@ -24,10 +24,10 @@ SpringBoot是非常適合開發Web應用的，因為他內嵌有Tomcat、Jetty�
 
 Spring Boot 優點非常多，如：
 
-- 獨立運行
+- 獨立執行
 - 簡化配置
 - 自動配置
-- 無代碼生成和XML配置
+- 無程式碼生成和XML配置
 - 應用監控
 - 上手容易
 
@@ -39,7 +39,7 @@ application 設定檔這個容易理解，主要用於 Spring Boot 專案的自�
 
 bootstrap 設定檔有以下幾個應用場景。
 
-- 使用     Spring Cloud Config 配置中心時，這時需要在 bootstrap 設定檔中添加連接到配置中心的配置屬性來載入外部配置中心的配置資訊；
+- 使用     Spring Cloud Config 配置中心時，這時需要在 bootstrap 設定檔中新增連線到配置中心的配置屬性來載入外部配置中心的配置資訊；
 - 一些固定的不能被覆蓋的屬性；
 - 一些加密/解密的場景；
 
@@ -61,15 +61,15 @@ app:
     name: javastack
 ```
 
-另外，.yml 格式不支援 `@PropertySource` 注解導入配置。
+另外，.yml 格式不支援 `@PropertySource` 註解匯入配置。
 
-### 5、Spring Boot 的核心注解是哪個？它主要由哪幾個注解組成的？
+### 5、Spring Boot 的核心註解是哪個？它主要由哪幾個註解組成的？
 
-啟動類上面的注解是@SpringBootApplication，它也是 Spring Boot 的核心注解，主要組合包含了以下 3 個注解：
+啟動類上面的註解是@SpringBootApplication，它也是 Spring Boot 的核心註解，主要組合包含了以下 3 個註解：
 
-@SpringBootConfiguration：組合了 @Configuration 注解，實現設定檔的功能。
+@SpringBootConfiguration：組合了 @Configuration 註解，實現設定檔的功能。
 
-@EnableAutoConfiguration：打開自動配置的功能，也可以關閉某個自動配置的選項，如關閉資料來源自動配置功能： @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。
+@EnableAutoConfiguration：開啟自動配置的功能，也可以關閉某個自動配置的選項，如關閉資料來源自動配置功能： @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。
 
 @ComponentScan：Spring元件掃描。
 
@@ -77,23 +77,23 @@ app:
 
 - 繼承spring-boot-starter-parent專案
 
-- 導入spring-boot-dependencies項目依賴
+- 匯入spring-boot-dependencies專案依賴
 
-### 7、Spring Boot 需要獨立的容器運行嗎？
+### 7、Spring Boot 需要獨立的容器執行嗎？
 
-- 可以不需要，內置了 Tomcat/ Jetty 等容器。
+- 可以不需要，內建了 Tomcat/ Jetty 等容器。
 
-### 8、運行 Spring Boot 有哪幾種方式？
+### 8、執行 Spring Boot 有哪幾種方式？
 
-- 打包用命令或者放到容器中運行
+- 打包用命令或者放到容器中執行
 
-- 用 Maven/ Gradle 外掛程式運行
+- 用 Maven/ Gradle 外掛程式執行
 
-- 直接執行 main 方法運行
+- 直接執行 main 方法執行
 
 ### 9、Spring Boot 自動配置原理是什麼？
 
-注解 @EnableAutoConfiguration, @Configuration, @ConditionalOnClass 就是自動配置的核心，首先它得是一個設定檔，其次根據類路徑下是否有這個類去自動配置。
+註解 @EnableAutoConfiguration, @Configuration, @ConditionalOnClass 就是自動配置的核心，首先它得是一個設定檔，其次根據類路徑下是否有這個類去自動配置。
 
 ### 10、Spring Boot 的目錄結構是怎樣的？
 
@@ -116,11 +116,11 @@ app:
 
 ​		Model：是為前端頁面提供資料和資料校驗的。
 
--  資料訪問對象 (Data Access Object 簡稱：DAO)
+-  資料訪問物件 (Data Access Object 簡稱：DAO)
 
 ```
-├── com.ian.dao (JPA項目)  
-註：它是一個面向對象的資料庫介面，負責持久層的操作，為邏輯層提供介面，主要用來封裝對資料庫的訪問
+├── com.ian.dao (JPA專案)  
+註：它是一個面向物件的資料庫介面，負責持久層的操作，為邏輯層提供介面，主要用來封裝對資料庫的訪問
 ```
 
 - 邏輯介面層 (Service)
@@ -152,7 +152,7 @@ app:
 -  資料傳輸層 (Data Transfer Object 簡稱：DTO)
 
 ```
-└── com.ian.dto  註：資料傳輸對象（DTO）用於封裝多個實體類（domain）之間的關係，不破壞原有的實體類結構
+└── com.ian.dto  註：資料傳輸物件（DTO）用於封裝多個實體類（domain）之間的關係，不破壞原有的實體類結構
 ```
 
 ##### 1.1.2.2      靜態資源的目錄結構(resources)
@@ -175,7 +175,7 @@ resources/static/  註：用於存放css、js、images等，基本上會再細�
 - 範本目錄
 
 ```
-resources/templates/  註：Spring Boot提供了默認配置的範本引擎，官方建議使用這些範本引擎(Thymeleaf、FreeMarker、Velocity、Groovy、Mustache)，避免使用JSP  
+resources/templates/  註：Spring Boot提供了預設配置的範本引擎，官方建議使用這些範本引擎(Thymeleaf、FreeMarker、Velocity、Groovy、Mustache)，避免使用JSP  
 ```
 
 ##### 1.1.2.3     整體目錄
@@ -202,17 +202,17 @@ com
 
 ### 11、你如何理解 Spring Boot 中的 Starters？
 
-Starters可以理解為啟動器，它包含了一系列可以集成到應用裡面的依賴包，你可以一站式集成 Spring 及其他技術，而不需要到處找示例代碼和依賴包。如你想使用 Spring JPA 訪問資料庫，只要加入 spring-boot-starter-data-jpa 啟動器依賴就能使用了。
+Starters可以理解為啟動器，它包含了一系列可以整合到應用裡面的依賴包，你可以一站式整合 Spring 及其他技術，而不需要到處找示例程式碼和依賴包。如你想使用 Spring JPA 訪問資料庫，只要加入 spring-boot-starter-data-jpa 啟動器依賴就能使用了。
 
-Starters包含了許多專案中需要用到的依賴，它們能快速持續的運行，都是一系列得到支援的管理傳遞性依賴。
+Starters包含了許多專案中需要用到的依賴，它們能快速持續的執行，都是一系列得到支援的管理傳遞性依賴。
 
-### 12、如何在 Spring Boot 啟動的時候運行一些特定的代碼
+### 12、如何在 Spring Boot 啟動的時候執行一些特定的程式碼
 
 可以實現介面 ApplicationRunner 或者 CommandLineRunner，這兩個介面實現方式一樣，它們都只提供了一個 run 方法。
 
 ### 13、Spring Boot 有哪幾種讀取配置的方式？
 
-Spring Boot 可以通過 @PropertySource,@Value,@Environment, @ConfigurationProperties 來綁定變數。
+Spring Boot 可以透過 @PropertySource,@Value,@Environment, @ConfigurationProperties 來繫結變數。
 
 ### 14、Spring Boot 支援哪些日誌框架？推薦和預設的日誌框架是哪個？
 
@@ -229,10 +229,10 @@ Spring Boot 支援 Java Util Logging, Log4j2, Lockback 作為日誌框架，如�
 
 在 Spring Boot 裡面，可以使用以下幾種方式來載入配置。
 
-- properties文件；
-- YAML文件；
+- properties檔案；
+- YAML檔案；
 - 系統環境變數；
-- 命令列參數；
+- 命令列引數；
 
 ### 17、Spring Boot 如何定義多套不同環境配置？
 
@@ -248,11 +248,11 @@ application-test.properties
 application-prod.properties
 ```
 
-運行時指定具體的設定檔，具體請看這篇文章。
+執行時指定具體的設定檔，具體請看這篇文章。
 
-### 18、Spring Boot 可以相容老 Spring 項目嗎，如何做？
+### 18、Spring Boot 可以相容老 Spring 專案嗎，如何做？
 
-可以相容，使用 `@ImportResource` 注解導入老 Spring 項目設定檔。
+可以相容，使用 `@ImportResource` 註解匯入老 Spring 專案設定檔。
 
 ### 19、保護 Spring Boot 應用有哪些方法？
 
@@ -267,9 +267,9 @@ application-prod.properties
 - 配置變更
 - JDK 版本升級
 - 協力廠商類庫升級
-- 回應式     Spring 程式設計支持
-- HTTP/2 支持
-- 配置屬性綁定
+- 回應式     Spring 程式設計支援
+- HTTP/2 支援
+- 配置屬性繫結
 
 
 ## 參考
@@ -298,6 +298,6 @@ application-prod.properties
 
 [Spring Boot實現熱部署](https://mp.weixin.qq.com/s/uv8jIztilO_QvGc7qGhSAA)
 
-[Spring Boot日誌集成](https://mp.weixin.qq.com/s/OAyzUNIgBPkPVCy23gh-WA)
+[Spring Boot日誌整合](https://mp.weixin.qq.com/s/OAyzUNIgBPkPVCy23gh-WA)
 
 [SpringBoot - 第三章 | 目錄結構 | J.J.'s Blogs  ](https://morosedog.gitlab.io/springboot-20190314-springboot3/)

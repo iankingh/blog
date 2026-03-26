@@ -15,9 +15,9 @@ toc: true
 
 ## 前言
 
-1.CTRL + R ——打開 "運行"
+1.CTRL + R ——開啟 "執行"
 
-2.在"運行"輸入"cmd"彈出DOS命令列視窗
+2.在"執行"輸入"cmd"彈出DOS命令列視窗
 
 ipconfig  : 查IP
 
@@ -57,22 +57,22 @@ telnet 192.168.70.33 80
 ```
 
 ### netstat
-   查看目前所在機器有那些網路連線，包含 TCP 和 UDP。
-   了解網絡的整體使用情況。它可以顯示當前正在活動的網絡連接的詳細信息，如採用的協議類型（看tcp，udp）、當前主機與遠端相連主機（一個或多個）的IP位址以及 它們之間的連接狀態等。
+   檢視目前所在機器有那些網路連線，包含 TCP 和 UDP。
+   瞭解網路的整體使用情況。它可以顯示當前正在活動的網路連線的詳細資訊，如採用的協議型別（看tcp，udp）、當前主機與遠端相連主機（一個或多個）的IP位址以及 它們之間的連線狀態等。
 
-   netstat監控TCP/IP網絡的非常有用的工具，它可以顯示路由表、實際的網絡連接以及每一個網絡接口設備的狀態信息。
+   netstat監控TCP/IP網路的非常有用的工具，它可以顯示路由表、實際的網路連線以及每一個網路介面裝置的狀態資訊。
 
 ```
 netstat -a # 列出所有埠 
-netstat -n #顯示所有已建立的有效連接。 
+netstat -n #顯示所有已建立的有效連線。 
 netstat -at # 列出所有TCP埠 
 netstat -au # 列出所有UDP埠 
 ```
-"-a"選項意在顯示所有連接，當不附加"-n"選項時，它顯示的是本地計算機的 netbios名字+埠號。
+"-a"選項意在顯示所有連線，當不附加"-n"選項時，它顯示的是本地計算機的 netbios名字+埠號。
 加了"-n"選項後，它顯示的是本地IP位址+埠號。
 
 ### tracert
-tracert 是一個簡單的網絡診斷工具，可以列出分組經過的路由節點（通過tracert命令，就能知道本機與目標主機之間經過多台主機，即經過多少路由。）
+tracert 是一個簡單的網路診斷工具，可以列出分組經過的路由節點（透過tracert命令，就能知道本機與目標主機之間經過多臺主機，即經過多少路由。）
 
 ```
 tracert www.google.com
@@ -102,18 +102,18 @@ tnc  "www.google.com" -Port 443
 
 ### netstat 
 
-查看哪些進程佔用了埠
+檢視哪些程式佔用了埠
 
 ```cmd
 
 
 3.假如我要查的是埠"8080"，則輸入命令：netstat -aon|findstr "8080"
-4.如上，得到了進程號"4060"，再輸入命令：tasklist|findstr "4060",
-  得到了進程映射名稱，好了，下一步我們將解決埠號佔用的問題，就是kill掉該進程映射名稱的進程。
-5.CTRL + ALT + delete彈出工作管理員，找到名字為"javaw.exe"的進程，點擊它，並殺死它(結束進程)。
-6.再在DOS下輸入命令查看下該埠是否還被佔用：
+4.如上，得到了程式號"4060"，再輸入命令：tasklist|findstr "4060",
+  得到了程式對映名稱，好了，下一步我們將解決埠號佔用的問題，就是kill掉該程式對映名稱的程式。
+5.CTRL + ALT + delete彈出工作管理員，找到名字為"javaw.exe"的程式，點選它，並殺死它(結束程式)。
+6.再在DOS下輸入命令檢視下該埠是否還被佔用：
      netstat -aon|findstr "8080"
-7.可以看到，再也沒有進程佔用了該埠，OK，佔用該埠的進程被殺死了，那麼埠被佔用也已經解決了。
+7.可以看到，再也沒有程式佔用了該埠，OK，佔用該埠的程式被殺死了，那麼埠被佔用也已經解決了。
 ```
 
 
@@ -121,13 +121,13 @@ tnc  "www.google.com" -Port 443
 
 ## 參考
 
-[查看哪些進程佔用了埠 - zhuxiongxian的挨踢博客 - CSDN博客](https://blog.csdn.net/cryhelyxx/article/details/17919897)
+[檢視哪些程式佔用了埠 - zhuxiongxian的挨踢部落格 - CSDN部落格](https://blog.csdn.net/cryhelyxx/article/details/17919897)
 
 
 [ping、telnet、tracert簡介與使用 - IT閱讀](https://www.itread01.com/content/1550289784.html)  
   
 
-[windows網絡命令：ping、ipconfig、tracert、netstat、arp - 每日頭條](https://kknews.cc/zh-tw/code/o3jx8z5.html)  
+[windows網路命令：ping、ipconfig、tracert、netstat、arp - 每日頭條](https://kknews.cc/zh-tw/code/o3jx8z5.html)  
 
 
 https://medium.com/@CarterTsai/%E5%88%A9%E7%94%A8powershell%E7%9A%84test-netconnection%E4%BE%86%E5%8F%96%E4%BB%A3telnet%E4%BE%86%E6%AA%A2%E6%9F%A5%E7%B6%B2%E7%AB%99%E7%9A%84port%E6%9C%89%E6%B2%92%E6%9C%89%E8%A2%AB%E9%96%8B%E5%95%9F-5bc18909ce67

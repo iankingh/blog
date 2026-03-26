@@ -1,11 +1,12 @@
 ---
-title: "Vue Turtorial 05 自定義的hooks"
-date: 2024-08-27T07:52:23+08:00
+title: "Vue 教學 07 - 自定義 hooks"
+date: 2026-03-22T20:07:00+08:00
 categories:
 - "筆記"
 tags:
-- "tag1"
-- "tag2"
+- "Vue"
+- "hooks"
+- "Composition API"
 toc: true
 draft: true
 ---
@@ -20,7 +21,7 @@ draft: true
 import {ref, reactive} from 'vue'
 import axios from'axios'
 
-11 数据
+// 資料
 let sum = ref(0)
 let doglist = reactive([
 
@@ -48,7 +49,7 @@ import {reactive} from 'vue'
 import axios from 'axios'
 
 export default function (){
-7/数据
+// 資料
 
 let doglist = reactive([
 'https://images.dog.ceo/breeds/pembroke/n@2113023_4373.jpg'
@@ -67,7 +68,7 @@ let result = await axios.get('https://dog.ceo/api/breed/pembroke/images/ndogList
 alert(error)
 }
 
-回外部提供东西
+給外部提供東西
 return {doglist, getDog}
 
 }
@@ -76,7 +77,7 @@ return {doglist, getDog}
 ```
 import { ref }from 'vue'
 export default function (){
-/ 数据
+// 資料
 let sum = ref(0)
 
 11 方法
@@ -86,7 +87,7 @@ sum.value += 1
 
 }
 
-// 给外部提供东西
+// 給外部提供東西
 return [sum,addj
 ```
 
@@ -94,11 +95,11 @@ return [sum,addj
 <template〉
 
 <div class="penson">
-<h2>當前求和为:{{ sum }}</h2>
-<button @click="add">点我sum+1</button>
+<h2>目前求和為:{{ sum }}</h2>
+<button @click="add">點我sum+1</button>
 <hr>
 <img v-for="(dog,index) in dogList" :src="dog" :key="index"><br>
-<button @click="getDog">再来一只小狗</button>
+<button @click="getDog">再來一隻小狗</button>
 </div>
 
 </template>
@@ -122,13 +123,13 @@ I
 ```
 <template〉
 <div class="penson">
-＜h2>當前求和为:{{ sum }},放大10倍后: {{ bigsum }}</h2>
+＜h2>目前求和為:{{ sum }},放大10倍後: {{ bigsum }}</h2>
 
-<button @click="add">点我sum+1</button〉 <hr>
+<button @click="add">點我sum+1</button〉 <hr>
 <img v-for="(dog, index) ) in dogList" :src="dog" :key="index">
 
 <br>
-<button @click="getDog">再来一只小狗</button></div>
+<button @click="getDog">再來一隻小狗</button></div>
 </template〉
 
 <script lang="ts" setup name="Person">

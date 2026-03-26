@@ -16,7 +16,7 @@ toc: true
 JVM堆的設定是指java程式執行過程中JVM可以調配使用的記憶體空間的設定.JVM在啟動的時候會自動設定Heap size的值,其初始空間(即-Xms)是實體記憶體的1/64,最大空間(-Xmx)是實體記憶體的1/4。可以利用JVM提供的-Xmn -Xms -Xmx等選項可進行設定。
 <!--more-->
 
-這個問題的根源是jvm虛擬機器的預設Heap大小是64M,可以通過設定其最大和最小值來實現.設定的方法主要是幾個.
+這個問題的根源是jvm虛擬機器的預設Heap大小是64M,可以透過設定其最大和最小值來實現.設定的方法主要是幾個.
 
 ### 可以在windows 更改系統環境變數加上 JAVA_OPTS && CATALINA_OPTS
 
@@ -36,15 +36,15 @@ EX:
 
 ### 程式的寫法要注意要 close 資料流
 
-### IMAGEIO讀取JPEG文件
+### IMAGEIO讀取JPEG檔案
 
-JPEG可以很好地壓縮圖像。但是在內存中，僅用於原始數據的BufferedImage通常每個像素需要4個字節，因此無論文件有多大，其大小均為6480 * 4320 * 4 = 112 MB。
+JPEG可以很好地壓縮影像。但是在記憶體中，僅用於原始資料的BufferedImage通常每個畫素需要4個位元組，因此無論檔案有多大，其大小均為6480 * 4320 * 4 = 112 MB。
 
 ## 參考
 
-[若系統運行一段時間後無法連線，且tomcat或jboss的log裡出現java.lang.OutOfMemoryError: Java heap space，應如何避免此狀況?　(2008/11/25) | TAIR User Group](http://ir.org.tw/node/78)
+[若系統執行一段時間後無法連線，且tomcat或jboss的log裡出現java.lang.OutOfMemoryError: Java heap space，應如何避免此狀況?　(2008/11/25) | TAIR User Group](http://ir.org.tw/node/78)
 
-[读写文件时内存溢出问题思考（OutOfMemoryError: Java heap space）_WolfShadow的博客-CSDN博客](https://blog.csdn.net/u010188178/article/details/83183321)
+[讀寫檔案時記憶體溢位問題思考（OutOfMemoryError: Java heap space）_WolfShadow的部落格-CSDN部落格](https://blog.csdn.net/u010188178/article/details/83183321)
 
 [JAVA遇到大批資料處理時會出現Java heap space的報錯的解決方案 - IT閱讀](https://www.itread01.com/content/1546150350.html)
 

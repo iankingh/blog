@@ -61,5 +61,5 @@ compressImage(base64, 100, 100).then(compressed => {
 [typescript - how to resize base64 image in angular - Stack Overflow](https://stackoverflow.com/questions/56967991/how-to-resize-base64-image-in-angular)
 
 
-[angular7中实现图片上传、图片压缩、图片裁剪功能_yw00yw的博客-CSDN博客](https://blog.csdn.net/yw00yw/article/details/90450000)
+[angular7中實現圖片上傳、圖片壓縮、圖片裁剪功能_yw00yw的部落格-CSDN部落格](https://blog.csdn.net/yw00yw/article/details/90450000)
 

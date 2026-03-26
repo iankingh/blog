@@ -15,13 +15,13 @@ toc: true
 <!--more-->
 
 
-1. 添加依賴
+1. 新增依賴
 
-2. 在啟動代碼添加@EnableEurekaServer註解
+2. 在啟動程式碼新增@EnableEurekaServer註解
 
-3. 配置文件 application.properties OR application.yml
+3. 配置檔案 application.properties OR application.yml
 
-如果 Server 有2台 用 , 隔開
+如果 Server 有2臺 用 , 隔開
 
 
 

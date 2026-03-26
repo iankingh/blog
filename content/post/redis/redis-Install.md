@@ -16,7 +16,7 @@ toc: true
 
 Redis是一個使用ANSI C編寫的開源、支援、基於記憶體、可選永續性的鍵值對儲存資料庫。
 
-`Redis` 是一个使用 `ANSI C` 編寫的開源、支援 **網路**、基於**記憶體(內存)**、**單線程**、**可選永續性 **的 **鍵值儲存資料庫**。
+`Redis` 是一個使用 `ANSI C` 編寫的開源、支援 **網路**、基於**記憶體(記憶體)**、**單執行緒**、**可選永續性 **的 **鍵值儲存資料庫**。
 
 以官方的解釋，Redis是一套Open source的In-memory NoSQL database，可以應用在Cache、Database及簡單的Message broker。
 
@@ -119,7 +119,7 @@ sudo systemctl enable redis
 sudo systemctl status redis
 ```
 
-4. 看占用的port
+4. 看佔用的port
 
 ```shell
  sudo netstat -pnltu | grep redis
@@ -152,7 +152,7 @@ redis-cli
 
 ## 參考
 
-[Redis - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/Redis)
+[Redis - 維基百科，自由的百科全書 (wikipedia.org)](https://zh.wikipedia.org/wiki/Redis)
 
 [Redis系列 - 環境建置篇 - Jed's blog (jed1978.github.io)](https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html)
 

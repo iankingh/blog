@@ -39,7 +39,7 @@ nginx.conf 最基本組成語法：
 }
 ```
 
-注意，每一行指令都需要由*分號(;)*結束。例如：`events` 設置：
+注意，每一行指令都需要由*分號(;)*結束。例如：`events` 設定：
 
 ```nginx
 events {
@@ -122,7 +122,7 @@ server {
 }
 ```
 
-如果伺服器是多網卡(多 IP Address)，也是基於 IP Address 來配置：
+如果伺服器是多網路卡(多 IP Address)，也是基於 IP Address 來配置：
 
 ```nginx
 server {
@@ -156,7 +156,7 @@ server {
 
 如果是多組相同**次網域名稱**，例如：`server_name example.org www.example.org *.example.org;` 也能使用 wildcard names 的方式，改用 `server_name .example.org;` 即可。
 
-在 nginx.conf 組態中，`include` 可以載入其他共用組態，而文件的位置可以是任何地方。
+在 nginx.conf 組態中，`include` 可以載入其他共用組態，而檔案的位置可以是任何地方。
 
 ```nginx
 http {
@@ -213,7 +213,7 @@ server {
 }
 ```
 
-此 `server` 預設監想 80 Port。要設置 Proxy Server 要使用 `proxy_pass` Directive 組態，當我們請求 80 Port 的根路由時，將這個請求轉移至 `http://localhost:8080` 去，如果是 `/images` 路由，那就到直接到 `/data/images` 去讀取。`location` Directive 的路由也能配合 Regular Expression 來設置：
+此 `server` 預設監想 80 Port。要設定 Proxy Server 要使用 `proxy_pass` Directive 組態，當我們請求 80 Port 的根路由時，將這個請求轉移至 `http://localhost:8080` 去，如果是 `/images` 路由，那就到直接到 `/data/images` 去讀取。`location` Directive 的路由也能配合 Regular Expression 來設定：
 
 ```nginx
 server {
@@ -243,7 +243,7 @@ location ~ \.php {
 }
 ```
 
-預設 NGINX 在 Proxy 請求會重新定義 **Host** 和 **Connection** Header，並消除其值為空字串。然後 Host 會設定 **$proxy_host** 的值，Connection 設定為 **close**。可以使用 `proxy_set_header` 重新設置：
+預設 NGINX 在 Proxy 請求會重新定義 **Host** 和 **Connection** Header，並消除其值為空字串。然後 Host 會設定 **$proxy_host** 的值，Connection 設定為 **close**。可以使用 `proxy_set_header` 重新設定：
 
 ```nginx
 location /some/path/ {
@@ -272,7 +272,7 @@ proxy_set_header X-Forwarded-Proto $scheme;
 
 ### Load Balancing
 
-NGINX 另一大重點功能是透過簡單的設置，它就能成為一台強大的 Load Balance 伺服器。
+NGINX 另一大重點功能是透過簡單的設定，它就能成為一臺強大的 Load Balance 伺服器。
 
 ```nginx
 http {
@@ -294,7 +294,7 @@ http {
 
 在 `server` 設定 `proxy_pass` 至一個虛擬位置，虛擬位置由 `upstream` 提供，`upstream` 是一或一群 `server` 的組合。 預設採用 round-robin 方式負載平衡。
 
-> `http {}` 中可包含多組 `upstream` 設置。
+> `http {}` 中可包含多組 `upstream` 設定。
 
 另一種採用最少連線數(Least connected)來負載平衡，意思是，有些請求會需要較長處理時間，而最少連線數則能更公平進行 `server` 的負載平衡。
 
@@ -307,7 +307,7 @@ upstream myapp1 {
 }
 ```
 
-另一種 Web 常見的情境是 Session 的使用，如果應用程式使用 Session 的話，那麼不同 `server` 連線可能會造成問題。換句話說，雖然是負載平衡，但希望 Client 與 Server 能保持一種 sticky 或 persistent 關係，`ip-hash` 提供此種機制，它會依照 Client IP Address 去計算一個 Hash 碼，提供 Hash 與 `server` 之間一致的連線關係，同一個來源 IP Address 的 Client 被確保導向同一台 `server`。
+另一種 Web 常見的情境是 Session 的使用，如果應用程式使用 Session 的話，那麼不同 `server` 連線可能會造成問題。換句話說，雖然是負載平衡，但希望 Client 與 Server 能保持一種 sticky 或 persistent 關係，`ip-hash` 提供此種機制，它會依照 Client IP Address 去計算一個 Hash 碼，提供 Hash 與 `server` 之間一致的連線關係，同一個來源 IP Address 的 Client 被確保導向同一臺 `server`。
 
 ```nginx
 upstream myapp1 {
@@ -351,11 +351,11 @@ upstream dynamic {
 }
 ```
 
-> 更多細節參考 [server Directives](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#server) 文件。
+> 更多細節參考 [server Directives](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#server) 檔案。
 
-### 全域參數
+### 全域引數
 
-在 nginx.conf 裡 `events` 與 `http` 之外有一些全域參數，以下列出幾個常調整的參數：
+在 nginx.conf 裡 `events` 與 `http` 之外有一些全域引數，以下列出幾個常調整的引數：
 
 - [worker_processes](http://nginx.org/en/docs/ngx_core_module.html#worker_processes)：worker 執行緒數量，預設 1。目前支援 `auto` 值。
 - [worker_connections](http://nginx.org/en/docs/ngx_core_module.html#worker_connections)：worker 最大連線數。

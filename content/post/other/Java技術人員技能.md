@@ -21,7 +21,7 @@ Java技術人員需具備的基本技術:
 - 後端: Spring Boot、Spring Cloud
 - 作業系統: Red Hat Enterprise Linux、CentOS
 - 容器: Docker、Docker Compose
-- 容器管理平台: VMware Tanzu、Kubernetes、OpenShift Foundation
+- 容器管理平臺: VMware Tanzu、Kubernetes、OpenShift Foundation
 - 資料庫: MS SQL Server、 MySQL、PostgreSQL
 - Redis
 - MQ: RabbitMQ 、Kafka

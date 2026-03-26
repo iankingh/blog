@@ -22,15 +22,15 @@ draft: false
 
 ### 新增對應的資料夾
 
-- data/db 用来存放數據
-- data/log/mongodb.log 用来存放日誌
+- data/db 用來存放資料
+- data/log/mongodb.log 用來存放日誌
 
-### 修改 **mongodb.conf**配置文件
+### 修改 **mongodb.conf**配置檔案
 
-建立一個**mongodb.conf**的文件在資料夾中 , 並新增以下內容
+建立一個**mongodb.conf**的檔案在資料夾中 , 並新增以下內容
 
 ```conf
-# 數據的位置
+# 資料的位置
 dbpath=../data/db
 # 日誌的位置
 logpath=../data/log/mongodb.log
@@ -42,7 +42,7 @@ logpath=../data/log/mongodb.log
 
 `mongod.exe --config "../mongodb.conf"`
 
-## 打開瀏覽器
+## 開啟瀏覽器
 
  <http://localhost:27017/>
 
@@ -52,9 +52,9 @@ logpath=../data/log/mongodb.log
 
 ## 參考
 
-[MongoDB免安装版安装_java后端指南的博客-CSDN博客](https://blog.csdn.net/Ting1king/article/details/124757490)
+[MongoDB免安裝版安裝_java後端指南的部落格-CSDN部落格](https://blog.csdn.net/Ting1king/article/details/124757490)
 
-[windowns免安装MongoDB_windows免安装mongodb_花哥码天下的博客-CSDN博客](https://blog.csdn.net/qq_39940205/article/details/120434224)
+[windowns免安裝MongoDB_windows免安裝mongodb_花哥碼天下的部落格-CSDN部落格](https://blog.csdn.net/qq_39940205/article/details/120434224)
 
 
 [Day17 - MongoDB 安裝設定 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天 (ithome.com.tw)](https://ithelp.ithome.com.tw/articles/10186324)

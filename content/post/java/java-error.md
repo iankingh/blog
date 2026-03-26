@@ -13,17 +13,17 @@ toc: true
 
 <!--more-->
 
-## java.lang.Error: Unresolved compilation problems:解决方案
+## java.lang.Error: Unresolved compilation problems:解決方案
 
 出現該問題的原因主要是編譯等級跟jdk不一致。
-先查看你jdk版本
+先檢視你jdk版本
 
 java build path
 
-設置 Java compiler 和 Project Facets
+設定 Java compiler 和 Project Facets
 
 ## 常見的RuntimeException
 
 參考
-[java.lang.Error: Unresolved compilation problems:解决方案 - huangbaokang的博客 - CSDN博客](https://blog.csdn.net/huangbaokang/article/details/75287126)
+[java.lang.Error: Unresolved compilation problems:解決方案 - huangbaokang的部落格 - CSDN部落格](https://blog.csdn.net/huangbaokang/article/details/75287126)
 

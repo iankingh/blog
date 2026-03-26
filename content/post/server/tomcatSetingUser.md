@@ -21,13 +21,13 @@ toc: true
   <role rolename="manager-gui"/>
   <role rolename="admin-gui"/>
 
-  <!-- 配置管理帳號及權限 -->
-  <user username="用戶名" password="密碼" roles="admin-gui,manager-gui"/>
+  <!-- 配置管理帳號及許可權 -->
+  <user username="使用者名稱" password="密碼" roles="admin-gui,manager-gui"/>
 
 ```
 
 ## 參考
 
-[tomcat配置管理员-走后门 - WhyWin - 博客园](https://www.cnblogs.com/0201zcr/p/6668010.html)
+[tomcat配置管理員-走後門 - WhyWin - 部落格園](https://www.cnblogs.com/0201zcr/p/6668010.html)
 
-[如何进入tomcat的管理页面 - begin27的博客 - CSDN博客](https://blog.csdn.net/begin27/article/details/50966261)
+[如何進入tomcat的管理頁面 - begin27的部落格 - CSDN部落格](https://blog.csdn.net/begin27/article/details/50966261)

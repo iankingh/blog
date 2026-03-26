@@ -11,25 +11,25 @@ draft: false
 
 ## vagrant 使用筆記
 <!--more-->
-### 初始化虛擬機
+### 初始化虛擬機器
 
 ```shell
 vagrant init
 ```
 
-### 啟動 虛擬機
+### 啟動 虛擬機器
 
 ```shell
 vagrant up 
 ```
 
-### 啟動 已存在的 虛擬機
+### 啟動 已存在的 虛擬機器
 
 ```shell
 vagrant provision
 ```
 
-### 停止虛擬機
+### 停止虛擬機器
 
 ```shell
 vagrant halt
@@ -41,7 +41,7 @@ vagrant halt
 vagrant ssh-config
 ```
 
-### 砍掉 虛擬機
+### 砍掉 虛擬機器
 
 ```shell
 vagrant destroy
@@ -89,9 +89,9 @@ Vagrant.configure("2") do |config|
   #pull images centos/8
   config.vm.box = "centos/8"
   
-  #採用橋接，共享主機網絡
+  #採用橋接，共享主機網路
   config.vm.network "public_network"
-  #虛擬機名字heaton-centos8，內存，核數
+  #虛擬機器名字heaton-centos8，記憶體，核數
     config.vm.provider "virtualbox" do |vb|
       vb.memory = "4096"
       vb.name= "ian-centos8"

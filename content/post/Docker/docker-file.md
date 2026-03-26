@@ -12,7 +12,7 @@ draft: false
 <!--more-->
 ## Dockerfile
 
-Dockerfile 是用來描述映像檔（image）的文件。
+Dockerfile 是用來描述映像檔（image）的檔案。
 
 所謂的 `Image`，就是生產 `Container` 的模版，可以從 Docker Hub 官方下載或是根據官方的 Image 自己加工後打包成 Image 。或是完全自己使用 Dockerfile 描述 Image 內容來製作 Image。
 
@@ -22,7 +22,7 @@ Dockerfile 是用來描述映像檔（image）的文件。
 
 ### -f 指定dockerfile 的的路徑
 
-Dockerfile 一般位於構建上下文的根目錄下，也可以通過`-f`指定該檔的位置：
+Dockerfile 一般位於構建上下文的根目錄下，也可以透過`-f`指定該檔的位置：
 
 ````shell
 docker build -f /path/to/a/Dockerfile .
@@ -30,7 +30,7 @@ docker build -f /path/to/a/Dockerfile .
 
 ### -t 映像標籤
 
-構建時，還可以通過`-t`參數指定構建成鏡像的倉庫、標籤。
+構建時，還可以透過`-t`引數指定構建成映象的倉庫、標籤。
 
 ```shell
 docker build -t nginx:v1 .
@@ -45,7 +45,7 @@ docker build -t nginx:v1 .
 FROM nginx
 #維護者資訊
 MAINTAINER ianhunag@gmail.com 
-# 鏡像操作指令執行 CMD 指令跑的指令
+# 映象操作指令執行 CMD 指令跑的指令
 RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 ````
 
@@ -55,20 +55,20 @@ RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 docker run --name docker_nginx_v1  -d -p 80:80 nginx:v1
 ```
 
-這條命令會用 nginx 鏡像啟動一個容器，命名為docker_nginx_v1，並且映射了 80 埠，這樣我們可以用流覽器去訪問這個 nginx 伺服器：
+這條命令會用 nginx 映象啟動一個容器，命名為docker_nginx_v1，並且映射了 80 埠，這樣我們可以用流覽器去訪問這個 nginx 伺服器：
 
 ```shell
 http://ip:80
 
 ```
 
-## 緩存
+## 快取
 
-Docker 守護進程會一條一條的執行 Dockerfile 中的指令，而且會在每一步提交並生成一個新鏡像，最後會輸出最終映像的ID。生成完成後，Docker 守護進程會自動清理你發送的上下文。
+Docker 守護程式會一條一條的執行 Dockerfile 中的指令，而且會在每一步提交並生成一個新映象，最後會輸出最終映像的ID。生成完成後，Docker 守護程式會自動清理你傳送的上下文。
 
-Dockerfile檔中的每條指令會被獨立執行，並會創建一個新鏡像，RUN cd /tmp等命令不會對下條指令產生影響。
+Dockerfile檔中的每條指令會被獨立執行，並會建立一個新映象，RUN cd /tmp等命令不會對下條指令產生影響。
 
-Docker 會重用已生成的中間鏡像，以加速docker build的構建速度。以下是一個使用了緩存鏡像的執行過程：
+Docker 會重用已生成的中間映象，以加速docker build的構建速度。以下是一個使用了快取映象的執行過程：
 
 
 
@@ -91,9 +91,9 @@ Successfully tagged svendowideit/ambassador:latest
 
 ```
 
-構建緩存僅會使用本地父生成鏈上的鏡像，如果不想使用本地緩存的鏡像，也可以通過`--cache-from`指定緩存。指定後將不再使用本地生成的鏡像鏈，而是從鏡像倉庫中下載。
+構建快取僅會使用本地父生成鏈上的映象，如果不想使用本地快取的映象，也可以透過`--cache-from`指定快取。指定後將不再使用本地生成的映象鏈，而是從映象倉庫中下載。
 
 ## 參考
 
-[Dockerfile **使用介紹 -** **純潔的微笑博客**](http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html)
+[Dockerfile **使用介紹 -** **純潔的微笑部落格**](http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html)
 

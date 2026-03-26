@@ -36,16 +36,16 @@ function Hello(){
 }
 ```
 
-**把js文件放到 /assets目錄下**
+**把js檔案放到 /assets目錄下**
 
 ****ex.****
 ```
  /assets/Hello.js
 ```
 
-## 第二步 設置**compilerOptions**的**allowJs**屬性為true
+## 第二步 設定**compilerOptions**的**allowJs**屬性為true
 
-打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，新增 "**allowJs**": true,
+開啟 tsconfig.json，找到**compilerOptions**  ，並設定**compilerOptions**的**allowJs**屬性為true;，新增 "**allowJs**": true,
 
 ex. 新增 **"allowJs": true,**
 
@@ -53,9 +53,9 @@ ex. 新增 **"allowJs": true,**
  /assets/js/Hello.js
 ```
 
-### 第二步 設置**compilerOptions**的**allowJs**屬性為true
+### 第二步 設定**compilerOptions**的**allowJs**屬性為true
 
-打開 tsconfig.json，找到**compilerOptions**  ，並設置**compilerOptions**的**allowJs**屬性為true;，新增 "**allowJs**": true,
+開啟 tsconfig.json，找到**compilerOptions**  ，並設定**compilerOptions**的**allowJs**屬性為true;，新增 "**allowJs**": true,
 
 **ex.** 新增 **"allowJs": true,**
 >>>>>>> c4b992a9871c491fe1e8b2b832c0a5b358c4bdf6
@@ -101,7 +101,7 @@ tsconfig.json完整如下
 ```
 ### 第三步 : 引入javaScript
 
-### 在 angular.json，scripts區塊配置js文件路径
+### 在 angular.json，scripts區塊配置js檔案路徑
 
 ```json
 "scripts": [
@@ -109,7 +109,7 @@ tsconfig.json完整如下
             ]
 ```
 
-### 第四步，在當前組件.ts中使用函數新增js
+### 第四步，在當前元件.ts中使用函式新增js
 
 **在 index.html 引入**
 
@@ -141,14 +141,14 @@ tsconfig.json完整如下
 </html>
 ```
 
-### 第四步 : 在當前組件.ts中使用函數新增js
+### 第四步 : 在當前元件.ts中使用函式新增js
 
 `import 'src/assets/js/Hello.js';`
 
 ## 參考
 
-[angular在ts中使用第三方js_weixin_43182222的博客-CSDN博客](https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control)
+[angular在ts中使用第三方js_weixin_43182222的部落格-CSDN部落格](https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control)
 
 [How to call JavaScript functions from Typescript in Angular 5? - Stack Overflow](https://stackoverflow.com/questions/49526681/how-to-call-javascript-functions-from-typescript-in-angular-5)
 
-[Angular引入自己写的js或者其他_qq_43205711的博客-程序员宅基地_angular引用自己的js - 程序员宅基地 (cxyzjd.com)](https://www.cxyzjd.com/article/qq_43205711/84139445)
+[Angular引入自己寫的js或者其他_qq_43205711的部落格-程式設計師宅基地_angular引用自己的js - 程式設計師宅基地 (cxyzjd.com)](https://www.cxyzjd.com/article/qq_43205711/84139445)

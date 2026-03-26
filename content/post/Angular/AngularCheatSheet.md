@@ -17,10 +17,10 @@ draft: true
 
 - `npm install -g @angular/cli` :
 This command will install the Angular CLI into our local machine using npm.(此命令將使用npm將Angular CLI安裝到我們的本地計算機中。)
-- `ng new <application name>` : This will setup a new Angular application using the ng new command.(這將使用ng new命令設置一個新的Angular應用程序。)
+- `ng new <application name>` : This will setup a new Angular application using the ng new command.(這將使用ng new命令設定一個新的Angular應用程式。)
 - `ng new --help`: This returns all available Angular command list.(這將返回所有可用的Angular命令列表)
 
-- `ng generate component <name>`: This will create a new component on our application. We can also use the `ng g c <name>` shorthand to do this.(這將在我們的應用程序上創建一個新組件。我們也可以使用ng g c <name>的簡寫方式來做到這一點。)
+- `ng generate component <name>`: This will create a new component on our application. We can also use the `ng g c <name>` shorthand to do this.(這將在我們的應用程式上建立一個新元件。我們也可以使用ng g c <name>的簡寫方式來做到這一點。)
 
 - `ng build`: Builds the application for production and stores it in the `dist` directory.
 

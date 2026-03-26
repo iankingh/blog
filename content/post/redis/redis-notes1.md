@@ -17,5 +17,5 @@ toc: true
 
 ## 參考
 
-深入剖析Redis系列(一) - Redis入门简介与主从搭建
+深入剖析Redis系列(一) - Redis入門簡介與主從搭建
 https://juejin.cn/post/6844903661223542792

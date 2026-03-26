@@ -22,7 +22,7 @@ draft: true
 
 ## Maven Profile
 
-Maven Profile 是 Maven 的一個功能，允許您根據不同的環境和條件進行構建配置。它通常用於根據開發、測試和生產等不同環境來切換不同的構建設定。您可以在 `pom.xml` 文件中定義 Maven Profile。
+Maven Profile 是 Maven 的一個功能，允許您根據不同的環境和條件進行構建配置。它通常用於根據開發、測試和生產等不同環境來切換不同的構建設定。您可以在 `pom.xml` 檔案中定義 Maven Profile。
 
 舉個例子，以下是一個簡單的 Maven Profile 配置：
 
@@ -43,14 +43,14 @@ Maven Profile 是 Maven 的一個功能，允許您根據不同的環境和條�
 </profiles>
 ```
 
-在此示例中，我們定義了兩個 Maven Profile，分別為開發環境和生產環境。當需要構建不同環境的應用程式時，可以通過在 Maven 命令中指定 Profile 的 ID 來選擇使用哪個 Profile。
+在此示例中，我們定義了兩個 Maven Profile，分別為開發環境和生產環境。當需要構建不同環境的應用程式時，可以透過在 Maven 命令中指定 Profile 的 ID 來選擇使用哪個 Profile。
 
 ## Spring Boot Active Profile
 
-Spring Boot Active Profile 是用於在運行時切換 Spring Boot 應用程式的不同環境配置。它允許您根據不同環境使用不同的配置文件，以便根據當前環境運行應用程式。您可以使用 
+Spring Boot Active Profile 是用於在執行時切換 Spring Boot 應用程式的不同環境配置。它允許您根據不同環境使用不同的配置檔案，以便根據當前環境執行應用程式。您可以使用 
 - `application-{profile}.yml` 
 - `application-{profile}.properties` 
-格式的文件來定義 Spring Boot Profile。
+格式的檔案來定義 Spring Boot Profile。
 
 常見的環境設定
 -- application.yml
@@ -91,20 +91,20 @@ server:
   port: 80
 ```
 
-在此示例中，我們定義了兩個 Spring Boot Active Profile，分別為開發環境和生產環境。您可以通過設置環境變量 `SPRING_PROFILES_ACTIVE` 或在應用程式的命令行參數中指定 `--spring.profiles.active` 來選擇要不同的 Profile。
+在此示例中，我們定義了兩個 Spring Boot Active Profile，分別為開發環境和生產環境。您可以透過設定環境變數 `SPRING_PROFILES_ACTIVE` 或在應用程式的命令列引數中指定 `--spring.profiles.active` 來選擇要不同的 Profile。
 
 ## 差異
 
 主要差異在於：
-### 運行的時機
+### 執行的時機
 1. Maven Profile 是在構建階段管理配置，
-2. Spring Boot Active Profile 是在運行時管理配置。
+2. Spring Boot Active Profile 是在執行時管理配置。
 ### 使用時機
 4. Maven Profile 主要用於不同環境的構建設定，
-5. spring Boot Active Profile 用於不同環境的應用程式運行設定。
+5. spring Boot Active Profile 用於不同環境的應用程式執行設定。
 
 ## summary 
-總之，Maven Profile 和 Spring Boot Active Profile 都可以用來切換不同環境的配置，但它們運作在不同的階段（構建和運行），並滿足不同的需求。在實際開發中，可能需要結合使用兩者，以便更好地滿足不同環境的需求。
+總之，Maven Profile 和 Spring Boot Active Profile 都可以用來切換不同環境的配置，但它們運作在不同的階段（構建和執行），並滿足不同的需求。在實際開發中，可能需要結合使用兩者，以便更好地滿足不同環境的需求。
 
 我個人偏好 Spring Boot Active Profile 並用 yaml 設定
 

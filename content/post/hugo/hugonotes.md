@@ -43,7 +43,7 @@ hugo new site blog
 hugo new post/文章名稱.md
 ```
 
-生成的文件默認為會帶上 draft: true標記，不會發布。
+生成的檔案預設為會帶上 draft: true標記，不會發布。
 
 ### run server
 
@@ -106,7 +106,7 @@ https://hugo-next.eu.org
 
 [使用Github部署Hugo靜態網站](https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/)  
 
-[hugo搭建静态博客 | 生信笔记](https://www.bioinfo-scrounger.com/archives/809/)
+[hugo搭建靜態部落格 | 生信筆記](https://www.bioinfo-scrounger.com/archives/809/)
 
-[使用Hugo搭建博客系统 - XniLe - Ops 2.0](https://blog.dianduidian.com/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/)
+[使用Hugo搭建部落格系統 - XniLe - Ops 2.0](https://blog.dianduidian.com/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/)
     

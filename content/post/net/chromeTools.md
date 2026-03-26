@@ -24,14 +24,14 @@ overrides 是 chrome 在 65推出的新功能
 
 其目的是為 可以在重新整理後還可以用使用修改後的 js ,css ...等
 
-本地覆蓋使您可以在DevTools中進行更改，並在頁面加載期間保留這些更改。
-以前，重新加載頁面時，您在DevTools中所做的任何更改都將丟失。
-本地替代適用於大多數文件類型，但有一些例外。
+本地覆蓋使您可以在DevTools中進行更改，並在頁面載入期間保留這些更改。
+以前，重新載入頁面時，您在DevTools中所做的任何更改都將丟失。
+本地替代適用於大多數檔案型別，但有一些例外。
 
 
 ### 操作步驟
 
-1. Open the Sources panel  - 打開 Sources 
+1. Open the Sources panel  - 開啟 Sources 
 
 2. Open the Overrides tab  - 點選 Overrides
 

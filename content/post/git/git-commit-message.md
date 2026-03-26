@@ -26,7 +26,7 @@ toc: true
 ```
 EX:
 ```
-feat:DAO:新增用戶(Customer)的DAO
+feat:DAO:新增使用者(Customer)的DAO
 ```
 
 
@@ -35,11 +35,11 @@ feat:DAO:新增用戶(Customer)的DAO
 - modify：功能上的修正（非 bug）
 - fix: 修補 bug (bug fix)。
 - delete：刪除檔案
-- docs: 文件 (documentation)。
-- style: 格式 (不影響程式碼運行的變動 white-space, formatting, missing semi colons, etc)。
+- docs: 檔案 (documentation)。
+- style: 格式 (不影響程式碼執行的變動 white-space, formatting, missing semi colons, etc)。
 - refactor: 重構 (既不是新增功能，也不是修補 bug 的程式碼變動)。
 - test: 增加測試 (when adding missing tests)。
-- chore: 建構程序或輔助工具的變動 (maintain)。
+- chore: 建構程式或輔助工具的變動 (maintain)。
 - revert: 撤銷回覆先前的 commit 例如：revert: type(scope): subject (回覆版本：xxxx)。
 - perf: 改善效能 (A code change that improves performance)。
 
@@ -57,7 +57,7 @@ scope 用於說明 commit  影響的範圍，EX:Controller 、 Dao、 view
 
 #### subject :
 
-subject是commit目的的臨時描述，不超過50個字符。
+subject是commit目的的臨時描述，不超過50個字元。
 
 建議使用中文（感覺中國人用中文描述問題能更清楚一些）。
 
@@ -68,6 +68,6 @@ subject是commit目的的臨時描述，不超過50個字符。
 
 ### 參考
 
-[如何规范你的Git commit？-阿里云开发者社区](https://developer.aliyun.com/article/770277)
+[如何規範你的Git commit？-阿里雲開發者社群](https://developer.aliyun.com/article/770277)
 
 [Git Commit Message 這樣寫會更好，替專案引入規範與範例](https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html)

@@ -10,8 +10,8 @@ tags:
 
 # Hugo 使用 disqus
 
-Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網路形式，向網路社區提供網站留言服務的公司。
-該公司的平台提供不同的功能，例如與不同社群網路服務連結、社群網路、用戶個人檔案、垃圾宣傳及審核工具、資料分析、電子郵件通知和在行動裝置留言等。
+Disqus（/dɪsˈkʌs/，與英語「discuss」同音）是一家使用社群網路形式，向網路社群提供網站留言服務的公司。
+該公司的平臺提供不同的功能，例如與不同社群網路服務連結、社群網路、使用者個人檔案、垃圾宣傳及審核工具、資料分析、電子郵件通知和在行動裝置留言等。
 
 <!--more-->
 
@@ -71,7 +71,7 @@ disqusShortname = "yourDisqusShortname"
 這是因為官方所提供的 Script 裡面其中一段語法的關係
 if (window.location.hostname == "localhost")
   return;
-它的作用是當本地端 Server 運行時，就 return 中止，所以我們才會看不到 Disqus，這是因為當自己在編輯文章並運行 Server 進行預覽時，不需要用到留言的功能，所以才會採用這個判斷式來避免本地端的 Server 模式啟用Disqus功能。若您希望在本地端 Server 模式下，也能看到 Disqus，只要把上述那二行給註解掉並存檔就可以了。
+它的作用是當本地端 Server 執行時，就 return 中止，所以我們才會看不到 Disqus，這是因為當自己在編輯文章並執行 Server 進行預覽時，不需要用到留言的功能，所以才會採用這個判斷式來避免本地端的 Server 模式啟用Disqus功能。若您希望在本地端 Server 模式下，也能看到 Disqus，只要把上述那二行給註解掉並存檔就可以了。
 ShowDisqus
 
 
@@ -79,6 +79,6 @@ ShowDisqus
 
 [Hugo 加入 Disqus 整合性留言管理系統](https://coreychen71.github.io/posts/2019-05/hugoadddisqus/)  
 
-[给Hugo添加disqus评论服务 - Marvin's Blog【程式人生】](https://zh4ui.net/post/2017-04-20-hugo-with-disqus/)  
+[給Hugo新增disqus評論服務 - Marvin's Blog【程式人生】](https://zh4ui.net/post/2017-04-20-hugo-with-disqus/)  
 
-[为你博客添加disqus评论系统 | 23.9K | Vineo](https://vineo.cn/config-disqus.html)
+[為你部落格新增disqus評論系統 | 23.9K | Vineo](https://vineo.cn/config-disqus.html)

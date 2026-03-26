@@ -10,6 +10,6 @@ tags:
 toc: true
 ---
 
-# 從 0 開始的 Angular 生活 第4天-了解 Angular基本架構與啟動流程
+# 從 0 開始的 Angular 生活 第4天-瞭解 Angular基本架構與啟動流程
 <!--more-->
 

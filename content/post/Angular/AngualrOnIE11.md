@@ -30,7 +30,7 @@ draft: false
 
 ### 在 angular.json 的scripts 引用
 
-如果要引用外部js 可以在 angular.json 的scripts 地方做全局引用 ,他會在要用到的地方引用
+如果要引用外部js 可以在 angular.json 的scripts 地方做全域性引用 ,他會在要用到的地方引用
 
 程式碼的部分
 

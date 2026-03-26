@@ -15,7 +15,7 @@ draft: false
 <!--more-->
 
 
-## 打開設定畫面
+## 開啟設定畫面
 
 Window -->> Preferences -->> Workspace
 

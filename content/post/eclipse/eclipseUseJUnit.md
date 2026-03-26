@@ -36,13 +36,13 @@ draft: false
 
 ![ JavaBuildPath-2.png](/images/eclipse/JavaBuildPath-2.png)
 
-### 2.Junit 參數設定
+### 2.Junit 引數設定
 
 1.點選 於 Test.java(測試的類別) 點右鍵 >>>Run AS >>>>Run Configuations 
 
 ![juint.png](/images/eclipse/juint.png)
 
-2.打開設定
+2.開啟設定
 
 Test runner : 可以選擇 版本
 

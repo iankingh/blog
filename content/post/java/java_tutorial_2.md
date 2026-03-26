@@ -17,9 +17,9 @@ toc: true
 
 ## Java 基本的資料型態(Primitive Data Types)
 
-基本數據類型（8種）
+基本資料型別（8種）
 
-| 數據類型 | 大小/位 | 封裝類    | 默認值   | 可表示數據范圍                           |
+| 資料型別 | 大小/位 | 封裝類    | 預設值   | 可表示資料範圍                           |
 | :------- | ------- | --------- | -------- | ---------------------------------------- |
 | byte     | 8bit    | Byte      | 0        | -128~127                                 |
 | short    | 16bit   | Short     | 0        | -32768~32767                             |
@@ -46,7 +46,7 @@ toc: true
  * Purpose: <br>
  * 
  * @ClassName: ch1.PrimitiveDataTypesTest
- * @Description: 測試基本數據類型
+ * @Description: 測試基本資料型別
  * @Copyright : Copyright (c) Corp. 2020. All Rights Reserved.
  * @Company: ian Team.
  * @author ian
@@ -108,4 +108,4 @@ public class PrimitiveDataTypesTest {
 
 ## 參考
 
-[Java中8种基本数据类型及其默认值_飞月程序人生-CSDN博客_float默认值](https://blog.csdn.net/fysuccess/article/details/40656761)
+[Java中8種基本資料型別及其預設值_飛月程式人生-CSDN部落格_float預設值](https://blog.csdn.net/fysuccess/article/details/40656761)

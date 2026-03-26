@@ -20,7 +20,7 @@ toc: true
 
 ## @ConditionalOnProperty的作用和用法
 
-   在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty注解來控@Configuration是否生效
+   在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty註解來控@Configuration是否生效
 
 ### ConditionalOnProperty的使用
 
@@ -44,7 +44,7 @@ toc: true
 	}
 ```
 
-### 配置類代碼:
+### 配置類程式碼:
 
 ```java
 @Configuration
@@ -62,7 +62,7 @@ public class FilterConfig {
 }
 ```
 
-### 設定檔中的代碼
+### 設定檔中的程式碼
 
 ```java
 filter.loginFilter=true
@@ -75,8 +75,8 @@ filter.loginFilter=true
 當設定檔中值為false時:沒有輸出了"篩檢程式"三個字,說明loginFilter沒有生效,說明配置類沒有生效.
  
 總結:
-通過@ConditionalOnProperty控制配置類是否生效,可以將配置與代碼進行分離,實現了更好的控制配置.
-@ConditionalOnProperty實現是通過havingValue與設定檔中的值對比,返回為true則配置類生效,反之失效.
+透過@ConditionalOnProperty控制配置類是否生效,可以將配置與程式碼進行分離,實現了更好的控制配置.
+@ConditionalOnProperty實現是透過havingValue與設定檔中的值對比,返回為true則配置類生效,反之失效.
 
 
 @ConditionalOnExpression("{'prod', 'alsoProd'}.contains('${env.name}')")
@@ -85,12 +85,12 @@ filter.loginFilter=true
 
 ## 參考
 
-[@ConditionalOnProperty的作用和用法_sqlgao22的博客-CSDN博客](https://blog.csdn.net/sqlgao22/article/details/96476754)
+[@ConditionalOnProperty的作用和用法_sqlgao22的部落格-CSDN部落格](https://blog.csdn.net/sqlgao22/article/details/96476754)
 
 Conditional Beans with Spring Boot
 https://reflectoring.io/spring-boot-conditionals/
 
-ConditionalOnProperty的使用_堅持，讓夢想閃耀！-CSDN博客
+ConditionalOnProperty的使用_堅持，讓夢想閃耀！-CSDN部落格
 https://blog.csdn.net/u010002184/article/details/79353696
 
 java - Spring Boot SpEL ConditionalOnExpression check multiple properties - Stack Overflow

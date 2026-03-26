@@ -1,12 +1,12 @@
 ---
-title: "Vue 教學 02 - ref 與 reactive"
-date: 2024-08-26T21:02:25+08:00
+title: "Vue 教學 04 - ref 與 reactive"
+date: 2026-03-22T20:04:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "前端"
-- "JavaScript"
+- "ref"
+- "reactive"
 toc: true
 draft: true
 ---
@@ -18,17 +18,17 @@ draft: true
 
 標籤的 ref 屬性
 
-作用:用於注册模板引用.
+作用：用於註冊模板引用。
 • 用在普通DOM 標籤上,獲取的是DOM節點.
-• 用在組件標籤上,獲取的是組件實例對象.
+• 用在元件標籤上,獲取的是元件例項物件.
 用在普通DOM 標籤上:
 <template>
 ‹div class="person" ›
-<h1 ref="title1">尚硅谷</h1>
+<h1 ref="title1">尚矽谷</h1>
 <h2 ref="title2">前端</h2>
 <h3 ref="title3" >Vue</h3>
 <input type="text" ref="inpt"> <bry<bry
-<button @click="showLog">点我打印內容</button>
+<button @click="showLog">點我列印內容</button>
 ‹/div›
 ‹/template>
 < script lang="ts" setup name="Person">
@@ -37,7 +37,7 @@ let titlel = ref()
 let title2 = ref()
 
 ```
-1/ 定義一个介面,用於限制person對象的具體屬性
+// 定義一個介面，用於限制 person 物件的具體屬性
 export interface PersonInter {
 id:string,
 
@@ -46,7 +46,7 @@ age:number
 
 }
 
-// 一个自定義类型
+// 一個自定義型別
 // export type Persons = Array<PersonInter>
 export type Persons = PersonInten[]
 ```
@@ -63,9 +63,9 @@ export type Persons = PersonInten[]
 <script lang="ts" setup name="Person">
 import {type PersonInter, type Persons} from '@/types'
 
-1/ let person: PersonInter = {id:'asyud7asfdo1', name:'张三',age:60} let personList:Persons = [
+1/ let person: PersonInter = {id:'asyud7asfdo1', name:'張三',age:60} let personList:Persons = [
 
-{id:'asyud7asfdo1', name:'张三',age:60}, {id:'asyud7asfdo2',name:'李四',age:18}, {id:'asyud7asfde3', name:'王五',age:5}
+{id:'asyud7asfdo1', name:'張三',age:60}, {id:'asyud7asfdo2',name:'李四',age:18}, {id:'asyud7asfde3', name:'王五',age:5}
 
 ]
 
@@ -86,7 +86,7 @@ import Person from'./components/Person.vue' import {reactive} from 'vue'
 import {type Persons} from '@/types'
 
 let personList = reactive<Persons>([
-{id:'asudfysafde1', name:'张三',age:18}, {id:'asudfysafdo2'
+{id:'asudfysafde1', name:'張三',age:18}, {id:'asudfysafdo2'
 '李四',age:20},
 
 {id:'asudfysaf)de3', name:'王五',age:22} ])
@@ -111,22 +111,22 @@ Person.vue
 
 // defineProps(['list'])
 
-/1 接收list + 限制类型
+// 接收 list + 限制型別
 // defineProps<{list:Persons}>()
 
-// 接收list + 限制类型 + 限制必要性＋ 指定默认
+// 接收 list + 限制型別 + 限制必要性 + 指定預設
 defineProps<{list?:Persons}>()
 
-// 接收list + 限制类型
+// 接收 list + 限制型別
 // defineProps<{list: Persons}>()
 
-// 接收1ist + 限制类型 + 限制必要性 ＋ 指定默认值
+// 接收 list + 限制型別 + 限制必要性 + 指定預設值
 
 withDefaults(defineProps<(list?)Persons}>(),{
 
-list:()=> [{id:'ausydgyuon ,hame:'康师傅 王麻子 特仑苏',age:19}] }
+list:()=> [{id:'ausydgyuon ,hame:'康師傅 王麻子 特侖蘇',age:19}] }
 
-接收a,同时将props保存起来
+接收 a，同時將 props 儲存起來
 /* let x = defineProps(['a'])
 console.1og(x.a)*/
 

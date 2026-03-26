@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 ---
-## Angular 代碼目錄結構
+## Angular 程式碼目錄結構
 
 ### 初學者小專案可以用 MVC
 
@@ -18,7 +18,7 @@ draft: false
 ├── angular.json # Angular CLI 的設定檔
 ├── node_modules # npm
 ├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm install時大家的依賴能保證一致。
-├── package.json # 配置工作區中所有項目的相依套件
+├── package.json # 配置工作區中所有專案的相依套件
 ├── proxy.config.json # 代理伺服器設定
 ├── src
 │   ├── app
@@ -38,8 +38,8 @@ draft: false
 │   │   ├── shared # 共用的資料夾 不會被路由開啟的 component
 │   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
 │   │   ├── browser #
-│   │   ├── doc # 文檔
-│   │   ├── fonts # 字體資料夾
+│   │   ├── doc # 檔案
+│   │   ├── fonts # 字型資料夾
 │   │   ├── image # 圖片資料夾
 │   │   ├── plugin # 第三方套件
 │   ├── environments # 環境變數
@@ -66,7 +66,7 @@ draft: false
 ├── angular.json # Angular CLI 的設定檔
 ├── node_modules # npm
 ├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm install時大家的依賴能保證一致。
-├── package.json # 配置工作區中所有項目的相依套件
+├── package.json # 配置工作區中所有專案的相依套件
 ├── proxy.config.json # 代理伺服器設定
 ├── src
 │   ├── app
@@ -85,7 +85,7 @@ draft: false
 │   │   │   ├── services           # 處理component間的資料傳遞
 │   │   ├── shared # 共用的模組
 │   │   │   ├── components         # 不會被路由開啟的共用的 component
-│   │   │   │   ├──dialog.component.ts                # 如：對話框 (e.g. DialogComponent)
+│   │   │   │   ├──dialog.component.ts                # 如：對話方塊 (e.g. DialogComponent)
 │   │   │   ├── directives         # 共用的 自訂directives(指令)的資料夾
 │   │   │   │   ├──twid-validator.directive           # 如：驗證身份證 (e.g. TwidValidatorDirective)
 │   │   │   ├── guards             # 共用的 guards 資料夾
@@ -98,8 +98,8 @@ draft: false
 │   │   │   │   ├──messages.service.ts                # 如：開啟DialogComponent用的 (e.g. MessagesService)
 │   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
 │   │   ├── browser #
-│   │   ├── doc # 文檔
-│   │   ├── fonts # 字體資料夾
+│   │   ├── doc # 檔案
+│   │   ├── fonts # 字型資料夾
 │   │   ├── image # 圖片資料夾
 │   │   ├── plugin # 第三方套件
 │   ├── environments # 環境變數
@@ -126,7 +126,7 @@ draft: false
 ├── angular.json # Angular CLI 的設定檔
 ├── node_modules # npm
 ├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm i 時大家的依賴能保證一致。
-├── package.json # 配置工作區中所有項目的相依套件
+├── package.json # 配置工作區中所有專案的相依套件
 ├── proxy.config.json # 代理伺服器設定
 ├── mock-data # mock-data 放的地方
 ├── src
@@ -150,11 +150,11 @@ draft: false
 |   |   ├── MaterialSharedModule #Angular Material 共用模組
 │   │   ├── shared # 共用的模組 
 │   │   │   ├── components         # 不會被路由開啟的共用的 component
-│   │   │   │   ├──dialog.component.ts      # e.g.對話框 (DialogComponent)
+│   │   │   │   ├──dialog.component.ts      # e.g.對話方塊 (DialogComponent)
 │   │   │   ├── directives         # 自訂directives(指令)的資料夾
 │   │   │   │   ├──twid-validator.directive # ex：驗證身份證 (TwidValidatorDirective)
 │   │   │   ├── enums              # enums
-│   │   │   │   ├──dialog.component.ts      # e.g.對話框 (DialogComponent)
+│   │   │   │   ├──dialog.component.ts      # e.g.對話方塊 (DialogComponent)
 │   │   │   ├── guards             # guards 資料夾
 │   │   │   │   ├──auth.guard.ts            # e.g.驗證身份證 (AuthGuard)
 │   │   │   ├── http-interceptors  # interceptors(路由攔截)的資料夾
@@ -167,8 +167,8 @@ draft: false
 │   │   ├── shared.module.ts        # 共用模組的設定檔
 │   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
 │   │   ├── browser #
-│   │   ├── doc # 文檔
-│   │   ├── fonts # 字體資料夾
+│   │   ├── doc # 檔案
+│   │   ├── fonts # 字型資料夾
 │   │   ├── image # 圖片資料夾
 │   │   ├── plugin # 第三方套件
 │   ├── environments # 環境變數

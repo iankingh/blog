@@ -16,7 +16,7 @@ toc: true
 
 `java.text`提供了`NumberFormat`類別來讓我們更方便的格式化數字的呈現方式
 
-`DecimalFormat`是`NumberFormat`該格式的具體子類， 其格式為小數。它具有多種功能，旨在使可以在任何語言環境中解析和格式化數字，包括對西方，阿拉伯和印度數字的支持。它還支持各種數字，包括整數（123），定點數字（123.4），科學計數法（1.23E4），百分比（12％）和貨幣金額（$ 123）。所有這些都可以本地化。
+`DecimalFormat`是`NumberFormat`該格式的具體子類， 其格式為小數。它具有多種功能，旨在使可以在任何語言環境中解析和格式化數字，包括對西方，阿拉伯和印度數字的支援。它還支援各種數字，包括整數（123），定點數字（123.4），科學計數法（1.23E4），百分比（12％）和貨幣金額（$ 123）。所有這些都可以本地化。
 
 ## **基本用法**
 
@@ -41,7 +41,7 @@ Double value = 123456.789;
 
 String pattern = "###,###.###" ;
 
-//宣告了一個DecimalFormat物件，並可以在宣告時帶入要格式化的格式，若不帶入參數，格式規則和NumberFormat相同。
+//宣告了一個DecimalFormat物件，並可以在宣告時帶入要格式化的格式，若不帶入引數，格式規則和NumberFormat相同。
 
 DecimalFormat myFormatter = new DecimalFormat(pattern);
 
@@ -50,14 +50,14 @@ String output = myFormatter.format(value);
 System.out.println("執行結果為：" + value + " " + pattern + " " + output);
 ```
 
-下表描述了前幾行代碼的輸出.  `value`是要格式化的數字(`double`) ,`pattern` 是指定格式設置屬性的字符串 `output`, 輸出是字符串，表示格式化的數字。
+下表描述了前幾行程式碼的輸出.  `value`是要格式化的數字(`double`) ,`pattern` 是指定格式設定屬性的字串 `output`, 輸出是字串，表示格式化的數字。
 
 | value | pattern | output | Explanation |
 | --- | --- | --- | --- |
-| 123456.789 | ###,###.### | 123,456.789 | 井號（＃）表示一個數字，逗號是分組分隔符的佔位符，句點是十進制分隔符的佔位符。 |
-| 123456.789  | ###.## | 123456.79  | value 在小數點右邊有三位數, 而 pattern 只有兩位. format通過四捨五入來解決這個問題。  |
-| 123.78 | 000000.000 | 000123.780 | pattern 指定前導零和尾隨零，因為使用0字符代替了井號（＃）。 |
-| 12345.67 | $###,###.### | $12,345.67 | pattern中的第一個字符是美元符號（$）。注意，它緊接在格式為output的最左邊的數字之前。 |
+| 123456.789 | ###,###.### | 123,456.789 | 井號（＃）表示一個數字，逗號是分組分隔符的佔位符，句點是十進位制分隔符的佔位符。 |
+| 123456.789  | ###.## | 123456.79  | value 在小數點右邊有三位數, 而 pattern 只有兩位. format透過四捨五入來解決這個問題。  |
+| 123.78 | 000000.000 | 000123.780 | pattern 指定前導零和尾隨零，因為使用0字元代替了井號（＃）。 |
+| 12345.67 | $###,###.### | $12,345.67 | pattern中的第一個字元是美元符號（$）。注意，它緊接在格式為output的最左邊的數字之前。 |
 | 12345.67 | \u00A5###,###.### | ¥12,345.67 | pattern 使用Unicode值00A5指定日元（¥）的貨幣符號。 |
 
 ## **其他用法**
@@ -143,7 +143,7 @@ System.out.println(new DecimalFormat("00.####E0").format(c));// 29.9792E7
 
 System.out.println(new DecimalFormat(",###").format(c));// 299,792,458
 
-// 將格式嵌入文本
+// 將格式嵌入文字
 
 System.out.println(new DecimalFormat("光速大小為每秒,###米").format(c)); // 光速大小為每秒299,792,458米
 
@@ -158,7 +158,7 @@ System.out.println(new DecimalFormat("光速大小為每秒,###米").format(c));
 
 [[Java] 13-8 數字輸出格式 @ 給你魚竿 :: 痞客邦 :: (pixnet.net)](https://rx1226.pixnet.net/blog/post/335106917)
 
-[（转）Java DecimalFormat 用法（数字格式化） - 滥好人 - 博客园 (cnblogs.com)](https://www.cnblogs.com/hq233/p/6539107.html)
+[（轉）Java DecimalFormat 用法（數字格式化） - 濫好人 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/hq233/p/6539107.html)
 
 [Customizing Formats (The Java™ Tutorials > Internationalization > Formatting) (oracle.com)](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)
 

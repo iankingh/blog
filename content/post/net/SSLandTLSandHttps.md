@@ -22,9 +22,9 @@ toc: true
 
 ## SSL憑證(SSL certificate)的原理
 
-SSL 的全名是 **Secure Sockets Layer**，即安全通訊端層，這是一種標準的技術，用於保持網際網路連線安全以及防止在兩個系統之間發送的所有敏感資料被罪犯讀取及修改任何傳輸的資訊，包括潛在的個人詳細資料。兩個系統可以是伺服器與用戶端 (例如購物網站與瀏覽器)，或者伺服器至伺服器 (例如，含有個人身份資訊或含有薪資資訊的應用程式)。
+SSL 的全名是 **Secure Sockets Layer**，即安全通訊端層，這是一種標準的技術，用於保持網際網路連線安全以及防止在兩個系統之間傳送的所有敏感資料被罪犯讀取及修改任何傳輸的資訊，包括潛在的個人詳細資料。兩個系統可以是伺服器與使用者端 (例如購物網站與瀏覽器)，或者伺服器至伺服器 (例如，含有個人身份資訊或含有薪資資訊的應用程式)。
 
-這樣做是為了確保使用者與網站、或兩個系統之間傳輸的任何資料保持無法被讀取的狀態。此技術可使用加密演算法以混淆輸送中的資料，防止駭客在資料透過連線發送時讀取資料。此資訊可能是任何敏感或個人資訊，包括信用卡號與其他財務資訊、姓名與地址。
+這樣做是為了確保使用者與網站、或兩個系統之間傳輸的任何資料保持無法被讀取的狀態。此技術可使用加密演算法以混淆輸送中的資料，防止駭客在資料透過連線傳送時讀取資料。此資訊可能是任何敏感或個人資訊，包括信用卡號與其他財務資訊、姓名與地址。
 
 SSL 讓瀏覽器（所謂的 client）要連到一個遠端網站（所謂的 server）之前，先要求這個網站提供身分認證，跟這個網站約定暗號（交換鑰匙），打好交情（建立加密的 session），才會心甘情願地跟這個網站連線。
 
@@ -32,15 +32,15 @@ SSL 讓瀏覽器（所謂的 client）要連到一個遠端網站（所謂的 se
 
 步驟如下：
 
-1.1  建立連線  - 客戶端和伺服器官表示想要發起 HTTPS 連線，說明自己支持的 SSL/TLS 版本和加密算法。伺服器端會回應客戶端說可以使用哪一種組合。瀏覽器對想要連線的網站送出連線請求，同時要求網站驗證自己。
+1.1  建立連線  - 客戶端和伺服器官表示想要發起 HTTPS 連線，說明自己支援的 SSL/TLS 版本和加密演算法。伺服器端會回應客戶端說可以使用哪一種組合。瀏覽器對想要連線的網站送出連線請求，同時要求網站驗證自己。
 
 2.1  憑證交換 - 伺服器必須照明_自己是誰_。伺服器會拿出一張憑證，基本上這張憑證記載了伺服器的身份、位置（網址）、憑證的公鑰、有效日期和數位簽章。客戶端會確認是否要相信這張憑證，要麼這張憑證是被設定要信任，要麼這張憑證是由某個信任的機構 (CA) 簽署的。另外，這個機制其實可以雙向使用，伺服器端驗證客戶端的身份，不過這個機制很少用到
 
-2.2  憑證交換 - 網站將自己的 SSL 數位憑證 (SSL certificate) 回傳給 client，裡面包含了網站的 public key
+2.2  憑證交換 - 網站將自己的 SSL 數位憑證 (SSL certificate) 回傳給 client，裡麵包含了網站的 public key
 
-2.3  憑證交換 - 瀏覽器驗證網站回傳的的 root certificate，透過 [chain of trust 機制](https://jennycodes.me/posts/security-ssl-https#chainoftrust) 確認這個證明文件是否可以被信認，同時也確認這個憑證是否過期。
+2.3  憑證交換 - 瀏覽器驗證網站回傳的的 root certificate，透過 [chain of trust 機制](https://jennycodes.me/posts/security-ssl-https#chainoftrust) 確認這個證明檔案是否可以被信認，同時也確認這個憑證是否過期。
 
-3.1  金鑰交換- 當認證通過，瀏覽器會用網站的 public key 建立一個 [symmetric session key](https://en.wikipedia.org/wiki/Session_key)。
+3.1  金鑰交換- 當認證透過，瀏覽器會用網站的 public key 建立一個 [symmetric session key](https://en.wikipedia.org/wiki/Session_key)。
 
 3.2  金鑰交換 - 網站用自己的 private key 解讀 session key，並且回傳一個確認訊息，開始一個被 SSL 保護的 session。
 
@@ -54,25 +54,25 @@ SSL 讓瀏覽器（所謂的 client）要連到一個遠端網站（所謂的 se
 
 時序圖如下：
 
-SSL在傳輸之前事先用來溝通雙方（用戶端與伺服器端）所使用的加密演算法或密鑰交換演算法，或是在伺服器和用戶端之間安全地交換密鑰及雙方的身分認證等相關規則，讓雙方有所遵循。在身分認證方面，SSLHandshake可用來認證伺服器的身分。SSL Handshake的運作流程如下所述：
+SSL在傳輸之前事先用來溝通雙方（使用者端與伺服器端）所使用的加密演算法或金鑰交換演算法，或是在伺服器和使用者端之間安全地交換金鑰及雙方的身分認證等相關規則，讓雙方有所遵循。在身分認證方面，SSLHandshake可用來認證伺服器的身分。SSL Handshake的運作流程如下所述：
 
-(1) SSL用戶端利用Client Hello訊息將本身支援的SSL版本、加密演算法、演算法等資訊發送給SSL伺服器。
+(1) SSL使用者端利用Client Hello訊息將本身支援的SSL版本、加密演算法、演算法等資訊傳送給SSL伺服器。
 
-(2) SSL伺服器收到Client Hello訊息並確定本次通訊採用的SSL版本和加密套件後，利用Server Hello訊息回覆給SSL用戶端。
+(2) SSL伺服器收到Client Hello訊息並確定本次通訊採用的SSL版本和加密套件後，利用Server Hello訊息回覆給SSL使用者端。
 
-(3) SSL伺服器將利用Certificate訊息將本身公鑰的數位憑證傳給SSL用戶端。
+(3) SSL伺服器將利用Certificate訊息將本身公鑰的數位憑證傳給SSL使用者端。
 
-(4) SSL伺服器發送Server Hello Done訊息，通知SSL用戶端版本和加密套件協商結束，並開始進行密鑰交換。
+(4) SSL伺服器傳送Server Hello Done訊息，通知SSL使用者端版本和加密套件協商結束，並開始進行金鑰交換。
 
-(5) 當SSL用戶端驗證SSL伺服器的證書合法後，利用伺服器的證書中之公鑰加密SSL用戶端隨機生成的Premaster Secret（這是一個用在對稱加密密鑰產生中的46位元組的亂數字），並透過Client Key Exchange消息發送給SSL伺服器。
+(5) 當SSL使用者端驗證SSL伺服器的證書合法後，利用伺服器的證書中之公鑰加密SSL使用者端隨機生成的Premaster Secret（這是一個用在對稱加密金鑰產生中的46位元組的亂數字），並透過Client Key Exchange訊息傳送給SSL伺服器。
 
-(6) SSL用戶端發送Change Cipher Spec消息，通知SSL伺服器後續報文將採用協商好的密鑰和加密套件進行加密。
+(6) SSL使用者端傳送Change Cipher Spec訊息，通知SSL伺服器後續報文將採用協商好的金鑰和加密套件進行加密。
 
-(7) SSL用戶端計算已交互的握手消息的Hash值，利用協商好的密鑰和加密演算法處理Hash值，並透過Finished消息發送給SSL伺服器。SSL伺服器利用同樣的方法計算已交互的握手消息的Hash值，並與Finished消息的解密結果比較，如果兩者相同，則證明密鑰和加密套件協商成功。
+(7) SSL使用者端計算已互動的握手訊息的Hash值，利用協商好的金鑰和加密演算法處理Hash值，並透過Finished訊息傳送給SSL伺服器。SSL伺服器利用同樣的方法計算已互動的握手訊息的Hash值，並與Finished訊息的解密結果比較，如果兩者相同，則證明金鑰和加密套件協商成功。
 
-(8) SSL伺服器發送Change Cipher Spec訊息，通知SSL用戶端後續傳輸將採用協商好的密鑰和加密套件進行加密。
+(8) SSL伺服器傳送Change Cipher Spec訊息，通知SSL使用者端後續傳輸將採用協商好的金鑰和加密套件進行加密。
 
-(9) SSL伺服器計算已交互的握手消息的Hash值，利用協商好的密鑰和加密套件處理Hash值，並透過Finished消息發送給SSL用戶端。SSL用戶端利用同樣的方法計算已交互的握手消息的Hash值，並與Finished消息的解密結果比較，如果兩者相同，且MAC值驗證成功，則證明密鑰和加密套件協商成功。在SSL用戶端接收到SSL伺服器發送的Finished消息後，如果解密成功，則可以判斷SSL伺服器是數位證書的擁有者，即SSL伺服器身分驗證成功。這是因為只有擁有私鑰的SSL伺服器才能從Client Key Exchange消息中解密得到Premaster Secret，從而間接地實現了SSL用戶端對SSL伺服器的身分驗證。
+(9) SSL伺服器計算已互動的握手訊息的Hash值，利用協商好的金鑰和加密套件處理Hash值，並透過Finished訊息傳送給SSL使用者端。SSL使用者端利用同樣的方法計算已互動的握手訊息的Hash值，並與Finished訊息的解密結果比較，如果兩者相同，且MAC值驗證成功，則證明金鑰和加密套件協商成功。在SSL使用者端接收到SSL伺服器傳送的Finished訊息後，如果解密成功，則可以判斷SSL伺服器是數位證書的擁有者，即SSL伺服器身分驗證成功。這是因為只有擁有私鑰的SSL伺服器才能從Client Key Exchange訊息中解密得到Premaster Secret，從而間接地實現了SSL使用者端對SSL伺服器的身分驗證。
 
 
 
@@ -89,7 +89,7 @@ TSL 的全名是 Transport Layer Security 傳輸層安全性)是更新、更安�
 - `TLS 1.0` 1999 年     IETF 將 SSL 標準化，發布了 [RFC      2246](https://tools.ietf.org/html/rfc2246)，同時改名為 TLS。也因此     SSL 3.0 和 TLS 1.0 其實沒有什麼太大差別，甚至可以說是一樣的東西。而     TLS 1.0 也支援相容 SSL 3.0 的功能，但這做法同時也降低了安全性。
 - `TLS 1.1` 2006 年發布 [RFC      4346](https://tools.ietf.org/html/rfc4346)，雖然目前沒什麼問題，還是計劃於 2020 年棄用
 - `TLS 1.2` 2008 年發布 [RFC      5246](https://tools.ietf.org/html/rfc5246)，可運作在 HTTP/2 上。
-- 2014 年，Google 發現了     SSL 3.0 有致命的安全性漏洞，加上 TLS 1.0 因為加密模式設計不良，會[造成加密內容被解密](http://securityalley.blogspot.com/2014/07/ssltls-beast.html)，因此馬上變成主要的資安檢核項目之一，建議早日關閉。
+- 2014 年，Google 發現了     SSL 3.0 有致命的安全性漏洞，加上 TLS 1.0 因為加密模式設計不良，會[造成加密內容被解密](http://securityalley.blogspot.com/2014/07/ssltls-beast.html)，因此馬上變成主要的資安檢核專案之一，建議早日關閉。
 - `TLS 1.3` 2018 年發布 [RFC      8446](https://tools.ietf.org/html/rfc8446)
 
 注意看了一下，TLS 每個 RFC 都是 `46` 結尾，不知道是不是故意的。
@@ -130,7 +130,7 @@ Alice -> Bob: ACK
 
 ### HTTPS
 
-HTTPS 全名 [超文本傳輸安全協定](https://zh.wikipedia.org/wiki/超文本传输安全协议)，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 [SSL/TLS](https://zh.wikipedia.org/wiki/傳輸層安全性協定) 進行加密，藉由類似於前述的加密方式，在 HTTP 之上定義了相對安全的資料傳輸方法。
+HTTPS 全名 [超文字傳輸安全協定](https://zh.wikipedia.org/wiki/超文本传输安全协议)，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 [SSL/TLS](https://zh.wikipedia.org/wiki/傳輸層安全性協定) 進行加密，藉由類似於前述的加密方式，在 HTTP 之上定義了相對安全的資料傳輸方法。
 
 由於非對稱加密的運算量較高，傳遞回應較慢；實際的架構上，會透過公開金鑰加密傳遞出共用的金鑰，再透過共用金鑰加密進行後續的傳遞，兼顧了安全性及傳遞速度。
 
@@ -142,7 +142,7 @@ HTTPS (Hyper Text Transfer Protocol Secure，超級文字傳輸協議安全) 會
 
    其中，private key要留在主機裡，public key則是公開給全世界知道 
 
-(2) 當一般使用者在瀏覽網頁時拿到這台主機的public key之後，browser就可以靠public key來加密，由此而建立https 
+(2) 當一般使用者在瀏覽網頁時拿到這臺主機的public key之後，browser就可以靠public key來加密，由此而建立https 
 
 然而，實際上，在(2) 的步驟，一般使用者拿到public key時，他心裡有一個疑問，「我怎麼知道，現在給我public key的你，沒有被別人冒用了呢？」 這種時候，使用者的瀏覽器就會冒出警告訊息，說收到的public key並沒有被認證過。 
 
@@ -152,13 +152,13 @@ HTTPS (Hyper Text Transfer Protocol Secure，超級文字傳輸協議安全) 會
 
    其中，private key要留在主機裡，public key則是要先做加工之後，才可以讓全世界得知。 
 
-(2) public key送給憑證中心簽署認證。這種時候，因為要送public key和相關的一些網站基本資訊出去給憑證中心簽署認證，需要把public key放進一個文件檔，這個文件檔就叫做certificate signing request，副檔名通常是CSR 
+(2) public key送給憑證中心簽署認證。這種時候，因為要送public key和相關的一些網站基本資訊出去給憑證中心簽署認證，需要把public key放進一個檔案檔，這個檔案檔就叫做certificate signing request，副檔名通常是CSR 
 
 (3) 憑證中心簽署完畢後的public key，又可以稱之為ceriticate 。
 
    certificate自憑證中心取回之後，要安裝入主機(server)，作為SSL的public key 來使用 
 
-(4) 當一般使用者在瀏覽網頁時拿到這台主機的public key( 這時候可以叫它certificate )之後，browser裡頭早就預先安裝好的憑證中心public key會認証這個certificate，然後回報說，這個網站的https是沒有問題的。於是browser就可以用public key來加密，由此而建立https ( 如此一來，browser就不會跳出警告訊息了。)
+(4) 當一般使用者在瀏覽網頁時拿到這臺主機的public key( 這時候可以叫它certificate )之後，browser裡頭早就預先安裝好的憑證中心public key會認証這個certificate，然後回報說，這個網站的https是沒有問題的。於是browser就可以用public key來加密，由此而建立https ( 如此一來，browser就不會跳出警告訊息了。)
 
 ### 憑證的信任機制
 
@@ -194,7 +194,7 @@ HTTPS (Hyper Text Transfer Protocol Secure，超級文字傳輸協議安全) 會
 
 因為之前提過，任何人都能夠隨便生憑證，重點是「這張憑證是否被大家相信」。有時候，在開發流程中，你會需要用 HTTPS，但你生不出一張正常的憑證（例如你根本沒網域，或是沒錢買，或是來不及弄），所以你就必須要自己當自己的 CA，然後自己用那個 CA 私鑰去生一張憑證出來。因為你自己的 CA 通常不會在信任名單裡面，所以大家跟你連線的時候，都會出現警示。
 
-這種狀況下，你還是正在使用 HTTPS，所以資料傳輸過程有加密。不過，除非你將這張憑證加入信任清單，不然你沒有辦法防止別人做「中間人攻擊（即假裝他是那台伺服器）」。
+這種狀況下，你還是正在使用 HTTPS，所以資料傳輸過程有加密。不過，除非你將這張憑證加入信任清單，不然你沒有辦法防止別人做「中間人攻擊（即假裝他是那臺伺服器）」。
 
 ### 機制弱點
 
@@ -216,7 +216,7 @@ HTTPS 或是任何一個系統，都不是完全安全的。他防止不了有 C
 
 假設今天世界上有甲乙丙三家 CA。CA 丙簽了 CA 乙的憑證，而 CA 乙簽了 CA 甲的憑證。瀏覽器小明想連線到網站 A，而小明只知道 CA 丙。連線前，網站 A 傳了它的 certificate 們給小明。小明先看第一張，眉頭一皺，發現 A 的憑證是不認識的 CA 甲簽的，往下翻，看到 CA 乙簽了甲的憑證，但小明也不認識乙，所以繼續往下翻，下一張是乙的憑證，是 CA 丙簽署的 — bingo! 於是網站 A 順利與小明建立連線。
 
-所以 CA 其實很像保證人的角色，它向瀏覽器保證一個網域的合法性，讓想要連線的那一方確保自己的連線對象是安全的。
+所以 CA 其實很像保證人的角色，它向瀏覽器保證一個網域的合法性，讓想要連線的那一方確保自己的連線物件是安全的。
 
 #### Chain of Trust
 
@@ -232,7 +232,7 @@ $ openssl version
 LibreSSL 2.6.5
 ```
 
-可以先打開終端機，試試 `version` 指令，如果有回傳版本給你，就代表你的電腦已經有 OpenSSL 了。
+可以先開啟終端機，試試 `version` 指令，如果有回傳版本給你，就代表你的電腦已經有 OpenSSL 了。
 
 用 `$openssl help`（或是任何 OpenSSL 不認得的指令…）就可以看到 OpenSSL 提供的指令包。                
 

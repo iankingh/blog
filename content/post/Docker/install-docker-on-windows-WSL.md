@@ -14,7 +14,7 @@ draft: false
 <!-- 簡介 -->
 <!--more-->
 
-## WSL2 的 Error 0x80370102 解决方案
+## WSL2 的 Error 0x80370102 解決方案
 
 ```shell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -27,7 +27,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 bcdedit /set hypervisorlaunchtype auto
 ```
 
-## WSL2 的 Error 0xc03a001a 解决方案
+## WSL2 的 Error 0xc03a001a 解決方案
 
 C:\Users\電腦使用者名稱ㄌ\AppData\Local\Packages
 
@@ -46,7 +46,7 @@ C:\Users\電腦使用者名稱ㄌ\AppData\Local\Packages
 
 ## 參考
 
-[wsl2的Error 0x80370102 解决方案 - 知乎](https://zhuanlan.zhihu.com/p/147233604)
+[wsl2的Error 0x80370102 解決方案 - 知乎](https://zhuanlan.zhihu.com/p/147233604)
 
 [安裝WSL2子系統出現 0xc03a001a錯誤 - 清晨小農夫](https://rdfarm.net/wsl2-error-0xc03a001a/)
 

@@ -66,7 +66,7 @@ docker ps
 docker ps -a 
 ```
 
-#### -l :顯示最新創建的容器(包括所有狀態)
+#### -l :顯示最新建立的容器(包括所有狀態)
 
 ```sell
 docker ps -l
@@ -116,7 +116,7 @@ docker logs -f  <container_id>
 
 ### See Container ENV
 
-獲取容器/鏡像的 ENV
+獲取容器/映象的 ENV
 
 ```sell
 docker inspect <container_id> > Y.txt 
@@ -134,7 +134,7 @@ docker exec -it <container_id> bash
 docker exec -it <container_id> bash -c 'echo "$envKey"'
 ```
 
-### Container status (查看docker 容器使用的資源)
+### Container status (檢視docker 容器使用的資源)
 
 ```sell
 docker stats  
@@ -158,7 +158,7 @@ docker system df
 
 可用於查詢（Images）、（Containers）和（Local Volumes）等空間使用大戶的空間佔用情況。
 
-#### -v 表示細節查看空間佔用細節
+#### -v 表示細節檢視空間佔用細節
 
 ```sell
 docker system df -v
@@ -166,7 +166,7 @@ docker system df -v
 
 ### docker system prune (空間清理)
 
-可以通過 Docker 內置的 CLI 指令 `docker system prune` 來進行自動空間清理。
+可以透過 Docker 內建的 CLI 指令 `docker system prune` 來進行自動空間清理。
 
 ```sell
 docker system prune
@@ -178,15 +178,15 @@ WARNING! This will remove:
 
  \- all networks not used by at least one container(未被使用的網路)
 
- \- all dangling images(Dangling images are layers that have no relationship to any tagged images.)(所有未打標籤的鏡像(images)。)
+ \- all dangling images(Dangling images are layers that have no relationship to any tagged images.)(所有未打標籤的映象(images)。)
 
- \- all dangling build cache(構建鏡像時產生的緩存)
+ \- all dangling build cache(構建映象時產生的快取)
 
-該指令預設只會清除懸空鏡像，未被使用的鏡像不會被刪除。
+該指令預設只會清除懸空映象，未被使用的映象不會被刪除。
 
-·    添加 `-a `或 `--all` 參數後，可以一併清除所有未使用的鏡像和懸空鏡像。
+·    新增 `-a `或 `--all` 引數後，可以一併清除所有未使用的映象和懸空映象。
 
-·    可以添加 `-f `或` --force` 參數用以忽略相關告警確認資訊。
+·    可以新增 `-f `或` --force` 引數用以忽略相關告警確認資訊。
 
 ·    指令結尾處會顯示總計清理釋放的空間大小。
 
@@ -202,13 +202,13 @@ docker container prune
 docker network prune
 ```
 
-#### 刪除沒有Tag的鏡像
+#### 刪除沒有Tag的映象
 
 ```sell
 docker image prune
 ```
 
-#### 刪除沒有容器的鏡像
+#### 刪除沒有容器的映象
 
 ````sell
 docker image prune -a
@@ -222,7 +222,7 @@ docker volume prune
 
 ## 參考
 
-[Docker常用命令小记_程序员欣宸的博客-CSDN博客](https://blog.csdn.net/boling_cavalry/article/details/101145739)
+[Docker常用命令小記_程式設計師欣宸的部落格-CSDN部落格](https://blog.csdn.net/boling_cavalry/article/details/101145739)
 
 [docker container ls命令 - Docker教程™](https://www.yiibai.com/docker/container_ls.html)
 

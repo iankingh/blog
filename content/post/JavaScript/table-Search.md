@@ -31,7 +31,7 @@ toc: true
             // 建立 LightTableFilter
             var LightTableFilter = (function (Arr) {
                 var _input;
-                // 資料輸入事件處理函數
+                // 資料輸入事件處理函式
                 function _onInputEvent(e) {
                     _input = e.target;
                     var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
@@ -41,21 +41,21 @@ toc: true
                         });
                     });
                 }
-                // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+                // 資料篩選函式，顯示包含關鍵字的列，其餘隱藏
                 function _filter(row) {
                     var text = row.textContent.toLowerCase();
                     var val = _input.value.toLowerCase();
                     row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
                     Arr.forEach.call(row.cells, _filter_cells);
                 }
-                // 資料篩選函數，顯示包含關鍵字的行，其餘隱藏
+                // 資料篩選函式，顯示包含關鍵字的行，其餘隱藏
                 function _filter_cells(cells) {
                     var text = cells.textContent.toLowerCase();
                     var val = _input.value.toLowerCase();
                     cells.style.display = text.indexOf(val) === -1 ? 'none' : 'table-cell';
                 }
                 return {
-                    // 初始化函數
+                    // 初始化函式
                     init: function () {
                         var inputs = document.getElementsByClassName('light-table-filter');
                         Arr.forEach.call(inputs, function (input) {
@@ -91,7 +91,7 @@ toc: true
             </tr>
             <tr>
                 <td>011 上海銀行 <button>選我</button></td>
-                <td>012 台北富邦 <button>選我</button></td>
+                <td>012 臺北富邦 <button>選我</button></td>
                 <td>013 國泰世華 <button>選我</button></td>
             </tr>
             <tr>

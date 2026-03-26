@@ -42,4 +42,4 @@ export class SharedModule { }
 
 [No Provider for CustomPipe - angular 4 - Stack Overflow](https://stackoverflow.com/questions/46299952/no-provider-for-custompipe-angular-4)
 
-[Angular依赖注入的一个常见错误NullInjectorError,No provider for XXX - 云+社区 - 腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1700456)
+[Angular依賴注入的一個常見錯誤NullInjectorError,No provider for XXX - 雲+社群 - 騰訊雲 (tencent.com)](https://cloud.tencent.com/developer/article/1700456)

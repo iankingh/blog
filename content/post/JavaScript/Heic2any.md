@@ -13,7 +13,7 @@ toc: true
 ## Heic2any 使用筆記
 <!-- 簡介 -->
 
-客戶端（瀏覽器端，使用 Javascript）將HEIC/HEIF圖像文件轉換為 JPEG、PNG 或 GIF。
+客戶端（瀏覽器端，使用 Javascript）將HEIC/HEIF影像檔案轉換為 JPEG、PNG 或 GIF。
 <!--more-->
 
 範例環境：

@@ -92,9 +92,9 @@ Install the service named 'Tomcat9'
 
 ### 解決404的問題
 
-因為 Angular 是 SPA，所以在網頁伺服器要將所有的 request 全部導回到 index.html 才可以正常地顯示，如果在沒有設定下直接打開網址 web/home，他會去找 home 資料夾下的 **index.html**
+因為 Angular 是 SPA，所以在網頁伺服器要將所有的 request 全部導回到 index.html 才可以正常地顯示，如果在沒有設定下直接開啟網址 web/home，他會去找 home 資料夾下的 **index.html**
 
-- **(1)將以下代碼放在部署文件夾的web.xml中：**
+- **(1)將以下程式碼放在部署資料夾的web.xml中：**
 
 ```xml
 <error-page>
@@ -134,7 +134,7 @@ exports: [RouterModule]
 })
 ```
 
-- **(3) Tomcat URL Rewrite Valve：如果找不到資源，則使用服務器級別的配置來重寫URL，以重定向到index.html。**
+- **(3) Tomcat URL Rewrite Valve：如果找不到資源，則使用伺服器級別的配置來重寫URL，以重定向到index.html。**
 - (3.1)在server.xml中配置RewriteValve
 
 ```xml
@@ -149,9 +149,9 @@ exports: [RouterModule]
 
 - (3.2)在rewrite.config中寫入重寫規則
 
-創建目錄結構–〜/ conf / Catalina / localhost /並使用以下內容在其中創建rewrite.config文件。
+建立目錄結構–〜/ conf / Catalina / localhost /並使用以下內容在其中建立rewrite.config檔案。
 
-注意-這裡考慮將其`/web`作為應用程序的上下文路徑。
+注意-這裡考慮將其`/web`作為應用程式的上下文路徑。
 
 ```xml
 RewriteCond %{REQUEST_PATH} !-f
@@ -167,8 +167,8 @@ RewriteRule ^/web/(.*) /web/index.html
 
 [maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow](https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server)
 
-[<base href="/"> 與 <base href="./"> 的差別 ? - General - 台灣 Angular 技術論壇](https://forum.angular.tw/t/topic/881/12)
+[<base href="/"> 與 <base href="./"> 的差別 ? - General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/881/12)
 
-[[討論]Routing with ng build找不到路徑的問題 - #2 Kevin - General - 台灣 Angular 技術論壇](https://forum.angular.tw/t/topic/1839/2)
+[[討論]Routing with ng build找不到路徑的問題 - #2 Kevin - General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/1839/2)
 
 [如何將 Angular 2 含有路由機制的 SPA 網頁應用程式部署到 IIS 網站伺服器 | The Will Will Web (miniasp.com)](https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS)

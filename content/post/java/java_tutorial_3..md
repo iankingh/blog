@@ -26,7 +26,7 @@ toc: true
 ### 變數的種類
 
 -local variables (區域變數):
-    -區域變數只能在它們被宣告的(method)內存取
+    -區域變數只能在它們被宣告的(method)記憶體取
     -又稱 automatic , temporary , 或stack variables
 
 -insance variables (實體變數):

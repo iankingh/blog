@@ -19,7 +19,7 @@ toc: true
 
 [Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
 
-這一套擴充插件，來進行`SSH`連線。
+這一套擴充外掛，來進行`SSH`連線。
 
 ## 安裝
 
@@ -27,7 +27,7 @@ toc: true
 
 2. 安裝 visual studio Code
 
-3. 安裝遠程開發擴展包(Remote - SSH )。
+3. 安裝遠端開發擴充套件包(Remote - SSH )。
 
 在Extension搜尋remote就可以看到了，這邊我們選擇安裝SSH的
 
@@ -38,7 +38,7 @@ toc: true
 按下 `ctrl +shift + p`
 
 open ssh configuration
-打開 .ssh\config
+開啟 .ssh\config
 設定 remote
 
 ```shell

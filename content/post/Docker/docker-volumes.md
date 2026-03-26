@@ -25,7 +25,7 @@ Volumes有以下優點：
 ```
 § Volumes更容易備份和移植。
 
-§ 可以通過Docker CLI或API進行管理
+§ 可以透過Docker CLI或API進行管理
 
 § Volumes可以無區別的工作中Windows和Linux下。
 
@@ -47,7 +47,7 @@ Volumes有以下優點：
 如果你需要制定volume驅動選項，你必須使用 —mount。
 
 ```
-§ -v或者**--volume**:由3部分引數組成，使用“：”間隔。順序不能顛倒。
+§ -v或者**--volume**:由3部分引陣列成，使用“：”間隔。順序不能顛倒。
 
 § 第一個部分是volumes名字，在宿主機上具有唯一性。匿名卷名字系統給出。
 
@@ -229,9 +229,9 @@ docker service create 命令不支援-v或者—volume。必須使用—mount。
 
 **使用容器載入一個volume**
 
-和上面一樣，如果你啟動一個容器建立一個新的volume，在容器被掛載的目錄（/app/）中有檔案或者資料夾，這個目錄中的內容會被拷貝到volume中。然後容器掛載使用volume，其他容器使用這個volume也可以訪問預載入內容。
+和上面一樣，如果你啟動一個容器建立一個新的volume，在容器被掛載的目錄（/app/）中有檔案或者資料夾，這個目錄中的內容會被複製到volume中。然後容器掛載使用volume，其他容器使用這個volume也可以訪問預載入內容。
 
-為了說明這個，這個例子啟動一個nginx容器並且載入一個新volume nginx-vol，裡面包括容器中/usr/share/nginx/html 目錄中的內容，裡面儲存的是nginx預設的HTML內容。
+為了說明這個，這個例子啟動一個nginx容器並且載入一個新volume nginx-vol，裡麵包括容器中/usr/share/nginx/html 目錄中的內容，裡面儲存的是nginx預設的HTML內容。
 
 —mount and -v具有相同結果
 
@@ -413,7 +413,7 @@ $ docker run -v AABBCCDDEE:/foo --name foo -it busybox /bin/sh  /
 
 ````
 $ docker volume ls  $ docker volume inspect THE_VOLUME_ID   
-$ docker inspect -f '{{.Mounts}}' foo #查看某一個 container 的 volume 狀況
+$ docker inspect -f '{{.Mounts}}' foo #檢視某一個 container 的 volume 狀況
 ````
 
 
@@ -489,21 +489,21 @@ $ docker exec -it running_pg /bin/bash`
 
 
 
-# Docker Volume 屬主設置
+# Docker Volume 屬主設定
 
 最近在測試 Volume 掛載時候有點問題，描述如下：
 
-1. Docker 啟動時候，設置掛載目錄使用者為     foo
+1. Docker 啟動時候，設定掛載目錄使用者為     foo
 2. 宿主機原始目錄屬主為 smallfish
 
 嘗試了幾種辦法，比如：
 
 1. container 啟動後執行 `chown`
-2. 構建鏡像時候加入 `RUN chown foo /data`，這裡不僅僅是這種嘗試
+2. 構建映象時候加入 `RUN chown foo /data`，這裡不僅僅是這種嘗試
 
-不管是在 container 或者宿主機裡進行設置，都會發現要麼裡面屬主成數位或者宿主機的屬主成數字。
+不管是在 container 或者宿主機裡進行設定，都會發現要麼裡面屬主成數位或者宿主機的屬主成數字。
 
-原因無非是兩個系統裡使用者 `uid/gid` 不一樣，也可以很猥瑣的在 container 裡面 `adduser` 指定 `--uid` 參數。
+原因無非是兩個系統裡使用者 `uid/gid` 不一樣，也可以很猥瑣的在 container 裡面 `adduser` 指定 `--uid` 引數。
 
 百無聊賴的放狗繼續搜啊搜，竟然搜到一篇：[**Understanding Volumes in Docker**](http://container-solutions.com/2014/12/understanding-volumes-docker/)
 
@@ -516,7 +516,7 @@ RUN chown foo:foo /data
 VOLUME /data
 ```
 
-上面要注意 `VOLUME` 一定要放在最後，然後要先建立目錄，再寫個檔，文件隨意。
+上面要注意 `VOLUME` 一定要放在最後，然後要先建立目錄，再寫個檔，檔案隨意。
 
 重新構建之後，進入互動式：
 
@@ -530,7 +530,7 @@ drwxr-xr-x  1 foo  staff  170 Jul  4 15:57 xxx
 
 很驚喜的發現竟然屬主變成 foo 了，我了個呵呵。。。
 
-官方文檔：[**https://docs.docker.com/userguide/dockervolumes/**](https://docs.docker.com/userguide/dockervolumes/)，其實也有提到一些描述，還是貼下之前參考那篇博客的原文：
+官方檔案：[**https://docs.docker.com/userguide/dockervolumes/**](https://docs.docker.com/userguide/dockervolumes/)，其實也有提到一些描述，還是貼下之前參考那篇部落格的原文：
 
 ```
 Docker is clever enough to copy any files that exist in the image under the volume mount into the volume and set the ownership correctly. This won’t happen if you specify a host directory for the volume (so that host files aren’t accidentally overwritten).
@@ -550,7 +550,7 @@ Docker volume 簡單用法 | 只放拖鞋的鞋櫃
 
 https://julianchu.net/2016/04/19-docker.html
 
-Docker Volume 屬主設置 · smallfish's blog
+Docker Volume 屬主設定 · smallfish's blog
 
 http://chenxiaoyu.org/2014/12/26/docker-volume-chown/
 
@@ -558,23 +558,23 @@ http://chenxiaoyu.org/2014/12/26/docker-volume-chown/
 
  
 
-# Docker學習筆記之存儲篇
+# Docker學習筆記之儲存篇
 
 
 
-### 一、存儲
+### 一、儲存
 
-docker的鏡像使用一層一層檔組成的，docker的一些存儲引擎可以處理怎麼樣存儲這些檔。使用docker inspect這個命令可以查詢鏡像或者容器的詳細資訊，比如要查看centos這個鏡像：
+docker的映象使用一層一層檔組成的，docker的一些儲存引擎可以處理怎麼樣儲存這些檔。使用docker inspect這個命令可以查詢映象或者容器的詳細資訊，比如要檢視centos這個映象：
 
 ```
 docker inspect centos
 ```
 
-展示資訊下方的Layers，就是centos的檔，這些東西都是唯讀的不能去修改，我們基於這個鏡像去創建的鏡像和容器也會共用這些檔層，而docker會在這些層上面去添加一個可讀寫的檔層。如果需要修改一些檔層裡面的東西的話，docker會複製一份到這個可讀寫的檔層裡面，如果刪除容器的話，那麼也會刪除它對應的可讀寫的檔層的檔。
+展示資訊下方的Layers，就是centos的檔，這些東西都是唯讀的不能去修改，我們基於這個映象去建立的映象和容器也會共用這些檔層，而docker會在這些層上面去新增一個可讀寫的檔層。如果需要修改一些檔層裡面的東西的話，docker會複製一份到這個可讀寫的檔層裡面，如果刪除容器的話，那麼也會刪除它對應的可讀寫的檔層的檔。
 
 #### 演示
 
-###### 1、先創建一個帶交互的容器，管它名字叫test1
+###### 1、先建立一個帶互動的容器，管它名字叫test1
 
 ```
 docker run -i -t --name test1 centos /bin/bash
@@ -582,15 +582,15 @@ docker run -i -t --name test1 centos /bin/bash
 
 ###### 2、然後在裡面新建一個檔，hello.txt
 
-###### 3、接著退出容器，使用centos創建第二個容器叫test2，試著輸出根目錄下的hello.txt檔的內容。
+###### 3、接著退出容器，使用centos建立第二個容器叫test2，試著輸出根目錄下的hello.txt檔的內容。
 
-發現沒有找到此檔，雖然test1，test2都是基於centos鏡像創建的，但他們都擁有各自的可讀寫的檔層，新創建的檔或者修改的已有的檔都會放到這個檔層，不會影響到鏡像本身和使用這個鏡像創建的容器。
+發現沒有找到此檔，雖然test1，test2都是基於centos映象建立的，但他們都擁有各自的可讀寫的檔層，新建立的檔或者修改的已有的檔都會放到這個檔層，不會影響到映象本身和使用這個映象建立的容器。
 
 **刪除容器的時候，這些容器層上面的檔也會被刪除掉。**
 
-### 二、數據卷：Data Volumes
+### 二、資料卷：Data Volumes
 
-如果有些資料你想一直保存的話，比如：web伺服器上面的日誌，資料庫管理系統裡面的資料，那麼我們可以把這些資料放到data volumes資料盤裡面。它上面的資料，即使把容器刪掉，也還是會永久保留。創建容器的時候，我們可以去指定資料盤。其實就是去指定一個特定的目錄，剩下的docker會幫你做。
+如果有些資料你想一直儲存的話，比如：web伺服器上面的日誌，資料庫管理系統裡面的資料，那麼我們可以把這些資料放到data volumes資料盤裡面。它上面的資料，即使把容器刪掉，也還是會永久保留。建立容器的時候，我們可以去指定資料盤。其實就是去指定一個特定的目錄，剩下的docker會幫你做。
 
 #### 指定資料盤的命令
 
@@ -602,7 +602,7 @@ docker run --volume /mnt -i -t --name db centos /bin/bash
 
    
 
-###### 查看容器信息：
+###### 檢視容器資訊：
 
    
 
@@ -610,21 +610,21 @@ Mounts下Source表示資料存在宿主機上的真實位置，Destination表示
 
 #### 指定主機目錄作為資料盤
 
-我們還可以手工指定主機上的目錄作為資料盤，比如，新建一個資料夾叫data，讓它作為資料盤，然後使用centos鏡像創建容器，命名為db，指定資料盤位置：
+我們還可以手工指定主機上的目錄作為資料盤，比如，新建一個資料夾叫data，讓它作為資料盤，然後使用centos映象建立容器，命名為db，指定資料盤位置：
 
 ```
 docker run -v /Users/beckjiang/Desktop/data:/mnt --name db -i -t centos /bin/bash
 ```
 
-進入容器後，在/mnt/ 目錄下創建檔data1，然後刪除容器，查看主機上/Users/beckjiang/Desktop/data 裡面，仍然會保留容器裡面創建的資料。
+進入容器後，在/mnt/ 目錄下建立檔data1，然後刪除容器，檢視主機上/Users/beckjiang/Desktop/data 裡面，仍然會保留容器裡面建立的資料。
 
    
 
-### 三、數據容器
+### 三、資料容器
 
-我們可以創建一個資料容器，也就是再創建容器是指定這個容器的資料盤，然後讓其他容器可以使用這個容器作為他們的資料盤，有點像繼承了這個資料容器指定的資料盤作為資料盤。
+我們可以建立一個資料容器，也就是再建立容器是指定這個容器的資料盤，然後讓其他容器可以使用這個容器作為他們的資料盤，有點像繼承了這個資料容器指定的資料盤作為資料盤。
 
-###### 先來創建一個資料容器：
+###### 先來建立一個資料容器：
 
 ```
 docker create -v /mnt -i -t --name dbcenter centos /bin/bash
@@ -632,17 +632,17 @@ docker create -v /mnt -i -t --name dbcenter centos /bin/bash
 
    
 
-###### 接著使用這個資料容器，去創建一個容器 db1：
+###### 接著使用這個資料容器，去建立一個容器 db1：
 
 ```
 docker run --volumes-from dbcenter --name db1 -i -t centos bash
 ```
 
-在/mnt/目錄下創建data1檔：
+在/mnt/目錄下建立data1檔：
 
    
 
-完成以後退出容器，基於dbcenter這個資料容器去創建第二個容器 db2：
+完成以後退出容器，基於dbcenter這個資料容器去建立第二個容器 db2：
 
 ```
 docker run --volumes-from dbcenter --name db2 -i -t centos bash
@@ -650,11 +650,11 @@ docker run --volumes-from dbcenter --name db2 -i -t centos bash
 
    
 
-查看/mnt/目錄下的檔，會看到在db1容器中創建的data1文件。同樣的，你在db2中的/mnt/目錄創建的資料檔案，也會被其他使用了dbcenter作為資料容器的容器所看到。
+檢視/mnt/目錄下的檔，會看到在db1容器中建立的data1檔案。同樣的，你在db2中的/mnt/目錄建立的資料檔案，也會被其他使用了dbcenter作為資料容器的容器所看到。
 
 ### 四、管理資料盤
 
-###### 查看主機上面創建的資料盤
+###### 檢視主機上面建立的資料盤
 
 ```
 docker volume ls
@@ -662,7 +662,7 @@ docker volume ls
 
    
 
-在刪除容器時，docker預設不會刪除其資料盤。這裡可以 查看沒有容器在使用的資料盤:
+在刪除容器時，docker預設不會刪除其資料盤。這裡可以 檢視沒有容器在使用的資料盤:
 
 ```
 docker volume ls -f dangling=true
@@ -678,9 +678,9 @@ docker volume rm VOLUME NAME
 
    
 
-把沒有容器使用的資料盤都刪除掉以後，還剩下1個正在被使用的資料盤，就是上面創建的資料容器。
+把沒有容器使用的資料盤都刪除掉以後，還剩下1個正在被使用的資料盤，就是上面建立的資料容器。
 
-如果想要刪除容器時，同時刪除掉其資料盤，那麼可以使用-v參數。(db1，db2使用dbcenter作為資料盤，先將其刪掉)
+如果想要刪除容器時，同時刪除掉其資料盤，那麼可以使用-v引數。(db1，db2使用dbcenter作為資料盤，先將其刪掉)
 
 ```
 docker rm -v dbcenter
@@ -690,7 +690,7 @@ docker rm -v dbcenter
 
 參考
 
-Docker學習筆記之存儲篇-眼眸刻著你的微笑-51CTO博客
+Docker學習筆記之儲存篇-眼眸刻著你的微笑-51CTO部落格
 
 https://blog.51cto.com/dengaosky/1854568
 
@@ -700,29 +700,29 @@ https://blog.51cto.com/dengaosky/1854568
 
 在介紹VOLUME指令之前，我們來看下如下場景需求：
 
-1）容器是基於鏡像創建的，最後的容器檔案系統包括鏡像的唯讀層+可寫層，容器中的進程操作的資料持久化都是保存在容器的可寫層上。一旦容器刪除後，這些資料就沒了，除非我們人工備份下來（或者基於容器創建新的鏡像）。能否可以讓容器進程持久化的資料保存在主機上呢？這樣即使容器刪除了，資料還在。
+1）容器是基於映象建立的，最後的容器檔案系統包括映象的唯讀層+可寫層，容器中的程式操作的資料持久化都是儲存在容器的可寫層上。一旦容器刪除後，這些資料就沒了，除非我們人工備份下來（或者基於容器建立新的映象）。能否可以讓容器程式持久化的資料儲存在主機上呢？這樣即使容器刪除了，資料還在。
 
-2）當我們在開發一個web應用時，開發環境是在主機本地，但運行測試環境是放在docker容器上。
+2）當我們在開發一個web應用時，開發環境是在主機本地，但執行測試環境是放在docker容器上。
 
 這樣的話，我在主機上修改檔（如html，js等）後，需要再同步到容器中。這顯然比較麻煩。
 
-3）多個容器運行一組相關聯的服務，如果他們要共用一些資料怎麼辦？
+3）多個容器執行一組相關聯的服務，如果他們要共用一些資料怎麼辦？
 
 對於這些問題，我們當然能想到各種解決方案。而docker本身提供了一種機制，可以將主機上的某個目錄與容器的某個目錄（稱為掛載點、或者叫卷）關聯起來，容器上的掛載點下的內容就是主機的這個目錄下的內容，這類似linux系統下mount的機制。 這樣的話，我們修改主機上該目錄的內容時，不需要同步容器，對容器來說是立即生效的。 掛載點可以讓多個容器共用。
 
 下麵我們來介紹具體的機制。
 
-**一、通過docker run命令**
+**一、透過docker run命令**
 
-1、運行命令：docker run --name test -it -v /home/xqh/myimage:/data ubuntu /bin/bash
+1、執行命令：docker run --name test -it -v /home/xqh/myimage:/data ubuntu /bin/bash
 
-其中的 -v 標記 在容器中設置了一個掛載點 /data（就是容器中的一個目錄），並將主機上的 /home/xqh/myimage 目錄中的內容關聯到 /data下。
+其中的 -v 標記 在容器中設定了一個掛載點 /data（就是容器中的一個目錄），並將主機上的 /home/xqh/myimage 目錄中的內容關聯到 /data下。
 
 這樣在容器中對/data目錄下的操作，還是在主機上對/home/xqh/myimage的操作，都是完全即時同步的，因為這兩個目錄實際都是指向主機目錄。
 
-2、運行命令：docker run --name test1 -it -v /data ubuntu /bin/bash
+2、執行命令：docker run --name test1 -it -v /data ubuntu /bin/bash
 
-上面-v的標記只設置了容器的掛載點，並沒有指定關聯的主機目錄。這時docker會自動綁定主機上的一個目錄。通過docker inspect 命令可以查看到。
+上面-v的標記只設定了容器的掛載點，並沒有指定關聯的主機目錄。這時docker會自動繫結主機上的一個目錄。透過docker inspect 命令可以檢視到。
 
 [     ](javascript:void(0);)
 
@@ -749,17 +749,17 @@ xqh@ubuntu:~/myimage$ docker inspect test1
 
 上面 Mounts下的每條資訊記錄了容器上一個掛載點的資訊，"Destination" 值是容器的掛載點，"Source"值是對應的主機目錄。
 
-可以看出這種方式對應的主機目錄是自動創建的，其目的不是讓在主機上修改，而是讓多個容器共用。
+可以看出這種方式對應的主機目錄是自動建立的，其目的不是讓在主機上修改，而是讓多個容器共用。
 
  
 
-**二、通過dockerfile創建掛載點**
+**二、透過dockerfile建立掛載點**
 
-上面介紹的通過docker run命令的-v標識創建的掛載點只能對創建的容器有效。
+上面介紹的透過docker run命令的-v標識建立的掛載點只能對建立的容器有效。
 
-通過dockerfile的 VOLUME 指令可以在鏡像中創建掛載點，這樣只要通過該鏡像創建的容器都有了掛載點。
+透過dockerfile的 VOLUME 指令可以在映象中建立掛載點，這樣只要透過該映象建立的容器都有了掛載點。
 
-還有一個區別是，通過 VOLUME 指令創建的掛載點，無法指定主機上對應的目錄，是自動生成的。
+還有一個區別是，透過 VOLUME 指令建立的掛載點，無法指定主機上對應的目錄，是自動生成的。
 
 ```
 #test
@@ -768,9 +768,9 @@ MAINTAINER hello1
 VOLUME ["/data1","/data2"]
 ```
 
-上面的dockfile檔通過VOLUME指令指定了兩個掛載點 /data1 和 /data2.
+上面的dockfile檔透過VOLUME指令指定了兩個掛載點 /data1 和 /data2.
 
-我們通過docker inspect 查看通過該dockerfile創建的鏡像生成的容器，可以看到如下資訊
+我們透過docker inspect 檢視透過該dockerfile建立的映象生成的容器，可以看到如下資訊
 
  
 
@@ -805,15 +805,15 @@ VOLUME ["/data1","/data2"]
 
 docker run --name test1 -it myimage /bin/bash
 
-上面命令中的 myimage是用前面的dockerfile文件構建的鏡像。 這樣容器test1就有了 /data1 和 /data2兩個掛載點。
+上面命令中的 myimage是用前面的dockerfile檔案構建的映象。 這樣容器test1就有了 /data1 和 /data2兩個掛載點。
 
-下面我們創建另一個容器可以和test1共用 /data1 和 /data2卷 ，這是在 docker run中使用 --volumes-from標記，如：
+下面我們建立另一個容器可以和test1共用 /data1 和 /data2卷 ，這是在 docker run中使用 --volumes-from標記，如：
 
-可以是來源不同鏡像，如：
+可以是來源不同映象，如：
 
 docker run --name test2 -it --volumes-from test1 ubuntu /bin/bash
 
-也可以是同一鏡像，如：
+也可以是同一映象，如：
 
 docker run --name test3 -it --volumes-from test1 myimage /bin/bash
 
@@ -821,11 +821,11 @@ docker run --name test3 -it --volumes-from test1 myimage /bin/bash
 
  
 
-**四、最佳實踐：數據容器**
+**四、最佳實踐：資料容器**
 
-如果多個容器需要共用資料（如持久化資料庫、設定檔或者資料檔案等），可以考慮創建一個特定的資料容器，該容器有1個或多個卷。
+如果多個容器需要共用資料（如持久化資料庫、設定檔或者資料檔案等），可以考慮建立一個特定的資料容器，該容器有1個或多個卷。
 
-其它容器通過--volumes-from 來共用這個資料容器的卷。
+其它容器透過--volumes-from 來共用這個資料容器的卷。
 
 因為容器的卷本質上對應主機上的目錄，所以這個資料容器也不需要啟動。
 
@@ -839,19 +839,19 @@ docker run --name test3 -it --volumes-from test1 myimage /bin/bash
 
 參考
 
-docker學習筆記18：Dockerfile 指令 VOLUME 介紹 - 51kata - 博客園
+docker學習筆記18：Dockerfile 指令 VOLUME 介紹 - 51kata - 部落格園
 
 https://www.cnblogs.com/51kata/p/5266626.html
 
 
 
-## Docker 實戰系列（三）：使用 Volume 保存容器內的數據
+## Docker 實戰系列（三）：使用 Volume 儲存容器內的資料
 
 這是 Docker 實戰系列文的第三篇，如果還沒看過上一篇的可以先看看 [Docker 實戰系列（二）：在 DockerHub 上分享自己的 image](https://larrylu.blog/share-image-on-dockerhub-ccb7d9b26fa8)
 
 *之前說過**每個 container 都是獨立**的，那如果今天我想升級 mysql 的版本，於是我把正在跑的* *mysql:5.5* *關掉，然後重新跑一個* *mysql:5.7* *的 container，那資料庫裡面的資料不就不見了嗎？*
 
-沒錯，這時候就需要 volume 了，簡單來說 Volume 就是用來保存容器內的資料的，看看下面這張圖
+沒錯，這時候就需要 volume 了，簡單來說 Volume 就是用來儲存容器內的資料的，看看下面這張圖
 
 當你使用 volume 時，docker 會在你的本機上隨機新增一個資料夾（Local storage area），大部分會在 `/var` 底下，然後讓這個資料夾跟 container 裡面的某個資料夾互通。
 
@@ -870,7 +870,7 @@ https://www.cnblogs.com/51kata/p/5266626.html
 
 ## 2. 使用 volume
 
-在啟動時加一個 `-v` 參數，就可以指定 volume 要跟容器內哪一個資料夾連通，這邊用的是 `/db/data`，實際上使用時可以換成資料庫存放資料的路徑
+在啟動時加一個 `-v` 引數，就可以指定 volume 要跟容器內哪一個資料夾連通，這邊用的是 `/db/data`，實際上使用時可以換成資料庫存放資料的路徑
 
 demo 一下：
  \1. 剛開始先確認 `/db/data` 裡面什麼檔案都沒有
@@ -885,7 +885,7 @@ demo 一下：
 
 
 
-值得留意的是***這三個指令是跑在不同的容器裡面***，所以也就證明瞭***當容器被關掉時，資料確實還有保存在 volume 內***，而且下個容器可以成功讀到上個容器留下的資料
+值得留意的是***這三個指令是跑在不同的容器裡面***，所以也就證明瞭***當容器被關掉時，資料確實還有儲存在 volume 內***，而且下個容器可以成功讀到上個容器留下的資料
 
 
 
@@ -908,18 +908,18 @@ demo 一下：
 
 上面例子中的 `package.json` 其實是在容器內生成的，所以有了 volume 之後就可以不用裝 yarn 卻還是可以跑 `yarn init`
 
-同理，你也可以不用裝 `g++` 就能編譯 C++ 原始碼、不用裝 JDK 就可以開發 Java 程式、甚至不用裝 mongodb 就可以用他來存資料，整台電腦只要裝一個 docker，真是太神了🎉🎉
+同理，你也可以不用裝 `g++` 就能編譯 C++ 原始碼、不用裝 JDK 就可以開發 Java 程式、甚至不用裝 mongodb 就可以用他來存資料，整臺電腦只要裝一個 docker，真是太神了🎉🎉
 
 
 
 ## 總結
 
-這篇講了兩種 volume 希望大家都有看懂，如果想更深入瞭解可以看看[官方文件](https://docs.docker.com/storage/volumes/)，在往後的章節為了保存資料將會很常用到他
+這篇講了兩種 volume 希望大家都有看懂，如果想更深入瞭解可以看看[官方檔案](https://docs.docker.com/storage/volumes/)，在往後的章節為了儲存資料將會很常用到他
 
 下一篇要講的是如何將一個應用拆分成多個 container，讓他們分工合作構成你的應用程式，有興趣的人歡迎追蹤我，謝謝大家～
 
 **參考**
 
-**Docker** **實戰系列（三）：使用 Volume 保存容器內的數據 – Larry・Blog**
+**Docker** **實戰系列（三）：使用 Volume 儲存容器內的資料 – Larry・Blog**
 
 https://larrylu.blog/using-volumn-to-persist-data-in-container-a3640cc92ce4

@@ -1,5 +1,5 @@
 ---
-title: "Eclipse 用 Open Type Hierarchy 查看類的繼承關係"
+title: "Eclipse 用 Open Type Hierarchy 檢視類的繼承關係"
 date: 2020-05-15T16:36:13+08:00
 categories:
  - "筆記"
@@ -10,7 +10,7 @@ draft: false
 ---
 
 
-## Eclipse 用 Open Type Hierarchy 查看類的繼承關係
+## Eclipse 用 Open Type Hierarchy 檢視類的繼承關係
 <!--more-->
 
 ## 前言
@@ -19,9 +19,9 @@ draft: false
 
 ## 使用 Eclispe
 
-用Open Type Hierarchy可以查看類的繼承關係，可以在**Hierarchy**窗口看到繼承層次的導航。  
+用Open Type Hierarchy可以檢視類的繼承關係，可以在**Hierarchy**視窗看到繼承層次的導航。  
 
-在方法或類名上點擊右鍵，選擇**Open Type Hierarchy**即可，快捷鍵是**F4**。
+在方法或類名上點選右鍵，選擇**Open Type Hierarchy**即可，快捷鍵是**F4**。
 
 ![OpenTypeHierarchy](/images/eclipse/OpenTypeHierarchy.png)
 

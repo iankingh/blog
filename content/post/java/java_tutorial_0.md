@@ -16,7 +16,7 @@ toc: true
 
 ### 第一步 設定環境變數-JAVA_HOME
 
-於系統path 添加 java環境變數 (Environment Variable)
+於系統path 新增 java環境變數 (Environment Variable)
 
 ```cmd
 C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
@@ -39,7 +39,7 @@ C:\Program Files\Java\jdk1.8.0_111(後面為自己的jdk)
 
 ### 第三步 測試
 
-打開terminal，輸入以下指令
+開啟terminal，輸入以下指令
 
 ``` shell
 java -vresion
