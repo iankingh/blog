@@ -1,0 +1,2 @@
+{{- $destination := .Destination | strings.TrimPrefix "/" -}}
+<img src="{{ "imgs/img-lazy-loading.gif" | absURL }}" data-src="{{ $destination | absURL | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} />

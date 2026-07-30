@@ -164,7 +164,8 @@ import axios from 'axios'
 
 
 const baseURL = import.meta.env.SSR ? 'http://localhost:8887' : '/'// 此處和 webpack 的 publicPath 保持一致
-const apiKey = '0ac44ae016490db2204ce0a042db2916'
+// 機密金鑰只保留在 SSR／後端環境，不要提交到版本控制或送到瀏覽器。
+const apiKey = import.meta.env.SSR ? process.env.DOUBAN_API_KEY : undefined
 
 // 建立 axios 例項
 let service = axios.create({
@@ -175,13 +176,13 @@ let service = axios.create({
 
 // 新增request攔截器
 service.interceptors.request.use(config => {
-  if (config.params) {
+  if (apiKey && config.params) {
     config.params = {
       apiKey:apiKey,
       ...config.params
     }
   }
-  if (config.data) {
+  if (apiKey && config.data) {
     config.data = {
       apiKey:apiKey,
       ...config.data
@@ -231,4 +232,3 @@ export default {
   baseURL
 }
 ```
-

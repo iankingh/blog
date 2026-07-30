@@ -4,7 +4,7 @@ date: 2020-05-15T16:36:13+08:00
 categories:
  - "筆記"
 tags:
- - "eclispe"
+ - "eclipse"
 toc: true
 draft: false
 ---
@@ -15,9 +15,9 @@ draft: false
 
 ## 前言
 
-有時會想要知道繼承類別的關係，此時可以使用ide 內建的功能來解決
+有時會想要知道類別的繼承關係，此時可以使用 IDE 內建的功能來檢視。
 
-## 使用 Eclispe
+## 使用 Eclipse
 
 用Open Type Hierarchy可以檢視類的繼承關係，可以在**Hierarchy**視窗看到繼承層次的導航。  
 

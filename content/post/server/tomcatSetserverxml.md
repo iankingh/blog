@@ -27,7 +27,7 @@ apache-tomcat/conf/server.xml
 ```
 
 **調整如下**
-![調整Tomcat上傳檔案大小](../images/tomcat/調整Tomcat上傳檔案大小.png)
+![調整 Tomcat 上傳檔案大小](/images/Tomcat/調整Tomcat上傳檔案大小.png)
 
 ### 設定部屬路徑及檔案位址
 

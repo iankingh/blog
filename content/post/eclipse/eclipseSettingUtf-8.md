@@ -1,10 +1,10 @@
 ---
-title: "EclipseSettigUtf 8"
+title: "Eclipse 設定 UTF-8"
 date: 2021-04-12T09:08:22+08:00
 categories:
  - "筆記"
 tags:
- - "eclispe"
+ - "eclipse"
 toc: true
 draft: false
 ---

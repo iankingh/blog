@@ -37,7 +37,7 @@ ALTER TABLE customer ADD DEFAULT '未知' FOR Address;
 CREATE LOGIN：用於新增一個登入帳號，可以指定密碼、預設資料庫和語言等屬性。例如：
 
 ```sql
-CREATE LOGIN [Account] WITH PASSWORD=N'!qaz2wsx', DEFAULT_DATABASE=[DATABASE_Name], DEFAULT_LANGUAGE=[Traditional Chinese], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+CREATE LOGIN [Account] WITH PASSWORD=N'<STRONG_PASSWORD>', DEFAULT_DATABASE=[DATABASE_Name], DEFAULT_LANGUAGE=[Traditional Chinese], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON
 ```
 
 ## CREATE USER
@@ -54,7 +54,7 @@ GO
 - 也可以先新增登入帳號，再使用該帳號建立使用者：
 
 ```sql
-CREATE LOGIN Account WITH PASSWORD = '!qaz2wsx';  
+CREATE LOGIN Account WITH PASSWORD = '<STRONG_PASSWORD>';
 
 CREATE USER  user_name FOR LOGIN user_name; 
 
@@ -100,7 +100,5 @@ GO
 [SQL DEFAULT 預設值 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/default-constraint.html)
 
 [SQL ALTER TABLE 更改資料表 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/alter-table.html)
-
-
 
 

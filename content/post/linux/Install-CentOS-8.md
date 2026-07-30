@@ -58,7 +58,7 @@ dd if=CentOS-8-x86_64-1905-dvd1.iso of=/dev/sdb
 
 選擇“Install CentOS Linux 8.0”（安裝 CentOS Linux 8.0）選項。
 
-![Start with the installation process](/images/Linux/Start with the installation process.png)
+![Start with the installation process](/images/Linux/Start-with-the-installation-process.png)
 
 
 
@@ -68,7 +68,7 @@ dd if=CentOS-8-x86_64-1905-dvd1.iso of=/dev/sdb
 
 選擇想要在 CentOS 8 安裝過程中使用的語言，然後繼續。
 
-![Choose the language for the installation process](/images/LinuX/Choose the language for the installation process.png)
+![Choose the language for the installation process](/images/Linux/Choose-the-language-for-the-installation-process.png)
 
 ## Step5 : Select the keyboard language for the installation process
 

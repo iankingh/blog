@@ -1,5 +1,5 @@
 ---
-title: "Java_tutorial_4"
+title: "[從 0 開始的 JAVA 生活] No.4 物件導向簡介"
 date: 2021-07-25T20:58:15+08:00
 draft: false
 categories:
@@ -15,18 +15,17 @@ toc: true
 
 ## 物件導向的三種特性
 
-1. 封裝 
-    - public 
-    - proteced 
-    - default(預設)
-    - private 
+1. 封裝
+    - 將資料與操作資料的方法放在同一個類別中。
+    - 透過 `public`、`protected`、package-private（未寫修飾詞）與 `private` 控制存取範圍。
 
-2. 繼承 
-    - 共同的 data 只要描述一次
-    - 子類別 可以 ADD or override Method
+2. 繼承
+    - 把共用狀態與行為定義在父類別，子類別可以新增或覆寫方法。
+    - Java 類別只能繼承一個父類別，但可以實作多個介面。
 
 3. 多型
-
+    - 使用父類別或介面型別引用不同實作，實際呼叫的方法由執行時期的物件決定。
+    - 多型可以降低呼叫端對具體類別的依賴。
 
 
 ## 參考

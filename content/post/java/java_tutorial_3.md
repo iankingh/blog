@@ -1,6 +1,8 @@
 ---
 title: "[從 0 開始的 JAVA 生活]No.3 變數與它的小夥伴們"
 date: 2020-06-15T06:20:37+08:00
+aliases:
+ - "/post/java/java_tutorial_3./"
 draft: false
 categories:
   - "筆記"

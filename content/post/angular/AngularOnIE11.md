@@ -1,6 +1,8 @@
 ---
-title: "AngualrOnIE11"
+title: "Angular on IE 11"
 date: 2021-03-10T13:21:43+08:00
+aliases:
+ - "/post/angular/angualronie11/"
 categories:
  - "筆記"
 tags:
@@ -10,7 +12,7 @@ toc: true
 draft: false
 ---
 
-## Angualr IE 11 使用筆記
+## Angular IE 11 使用筆記
 
 在IE 11 上的 使用 Angular
 
@@ -18,7 +20,7 @@ draft: false
 
 ## 前言
 
-基本上Angualr 在 IE11 不是很 OK ,建議不要再使用IE,如果有不幸的用到有幾點要注意
+Angular 在 IE 11 上的相容性有限；若舊系統仍必須支援 IE 11，可留意以下設定。
 
 設定Index
 於`index.html`  加上

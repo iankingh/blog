@@ -1,6 +1,8 @@
 ---
-title: "VSCodeUaeRemote"
+title: "VS Code 使用 Remote SSH"
 date: 2021-02-08T11:11:01+08:00
+aliases:
+ - "/post/visual-studio-code/vscodeuaeremote/"
 draft: false
 categories:
  - "筆記"
@@ -15,7 +17,7 @@ toc: true
 
 ## 前言
 
-有時需要連線到遠端主機，此時使用可以使用 shh 的方式連線過去，但每一次都要輸入連線密碼，且看不到資料夾的狀態， 此時可以用 VS code 安裝
+有時需要連線到遠端主機。雖然可以直接使用 SSH，但每次都要操作終端機，也不容易瀏覽遠端資料夾；此時可在 VS Code 安裝
 
 [Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
 
@@ -89,6 +91,5 @@ vagrant ssh-config
 [vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
 
 [使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote)
-
 
 

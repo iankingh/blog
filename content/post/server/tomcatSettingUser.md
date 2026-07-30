@@ -1,7 +1,9 @@
 ---
-title: "tomcatSetingUser"
+title: "Tomcat 設定管理使用者"
 date: 2021-03-03T13:33:50+08:00
-draft: false    
+aliases:
+ - "/post/server/tomcatsetinguser/"
+draft: false
 categories:
  - "筆記"
 tags:
@@ -10,11 +12,13 @@ tags:
 toc: true
 ---
 
-## 配置Tomcat 的使用者
+## 配置 Tomcat 的使用者
 
 <!--more-->
 
 於 tomcat 的 conf/tomcat-users.xml
+
+管理介面應限制在可信任網路，帳號需使用獨立且足夠強的密碼，不要直接採用下列佔位值。
 
 ```xml
   <!-- 配置角色 -->
@@ -22,7 +26,7 @@ toc: true
   <role rolename="admin-gui"/>
 
   <!-- 配置管理帳號及許可權 -->
-  <user username="使用者名稱" password="密碼" roles="admin-gui,manager-gui"/>
+  <user username="<YOUR_USERNAME>" password="<STRONG_PASSWORD>" roles="admin-gui,manager-gui"/>
 
 ```
 

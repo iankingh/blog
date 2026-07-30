@@ -181,7 +181,7 @@ efak.topic.token=keadmin
 efak.driver=com.mysql.cj.jdbc.Driver
 efak.url=jdbc:mysql://localhost:3306/ke_schema?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
 efak.username=root
-efak.password=ian22982
+efak.password=<YOUR_DATABASE_PASSWORD>
 ```
 
 五、kafka eagle的啟動

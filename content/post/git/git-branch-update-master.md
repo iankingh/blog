@@ -1,5 +1,5 @@
 ---
-title: "GitBranchUpdateMaster"
+title: "同步開發分支與主分支"
 date: 2021-02-02T22:04:27+08:00
 categories:
  - "筆記"
@@ -9,19 +9,30 @@ toc: true
 draft: false
 ---
 
-## Git dev-branch Update master-branch
+## 同步開發分支與主分支
 
 <!--more-->
 
 ## 前言
 
-一般來說 我們會先 clone 一份到我們的自己的儲存庫 , 再開一個分支開發 checkout -b dev-1 
+開發功能時通常會從主分支建立獨立分支：
 
-當主要分支有所變動時 可以使用以下方式更新主要分支
+```shell
+git switch master
+git pull --ff-only
+git switch -c dev-1
+```
 
-從最新的master checkout 分支出去
+當遠端主分支有新提交時，先更新本機主分支，再把變更合併進開發分支：
 
-再把dev-1  跟新的分支合併
+```shell
+git switch master
+git pull --ff-only
+git switch dev-1
+git merge master
+```
+
+若專案慣用 rebase，也可在 `dev-1` 執行 `git rebase master`，但已共享的分支應先與團隊確認，避免改寫他人的提交歷史。
 
 ## 參考
 

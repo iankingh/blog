@@ -1,6 +1,8 @@
 ---
 title: "Vue 教學 24 - 程式設計式導航"
 date: 2026-03-22T20:24:00+08:00
+aliases:
+- "/post/vue/vue-24-編程式導航/"
 categories:
 - "筆記"
 tags:

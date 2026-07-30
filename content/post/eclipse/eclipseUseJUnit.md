@@ -4,7 +4,7 @@ date: 2020-09-29T22:13:19+08:00
 categories:
  - "筆記"
 tags:
- - "eclispe"
+ - "eclipse"
 toc: true
 draft: false
 ---
@@ -16,9 +16,9 @@ draft: false
 
 #### 設定 Build Path
 
-點選專案右邊 Build Path >>> Configuer Build Path 
+在專案上按右鍵，選擇 Build Path → Configure Build Path。
 
-![ Configuer Build Path ](/images/eclipse/ConfiguerBuildPath.png)
+![Configure Build Path](/images/eclipse/ConfigureBuildPath.png)
 
 #### 選擇 Libraies >>Classpath >>Add Libray
 
@@ -40,7 +40,7 @@ draft: false
 
 1.點選 於 Test.java(測試的類別) 點右鍵 >>>Run AS >>>>Run Configuations 
 
-![juint.png](/images/eclipse/juint.png)
+![JUnit 測試結果](/images/eclipse/junit.png)
 
 2.開啟設定
 
@@ -50,12 +50,12 @@ Enbironment  : 可以選擇 環境變數
 
 
 
-![juint2.png](/images/eclipse/juint2.png)
+![JUnit 執行設定](/images/eclipse/junit2.png)
 
 
 
 
-![juint3.png](/images/eclipse/juint3.png)
+![JUnit 執行結果](/images/eclipse/junit3.png)
 
 
 
@@ -63,6 +63,4 @@ Enbironment  : 可以選擇 環境變數
 ## 參考
 
 [Embracing JUnit 5 with Eclipse | The Eclipse Foundation](https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php)
-
-
 

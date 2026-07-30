@@ -1,5 +1,5 @@
 ---
-title: "HugoAddGoogleAnalytics"
+title: "Hugo 加入 Google Analytics"
 date: 2021-07-22T18:37:13+08:00
 draft: false
 categories:
@@ -9,25 +9,22 @@ tags:
 toc: true
 ---
 
-## hugo 使用 GoogleAnalytics
+## Hugo 使用 Google Analytics
 <!-- 簡介 -->
 <!--more-->
 
-1. 先申請 Google Analytics v4 (gtag.js)
-   於toml加入
-   googleAnalytics = "G-MEASUREMENT_ID"
+1. 在 Google Analytics 建立 GA4 資源，取得 `G-` 開頭的 Measurement ID。
 
-2. Use the Google Analytics Template
+2. 本專案的 NexT 主題覆寫模板讀取 `params.analytics.google`，在 `config.yaml` 設定：
 
+   ```yaml
+   params:
+     analytics:
+       google: G-MEASUREMENT_ID
+   ```
+
+3. 啟動本地伺服器後，使用瀏覽器開發者工具確認 `gtag.js` 已載入。正式環境還應確認隱私權與 Cookie 告知符合部署地區的規範。
 
 ## 參考
 
-[Hexo + Github Pages：手把手教你打造免費個人部落格 - Mr.萊瑞的生活隨筆](https://www.larrynote.com/website-service/31/)
-
-
-[Hugo 加入 Google Analytics](https://coreychen71.github.io/posts/2019-05/hugoaddgoogleanalytics/)
-
-
-[Hugo 加入 Google Analytics 統計分析工具 與 SEO - 安可東尼 Uncle Tony Blog](https://blog.uncletony.tw/2021/03/hugo_%E5%8A%A0%E5%85%A5google_analytics/)
-
-
+[Hugo Google Analytics 模板](https://gohugo.io/templates/embedded/#google-analytics)

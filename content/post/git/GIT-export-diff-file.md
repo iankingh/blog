@@ -52,7 +52,7 @@ git diff-tree -r --no-commit-id --name-status --text --diff-filter=ACDMRT  commi
 
  `git log`
 
- ![git log](../images/git/git-log.png)
+![git log](/images/git/git-log.png)
 
 
 ```bash
@@ -60,7 +60,7 @@ git diff-tree -r --no-commit-id  --name-status --text --diff-filter=ACDMRT  c19c
 ```
 
 **差異如下**
-![git log](../images/git/git-diff.png)
+![git diff](/images/git/git-diff.png)
 
 ## 匯出差異檔
 
@@ -104,7 +104,6 @@ git archive --format=zip --output="$name".zip HEAD $(git diff-tree -r --no-commi
 [GIT 檢視/匯出差異檔案 - LinYoYo_攻城獅_學習筆記 (hank7891.github.io)](https://hank7891.github.io/2021/08/11/GIT%E6%9F%A5%E7%9C%8B:%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%AA%94%E6%A1%88/)
 
 [git 匯出差異清單和檔案. 匯出特定版本中新增或修改過的檔案 | by Jingle Lin | Jiingler | Medium](https://medium.com/jiingler/git-%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%B8%85%E5%96%AE%E5%92%8C%E6%AA%94%E6%A1%88-42b6ab9c7594)
-
 
 
 
