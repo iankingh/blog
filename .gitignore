@@ -33,9 +33,15 @@ Temporary Items
 # IDE 相關
 .vscode/
 .idea/
+.obsidian/workspace*.json
+.obsidian/cache/
+.trash/
 *.swp
 *.swo
 *~
+
+# 本機分析產物
+/.understand-anything/
 
 # 作業系統
 Thumbs.db

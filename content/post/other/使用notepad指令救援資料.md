@@ -2,7 +2,7 @@
 title: "使用notepad指令救援資料"
 date: 2021-03-15T09:50:02+08:00
 categories:
- - "other"
+ - "筆記"
 tags:
  - "windows"
  - "other"
@@ -38,4 +38,3 @@ draft: false
 ![使用notepad指令救援資料-03](../images/other/使用notepad指令救援資料-03.jpg)
 
 再把檔案放入隨身硬碟
-

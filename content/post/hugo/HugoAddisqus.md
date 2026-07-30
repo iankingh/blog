@@ -6,6 +6,7 @@ categories:
  - "筆記"
 tags:
  - "hugo"
+toc: true
 ---
 
 # Hugo 使用 disqus

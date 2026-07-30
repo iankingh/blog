@@ -2,7 +2,7 @@
 title: "AngularNpmError"
 date: 2021-07-04T18:05:34+08:00
 categories:
- - "Angular"
+ - "技術"
 tags:
  - "Angular"
  - "npm"
@@ -17,7 +17,7 @@ draft: false
 ### 問題
 
 當安裝 npm 安裝如果出現以下錯誤，表示你的npm 太新了  
-![AngularinstllNPMError-01](/images/java/AngularinstllNPMError-01.png)
+![AngularinstllNPMError-01](/images/Angular/AngularinstllNPMError-01.png)
 
 ### 解決方法如下
 

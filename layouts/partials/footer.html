@@ -26,7 +26,7 @@
 </div>
 {{- if $ft.powered }}
 <div class="powered-by">
-  {{ $pb := printf "<a href='https://gohugo.io' title='%s' target='_blank'>Hugo</a> &amp; <a href='https://github.com/hugo-next/hugo-theme-next' title='%s' target='_blank'>Hugo NexT.%s</a>" hugo.Version .Site.Data.config.version .Site.Params.scheme }}
+  {{ $pb := printf "<a href='https://gohugo.io' title='%s' target='_blank'>Hugo</a> &amp; <a href='https://github.com/hugo-next/hugo-theme-next' title='%s' target='_blank'>Hugo NexT.%s</a>" hugo.Version hugo.Data.config.version .Site.Params.scheme }}
   {{- printf (T "FooterPowerby") $pb | safeHTML }}
 </div>
 {{- end }}
@@ -34,5 +34,4 @@
 {{- if $custom }}
   {{ partialCached $custom . }}
 {{- end }}
-
 

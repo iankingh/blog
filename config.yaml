@@ -24,13 +24,14 @@ theme: hugo-theme-next
 # 站點默認的語言和代碼
 # Default laguage & code for website
 defaultContentLanguage: zh-tw
-languageCode: zh-TW
+locale: zh-TW
 # 是否包含中文，日语，韩文
 # Whether contains Chinese, Japanese and Korean
 hasCJKLanguage: true
-# 每頁顯示文章数量
+# 每頁顯示文章數量
 # Display items per page
-paginate: 10
+pagination:
+  pagerSize: 10
 # 开启支持表情符号
 # Enable Emoji support
 enableEmoji: true
@@ -1131,7 +1132,8 @@ params:
   js: js
   images: imgs
   
-#disqus
-disqusShortname: https-iankingh-github-io
-
-googleAnalytics: G-WF6NBSJFE5
+services:
+  disqus:
+    shortname: https-iankingh-github-io
+  googleAnalytics:
+    id: G-WF6NBSJFE5

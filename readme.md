@@ -25,7 +25,7 @@ blog/
 
 ### 環境需求
 
-- [Hugo](https://gohugo.io/) Extended 版本
+- [Hugo](https://gohugo.io/) Extended 版本（建議 v0.128.0 以上）
 - Git
 
 ### 複製專案

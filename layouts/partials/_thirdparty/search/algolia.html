@@ -16,7 +16,7 @@
     <div class="search-hit-stats algolia-stats"></div>
     <div class="search-vendor">
       <span>Search By</span>
-      {{ $domain := .Site.Data.config.domain }}
+      {{ $domain := hugo.Data.config.domain }}
       {{ if and .Site.BaseURL (ne .Site.BaseURL '/') }}
         {{ $domain = .Site.BaseURL }} 
       {{ end }}

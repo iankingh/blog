@@ -3,7 +3,7 @@ title: "JoinWillJavaScriptCourse"
 date: 2021-03-22T11:58:06+08:00
 draft: true
 categories:
- - "上課"
+ - "學習"
 tags:
  - "javaScript"
 toc: true

@@ -2,7 +2,7 @@
 title: "Route"
 date: 2021-02-01T18:04:51+08:00
 categories:
- - "categories"
+ - "技術"
 tags:
  - "Windows"
  - "Cmd"
@@ -202,4 +202,3 @@ Windows route初體驗 @ Jemmy Walker :: 痞客邦 ::
 https://jemmywalker.pixnet.net/blog/post/38323627
 
 http://ctwivan.blogspot.com/2010/08/windowsstatic-route.html
-

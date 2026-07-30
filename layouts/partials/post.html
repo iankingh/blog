@@ -1,5 +1,5 @@
 <div class="post-block">
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="{{ .Site.LauageCode }}">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="{{ .ctx.Site.Language.Locale }}">
     {{ with .ctx }}
     <link itemprop="mainEntityOfPage" href="{{ .Permalink }}">
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
