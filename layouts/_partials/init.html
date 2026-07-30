@@ -1,17 +1,17 @@
-{{/* Use to defind global variables */}}
+{{/* Use to define global variables */}}
 
-{{ $version := int (index (split hugo.Version ".") 1) }}
-{{ if lt $version 89 }}
-  {{ warnf "当前 Hugo 版本小于 0.89.0，请到官方地址下载 Hugo 最新版本：https://github.com/gohugoio/hugo/releases" }}
-  {{ errorf "Current Hugo version is less then 0.89.0, Please download Hugo latest version on offical site: https://github.com/gohugoio/hugo/releases" }}
-{{ end }}
+{{ $curMajorVer := int (index (split hugo.Version ".") 1) }}
+{{ $requreVer := hugo.Data.config.hugoVersion }}
+{{ $minMajorVer := int (index (split $requreVer ".") 1) }}
+{{ if lt $curMajorVer $minMajorVer }}
+  {{ errorf "当前 Hugo 版本为 %s 小于 %s，请到官方地址下载 Hugo 最新版本：https://github.com/gohugoio/hugo/releases 。" hugo.Version $requreVer }}
+  {{ errorf "Current Hugo version is %s less then %s, Please download the Hugo latest version from offical site: https://github.com/gohugoio/hugo/releases ." hugo.Version $requreVer }}
+  {{ end }}
 
 {{ if not hugo.IsExtended }}
-  {{ warnf "Hugo NexT 主题使用了 SCSS 框架，请到官方地址下载 Hugo Extended 版本：https://github.com/gohugoio/hugo/releases" }}
-  {{ errorf "Because that use SCSS framework in Hugo NexT, Please download Hugo extended version on offical site: https://github.com/gohugoio/hugo/releases" }}
+  {{ errorf "Hugo NexT 主题使用了 SCSS 框架，请到官方地址下载 Hugo Extended 版本：https://github.com/gohugoio/hugo/releases 。" }}
+  {{ errorf "The Hugo NexT theme uses the SCSS framework, Please download the Hugo Extended version from the official site: https://github.com/gohugoio/hugo/releases." }}
 {{ end }}
-
-
 {{ $globalVars := newScratch }}
 
 {{ $pages := (where .Page.Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
@@ -21,7 +21,19 @@
 {{ $globalVars.Set "tagsCount" (len .Site.Taxonomies.tags)  }}
 
 {{ $vendor := .Site.Params.vendors.plugins }}
-{{ $router := index hugo.Data.resources.vendors $vendor }}
+{{ $router := dict }}
+
+{{ if eq $vendor "local" }}
+  {{ $router = dict "url" (printf "%sjs/3rd" .Site.BaseURL) "name" $vendor "type" "modern" }}
+{{ else }}
+  {{ range hugo.Data.resources.vendors }}
+    {{ if eq .name $vendor }}
+      {{ $router = . }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 {{ $globalVars.Set "vendor" $vendor }}
 {{ $globalVars.Set "router" $router }}
 
@@ -38,6 +50,7 @@
   "bookmark"    .Site.Params.bookmark
   "lazyload"    .Site.Params.lazyload
   "motion"      .Site.Params.motion
+  "isMultiLang" hugo.IsMultilingual
   "i18n"        (dict
     "placeholder" (T "Search.placeholder")
     "empty"       (T "Search.empty")
@@ -66,6 +79,8 @@
     "comments" .comments
   }}
   {{ $config = merge $config (dict "postmeta" $postmeta) }}
+{{ else }}
+
 {{ end }}
 
 {{ if .Site.Params.algoliaSearch.enable }}
@@ -84,6 +99,15 @@
   "cfg" .
 }}
 {{ $config = merge $config (dict "waline" $waline) }}
+{{ end }}
+
+{{ with .Site.Params.waline3 }}
+{{ $waline := dict
+  "js"  hugo.Data.resources.waline3.js
+  "css" hugo.Data.resources.waline3.css
+  "cfg" .
+}}
+{{ $config = merge $config (dict "waline3" $waline) }}
 {{ end }}
 
 {{ with .Site.Params.giscus }}
@@ -116,12 +140,37 @@
 {{ $config = merge $config (dict "utterances" $utterances) }}
 {{ end }}
 
-{{ with .Site.Params.addThisId }}
-{{ $addthis := dict
-  "js"  hugo.Data.resources.addthis.js
-  "cfg" (dict "pubid" .)
+{{ with .Site.Params.twikoo }}
+{{ $twikoo := dict
+  "js"  hugo.Data.resources.twikoo.js
+  "cfg" .
 }}
-{{ $config = merge $config (dict "addthis" $addthis) }}
+{{ $config = merge $config (dict "twikoo" $twikoo) }}
+{{ end }}
+
+{{ with .Site.Params.share }}
+
+{{ $share := dict "enable" .enable }}
+
+{{ if isset . "sharethis" }}
+  {{ $sharethis := dict
+    "js" hugo.Data.resources.share.sharethis.js
+    "id" .sharethis.id
+  }}
+  {{ $share = merge $share (dict "sharethis" $sharethis) }}
+{{ end }}
+
+{{ if isset . "addtoany" }}
+  {{ $addtoany := dict
+    "js" hugo.Data.resources.share.addtoany.js
+    "locale" .addtoany.locale
+    "num" .addtoany.num_services
+  }}
+
+  {{ $share = merge $share (dict "addtoany" $addtoany) }}
+{{ end }}
+
+{{ $config = merge $config (dict "share" $share) }}
 {{ end }}
 
 {{ with .Site.Params.siteState.statistic }}

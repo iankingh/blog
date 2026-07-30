@@ -21,7 +21,7 @@
         {{ $domain = .Site.BaseURL }} 
       {{ end }}
       <a title="Algolia" target="_blank" href="https://www.algolia.com/?utm_source=instantsearch.js&utm_medium=website&utm_content={{ (urls.Parse $domain).Host }}&utm_campaign=poweredby">
-        <img src="imgs/algolia-logo.svg"/>
+        <img src="{{ "imgs/algolia-logo.svg" | absURL }}"/>
       </a>
     </div>
   </div>

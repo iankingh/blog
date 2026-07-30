@@ -167,7 +167,7 @@ RewriteRule ^/web/(.*) /web/index.html
 
 [maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow](https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server)
 
-[<base href="/"> 與 <base href="./"> 的差別 ? - General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/881/12)
+[`<base href="/">` 與 `<base href="./">` 的差別？- General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/881/12)
 
 [[討論]Routing with ng build找不到路徑的問題 - #2 Kevin - General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/1839/2)
 

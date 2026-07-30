@@ -36,7 +36,7 @@ EX:
 
 [link](https://iankingh.github.io/)
 
-[連結名](https://iankingh.github.io/, "這是標題")
+[連結名](https://iankingh.github.io/ "這是標題")
 
 :+1: **Check point:**
 
@@ -58,7 +58,7 @@ Use the `printf()` function.
 **粗體強調**
 
 圖片
-![Alt text](https://iankingh.github.io/img/author.jpg "Optional title")
+![Alt text](https://iankingh.github.io/blog/imgs/author.png "Optional title")
 
 
 
@@ -117,4 +117,3 @@ Andrew->>China: I am good thanks!
 ## 參考
 
 [markdown語法介紹 - HackMD](https://hackmd.io/@wootu/SkY0M5wsZ?type=view)
-

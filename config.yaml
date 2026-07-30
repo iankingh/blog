@@ -224,6 +224,10 @@ params:
     # 文章底部显示
     # Show in post footer
     post: true
+    # 標示文章並非由 AI 撰寫
+    # Show the Not By AI badge.
+    byai: false
+    notByAiIconColor: white
 
   # OG SEO 配置
   # Open graph settings
@@ -483,7 +487,7 @@ params:
     readTime: true
     # 是否开启评论数显示
     comments: 
-      enable: true
+      enable: false
       # 评论统计插件，暂只支持waline
       # Comment counter plugin, only support waline
       plugin: waline
@@ -511,7 +515,7 @@ params:
     # 是否开启捐赠按钮，开启后将在每个文章页面底部显示
     # If true, a donate button will be displayed 
     # in every article by default.
-    enable: true
+    enable: false
     # 是否开启捐赠方式的动画效果
     # If true, the donate type title will with animation.
     animation: true
@@ -919,11 +923,12 @@ params:
     id:     # <app_id>
     color:  "#fc6423"
 
-  # AddThis文章分享功能
-  # 更多信息及配置请参考：https://www.addthis.com
-  # AddThis Share. 
-  # See: https://www.addthis.com
-  addThisId: #<Your addthis> 
+  # 文章分享功能
+  # Post sharing
+  share:
+    # 保持原有行为；需要時可再啟用 ShareThis 或 AddToAny。
+    # Keep the existing behavior; enable ShareThis or AddToAny when needed.
+    enable: false
 
 
   # ---------------------------------------------------------------
@@ -1116,7 +1121,7 @@ params:
     # The default CDN provider of third-party plugins.
     # Available values: local | unpkg | cdnjs| qiniu | bootcdn | custom
     # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-    plugins: qiniu
+    plugins: local
     # TODO
     # Custom CDN URL
     # For example:

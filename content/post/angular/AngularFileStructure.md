@@ -201,10 +201,10 @@ Run `ng build to` build the project. The build artifacts will be stored in the `
 
 - -prod : 把 `src/environments/environment.ts` 檔案替換成針對特定目標的版本 , 且編譯出來的檔案會小很多
 - -output-path : 表示輸出路徑 : ex : 輸出到當前目錄的 web資料夾底下
-- -base-href : 修改 index.html 裡的 <base href="/"> : ex : <base href="/web/">
+- -base-href : 修改 index.html 裡的 `<base href="/">`：例如 `<base href="/web/">`
 - ***編譯完成後 確認****
 
-index.html 裡的 : <base href="/web/">
+index.html 裡的：`<base href="/web/">`
 
 ### **部署**
 

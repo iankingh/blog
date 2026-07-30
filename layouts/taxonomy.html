@@ -23,13 +23,19 @@
         <ul class="category-list">
           {{ $allSecondaryCats := slice }}
           {{ range .Site.Taxonomies.categories.ByCount }}
+            {{/*
+              Rollback the change of the primary category name.
+              & it could not support the lowercase category name.
+              {{ $primaryCategory := .Name }}
+            */}}
             {{ $primaryCategory := .Page.Title }}
             {{ $primaryCount := 0 }}
-            {{ $secondaryCategories := slice}}
+            {{ $secondaryCategories := slice }}
             {{ $pages := $.Scratch.Get "pages" }}
             {{ range where $pages "Params.categories" "intersect" (slice $primaryCategory) }}
               {{ if eq (index .Params.categories 0) $primaryCategory }}
                 {{ $primaryCount = add $primaryCount 1 }}
+                {{/** if and (isset .Params.categories 1) (not (in $secondaryCategories (index .Params.categories 1))) **/}}
                 {{ if isset .Params.categories 1 }}
                   {{ if not (in $secondaryCategories (index .Params.categories 1)) }}
                     {{ $secondaryCategories = $secondaryCategories | append (index .Params.categories 1) }}
@@ -41,7 +47,7 @@
 
             {{ if not (in $allSecondaryCats $primaryCategory) }}
               <li class="category-list-item">
-                <a class="category-list-link" href="{{ "categories/" | relURL }}{{ $primaryCategory | urlize }}">
+                <a class="category-list-link" href="{{ printf "categories/%s/" ($primaryCategory | urlize) | absURL }}">
                   {{ $primaryCategory }}
                   <span class="category-list-count">{{ $primaryCount }}</span>
                 </a>
@@ -56,7 +62,7 @@
                     {{ end }}
                   {{ end }}
                   <li class="category-children-list-item">
-                    <a class="category-list-link" href="{{ "categories/" | relURL }}{{ . | urlize }}">
+                    <a class="category-list-link" href="{{ printf "categories/%s/" (. | urlize) | absURL }}">
                       {{ . }}
                       <span class="category-list-count">{{ $secondaryCount }}</span>
                     </a>
@@ -76,7 +82,7 @@
         <div class="tag-cloud-tags">
           {{ $randNums := (seq 10) }}
           {{- range $name, $items := $tags }}
-          <a class="tag-cloud-{{ index (shuffle $randNums) 0 }}" href="{{ "/tags/" | relLangURL }}{{ $name | urlize  }}">{{ .Page.Title }}
+          <a class="tag-cloud-{{ index (shuffle $randNums) 0 }}" href="{{ printf "tags/%s/" ($name | urlize) | absURL }}">{{ .Page.Title }}
             <span class="tag-list-count">
               <sup>({{ len $items }})</sup>
             </span>
