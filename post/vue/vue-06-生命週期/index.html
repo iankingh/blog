@@ -1,0 +1,321 @@
+<!doctype html><html lang=zh-TW data-theme=light><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.164.0"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="Vue 教學 06 - 生命週期"><meta itemprop=description content="筆記 | 軟體 | 架構 | Java"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="http://localhost:1313/blog/imgs/author.png"><meta itemprop=keywords content="Vue,生命週期"><meta property="og:type" content="article"><meta property="og:title" content="Vue 教學 06 - 生命週期"><meta property="og:description" content="筆記 | 軟體 | 架構 | Java"><meta property="og:image" content="imgs/author.png"><meta property="og:image:width" content="312"><meta property="og:image:height" content="312"><meta property="og:image:type" content="image/jpeg/png/svg/jpg"><meta property="og:url" content="http://localhost:1313/blog/post/vue/vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/"><meta property="og:site_name" content="ianhuang筆記"><meta property="og:locale" content="zh-TW"><meta property="article:author" content="Ian Huang"><meta property="article:published_time" content="2026-03-22 20:06:00 +0800 CST"><meta property="article:modified_time" content="2026-03-22 20:06:00 +0800 CST"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/blog/css/main.css><style type=text/css>.post-footer,.flinks-list-footer hr:after{content:"~ 我可是有底线的哟 ~"}</style><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return 0[0];const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),0[0]):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":false,"isHome":false,"isPage":true,"path":"vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F","permalink":"http://localhost:1313/blog/post/vue/vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/","title":"Vue 教學 06 - 生命週期","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://www.googletagmanager.com/gtag/js?id=G-WF6NBSJFE5",e.async="true",e.onload=function(){window.dataLayer=window.dataLayer||[];function e(){dataLayer.push(arguments)}e("js",new Date),e("config","G-WF6NBSJFE5")},document.head.appendChild(e)})</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>Vue 教學 06 - 生命週期 - ianhuang筆記</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>ianhuang筆記</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>總有一天，你的日積月累，會變成他人的望塵莫及</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/blog/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首頁</a></li><li class="menu-item menu-item-code"><a href=/blog/categories/%E6%8A%80%E8%A1%93/ class=hvr-icon-pulse rel=section><i class="fa fa-code hvr-icon"></i>技術</a></li><li class="menu-item menu-item-book"><a href=/blog/categories/%E7%AD%86%E8%A8%98/ class=hvr-icon-pulse rel=section><i class="fa fa-book hvr-icon"></i>筆記</a></li><li class="menu-item menu-item-archives"><a href=/blog/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>歸檔
+<span class=badge>130</span></a></li><li class="menu-item menu-item-about"><a href=/blog/about/ class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>關於</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目錄</li><li class=sidebar-nav-overview>站點概覽</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#css>CSS</a></li><li><a href=#summary>Summary</a></li><li><a href=#參考>參考</a></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt="Ian Huang" src=http://localhost:1313/blog/imgs/img-lazy-loading.gif data-src=http://localhost:1313/blog/imgs/author.png><p class=site-author-name itemprop=name>Ian Huang</p><div class=site-description itemprop=description>筆記 | 軟體 | 架構 | Java</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>130</span>
+<span class=site-state-item-name>日誌</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>3</span>
+<span class=site-state-item-name>分類</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>93</span>
+<span class=site-state-item-name>標籤</span></a></div></nav></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href=https://github.com/iankingh title="Github → https://github.com/iankingh" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-github fa-fw hvr-icon"></i>
+Github</a></span></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title><img src=http://localhost:1313/blog/imgs/img-lazy-loading.gif data-src=imgs/cc/big/by_nc_sa.svg alt></a></div><div class="links-of-blogroll site-overview-item animated"><div class=links-of-blogroll-title><i class="fa fa-globe fa-fw"></i>
+友情链接</div><ul class=links-of-blogroll-list><li class=links-of-blogroll-item><a href=https://gitee.com/hugo-next/hugo-theme-next title=https://gitee.com/hugo-next/hugo-theme-next target=_blank>Hugo-NexT</a></li><li class=links-of-blogroll-item><a href=https://lisenhui.cn title=https://lisenhui.cn target=_blank>凡梦星尘空间站</a></li></ul></div></div></div></div><div id=siteinfo-card-widget class=sidebar-card-widget><div class=item-headline><i class="fas fa-chart-line"></i>
+<span>網站資訊</span></div><div class=siteinfo><div class=siteinfo-item><div class=item-name><i class="fa-solid fa-calendar-check"></i>已運行：</div><div class=item-count id=runTimes data-publishdate=2020-04-21T22:29:36+08:00></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-user"></i>總訪客數：</div><div class=item-count id=busuanzi_value_site_uv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-eye"></i>頁面瀏覽：</div><div class=item-count id=busuanzi_value_site_pv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-font"></i>總字數：</div><div class=item-count id=wordsCount data-count=149413></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-mug-hot"></i>閱讀約：</div><div class=item-count id=readTimes data-times=371></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-clock-rotate-left"></i>最後更新於：</div><div class=item-count id=last-push-date data-lastpushdate=2026-03-22T20:31:00+08:00></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-gtranslate class=button title=多語言翻譯><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深淺模式切換><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回頂部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><a href=https://github.com/iankingh rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang=zh-TW><link itemprop=mainEntityOfPage href=http://localhost:1313/blog/post/vue/vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image src=imgs/author.png><meta itemprop=name content="Ian Huang"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="Ian Huang"><meta itemprop=description content="筆記 | 軟體 | 架構 | Java"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="Vue 教學 06 - 生命週期"><meta itemprop=description content></span><header class=post-header><h1 class=post-title itemprop="name headline">Vue 教學 06 - 生命週期
+<a href=https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/post/vue/vue-06-%e7%94%9f%e5%91%bd%e9%80%b1%e6%9c%9f.md rel="noopener external nofollow noreferrer" target=_blank class="exturl post-edit-link" title=編輯><i class="fa fa-pen-nib"></i></a></h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=發表於>發表於：
+</span><time title="創建時間：2026-03-22 20:06:00 +0800 CST" itemprop="dateCreated datePublished" datetime="2026-03-22 20:06:00 +0800 CST">2026-03-22
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分類於>分類於：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/%E7%AD%86%E8%A8%98 itemprop=url rel=index><span itemprop=name>筆記</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字數><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字數：</span>
+<span>2293</span>
+</span><span class=post-meta-item title=閱讀><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>閱讀：&ap;</span>
+<span>5分鐘</span>
+</span><span class=post-meta-item title=瀏覽><span class=post-meta-item-icon><i class="far fa-eye"></i>
+</span><span class=post-meta-item-text>瀏覽：
+</span><span id=busuanzi_value_page_pv data-path=/blog/post/vue/vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/><i class="fa fa-sync fa-spin"></i></span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h1 id=元件的生命週期>元件的生命週期
+<a class=header-anchor href=#%e5%85%83%e4%bb%b6%e7%9a%84%e7%94%9f%e5%91%bd%e9%80%b1%e6%9c%9f></a></h1><h2 id=前言>前言
+<a class=header-anchor href=#%e5%89%8d%e8%a8%80></a></h2><p>元件的生命週期:</p><p>【時刻】【呼叫特定的函式】
+建立 created</p><p>掛載 mounted</p><p>更新
+銷毀</p><p>生命週期、生命週期函式、生命週期鉤子</p><p>建立 (建立前,建立完畢)</p><p>掛載 (掛載前,掛載完畢)</p><p>更新 (更新前,更新完畢)</p><p>銷毀 (銷毀前,銷毀完畢)</p><p>核心：Vue 元件例項在建立時要經歷一系列的初始化步驟，在此過程中 Vue 會在合適的時機呼叫特定函
+數，從而讓開發者有機會在特定階段執行自己的程式碼，這些特定的函式統稱為：生命週期鉤子
+· 規律:</p><p>生命週期整體分為四個階段,分別是:建立、掛載、更新、銷毀,每個階段都有兩個鉤子,一前一後.</p><p>· Vue2 的生命週期</p><p>建立階段: beforeCreate、 created</p><p>掛載階段: beforeMount、 mounted</p><p>更新階段: beforeUpdate、 updated</p><p>銷毀階段 beforeDestroy、 destroyed</p><p>· Vue3 的生命週期</p><p>建立階段: setup</p><p>掛載階段: onBeforeMount、 onMounted</p><p>更新階段: onBeforeUpdate、 onupdated</p><p>銷毀階段: onBeforeUnmount onUnmounted</p><p>· 常用的鉤子: onMounted(掛載完畢)、 onupdated (更新完畢)、 onBeforeUnmount (解除安裝之前)</p><p>· 示例程式碼:</p><p>尚矽谷 建立階段: beforeCreate、 created</p><p>14:3Z 掛載階段: beforeMount、 mounted</p><p>更新階段: beforeUpdate、 updated</p><p>銷毀階段: beforeDestroy、 destroyed</p><p>Vue3 的生命週期</p><p>建立階段: setup</p><p>掛載階段: onBeforeMount、 onMounted</p><p>更新階段: onBeforeUpdate、 onUpdated</p><p>解除安裝階段: onBeforeUnmount onUnmounted</p><p>常用的鉤子: onMountea( 掛載完畢)、 onUpdated (更新完畢)、 onBeforeUnmount(解除安裝之前) 示例程式碼:</p><p>&lt;template〉</p><p>＜h2>目前求和為:{{ sum }}/h2>
+&lt;button @click=&ldquo;changeSum&rdquo;>點我sum+1</button></div></p></template><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&lt;template〉
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;div class=&#34;person&#34;&gt;
+</span></span><span style=display:flex><span>&lt;h2&gt;目前求和為:{{ sum }}&lt;/h2&gt;
+</span></span><span style=display:flex><span>&lt;button @click=&#34;add&#34;&gt;點我sum+1&lt;/button&gt;
+</span></span><span style=display:flex><span>&lt;hr&gt;
+</span></span><span style=display:flex><span>&lt;img v-for=&#34;(dog,index)in dogList&#34; :src=&#34;dog&#34; :key=&#34;index&#34;&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/div&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/templatex
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>I
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;script lang=&#34;ts&#34; setup name=&#34;Person&#34;&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>import {ref, reactive} from &#39;vue&#39;
+</span></span><span style=display:flex><span>import axios from &#39;axios&#39;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 資料
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>let sum = ref(0)
+</span></span><span style=display:flex><span>let doglist = reactive([
+</span></span><span style=display:flex><span>&#39;https://images.dog.ceo/breeds/pembroke/n2113023_4373.jpg&#39; ])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1/ 方法
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>function add(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum.value += 1
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&lt;/aIV&gt;
+</span></span><span style=display:flex><span>&lt;/template&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;script lang=&#34;ts&#34; setup name=&#34;Person&#34;&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>import {ref, reactive} from &#39;vue&#39;
+</span></span><span style=display:flex><span>import axios from &#39;axios&#39;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 資料
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>let sum = ref(0)
+</span></span><span style=display:flex><span>let doglist = reactive([
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&#39;https://images.dog.ceo/breeds/pembroke/n92113023 4373.jpg&#39;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1/ 方法
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>function add(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum.value += 1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>async function getDog(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>let result = await axios.get(&#39;https://dog.ceo/api/breed/pembroke/images/ doglist.push(result.data.message)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/script&gt;
+</span></span></code></pre></div><h2 id=css>CSS
+<a class=header-anchor href=#css></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&lt;style scoped&gt;
+</span></span><span style=display:flex><span>person {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>background-color: skyblue; box-shadow: 0 0 10px; border-radius: 10px; padding: 20px; }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>button
+</span></span><span style=display:flex><span>margin: 5px; }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1i {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>font-size: 20px; }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>img {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>height: 100px; margin-right: 10px; }
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span><span style=color:#f92672>&lt;</span>script<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> default [ <span style=color:#f92672>/*</span> eslint<span style=color:#f92672>-</span>disable <span style=color:#f92672>*/</span> name: <span style=color:#e6db74>&#39;Person&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>//</span> <span style=color:#960050;background-color:#1e0010>資料</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>·</span> <span style=color:#f92672>..</span> data(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>//</span> <span style=color:#960050;background-color:#1e0010>方法</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>methods:{<span style=color:#960050;background-color:#1e0010>…</span>
+</span></span><span style=display:flex><span>}, I
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>//</span> <span style=color:#960050;background-color:#1e0010>建立前的鉤子</span>
+</span></span><span style=display:flex><span>beforeCreate(){ console<span style=color:#f92672>.</span><span style=color:#ae81ff>1</span>og(<span style=color:#e6db74>&#39;建立前&#39;</span>) },
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>methods:{…
+</span></span><span style=display:flex><span>},
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 建立前的鉤子beforeCreate(){… },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 建立完畢的鉤子
+</span></span><span style=display:flex><span>created(){…
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>},
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 掛載前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>beforeMount(){
+</span></span><span style=display:flex><span>console.1og(&#39;掛載前&#39;DF},
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 掛載完畢
+</span></span><span style=display:flex><span>mounted(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39;掛載完畢&#39;) }s
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>created(){…
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>/ 掛載前beforeMount(){ console.1og(&#39;掛載前&#39;) },
+</span></span><span style=display:flex><span>掛載完畢
+</span></span><span style=display:flex><span>mounted(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39;掛載完畢&#39;) / 更新前beforeUpdate(){ console.1og(&#39;更新前&#39;) },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>/ 更新完畢
+</span></span><span style=display:flex><span>updated(){
+</span></span><span style=display:flex><span>console.1og(更新完畢:) }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>建立(建立前 i beforeCreate,建立完畢 created)
+掛載(掛載前,掛載完畢)</p><p>更新(更新前,更新完畢)</p><p>銷毀(銷毀前,銷毀完畢)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>beforeMount(){
+</span></span><span style=display:flex><span>console.1og(&#39;掛載前&#39;) },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 掛載完畢
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mounted(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39;掛載完畢&#39;) // 更新前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>IbeforeUpdate(){
+</span></span><span style=display:flex><span>console.1og(&#39;更新前&#39;) // 更新完畢
+</span></span><span style=display:flex><span>updated({
+</span></span><span style=display:flex><span>console.log(&#39;更新完畢&#39;) },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 銷毀前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>beforeDestroy(){
+</span></span><span style=display:flex><span>console.1og(&#39;銷毀前&#39;) },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 銷毀完畢
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>destroyed(){
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&lt;button @click=&#34;add&#34;&gt;點我sum+1&lt;/button&gt;
+</span></span><span style=display:flex><span>&lt;/div&gt;
+</span></span><span style=display:flex><span>&lt;/template&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;script 1ang=&#34;ts&#34; setup name=&#34;Person&#34;&gt;
+</span></span><span style=display:flex><span>import {ref} from &#39;vue&#39;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 資料
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>let sum = ref(0)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 方法
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>function add(){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum.value += 1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>一&gt; setup }
+</span></span><span style=display:flex><span>// 建立 beforeCreate created
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/script&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> · &lt;style scoped&gt;
+</span></span><span style=display:flex><span>&lt;/style&gt;
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 建立
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39;建立&#39;) // 掛載前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onBeforeMount(()=&gt;{ console.log(&#39;掛載前&#39;) })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>掛載完畢onMounted(()=&gt;{ console.1og(&#39;掛載完畢&#39;) })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 更新前onBeforeUpdate(()=&gt;{ console.log(&#39;更新前&#39;) })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 更新完畢onUpdated(C)=&gt;{ console.1og(&#39;D
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>})
+</span></span><span style=display:flex><span>// 更新前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onBeforeUpdate(()=&gt;{ console.1og(&#39;更新前&#39;) })
+</span></span><span style=display:flex><span>// 更新完畢
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onUpdated(()=&gt;{
+</span></span><span style=display:flex><span>console.log(&#39;更新完畢&#39;) })
+</span></span><span style=display:flex><span>// 解除安裝前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onBeforeUnmount(()=&gt;{ console.log(&#39;解除安裝前&#39;) })
+</span></span><span style=display:flex><span>// 解除安裝完畢
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onUnmounted(()=&gt;{ console.log(&#39;解除安裝完畢&#39;) })
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&lt;template&gt;
+</span></span><span style=display:flex><span>&lt;Person v-if=&#34;isshow&#34;/&gt;
+</span></span><span style=display:flex><span>&lt;/template&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;script lang=&#34;ts&#34; setup name=&#34;App&#34;&gt;
+</span></span><span style=display:flex><span>import Person from&#39;./components/Person.vue&#39; import {ref, onMounted} from &#39;vue&#39;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>let isShow = ref(true)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 掛載完畢
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onMounted(()=&gt;{
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39;父---掛載完畢&#34;】
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/script&gt;
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&lt;template》
+</span></span><span style=display:flex><span>&lt;div class-&#34;penson&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;h2&gt;目前求和為:{ sum }s/h2&gt;
+</span></span><span style=display:flex><span>《button @click-&#34;add&#34;&gt;點我sum+1&lt;/button&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/div&gt;
+</span></span><span style=display:flex><span>&lt;/template&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>《script lang-&#34;ts&#34; setup name-&#34;Person&#34;&gt;
+</span></span><span style=display:flex><span>import (ref, onBeforeMount, onMlounted, onBeforelpdate, onlpdated, onBeforeUnmount, onlnmounted} from &#39;vue&#39;
+</span></span><span style=display:flex><span>// 效瓶
+</span></span><span style=display:flex><span>1et sum - ref(0)
+</span></span><span style=display:flex><span>1/ 方法
+</span></span><span style=display:flex><span>function addC)f
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum.value +- 1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1/ 建立
+</span></span><span style=display:flex><span>console.1og(&#39;建立:)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1/ 掛載前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onBeforeMlount(()-x{
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// console.1og(&#39;掛前&#34;)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 掛載完畢
+</span></span><span style=display:flex><span>onMounted(()-2/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39; - -掛載完畢”)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1! 更新前
+</span></span><span style=display:flex><span>onBeforelpdate(()-y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1/ console.1og(&#39;更新前&#34;)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>1/ 更新完畢
+</span></span><span style=display:flex><span>onlpdated(()-y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>console.1og(&#39;更新完畢”)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>1/ 解除安裝前
+</span></span><span style=display:flex><span>onBeforeUnmount(()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> · 1/ console.1og(&#39;解除安裝前&#34;)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>// 解除安裝完畢
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>onUnmounted(C)-2{
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>1/ console.1og(&#39;解除安裝完畢&#34;)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;/scPipt&gt;
+</span></span></code></pre></div><h2 id=summary>Summary
+<a class=header-anchor href=#summary></a></h2><h2 id=參考>參考
+<a class=header-anchor href=#%e5%8f%83%e8%80%83></a></h2><p><a href=https://www.notion.so/98b881454a694080a84fb7988c2b3d8a title="範本 (notion.so)" rel="noopener external nofollow noreferrer" target=_blank class=exturl>範本 (notion.so)
+<i class="fa fa-external-link-alt"></i></a></p></div><footer class=post-footer><div class=post-tags><a href=/tags/vue>Vue
+</a><a href=/tags/%e7%94%9f%e5%91%bd%e9%80%b1%e6%9c%9f>生命週期</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
+讚賞</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/ali-pay.png alt="Ian Huang - 支付寶">
+<span>支付寶</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/wechat-pay.png alt="Ian Huang - 微信">
+<span>微信</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知識><ul><li class=post-copyright-title><strong>文章標題：</strong>
+Vue 教學 06 - 生命週期</li><li class=post-copyright-author><strong>本文作者： </strong>Ian Huang</li><li class=post-copyright-link><strong>本文鏈接：</strong>
+<a id=post-cr-link href=http://localhost:1313/blog/post/vue/vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/ title="Vue 教學 06 - 生命週期">http://localhost:1313/blog/post/vue/vue-06-%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/</a></li><li class=post-copyright-license><strong>版權聲明： </strong>本博客所有文章除特別聲明外，均採用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 許可協議。轉載請註明出處！</li></ul></div><div class="disqus markdown"><div id=disqus_thread></div><script type=text/javascript>(function(){var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="https-iankingh-github-io",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the
+<a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/blog/post/vue/vue-07-%E8%87%AA%E5%AE%9A%E7%BE%A9hooks/ rel=next title="Vue 教學 07 - 自定義 hooks"><i class="fa fa-chevron-left"></i> Vue 教學 07 - 自定義 hooks</a></div><div class="post-nav-prev post-nav-item"><a href=/blog/post/vue/vue-05-watch%E7%9B%A3%E8%A6%96%E5%B1%AC%E6%80%A7/ rel=prev title="Vue 教學 05 - watch 監視屬性">Vue 教學 05 - watch 監視屬性
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2010 - 2026
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>Ian Huang</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.164.0 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.5.3 target=_blank>Hugo NexT.Gemini</a> 強力驅動</div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":false,"giscus":{"cfg":{"category":"Comments","categoryid":null,"emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"username/repo-name","repoid":null,"theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"http://localhost:1313/blog/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小時前","ds_hours":" 小時 ","ds_just":"剛剛","ds_min":" 分鐘前","ds_mins":" 分鐘","ds_month":" 個月前","ds_years":" 年 ","empty":"沒有找到任何搜索結果：${query}","hits":"找到 ${hits} 個搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-TW","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/blog/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":true,"plugin":"waline"},"views":{"enable":true,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/blog/js/main.js defer></script></body></html>
