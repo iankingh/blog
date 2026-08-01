@@ -10,6 +10,9 @@ tags:
 toc: true
 ---
 
+整理 Angular CLI 常用的開發、建置與部署指令。
+<!--more-->
+
 ## Angular維運指令
 
 ### 啟動本機開發server
@@ -22,7 +25,10 @@ toc: true
 
 到專案目錄執行 **編譯指令如下**
 
-`ng build --prod --base-href /project_Name/`
+舊版 Angular 可使用 `ng build --prod --base-href /project_Name/`；新版 Angular
+請改用以下寫法：
+
+`ng build --configuration production --base-href /project_Name/`
 
 可以使用以下編譯指令 但需設定在angular.js中
 

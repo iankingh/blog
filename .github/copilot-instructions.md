@@ -9,7 +9,7 @@
 - `content/post/` - 依主題分類的部落格文章（java、docker、angular、spring 等）
 - `config.yaml` - Hugo 主要配置檔（1137 行，NexT 主題的大量客製化設定）
 - `themes/hugo-theme-next/` - 主題的 Git submodule
-- `public/` - 連結到 gh-pages 分支的 Git submodule，用於部署
+- `public/` - 連結到 gh-pages 分支的 Git submodule，保留作為本機輸出快照
 - `archetypes/default.md` - 新文章的範本
 - `layouts/` - 自訂版面覆寫檔案（404、首頁、搜尋、partials）
 
@@ -63,18 +63,14 @@ hugo
 ```
 
 ### 部署到 GitHub Pages
-`public/` 目錄是指向 gh-pages 分支的 git submodule：
+將變更推送到 `master` 後，`.github/workflows/deploy.yml` 會自動建置並發布到 `gh-pages`：
 ```bash
-# 建置網站
-hugo
-
-# 部署到 GitHub Pages
-cd public
 git add .
-git commit -m "Update site"
-git push origin gh-pages
-cd ..
+git commit -m "更新部落格內容"
+git push origin master
 ```
+
+部署使用 Hugo Extended v0.164.0，建置輸出寫入暫存目錄，不需要手動提交 `public/` 子模組。
 
 ### 管理 Submodules
 ```bash

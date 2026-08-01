@@ -9,6 +9,10 @@ tags:
 toc: true
 draft: false
 ---
+
+整理 Angular 專案常見的目錄結構與各檔案用途。
+<!--more-->
+
 ## Angular 程式碼目錄結構
 
 ### 初學者小專案可以用 MVC

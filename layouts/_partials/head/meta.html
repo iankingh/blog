@@ -16,7 +16,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{ $faviconMedium | absURL }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconApple | absURL }}">
 <meta itemprop="name" content="{{ .Title }}" />
-<meta itemprop="description" content="{{ .Description | default .Site.Params.description }}" />
+{{- $description := .Description | default .Summary | plainify | truncate 160 -}}
+{{- if not $description }}{{ $description = .Site.Params.description }}{{ end -}}
+<meta itemprop="description" content="{{ $description }}" />
 {{ if .IsPage }}
 {{ with .Date }}
 <meta itemprop="datePublished" {{ . }} />

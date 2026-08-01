@@ -16,7 +16,7 @@ blog/
 ├── static/             # 靜態資源（圖片、CSS、JS）
 ├── layouts/            # 自訂版面範本
 ├── themes/             # Hugo 主題（git submodule）
-├── public/             # 建置輸出（gh-pages 分支）
+├── public/             # gh-pages 分支的本機輸出快照（部署由 Actions 完成）
 ├── config.yaml         # Hugo 配置檔
 └── archetypes/         # 文章範本
 ```
@@ -25,7 +25,7 @@ blog/
 
 ### 環境需求
 
-- [Hugo](https://gohugo.io/) Extended 版本（建議 v0.128.0 以上）
+- [Hugo](https://gohugo.io/) Extended 版本（目前部署固定使用 v0.164.0）
 - Git
 
 ### 複製專案
@@ -85,26 +85,17 @@ draft: false
 
 ## 🚢 部署到 GitHub Pages
 
+將變更推送到 `master` 後，GitHub Actions 會自動使用 Hugo Extended
+v0.164.0 建置，並發布到 `gh-pages` 分支：
+
 ```bash
-# 1. 建置網站
-hugo
-
-# 2. 切換到 public 目錄（gh-pages 分支的 submodule）
-cd public
-
-# 3. 提交變更
 git add .
-git commit -m "更新網站內容"
-git push origin gh-pages
-
-# 4. 回到主目錄
-cd ..
-
-# 5. 提交主專案的變更
-git add .
-git commit -m "更新部落格文章"
+git commit -m "更新部落格內容"
 git push origin master
 ```
+
+部署流程設定位於 `.github/workflows/deploy.yml`。本機預覽仍可使用
+`hugo server -D`，不需要手動提交 `public/` 子模組。
 
 ## 🔧 Submodule 管理
 
@@ -120,7 +111,10 @@ git pull origin master
 cd ../..
 ```
 
-### 部署 Submodule (public/)
+### public/ 子模組（選用）
+
+`public/` 目前只保留作為 gh-pages 的本機輸出快照，正式部署由
+`.github/workflows/deploy.yml` 自動完成。
 
 ```bash
 # 新增 public submodule（指向 gh-pages 分支）

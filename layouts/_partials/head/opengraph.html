@@ -1,7 +1,9 @@
 {{ if .Site.Params.openGraph.enable }}
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{  .Title | default .Site.Title }}" />
-<meta property="og:description" content="{{ .Description | default .Site.Params.Description }}" />
+{{- $description := .Description | default .Summary | plainify | truncate 160 -}}
+{{- if not $description }}{{ $description = .Site.Params.description }}{{ end -}}
+<meta property="og:description" content="{{ $description }}" />
 <meta property="og:image" content="{{ .Scratch.Get "metaImg" | absURL }}" />
 <meta property="og:image:width" content="312" />
 <meta property="og:image:height" content="312" />
