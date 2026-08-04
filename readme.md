@@ -1,168 +1,105 @@
 # ianhuang 的技術筆記部落格
 
-使用 Hugo 靜態網站生成器搭配 NexT 主題建置的個人技術部落格。
+這是 `https://iankingh.github.io/blog/` 的 Hugo 原始碼，內容以繁體中文技術筆記為主，使用
+[Hugo NexT](https://github.com/hugo-next/hugo-theme-next) 主題的 Gemini 配色方案。
 
-## 🌐 網站資訊
+## 專案關係
 
-- **部落格網址**：https://iankingh.github.io/blog/
-- **主題**：[hugo-theme-next](https://github.com/hugo-next/hugo-theme-next)
-- **語言**：繁體中文 (zh-tw)
+- 本儲存庫的 `master` 分支保存網站設定、文章與版面覆寫。
+- `themes/hugo-theme-next/` 是上游 Hugo NexT 主題的 Git submodule。
+- `public/` 是同一個 `iankingh/blog` 儲存庫 `gh-pages` 分支的 Git submodule，僅保留既有的發布快照；目前正式部署不會寫入它。
+- [`iankingh/hugo-theme-next-starter`](https://github.com/iankingh/hugo-theme-next-starter) 是可重用的主題範例，不是此站的部署來源。
+- [`iankingh/iankingh.github.io`](https://github.com/iankingh/iankingh.github.io) 的根頁面會將瀏覽器導向本部落格。
+- [`iankingh/iankingh`](https://github.com/iankingh/iankingh) 是 GitHub 個人檔案 README，並非網站建置的一部分。
 
-## 📁 專案結構
+## 環境需求
 
-```
-blog/
-├── content/post/       # 文章內容（依技術分類）
-├── static/             # 靜態資源（圖片、CSS、JS）
-├── layouts/            # 自訂版面範本
-├── themes/             # Hugo 主題（git submodule）
-├── public/             # gh-pages 分支的本機輸出快照（部署由 Actions 完成）
-├── config.yaml         # Hugo 配置檔
-└── archetypes/         # 文章範本
-```
-
-## 🚀 快速開始
-
-### 環境需求
-
-- [Hugo](https://gohugo.io/) Extended 版本（目前部署固定使用 v0.164.0）
 - Git
+- Hugo **Extended 0.146.0 以上**（目前部署工作流程固定使用 `0.164.0`）
 
-### 複製專案
+最低版本來自目前主題的 `theme.toml`。建議本機使用與
+`.github/workflows/deploy.yml` 相同的 Hugo Extended 版本。
+
+## 取得原始碼
 
 ```bash
-# 複製儲存庫（包含 submodules）
 git clone --recurse-submodules https://github.com/iankingh/blog.git
 cd blog
+```
 
-# 如果已經複製，可以用以下指令初始化 submodules
+若已經複製但尚未取得 submodules：
+
+```bash
 git submodule update --init --recursive
 ```
 
-### 本地開發
+這會同時取得主題與 `public/` 所記錄的發布快照。
+
+## 預覽與建置
 
 ```bash
-# 啟動開發伺服器（包含草稿）
+# 包含草稿的本機預覽
 hugo server -D
-
-# 瀏覽器開啟 http://localhost:1313/blog/
 ```
 
-### 建置網站
+網站的 `baseURL` 含有 `/blog/`，預覽網址通常是
+`http://localhost:1313/blog/`；請以 Hugo 啟動時顯示的網址為準。
 
 ```bash
-# 建置正式版本
-hugo
+# 與自動部署相同的壓縮建置；輸出到獨立目錄以免改動 public submodule
+hugo --minify --destination .local-public
 
-# 輸出會產生在 public/ 目錄
+# 驗證完成後移除本機輸出
+rm -rf .local-public
 ```
 
-## 📝 建立新文章
+直接執行 `hugo` 會把預設輸出寫到 `public/`。因為該路徑本身是 Git
+submodule，這會改動其工作目錄；一般維護與部署不需要提交這些輸出。
+
+## 內容與設定
+
+- `config.yaml`：Hugo 與 NexT 設定，包括 `baseURL`、語言、選單、搜尋及第三方整合。
+- `content/post/`：依 Java、Spring、Vue、Docker、Git 等主題分類的文章。
+- `content/about.md`：關於頁面。
+- `archetypes/default.md`：新文章的 front matter 與內容範本。
+- `layouts/`：相對於主題的站點專用版面與 partial 覆寫。
+- `static/`：圖片、CSS、JavaScript 等直接複製的靜態資源。
+- `i18n/zh-tw.yaml`：繁體中文翻譯覆寫。
+
+建立文章：
 
 ```bash
-# 使用 archetype 範本建立新文章
 hugo new content/post/<分類>/<文章名稱>.md
-
-# 例如：
-hugo new content/post/java/java-stream-api.md
 ```
 
-### Front Matter 範例
+新檔預設為草稿；完成後再將 front matter 的 `draft` 改為 `false`。
 
-```yaml
----
-title: "文章標題"
-date: 2026-02-03T12:00:00+08:00
-categories:
-- "筆記"  # 可選：技術、筆記、學習
-tags:
-- "Java"
-- "Stream"
-toc: true
-draft: false
----
-```
+## 部署
 
-## 🚢 部署到 GitHub Pages
+推送至 `master` 後，`.github/workflows/deploy.yml` 會：
 
-將變更推送到 `master` 後，GitHub Actions 會自動使用 Hugo Extended
-v0.164.0 建置，並發布到 `gh-pages` 分支：
+1. 以 recursive submodules 取出原始碼；
+2. 安裝 Hugo Extended `0.164.0`；
+3. 執行 `hugo --minify`；
+4. 以 `peaceiris/actions-gh-pages` 將結果發布到同一儲存庫的 `gh-pages` 分支。
+
+工作流程也可由 GitHub Actions 頁面手動執行。它需要儲存庫授予
+`contents: write`，不會更新或提交本機 `public/` submodule。
+
+## Submodule 維護
+
+日常同步至儲存庫記錄的版本：
 
 ```bash
-git add .
-git commit -m "更新部落格內容"
-git push origin master
+git submodule update --init --recursive
 ```
 
-部署流程設定位於 `.github/workflows/deploy.yml`。本機預覽仍可使用
-`hugo server -D`，不需要手動提交 `public/` 子模組。
+升級主題時，請在 `themes/hugo-theme-next/` 選定並測試明確的 release 或
+commit，再由本儲存庫提交新的 submodule pointer。不要在 `public/` 內維護
+文章或手動部署內容；`gh-pages` 由工作流程管理。
 
-## 🔧 Submodule 管理
+## 已知注意事項
 
-### 主題 Submodule
-
-```bash
-# 新增主題 submodule
-git submodule add https://github.com/hugo-next/hugo-theme-next.git themes/hugo-theme-next
-
-# 更新主題
-cd themes/hugo-theme-next
-git pull origin master
-cd ../..
-```
-
-### public/ 子模組（選用）
-
-`public/` 目前只保留作為 gh-pages 的本機輸出快照，正式部署由
-`.github/workflows/deploy.yml` 自動完成。
-
-```bash
-# 新增 public submodule（指向 gh-pages 分支）
-git submodule add -b gh-pages "https://github.com/iankingh/blog.git" "public"
-```
-
-### Submodule 問題排解
-
-```bash
-# 如果遇到 "fatal: in unpopulated submodule XXX" 錯誤
-git rm -rf --cached public
-git submodule add -b gh-pages "https://github.com/iankingh/blog.git" "public"
-
-# 更新所有 submodules
-git submodule update --remote --merge
-```
-
-## 📚 文章分類
-
-- **後端開發**：Java, Spring, Spring Boot, Spring Cloud
-- **前端開發**：Angular, Vue, JavaScript
-- **DevOps**：Docker, Git, Linux, Nginx
-- **資料庫**：SQL, Redis, Kafka
-- **開發工具**：Visual Studio Code, Eclipse
-
-## 🛠️ 配置說明
-
-主要配置檔案：`config.yaml`
-
-- **第 1-100 行**：Hugo 引擎基礎設定
-- **第 100-200 行**：選單與導航配置
-- **第 200-500 行**：NexT 主題參數
-- **第 800-1000 行**：第三方服務（分析、搜尋、留言）
-
-詳細的開發指引請參考：[.github/copilot-instructions.md](.github/copilot-instructions.md)
-
-## 📖 參考資料
-
-- [Hugo 官方文件](https://gohugo.io/documentation/)
-- [hugo-theme-next 主題文件](https://github.com/hugo-next/hugo-theme-next)
-- [從零開始: 用 GitHub Pages 上傳靜態網站](https://medium.com/進擊的-git-git-git/從零開始-用github-pages-上傳靜態網站-fa2ae83e6276)
-- [Git Submodule 指定 Branch](https://blog.yowko.com/git-submodule-specific-branch/)
-
-## 📄 授權
-
-本部落格內容採用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 授權。
-
----
-
-**作者**：Ian Huang  
-**GitHub**：[@iankingh](https://github.com/iankingh)
+- `config.yaml` 內含留言、分析、搜尋等可選整合；啟用前應逐項填入自己的服務設定。
+- 本儲存庫未提供授權檔，不能由此 README 推定內容或程式碼的再利用授權。
+- 主題本身有獨立的 README 與授權，且其授權不會自動涵蓋本站文章。
