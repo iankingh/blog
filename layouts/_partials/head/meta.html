@@ -21,10 +21,10 @@
 <meta itemprop="description" content="{{ $description }}" />
 {{ if .IsPage }}
 {{ with .Date }}
-<meta itemprop="datePublished" {{ . }} />
+<meta itemprop="datePublished" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}" />
 {{ end }}
 {{ with .Lastmod }}
-<meta itemprop="dateModified" {{ . }} />
+<meta itemprop="dateModified" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}" />
 {{ end }}
 {{ end }}
 {{ $img := .Site.Params.customLogo | default .Site.Params.avatar.url }}

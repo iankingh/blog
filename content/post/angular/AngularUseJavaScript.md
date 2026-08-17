@@ -116,7 +116,9 @@ tsconfig.json完整如下
 
 <!-- Hello js -->
 
-`<script src="assets/js/Hello.js" type="text/javascript"></script>`
+```html
+<script src="assets/js/Hello.js" type="text/javascript"></script>
+```
 
 **index.html**
 
