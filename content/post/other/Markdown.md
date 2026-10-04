@@ -42,7 +42,7 @@ EX:
 
 ## 鍵盤鍵
 
-<kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>
+`Ctrl+[` and `Ctrl+]`
 
 code格式：反引號
 

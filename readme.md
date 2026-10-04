@@ -15,10 +15,11 @@
 ## 環境需求
 
 - Git
-- Hugo **Extended 0.146.0 以上**（目前部署工作流程固定使用 `0.164.0`）
+- Hugo **Extended 0.167.0 以上**（目前部署工作流程固定使用 `0.167.0`）
 
-最低版本來自目前主題的 `theme.toml`。建議本機使用與
+此版本包含文章渲染與主題檔案存取的安全修正。建議本機使用與
 `.github/workflows/deploy.yml` 相同的 Hugo Extended 版本。
+舊版 Hugo 會在建置時報錯，避免誤用尚未修補的版本發布。
 
 ## 取得原始碼
 
@@ -68,13 +69,18 @@ submodule，這會改動其工作目錄；一般維護與部署不需要提交�
 
 ### Markdown 原始 HTML 信任邊界
 
-`config.yaml` 將 Goldmark 的 `renderer.unsafe` 設為 `true`，因為既有文章有
-刻意撰寫的 HTML 範例與排版（例如換行、嵌入 HTML 文件及 Vue/Angular 範本）。
-這會讓 Markdown 中的原始 HTML 原樣進入已發布頁面，可能包含可執行的
-JavaScript；因此只有作者與經審核、可信任的貢獻者可以撰寫或修改發布內容。
-不得直接發布未審查的使用者提交內容、外部匯入內容或不可信的 Pull Request
-內容。若要開放不可信作者投稿，必須先移除或適當消毒原始 HTML，再考慮關閉
-此設定並檢查既有文章的顯示效果。
+`config.yaml` 將 Goldmark 的 `renderer.unsafe` 設為 `false`。HTML、JavaScript
+及 Vue/Angular 範例必須放在 fenced code block 或反引號內，讓讀者看到程式碼，
+而不會執行它；一般排版使用 Markdown。既有已發布文章的原始 HTML 已轉換。
+
+共用頁首在載入資源前套用 CSP，禁止內嵌 JavaScript、`eval`、外掛物件與
+表單送出，並限制脚本來源。語法高亮仍需內嵌 CSS，因此只在 `style-src`
+保留 `'unsafe-inline'`。GitHub Pages 不支援自訂 HTTP 標頭，這裡使用 CSP meta；
+它無法提供 `frame-ancestors` 防護，若改用能設定 HTTP 標頭的主機，再補上該指令。
+
+Google Analytics 與 Disqus 使用獨立腳本載入，保留既有服務；本機預覽不載入
+Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增外部服務時，需
+同步審查 CSP 的來源清單。文章與主題來源仍需審核，CSP 不會取代內容審查。
 
 全站使用共用的 RPG 冒險面板，包括首頁、關於頁、文章、分類、標籤、歸檔、分頁與 404 頁：
 
@@ -104,13 +110,21 @@ hugo new content/post/<分類>/<文章名稱>.md
 
 推送至 `master` 後，`.github/workflows/deploy.yml` 會：
 
-1. 以 recursive submodules 取出原始碼；
-2. 安裝 Hugo Extended `0.164.0`；
-3. 執行 `hugo --minify`；
-4. 以 `peaceiris/actions-gh-pages` 將結果發布到同一儲存庫的 `gh-pages` 分支。
+1. 唯讀的 `build` job 取出原始碼與 submodules，且不保留 Git 憑證；
+2. 安裝 Hugo Extended `0.167.0`，執行 `hugo --minify`；
+3. 檢查產出 HTML 的 CSP、內嵌腳本與事件處理器，再上傳建置產物；
+4. 獨立 `deploy` job 只下載通過檢查的產物，發布至 `gh-pages` 分支。
 
-工作流程也可由 GitHub Actions 頁面手動執行。它需要儲存庫授予
-`contents: write`，不會更新或提交本機 `public/` submodule。
+工作流程也可由 GitHub Actions 頁面手動執行，只有 `master` 能發布。
+僅發布 job 具有 `contents: write`；不會更新或提交本機 `public/` submodule。
+Actions 固定為官方 release 對應的完整 commit SHA，由 Dependabot 每週提出
+更新 PR。Hugo 版本需另外檢查正式 release，升級時同步修改 workflow 與本文件。
+
+本機可用相同的安全檢查：
+
+```bash
+python3 .github/scripts/check-site-security.py .local-public
+```
 
 ## Submodule 維護
 

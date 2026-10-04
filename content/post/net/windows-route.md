@@ -181,7 +181,9 @@ pause
 
 route delete語法還OK，route add語法是：
 
+```text
 route ADD <Network Destination> MASK <Netmask> <Gateway> (if <Interface> metric <Metric>)
+```
 
 
 刪除0.0.0.0 route目的在取代default 

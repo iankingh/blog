@@ -31,7 +31,7 @@ bcdedit /set hypervisorlaunchtype auto
 
 C:\Users\電腦使用者名稱ㄌ\AppData\Local\Packages
 
-1. 第一步 找到  CanonicalGroupLimited.Ubuntu<br>
+1. 第一步 找到  CanonicalGroupLimited.Ubuntu
 
 並點選右鍵 -> 內容。
 
@@ -51,4 +51,3 @@ C:\Users\電腦使用者名稱ㄌ\AppData\Local\Packages
 [安裝WSL2子系統出現 0xc03a001a錯誤 - 清晨小農夫](https://rdfarm.net/wsl2-error-0xc03a001a/)
 
 [使用 WSL 2 打造優質的多重 Linux 開發環境 | The Will Will Web](https://blog.miniasp.com/post/2020/07/26/Multiple-Linux-Dev-Environment-build-on-WSL-2)
-

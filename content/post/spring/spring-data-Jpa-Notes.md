@@ -357,8 +357,8 @@ Spring Data JPA為此提供了一些表達條件查詢的關鍵字，大致如�
 | NotLike     | 等價於SQL中的"not like"     | findByUsernameNotLike(Stringuser)；                          |
 | OrderBy     | 等價於SQL中的"order by"     | findByUsernameOrderBySalaryAsc(String user)；                |
 | Not         | 等價於SQL中的"！ ="         | findByUsernameNot(String user)；                             |
-| In          | 等價於SQL中的"in"           | findByUsernameIn(Collection<String> userList)，方法的引數可以是 Collection型別，也可以是陣列或者不定長引數； |
-| NotIn       | 等價於SQL中的"not in"       | findByUsernameNotIn(Collection<String> userList)，方法的引數可以是 Collection型別，也可以是陣列或者不定長引數； |
+| In          | 等價於SQL中的"in"           | `findByUsernameIn(Collection<String> userList)`，方法的引數可以是 Collection型別，也可以是陣列或者不定長引數； |
+| NotIn       | 等價於SQL中的"not in"       | `findByUsernameNotIn(Collection<String> userList)`，方法的引數可以是 Collection型別，也可以是陣列或者不定長引數； |
 
 ### @Query註解
 

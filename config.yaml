@@ -40,8 +40,8 @@ enableEmoji: true
 markup:
   goldmark:
     renderer:
-      # 文章包含 HTML/JavaScript 範例，保留原始 HTML 渲染能力。
-      unsafe: true
+      # HTML/JavaScript 範例需使用 fenced code block；禁止執行文章中的原始 HTML。
+      unsafe: false
   highlight:
     # # 高亮代码的样式名称，可选：monokai | emacs | api | dracula | friendly
     # # 更多的样式：https://xyproto.github.io/splash/docs/all.html
@@ -308,7 +308,7 @@ params:
     # 站点访问信息
     # Site's view information
     views:  
-      enable: true
+      enable: false
       # 组件类型，可选值为： 51la, busuanzi
       # 使用51la时需要注册账号：https://invite.51.la/
       # Plguin value is: 51la, busuanzi
@@ -494,7 +494,7 @@ params:
       plugin: waline
     # 是否开启页面访问数显示
     views:
-      enable: true
+      enable: false
       # 页面访问统计插件，支持busuanzi, waline, leancloud
       # Page views counter plugin, support: busuanzi, waline, leancloud
       plugin: busuanzi
@@ -949,12 +949,7 @@ params:
     # 谷歌统计
     # Google Analytics
     google: G-WF6NBSJFE5
-    # 不蒜子统计
-    # Show Views / Visitors of the website / page with busuanzi.
-    # For more information: http://ibruce.info/2015/04/04/busuanzi/
-    busuanzi:
-      visitorsIcon: fa fa-user
-      viewsIcon: fa fa-eye
+    # RPG 面板未使用訪問計數，因此不載入不蒜子腳本。
 
   # ---------------------------------------------------------------
   # 内容搜索服务

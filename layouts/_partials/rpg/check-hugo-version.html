@@ -1,0 +1,6 @@
+{{- $parts := split hugo.Version "." -}}
+{{- $major := int (index $parts 0) -}}
+{{- $minor := int (index $parts 1) -}}
+{{- if and (eq $major 0) (lt $minor 167) -}}
+  {{- errorf "本站需要 Hugo 0.167.0 或更新版本（安全修正），目前為 %s。請升級 Hugo 後重新建置。" hugo.Version -}}
+{{- end -}}

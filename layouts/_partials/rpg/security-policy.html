@@ -1,0 +1,8 @@
+{{- /* GitHub Pages cannot set custom HTTP headers. Apply CSP before loading assets. */ -}}
+{{- $connect := "'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com" -}}
+{{- if hugo.IsServer -}}
+  {{- $preview := urls.Parse .Site.BaseURL -}}
+  {{- $connect = printf "%s ws://%s wss://%s" $connect $preview.Host $preview.Host -}}
+{{- end -}}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src {{ $connect }}; frame-src https://disqus.com https://*.disqus.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">

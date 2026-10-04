@@ -58,8 +58,8 @@ ng new angularProject --style=scss --routing
 
 - [Angular官網generate介紹](https://angular.io/cli/generate)
 - Generates and/or modifies files based on a schematic. 在已有專案中建立其他元件的指令
-- ng generate <schematic> [options]
-- ng g <schematic> [options]
+- `ng generate <schematic> [options]`
+- `ng g <schematic> [options]`
 - schematic
 
 ### component

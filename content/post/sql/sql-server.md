@@ -60,14 +60,13 @@ GO
 
 **註：**
 
-`CHECK_EXPIRATION：密碼過期`</br>
+`CHECK_EXPIRATION：密碼過期`
 
-`CHECK_POLICY：密碼原則`</br>
+`CHECK_POLICY：密碼原則`
 
-`db_owner`：被授予owner角色可以編輯[DBName]資料庫，通常需要設計表格的USER會賦予此角色</br>
+`db_owner`：被授予owner角色可以編輯[DBName]資料庫，通常需要設計表格的USER會賦予此角色
 
 `db_datareader`：被授予datareader角色可以對[DBName]資料庫下查詢指令
-</br>
 
 `db_datawriter`：被授予datawriter角色可以對[DBName]資料庫下新增、修改與刪除指令
 
