@@ -1,2 +1,5 @@
-{{- $destination := .Destination | strings.TrimPrefix "/" -}}
-<img src="{{ "imgs/img-lazy-loading.gif" | absURL }}" data-src="{{ $destination | absURL | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} />
+{{- $destination := .Destination -}}
+{{- if not (or (strings.HasPrefix $destination "http:") (strings.HasPrefix $destination "https:") (strings.HasPrefix $destination "//") (strings.HasPrefix $destination "data:")) -}}
+  {{- $destination = $destination | strings.TrimPrefix "/" | relURL -}}
+{{- end -}}
+<img src="{{ $destination | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async"{{ with .Title }} title="{{ . }}"{{ end }}>

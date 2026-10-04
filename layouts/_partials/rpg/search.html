@@ -1,0 +1,5 @@
+{{- $posts := (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
+<dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">尋找你的下一個任務</h2><button class="search-close" aria-label="關閉搜尋">{{ partial "rpg/icon.html" "close" }}</button></div><label class="search-input-wrap">{{ partial "rpg/icon.html" "search" }}<input id="quest-search" type="search" placeholder="搜尋文章、技能或關鍵字…" autocomplete="off" aria-label="搜尋筆記"></label><p class="search-status" role="status">輸入關鍵字，探索所有筆記。</p><div class="search-results"></div><p class="search-hint">ESC 關閉 · 搜尋標題、標籤與文章摘要</p></dialog>
+{{- $searchIndex := slice -}}
+{{- range $posts -}}{{- $searchIndex = $searchIndex | append (dict "title" .Title "url" .RelPermalink "tags" (.Params.tags | default slice) "summary" ((partial "rpg/summary.html" .) | truncate 180) "date" (.Date.Format "2006.01.02")) -}}{{- end -}}
+<script id="quest-index" type="application/json">{{ $searchIndex | jsonify | safeJS }}</script>

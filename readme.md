@@ -1,7 +1,7 @@
 # ianhuang 的技術筆記部落格
 
 這是 `https://iankingh.github.io/blog/` 的 Hugo 原始碼，內容以繁體中文技術筆記為主，使用
-[Hugo NexT](https://github.com/hugo-next/hugo-theme-next) 主題的 Gemini 配色方案。
+[Hugo NexT](https://github.com/hugo-next/hugo-theme-next) 作為基礎，並以站點版面覆寫統一呈現 RPG 冒險面板。
 
 ## 專案關係
 
@@ -65,6 +65,32 @@ submodule，這會改動其工作目錄；一般維護與部署不需要提交�
 - `layouts/`：相對於主題的站點專用版面與 partial 覆寫。
 - `static/`：圖片、CSS、JavaScript 等直接複製的靜態資源。
 - `i18n/zh-tw.yaml`：繁體中文翻譯覆寫。
+
+### Markdown 原始 HTML 信任邊界
+
+`config.yaml` 將 Goldmark 的 `renderer.unsafe` 設為 `true`，因為既有文章有
+刻意撰寫的 HTML 範例與排版（例如換行、嵌入 HTML 文件及 Vue/Angular 範本）。
+這會讓 Markdown 中的原始 HTML 原樣進入已發布頁面，可能包含可執行的
+JavaScript；因此只有作者與經審核、可信任的貢獻者可以撰寫或修改發布內容。
+不得直接發布未審查的使用者提交內容、外部匯入內容或不可信的 Pull Request
+內容。若要開放不可信作者投稿，必須先移除或適當消毒原始 HTML，再考慮關閉
+此設定並檢查既有文章的顯示效果。
+
+全站使用共用的 RPG 冒險面板，包括首頁、關於頁、文章、分類、標籤、歸檔、分頁與 404 頁：
+
+- `layouts/home.html`：角色卡、技能入口、每頁 8 篇的任務日誌與全站搜尋資料。
+- `layouts/character.html`：關於頁的角色檔案、主要技能、技能紀錄與寫作里程碑；文字內容仍由 `content/about.md` 維護。
+- `layouts/baseof.html`：文章及列表頁共用的頁首、角色側欄與搜尋。
+- `layouts/page.html`：文章閱讀面板、可收合目錄、分類標籤、相鄰文章與留言。
+- `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤圖鑑。
+- `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
+- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換。
+- `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單。
+- `static/css/rpg-pages.css`、`static/js/rpg-article.js`：全站列表與文章排版、程式碼複製；圖片原生延遲載入，表格與程式碼可水平捲動。
+- `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站右上角的黑／白版切換，預設白色；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
+- `static/images/rpg-camp.svg`：像素營地插畫，無需外部圖片服務。
+- 角色等級依已發布文章數計算，每 10 篇升一級；技能入口依標籤文章數排序。
+- 搜尋支援標題、標籤與摘要，按 `/` 開啟、`Esc` 關閉；草稿不會出現在正式建置的首頁與搜尋中。
 
 建立文章：
 

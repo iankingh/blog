@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ $paginator := .Store.Get "rpgPaginator" }}
+<div class="page-heading"><div><p class="eyebrow">EVERY STEP BECOMES A STORY</p><h1>歷程圖鑑<span>Adventure Archive</span></h1></div><span class="collection-count">{{ $paginator.TotalNumberOfElements }} 篇筆記</span></div>
+<p class="section-description">把日積月累留在這裡，回顧每一段走過的學習旅程。</p>
+<section id="entries" class="archive-panel panel">
+  {{ range $paginator.Pages.GroupByDate "2006" }}<section class="archive-year"><h2><span>✦</span>{{ .Key }}<small>{{ len .Pages }} 篇紀錄</small></h2><div class="archive-entries">{{ range .Pages }}<a href="{{ .RelPermalink }}"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time><span>{{ .Title }}</span>{{ partial "rpg/icon.html" "arrow" }}</a>{{ end }}</div></section>{{ end }}
+</section>
+{{ partial "rpg/pagination.html" (dict "paginator" $paginator) }}
+{{ end }}

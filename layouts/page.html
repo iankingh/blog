@@ -1,0 +1,24 @@
+{{ define "main_inner_class" }}article-page{{ end }}
+{{ define "main" }}
+<nav class="breadcrumbs" aria-label="頁面位置"><a href="{{ .Site.BaseURL }}">冒險大廳</a><span>/</span><a href="{{ "archives/" | relURL }}">任務日誌</a><span>/</span><span>探索筆記</span></nav>
+<article class="article-panel panel" itemscope itemtype="https://schema.org/Article">
+  <header class="article-header">
+    <p class="eyebrow">ADVENTURE JOURNAL · 探索筆記</p>
+    <h1 itemprop="headline">{{ .Title }}</h1>
+    <div class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "2006.01.02" }}</time><span>{{ partial "rpg/icon.html" "clock" }}約 {{ .ReadingTime }} 分鐘</span><span itemprop="author">{{ .Params.author | default .Site.Params.author }}</span></div>
+    <div class="article-tags">{{ range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ range .GetTerms "tags" }}<a href="{{ .RelPermalink }}"># {{ .LinkTitle }}</a>{{ end }}</div>
+  </header>
+  {{ if ne .Params.toc false }}{{ with .TableOfContents }}{{ if strings.Contains . "<li>" }}<details class="article-toc" open><summary>{{ partial "rpg/icon.html" "map" }}任務導覽 <span>TABLE OF CONTENTS</span></summary>{{ . }}</details>{{ end }}{{ end }}{{ end }}
+  <div class="article-body" itemprop="articleBody">{{ .Content }}</div>
+  <footer class="article-footer">
+    <p>✦ 本次探索已記錄，繼續前往下一個未知。</p>
+    {{ if .Site.Params.creativeCommons.post }}<p class="article-license">本文採 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 授權。</p>{{ end }}
+    <a href="{{ "archives/" | relURL }}">← 返回任務日誌</a>
+  </footer>
+</article>
+<nav class="article-neighbors" aria-label="其他探索筆記">
+  {{ with .NextInSection }}<a class="panel" href="{{ .RelPermalink }}"><small>← 較新的筆記</small><span>{{ .Title }}</span></a>{{ end }}
+  {{ with .PrevInSection }}<a class="panel" href="{{ .RelPermalink }}"><small>較早的筆記 →</small><span>{{ .Title }}</span></a>{{ end }}
+</nav>
+{{ if and (ne .Params.comments false) .Site.Config.Services.Disqus.Shortname }}<section class="article-comments panel" aria-label="留言"><h2>{{ partial "rpg/icon.html" "book" }}冒險者留言</h2>{{ partial "post/footer_meta/disqus.html" . }}</section>{{ end }}
+{{ end }}

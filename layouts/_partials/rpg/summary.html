@@ -1,0 +1,4 @@
+{{- /* Articles with an empty <!--more--> introduction use their body as the excerpt. */ -}}
+{{- $excerpt := .Summary | replaceRE `<a class="header-anchor"[^>]*>.*?</a>` "" | plainify | strings.TrimSpace -}}
+{{- $summary := .Description | default $excerpt | default (.Plain | strings.TrimSpace) -}}
+{{- return $summary -}}

@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.head.appendChild(script);
   script.onload = function() {
-    NexT.utils.fmtBusuanzi();
+    // The standalone RPG homepage does not load the NexT runtime.
+    if (window.NexT && window.NexT.utils && window.NexT.utils.fmtBusuanzi) {
+      window.NexT.utils.fmtBusuanzi();
+    }
   }
 });
 </script>

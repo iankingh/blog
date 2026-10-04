@@ -2,7 +2,7 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     (function () {
-        if (window.location.hostname == "localhost")
+        if (["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname))
             return;
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';

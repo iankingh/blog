@@ -1,0 +1,84 @@
+{{- $posts := (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
+{{- $count := len $posts -}}
+{{- $level := add (div $count 10) 1 -}}
+{{- $xp := mod $count 10 -}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale | default "zh-TW" }}">
+<head>
+  {{ partial "rpg/head.html" (dict "page" . "title" "角色檔案" "canonical" .Permalink) }}
+</head>
+<body>
+<a class="skip-link" href="#main">跳至主要內容</a>
+{{ partial "rpg/header.html" . }}
+<div class="shell">
+  {{ partial "rpg/sidebar.html" . }}
+  <main id="main" class="main-content character-content">
+    <div class="page-heading">
+      <div><p class="eyebrow">MEET THE ADVENTURER</p><h1>角色檔案<span>Character Sheet</span></h1></div>
+      <a class="back-link" href="{{ .Site.BaseURL }}">← 返回冒險大廳</a>
+    </div>
+
+    <section class="character-sheet panel" aria-labelledby="character-name">
+      <div class="sheet-banner"><span>✦ ADVENTURER REGISTRY</span><span>知識營地 / 角色 01</span></div>
+      <div class="sheet-identity">
+        <div class="sheet-avatar"><img src="{{ .Site.Params.avatar.url | relURL }}" alt="{{ .Site.Params.author }}" width="128" height="128"></div>
+        <div class="sheet-intro">
+          <p class="eyebrow">職業 · JAVA 工程師</p>
+          <h2 id="character-name">{{ .Site.Params.author }}</h2>
+          <p>在程式與架構的世界裡探索，<br>把解過的問題、學到的事，留成下一次冒險的線索。</p>
+          <div class="specialties"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>Vue</span><span>AI 應用 · 探索中</span></div>
+        </div>
+        <div class="sheet-level"><span>WRITER LEVEL</span><strong><small>Lv.</small> {{ $level }}</strong><span>每 10 篇筆記升 1 級</span></div>
+      </div>
+      <div class="sheet-experience"><div><span>寫作經驗 EXP</span><b>{{ $xp }} / 10 篇</b></div><progress class="xp-progress" value="{{ $xp }}" max="10" aria-label="距下一個寫作等級已累積 {{ $xp }} 篇，共需 10 篇"></progress><p>再記錄 {{ sub 10 $xp }} 篇筆記，就能抵達 Lv. {{ add $level 1 }}。</p></div>
+      <dl class="sheet-facts">
+        <div><dt>已記錄的冒險</dt><dd>{{ $count }} <span>篇筆記</span></dd></div>
+        <div><dt>探索技能</dt><dd>{{ len .Site.Taxonomies.tags }} <span>個標籤</span></dd></div>
+        <div><dt>首次筆記</dt><dd class="first-entry">{{ range first 1 $posts.Reverse }}{{ .Date.Format "2006.01" }}{{ else }}待啟程{{ end }}</dd></div>
+      </dl>
+      <blockquote class="sheet-creed">「總有一天，你的日積月累，<br>會變成他人的望塵莫及。」<cite>— 冒險者信條</cite></blockquote>
+    </section>
+
+    <div class="character-details">
+      <section class="bio-panel panel" aria-label="角色背景與網站說明"><div class="panel-title">{{ partial "rpg/icon.html" "book" }}角色手札 <span>CHARACTER NOTES</span></div><div class="character-prose">{{ .Content }}</div></section>
+      <section class="equipment-panel panel" aria-labelledby="equipment-title">
+        <div class="panel-title" id="equipment-title">{{ partial "rpg/icon.html" "code" }}主要技能 <span>SKILLS</span></div>
+        <ul class="equipment-list">
+          <li><span class="equipment-icon">J</span><div><h2>Java</h2><p>後端開發與程式基礎</p></div><span class="equipment-slot">後端開發</span></li>
+          <li><span class="equipment-icon">S</span><div><h2>Spring Boot</h2><p>應用服務與系統整合</p></div><span class="equipment-slot">服務整合</span></li>
+          <li><span class="equipment-icon">A</span><div><h2>Angular</h2><p>前端介面與互動開發</p></div><span class="equipment-slot">前端開發</span></li>
+          <li><span class="equipment-icon">V</span><div><h2>Vue</h2><p>前端元件與介面開發</p></div><span class="equipment-slot">前端開發</span></li>
+        </ul>
+        <h3 class="skill-group-title">AI 探索方向 <span>LEARNING PATH</span></h3>
+        <ul class="equipment-list">
+          <li><span class="equipment-icon">AI</span><div><h2>AI 應用</h2><p>大型語言模型與工具整合</p></div><span class="equipment-slot">探索中</span></li>
+          <li><span class="equipment-icon">P</span><div><h2>提示詞設計</h2><p>需求拆解、上下文與輸出驗證</p></div><span class="equipment-slot">探索中</span></li>
+          <li><span class="equipment-icon">C</span><div><h2>AI 輔助開發</h2><p>程式生成、除錯與測試協作</p></div><span class="equipment-slot">探索中</span></li>
+        </ul>
+        {{ with .Site.GetPage "/post/ai-tools" }}<a class="ai-notes-link" href="{{ .RelPermalink }}">閱讀我的 AI 工具筆記 ↗</a>{{ end }}
+      </section>
+    </div>
+
+    <section class="character-skills" aria-labelledby="character-skills-title">
+      <div class="section-heading"><h2 id="character-skills-title">{{ partial "rpg/icon.html" "tree" }}技能探索紀錄 <small>SKILL RECORDS</small></h2><a href="{{ "tags/" | relURL }}">所有技能 {{ partial "rpg/icon.html" "arrow" }}</a></div>
+      <p class="section-description">依已發布的筆記數呈現探索分布，點選技能即可閱讀相關紀錄。</p>
+      {{ $topTags := first 6 .Site.Taxonomies.tags.ByCount }}
+      {{ $maxCount := 1 }}{{ range first 1 $topTags }}{{ $maxCount = .Count }}{{ end }}
+      <div class="skill-record-grid">{{ range $topTags }}<a class="skill-record panel" href="{{ .Page.RelPermalink }}"><div><span>{{ partial "rpg/icon.html" "code" }}{{ .Page.Title }}</span><b>{{ .Count }} 篇 <span>↗</span></b></div><progress value="{{ .Count }}" max="{{ $maxCount }}" aria-label="{{ .Page.Title }}：{{ .Count }} 篇筆記"></progress></a>{{ end }}</div>
+    </section>
+
+    <section class="milestones" aria-labelledby="milestones-title">
+      <div class="section-heading"><h2 id="milestones-title">{{ partial "rpg/icon.html" "star" }}寫作里程碑 <small>MILESTONES</small></h2></div>
+      <div class="milestone-grid">{{ range slice (dict "target" 10 "name" "踏上旅途") (dict "target" 50 "name" "持續探索") (dict "target" 100 "name" "百篇圖鑑") }}<div class="milestone panel {{ if lt $count .target }}is-locked{{ end }}"><span class="milestone-emblem">{{ partial "rpg/icon.html" "star" }}</span><div><h3>{{ .name }}</h3><p>累積 {{ .target }} 篇筆記</p></div><span class="milestone-status">{{ if ge $count .target }}已達成{{ else }}{{ $count }} / {{ .target }}{{ end }}</span></div>{{ end }}</div>
+    </section>
+
+    <section class="recent-adventures" aria-labelledby="recent-title">
+      <div class="section-heading"><h2 id="recent-title">{{ partial "rpg/icon.html" "sword" }}最近的冒險 <small>RECENT ENTRIES</small></h2><a href="{{ "archives/" | relURL }}">完整歷程 {{ partial "rpg/icon.html" "arrow" }}</a></div>
+      <div class="recent-list panel">{{ range first 3 $posts }}<a href="{{ .RelPermalink }}"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time><span>{{ .Title }}</span>{{ partial "rpg/icon.html" "arrow" }}</a>{{ end }}</div>
+    </section>
+    {{ partial "rpg/footer.html" . }}
+  </main>
+</div>
+{{ partial "rpg/search.html" . }}
+</body>
+</html>

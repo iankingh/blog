@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ $paginator := .Store.Get "rpgPaginator" }}
+{{ $isCategory := eq .Data.Plural "categories" }}
+<nav class="breadcrumbs" aria-label="頁面位置"><a href="{{ .Site.BaseURL }}">冒險大廳</a><span>/</span><a href="{{ printf "%s/" .Data.Plural | relURL }}">{{ if $isCategory }}探索地圖{{ else }}技能圖鑑{{ end }}</a><span>/</span><span>{{ .Title }}</span></nav>
+<div class="page-heading"><div><p class="eyebrow">{{ if $isCategory }}EXPLORATION MAP{{ else }}SKILL JOURNAL{{ end }}</p><h1>{{ .Title }}<span>{{ if $isCategory }}分類任務{{ else }}技能筆記{{ end }}</span></h1></div><span class="collection-count">{{ $paginator.TotalNumberOfElements }} 篇筆記</span></div>
+<section id="entries"><div class="quest-toolbar"><span>探索紀錄 <small>PAGE {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}尋找任務</button></div><div class="quest-grid">{{ range $paginator.Pages }}{{ partial "rpg/quest-card.html" . }}{{ end }}</div></section>
+{{ partial "rpg/pagination.html" (dict "paginator" $paginator) }}
+{{ end }}

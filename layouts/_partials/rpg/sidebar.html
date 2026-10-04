@@ -1,0 +1,24 @@
+{{- $count := len (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) -}}
+{{- $xp := mod $count 10 -}}
+  <aside class="sidebar" id="sidebar" aria-label="冒險者面板">
+    <section class="character-panel panel">
+      <div class="panel-eyebrow">PLAYER PROFILE <span>01</span></div>
+      <div class="portrait"><img src="{{ .Site.Params.avatar.url | relURL }}" alt="{{ .Site.Params.author }}" width="88" height="88"><span class="level-badge">LV. {{ add (div $count 10) 1 }}</span></div>
+      <h2>{{ .Site.Params.author }}</h2><p class="character-class">Java 工程師 / 知識探索者</p>
+      <div class="character-label"><span>寫作經驗 EXP</span><b>{{ $xp }} / 10</b></div>
+      <progress class="xp-progress" value="{{ $xp }}" max="10" aria-label="寫作經驗：{{ $xp }} / 10"></progress>
+      <p class="xp-note">每累積 10 篇筆記，升 1 級</p>
+      <div class="character-stats"><a href="{{ "archives/" | relURL }}"><b>{{ $count }}</b><span>冒險筆記</span></a><a href="{{ "tags/" | relURL }}"><b>{{ len .Site.Taxonomies.tags }}</b><span>技能標籤</span></a></div>
+      <a class="profile-link" href="{{ "about/" | relURL }}">查看角色檔案 {{ partial "rpg/icon.html" "arrow" }}</a>
+    </section>
+    <nav class="side-nav" aria-label="主要導覽">
+      <p class="nav-label">冒險選單 <span>MENU</span></p>
+      <a href="{{ .Site.BaseURL }}" {{ if .IsHome }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "compass" }}冒險大廳{{ if .IsHome }}<span class="nav-dot"></span>{{ end }}</a>
+      <a href="{{ "post/" | relURL }}" {{ if eq .Section "post" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "sword" }}任務日誌</a>
+      <a href="{{ "tags/" | relURL }}" {{ if eq .Data.Plural "tags" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "tree" }}技能圖鑑</a>
+      <a href="{{ "categories/" | relURL }}" {{ if eq .Data.Plural "categories" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "map" }}探索地圖</a>
+      <a href="{{ "archives/" | relURL }}" {{ if eq .Section "archives" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "archive" }}歷程圖鑑</a>
+      <a href="{{ "about/" | relURL }}" {{ if eq .Layout "character" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "user" }}關於冒險者</a>
+    </nav>
+    <section class="side-note"><span>✦ 冒險者備忘</span><p>總有一天，你的日積月累，<br>會變成他人的望塵莫及。</p><div class="social-links">{{ range .Site.Params.socials }}{{ $parts := split . "||" }}<a href="{{ trim (index $parts 1) " " }}" target="_blank" rel="noopener noreferrer">{{ trim (index $parts 0) " " }} ↗</a>{{ end }}</div></section>
+  </aside>
