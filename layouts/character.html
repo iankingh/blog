@@ -1,7 +1,8 @@
-{{- $posts := (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
+{{- $posts := (where (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) "Draft" false).ByDate.Reverse -}}
 {{- $count := len $posts -}}
 {{- $level := add (div $count 10) 1 -}}
 {{- $xp := mod $count 10 -}}
+{{- $skills := partialCached "rpg/skills-data.html" .Site .Site.Language.Lang -}}
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Locale | default "zh-TW" }}">
 <head>
@@ -23,9 +24,10 @@
       <div class="sheet-identity">
         <div class="sheet-avatar"><img src="{{ .Site.Params.avatar.url | relURL }}" alt="{{ .Site.Params.author }}" width="128" height="128"></div>
         <div class="sheet-intro">
-          <p class="eyebrow">職業 · JAVA 工程師</p>
+          <p class="eyebrow">職業 · 全端工程師 / AI 規劃師</p>
           <h2 id="character-name">{{ .Site.Params.author }}</h2>
-          <p>在程式與架構的世界裡探索，<br>把解過的問題、學到的事，留成下一次冒險的線索。</p>
+          <p>記錄全端開發、AI 規劃、<br>解題實作與持續學習。</p>
+          <div class="profile-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub ↗</a></div>
           <div class="specialties"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>Vue</span><span>AI 應用 · 探索中</span></div>
         </div>
         <div class="sheet-level"><span>WRITER LEVEL</span><strong><small>Lv.</small> {{ $level }}</strong><span>每 10 篇筆記升 1 級</span></div>
@@ -33,7 +35,7 @@
       <div class="sheet-experience"><div><span>寫作經驗 EXP</span><b>{{ $xp }} / 10 篇</b></div><progress class="xp-progress" value="{{ $xp }}" max="10" aria-label="距下一個寫作等級已累積 {{ $xp }} 篇，共需 10 篇"></progress><p>再記錄 {{ sub 10 $xp }} 篇筆記，就能抵達 Lv. {{ add $level 1 }}。</p></div>
       <dl class="sheet-facts">
         <div><dt>已記錄的冒險</dt><dd>{{ $count }} <span>篇筆記</span></dd></div>
-        <div><dt>探索技能</dt><dd>{{ len .Site.Taxonomies.tags }} <span>個標籤</span></dd></div>
+        <div><dt>修練技能</dt><dd>{{ len $skills }} <span>項技能</span></dd></div>
         <div><dt>首次筆記</dt><dd class="first-entry">{{ range first 1 $posts.Reverse }}{{ .Date.Format "2006.01" }}{{ else }}待啟程{{ end }}</dd></div>
       </dl>
       <blockquote class="sheet-creed">「總有一天，你的日積月累，<br>會變成他人的望塵莫及。」<cite>— 冒險者信條</cite></blockquote>
@@ -60,11 +62,9 @@
     </div>
 
     <section class="character-skills" aria-labelledby="character-skills-title">
-      <div class="section-heading"><h2 id="character-skills-title">{{ partial "rpg/icon.html" "tree" }}技能探索紀錄 <small>SKILL RECORDS</small></h2><a href="{{ "tags/" | relURL }}">所有技能 {{ partial "rpg/icon.html" "arrow" }}</a></div>
-      <p class="section-description">依已發布的筆記數呈現探索分布，點選技能即可閱讀相關紀錄。</p>
-      {{ $topTags := first 6 .Site.Taxonomies.tags.ByCount }}
-      {{ $maxCount := 1 }}{{ range first 1 $topTags }}{{ $maxCount = .Count }}{{ end }}
-      <div class="skill-record-grid">{{ range $topTags }}<a class="skill-record panel" href="{{ .Page.RelPermalink }}"><div><span>{{ partial "rpg/icon.html" "code" }}{{ .Page.Title }}</span><b>{{ .Count }} 篇 <span>↗</span></b></div><progress value="{{ .Count }}" max="{{ $maxCount }}" aria-label="{{ .Page.Title }}：{{ .Count }} 篇筆記"></progress></a>{{ end }}</div>
+      <div class="section-heading"><h2 id="character-skills-title">{{ partial "rpg/icon.html" "tree" }}技能成長 <small>SKILL PROGRESS</small></h2><a href="{{ "skills/" | relURL }}">完整技能圖鑑 {{ partial "rpg/icon.html" "arrow" }}</a></div>
+      <p class="section-description">Lv. 依相關公開筆記累積，每 10 篇升 1 級；這是學習紀錄進度。</p>
+      <div class="codex-grid">{{ range $skills }}{{ partial "rpg/skill-card.html" (dict "skill" . "expanded" false) }}{{ end }}</div>
     </section>
 
     <section class="milestones" aria-labelledby="milestones-title">

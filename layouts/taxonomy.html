@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{ $isCategory := eq .Data.Plural "categories" }}
 {{ $terms := index .Site.Taxonomies .Data.Plural }}
-<div class="page-heading"><div><p class="eyebrow">{{ if $isCategory }}EXPLORE THE WORLD{{ else }}THE KNOWLEDGE CODEX{{ end }}</p><h1>{{ if $isCategory }}探索地圖<span>Categories</span>{{ else }}技能圖鑑<span>Skill Codex</span>{{ end }}</h1></div><span class="collection-count">{{ len $terms }} {{ if $isCategory }}個分類{{ else }}個技能標籤{{ end }}</span></div>
-<p class="section-description">{{ if $isCategory }}選擇一個探索領域，閱讀相關的技術筆記與學習紀錄。{{ else }}每個技能都有自己的探索紀錄。選擇標籤，找到下一個任務。{{ end }}</p>
+<div class="page-heading"><div><p class="eyebrow">{{ if $isCategory }}EXPLORE THE WORLD{{ else }}BROWSE JOURNAL TAGS{{ end }}</p><h1>{{ if $isCategory }}探索地圖<span>Categories</span>{{ else }}技能標籤<span>Journal Tags</span>{{ end }}</h1></div><span class="collection-count">{{ len $terms }} {{ if $isCategory }}個分類{{ else }}個技能標籤{{ end }}</span></div>
+<p class="section-description">{{ if $isCategory }}選擇一個探索領域，閱讀相關的技術筆記與學習紀錄。{{ else }}依技術與主題分類文章，選擇標籤閱讀相關筆記。技能等級與學習進度請查看技能圖鑑。{{ end }}</p>
+{{ if not $isCategory }}<a class="back-link" href="{{ "skills/" | relURL }}">查看技能圖鑑與 Lv. 進度 →</a>{{ end }}
 <div class="taxonomy-grid {{ if $isCategory }}category-grid{{ end }}">{{ range $terms.ByCount }}<a class="taxonomy-card panel" href="{{ .Page.RelPermalink }}"><span class="taxonomy-icon">{{ if $isCategory }}{{ partial "rpg/icon.html" "map" }}{{ else }}{{ partial "rpg/icon.html" "code" }}{{ end }}</span><span><h2>{{ .Page.Title }}</h2><small>{{ .Count }} 篇探索筆記</small></span><span class="taxonomy-arrow">↗</span></a>{{ end }}</div>
 {{ end }}

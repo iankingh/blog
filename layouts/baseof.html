@@ -1,5 +1,5 @@
 {{- $canonical := .Permalink -}}
-{{- if in (slice "section" "term") .Kind -}}
+{{- if and (in (slice "section" "term") .Kind) (ne .Section "skills") -}}
   {{- $pages := .RegularPages.ByDate.Reverse -}}
   {{- $size := 8 -}}
   {{- if eq .Kind "section" -}}

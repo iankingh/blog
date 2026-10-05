@@ -1,0 +1,2 @@
+{{- $posts := where (where .RegularPages "Section" "in" .Params.mainSections) "Draft" false -}}
+{{- return (sort (where $posts "Params.featuredOrder" "gt" 0) "Params.featuredOrder" "asc") -}}

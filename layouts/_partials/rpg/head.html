@@ -1,4 +1,6 @@
 {{- $page := .page -}}
+{{- $page.Scratch.Set "metaTitle" (.title | default $page.Title | default $page.Site.Title) -}}
+{{- $page.Scratch.Set "metaCanonical" (.canonical | default $page.Permalink) -}}
 {{ partialCached "rpg/check-hugo-version.html" hugo.Version }}
 {{ partial "rpg/security-policy.html" $page }}
 {{ partial "head/meta.html" $page }}
@@ -12,6 +14,7 @@
 <script src="{{ "js/rpg-theme.js" | relURL }}"></script>
 <link rel="stylesheet" href="{{ "css/rpg-home.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/rpg-pages.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/rpg-portfolio.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/rpg-theme.css" | relURL }}">
 <script src="{{ "js/rpg-home.js" | relURL }}" defer></script>
 {{ if not hugo.IsServer }}{{ with $page.Site.Params.analytics.google }}<script src="{{ "js/rpg-analytics.js" | relURL }}" data-measurement-id="{{ . }}" defer></script>{{ end }}{{ end }}

@@ -1,68 +1,163 @@
 ---
-title: "HikariPool-1 - Connection is not available, request timed out after 30000ms"
+title: "HikariPool 連線取得逾時：先診斷，再調整設定"
 date: 2021-05-06T21:18:55+08:00
-draft: false
-categories:
- - "筆記"
-tags:
- - "java"
- - "連線池"
+lastmod: 2026-10-05T21:48:32+08:00
+description: "HikariPool connectionTimeout 是等待取得連線的時間。以 Java、HikariCP 與 H2 重現池耗盡、取得逾時及釋放後恢復，並整理排錯順序。"
+featuredOrder: 2
+categories: ["筆記"]
+tags: ["java", "連線池"]
 toc: true
+draft: false
 ---
 
-## HikariPool-1 - Connection is not available, request timed out after 30000ms
-
-<!-- 簡介 -->
-
-HikariPool是連線池管理類，負責管理資料庫連線。
-
-HikariPool-1 - Connection is not available, request timed out after 30000ms
-
-表示資料庫連線池請求超時
+遇到 `Connection is not available, request timed out after 30000ms`，表示呼叫端在等待期限內沒有從 HikariCP 取得可用連線。先觀察連線的使用情況，再判斷要修程式、查詢或設定。
 
 <!--more-->
 
-報錯日誌:
+## 錯誤代表什麼
 
-```prolog
-java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.
+常見訊息：
+
+```text
+java.sql.SQLTransientConnectionException:
+HikariPool-1 - Connection is not available, request timed out after 30000ms.
 ```
 
-### **原因一 : 由於網路延遲或某些查詢執行時間過長（超過30000毫秒），因此資料庫未在（30000毫秒，這是預設的connectionTimeout屬性）內未獲得連線。**
+`connectionTimeout` 是呼叫 `getConnection()` 時，等待從連線池取得連線的最長時間，單位為毫秒。**它不是 SQL 查詢的執行逾時。** 查詢執行很久，可能因為長時間佔用連線，間接讓其他請求無法取得連線。
 
-可以試看看增加Timeout的時間
+HikariCP 的預設值為 30000 ms，最低接受值為 250 ms。提高等待時間只是讓請求等得更久，不能修復連線未歸還、慢查詢或資料庫不可用等根因。
 
-YML配置示例：
+## 建議的診斷順序
+
+1. **觀察連線池。** 檢查使用中與閒置的連線數，以及等待連線的執行緒數。若全部連線長期使用中，再查是哪個工作佔用。
+2. **確認生命週期。** JDBC 連線、Statement 與 ResultSet 使用 try-with-resources，交易完成後應歸還連線。不要在取得連線後執行耗時的外部服務呼叫。
+3. **查 SQL 與交易。** 看慢查詢、鎖等待、未完成交易與一次讀取過量資料。
+4. **檢查資料庫與網路。** 確認資料庫可連線、連線額度、認證與網路是否正常；同時看連線建立失敗的日誌。
+5. **再調整容量與等待。** 根據併發需求與資料庫容量評估 `maximumPoolSize`；等待時間應符合請求可接受的時間。增加連線數也可能讓資料庫負擔更重。
+
+`leakDetectionThreshold` 可以協助記錄連線被借出過久的位置，但它不會自動回收該連線，日誌也不必然代表真正的洩漏。
+
+## 設定範例
+
+Spring Boot 使用 HikariCP 的設定位置如下；縮排用空白，所有時間值均為毫秒。這是設定位置示例，應依實際環境量測後調整。
 
 ```yaml
 spring:
-	datasource:
-		hikari:
-		#最小連線數
-		minimumIdle: 2
-		#最大連線數
-		maximumPoolSize: 10
-		idleTimeout: 120000
-		connectionTimeout: 300000
-		leakDetectionThreshold: 300000
+  datasource:
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 10
+      idle-timeout: 120000
+      connection-timeout: 30000
 ```
 
-Java Config示例：
+下面的 Java 練習刻意使用 **1 條連線與 300 ms 等待**，快速重現問題；與上面的應用設定分開使用。
+
+## 驗證環境與依賴
+
+- OpenJDK 21.0.1。
+- HikariCP 7.0.2、H2 2.4.240、SLF4J API 2.0.17。
+- H2 使用記憶體資料庫，無需啟動外部資料庫。
+
+Maven dependency 座標：
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    <version>7.0.2</version>
+  </dependency>
+  <dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>2.4.240</version>
+  </dependency>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>2.0.17</version>
+  </dependency>
+</dependencies>
+```
+
+若直接用 `javac`，把以上三個依賴的 JAR 放在 `lib/`。SLF4J API 沒有 provider 時會輸出提示，但不影響本範例的 JDBC 行為。
+
+## 完整重現範例
+
+存為 `PoolTimeoutDemo.java`：
 
 ```java
-HikariConfig config = new HikariConfig();
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLTransientConnectionException;
+import java.sql.Statement;
 
-config.setMaximumPoolSize(20);
+public class PoolTimeoutDemo {
+    public static void main(String[] args) throws Exception {
+        HikariConfig config = new HikariConfig();
+        config.setPoolName("note-demo");
+        config.setJdbcUrl("jdbc:h2:mem:pool_demo");
+        config.setMaximumPoolSize(1);
+        config.setMinimumIdle(1);
+        config.setConnectionTimeout(300);
+        config.setValidationTimeout(250);
 
-config.setConnectionTimeout(300000);
-
-config.setConnectionTimeout(120000);
-
-config.setLeakDetectionThreshold(300000);
+        try (HikariDataSource pool = new HikariDataSource(config)) {
+            try (Connection held = pool.getConnection()) {
+                long started = System.nanoTime();
+                try (Connection unexpected = pool.getConnection()) {
+                    throw new AssertionError("應該因為池已耗盡而逾時");
+                } catch (SQLTransientConnectionException expected) {
+                    long waitedMillis = (System.nanoTime() - started) / 1_000_000;
+                    if (waitedMillis < 250) {
+                        throw new AssertionError("等待不足 250 ms：" + waitedMillis);
+                    }
+                    System.out.println("連線被佔用：第二次取得連線逾時");
+                }
+            }
+            // held.close() 已將連線歸還池。
+            try (Connection recovered = pool.getConnection();
+                 Statement statement = recovered.createStatement();
+                 ResultSet result = statement.executeQuery("SELECT 1")) {
+                if (!result.next() || result.getInt(1) != 1) {
+                    throw new AssertionError("連線釋放後應可執行查詢");
+                }
+                System.out.println("連線已釋放：再次取得連線並查詢成功");
+            }
+        }
+    }
+}
 ```
 
-## **參考**
+macOS／Linux 執行：
 
-[java - HikariPool-1 - Connection is not available, request timed out after 30000ms for very tiny load server - Stack Overflow](https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for)
+```shell
+javac -encoding UTF-8 -cp "lib/*" PoolTimeoutDemo.java
+java -cp ".:lib/*" PoolTimeoutDemo
+```
 
-[JavaWeb問題集錦: 資料庫連線池請求超時 HikariPool-1 - Connection is not available, request timed out after 30000ms - IT閱讀 (itread01.com)](https://www.itread01.com/content/1543459742.html)
+Windows 的 classpath 分隔符改用 `;`，執行時使用 `java -cp ".;lib/*" PoolTimeoutDemo`。
+
+預期標準輸出：
+
+```text
+連線被佔用：第二次取得連線逾時
+連線已釋放：再次取得連線並查詢成功
+```
+
+第一個 try 區塊借走唯一的連線；第二次取得會等待到期後丟出例外。範例另外確認等待至少 250 ms，避免把立即失敗誤當成等待逾時；這個下限只用於驗證行為，並非效能指標。第一個區塊結束後，連線歸還池，下一次取得就能執行查詢。
+
+## 限制與重點回顧
+
+這個本機練習驗證的是「池內無可用連線」的機制，沒有模擬網路故障、真實服務負載或資料庫鎖等待。H2 查詢成功也不代表正式環境的容量設定適當。
+
+遇到逾時時先找出連線為何無法使用。確認根因後，再評估池大小與等待設定；不要只把等待時間改長。
+
+## 參考
+
+- [HikariCP 7.0.2：Configuration](https://github.com/brettwooldridge/HikariCP/blob/HikariCP-7.0.2/README.md#frequently-used)
+- [H2：Database URL 與 Embedded Mode](https://h2database.com/html/features.html#database_url)
+- 原始問題參考：[Stack Overflow：HikariPool connection timeout](https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for)。本文已補上獨立重現步驟與限制。

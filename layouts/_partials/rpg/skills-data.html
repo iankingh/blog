@@ -1,0 +1,14 @@
+{{- $posts := (where (where .RegularPages "Section" "in" .Params.mainSections) "Draft" false).ByDate.Reverse -}}
+{{- $skills := slice -}}
+{{- range hugo.Data.skills -}}
+  {{- $definition := . -}}
+  {{- $records := slice -}}
+  {{- range $posts -}}
+    {{- $tags := slice -}}
+    {{- range .Params.tags -}}{{- $tags = $tags | append (lower (trim . " ")) -}}{{- end -}}
+    {{- if intersect $tags $definition.tags -}}{{- $records = $records | append . -}}{{- end -}}
+  {{- end -}}
+  {{- $count := len $records -}}
+  {{- $skills = $skills | append (merge $definition (dict "records" $records "count" $count "level" (add (div $count 10) 1) "xp" (mod $count 10))) -}}
+{{- end -}}
+{{- return $skills -}}

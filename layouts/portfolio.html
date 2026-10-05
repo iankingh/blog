@@ -1,0 +1,6 @@
+{{ define "main_inner_class" }}portfolio-page{{ end }}
+{{ define "main" }}
+<div class="page-heading"><div><p class="eyebrow">BUILD · DOCUMENT · SHARE</p><h1>{{ .Title }}<span>Project Case Study</span></h1></div></div>
+<div class="project-intro panel"><p>先從這個網站開始，記錄需求、設計選擇與實作方式。</p><div class="project-actions"><a class="button-primary" href="https://github.com/iankingh/blog" target="_blank" rel="noopener noreferrer">{{ partial "rpg/icon.html" "code" }}查看網站原始碼 ↗</a><a class="button-secondary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub ↗</a></div></div>
+<article class="article-panel panel"><div class="article-body">{{ .Content }}</div></article>
+{{ end }}

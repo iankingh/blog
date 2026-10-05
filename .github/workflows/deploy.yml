@@ -32,6 +32,9 @@ jobs:
           hugo-version: '0.167.0'
           extended: true
 
+      - name: Check search interactions
+        run: node .github/scripts/check-search.cjs
+
       - name: Build
         run: hugo --minify --destination "$RUNNER_TEMP/blog-public"
 

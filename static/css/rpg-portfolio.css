@@ -1,0 +1,98 @@
+/* Professional entry points alongside the existing RPG visual system. */
+.main-content { min-width: 0; }
+.primary-nav { margin-bottom: 26px; }
+.primary-nav .nav-label { margin-top: 0; }
+.side-nav > a { font-size: 14px; gap: 9px; }
+.secondary-nav > a { font-size: 13px; }
+.hero-copy { padding-right: 18px; }
+.hero-art > img { width: 100%; }
+.hero h2 { font-size: clamp(28px, 2.4vw, 38px); line-height: 1.55; }
+.topbar.has-github-corner { position: relative; padding-right: max(106px, calc((100vw - 1320px) / 2)); }
+.github-corner { position: absolute; top: 0; right: 0; width: 80px; height: 80px; color: var(--header); }
+.github-corner > svg { display: block; fill: var(--gold); }
+.github-corner .octo-arm { transform-origin: 130px 106px; }
+.github-corner:hover .octo-arm, .github-corner:focus-visible .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+@keyframes octocat-wave {
+  0%, 100% { transform: rotate(0); }
+  20%, 60% { transform: rotate(-25deg); }
+  40%, 80% { transform: rotate(10deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .github-corner:hover .octo-arm, .github-corner:focus-visible .octo-arm { animation: none; }
+}
+.hero-copy > p { font-size: 16px; }
+.hero-actions, .project-actions, .profile-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.hero-actions .button-primary, .profile-actions .button-primary, .project-actions .button-primary { min-height: 44px; font-size: 14px; }
+.hero-actions .button-secondary { min-height: 44px; }
+.text-link { display: inline-flex; align-items: center; gap: 7px; color: var(--gold); font-size: 14px; }
+.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.portfolio-section, .featured-section { margin: 32px 0; }
+.project-preview { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); overflow: hidden; }
+.project-preview > div { padding: 26px; }
+.project-preview h3 { font: 25px/1.6 var(--serif); margin: 8px 0 12px; }
+.project-preview h3 a:hover { color: var(--gold); }
+.project-preview p:not(.eyebrow) { font-size: 15px; line-height: 1.9; color: var(--muted); }
+.project-art-link { display: block; min-width: 0; background: var(--surface-raised); }
+.project-art-link img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 17px 0; }
+.project-tags span { padding: 3px 9px; border: 1px solid var(--line); border-radius: 3px; color: var(--green); background: var(--tag-bg); font: 12px/1.8 var(--mono); }
+.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.featured-card { display: flex; flex-direction: column; min-width: 0; padding: 23px; border-top: 3px solid var(--gold); }
+.featured-card h3 { font: 21px/1.65 var(--serif); margin: 8px 0 13px; overflow-wrap: anywhere; }
+.featured-card h3 a:hover { color: var(--gold); }
+.featured-card > p:not(.eyebrow) { font-size: 14px; line-height: 1.9; color: var(--muted); margin-top: 0; }
+.featured-card .text-link { border-top: 1px solid var(--line); padding-top: 13px; margin-top: 14px; font-size: 13px; }
+.featured-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: auto; padding-top: 12px; color: var(--muted); font-size: 12px; }
+.learning-summary { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 17px 22px; margin: 28px 0; font-size: 13px; color: var(--muted); }
+.learning-summary > span { color: var(--gold); }
+.learning-summary a:hover { color: var(--gold); }
+.project-intro { padding: 24px; margin-bottom: 24px; }
+.project-intro p { margin: 0 0 15px; color: var(--muted); }
+.portfolio-page .article-panel { margin-bottom: 28px; }
+.profile-actions { margin: 16px 0 20px; }
+.skill-featured { padding: 13px 15px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 3px; margin-bottom: 20px; }
+.skill-featured p { margin: 0 0 8px; color: var(--gold); font-size: 13px; }
+.skill-featured ul { margin: 0; padding-left: 18px; font-size: 13px; }
+.skill-featured li { padding: 3px 0; }
+.skill-featured a:hover { color: var(--gold); }
+.search-retry { padding: 9px 15px; border: 1px solid var(--gold); border-radius: 3px; color: var(--gold); background: var(--surface-raised); margin-bottom: 15px; }
+.section-description { color: var(--muted); font-size: 14px; line-height: 1.8; }
+@media (max-width: 1100px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .project-preview { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+  .project-preview h3 { font-size: 23px; }
+}
+@media (max-width: 820px) {
+  .topbar.has-github-corner { padding-right: 94px; }
+  .sidebar.is-open { max-height: calc(100dvh - 75px); overflow-y: auto; }
+  .hero-copy > p { font-size: 15px; }
+  .section-heading { flex-wrap: wrap; }
+}
+@media (max-width: 540px) {
+  .brand { font-size: 18px; gap: 9px; min-width: 0; }
+  .brand small { display: none; }
+  .brand-emblem { flex-shrink: 0; }
+  .topbar { gap: 8px; padding: 0 14px; }
+  .topbar.has-github-corner { padding-right: 60px; }
+  .github-corner { width: 52px; height: 52px; }
+  .github-corner > svg { width: 52px; height: 52px; }
+  .topbar-actions { flex-shrink: 0; }
+  .page-heading { flex-wrap: wrap; gap: 12px; }
+  .page-heading h1 > span { display: block; margin: 3px 0 0; font: 13px/1.8 var(--mono); color: var(--muted); }
+  .hero { min-height: 350px; }
+  .hero-copy { padding: 24px 23px 75px; }
+  .hero-copy > p { font-size: 15px; margin-bottom: 18px; }
+  .hero h2 { font-size: 30px; }
+  .hero-art > img { opacity: .25; height: 52%; }
+  .scene-caption { display: none; }
+  .hero-footnote { letter-spacing: 0; }
+  .project-preview { grid-template-columns: 1fr; }
+  .project-preview > div { padding: 22px; }
+  .project-art-link img { height: 160px; }
+  .featured-card { padding: 22px; }
+  .section-heading h2 { font-size: 20px; flex-wrap: wrap; }
+  .section-heading h2 small { font-size: 10px; }
+  .learning-summary { gap: 8px 18px; padding: 17px; }
+  .learning-summary > span { width: 100%; }
+  .sidebar.is-open { max-height: calc(100dvh - 69px); }
+}

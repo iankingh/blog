@@ -10,6 +10,46 @@
 .taxonomy-arrow { margin-left: auto; color: var(--gold); }
 .taxonomy-card:hover { border-color: var(--gold-dim); background: var(--surface-hover); }
 .category-grid .taxonomy-card { padding-top: 30px; padding-bottom: 30px; }
+.codex-guide { display: flex; align-items: center; gap: 18px; padding: 24px; margin: 0 0 30px; }
+.codex-guide-icon { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; color: var(--gold); background: var(--accent-surface); border: 1px solid var(--line); border-radius: 4px; }
+.codex-guide h2 { margin: 0 0 7px; font: 20px/1.6 var(--serif); }
+.codex-guide p { margin: 0; font-size: 14px; line-height: 1.9; color: var(--muted); }
+.codex-guide > a { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; font-size: 13px; color: var(--gold); }
+.codex-section { margin-bottom: 34px; }
+.codex-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+.codex-card { padding: 23px; min-width: 0; scroll-margin-top: 100px; border-top: 3px solid var(--green); }
+.codex-ai { border-top-color: var(--gold); }
+.codex-card:target { outline: 2px solid var(--gold); outline-offset: 4px; }
+.codex-card-heading { display: flex; align-items: center; gap: 12px; }
+.codex-card-heading > div { min-width: 0; }
+.codex-emblem { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 4px; background: var(--accent-surface); color: var(--green); font: 20px var(--mono); }
+.codex-ai .codex-emblem { color: var(--gold); }
+.codex-type { color: var(--muted); font-size: 11px; letter-spacing: 1px; }
+.codex-card h3 { margin: 3px 0 0; font: 19px/1.4 var(--mono); overflow-wrap: anywhere; }
+.codex-level { margin-left: auto; white-space: nowrap; color: var(--gold); font: 14px var(--mono); }
+.codex-level b { font-size: 29px; font-weight: 500; }
+.codex-description { margin: 18px 0 23px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.codex-xp-label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 9px; font: 12px/1.7 var(--mono); color: var(--muted); }
+.codex-xp-label b { color: var(--text); font-weight: 500; }
+.codex-progress { display: block; appearance: none; -webkit-appearance: none; width: 100%; height: 10px; overflow: hidden; border: 1px solid var(--line); border-radius: 2px; background: var(--track); color: var(--green); }
+.codex-progress::-webkit-progress-bar { background: var(--track); }
+.codex-progress::-webkit-progress-value { background: var(--green); }
+.codex-progress::-moz-progress-bar { background: var(--green); }
+.codex-ai .codex-progress::-webkit-progress-value { background: var(--gold); }
+.codex-ai .codex-progress::-moz-progress-bar { background: var(--gold); }
+.codex-next { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 10px; margin: 10px 0 19px; font-size: 12px; line-height: 1.8; color: var(--muted); }
+.codex-link { display: flex; justify-content: space-between; align-items: center; padding-top: 13px; border-top: 1px solid var(--line); color: var(--green); font-size: 13px; }
+.codex-records { border-top: 1px solid var(--line); padding-top: 13px; }
+.codex-records summary { cursor: pointer; color: var(--green); font-size: 13px; line-height: 1.8; }
+.codex-records summary > span { float: right; color: var(--muted); }
+.codex-records ul { margin: 14px 0 0; padding: 0; list-style: none; }
+.codex-records li + li { border-top: 1px solid var(--line); }
+.codex-records a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+.codex-records a > span { flex-shrink: 0; color: var(--gold); }
+.codex-link:hover, .codex-records a:hover, .codex-guide > a:hover { color: var(--gold); }
+.codex-empty { border-top: 1px solid var(--line); padding-top: 13px; margin: 0; font-size: 12px; line-height: 1.8; color: var(--muted); }
+@media (max-width: 1100px) { .codex-guide { flex-wrap: wrap; } .codex-guide > div { flex: 1; min-width: 200px; } .codex-guide > a { margin-left: 0; } }
+@media (max-width: 640px) { .codex-grid { grid-template-columns: 1fr; gap: 14px; } .codex-card { padding: 20px; } .codex-guide { padding: 20px; gap: 14px; } .codex-guide-icon { display: none; } .codex-guide h2 { font-size: 19px; } .codex-guide > div { min-width: 0; flex-basis: 100%; } }
 .archive-panel { padding: 30px 32px; margin-top: 24px; }
 .archive-year + .archive-year { margin-top: 32px; }
 .archive-year h2 { display: flex; align-items: center; gap: 12px; font: 27px/1.5 var(--serif); margin: 0 0 14px; }

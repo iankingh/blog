@@ -85,6 +85,11 @@ outputFormats:
     baseName: searchindexes
     isPlainText: true
     notAlternative: true
+  SearchIndex:
+    mediaType: application/json
+    baseName: search-index
+    isPlainText: true
+    notAlternative: true
   # 生成 Algolia 索引文件
   # Build indexes of Aloglia
   AlgoliaIndexes:
@@ -98,7 +103,7 @@ outputFormats:
 # By default use local search, before switch to Algolia engine
 # Please replace LocalIndexes with AlgoliaIndexes
 outputs:
-  home: ["HTML", "RSS", "LocalIndexes"]
+  home: ["HTML", "RSS", "LocalIndexes", "SearchIndex"]
 
 # 输出 robots 文件支持爬虫扫描
 # Enable robots with support crawler scan
@@ -129,27 +134,22 @@ minify:
 menus:
   main:
     - identifier: home
-      name: 首頁
+      name: 首頁・冒險大廳
       pageref: /
       pre: home
       weight: 1
-    - identifier: code
-      name: 技術
-      pageref: /categories/技術/
-      pre: code
-      weight: 2
     - identifier: book
-      name: 筆記
-      pageref: /categories/筆記/
+      name: 筆記・任務日誌
+      pageref: /post/
       pre: book
       weight: 3
-    - identifier: archives
-      name: 歸檔
-      pageref: /archives
-      pre: archive
+    - identifier: skills
+      name: 技能・技能圖鑑
+      pageref: /skills/
+      pre: tree
       weight: 4
     - identifier: about
-      name: 關於
+      name: 關於・角色檔案
       pageref: /about
       pre: user
       weight: 5
@@ -186,16 +186,18 @@ params:
   # Site Information Settings
   author: Ian Huang 
   subtitle: "總有一天，你的日積月累，會變成他人的望塵莫及"
-  description: 筆記 | 軟體 | 架構 | Java
+  description: "我是 Ian，全端工程師、AI 規劃師。這裡記錄全端開發、AI 規劃、解題實作與持續學習。"
+  sharingImage: images/ian-java-share.png
   keywords: Programmer & Architect ,程式師,架構師,個人,筆記,技術
 
   # 不同尺寸站点图标
   # Different size of favicon
   favicon:
-    icon: /imgs/icons/favicon.ico
-    small: /imgs/icons/favicon_16x16_next.png
-    medium: /imgs/icons/favicon_32_32_next.png
-    appleTouchIcon: /imgs/icons/apple_touch_icon_next.png
+    svg: /imgs/icons/rpg-compass.svg
+    icon: /imgs/icons/rpg-compass.ico
+    small: /imgs/icons/rpg-compass-16.png
+    medium: /imgs/icons/rpg-compass-32.png
+    appleTouchIcon: /imgs/icons/rpg-compass-180.png
 
   # 自定义 Logo （目前只支持 Mist 页面模式）
   # Custom Logo (Warning: Only support scheme Mist)

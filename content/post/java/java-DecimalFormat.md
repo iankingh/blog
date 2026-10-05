@@ -1,165 +1,109 @@
 ---
-title: "Java DecimalFormat(數字格式)"
+title: "Java DecimalFormat：明確控制格式、Locale 與捨入"
 date: 2020-05-26T08:59:50+08:00
-draft: false
-categories:
- - "筆記"
-tags:
- - "java"
+lastmod: 2026-10-05T21:48:32+08:00
+description: "用 Java 21 的完整範例整理 DecimalFormat：0 與 #、千分位、百分比、Locale 以及 BigDecimal 的 HALF_EVEN 與 HALF_UP 捨入結果。"
+featuredOrder: 3
+categories: ["筆記"]
+tags: ["java"]
 toc: true
+draft: false
 ---
 
-## Java DecimalFormat(數字格式)
+當 API、報表或畫面需要固定的小數位數與千分位，可以用 `DecimalFormat` 控制呈現。要讓不同電腦產生相同結果，除了 pattern，也需要明確指定 Locale 與捨入方式。
 
 <!--more-->
-## **簡介**
 
-`java.text`提供了`NumberFormat`類別來讓我們更方便的格式化數字的呈現方式
+## 使用情境與適用環境
 
-`DecimalFormat`是`NumberFormat`該格式的具體子類， 其格式為小數。它具有多種功能，旨在使可以在任何語言環境中解析和格式化數字，包括對西方，阿拉伯和印度數字的支援。它還支援各種數字，包括整數（123），定點數字（123.4），科學計數法（1.23E4），百分比（12％）和貨幣金額（$ 123）。所有這些都可以本地化。
+本文示例在 OpenJDK 21.0.1 執行，僅使用 Java 標準函式庫。選用 `Locale.US`，讓小數點使用 `.`、分組符號使用 `,`。
 
-## **基本用法**
+格式化的結果是字串。資料本身的計算與畫面的輸出格式是兩個步驟，顯示為兩位小數不代表原始數值已改變。
 
-### **NumberFormat**
+## 常用格式符號
 
-```java
-//由於NumberFormat是一個抽象類別，必須用getInstance()來取得他裡面的方法
+| 符號 | 意義 | 示例 |
+|---|---|---|
+| `0` | 位數不足時補零 | `000000.000`：`123.78` → `000123.780` |
+| `#` | 可省略的數字位置 | `#,##0.###`：`123456.789` → `123,456.789` |
+| `.` | pattern 中的小數分隔位置 | 顯示符號由 Locale 決定 |
+| `,` | pattern 中的分組位置 | `#,##0.00`：`1234` → `1,234.00` |
+| `%` | 格式化前將數值乘以 100，附上百分比符號 | `0.00%`：`0.125` → `12.50%` |
 
-NumberFormat nf = NumberFormat.getInstance();
+## 完整可執行範例
 
-//NumberFormat物件格式化的方式是固定的，都是以每三位數一個逗號的方式格式化數字，浮點數欄位則是有的時候顯示，沒有就不顯示。所以可以得到1,234,567.89。
-
-System.out.println(nf.format(1234567.89));
-```
-
-### **DecimalFormat**
-
-DecimalFormat實作了NumberFormat，並提供更客製化的格式選擇，用法如下：
+存為 `DecimalFormatDemo.java`：
 
 ```java
-Double value = 123456.789;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
-String pattern = "###,###.###" ;
+public class DecimalFormatDemo {
+    private static DecimalFormat formatter(String pattern, RoundingMode rounding) {
+        DecimalFormat format = new DecimalFormat(
+                pattern, DecimalFormatSymbols.getInstance(Locale.US));
+        format.setRoundingMode(rounding);
+        return format;
+    }
 
-//宣告了一個DecimalFormat物件，並可以在宣告時帶入要格式化的格式，若不帶入引數，格式規則和NumberFormat相同。
-
-DecimalFormat myFormatter = new DecimalFormat(pattern);
-
-String output = myFormatter.format(value);
-
-System.out.println("執行結果為：" + value + " " + pattern + " " + output);
-```
-
-下表描述了前幾行程式碼的輸出.  `value`是要格式化的數字(`double`) ,`pattern` 是指定格式設定屬性的字串 `output`, 輸出是字串，表示格式化的數字。
-
-| value | pattern | output | Explanation |
-| --- | --- | --- | --- |
-| 123456.789 | ###,###.### | 123,456.789 | 井號（＃）表示一個數字，逗號是分組分隔符的佔位符，句點是十進位制分隔符的佔位符。 |
-| 123456.789  | ###.## | 123456.79  | value 在小數點右邊有三位數, 而 pattern 只有兩位. format透過四捨五入來解決這個問題。  |
-| 123.78 | 000000.000 | 000123.780 | pattern 指定前導零和尾隨零，因為使用0字元代替了井號（＃）。 |
-| 12345.67 | $###,###.### | $12,345.67 | pattern中的第一個字元是美元符號（$）。注意，它緊接在格式為output的最左邊的數字之前。 |
-| 12345.67 | \u00A5###,###.### | ¥12,345.67 | pattern 使用Unicode值00A5指定日元（¥）的貨幣符號。 |
-
-## **其他用法**
-
-```java
-DecimalFormat df = new DecimalFormat("$#,##0.00");
-
-System.out.println(df.format(1234567.2));
-```
-
-格式化的字串中0代表一定要有值，#則代表不一定要有值，
-
-因此#,##0.00表示至少要有個位數及小數點後兩位，且每三位數以一個逗號分開，若格式化的數字沒有個位數或小數點後兩位，就會以0代替。
-
-根據需求在前後加上需要的文字，例如$符號，所以上例執行的結果就會是$1,234,567.20。
-
-這邊要注意若是我們在格式化字串結尾加上百分比符號『%』，DecimalFormat會自動幫我們將數值乘以100以符合字面意義，例如：
-
-```java
-DecimalFormat df = new DecimalFormat("#,##0.00%");
-
-System.out.println("執行結果為：" + df.format(1234567.2));//  執行結果為：123,456,720.00%
-```
-
-DecimalFormat 類主要靠 # 和 0 兩種預留位置號來指定數位長度。
-
-0 表示如果位數不足則以 0 填充，# 表示只要有可能就把數字拉上這個位置。
-
-```java
-/**
-
-* DecimalFormatTest
-
-*/
-
-public class DecimalFormatTest {
-
-public static void main(String[] args) {
-
-double d = 123456789;
-
-DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
-
-System.out.println(decimalFormat.format(d));
-
-DecimalFormat decimalFormat2 = new DecimalFormat("#,###.00");
-
-System.out.println(decimalFormat2.format(d));
-
-double pi = 3.1415927;// 圓周率
-
-// 取一位元整數
-
-System.out.println(new DecimalFormat("0").format(pi));// 3
-
-// 取一位元整數和兩位元小數
-
-System.out.println(new DecimalFormat("0.00").format(pi));// 3.14
-
-// 取兩位元整數和三位元小數，整數不足部分以0填補。
-
-System.out.println(new DecimalFormat("00.000").format(pi));// 03.142
-
-// 取所有整數部分
-
-System.out.println(new DecimalFormat("#").format(pi));// 3
-
-// 以百分比方式計數，並取兩位小數
-
-System.out.println(new DecimalFormat("#.##%").format(pi));// 314.16%
-
-long c = 299792458;// 光速
-
-// 顯示為科學計數法，並取五位小數
-
-System.out.println(new DecimalFormat("#.#####E0").format(c));// 2.99792E8
-
-// 顯示為兩位元整數的科學計數法，並取四位小數
-
-System.out.println(new DecimalFormat("00.####E0").format(c));// 29.9792E7
-
-// 每三位以逗號進行分隔。
-
-System.out.println(new DecimalFormat(",###").format(c));// 299,792,458
-
-// 將格式嵌入文字
-
-System.out.println(new DecimalFormat("光速大小為每秒,###米").format(c)); // 光速大小為每秒299,792,458米
-
-}
-
+    public static void main(String[] args) {
+        System.out.println(formatter("#,##0.###", RoundingMode.HALF_EVEN)
+                .format(new BigDecimal("123456.789")));
+        System.out.println(formatter("000000.000", RoundingMode.HALF_EVEN)
+                .format(new BigDecimal("123.78")));
+        System.out.println(formatter("0.00%", RoundingMode.HALF_EVEN)
+                .format(new BigDecimal("0.125")));
+        System.out.println(formatter("0.00", RoundingMode.HALF_EVEN)
+                .format(new BigDecimal("2.345")));
+        System.out.println(formatter("0.00", RoundingMode.HALF_UP)
+                .format(new BigDecimal("2.345")));
+    }
 }
 ```
 
-## **參考**
+執行：
 
-[DecimalFormat (Java Platform SE 8 ) (oracle.com)](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)
+```shell
+javac DecimalFormatDemo.java
+java DecimalFormatDemo
+```
 
-[[Java] 13-8 數字輸出格式 @ 給你魚竿 :: 痞客邦 :: (pixnet.net)](https://rx1226.pixnet.net/blog/post/335106917)
+預期結果：
 
-[（轉）Java DecimalFormat 用法（數字格式化） - 濫好人 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/hq233/p/6539107.html)
+```text
+123,456.789
+000123.780
+12.50%
+2.34
+2.35
+```
 
-[Customizing Formats (The Java™ Tutorials > Internationalization > Formatting) (oracle.com)](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)
+最後兩行使用同一個精確十進位值 `2.345`。在兩位小數的中點，`HALF_EVEN` 選擇最後保留位為偶數的 `2.34`；`HALF_UP` 則得到 `2.35`。`DecimalFormat` 預設使用 `HALF_EVEN`，因此要明確選擇符合需求的規則。
 
-[數字格式(NumberFormat、DecimalFormat) @ Penguin 工作室，一起JAVA吧！ :: 隨意窩 Xuite日誌](https://blog.xuite.net/jane17512001/PenguinDesign/116288108-%E6%95%B8%E5%AD%97%E6%A0%BC%E5%BC%8F%28NumberFormat%E3%80%81DecimalFormat%29))
+## 為什麼使用 BigDecimal 的字串建構子
+
+`new BigDecimal("2.345")` 保留字串表示的十進位值。`double` 是二進位浮點數，像 `2.345` 這類值可能無法精確表示；將它先轉成 double 再建構 BigDecimal，測試就不再是相同的精確中點。
+
+本文為了展示確定的捨入結果，使用字串建構 BigDecimal。格式化只處理輸出，計算時仍要在適當位置決定精度與捨入規則。
+
+## 限制與常見錯誤
+
+- `Locale.US` 是本文重現結果的選擇；多語系畫面應依目標使用者的 Locale 呈現。
+- `DecimalFormat` 不是執行緒安全的物件，不要把單一實例放進多執行緒共用且沒有同步的服務。
+- 數值 `0.125` 使用 `%` 會變成 `12.50%`；已經以 `12.5` 表達百分比的資料，不能再套用同樣轉換。
+- 把 `$` 寫進 pattern 只會加上字元，不會選擇貨幣或進行匯率轉換。
+- 若需要處理輸入字串，`parse()` 的規則與回傳型別也必須另外確認，不能只靠輸出格式推斷。
+
+## 重點回顧
+
+固定 Locale、使用明確的十進位資料與捨入方式，範例才能在不同環境中重現。選好 pattern 之後，再確認百分比、分組符號與多執行緒使用方式是否符合需求。
+
+## 參考
+
+- [Java SE 21：DecimalFormat](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
+- [Java SE 21：BigDecimal](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
+- [Java SE 21：RoundingMode](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
+- [Oracle Java Tutorials：Customizing Formats](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)

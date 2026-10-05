@@ -1,0 +1,6 @@
+{{- $posts := (where (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) "Draft" false).ByDate.Reverse -}}
+{{- $searchIndex := slice -}}
+{{- range $posts -}}
+  {{- $searchIndex = $searchIndex | append (dict "title" .Title "url" .RelPermalink "tags" (.Params.tags | default slice) "summary" ((partial "rpg/summary.html" .) | truncate 180) "content" .Plain "date" (.Date.Format "2006.01.02")) -}}
+{{- end -}}
+{{- $searchIndex | jsonify -}}

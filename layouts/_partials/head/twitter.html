@@ -1,0 +1,10 @@
+{{- if .Site.Params.openGraph.enable -}}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ .Scratch.Get "metaTitle" | default .Title | default .Site.Title }}" />
+<meta name="twitter:description" content="{{ .Scratch.Get "metaDescription" }}" />
+{{- with (.Scratch.Get "metaImage").url }}<meta name="twitter:image" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.openGraph.twitter -}}
+  {{- with .creator }}<meta name="twitter:creator" content="@{{ . | strings.TrimPrefix "@" }}" />{{ end }}
+  {{- with .site }}<meta name="twitter:site" content="@{{ . | strings.TrimPrefix "@" }}" />{{ end }}
+{{- end -}}
+{{- end -}}

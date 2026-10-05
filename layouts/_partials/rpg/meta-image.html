@@ -1,0 +1,45 @@
+{{- /* Front matter images override the site card; an empty list uses the default. */ -}}
+{{- $page := . -}}
+{{- $source := .Site.Params.sharingImage | default .Site.Params.customLogo | default .Site.Params.avatar.url -}}
+{{- with .Params.images -}}
+  {{- $source = index . 0 -}}
+{{- end -}}
+{{- $image := dict -}}
+{{- with $source -}}
+  {{- $source = . -}}
+  {{- $external := or (strings.HasPrefix $source "https://") (strings.HasPrefix $source "http://") (strings.HasPrefix $source "//") -}}
+  {{- if $external -}}
+    {{- /* Do not invent a MIME type or dimensions for an uninspected remote image. */ -}}
+    {{- $image = dict "url" ($source | absURL) -}}
+  {{- else -}}
+    {{- $relative := $source | strings.TrimPrefix "/" -}}
+    {{- $url := $relative | absURL -}}
+    {{- $width := 0 -}}
+    {{- $height := 0 -}}
+    {{- $type := "" -}}
+    {{- $types := dict ".avif" "image/avif" ".bmp" "image/bmp" ".gif" "image/gif" ".heic" "image/heic" ".heif" "image/heif" ".jpeg" "image/jpeg" ".jpg" "image/jpeg" ".png" "image/png" ".svg" "image/svg+xml" ".tif" "image/tiff" ".tiff" "image/tiff" ".webp" "image/webp" -}}
+    {{- $extension := path.Ext $relative | lower -}}
+    {{- with $page.Resources.GetMatch $relative -}}
+      {{- $url = .Permalink -}}
+      {{- $type = .MediaType.Type -}}
+      {{- if ne $extension ".svg" -}}
+        {{- $width = .Width -}}
+        {{- $height = .Height -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $file := path.Join "static" $relative -}}
+      {{- if fileExists $file -}}
+        {{- with index $types $extension -}}
+          {{- $type = . -}}
+          {{- if ne $extension ".svg" -}}
+            {{- $config := images.Config $file -}}
+            {{- $width = $config.Width -}}
+            {{- $height = $config.Height -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $image = dict "url" $url "width" $width "height" $height "type" $type -}}
+  {{- end -}}
+{{- end -}}
+{{- return $image -}}

@@ -62,6 +62,7 @@ submodule，這會改動其工作目錄；一般維護與部署不需要提交�
 - `config.yaml`：Hugo 與 NexT 設定，包括 `baseURL`、語言、選單、搜尋及第三方整合。
 - `content/post/`：依 Java、Spring、Vue、Docker、Git 等主題分類的文章。
 - `content/about.md`：關於頁面。
+- `content/projects.md`：本站作品案例，獨立於技術筆記數與 EXP；Markdown 圖片使用實際首頁截圖。
 - `archetypes/default.md`：新文章的 front matter 與內容範本。
 - `layouts/`：相對於主題的站點專用版面與 partial 覆寫。
 - `static/`：圖片、CSS、JavaScript 等直接複製的靜態資源。
@@ -84,19 +85,55 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 
 全站使用共用的 RPG 冒險面板，包括首頁、關於頁、文章、分類、標籤、歸檔、分頁與 404 頁：
 
-- `layouts/home.html`：角色卡、技能入口、每頁 8 篇的任務日誌與全站搜尋資料。
+- `layouts/home.html`：全端工程師／AI 規劃師介紹、GitHub 入口與每頁 8 篇的任務日誌。
 - `layouts/character.html`：關於頁的角色檔案、主要技能、技能紀錄與寫作里程碑；文字內容仍由 `content/about.md` 維護。
 - `layouts/baseof.html`：文章及列表頁共用的頁首、角色側欄與搜尋。
 - `layouts/page.html`：文章閱讀面板、可收合目錄、分類標籤、相鄰文章與留言。
-- `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤圖鑑。
+- `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤列表。
 - `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
-- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換。
+- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；右上角保留連至個人 GitHub 的 Octocat，使用既有 githubBanner 設定。
 - `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單。
 - `static/css/rpg-pages.css`、`static/js/rpg-article.js`：全站列表與文章排版、程式碼複製；圖片原生延遲載入，表格與程式碼可水平捲動。
 - `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站右上角的黑／白版切換，預設白色；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
+- `static/css/rpg-portfolio.css`：作品、精選文章、專業定位與共用導覽的樣式，沿用既有 RPG 色彩。
 - `static/images/rpg-camp.svg`：像素營地插畫，無需外部圖片服務。
-- 角色等級依已發布文章數計算，每 10 篇升一級；技能入口依標籤文章數排序。
-- 搜尋支援標題、標籤與摘要，按 `/` 開啟、`Esc` 關閉；草稿不會出現在正式建置的首頁與搜尋中。
+- 角色等級依已發布文章數計算，每 10 篇升一級。技能圖鑑位於 `/skills/`，與 `/tags/` 的文章標籤分開；首頁技能數量、角色檔案和圖鑑共用技能資料，技能等級與進度顯示於角色檔案和圖鑑。
+- `data/skills.json`：維護技能名稱、分組、描述及對應的文章標籤；`layouts/skills/section.html` 呈現 Lv. 與 EXP 進度條。每篇相關公開筆記累積 1 EXP（多個匹配標籤只計一次），每 10 EXP 升一級；進度條顯示距下一級的累積值。Lv. 表示筆記累積，不是專業能力評分。沒有筆記的技能仍顯示 Lv. 1、0 / 10，圖鑑可展開閱讀相關紀錄。
+- `layouts/home.searchindex.json`：產生 `/blog/search-index.json`，只收錄公開技術筆記，連 `--buildDrafts` 預覽也排除草稿與作品頁。既有 `searchindexes.xml` 仍保留供 NexT 使用。
+- 全文搜尋在首次開啟時才載入 JSON，同頁快取並共用載入中的請求；支援標題、標籤與正文，按 `/` 開啟、`Esc` 關閉。錯誤可重試，快速輸入或關閉重開不會顯示舊結果；結果保留精簡摘要。
+- 搜尋關閉後焦點回到觸發入口，手機導覽內按 `Esc` 關閉則回到選單按鈕。
+
+### 精選筆記與更新時間
+
+文章使用 Hugo 的 `description` 作為文章卡片、搜尋與分享摘要。只有實際修訂後才增加 `lastmod`，文章頁同時保留原始 `date` 與更新日期。`featuredOrder` 為選填正整數，決定 Java 技能卡中的精選顯示順序；不要為一般文章填入。
+
+目前精選為 Java 多型、HikariPool 連線取得逾時與 DecimalFormat。Java 範例以 OpenJDK 21 驗證，重跑方式見下方驗證指令。
+
+### 搜尋摘要與分享圖
+
+共用 metadata 輸出標準 description、Open Graph 與 Twitter card，摘要與圖片共用來源。`params.sharingImage` 指向 1200×630 的 `static/images/ian-java-share.png`；文章可用 `images` 清單中的第一張覆蓋，空清單使用網站預設。支援 static 圖片、文章 bundle 圖片與外部 URL；外部圖不會填入未知的尺寸或 MIME。
+
+分享圖沿用營地插畫，向量來源為 `static/images/ian-java-share.svg`。如已安裝 `sharp`，可重新產生：
+
+```bash
+node .github/scripts/create-share-card.mjs
+# 也可傳入已安裝的 sharp package 絕對路徑，無需在 Hugo 專案安裝套件
+node .github/scripts/create-share-card.mjs /path/to/node_modules/sharp
+```
+
+### 驗證
+
+```bash
+# 搜尋載入、快取、競態、失敗重試與焦點（Node.js，無外部套件）
+node .github/scripts/check-search.cjs
+
+# Java 21 範例；HikariCP / H2 / SLF4J JAR 的提供方式見 --help
+python3 .github/scripts/check-java-notes.py --help
+
+# 正式建置與既有安全檢查，勿輸出到 public 子模組
+hugo --minify --destination .local-public
+python3 .github/scripts/check-site-security.py .local-public
+```
 
 建立文章：
 
@@ -111,7 +148,7 @@ hugo new content/post/<分類>/<文章名稱>.md
 推送至 `master` 後，`.github/workflows/deploy.yml` 會：
 
 1. 唯讀的 `build` job 取出原始碼與 submodules，且不保留 Git 憑證；
-2. 安裝 Hugo Extended `0.167.0`，執行 `hugo --minify`；
+2. 安裝 Hugo Extended `0.167.0`，驗證搜尋互動，再執行 `hugo --minify`；
 3. 檢查產出 HTML 的 CSP、內嵌腳本與事件處理器，再上傳建置產物；
 4. 獨立 `deploy` job 只下載通過檢查的產物，發布至 `gh-pages` 分支。
 

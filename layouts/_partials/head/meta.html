@@ -14,10 +14,12 @@
 <link rel="icon" type="image/x-icon" href="{{ $faviconIcon | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ $faviconSmall | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ $faviconMedium | absURL }}">
+{{ with .Site.Params.favicon.svg }}<link rel="icon" type="image/svg+xml" sizes="any" href="{{ . | strings.TrimPrefix "/" | absURL }}">{{ end }}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconApple | absURL }}">
 <meta itemprop="name" content="{{ .Title }}" />
-{{- $description := .Description | default .Summary | plainify | truncate 160 -}}
-{{- if not $description }}{{ $description = .Site.Params.description }}{{ end -}}
+{{- $description := partial "rpg/meta-description.html" . -}}
+{{- .Scratch.Set "metaDescription" $description -}}
+<meta name="description" content="{{ $description }}" />
 <meta itemprop="description" content="{{ $description }}" />
 {{ if .IsPage }}
 {{ with .Date }}
@@ -27,10 +29,7 @@
 <meta itemprop="dateModified" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}" />
 {{ end }}
 {{ end }}
-{{ $img := .Site.Params.customLogo | default .Site.Params.avatar.url }}
-{{ if and .IsPage (isset .Params "images") }}
-  {{ $img := index .Params.images 0 }}
-{{ end }}
-{{ .Scratch.Set "metaImg" $img }}
-<meta itemprop="image" content="{{ $img | absURL }}" />
+{{- $image := partial "rpg/meta-image.html" . -}}
+{{- .Scratch.Set "metaImage" $image -}}
+{{- with $image.url }}<meta itemprop="image" content="{{ . }}" />{{ end }}
 <meta itemprop="keywords" content="{{ if and .IsPage (isset .Params "tags") .Params.tags }}{{ delimit .Params.tags "," }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />

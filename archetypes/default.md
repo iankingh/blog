@@ -2,6 +2,10 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: ""
+# 實際修訂後再加入 lastmod，保留原始 date。
+# lastmod: 2026-10-05T21:00:00+08:00
+# 精選文章可加入正整數，數字越小越靠前；一般筆記不需此欄位。
+# featuredOrder: 1
 categories:
 - "筆記"
 tags:

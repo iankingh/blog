@@ -1,0 +1,9 @@
+{{- /* Keep normal metadata and social cards on the same readable excerpt. */ -}}
+{{- $description := .Description | plainify | strings.TrimSpace -}}
+{{- if not $description -}}
+  {{- $description = partial "rpg/summary.html" . | plainify | strings.TrimSpace -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- $description = .Site.Params.description | plainify | strings.TrimSpace -}}
+{{- end -}}
+{{- return ($description | truncate 160) -}}

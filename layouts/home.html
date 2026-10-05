@@ -1,10 +1,11 @@
-{{- $posts := (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
+{{- $posts := (where (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) "Draft" false).ByDate.Reverse -}}
 {{- $paginator := .Paginate $posts 8 -}}
 {{- $count := len $posts -}}
+{{- $skills := partialCached "rpg/skills-data.html" .Site .Site.Language.Lang -}}
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Locale | default "zh-TW" }}">
 <head>
-  {{ partial "rpg/head.html" (dict "page" . "title" "冒險者筆記" "canonical" ($paginator.URL | absURL)) }}
+  {{ partial "rpg/head.html" (dict "page" . "title" "Ian Huang｜全端工程師・AI 規劃師" "canonical" ($paginator.URL | absURL)) }}
 </head>
 <body>
 <a class="skip-link" href="#main">跳至主要內容</a>
@@ -12,15 +13,10 @@
 <div class="shell">
   {{ partial "rpg/sidebar.html" . }}
   <main id="main" class="main-content">
-    <div class="page-heading"><div><p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p><h1>冒險大廳<span>Adventure Hub</span></h1></div><span class="location">{{ partial "rpg/icon.html" "map" }} 起始之地 / 知識營地</span></div>
+    <div class="page-heading"><div><p class="eyebrow">FULL STACK · AI PLANNING</p><h1>Ian Huang<span>全端工程師・AI 規劃師</span></h1></div></div>
     <section class="hero panel" aria-labelledby="hero-title">
-      <div class="hero-copy"><span class="hero-label">✦ THE NEVER-ENDING QUEST</span><h2 id="hero-title">把每一次探索，<br>寫成<span>經驗值。</span></h2><p>在程式與生活之間，一點一點累積。<br>這裡收藏我的技術筆記、學習紀錄與解題旅程。</p><a class="button-primary" href="#quests">{{ partial "rpg/icon.html" "sword" }}開始探索 {{ partial "rpg/icon.html" "arrow" }}</a><span class="hero-footnote">從一行程式碼，走向下一個未知。</span></div>
+      <div class="hero-copy"><span class="hero-label">✦ 每一次實作，都是新的經驗值</span><h2 id="hero-title">我是 Ian，<br><span>全端工程師。<br>AI 規劃師。</span></h2><p>這裡記錄全端開發、AI 規劃、解題實作與持續學習。</p><div class="hero-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub ↗</a><a class="button-secondary" href="{{ .Site.BaseURL }}#quests">{{ partial "rpg/icon.html" "book" }}閱讀筆記</a></div><span class="hero-footnote">從程式原理到實際問題，把探索留下來。</span></div>
       <div class="hero-art" aria-hidden="true"><img src="{{ "images/rpg-camp.svg" | relURL }}" alt="" width="600" height="390"><div class="scene-caption"><i></i> CAMPFIRE SAVE POINT <span>存檔點：學習的日常</span></div></div>
-    </section>
-    <div class="world-stats"><div>{{ partial "rpg/icon.html" "book" }}<span>已記錄的冒險<b>{{ $count }} <small>篇筆記</small></b></span></div><div>{{ partial "rpg/icon.html" "tree" }}<span>解鎖技能領域<b>{{ len .Site.Taxonomies.tags }} <small>個標籤</small></b></span></div><div>{{ partial "rpg/icon.html" "map" }}<span>探索的地圖<b>{{ len .Site.Taxonomies.categories }} <small>個分類</small></b></span></div></div>
-    <section id="skills" class="skills-section">
-      <div class="section-heading"><h2>{{ partial "rpg/icon.html" "tree" }}技能樹 <small>SKILL TREE</small></h2><a href="{{ "tags/" | relURL }}">所有技能 {{ partial "rpg/icon.html" "arrow" }}</a></div>
-      <div class="skill-grid">{{ range first 4 .Site.Taxonomies.tags.ByCount }}<a class="skill-card" href="{{ .Page.RelPermalink }}"><span class="skill-icon">{{ partial "rpg/icon.html" "code" }}</span><span><b>{{ .Page.Title }}</b><small>{{ .Count }} 篇探索紀錄</small></span><span class="skill-arrow">↗</span></a>{{ end }}</div>
     </section>
     <section id="quests" class="quests-section">
       <div class="section-heading"><h2>{{ partial "rpg/icon.html" "sword" }}任務日誌 <small>QUEST LOG</small></h2><a href="{{ "archives/" | relURL }}">完整歷程 {{ partial "rpg/icon.html" "arrow" }}</a></div>
@@ -28,6 +24,7 @@
       <div class="quest-grid">{{ range $paginator.Pages }}{{ partial "rpg/quest-card.html" . }}{{ end }}</div>
       {{ partial "rpg/pagination.html" (dict "paginator" $paginator "anchor" "quests") }}
     </section>
+    <div class="learning-summary panel"><span>持續累積的學習紀錄</span><a href="{{ "archives/" | relURL }}">{{ $count }} 篇公開筆記</a><a href="{{ "skills/" | relURL }}">{{ len $skills }} 項修練技能</a><a href="{{ "categories/" | relURL }}">{{ len .Site.Taxonomies.categories }} 個分類</a></div>
     {{ partial "rpg/footer.html" . }}
   </main>
 </div>

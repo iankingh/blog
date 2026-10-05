@@ -1,4 +1,5 @@
-<header class="topbar">
+<header class="topbar{{ if .Site.Params.githubBanner.enable }} has-github-corner{{ end }}">
   <a class="brand" href="{{ .Site.BaseURL }}"><span class="brand-emblem">{{ partial "rpg/icon.html" "compass" }}</span><span>{{ .Site.Title }}<small>THE ADVENTURER'S JOURNAL</small></span></a>
   <div class="topbar-actions"><span class="world-status"><i></i> 知識世界・持續探索中</span><button class="search-trigger" data-search-open aria-label="搜尋筆記">{{ partial "rpg/icon.html" "search" }}<span>搜尋筆記</span><kbd>/</kbd></button>{{ partial "rpg/theme-toggle.html" . }}<button class="menu-toggle" aria-label="開啟冒險選單" aria-expanded="false" aria-controls="sidebar">{{ partial "rpg/icon.html" "menu" }}</button></div>
+  {{ partial "rpg/github-corner.html" . }}
 </header>
