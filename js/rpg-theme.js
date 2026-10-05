@@ -8,11 +8,11 @@
     const selected = value === 'dark' ? 'dark' : 'light';
     root.dataset.theme = selected;
     document.querySelectorAll('[data-theme-toggle]').forEach(button => {
-      const label = selected === 'dark' ? '切換為白色版' : '切換為黑色版';
+      const label = selected === 'dark' ? '切換至白晝探索' : '切換至夜間紮營';
       button.setAttribute('aria-label', label);
       button.setAttribute('title', label);
       button.setAttribute('aria-pressed', String(selected === 'dark'));
-      button.querySelector('[data-theme-label]').textContent = selected === 'dark' ? '白色版' : '黑色版';
+      button.querySelector('[data-theme-label]').textContent = selected === 'dark' ? '白晝探索' : '夜間紮營';
     });
     if (persist) {
       try { localStorage.setItem(key, selected); } catch { /* The switch also works without persistence. */ }

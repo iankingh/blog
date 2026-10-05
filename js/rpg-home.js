@@ -20,6 +20,7 @@
       }).then(data => {
         if (!Array.isArray(data) || data.some(post => !post ||
           ['title', 'url', 'summary', 'content', 'date'].some(key => typeof post[key] !== 'string') ||
+          (post.lastmod !== undefined && typeof post.lastmod !== 'string') ||
           !post.url.startsWith('/') || post.url.startsWith('//') ||
           !Array.isArray(post.tags) || post.tags.some(tag => typeof tag !== 'string'))) {
           throw new Error('Invalid search index');
@@ -49,7 +50,8 @@
       const description = document.createElement('span');
       description.textContent = post.summary;
       const meta = document.createElement('small');
-      meta.textContent = `${post.date} · ${post.tags.join(' / ')}`;
+      const dates = `發布 ${post.date}${post.lastmod ? ` · 更新 ${post.lastmod}` : ''}`;
+      meta.textContent = `${dates}${post.tags.length ? ` · ${post.tags.join(' / ')}` : ''}`;
       link.append(title, description, meta);
       results.append(link);
     });
