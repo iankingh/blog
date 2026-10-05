@@ -7,7 +7,9 @@
 文章中的 HTML 與 JavaScript 範例以程式碼呈現。共用頁首套用 CSP，搜尋結果使用純文字建立，避免把文章內容當作互動程式執行。版面提供手機排版、目錄、可捲動的程式碼與表格、跳至主要內容及鍵盤焦點提示。
 基礎主題與本站修改 網站以 Hugo NexT 為基礎，保留其主題與既有內容配置。本站的 RPG 版面、技能資料、作品頁、精選筆記、搜尋互動與部署檢查由專案中的版面覆寫及靜態資源維護。
 這是一份本站實作的整理；上游主題、外部工具及文章參考來源都保留各自的來源說明。
-目前限制與下一步 靜態網站沒有帳號或編輯後台；內容更新需要修改 Markdown 並重新建置。 搜尋索引適合目前的文章規模；文章量持續成長時，需要再量測索引大小與搜尋速度。 技術筆記依各篇標示的環境驗證，較早文章仍需逐步更新。 目前以學習筆記與 GitHub 為主要入口，其他專案案例會在整理完成後補上。 閱讀與原始碼 閱讀 Java 技能與相關筆記 · 查看網站原始碼 · 認識我   </content></entry><entry><title>Ai Tools</title><url>/blog/post/ai-tools/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag></tags><content type="html">  AI 工具介紹 整理自己常用的AI工具
+目前限制與下一步 靜態網站沒有帳號或編輯後台；內容更新需要修改 Markdown 並重新建置。 搜尋索引適合目前的文章規模；文章量持續成長時，需要再量測索引大小與搜尋速度。 技術筆記依各篇標示的環境驗證，較早文章仍需逐步更新。 目前以學習筆記與 GitHub 為主要入口，其他專案案例會在整理完成後補上。 閱讀與原始碼 閱讀 Java 技能與相關筆記 · 查看網站原始碼 · 認識我   </content></entry><entry><title>留言板・想法營地</title><url>/blog/guestbook/</url><categories/><tags/><content type="html">  有些想法還沒整理成文章，也值得先留下來。這裡記錄想做的事、想研究的問題，以及下一個可以開始的小步驟。
+歡迎一起討論、分享做法，或回覆原本的留言補上進度。每個點子，都是下一次冒險的起點。
+  </content></entry><entry><title>Ai Tools</title><url>/blog/post/ai-tools/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag></tags><content type="html">  AI 工具介紹 整理自己常用的AI工具
 monica Monica 是一款整合各式AI的工具，並且支援Chrome擴充套件。這款AI助理提供了AI聊天、繪圖、寫作、閱讀等多種功能，協助使用者進行內容統整、文章生成和留言回覆等工作。這使得Monica成為一款非常全面的AI助理。 有手機APP
 網址 ： https://monica.im/home poe Poe 是Quora推出的一款整合型AI應用程式。它集合了多種流行的AI模型，如Sage、GPT-4、Claude+等，使用者可以在單一平臺上自由切換不同的AI聊天機器人，提供聊天、內容生成和問題解答等功能。 有手機APP
 網址 ： https://poe.com/ChatGPT phind Phind 是專為開發人員設計的AI搜尋引擎，提供準確且相關的答案、範例程式碼和多語言支援。這款工具優化了技術問題的解答流程，適合開發者及工程師使用。
