@@ -1,0 +1,15 @@
+{{ define "main_inner_class" }}guestbook-page{{ end }}
+{{ define "main" }}
+<div class="page-heading"><div><p class="eyebrow">IDEA CAMP · START SOMETHING</p><h1>{{ .Title }}<span>把下一個想法，先留在這裡。</span></h1></div></div>
+<section class="guestbook-intro panel" aria-label="關於想法營地">
+  <div class="article-body">{{ .Content }}</div>
+  <details class="idea-prompt"><summary>{{ partial "rpg/icon.html" "star" }}不知道怎麼寫？試試這個格式</summary><dl><div><dt>想做的事</dt><dd>想嘗試什麼，或想解決哪個問題？</dd></div><div><dt>第一步</dt><dd>先做哪一件小事，就能開始？</dd></div><div><dt>需要的幫助</dt><dd>想找什麼資料、工具或建議？</dd></div></dl></details>
+</section>
+<section class="guestbook-discussion panel" aria-labelledby="guestbook-discussion-title" data-guestbook data-shortname="{{ .Site.Config.Services.Disqus.Shortname }}" data-page-url="{{ .Permalink }}" data-thread-id="{{ .Params.disqusIdentifier }}" data-page-title="{{ .Title }}">
+  <h2 id="guestbook-discussion-title">{{ partial "rpg/icon.html" "message" }}留下想法與回應</h2>
+  <p class="guestbook-note">這是公開留言板。你可以留下新想法，也可以回覆留言繼續討論。</p>
+  <div class="guestbook-embed"><p class="guestbook-status" role="status">正在載入留言區…</p><button class="guestbook-retry button-secondary" type="button" hidden>重新載入留言區</button><div id="disqus_thread" aria-busy="true"></div><noscript>請啟用 JavaScript，以讀取留言並發表想法。</noscript></div>
+  <p class="guestbook-service">留言由 Disqus 提供。<a class="guestbook-public-link" href="{{ .Site.Params.guestbookURL }}" hidden>前往公開留言板 ↗</a></p>
+</section>
+<script src="{{ "js/rpg-guestbook.js" | relURL }}" defer></script>
+{{ end }}

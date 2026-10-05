@@ -152,6 +152,11 @@ menus:
       name: 關於・角色檔案
       pageref: /about
       pre: user
+      weight: 6
+    - identifier: guestbook
+      name: 留言板・想法營地
+      pageref: /guestbook/
+      pre: message
       weight: 5
 
 #-----------------------------------------
@@ -159,6 +164,7 @@ menus:
 # Configure Settings for Hugo NexT theme
 #-----------------------------------------
 params:
+  guestbookURL: https://iankingh.github.io/blog/guestbook/
   # 需要显示文章的部分，即content目录下的文件夹名称
   # Sections for show in home & archive page 
   # and it's forlder name which under content

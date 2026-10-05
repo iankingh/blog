@@ -6,6 +6,7 @@
       <a href="{{ .Site.BaseURL }}" {{ if .IsHome }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "compass" }}首頁・冒險大廳{{ if .IsHome }}<span class="nav-dot"></span>{{ end }}</a>
       <a href="{{ "post/" | relURL }}" {{ if eq .Section "post" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "sword" }}筆記・任務日誌</a>
       <a href="{{ "skills/" | relURL }}" {{ if eq .Section "skills" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "tree" }}技能・技能圖鑑</a>
+      <a href="{{ "guestbook/" | relURL }}" {{ if eq .Layout "guestbook" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "message" }}留言板・想法營地</a>
       <a href="{{ "about/" | relURL }}" {{ if eq .Layout "character" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "user" }}關於・角色檔案</a>
     </nav>
     <section class="character-panel panel">

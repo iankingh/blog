@@ -56,6 +56,25 @@
 .skill-featured li { padding: 3px 0; }
 .skill-featured a:hover { color: var(--gold); }
 .search-retry { padding: 9px 15px; border: 1px solid var(--gold); border-radius: 3px; color: var(--gold); background: var(--surface-raised); margin-bottom: 15px; }
+.guestbook-intro, .guestbook-discussion { padding: 26px; margin-bottom: 26px; }
+.guestbook-intro .article-body p:first-child { margin-top: 0; }
+.idea-prompt { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 18px; }
+.idea-prompt summary { cursor: pointer; color: var(--gold); font-size: 14px; }
+.idea-prompt summary .icon { width: 17px; height: 17px; margin-right: 7px; }
+.idea-prompt dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 0; }
+.idea-prompt dt { font-weight: 600; font-size: 14px; }
+.idea-prompt dd { margin: 5px 0 0; font-size: 14px; color: var(--muted); }
+.guestbook-discussion > h2 { font: 24px/1.6 var(--serif); margin: 0 0 8px; }
+.guestbook-discussion > h2 .icon { color: var(--gold); margin-right: 9px; }
+.guestbook-note, .guestbook-service { color: var(--muted); font-size: 14px; }
+.guestbook-embed { padding: 22px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: #253125; color-scheme: light; }
+.guestbook-embed #disqus_thread { color: #253125; }
+.guestbook-embed #disqus_thread a { color: #806a3e; }
+.guestbook-status { color: #46524b; margin: 0; font-size: 14px; }
+.guestbook-retry:not([hidden]) { display: inline-flex; color: #806a3e; background: #f4f5ef; border-color: #d6d8cf; margin-top: 14px; }
+.guestbook-retry[hidden], .guestbook-status[hidden], .guestbook-public-link[hidden] { display: none; }
+.guestbook-service { margin-bottom: 0; font-size: 12px; }
+.guestbook-public-link { color: var(--gold); margin-left: 8px; }
 .section-description { color: var(--muted); font-size: 14px; line-height: 1.8; }
 @media (max-width: 1100px) {
   .featured-grid { grid-template-columns: 1fr; }
@@ -69,6 +88,9 @@
   .section-heading { flex-wrap: wrap; }
 }
 @media (max-width: 540px) {
+  .guestbook-intro, .guestbook-discussion { padding: 22px; }
+  .guestbook-embed { padding: 16px; }
+  .idea-prompt dl { grid-template-columns: 1fr; gap: 13px; }
   .brand { font-size: 18px; gap: 9px; min-width: 0; }
   .brand small { display: none; }
   .brand-emblem { flex-shrink: 0; }

@@ -62,6 +62,7 @@ submodule，這會改動其工作目錄；一般維護與部署不需要提交�
 - `config.yaml`：Hugo 與 NexT 設定，包括 `baseURL`、語言、選單、搜尋及第三方整合。
 - `content/post/`：依 Java、Spring、Vue、Docker、Git 等主題分類的文章。
 - `content/about.md`：關於頁面。
+- `content/guestbook.md`：公開想法留言板，獨立於技術筆記篇數與 EXP；留言由既有 Disqus 保存。
 - `content/projects.md`：本站作品案例，獨立於技術筆記數與 EXP；Markdown 圖片使用實際首頁截圖。
 - `archetypes/default.md`：新文章的 front matter 與內容範本。
 - `layouts/`：相對於主題的站點專用版面與 partial 覆寫。
@@ -89,6 +90,7 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 - `layouts/character.html`：關於頁的角色檔案、主要技能、技能紀錄與寫作里程碑；文字內容仍由 `content/about.md` 維護。
 - `layouts/baseof.html`：文章及列表頁共用的頁首、角色側欄與搜尋。
 - `layouts/page.html`：文章閱讀面板、可收合目錄、分類標籤、相鄰文章與留言。
+- `layouts/guestbook.html`、`static/js/rpg-guestbook.js`：想法營地與 Disqus 載入狀態。留言板使用固定的 `disqusIdentifier`，請勿隨意更換，以免分離既有討論；本機只預覽版面，正式站台提供留言。留言區使用固定淺色底，避免切換網站主題時影響正在編輯的留言。
 - `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤列表。
 - `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
 - `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；右上角保留連至個人 GitHub 的 Octocat，使用既有 githubBanner 設定。
