@@ -1,6 +1,6 @@
 {{- $skill := .skill -}}
 <article class="codex-card panel {{ if eq $skill.group "ai" }}codex-ai{{ end }}"{{ if .expanded }} id="{{ $skill.id }}"{{ end }} aria-label="{{ $skill.name }}，Lv. {{ $skill.level }}">
-  <div class="codex-card-heading"><span class="codex-emblem" aria-hidden="true">{{ $skill.emblem }}</span><div><span class="codex-type">{{ if eq $skill.group "ai" }}AI 探索{{ else }}開發技能{{ end }}</span><h3>{{ $skill.name }}</h3></div><span class="codex-level">Lv. <b>{{ $skill.level }}</b></span></div>
+  <div class="codex-card-heading"><span class="codex-emblem" aria-hidden="true">{{ $skill.emblem }}</span><div><span class="codex-type">{{ if eq $skill.group "ai" }}AI 探索{{ else if eq $skill.group "ops" }}部署維運{{ else }}開發技能{{ end }}</span><h3>{{ $skill.name }}</h3></div><span class="codex-level">Lv. <b>{{ $skill.level }}</b></span></div>
   <p class="codex-description">{{ $skill.description }}</p>
   {{ if eq $skill.id "java" }}{{ with partial "rpg/featured-posts.html" site }}<div class="skill-featured"><p>精選 Java 筆記</p><ul>{{ range . }}{{ if in .Params.tags "java" }}<li><a href="{{ .RelPermalink }}">{{ .Title }} ↗</a></li>{{ end }}{{ end }}</ul></div>{{ end }}{{ end }}
   <div class="codex-xp-label"><span>筆記經驗 EXP</span><b>{{ $skill.xp }} / 10</b></div>

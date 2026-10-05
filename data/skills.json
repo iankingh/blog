@@ -3,6 +3,7 @@
   {"id":"spring-boot","name":"Spring Boot","emblem":"S","group":"core","description":"應用服務、資料存取與系統整合","tags":["spring","spring boot","spring data jpa","spring cloud"]},
   {"id":"angular","name":"Angular","emblem":"A","group":"core","description":"前端介面與互動開發","tags":["angular"]},
   {"id":"vue","name":"Vue","emblem":"V","group":"core","description":"前端元件與介面開發","tags":["vue","vue.js","vuejs"]},
+  {"id":"devops","name":"DevOps","emblem":"D","group":"ops","description":"版本控制、容器與部署流程","tags":["git","docker","jenkins","kubernetes","ci/cd"]},
   {"id":"ai-applications","name":"AI 應用","emblem":"AI","group":"ai","description":"大型語言模型與工具整合","tags":["ai","llm","ai 應用","rag"]},
   {"id":"prompt-design","name":"提示詞設計","emblem":"P","group":"ai","description":"需求拆解、上下文與輸出驗證","tags":["提示詞設計","提示詞","prompt engineering"]},
   {"id":"ai-development","name":"AI 輔助開發","emblem":"C","group":"ai","description":"程式生成、除錯與測試協作","tags":["ai 輔助開發","ai-assisted development","vibe coding"]}

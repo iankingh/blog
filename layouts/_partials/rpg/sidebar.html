@@ -11,7 +11,7 @@
     </nav>
     <section class="character-panel panel">
       <div class="panel-eyebrow">PLAYER PROFILE <span>01</span></div>
-      <div class="portrait"><img src="{{ .Site.Params.avatar.url | relURL }}" alt="{{ .Site.Params.author }}" width="88" height="88"><span class="level-badge">LV. {{ add (div $count 10) 1 }}</span></div>
+      <div class="portrait"><img src="{{ .Site.Params.avatar.url | relURL }}" alt="{{ .Site.Params.author }} 的冒險者頭像" width="88" height="88"><span class="level-badge">LV. {{ add (div $count 10) 1 }}</span></div>
       <h2>{{ .Site.Params.author }}</h2><p class="character-class">全端工程師 / AI 規劃師</p>
       <div class="character-label"><span>寫作經驗 EXP</span><b>{{ $xp }} / 10</b></div>
       <progress class="xp-progress" value="{{ $xp }}" max="10" aria-label="寫作經驗：{{ $xp }} / 10"></progress>

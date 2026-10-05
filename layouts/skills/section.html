@@ -2,7 +2,9 @@
 {{ $skills := partialCached "rpg/skills-data.html" .Site .Site.Language.Lang }}
 <div class="page-heading"><div><p class="eyebrow">THE ADVENTURER'S SKILL CODEX</p><h1>技能圖鑑<span>Skill Codex</span></h1></div><span class="collection-count">{{ len $skills }} 項修練技能</span></div>
 <div class="codex-guide panel"><span class="codex-guide-icon">{{ partial "rpg/icon.html" "tree" }}</span><div><h2>讓每一次學習，成為技能經驗。</h2><p>每篇相關的公開筆記累積 1 EXP，每 10 EXP 升 1 級。Lv. 代表筆記累積進度，並非專業能力評分。</p></div><a href="{{ "tags/" | relURL }}">按技能標籤找筆記 {{ partial "rpg/icon.html" "arrow" }}</a></div>
-{{ range slice (dict "id" "core" "title" "主要開發技能" "label" "CORE SKILLS" "description" "以 Java 後端與前端開發為主，持續累積解題與實作紀錄。") (dict "id" "ai" "title" "AI 探索方向" "label" "NEW LEARNING PATH" "description" "探索 AI 應用、提示詞設計與開發協作，從第一篇筆記開始累積。") }}
+{{ partial "rpg/skill-radar.html" $skills }}
+{{ range slice (dict "id" "core" "title" "主要開發技能" "label" "CORE SKILLS" "description" "以 Java 後端與前端開發為主，持續累積解題與實作紀錄。") (dict "id" "ops" "title" "部署與維運" "label" "DEVOPS PATH" "description" "從版本控制、容器到部署，累積讓實作持續運作的經驗。") (dict "id" "ai" "title" "AI 探索方向" "label" "NEW LEARNING PATH" "description" "探索 AI 應用、提示詞設計與開發協作，從第一篇筆記開始累積。") }}
 <section class="codex-section" aria-labelledby="codex-{{ .id }}"><div class="section-heading"><h2 id="codex-{{ .id }}">{{ partial "rpg/icon.html" "code" }}{{ .title }} <small>{{ .label }}</small></h2></div><p class="section-description">{{ .description }}</p><div class="codex-grid">{{ range where $skills "group" .id }}{{ partial "rpg/skill-card.html" (dict "skill" . "expanded" true) }}{{ end }}</div></section>
 {{ end }}
+<script src="{{ partial "rpg/asset-url.html" "js/rpg-skills.js" }}" defer></script>
 {{ end }}

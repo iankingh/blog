@@ -86,17 +86,21 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 
 全站使用共用的 RPG 冒險面板，包括首頁、關於頁、文章、分類、標籤、歸檔、分頁與 404 頁：
 
-- `layouts/home.html`：全端工程師／AI 規劃師介紹、GitHub 入口與每頁 8 篇的任務日誌。
+- `layouts/home.html`：全端工程師／AI 規劃師介紹、GitHub 入口與每頁 10 篇的任務日誌。首頁第一頁會在日誌頂部展示前三篇 `featuredOrder` 精選筆記，並提供本站導覽與實作案例入口；分頁不重複展示置頂區。
 - `layouts/character.html`：關於頁的角色檔案、主要技能、技能紀錄與寫作里程碑；文字內容仍由 `content/about.md` 維護。
 - `layouts/baseof.html`：文章及列表頁共用的頁首、角色側欄與搜尋。
 - `layouts/page.html`：文章閱讀面板、可收合目錄、分類標籤、相鄰文章與留言。
 - `layouts/guestbook.html`、`static/js/rpg-guestbook.js`：想法營地與 Disqus 載入狀態。留言板使用固定的 `disqusIdentifier`，請勿隨意更換，以免分離既有討論；本機只預覽版面，正式站台提供留言。留言區使用固定淺色底，避免切換網站主題時影響正在編輯的留言。
 - `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤列表。
 - `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
-- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；右上角保留連至個人 GitHub 的 Octocat，使用既有 githubBanner 設定。
+- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；頂部功能列與主內容共用寬度及邊距，Octocat 納入功能列，使用既有 githubBanner 設定連至個人 GitHub。
 - `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單。
 - `static/css/rpg-pages.css`、`static/js/rpg-article.js`：全站列表與文章排版、程式碼複製；圖片原生延遲載入，表格與程式碼可水平捲動。
-- `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站右上角的黑／白版切換，預設白色；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
+- `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站的「夜間紮營／白晝探索」主題切換，預設白晝；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
+- `static/css/rpg-exploration.css`：與主內容網格對齊的頂部控制面板、卡片日期與底部高度及技能雷達圖排版。
+- `layouts/_partials/rpg/asset-url.html`：CSS／JavaScript 網址附上檔案內容雜湊，修改資源後自動更新瀏覽器快取。
+- `layouts/_partials/rpg/pagination.html`：首頁、筆記、標籤／分類列表及年份歸檔使用數字分頁器與上一頁／下一頁，統一依 `config.yaml` 的 `pagination.pagerSize: 10` 每頁顯示最多 10 篇；切換後直接定位到列表，不需 JavaScript。
+- `layouts/_partials/rpg/skill-radar.html`、`static/js/rpg-skills.js`：技能圖鑑使用原生 SVG 雷達圖呈現公開筆記數，各軸使用同一尺度。按鈕支援滑鼠、Enter、方向鍵、Home／End 選擇，顯示技能進度與文章入口；圖形含螢幕閱讀器文字描述。DevOps 對應既有版本控制、容器與部署筆記，不另設能力評分。
 - `static/css/rpg-portfolio.css`：作品、精選文章、專業定位與共用導覽的樣式，沿用既有 RPG 色彩。
 - `static/images/rpg-camp.svg`：像素營地插畫，無需外部圖片服務。
 - 角色等級依已發布文章數計算，每 10 篇升一級。技能圖鑑位於 `/skills/`，與 `/tags/` 的文章標籤分開；首頁技能數量、角色檔案和圖鑑共用技能資料，技能等級與進度顯示於角色檔案和圖鑑。
@@ -108,6 +112,8 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 ### 精選筆記與更新時間
 
 文章使用 Hugo 的 `description` 作為文章卡片、搜尋與分享摘要。只有實際修訂後才增加 `lastmod`，文章頁同時保留原始 `date` 與更新日期。`featuredOrder` 為選填正整數，決定 Java 技能卡中的精選顯示順序；不要為一般文章填入。
+
+文章卡片與搜尋結果會分別標示發布與更新日期；歸檔仍依原始發布年份分組。既有文章補上 `lastmod` 時，以確認過的內容修訂日期為準，避免將網站版面或部署時間當作文章更新日期。
 
 目前精選為 Java 多型、HikariPool 連線取得逾時與 DecimalFormat。Java 範例以 OpenJDK 21 驗證，重跑方式見下方驗證指令。
 

@@ -11,10 +11,11 @@
 <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="{{ .canonical }}">
 {{ with $page.Site.Home.OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ $page.Site.Title }}" href="{{ .Permalink }}">{{ end }}
-<script src="{{ "js/rpg-theme.js" | relURL }}"></script>
-<link rel="stylesheet" href="{{ "css/rpg-home.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/rpg-pages.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/rpg-portfolio.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/rpg-theme.css" | relURL }}">
-<script src="{{ "js/rpg-home.js" | relURL }}" defer></script>
-{{ if not hugo.IsServer }}{{ with $page.Site.Params.analytics.google }}<script src="{{ "js/rpg-analytics.js" | relURL }}" data-measurement-id="{{ . }}" defer></script>{{ end }}{{ end }}
+<script src="{{ partial "rpg/asset-url.html" "js/rpg-theme.js" }}"></script>
+<link rel="stylesheet" href="{{ partial "rpg/asset-url.html" "css/rpg-home.css" }}">
+<link rel="stylesheet" href="{{ partial "rpg/asset-url.html" "css/rpg-pages.css" }}">
+<link rel="stylesheet" href="{{ partial "rpg/asset-url.html" "css/rpg-portfolio.css" }}">
+<link rel="stylesheet" href="{{ partial "rpg/asset-url.html" "css/rpg-exploration.css" }}">
+<link rel="stylesheet" href="{{ partial "rpg/asset-url.html" "css/rpg-theme.css" }}">
+<script src="{{ partial "rpg/asset-url.html" "js/rpg-home.js" }}" defer></script>
+{{ if not hugo.IsServer }}{{ with $page.Site.Params.analytics.google }}<script src="{{ partial "rpg/asset-url.html" "js/rpg-analytics.js" }}" data-measurement-id="{{ . }}" defer></script>{{ end }}{{ end }}

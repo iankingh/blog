@@ -1,0 +1,2 @@
+{{- /* Refresh a cached asset whenever its file content changes. */ -}}
+{{- return (printf "%s?v=%s" (. | relURL) (crypto.MD5 (readFile (path.Join "static" .)))) -}}

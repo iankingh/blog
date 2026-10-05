@@ -11,5 +11,5 @@
   <div class="guestbook-embed"><p class="guestbook-status" role="status">正在載入留言區…</p><button class="guestbook-retry button-secondary" type="button" hidden>重新載入留言區</button><div id="disqus_thread" aria-busy="true"></div><noscript>請啟用 JavaScript，以讀取留言並發表想法。</noscript></div>
   <p class="guestbook-service">留言由 Disqus 提供。<a class="guestbook-public-link" href="{{ .Site.Params.guestbookURL }}" hidden>前往公開留言板 ↗</a></p>
 </section>
-<script src="{{ "js/rpg-guestbook.js" | relURL }}" defer></script>
+<script src="{{ partial "rpg/asset-url.html" "js/rpg-guestbook.js" }}" defer></script>
 {{ end }}

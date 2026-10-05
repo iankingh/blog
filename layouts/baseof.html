@@ -1,12 +1,11 @@
 {{- $canonical := .Permalink -}}
 {{- if and (in (slice "section" "term") .Kind) (ne .Section "skills") -}}
   {{- $pages := .RegularPages.ByDate.Reverse -}}
-  {{- $size := 8 -}}
   {{- if eq .Kind "section" -}}
     {{- $pages = (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
-    {{- if eq .Section "archives" -}}{{- $size = 20 -}}{{- else -}}{{- $pages = where $pages "Section" "eq" .Section -}}{{- end -}}
+    {{- if ne .Section "archives" -}}{{- $pages = where $pages "Section" "eq" .Section -}}{{- end -}}
   {{- end -}}
-  {{- $paginator := .Paginate $pages $size -}}
+  {{- $paginator := .Paginate $pages -}}
   {{- .Store.Set "rpgPaginator" $paginator -}}
   {{- $canonical = $paginator.URL | absURL -}}
 {{- end -}}
@@ -26,6 +25,6 @@
   </main>
 </div>
 {{ partial "rpg/search.html" . }}
-{{ if .IsPage }}<script src="{{ "js/rpg-article.js" | relURL }}" defer></script>{{ end }}
+{{ if .IsPage }}<script src="{{ partial "rpg/asset-url.html" "js/rpg-article.js" }}" defer></script>{{ end }}
 </body>
 </html>

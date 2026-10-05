@@ -2,6 +2,5 @@
 {{ $paginator := .Store.Get "rpgPaginator" }}
 <div class="page-heading"><div><p class="eyebrow">ADVENTURE JOURNAL</p><h1>任務日誌<span>Quest Log</span></h1></div><a class="back-link" href="{{ "categories/" | relURL }}">探索分類 →</a></div>
 <p class="section-description">收錄 {{ $paginator.TotalNumberOfElements }} 篇探索筆記，沿著技術與學習的路線繼續前進。</p>
-<section id="entries"><div class="quest-toolbar"><span>最新探索紀錄 <small>PAGE {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}尋找任務</button></div><div class="quest-grid">{{ range $paginator.Pages }}{{ partial "rpg/quest-card.html" . }}{{ end }}</div></section>
-{{ partial "rpg/pagination.html" (dict "paginator" $paginator) }}
+<section id="entries"><div class="quest-toolbar"><span>最新探索紀錄 <small>共 {{ $paginator.TotalNumberOfElements }} 篇筆記 · 第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 頁</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}尋找任務</button></div><div class="quest-grid">{{ range $paginator.Pages }}{{ partial "rpg/quest-card.html" . }}{{ end }}</div>{{ partial "rpg/pagination.html" (dict "paginator" $paginator) }}</section>
 {{ end }}

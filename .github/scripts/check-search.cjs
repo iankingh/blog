@@ -81,7 +81,7 @@ function harness() {
 }
 const tick = () => new Promise(resolve => setImmediate(resolve));
 const fixture = [
-  { title: '<img src=x onerror=alert(1)> Hikari', url: '/blog/hikari/', tags: ['Java'], summary: 'Short excerpt', content: 'connectionTimeout FULLTEXT_ONLY', date: '2026.10.05' },
+  { title: '<img src=x onerror=alert(1)> Hikari', url: '/blog/hikari/', tags: ['Java'], summary: 'Short excerpt', content: 'connectionTimeout FULLTEXT_ONLY', date: '2024.07.02', lastmod: '2026.03.26' },
   { title: 'Other', url: '/blog/other/', tags: [], summary: 'Other summary', content: 'Other body', date: '2026.10.04' }
 ];
 const respond = (h, data = fixture) => h.requests.at(-1).resolve({ ok: true, json: async () => data });
@@ -103,10 +103,14 @@ const type = (h, value) => { h.input.value = value; h.input.dispatch('input'); }
   assert.equal(h.results.children.length, 1);
   assert.equal(h.results.children[0].children[0].textContent, fixture[0].title);
   assert.equal(h.results.children[0].children[1].textContent, 'Short excerpt');
+  assert.equal(h.results.children[0].children[2].textContent, '發布 2024.07.02 · 更新 2026.03.26 · Java');
   assert.equal(h.results.getAttribute('aria-busy'), 'false');
   type(h, 'JAvA FULLTEXT_ONLY');
   await tick();
   assert.equal(h.results.children.length, 1, 'All words must match case-insensitively across title/tags/full text');
+  type(h, 'Other');
+  await tick();
+  assert.equal(h.results.children[0].children[2].textContent, '發布 2026.10.04', 'An older index without lastmod must still display its publication date');
   type(h, 'no-result');
   await tick();
   assert.equal(h.results.children.length, 0);
