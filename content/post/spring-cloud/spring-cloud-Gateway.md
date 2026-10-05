@@ -7,7 +7,7 @@ categories:
 tags:
  - "java"
  - "Spring"
- - "Spring Cloid"
+ - "Spring Cloud"
 toc: true
 ---
 

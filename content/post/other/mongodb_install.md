@@ -4,8 +4,8 @@ date: 2023-07-30T22:37:01+08:00
 categories:
 - "筆記"
 tags:
-- "Mongodb"
-- "nosql"
+- "MongoDB"
+- "NoSQL"
 toc: true
 draft: false
 ---

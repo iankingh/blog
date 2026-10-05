@@ -5,7 +5,7 @@ categories:
  - "筆記"
 tags:
  - "sql"
- - "sql Server"
+ - "SQL Server"
 toc: true
 draft: false
 ---
