@@ -7,10 +7,11 @@
 .hero-copy { padding-right: 18px; }
 .hero-art > img { width: 100%; }
 .hero h2 { font-size: clamp(28px, 2.4vw, 38px); line-height: 1.55; }
-.topbar { padding: 0; }
+.topbar { position: relative; padding: 0; }
 .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; max-width: 1320px; margin: auto; }
-.github-corner { display: grid; place-items: center; flex-shrink: 0; width: 42px; height: 42px; color: var(--gold); background: var(--surface-raised); border: 1px solid var(--line); border-radius: 4px; }
-.github-corner > svg { display: block; fill: currentColor; }
+.github-corner { position: absolute; top: 0; right: 0; z-index: 2; width: 80px; height: 80px; color: #25291c; }
+.github-corner > svg { display: block; width: 100%; height: 100%; fill: var(--gold); }
+.github-corner:focus-visible { outline-offset: -3px; }
 .github-corner .octo-arm { transform-origin: 130px 106px; }
 .github-corner:hover .octo-arm, .github-corner:focus-visible .octo-arm { animation: octocat-wave 560ms ease-in-out; }
 @keyframes octocat-wave {
@@ -107,7 +108,7 @@
   .brand small { display: none; }
   .brand-emblem { flex-shrink: 0; }
   .topbar-inner { gap: 8px; padding: 0 17px; }
-  .github-corner { width: 40px; height: 40px; }
+  .github-corner { width: 56px; height: 56px; }
   .topbar-actions { flex-shrink: 0; }
   .page-heading { flex-wrap: wrap; gap: 12px; }
   .page-heading h1 > span { display: block; margin: 3px 0 0; font: 13px/1.8 var(--mono); color: var(--muted); }
@@ -132,7 +133,7 @@
   .brand { font-size: 16px; letter-spacing: 0; }
   .brand > span:last-child { white-space: nowrap; }
   .topbar-actions { gap: 4px; }
-  .topbar .search-trigger, .topbar .theme-toggle, .topbar .menu-toggle, .github-corner { width: 34px; min-height: 40px; padding: 6px; }
+  .topbar .search-trigger, .topbar .theme-toggle, .topbar .menu-toggle { width: 34px; min-height: 40px; padding: 6px; }
 }
 @media (max-width: 360px) {
   .brand-emblem { display: none; }
