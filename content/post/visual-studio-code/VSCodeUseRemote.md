@@ -1,5 +1,5 @@
 ---
-title: "VS Code 使用 Remote SSH"
+title: "VS Code Remote SSH：連線、遠端資料夾與 Vagrant"
 date: 2021-02-08T11:11:01+08:00
 aliases:
  - "/post/visual-studio-code/vscodeuaeremote/"
@@ -10,86 +10,58 @@ tags:
  - "Remote"
  - "Visual Studio Code"
 toc: true
+description: "補齊原測試章節，以示例主機取代真實公網地址，說明遠端server與extension範圍。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## VSCode 使用 Remote 套件 進行遠端連線開發
+補齊原測試章節，以示例主機取代真實公網地址，說明遠端server與extension範圍。
+
 <!--more-->
 
-## 前言
+適用：VS Code Remote-SSH與受支援遠端OS；先能用標準SSH成功登入。
 
-有時需要連線到遠端主機。雖然可以直接使用 SSH，但每次都要操作終端機，也不容易瀏覽遠端資料夾；此時可在 VS Code 安裝
+## SSH 設定
 
-[Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
+建立合法可測的Linux主機與一般帳號，在~/.ssh/config加入（替換example地址及key為自己擁有的值）：
 
-這一套擴充外掛，來進行`SSH`連線。
-
-## 安裝
-
-1. 安裝 [ssh client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
-
-2. 安裝 visual studio Code
-
-3. 安裝遠端開發擴充套件包(Remote - SSH )。
-
-在Extension搜尋remote就可以看到了，這邊我們選擇安裝SSH的
-
-## 連線到 Azure
-
-### 設定
-
-按下 `ctrl +shift + p`
-
-open ssh configuration
-開啟 .ssh\config
-設定 remote
-
-```shell
-  Host     40.124.99.20
-  HostName 40.124.99.20
-  User     azureuser
-  IdentityFile C:/Users/Ian/azureuser.pem
+```sshconfig
+Host note-lab
+    HostName 192.0.2.10
+    User developer
+    Port 22
+    IdentityFile ~/.ssh/note_lab_key
+    IdentitiesOnly yes
 ```
 
-- Host LabServer      # 填寫別名例如 LabSever
-- HostName 127.0.0.1  # 主機名稱或是ip位置
-- User root           # 登入的使用者名稱
-- Port                # 如果有指定的Port號
+192.0.2.10是文件專用地址，不是實際可連線VM。先`ssh note-lab`核對host fingerprint與認證，看到遠端shell後再進VSCode。私鑰限制許可權、不上傳repo；passphrase與ssh-agent可依團隊策略配置。
 
-### 測試連線
+## VS Code 接線
 
+安裝Microsoft Remote-SSH，命令面板執行Remote-SSH: Connect to Host，選擇note-lab。首次會在遠端安裝匹配的VSCode Server，需網路／磁碟／支援OS。Open Folder選遠端專案，左下連線狀態和終端hostname應為遠端。
 
-## 連線到 vagrant  
+部分extension在本機、部分在remote，按照extension職責安裝，不假設本機JDK／Node會用於遠端build。在遠端終端執行該專案build、編輯一個測試檔確認實際儲存位置。
 
-到有 `Vagrantfile` 目錄執行
+## Vagrant 與排錯
 
-```shell
-vagrant ssh-config
-```
+在Vagrant專案執行`vagrant ssh-config`取得實際HostName、Port與IdentityFile，再複製成SSH別名；它不會建立SSL私鑰。VM重建可能改變key／port，要重新核對配置。
 
-得到
+不能連線先看Remote-SSH輸出與普通ssh-v日誌（去掉秘密），區分網路、認證與server安裝階段。舊CentOS系統可能不滿足當前server的glibc／庫要求，依官方支援矩陣升級或採用適合的環境，不盲目裝相容補丁。
 
-```shell
-  Host ian-centos8
-  HostName 127.0.0.1
-  User vagrant
-  Port 2222
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile "/XXX/private_key"
-  IdentitiesOnly yes
-  LogLevel FATAL
+埠forward用於本地檢視遠端服務時限制loopback，未要求分享就不公開。結束close remote connection，別把本機目錄／remote目錄混作同一工作樹。
 
-```
+## 查核範圍
 
-點選對應的 Remote 進行連線
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-**注：**  感謝 **KFC 前輩**的提供 remote 的方法
+## 參考資料
 
-## 參考
+- [Remote SSH](https://code.visualstudio.com/docs/remote/ssh)
+- [Remote troubleshooting](https://code.visualstudio.com/docs/remote/troubleshooting)
+- [Vagrant ssh-config](https://developer.hashicorp.com/vagrant/docs/cli/ssh_config)
 
-[vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
+### 原始筆記保留的來源
 
-[使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote)
-
-
+- [Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
+- [ssh client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
+- [vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)
+- [使用VSCode Remote透過 SSH 進行遠端開發 - HackMD](https://hackmd.io/@brick9450/vscode-remote)

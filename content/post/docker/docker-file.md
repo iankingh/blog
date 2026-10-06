@@ -1,5 +1,5 @@
 ---
-title: "DockerFile"
+title: "Dockerfile：建立靜態網頁映像"
 date: 2020-09-20T19:45:16+08:00
 categories:
   - "筆記"
@@ -7,93 +7,68 @@ tags:
  - "docker"
 toc: true
 draft: false
+description: "從完整 Dockerfile 與 HTML 建置映像，補上 context、快取、COPY 及執行結果。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
+從完整 Dockerfile 與 HTML 建置映像，補上 context、快取、COPY 及執行結果。
+
 <!--more-->
-## Dockerfile
 
-Dockerfile 是用來描述映像檔（image）的檔案。
+適用：Docker Engine 與 Compose v2 的 Linux 容器練習。先確認 Docker daemon 已啟動，以獨立測試專案操作，避免和既有服務同名。
 
-所謂的 `Image`，就是生產 `Container` 的模版，可以從 Docker Hub 官方下載或是根據官方的 Image 自己加工後打包成 Image 。或是完全自己使用 Dockerfile 描述 Image 內容來製作 Image。
+## 完整範例
 
-而 Container 則是透過 Image 產生隔離的執行環境，稱之為 Container，也就是我們一般用來提供 microservice 的最小單位。
+在空資料夾建立 index.html：
 
-## 簡單示例
-
-### -f 指定dockerfile 的的路徑
-
-Dockerfile 一般位於構建上下文的根目錄下，也可以透過`-f`指定該檔的位置：
-
-````shell
-docker build -f /path/to/a/Dockerfile .
-````
-
-### -t 映像標籤
-
-構建時，還可以透過`-t`引數指定構建成映象的倉庫、標籤。
-
-```shell
-docker build -t nginx:v1 .
+```html
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>Docker</title><h1>營火已啟動</h1></html>
 ```
 
-### 表示當前目錄 .
+Dockerfile：
 
-命令最後有一個`. `表示目前的目錄
-
-````dockerfile
-#從Docker hub 下載基礎的 image，可能是作業系統環境或是程式語言環境
-FROM nginx
-#維護者資訊
-MAINTAINER ianhunag@gmail.com 
-# 映象操作指令執行 CMD 指令跑的指令
-RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
-````
-
-### 使用 docker run 命令來啟動容器
-
-```shell
-docker run --name docker_nginx_v1  -d -p 80:80 nginx:v1
+```dockerfile
+FROM nginx:1.28-alpine
+LABEL org.opencontainers.image.title="note-web"
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
 ```
 
-這條命令會用 nginx 映象啟動一個容器，命名為docker_nginx_v1，並且映射了 80 埠，這樣我們可以用流覽器去訪問這個 nginx 伺服器：
+.dockerignore：
 
-```shell
-http://ip:80
-
+```text
+.git
+.env
+node_modules
 ```
 
-## 快取
-
-Docker 守護程式會一條一條的執行 Dockerfile 中的指令，而且會在每一步提交並生成一個新映象，最後會輸出最終映像的ID。生成完成後，Docker 守護程式會自動清理你傳送的上下文。
-
-Dockerfile檔中的每條指令會被獨立執行，並會建立一個新映象，RUN cd /tmp等命令不會對下條指令產生影響。
-
-Docker 會重用已生成的中間映象，以加速docker build的構建速度。以下是一個使用了快取映象的執行過程：
-
-
-
-```shell
- docker build -t svendowideit/ambassador .
+```bash
+docker build -t note-web:1 .
+docker run --rm -d --name note-file-demo -p 127.0.0.1:8081:80 note-web:1
+curl http://127.0.0.1:8081/
+docker stop note-file-demo
 ```
 
-```shell
-Sending build context to Docker daemon  2.048kB
-Step 1/3 : FROM nginx
- ---> 7e4d58f0e5f3
-Step 2/3 : MAINTAINER ianhunag@gmail.com
- ---> Using cache
- ---> d0140a7f8c8e
-Step 3/3 : RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
- ---> Using cache
- ---> 81a660be4e2b
-Successfully built 81a660be4e2b
-Successfully tagged svendowideit/ambassador:latest
+回應應包含營火已啟動，stop 後 `--rm` 會移除容器。這裡沿用基底映像的啟動指令，不需再定義 CMD。
 
-```
+## 指令與快取
 
-構建快取僅會使用本地父生成鏈上的映象，如果不想使用本地快取的映象，也可以透過`--cache-from`指定快取。指定後將不再使用本地生成的映象鏈，而是從映象倉庫中下載。
+FROM 選基底、WORKDIR 設後續工作目錄、COPY 帶入檔案、RUN 在建置時執行、CMD 提供啟動預設、ENTRYPOINT 設定主要執行檔。`RUN cd /tmp` 不會持續到下一個 RUN，用 WORKDIR。
 
-## 參考
+`-f` 選 Dockerfile，命令末尾的 `.` 是 context，COPY 不能任意讀取 context 外檔案。MAINTAINER 已是舊寫法，改 LABEL。不是每個指令都會建立有內容的檔案系統層，現行 BuildKit 快取也不能簡化成每步 commit；改檔會使相關 COPY 與後續步驟重建。
 
-[Dockerfile **使用介紹 -** **純潔的微笑部落格**](http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html)
+不要在 ARG/ENV、COPY 或 RUN 中放秘密，以免留在映像或快取。若需下載依賴，優先先 COPY lockfile 安裝，再 COPY 來源，以改善可重現性與快取。
 
+## 查核範圍
+
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Dockerfile 語法](https://docs.docker.com/reference/dockerfile/)
+- [建置快取](https://docs.docker.com/build/cache/)
+- [建置 context](https://docs.docker.com/build/concepts/context/)
+
+### 原始筆記保留的來源
+
+- [Dockerfile **使用介紹 -** **純潔的微笑部落格**](http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html)

@@ -1,5 +1,5 @@
 ---
-title: "Git_pull_error"
+title: "Git 排錯：本機修改阻擋切換與合併衝突"
 date: 2020-10-06T21:45:42+08:00
 draft: false
 categories:
@@ -8,88 +8,52 @@ tags:
  - "git"
  - "版控"
 toc: true
+description: "以儲存修改為起點，補上 stash、衝突診斷與復原確認，移除無條件 hard reset 的建議。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
-## git pull error筆記
+
+以儲存修改為起點，補上 stash、衝突診斷與復原確認，移除無條件 hard reset 的建議。
+
 <!--more-->
 
-當 git pull  出現
+適用：Git 2.x；操作前能取得本機修改的備份或可辨識的提交。
 
-```shell
-error: Your local changes to the following files would be overwritten by merge:
+## local changes would be overwritten
+
+這表示切換／合併可能覆蓋修改，先看 `git status --short`、`git diff`、`git diff --cached`。不要直接 reset --hard。已完成內容正常提交；未完成內容可 stash：
+
+```bash
+git stash push -u -m "切換分支前保存練習修改"
+git stash list
+git switch target-branch
+git switch original-branch
+git stash apply 'stash@{0}'
+git status
 ```
 
-意思是本地新修改的程式碼檔案，將會被git伺服器上的程式碼覆蓋
+兩個 branch 名稱依實際替換。-u 包含未追蹤但不含 ignored 檔，重要 ignored 檔要自行備份。apply 保留 stash，確認內容與功能正確後才 `git stash drop 'stash@{0}'`。
 
-git pull == git fetch + git merge
+## merge conflict
 
-發生衝突時 可以先試以下步驟
+先辨識是否仍有 MERGE_HEAD 等未完成操作，再依 status 提示處理。合併衝突檔包含雙方修改，逐段判斷後 add、commit；放棄這次合併用 `git merge --abort`。rebase 的 continue/abort 是另一組命令，不要交叉使用。
 
-先
+## 遠端與歷史
 
-```shell
-git fetch 
-```
+fetch 更新遠端追蹤分支，不會自動丟掉工作目錄修改；pull 會接著整合，所以先讀清狀態。找不到遠端分支先 `git fetch --prune origin`、`git branch -r` 檢視，而非隨意刪除本機分支。
 
-再
+已提交但誤刪的歷史可從 reflog 找到候選 commit，再建立新的救援分支檢查；reflog 有儲存期限且不能恢復從未進 Git 的檔案。確認修復以 status、diff、log 及功能測試為準，不只命令退出碼。
 
-```shell
-git merge origin/master
-```
+## 查核範圍
 
-如果還是無法解決可以使用的解決方法如下：
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
+## 參考資料
 
-### 方法1：使用stash
+- [git-stash](https://git-scm.com/docs/git-stash)
+- [git-reflog](https://git-scm.com/docs/git-reflog)
+- [git-merge](https://git-scm.com/docs/git-merge)
 
-如果你想保留剛才本地修改的程式碼，並把git伺服器上的程式碼pull到本地（本地剛才修改的程式碼將會被暫時封存起來）
+### 原始筆記保留的來源
 
-```shell
-git stash 
-git pull origin master
-git stash pop
-```
-
-**注：**用 `pop` 指令，可以把某個 Stash 拿出來並套用在目前的分支上。套用成功之後，那個套用過的 Stash 就會被刪除。
-
-### 方法2 : 放棄變更
-
-如果你想完全地覆蓋本地的程式碼，只保留伺服器端程式碼，則直接回退到上一個版本，再進行pull：
-
-```shell
-git reset --hard
-git pull origin master
-```
-
-**注：** 其中origin master表示git的主分支。
-
-### 方法3 : 使用分支( 推薦 正統)
-
-1. 切分支出去commit
-2. 在切回 master fetch
-3. 再進行 merge
-
-```shell
-git checkout -b <branch>
-git commit -m "add dev" 
-git checkout master 
-git merge branch
-```
-
-EX :
-
-```shell
-
-```
-
-
-
-**注：**  感謝 **KFC 前輩**的提供正確解決衝突的教學
-
-
-
-### 參考
-
-[git pull遇到錯誤：error: Your local changes to the following files would be overwritten by merge:解決方法](https://www.itread01.com/content/1545046022.html)
-
-[【狀況題】手邊的工作做到一半，臨時要切換到別的任務 - 為你自己學 Git | 高見龍](https://gitbook.tw/chapters/faq/stash.html)
-
+- [git pull遇到錯誤：error: Your local changes to the following files would be overwritten by merge:解決方法](https://www.itread01.com/content/1545046022.html)
+- [【狀況題】手邊的工作做到一半，臨時要切換到別的任務 - 為你自己學 Git | 高見龍](https://gitbook.tw/chapters/faq/stash.html)

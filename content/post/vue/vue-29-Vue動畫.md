@@ -1,312 +1,70 @@
 ---
-title: "Vue 教學 29 - Vue 動畫"
+title: "Vue 教學 29：Transition 與列表動畫"
 date: 2026-03-22T20:29:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "動畫"
-- "transition"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "完成進出場與排序動畫，讓 key、CSS class 與降低動態偏好互相配合。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+完成進出場與排序動畫，讓 key、CSS class 與降低動態偏好互相配合。
+
 <!--more-->
 
-# 第5章 Vue.js 動畫 完整原始檔
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 原始檔：src/views/todo.vue
-
-```vue
-<template>
-  <div class="todo">
-    <div class="title">
-      事項列表<span class="shuffle-btn" @click="shuffleList"></span>
-    </div>
-    <div class="add-new">
-      <input v-model.trim="state.newTodoContent" class="input" type="text" name="new_todo" placeholder="請輸入內容" enterkeyhint="send"
-        @keyup.enter.prevent="saveTodo">
-    </div>
-    <div class="s-wrap">
-        <transition-group name="list-complete" tag="div">
-            <div v-for="item in state.todoItems" class="list-complete-item"  :key="item.id">
-                <titem :item="item" @delete="deleteItem" @complete="completeItem"></titem>
-            </div>
-        </transition-group>
-    </div>
-  </div>
-</template>
-
-<script>
-  import titem from '../components/titem.vue'
-  import {onMounted,reactive,watch} from 'vue'
-  
-  import dataUtils from '../utils/dataUtils'
-  /**
-   * 待辦事項頁面元件
-   */
-  export default {
-    name: 'todo',// 元件的名稱，盡量和檔名一致
-    components: {
-      titem
-    },
-    setup(){
-      const state = reactive({
-        newTodoContent: '',// 輸入框 input 的內容
-        todoItems: []// 待辦事項的列表
-      })
-
-      function fetchData() {
-        state.todoItems = dataUtils.getItem('todoList') || []
-      }
-      /**
-       * 建立事項
-       */
-      function saveTodo() {
-
-        // 如果沒有輸入內容，直接返回
-        if (!state.newTodoContent) return
-        // 將事項存入列表
-        state.todoItems.unshift({
-          id: Math.random().toString(36).substr(2, 5),// 取得隨機 ID 值
-          content: state.newTodoContent// 設定內容
-        })
-        // 建立完成後清空輸入框內容
-        state.newTodoContent = ''
-      }
-      /**
-       * 儲存事項列表
-       */
-      function storeItems(array) {
-
-        dataUtils.setItem('todoList', array)
-      }
-      /**
-       * 刪除事項
-       */
-      function deleteItem(obj) {
-        // 以下邏輯為找到對應 id 的事項，然後刪除
-        state.todoItems = state.todoItems.filter(item=>{
-            return item.id != obj.id
-        })
-
-        // 修改已刪除事項頁面資料，更新已刪除資料
-        let recycleList = dataUtils.getItem('recycleList') || []
-        recycleList.unshift(obj)
-        dataUtils.setItem('recycleList', recycleList)
-
-      }
-
-      /**
-       * 修改事項
-       */
-      function completeItem(obj) {
-        // 找到對應 id 的事項，然後替換
-        for (let i = 0 ; i < state.todoItems.length ; i++) {
-          if (state.todoItems[i].id == obj.id) {
-            state.todoItems[i] = obj
-            break
-          }
-        }
-      }
-      /**
-       * 打亂順序
-       */
-      function shuffleList() {
-        state.todoItems = _.shuffle(state.todoItems)
-      }
-
-      watch(
-        () => JSON.parse(JSON.stringify(state.todoItems)),
-        (val, oldVal) => {
-          storeItems(val)// 一旦有改動立刻呼叫更新儲存
-        },{deep: true}
-      )
-
-      onMounted(()=>{
-
-        fetchData()
-      })
-
-
-      return {
-        state,
-        deleteItem,
-        completeItem,
-        shuffleList,
-        saveTodo
-      }
-    }
-  }
-</script>
-<style scoped>
-  .todo {
-    position: absolute;/* 絕對定位 */
-    background: #ededed;/* 設定背景顏色 */
-    left: 16px;/* 設定位置 */
-    right: 16px;
-    top:90px;
-  }
-  .s-wrap {
-    overflow-y:auto;/* 設定可縱向捲動 */
-    height: 208px;
-  }
-  .todo .title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 27px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .todo .add-new {
-    margin-bottom: 10px;
-  }
-
-  .todo .add-new input {
-    box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, .05);/* 新增陰影效果 */
-    width: 100%;/* 設定寬度 */
-    height: 40px;/* 設定高度 */
-    padding: 4px;/* 設定內邊距 */
-    font-size: 16px;/* 設定字型大小 */
-    color: #363636;/* 設定字型顏色 */
-    background-color: #fff;/* 設定背景顏色 */
-    border-color: transparent;/* 去除預設背景邊框 */
-    border-radius: 4px;/* 設定圓角 */
-    box-sizing: border-box;/* 設定內邊距不佔據寬高 */
-  }
-  
-  .list-complete-item {
-    transition: all 0.8s ease;/* 全狀態新增過渡 */
-  }
-  /* 動畫進入和離開時套用 CSS 樣式 */
-  .list-complete-enter-from,
-  .list-complete-leave-to {
-    opacity: 0;/* 漸隱效果 */
-    transform: translateY(20px);/* 向下移動 */
-  }
-  .shuffle-btn {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    background-image: url('../assets/shuffle.png');/* 設定背景圖片 */
-    background-size: 60% 60%;/* 設定背景尺寸 */
-    background-repeat: no-repeat;/* 設定背景不重複 */
-    background-position: center;/* 設定背景位置 */
-    border-radius: 50%;/* 設定 div 為圓形 */
-    display: inline-block;/* 橫向排列 */
-    vertical-align: -8px;
-  }
-</style>
-
-```
-
-## 原始檔：src/views/recycle.vue
+## 可增減的列表
 
 ```vue
-<template>
-  <div class="recycle">
-    <div class="title">
-      回收站
-    </div>
-    <div class="no-data" v-if="state.recycleItems.length == 0">暫無已刪除的事項</div>
-    <div class="s-wrap">
-      <ritem v-for="item in state.recycleItems" :key="item.id" :item="item" @revert="revertItem"></ritem>
-    </div>
-  </div>
-</template>
-
-<script>
-  import ritem from '../components/ritem.vue'
-  import dataUtils from '../utils/dataUtils'
-  import {onMounted,reactive,watch} from 'vue'
-  /**
-   *  回收站頁面元件
-   */
-  export default {
-    name: 'recycle',// 元件的名稱，盡量和檔名一致
-    components: {
-      ritem
-    },
-
-    setup(){
-      const state = reactive({
-        recycleItems: []// 已刪除事項的列表
-      })
-
-      /**
-       * 從儲存中取得已刪除事項資料
-       */
-      function fetchData() {
-        state.recycleItems = dataUtils.getItem('recycleList') || []
-      }
-      /**
-       * 恢復事項
-       */
-      function revertItem(obj) {
-        // 將需要恢復的事項從已刪除事項列表中剔除
-        state.recycleItems = state.recycleItems.filter(item=>{
-            return item.id != obj.id
-        })
-
-
-        // 修改待辦事項頁面資料，恢復待辦資料
-        let todoList = dataUtils.getItem('todoList') || []
-        todoList.unshift(obj)
-        dataUtils.setItem('todoList', todoList)
-      }
-      /**
-       * 儲存已刪除事項列表
-       */
-      function storeItems(array) {
-        dataUtils.setItem('recycleList', array)
-      }
-
-      watch(
-        () => JSON.parse(JSON.stringify(state.recycleItems)),
-        (val, oldVal) => {
-          storeItems(val)// 一旦有改動立刻呼叫更新儲存
-        },{deep:true}
-      )
-
-      onMounted(()=>{
-        fetchData()
-      })
-
-      return {
-        state,
-        revertItem
-      }
-
-    }
-
-  }
+<script setup>
+import { ref } from 'vue'
+const visible = ref(true)
+const items = ref([{ id: 1, title: '讀文件' }])
+let nextId = 2
+function add() { items.value.push({ id: nextId++, title: '新練習' }) }
 </script>
+<template>
+  <button @click="visible = !visible">切換提示</button>
+  <Transition name="fade"><p v-if="visible">準備開始</p></Transition>
+  <button @click="add">新增</button><button @click="items.reverse()">反轉</button>
+  <TransitionGroup tag="ul" name="list">
+    <li v-for="item in items" :key="item.id">{{ item.title }} <button @click="items = items.filter(x => x.id !== item.id)">刪除</button></li>
+  </TransitionGroup>
+</template>
 <style scoped>
-  .recycle {
-    position: absolute;
-    background: #ededed;
-    left: 16px;
-    right: 16px;
-    top: 90px;
-  }
-  .s-wrap {
-    overflow-y:auto;
-    height: 208px;
-  }
-  .recycle .title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 27px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .recycle .no-data {
-    text-align: center;
-  }
+.fade-enter-active, .fade-leave-active { transition: opacity .2s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+.list-enter-active, .list-leave-active, .list-move { transition: opacity .2s, transform .2s; }
+.list-enter-from, .list-leave-to { opacity: 0; transform: translateX(12px); }
+@media (prefers-reduced-motion: reduce) {
+  .fade-enter-active, .fade-leave-active, .list-enter-active, .list-leave-active, .list-move { transition: none; }
+}
 </style>
-
 ```
 
+切換提示有淡入淡出；新增、刪除有位移與透明度變化，排序使用穩定 id。Transition 處理單一元素／元件，TransitionGroup 處理帶 key 的多個元素。
+
+## 舊版本差異與限制
+
+Vue 3 用 `*-enter-from`，Vue 2 常見的是 `*-enter`。原筆記的 Vuex 待辦頁動畫可套用這組 class，但先確認列表 key 唯一，不能靠索引固定節點。leave 元素若要脫離排列以產生較完整的 FLIP 效果，需依容器位置設 absolute 並測試尺寸，不能無條件套全站。
+
+降低動態偏好停用動畫；視覺過場不能成為理解內容的唯一方式。動態尺寸、遠端圖片載入與長列表仍需實機檢查，編譯成功不代表動畫時序正確。
+
+
+## 章節導覽
+
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-28-Vite工具.md" >}}) · [下一章]({{< ref "/post/vue/vue-30-SSR服務端渲染.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Transition](https://vuejs.org/guide/built-ins/transition.html)
+- [TransitionGroup](https://vuejs.org/guide/built-ins/transition-group.html)

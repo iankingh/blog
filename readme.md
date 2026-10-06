@@ -93,11 +93,11 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 - `layouts/guestbook.html`、`static/js/rpg-guestbook.js`：想法營地與 Disqus 載入狀態。留言板使用固定的 `disqusIdentifier`，請勿隨意更換，以免分離既有討論；本機只預覽版面，正式站台提供留言。留言區使用固定淺色底，避免切換網站主題時影響正在編輯的留言。
 - `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤列表。
 - `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
-- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；頂部功能列與主內容共用寬度及邊距，Octocat 納入功能列，使用既有 githubBanner 設定連至個人 GitHub。
+- `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；頂部功能列與主內容共用版面寬度，右上角保留 GitHub Corners 折角與揮手動畫，使用既有 githubBanner 設定連至個人 GitHub，窄螢幕會預留空間避免遮住操作按鈕。
 - `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單。
 - `static/css/rpg-pages.css`、`static/js/rpg-article.js`：全站列表與文章排版、程式碼複製；圖片原生延遲載入，表格與程式碼可水平捲動。
 - `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站的「夜間紮營／白晝探索」主題切換，預設白晝；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
-- `static/css/rpg-exploration.css`：與主內容網格對齊的頂部控制面板、卡片日期與底部高度及技能雷達圖排版。
+- `static/css/rpg-exploration.css`：與主內容網格對齊的頂部控制面板、卡片日期與底部高度及技能雷達圖排版。1600px 以上採較寬版面（上限 1920px），任務列表每列最多兩篇、手機採單欄，文章閱讀區仍限制在 1080px。
 - `layouts/_partials/rpg/asset-url.html`：CSS／JavaScript 網址附上檔案內容雜湊，修改資源後自動更新瀏覽器快取。
 - `layouts/_partials/rpg/pagination.html`：首頁、筆記、標籤／分類列表及年份歸檔使用數字分頁器與上一頁／下一頁，統一依 `config.yaml` 的 `pagination.pagerSize: 10` 每頁顯示最多 10 篇；切換後直接定位到列表，不需 JavaScript。
 - `layouts/_partials/rpg/skill-radar.html`、`static/js/rpg-skills.js`：技能圖鑑使用原生 SVG 雷達圖呈現公開筆記數，各軸使用同一尺度。按鈕支援滑鼠、Enter、方向鍵、Home／End 選擇，顯示技能進度與文章入口；圖形含螢幕閱讀器文字描述。DevOps 對應既有版本控制、容器與部署筆記，不另設能力評分。
@@ -113,9 +113,30 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 
 文章使用 Hugo 的 `description` 作為文章卡片、搜尋與分享摘要。只有實際修訂後才增加 `lastmod`，文章頁同時保留原始 `date` 與更新日期。`featuredOrder` 為選填正整數，決定 Java 技能卡中的精選顯示順序；不要為一般文章填入。
 
-文章卡片與搜尋結果會分別標示發布與更新日期；歸檔仍依原始發布年份分組。既有文章補上 `lastmod` 時，以確認過的內容修訂日期為準，避免將網站版面或部署時間當作文章更新日期。
+任務卡片、精選筆記與搜尋結果只標示最近更新日期；未填 `lastmod` 時使用原始 `date`。首頁、筆記與標籤／分類任務依最近更新時間排序，歸檔仍依原始發布年份分組。既有文章補上 `lastmod` 時，以確認過的內容修訂日期為準，避免將網站版面或部署時間當作文章更新日期。
 
-目前精選為 Java 多型、HikariPool 連線取得逾時與 DecimalFormat。Java 範例以 OpenJDK 21 驗證，重跑方式見下方驗證指令。
+目前精選為 Java 多型、HikariPool 連線取得逾時與 DecimalFormat。保留原 OpenJDK 21 驗證紀錄，本次另以 JDK 25 的 `--release 21` 重跑；依賴版本及實際結果見內容查核紀錄。
+
+### 全部筆記的內容維護
+
+`content/post/` 的 130 篇筆記已逐篇整理，原 57 篇草稿在內容與適用驗證完成後公開。保留原始 `date`、檔案路徑與文章網址；`lastmod` 記錄實際內容修訂日期。教學、排錯、清單與閱讀筆記按用途整理，不要求所有文章套同一組章節。
+
+- [逐篇檢核清單](docs/note-review.json)：原公開狀態、原發布日期、缺漏、修訂項目、版本情境、來源與實際驗證範圍。
+- [整理與驗證報告](docs/note-review.md)：130 篇結果與平台限制；站內讀者版在 `/note-review/`。
+- [來源網址檢查](docs/source-checks.json)：記錄 HTTP 狀態。成功開啟只證明入口可讀，不能取代技術內容查核；保留的失效／逾時來源明確列於報告。
+- [隔離範例重跑方式](docs/verification/README.md)：固定 npm 鎖檔、Java／Python／Git 及 Spring 測試。
+
+修改文章時先確認技術版本與原情境，增加官方來源與可觀察的結果，舊版另標替代路線。程式碼註明語言，不保留空白範例、合併衝突或待補標題。文章間連結使用 Hugo `ref`，草稿完成內容及可適用的驗證後才改 `draft: false`；平台未實測時如實標記，不把模擬當成實機。
+
+Vue 00 是環境與系列目錄，15 是路由共同骨架；各章包含先備條件和前後章連結。Java 00–04 的基礎練習與多型／格式／連線池排錯也互相連結。新增文章時須同步維護檢核清單；130 是此次整理基線，之後新增篇數時再調整檢查器的預期篇數。
+
+```bash
+python3 .github/scripts/check-note-content.py
+python3 .github/scripts/check-basic-note-examples.py
+# 建置後連同搜尋、十三頁分頁及內部連結／圖片一起查核
+hugo --minify --destination /tmp/blog-review-output
+python3 .github/scripts/check-note-content.py --site /tmp/blog-review-output
+```
 
 ### 搜尋摘要與分享圖
 

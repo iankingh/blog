@@ -1,5 +1,5 @@
 ---
-title: "docker-compose"
+title: "Docker Compose：Web 與 Redis 的完整練習"
 date: 2020-09-28T21:53:46+08:00
 categories:
   - "筆記"
@@ -8,238 +8,123 @@ tags:
  - "compose"
 toc: true
 draft: false
+description: "用完整 Node Web 與 Redis 小專案理解 Compose 服務解析、健康檢查及持久化。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Docker_Compose 筆記
+用完整 Node Web 與 Redis 小專案理解 Compose 服務解析、健康檢查及持久化。
 
 <!--more-->
 
-## 安裝 docker-compose
+適用：Docker Engine 與 Compose v2 的 Linux 容器練習。先確認 Docker daemon 已啟動，以獨立測試專案操作，避免和既有服務同名。
 
-### 下載
+## 版本與專案檔案
 
-```shell
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+原筆記使用 docker-compose 1.29，現行練習採 `docker compose` v2。Compose 的頂層 version 已不再決定新格式，不需要寫 `version: '2'`。建立空資料夾，package.json：
+
+```json
+{"name":"compose-note","private":true,"type":"module","dependencies":{"redis":"4.7.0"}}
 ```
 
-### 安裝
+app.mjs：
 
-```shell
-chmod +x /usr/local/bin/docker-compose
+```javascript
+import { createServer } from 'node:http'
+import { createClient } from 'redis'
+const cache = createClient({ url: 'redis://redis:6379' })
+cache.on('error', error => console.error(error.message))
+await cache.connect()
+createServer(async (request, response) => {
+  try {
+    const count = await cache.incr('note:hits')
+    response.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' })
+    response.end(`瀏覽 ${count} 次\n`)
+  } catch {
+    response.writeHead(503)
+    response.end('Cache unavailable\n')
+  }
+}).listen(8080, '0.0.0.0')
 ```
 
-### 檢視版本
-
-````shell
-docker-compose version
-````
-
-### 測試
-
-#### 第一步，建立 Spring boot 服務
-
-透過Spring Initializru頁面，建立一個 Spring boot 服務，並且指定要使用的專案。
-
-### 第二步，建立 Dockerfile
+Dockerfile：
 
 ```dockerfile
-
-
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY app.mjs ./
+CMD ["node", "app.mjs"]
 ```
 
-### 第三步，使用 docker-compose 定義一個檔案
+先用 `npm install --package-lock-only` 產生 lockfile，與來源一起保留。compose.yaml：
 
-```yml
-version: '2'
+```yaml
 services:
   web:
     build: .
-    ports:
-     - "8080:8080"
+    ports: ["127.0.0.1:8080:8080"]
+    depends_on:
+      redis:
+        condition: service_healthy
   redis:
-    image: "redis:alpine"
+    image: redis:7.4-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: ["redis-data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 1s
+      retries: 10
+volumes:
+  redis-data:
 ```
 
-這個 compose.yml 定義2個服務，一是Spring boot  一個是 redis 服務。
+## 執行與預期結果
 
-- Spring Web 服務：使用 Dockerfile 。將 Web 容器內部的5000埠對映到 host 的5000埠；並將 Web 容器與 redis 容器連結。
-
-- redis服務：官網的redis。
-
-### 第四步，使用 Compose
-
-使用命令`docker-compose up`啟動
-
-```shell
-docker-compose up
+```bash
+docker compose config
+docker compose up -d --build
+docker compose ps
+curl http://127.0.0.1:8080/
+curl http://127.0.0.1:8080/
+docker compose logs --tail 30 web
+docker compose down
 ```
 
-執行成功之後，在browser ：`http://ipaddress:8080/` ，返回如下：
+全新的 volume 下兩次 curl 分別應為瀏覽 1 次、瀏覽 2 次。重新 up 後計數延續；瀏覽器可能多請求 favicon，使數字不只加一，精確測試使用 curl。down 保留 named volume，`down -v` 會刪掉本專案資料，僅在確定不需練習紀錄時使用。
 
-```shell
-Hello World! I have been seen 1 times.
-```
+容器內 redis 是服務名稱，不是 localhost；主機不公開 Redis port。healthcheck 可處理初次啟動順序，不能取代執行中故障的重試、連線恢復與正式監控。本篇以本地小服務取代原筆記未提供的 Spring Boot 專案，正式應用仍可依同樣網路原則配置。
 
-#  img  要放圖片
+## 原 Compose 指令與 v2 對照
 
-重新整理再次訪問返回
+原 `docker-compose` 的指令大多可改為 `docker compose`，但安裝方式、頂層格式與工具支援需確認：
 
+| 目的 | 此練習的指令 |
+| --- | --- |
+| 停止／啟動既有服務 | `docker compose stop web`、`docker compose start web`；start 不會重新建置來源 |
+| 映像與執行狀態 | `docker compose images`、`docker compose ps -a` |
+| 重新建置／拉映像 | `docker compose build web`、`docker compose pull redis`，然後用 up 套用需要的變更 |
+| 服務內執行 | `docker compose exec redis redis-cli ping`，服務已執行時應回 PONG |
+| 移除停止者 | `docker compose rm`；與 down 的專案網路移除行為不同 |
+| 強制停止 | `docker compose kill` 不提供正常停止的寬限流程，通常先用 stop |
+| 複本數 | `docker compose up -d --scale web=2` 的概念可用，但本例固定主機 8080，複本會爭用 port，先改代理或不公開每個複本的固定主機 port |
 
-```shell
-Hello World! I have been seen 2 times.
-```
+不要把可支援 scale 等同服務已具備 HA；仍要處理入口、session、資料共享與依賴故障。原未提供的 Spring Boot app 已由本文明確的 Node 小服務取代，兩者的語言和框架不同，網路與持久化觀念相同。
 
-# img 要放圖片
+## 查核範圍
 
-不斷的重新整理數字會不斷的增長。
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-## docker-compose 命令
+## 參考資料
 
-使用`docker-compose up -d` 在後臺啟動服務
+- [Compose 規格](https://docs.docker.com/reference/compose-file/)
+- [服務啟動順序](https://docs.docker.com/compose/how-tos/startup-order/)
+- [Compose 網路](https://docs.docker.com/compose/how-tos/networking/)
 
-啟動所有容器，-d 將會在後臺啟動並執行所有的容器
+### 原始筆記保留的來源
 
-```shell
-docker-compose up -d
-```
-
-使用`docker-compose ps`  檢視啟動的服務
-
-列出專案中目前的所有容器
-
-```shell
-docker-compose ps
-```
-
-```shell
-Name    Command               State           Ports         
--------------------------------------------------------------
-
-```
-
-使用`docker-compose stop`停止服務。
-
-```shell
-docker-compose stop
-```
-
-```shell
-Stopping composetest_web_1   ... done
-Stopping composetest_redis_1 ... done
-```
-
-`docker-compose restart` ：重啟專案中的服務
-
-### docker-compose -h 檢視幫助
-
-```shell
-docker-compose -h 
-```
-
-### create and start containers
-
-```shell
-docker-compose up
-```
-
-### start services with detached mode
-
-```shell
-docker-compose -d up
-```
-
-### start specific service
-
-```shell
-docker-compose up <service-name>
-```
-
-### stop services 停止已經處於執行狀態的容器，但不刪除它。透過 docker-compose start 可以再次啟動這些容器
-
-```shell
-docker-compose stop
-```
-
-### start service 啟動已經存在的服務容器
-
-```shell
-docker-compose start
-```
-
-### list images
-
-```shell
-docker-compose images
-```
-
-### list containers
-
-```shell
-docker-compose ps
-```
-
-### display running containers
-
-```shell
-docker-compose top
-```
-
-### stop all contaners and remove images, volumes 停用移除所有容器以及網路相關
-
-```shell
-docker-compose down
-```
-
-### remove stopped containers 刪除所有（停止狀態的）服務容器。推薦先執行 docker-compose stop 命令來停止容器
-
-```shell
-docker-compose rm 
-```
-
-### kill services
-
-```shell
-docker-compose kill
-```
-
-### 檢視服務容器的輸出
-
-```shell
-docker-compose logs
-```
-
-### 構建（重新構建）專案中的服務容器
-
-服務容器一旦構建後，將會帶上一個標記名，例如對於 web 專案中的一個 db 容器，可能是 web_db。可以隨時在專案目錄下執行 docker-compose build 來重新構建服務
-
-```shell
-docker-compose build
-```
-
-### 拉取服務依賴的映象
-
-```shell
-docker-compose pull
-```
-
-### 在指定服務上執行一個命令
-
-```shell
-docker-compose run ubuntu ping docker.com
-```
-
-### 設定指定服務執行的容器個數。透過 service=num 的引數來設定數量
-
-```shell
-docker-compose scale web=3 db=2
-```
-
-## 參考
-
-[Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
-
-[使用 docker-compose 替代 docker run - 張志敏的技術專欄](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
-
-[Angular — Local Development With Docker-Compose | by Bhargav Bachina | Bachina Labs | Medium](https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42)
-
-[Docker(四)：Docker 三劍客之 Docker Compose](https://mp.weixin.qq.com/s/DCqjeXtGoHnM7Wfm5Sme6w?)
+- [Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
+- [使用 docker-compose 替代 docker run - 張志敏的技術專欄](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
+- [Angular — Local Development With Docker-Compose | by Bhargav Bachina | Bachina Labs | Medium](https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42)
+- [Docker(四)：Docker 三劍客之 Docker Compose](https://mp.weixin.qq.com/s/DCqjeXtGoHnM7Wfm5Sme6w?)

@@ -1,8 +1,8 @@
 ---
-title: "HikariPool 連線取得逾時：先診斷，再調整設定"
+title: "HikariCP 連線逾時：診斷與可重現範例"
 date: 2021-05-06T21:18:55+08:00
-lastmod: 2026-10-05T21:48:32+08:00
-description: "HikariPool connectionTimeout 是等待取得連線的時間。以 Java、HikariCP 與 H2 重現池耗盡、取得逾時及釋放後恢復，並整理排錯順序。"
+lastmod: 2026-10-07T00:01:00+08:00
+description: "依連線池狀態診斷取得連線逾時，以 H2 範例重現耗盡、釋放與再次取得連線。"
 featuredOrder: 2
 categories: ["筆記"]
 tags: ["java", "連線池"]
@@ -10,9 +10,15 @@ toc: true
 draft: false
 ---
 
-遇到 `Connection is not available, request timed out after 30000ms`，表示呼叫端在等待期限內沒有從 HikariCP 取得可用連線。先觀察連線的使用情況，再判斷要修程式、查詢或設定。
+依連線池狀態診斷取得連線逾時，以 H2 範例重現耗盡、釋放與再次取得連線。
 
 <!--more-->
+
+適用：本文原有 Java 21 練習環境；HikariCP 範例的第三方版本以文內依賴清單為準。
+
+遇到 `Connection is not available, request timed out after 30000ms`，表示呼叫端在等待期限內沒有從 HikariCP 取得可用連線。先觀察連線的使用情況，再判斷要修程式、查詢或設定。
+
+
 
 ## 錯誤代表什麼
 
@@ -156,8 +162,29 @@ Windows 的 classpath 分隔符改用 `;`，執行時使用 `java -cp ".;lib/*" 
 
 遇到逾時時先找出連線為何無法使用。確認根因後，再評估池大小與等待設定；不要只把等待時間改長。
 
-## 參考
 
 - [HikariCP 7.0.2：Configuration](https://github.com/brettwooldridge/HikariCP/blob/HikariCP-7.0.2/README.md#frequently-used)
 - [H2：Database URL 與 Embedded Mode](https://h2database.com/html/features.html#database_url)
 - 原始問題參考：[Stack Overflow：HikariPool connection timeout](https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for)。本文已補上獨立重現步驟與限制。
+
+## 修訂確認
+
+原有完整範例保留；本文是可控的學習情境，實際系統還需依資料庫延遲與併發負載調整。查核不代表任何引數能直接適用所有 production 服務。
+
+## 系列導覽
+
+[00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
+
+## 查核範圍
+
+JDK25 --release21，HikariCP7.0.2／H2 2.4.240／SLF4J2.0.17，借滿、逾時與釋放後再借的輸出逐字比對通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [HikariCP 連線逾時：診斷與可重現範例官方參考](https://github.com/brettwooldridge/HikariCP)
+
+### 原始筆記保留的來源
+
+- [HikariCP 7.0.2：Configuration](https://github.com/brettwooldridge/HikariCP/blob/HikariCP-7.0.2/README.md#frequently-used)
+- [H2：Database URL 與 Embedded Mode](https://h2database.com/html/features.html#database_url)
+- [Stack Overflow：HikariPool connection timeout](https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for)

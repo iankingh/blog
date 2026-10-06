@@ -1,111 +1,87 @@
 ---
-title: "Vue 教學 26 - Pinia 集中式狀態管理"
+title: "Vue 教學 26：Pinia 狀態、getter 與非同步 action"
 date: 2026-03-22T20:26:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "Pinia"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "以本地任務資料完成 loading、錯誤與 storeToRefs 的操作流程。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+以本地任務資料完成 loading、錯誤與 storeToRefs 的操作流程。
+
 <!--more-->
 
-# Pinia 集中式狀態管理
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 為什麼需要 Pinia
+## 任務 store
 
-當資料要在多個元件共享時，靠一層層 props 傳遞會變複雜。Pinia 可集中管理狀態，讓資料流更清楚。
+沿用第 11 章的 createPinia 入口，建立 `src/stores/tasks.js`：
 
-## 安裝與掛載
-
-### 安裝
-
-```bash
-npm i pinia
-```
-
-### main.ts 掛載
-
-```ts
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-
-const app = createApp(App)
-app.use(createPinia())
-app.mount('#app')
-```
-
-## 建立第一個 store
-
-`src/stores/counter.ts`
-
-```ts
+```javascript
 import { defineStore } from 'pinia'
-
-export const useCounterStore = defineStore('counter', {
-  state: () => ({
-    sum: 1
-  }),
-  getters: {
-    double: (state) => state.sum * 2
-  },
+export const useTasksStore = defineStore('tasks', {
+  state: () => ({ items: [], loading: false, error: '' }),
+  getters: { completed: state => state.items.filter(item => item.done).length },
   actions: {
-    increment(n: number) {
-      this.sum += n
+    async load(fail = false) {
+      if (this.loading) return
+      this.loading = true
+      this.error = ''
+      try {
+        const data = await Promise.resolve([{ id: 1, title: '整理筆記', done: false }])
+        if (fail) throw new Error('模擬讀取失敗')
+        this.items = data
+      } catch (error) { this.error = error.message }
+      finally { this.loading = false }
     },
-    decrement(n: number) {
-      this.sum -= n
+    toggle(id) {
+      const item = this.items.find(item => item.id === id)
+      if (item) item.done = !item.done
     }
   }
 })
 ```
 
-## 元件中使用
+App.vue：
 
-```ts
-import { useCounterStore } from '@/stores/counter'
-
-const counter = useCounterStore()
-counter.increment(1)
-console.log(counter.sum)
-console.log(counter.double)
-```
-
-## storeToRefs 使用時機
-
-當你要解構 store 裡的 state 或 getters，又要保持響應式，使用 `storeToRefs`：
-
-```ts
+```vue
+<script setup>
 import { storeToRefs } from 'pinia'
-
-const counter = useCounterStore()
-const { sum, double } = storeToRefs(counter)
+import { useTasksStore } from './stores/tasks.js'
+const store = useTasksStore()
+const { items, loading, error, completed } = storeToRefs(store)
+</script>
+<template>
+  <button :disabled="loading" @click="store.load()">讀取任務</button>
+  <button :disabled="loading" @click="store.load(true)">模擬失敗</button>
+  <p v-if="error" role="alert">{{ error }}</p>
+  <ul><li v-for="item in items" :key="item.id"><button @click="store.toggle(item.id)">{{ item.title }}：{{ item.done }}</button></li></ul>
+  <p>完成 {{ completed }} 筆</p>
+</template>
 ```
 
-## 非同步 action 範例
+讀取後一筆且完成 0，點任務變完成 1；模擬失敗顯示錯誤、保留原資料。這裡的 Promise 是模擬資料，沒有真實網路延遲。
 
-```ts
-actions: {
-  async fetchQuote() {
-    const res = await fetch('https://api.uomg.com/api/rand.qinghua?format=json')
-    const data = await res.json()
-    this.quoteList.unshift({ id: crypto.randomUUID(), title: data.content })
-  }
-}
-```
+## 維護注意
 
-## 實務建議
+替換成 fetch 時檢查 response.ok、資料結構與取消機制。Option store 可用 `$reset`，setup store 需自行定義 reset。Pinia 允許直接修改 state，但重要商業操作集中 action 更易追蹤。測試與 SSR 每次建立自己的 Pinia 例項，避免跨案例或跨請求汙染。
 
-1. 按功能切 store，不要做超大單一 store。
-2. 非同步請求放在 action，不放元件模板邏輯。
-3. 把商業邏輯集中在 store，元件專注畫面互動。
 
-## 常見錯誤
+## 章節導覽
 
-1. 直接解構 store 導致失去響應式（要用 storeToRefs）。
-2. 在 action 內使用 `this` 時誤用箭頭函式。
-3. 把一次性 UI 狀態與全域狀態混在一起，造成維護困難。
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-25-Vue-Router進階.md" >}}) · [下一章]({{< ref "/post/vue/vue-27-Vuex狀態管理.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證；本文store/composable直接匯入測試狀態、action與錯誤分支。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Pinia Actions](https://pinia.vuejs.org/core-concepts/actions.html)
+- [Pinia Getters](https://pinia.vuejs.org/core-concepts/getters.html)
+- [Pinia State](https://pinia.vuejs.org/core-concepts/state.html)

@@ -50,7 +50,7 @@
       const description = document.createElement('span');
       description.textContent = post.summary;
       const meta = document.createElement('small');
-      const dates = `發布 ${post.date}${post.lastmod ? ` · 更新 ${post.lastmod}` : ''}`;
+      const dates = `更新 ${post.lastmod || post.date}`;
       meta.textContent = `${dates}${post.tags.length ? ` · ${post.tags.join(' / ')}` : ''}`;
       link.append(title, description, meta);
       results.append(link);

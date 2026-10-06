@@ -1,5 +1,5 @@
 ---
-title: "AngularCLInotes"
+title: "Angular CLI：開發、產生程式碼與建置"
 date: 2020-08-03T11:42:02+08:00
 draft: false
 categories:
@@ -8,101 +8,53 @@ tags:
  - "Angular"
  - "FrontEnd"
 toc: true
+description: "整理 serve、generate、build、test 與 update，補上本機 CLI 和 outputPath 確認。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-整理 Angular CLI 常用的開發、建置與部署指令。
+整理 serve、generate、build、test 與 update，補上本機 CLI 和 outputPath 確認。
+
 <!--more-->
 
-## Angular維運指令
+適用：原筆記的Angular CLI／NgModule專案；新範例以Angular 20的standalone元件說明。建立專案前按官方版本表選Node與TypeScript，不能把舊專案直接套最新CLI。
 
-### 啟動本機開發server
+## 使用專案自己的 CLI
 
-`ng serve`  : 啟動本機server 預設4200
+在已有專案且依賴安裝完成的目錄：
 
-`npm start` : 啟動本機server 預設4200 會跑 ng serve
-
-### build : **編譯Project**
-
-到專案目錄執行 **編譯指令如下**
-
-舊版 Angular 可使用 `ng build --prod --base-href /project_Name/`；新版 Angular
-請改用以下寫法：
-
-`ng build --configuration production --base-href /project_Name/`
-
-可以使用以下編譯指令 但需設定在angular.js中
-
-`ng build --prod` 
-
-`ng build --configuration=sit`
-
-`ng build --configuration=uat`
-
-`ng build --configuration=production`
-
-- **prod** : 把 `src/environments/environment.ts`檔案替換成針對特定目標的版本 , 且編譯出來的檔案會小很多
-- **output-path** : 表示輸出路徑 : ex : 輸出到當前目錄的 web資料夾底下
-- **base-href** : 修改 index.html 裡的 `<base href="/">` : ex : `<base href="/project_Name/">`
-
-## Angular 常用建立指令
-
-### 新增專案的 Angular 指令
-
-```tsx
-ng new angularProject --style=scss --routing
+```bash
+npx ng version
+npx ng serve --port 4200
+npx ng generate component features/tasks/task-list --dry-run
+npx ng generate service core/task
+npx ng build --configuration production
 ```
 
-### Angular 常用建立指令
+serve持續運作，以Ctrl+C停止。dry-run先列出變更，不寫檔；確認後拿掉才生成。component檔名與standalone預設受CLI major影響，不照舊截圖硬改。
 
-### **ng generate**
+## 常用選項
+
+`ng generate component`、service、pipe、directive各有不同責任。舊module架構可用module與指定module選項，新standalone系統未必要建立module。`--project`選workspace內專案，`--configuration`對應angular.json已存在設定，不是任意Spring profile。
+
+新版以production configuration替代早期常見的--prod簡寫。測試用`npx ng test`，依builder支援的非監看引數在CI執行；沒有lint target時ng lint不會自動替你安裝lint工具。
+
+## 確認與排錯
+
+未知選項先用`npx ng build --help`與實際CLI版本檔案，不安裝另一個全域性CLI掩蓋。port衝突先選未使用port；不能以serve綁0.0.0.0就當正式部署。production建置後檢查outputPath與base-href，再測直接開子路徑，見Tomcat部署篇。
+
+升級以`npx ng update`列建議，再按官方跨版本指引逐major處理，保留Git可回復狀態與測試。這些CLI操作會改檔，先看dry-run與diff再確認結果。
+
+## 查核範圍
+
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Angular CLI](https://angular.dev/tools/cli)
+- [ng build](https://angular.dev/cli/build)
+- [ng generate](https://angular.dev/cli/generate)
+
+### 原始筆記保留的來源
 
 - [Angular官網generate介紹](https://angular.io/cli/generate)
-- Generates and/or modifies files based on a schematic. 在已有專案中建立其他元件的指令
-- `ng generate <schematic> [options]`
-- `ng g <schematic> [options]`
-- schematic
-
-### component
-
-- 縮寫 `c`
-- 說明:建立元件，建構頁面的基礎。
-    - 用法 : `ng g component componentName`或 `ng g c componentName`
-- 需要指定路徑就 `ng g c path/componentName`
-
-### service
-
-- 縮寫`s`
-- 說明:建立服務，通常只提供一種型別的服務，如登入、驗證等服務
-- 用法: `ng g service [service name`] 或 `ng g s [service name]`
-- 需要指定路徑就`ng g s [path]/[service name]`
-
-### pipe
-
-- 縮寫 `p`
-- 說明:建立通道，通常用來將A轉換為B，如提供60秒經由通道轉換為1分鐘
-- 用法: `ng g pipe [pipe name]`或 `ng g p [pipe name]`
-- 需要指定路徑就 `ng g p [path]/[pipe name]`
-
-### directive
-
-- 縮寫 `d`
-- 說明:建立指令，可以賦予標籤或元件擁有某一種功能
-- 用法:`ng g directive [directive name]`或 `ng g d [directive name]`
-- 需要指定路徑就`ng g d [path]/[directive name]`
-
-### module
-
-- 縮寫`m`
-- 說明:建立模組，模組通常由功能特性劃分，如路由模組、驗證模組、報表模組，模組可以包含元件、服務、只是、通道及其他模組
-- 用法:`ng g module [module name]`或 `ng g m [module name]`
-- 需要指定路徑就`ng g m [path]/[module name]`
-
-### application
-
-- 說明 : 建立子專案，可以單獨當作一個app，也可以在主專案把子專案匯入使用
-- 用法 : `ng g application [application name]`
-- 建立位置預設在`projects`裡
-
-## 參考
-
-[Angular 13 開發環境說明 (github.com)](https://gist.github.com/doggy8088/15e434b43992cf25a78700438743774a)
+- [Angular 13 開發環境說明 (github.com)](https://gist.github.com/doggy8088/15e434b43992cf25a78700438743774a)

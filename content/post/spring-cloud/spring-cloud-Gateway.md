@@ -1,5 +1,5 @@
 ---
-title: "Spring Cloud Gateway"
+title: "Spring Cloud Gateway：路由、過濾與 Actuator 邊界"
 date: 2021-04-12T14:08:40+08:00
 draft: false
 categories:
@@ -9,128 +9,69 @@ tags:
  - "Spring"
  - "Spring Cloud"
 toc: true
+description: "整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Spring Cloud Gateway 筆記
-<!-- 簡介 -->
-
-## Spring Cloud Gateway 簡介
-
-Spring生態系統之上構建的API閘道器，包括：Spring 5，Spring Boot 2和Project Reactor。Spring Cloud Gateway旨在提供一種簡單而有效的方法來路由到API，並基於Filter 提供 gateway的基本功能，例如：安全性，監視/指標和彈性。
+整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。
 
 <!--more-->
 
-## Spring Cloud Gateway 監控
+適用：原Boot2的WebFlux Gateway歷史配置；新版替代線另列。外部服務以本地HTTP文字檔模擬，Gateway本身未於本次實機啟動。
 
-### 新增依賴 -  build.gradle
+## 選定架構與版本
 
-```build.gradle
-implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+原筆記以Boot2／Spring5／Reactor WebFlux Gateway為主，使用Cloud2021.0.x搭Boot2.7.x的舊語法。新版Gateway有WebFlux和Server MVC不同產品線與starter／property字首；按使用版本檔案選，不把spring-boot-starter-web混入WebFlux gateway。
 
-implementation 'org.springframework.boot:spring-boot-starter-actuator'
+已有相容Boot／Cloud BOM的gateway專案加入spring-cloud-starter-gateway與actuator。舊application.yml示意：
 
-implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-```
-
-### 配置檔案 -  application.properties OR application.yml
-
-該/gateway驅動器的端點允許監視和使用Spring的雲閘道器應用程式進行互動。為了可遠端訪問，必須在應用程式屬性中透過HTTP或JMX啟用和公開端點。
-
-application.properties
-
-```properties
-# default value
-management.endpoint.gateway.enabled=true 
-
-management.endpoints.web.exposure.include=gateway
-```
-
-application.yml
-
-```yml
-management:
-  endpoint:
+```yaml
+server:
+  port: 8084
+spring:
+  cloud:
     gateway:
-      enabled: true
+      routes:
+        - id: note-backend
+          uri: http://127.0.0.1:8085
+          predicates:
+            - Path=/notes/**
+          filters:
+            - StripPrefix=1
+management:
   endpoints:
     web:
       exposure:
-        include: gateway
-
+        include: health
 ```
 
-### 得到所有route的資訊
-**{IP}/actuator/gateway/routes**
+新版WebFlux路由可能使用`spring.cloud.gateway.server.webflux.routes`，以對應版本配置索引為準。lb://服務名需discovery與load-balancer配置，本例固定URI不依賴Eureka。
 
-```json
-[
-    {
-        "predicate": "Paths: [/hollword/**], match trailing slash: true",
-        "route_id": "holl-word",
-        "filters": [],
-        "uri": "lb://holl-word",
-        "order": 0
-    },
-    {
-        "predicate": "Paths: [/hollJava/**], match trailing slash: true",
-        "route_id": "holl-Java",
-        "filters": [],
-        "uri": "lb://holl-Java",
-        "order": 0
-    }
-]
-```
+## 本地確認
 
+在另一目錄建立hello.txt內容campfire，使用`python3 -m http.server 8085 --bind 127.0.0.1`提供模擬後端。啟動Gateway後curl `/notes/hello.txt`應回campfire，StripPrefix去掉notes一段；請求`/hello.txt`不應匹配此route。
 
-| Path                     | Type   | Description                                                  |
-| ------------------------ | ------ | ------------------------------------------------------------ |
-| `route_id`               | String | The route id. 路由代號                                       |
-| `route_object.predicate` | Object | The route predicate.                                         |
-| `route_object.filters`   | Array  | The [GatewayFilter factories](https://cloud.spring.io/spring-cloud-gateway/multi/multi__actuator_api.html) applied to the route. 過濾器 |
-| `order`                  | Number | The route order. 路線順序                                    |
+測後端停止時的錯誤、錯誤path與超時，再看gateway日誌；不是所有5xx都來自後端。Reactor鏈內不要做blocking IO，需按模型選擇適當整合方式。
 
-### 得到某個route的資訊
+## Actuator
 
-**{IP}/actuator/gateway/routes/{id}**
+原筆記公開gateway並提供寫route／refresh示例；現行版本的enabled／access策略不同。若確需診斷，優先版本支援的read-only access、限定管理監聽與授權，再讀routes。不要把建立／刪除route介面當公開除錯功能，不能只靠CORS保護。
 
-````
-{
-    "predicate": "Paths: [/wealth/**], match trailing slash: true",
-    "route_id": "wealth",
-    "filters": [],
-    "uri": "lb://wealth-system",
-    "order": 0
-}
-````
+確認predicate、filter順序和傳往後端的path，客戶端看到200不代表認證、請求限制和錯誤處理完整。此篇僅檔案核對，未聲稱測完整gateway叢集。
 
+## 查核範圍
 
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-## 所有Gateway actuator可以用的列表
+## 參考資料
 
-`/actuator/gateway/{ID}`
+- [Gateway官方](https://docs.spring.io/spring-cloud-gateway/reference/)
+- [Actuator access](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/actuator-api.html)
+- [Spring Cloud相容](https://spring.io/projects/spring-cloud#overview)
 
-| ID            | HTTP Method | Description                                                  |
-| :------------ | :---------- | :----------------------------------------------------------- |
-| globalfilters | GET         | Displays the list of global filters applied to the routes.   |
-| routefilters  | GET         | Displays the list of GatewayFilter factories applied to a particular route. |
-| refresh       | POST        | Clears the routes cache.                                     |
-| routes        | GET         | Displays the list of routes defined in the gateway.          |
-| routes/{id}   | GET         | Displays information about a particular route.               |
-| routes/{id}   | POST        | Adds a new route to the gateway.                             |
-| routes/{id}   | DELETE      | Removes an existing route from the gateway.                  |
+### 原始筆記保留的來源
 
-
-
-## Spring Cloud Gateway 使用
-
-
-
-
-## 參考
-
-[Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
-
-[SpringCloud gateway （史上最全） - 瘋狂創客圈 - 部落格園](https://www.cnblogs.com/crazymakercircle/p/11704077.html)
-
-[Spring Cloud Gateway 開發指南（五） Actuator API | OnePiece](https://cdrcool.github.io/2020/02/27/Spring%20Cloud%20Gateway%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97(%E4%BA%94)%20Actuator%20API/)
-
+- [GatewayFilter factories](https://cloud.spring.io/spring-cloud-gateway/multi/multi__actuator_api.html)
+- [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
+- [SpringCloud gateway （史上最全） - 瘋狂創客圈 - 部落格園](https://www.cnblogs.com/crazymakercircle/p/11704077.html)
+- [Spring Cloud Gateway 開發指南（五） Actuator API | OnePiece](https://cdrcool.github.io/2020/02/27/Spring%20Cloud%20Gateway%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97(%E4%BA%94)

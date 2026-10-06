@@ -1,65 +1,81 @@
 ---
-title: "Vue 教學 19 - 命名與巢狀路由"
+title: "Vue 教學 19：命名與巢狀路由"
 date: 2026-03-22T20:19:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
+- "Vue 3"
 - "Vue Router"
 toc: true
-draft: true
+draft: false
+description: "建立帶子頁的任務殼層，理解相對 children path 與第二層 RouterView。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+建立帶子頁的任務殼層，理解相對 children path 與第二層 RouterView。
+
 <!--more-->
 
-# 命名路由與巢狀路由
+適用：Vue 3.5 與 Vue Router 4。先完成第 00 章環境與[第 15 章的路由骨架]({{< ref "/post/vue/vue-15-路由基本接線.md" >}})，後續範例依指定檔案替換。
 
-## 命名路由
+## 任務殼層
 
-路由規則加上 name：
-
-```ts
-{ name: 'news', path: '/news', component: News }
-```
-
-導航時可用：
+建立 `src/views/TasksLayout.vue`：
 
 ```vue
-<RouterLink :to="{ name: 'news' }">新聞</RouterLink>
+<template>
+  <h1>任務大廳</h1>
+  <RouterLink :to="{ name: 'task-list' }">列表</RouterLink> |
+  <RouterLink :to="{ name: 'task-detail', params: { id: '7' } }">任務 7</RouterLink>
+  <RouterView />
+</template>
 ```
 
-好處：
+`src/views/TaskList.vue`：
 
-- path 變更時，導覽程式可少改
-- 程式語意更清楚
+```vue
+<template><p>目前有一個練習任務</p></template>
+```
 
-## 巢狀路由
+`src/views/TaskDetail.vue`：
 
-```ts
-{
-  path: '/news',
-  component: News,
+```vue
+<script setup>
+import { useRoute } from 'vue-router'
+const route = useRoute()
+</script>
+<template><p>詳細資料：{{ route.params.id }}</p></template>
+```
+
+在 router.js 匯入三個元件，新增這筆紀錄：
+
+```javascript
+const taskRoute = {
+  path: '/tasks', component: TasksLayout,
   children: [
-    {
-      path: 'detail',
-      component: Detail
-    }
+    { path: '', name: 'task-list', component: TaskList },
+    { path: ':id', name: 'task-detail', component: TaskDetail }
   ]
 }
 ```
 
-重點：
+將 taskRoute 加入 routes。開 `#/tasks` 顯示殼層和列表，開 `#/tasks/7` 殼層保留、下方顯示詳細資料 7。
 
-- 子路由通常使用相對 path（不加前導 /）
-- 父元件必須包含第二層 `<RouterView />`
+## 常見問題
 
-## 常見坑
+children path 不以 `/` 開頭才會接在父 path 後面；以 `/` 開頭會成為絕對網址，但仍有元件巢狀關係。子頁空白先檢查父頁有 RouterView。name 在同一 router 需唯一，否則後註冊的紀錄可能取代前者，應使用具領域意義的名稱。
 
-1. 子路由寫成 `/detail` 導致不在父路由底下。
-2. 父頁忘記放 `<RouterView />` 看不到子頁。
 
-## 結構建議
+## 章節導覽
 
-- 路由頁：`pages` 或 `views`
-- 可重用 UI：`components`
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-18-history與hash模式.md" >}}) · [下一章]({{< ref "/post/vue/vue-20-路由元件生命週期.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [巢狀路由](https://router.vuejs.org/guide/essentials/nested-routes.html)
+- [命名路由](https://router.vuejs.org/guide/essentials/named-routes.html)

@@ -1,5 +1,5 @@
 ---
-title: "撰寫 API 文件的工具"
+title: "API 文件工具：OpenAPI、Slate 與 apiDoc 的選擇"
 date: 2021-07-20T06:49:34+08:00
 categories:
  - "學習"
@@ -7,26 +7,71 @@ tags:
  - "API"
 toc: true
 draft: false
+description: "補上契約來源、生成方式與限制，提供最小 OpenAPI 文件。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## 撰寫 API 文件的工具
-<!-- 簡介 -->
+補上契約來源、生成方式與限制，提供最小 OpenAPI 文件。
+
 <!--more-->
 
-## Slate
+適用：HTTP API文件規劃；工具產物不會自動代替後端驗證或契約測試。
 
-將 Markdown 內容產生為靜態 API 文件網站，適合需要自訂版面與範例程式碼的專案。
+## 比較
 
-## apidocjs
+| 工具 | 輸入來源 | 適合與限制 |
+| --- | --- | --- |
+| OpenAPI／Swagger UI | 結構化API規格 | 可互動、生成工具；規格仍要與實作一致 |
+| Slate | Markdown與範例 | 易寫敘述；不是自動驗證HTTP schema |
+| apiDoc | 程式碼註解 | 靠近實作；需維護註解與生成版本 |
 
-從原始碼註解產生 API 文件，適合希望讓文件靠近實作程式碼的團隊。
+OpenAPI是規格，SwaggerUI是呈現與操作工具，兩者不能只當同一產品名稱。Spring的生成整合見[Swagger筆記]({{< ref "/post/spring-boot/spring-boot-Swagger2.md" >}})。
 
-## Swagger
+## 最小契約
 
-以 OpenAPI 規格描述 API，可產生互動式文件，也方便驗證請求與回應格式。建立新專案時，建議直接維護 OpenAPI 規格，避免文件與實作脫節。
+```yaml
+openapi: 3.0.3
+info:
+  title: 筆記 API
+  version: 1.0.0
+paths:
+  /tasks:
+    get:
+      summary: 列出任務
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required: [id, title]
+                  properties:
+                    id: {type: string}
+                    title: {type: string}
+```
 
-## 參考
+在相容的OpenAPIvalidator檢查後用檔案工具呈現，應有GET /tasks與回應欄位。此例故意只涵蓋成功清單，沒有分頁／授權；真正API補上錯誤、認證、限制與範例。
 
-[API檔案和模擬工具 - HackMD](https://hackmd.io/@YuTingKung/HkrFjefxt#SwaggerHub-API-Auto-Mocking)
-[建立漂亮的靜態 API 檔案開源工具 - Soft & Share (softnshare.com)](https://softnshare.com/opensource-slate/)
-[Slate - 為你打造漂亮的 API 檔案 | 丸匠筆記 (weijutu.github.io)](https://weijutu.github.io/2018/08/02/tools/slate-api-document/)
+## 維護
+
+選擇spec-first或code-first後定義唯一權威來源，CI檢查生成差異與實際響應schema。工具版本鎖定，別在每次build抓latest生成不同檔案。檔案示例用本地假資料，不含真實token／個資；公開範圍與程式原始碼範圍分開考慮。
+
+## 查核範圍
+
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [OpenAPI3.0.3](https://spec.openapis.org/oas/v3.0.3.html)
+- [Slate](https://github.com/slatedocs/slate)
+- [apiDoc](https://apidocjs.com/)
+- [SwaggerUI](https://swagger.io/tools/swagger-ui/)
+
+### 原始筆記保留的來源
+
+- [API文件和模擬工具 - HackMD](https://hackmd.io/@YuTingKung/HkrFjefxt#SwaggerHub-API-Auto-Mocking)
+- [建立漂亮的靜態 API 文件開源工具 - Soft & Share (softnshare.com)](https://softnshare.com/opensource-slate/)
+- [Slate - 為你打造漂亮的 API 文件 | 丸匠筆記 (weijutu.github.io)](https://weijutu.github.io/2018/08/02/tools/slate-api-document/)

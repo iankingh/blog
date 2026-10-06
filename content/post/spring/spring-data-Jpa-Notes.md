@@ -1,5 +1,5 @@
 ---
-title: "SpringDataJpaNotes"
+title: "Spring Data JPA：Repository 與分頁查詢"
 date: 2020-06-04T05:45:59+08:00
 categories:
  - "筆記"
@@ -9,532 +9,131 @@ tags:
  - "Spring Data JPA"
 toc: true
 draft: false
+description: "理解 Repository 介面與分頁，以 H2 範例比較衍生查詢、JPQL 及 native SQL。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Spring Data JPA 介紹
-
-<!--more -->
-
-### Spring-Data 概述
-
-  **Spring Data** 是一個資料訪問框架 ，用於簡化資料庫訪問，旨在提供一致的資料庫訪問模型，同時仍然保留不同資料庫底層資料儲存的特點，**Spring** **Data** 採用了**領域驅動模型**的設計思想，實現了訪問關係型資料庫、非關係型資料庫的統一的介面，只需要定義好領域模型（**Entity**），後續的建立表、**CURD**、排序操作不需要手動新增任何**SQL**語句，同時也支援手動擴充套件功能。
-
-  **Spring Data** 只要定義介面，遵循 **Spring Data** 的規範，就無需寫實現類。
-
-  **Spring Data** 提供了預設的交易處理方式，即所有的查詢均宣告為唯讀事務。
-
-  **Spring Data** 專案所支援 **NoSQL** 儲存：**MongoDB** （檔案資料庫）、**Neo4j**（圖形資料庫）、Redis（**鍵**/值儲存）、**Hbase**（列族資料庫）
-
-  **Spring Data** 專案所支援的關係資料儲存技術：**JDBC、JPA**
+理解 Repository 介面與分頁，以 H2 範例比較衍生查詢、JPQL 及 native SQL。
 
 <!--more-->
 
-### Spring Data JPA 概述
+適用：原 Spring／Spring Boot 歷史筆記；新的可重現練習採 Spring Boot 3.5.0、Java21與Maven，使用jakarta套件。此為固定練習組合，上線另選相容且仍受支援的修補版。
 
- JPA(Java Persistence API)是 **Sun** 官方提出的 **Java** 持久化規範。
+先備：先依[共用 Spring Boot 練習專案]({{< ref "/post/spring-boot/spring-boot-interview.md" >}})建立 pom.xml 與 NoteApplication，再加入本文檔案。
 
- **JPA**主要是為了簡化現有的持久化開發工作和整合 **ORM** 技術， 是在充分吸收了現有 **Hibernate、TopLink、JDO** 等 **ORM** 框架的基礎上發展而來的，具有易於使用、伸縮性強等優點。
+## 三個層次
 
- **Spring Data JPA** 是 **Spring** 基於 **ORM** 框架、**JPA** 規範的基礎上封裝的一套 **JPA** 應用框架，可使開發者用簡單程式碼即可實現對資料的訪問和操作。
+JPA是持久化規格，Hibernate是實作之一，Spring Data JPA在其上提供Repository抽象。它不會替你決定所有業務交易，也不是「永遠不用SQL」；複雜查詢、索引、N+1與資料庫差異仍要理解。
 
- 它提供了包括增刪改查等在內的常用功能，且易於擴充套件！通常我們寫持久層，都是先寫一個介面，再寫介面對應的實現類，在實現類中進行持久層的業務邏輯處理。而現在，**Spring Data JPA**幫助我們自動完成了持久層的業務邏輯處理，開發者唯一要做的，就只是宣告持久層的介面，其他都交給 **Spring Data JPA** 來幫你完成！
-
- `注意：JPA 是一套規範，不是一套產品， Hibernate、TopLink、JDO 它們是一套產品，如果說這些產品實現了這個 JPA 規範，那麼就可以叫它們為 JPA 的實現產品。`
-
-## Repository 
-
-### Repository介面
-
-  **Repository** 介面是 **Spring Data** 的一個核心介面，是一個抽象的介面，使用者透過繼承該介面來實現資料的訪問，它不提供任何方法，開發者需要在自己定義的介面中宣告需要的方法
+使用共用Boot3.5.0專案（web、data-jpa與H2）。src/main/java/notes/Task.java：
 
 ```java
-public interface Repository<T, ID> { }
-```
-
-很重要的一點就是，**Repository**的實現類是在應用啟動的時候生成的，也就是**Spring**的應用上下文建立的時候.而不是透過程式碼生成技術產生的，也不是介面方法呼叫時才產生的 基礎的**Repository**提供了最基本的資料訪問功能，其幾個子介面則擴充套件了一些功能。
-
-編寫**Spring Data JPA Repository** 的關鍵在於從一組介面中挑選一個進行擴充套件
-
-EX:
-
-```java
-public interface CustomerRepository extends Repository<CustomerEntity,Long> { }
-```
-
-新增註解為其指定 **CustomerEntity**和 **id** 屬性。
-
-`在spring boot中如果使用了 spring-boot-starter-data-jpa ,會自動掃描所有擴充套件了Repository介面的類`
-
-### CrudRepository 介面
-
-**CrudRepository** 介面繼承**Repository**，提供對實體類(**CRUD**)增刪改查方法，可以直接呼叫。 
-
-**CrudRepository**介面實現了**save、delete、count、exists**等方法，繼承這個介面時需要兩個範本引數**T**和**ID**，**T**就是你的實體類（對應資料庫表），**ID**就是主鍵。
-
-```java
-
-public interface CrudRepository<T, ID extends Serializable> extends Repository<T, ID> 
-{
-    <S extends T> S save(S entity); //Saves the given entity (儲存給定的實體。)
-
-    Optional<T> findById(ID primaryKey); //Returns the entity identified by the given ID.(返回由給定ID標識的實體。)
-
-    Iterable<T> findAll(); //Returns all entities.(返回所有實體。)
-    
-    long count();//Returns the number of entities.(查詢實體數量) 
-    
-    void delete(T entity); //	Deletes the given entity.(刪除給定的實體。)
-    
-    boolean existsById(ID primaryKey); //Indicates whether an entity with the given ID exists.(根據id判斷實體是否存在)
-    
-    void delete(ID id);//根據Id刪除實體 
-   
-	<S extends T> Iterable<S> saveAll(Iterable<S> entities);//儲存集合
-
+package notes;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+@Entity
+public class Task {
+    @Id @GeneratedValue private Long id;
+    private String title;
+    protected Task() {}
+    public Task(String title) { this.title = title; }
+    public Long getId() { return id; }
+    public String getTitle() { return title; }
 }
 ```
 
-在使用中，使用者需要繼承這個介面，**CustomerEntity**就是定義的實體，**Long**是主鍵型別
+TaskRepository.java：
 
 ```java
-public interface CustomerRepository extends CrudRepository<CustomerEntity, Long>
-{
-    
+package notes;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+public interface TaskRepository extends JpaRepository<Task, Long> {
+    Page<Task> findByTitleContaining(String keyword, Pageable pageable);
 }
 ```
 
+## 測試
+
+src/test/java/notes/TaskRepositoryTest.java：
+
 ```java
-
-package com.example.demo;
-
-import java.util.ArrayList;
-
+package notes;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-/**
- * CustomerRepositoryTest
- */
-@SpringBootTest
-public class CustomerRepositoryTest {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    // CRUD 操作
-
-    // 增 save(entity), save(entities)
-
-    @Test
-    public void save1() {
-
-        UserEntity userEntity = new UserEntity();
-
-        userEntity.setName("肯德基20");
-
-        userEntity = userRepository.save(userEntity);
-
-        System.out.println(userEntity);
-
-    }
-
-    // save(entities)
-
-    @Test
-    public void saveManyTest() {
-
-        UserEntity userEntity = new UserEntity();
-
-        userEntity.setName("test21");
-
-        UserEntity userEntity2 = new UserEntity();
-
-        userEntity2.setName("test22");
-
-        ArrayList<UserEntity> userEntities = new ArrayList<UserEntity>();
-
-        userEntities.add(userEntity);
-
-        userEntities.add(userEntity2);
-
-        userRepository.saveAll(userEntities);
-
-    }
-
-}
-
-```
-
-```java
-    // 刪 
-    delete(id),delete(entity),delete(entities),deleteAll
-    
-    // 查 
-    findOne(id),findAll,exits(id)
-    
-    // save***只要 id一樣,就會更新,而不是新增.
-```
-
-### PagingAndSortingRepository 介面 
-
-繼承**CrudRepository**，具有分頁查詢和排序功能
-
-```java
-public interface PagingAndSortingRepository<T, ID extends Serializable> extends CrudRepository<T, ID> {
- 
-  Iterable<T> findAll(Sort sort); //排序
- 
-  Page<T> findAll(Pageable pageable); //分頁查詢（含排序功能）
-}
-```
-
-**example: **
-
-````java
-package com.example.demo;
-
-import java.util.ArrayList;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-/**
- * CustomerRepositoryTest
- */
-@SpringBootTest
-public class CustomerRepositoryTest {
-
-    @Autowired
-    private CustomerRepository customerRepository;
-
-   @Test
-    public void findAll() {
-        Iterable iterable = customerRepository.findAll();
-        System.out.println("iterable " + iterable);
-
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import static org.assertj.core.api.Assertions.assertThat;
+@DataJpaTest
+class TaskRepositoryTest {
+    @Autowired TaskRepository repository;
+    @Test void findsAndPages() {
+        repository.save(new Task("Vue 練習"));
+        repository.save(new Task("Java 練習"));
+        var page = repository.findByTitleContaining("Vue", PageRequest.of(0, 10, Sort.by("id")));
+        assertThat(page.getTotalElements()).isEqualTo(1);
+        assertThat(page.getContent().get(0).getTitle()).isEqualTo("Vue 練習");
     }
 }
-````
-
-
-
-### JpaRepository 介面
-
-繼承 **PagingAndSortingRepository**，實現一組 **JPA** 規範相關的方法， 
-該介面提供了**JPA**的相關功能  ，**PagingAndSortingRepository**介面本身已經繼承了 **CrudRepository**
-
-```java
-public interface JpaRepository<T,ID> extends PagingAndSortingRepository<T,ID>, QueryByExampleExecutor<T>
-{
-    
-	List<T> findAll(); //查詢所有實體
-    
-	List<T> findAll(Sort sort); //排序、查詢所有實體
-    
-	List<T> save(Iterable<? extends T> entities);//儲存集合
-    
-	T saveAndFlush(T entity);//強制執行持久化
-    
-    void flush();//執行快取與資料庫同步
-    
-	void deleteInBatch(Iterable<T> entities);//刪除一個實體集合
-
-}
-
 ```
 
-### JpaSpecificationExecutor介面
+mvn test -Dtest=TaskRepositoryTest應通過；H2只供本機模擬，不證明正式SQL dialect全部一致。
 
-可以執行原生SQL查詢也可以自訂**Repository**的方法不屬於Repository體系，實現一組 JPA **Criteria** 查詢相關的方法 **Specification**：封裝  **JPA Criteria** 查詢準則。通常使用匿名內部類的方式來建立該介面的物件 
+## 查詢與版本差異
 
-**Specification**：封裝 **JPA Criteria** 查詢準則。通常使用匿名內部類的方式來建立該介面的物件
+方法名屬性需與entity一致，JPQL查entity／屬性，nativeQuery查表／欄位。@Query可描述複雜條件；動態條件可用Specification，批次update/delete需@Modifying與交易，且留意persistence context中的舊資料。
 
-由於**JpaSpecificationExecutor** 並不繼承**repository** 介面，所以它不能單獨使用，只能和**jpa Repository** 一起用。
+Spring Data3起部分sorting repository不再繼承CRUD介面，舊繼承圖不能直接套用；JpaRepository仍提供常用CRUD與分頁能力。分頁從0開始、穩定排序加入唯一鍵；Page通常另做count查詢，若不需總數可評估Slice。Lazy關聯、open-in-view與N+1需用SQL日誌與查詢計劃確認，不靠新增註解盲修。
 
-```java
-public interface JpaSpecificationExecutor<T> {
+## Repository 介面與舊版筆記對照
 
-    T findOne(Specification<T> spec);
+| 介面 | 責任與選擇 |
+| --- | --- |
+| `Repository<T, ID>` | 標記介面，亦可只宣告需要的方法，限制暴露的 API |
+| `CrudRepository<T, ID>` | `save`、`findById`、`existsById`、`delete` 等 CRUD；查無資料時 `findById` 回 Optional |
+| `PagingAndSortingRepository<T, ID>` | `findAll(Pageable)` 與排序；Spring Data 3 起不再自行帶入 CRUD，需要組合介面 |
+| `JpaRepository<T, ID>` | JPA 常用 CRUD、排序分頁及 `flush`／批次相關操作 |
+| `JpaSpecificationExecutor<T>` | 將可組合的 Criteria 條件用於動態查詢；與 JpaRepository 一起繼承 |
 
-    List<T> findAll(Specification<T> spec);
+原 Spring Data 2.x 範例多用 `javax.persistence`，Boot 3／Hibernate 6 改用 `jakarta.persistence`；不要在同一 Entity 混用兩者。`save` 不保證方法回傳時 SQL 已立即送出，flush 也不等於 transaction commit。使用 `getReferenceById` 取得代理與 `findById` 實際查詢的語意不同，存取不存在資料時發生例外的位置也可能不同。
 
-    Page<T> findAll(Specification<T> spec, Pageable pageable);
+## 方法名、JPQL 與 native SQL
 
-    List<T> findAll(Specification<T> spec, Sort sort);
-
-    long count(Specification<T> spec);
-}
-
-```
-
-
+保留原筆記的查詢分類，選擇最易讀且能測試的方式。將下列方法加入既有 `TaskRepository`，並加入兩個 import：
 
 ```java
- public interface CustomerRepository extends CrudRepository<Customer, Long>,  JpaSpecificationExecutor {
- 
- }
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 ```
-
-
-
-## Spring-Data 方法定義規範
 
 ```java
-public interface ProductInfoRepository extends JpaRepository<ProductInfoEntity,String> {
-   //定義一個方法:根據商品名稱查詢所有的商品
-  List<ProductInfoEntity> findAllByProductName(String name);
-}
+List<Task> findByTitleStartingWithOrderByIdAsc(String prefix);
+@Query("select t from Task t where t.title = :title order by t.id")
+List<Task> findExact(@Param("title") String title);
+@Query(value = "select * from task where title = :title order by id", nativeQuery = true)
+List<Task> findExactNative(@Param("title") String title);
 ```
 
-當建立 **Repository** 實現的時候， **Spring Data**會檢查 **Repository** 介面的所有方法，解析方法的名稱，並基於被持久化的物件來推測方法的目的，**Spring Data** 定義了一組小型的領域特定語言(**DSL**) ，在這裡持久化的細節都是透過 **Repository**的方法簽名來描述的
+上例是介面內的增補片段，不是另一個完整 Java 檔案。JPQL 使用 `Task` 與 `title` 物件名稱，native SQL 使用實際表／欄位名稱；資料庫大小寫、分頁和函式仍需在目標 dialect 測試。參數綁定不等於可以把外部輸入拼接成查詢字串。
 
-**findAllByProductName(String name)** 方法非常簡單，**Repoditory** 方法是 由一個動詞，一個可選主題,關鍵字**By**以及一個斷言所組成
+常用衍生條件有 `And`、`Or`、`Between`、`LessThan`、`IsNull`、`Containing`、`In`，屬性拼字需和 Entity 一致；查詢名字過長時用 @Query 或 Specification，比堆疊難閱讀的方法名更合適。Specification 以 Criteria API 組合 predicate，並不取代授權、穩定排序或查詢成本評估。
 
-在**findAllByProductName** 方法中,動詞是**findAll** ,斷言是 **ProductName**，主題並沒有指定，
+## 查核範圍
 
-暗含就是 **ProductInfoEntity Repository** 方法的主題是可選的,它主要是讓你命名方法的時候有很多的靈活性,findAllByProductName和findAllProductInfoEntityByProductName方法沒有什麼區別. 要查詢的物件的型別是透過如何引數化 Repository 介面來決定的,而不是方法名稱中的主題.
+本文 Entity、Repository 與增補查詢片段於 H2 2.3.232 實測分頁、衍生方法、JPQL 與 native query，含查無資料分支；未連 SQL Server 等外部 DB。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-### 擴充套件查詢
+## 參考資料
 
-按照Spring Data 的規範，查詢方法以find | read | get 開頭， 涉及條件查詢時，條件的屬性用條件關鍵字連線，要注意的是：條件屬性以首字母大寫。
+- [Query methods](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)
+- [Repository 介面](https://docs.spring.io/spring-data/commons/reference/repositories/definition.html)
+- [JPA交易](https://docs.spring.io/spring-data/jpa/reference/jpa/transactions.html)
 
-find | read | get方法都會查詢資料並返回物件.而 count 則會返回匹配物件的數量,而不是物件本身.
+### 原始筆記保留的來源
 
-EX：定義一個 Entity 實體類
-
-````java
-class UserEntity｛
-
-  	private String  firstName; 
-
-    private String lastName; 
-
-｝
-````
-
-使用And條件連線時，應這樣寫：
-
-```java
-findByLastNameAndFirstName(String lastName,String firstName);
-```
-
-假如建立如下的查詢：findByUserDepUuid()，框架在解析該方法時，首先剔除 findBy，然後對剩下的屬性進行解析，假設查詢實體為Doc
- （1）先判斷 userDepUuid （根據 POJO 規範，首字母變為小寫）是否為查詢實體的一個屬性，如果是，則表示根據該屬性進行查詢；如果沒有該屬性，繼續第二步；
- （2）從右往左擷取第一個大寫字母開頭的字串(此處為Uuid)，然後檢查剩下的字串是否為查詢實體的一個屬性，如果是，則表示根據該屬性進行查詢；如果沒有該屬性，則重複第二步，繼續從右往左擷取；最後假設 user 為查詢實體的一個屬性；
- （3）接著處理剩下部分（DepUuid），先判斷 user 所對應的型別是否有depUuid屬性，如果有，則表示該方法最終是根據 “ Doc.user.depUuid” 的取值進行查詢；否則繼續按照步驟 2 的規則從右往左擷取，最終表示根據 “Doc.user.dep.uuid” 的值進行查詢。
- （4）可能會存在一種特殊情況，比如 Doc包含一個 user 的屬性，也有一個 userDep 屬性，此時會存在混淆。可以明確在屬性之間加上 "_" 以顯式表達意圖，比如 "findByUser_DepUuid()" 或者 "findByUserDep_uuid()"
- 特殊的引數： 還可以直接在方法的引數上加入分頁或排序的引數，比如：
-
-```java
- Page<UserModel> findByName(String name, Pageable pageable);
- List<UserModel> findByName(String name, Sort sort);
-```
-
-
-
-如果覺得curdrepository提供的查詢不符合要求，可以繼承該介面進行擴充套件，
-
-Spring Data JPA為此提供了一些表達條件查詢的關鍵字，大致如下：
-
-條件的屬性名稱與個數要與引數的位置與個數一一對應
- 直接在介面中定義查詢方法，如果是符合規範的，可以不用寫實現，目前支援的關鍵字寫法如下：
-
- 
-
-| **Keyword** | Description                 | **Sample**                                                   |
-| ----------- | --------------------------- | ------------------------------------------------------------ |
-| And         | 等價於SQL中的and 關鍵字     | findByUsernameAndPassword(String user, Striang pwd)；        |
-| Or          | 等價於SQL中的or 關鍵字      | findByUsernameOrAddress(String user, String addr);           |
-| Between     | 等價於SQL中的between 關鍵字 | findBySalaryBetween(int max,int min)；                       |
-| LessThan    | 等價於SQL中的"<"            | findBySalaryLessThan(int max)；                              |
-| GreaterThan | 等價於SQL中的">"            | findBySalaryGreaterThan(intmin)；                            |
-| IsNull      | 等價於SQL中的"is null"      | findByUsernameIsNull()；                                     |
-| IsNotNull   | 等價於SQL中的"is not null"  | findByUsernameIsNotNull()；                                  |
-| NotNull     | 與IsNotNull等價             |                                                              |
-| Like        | 等價於SQL中的"like"         | findByUsernameLike(String user)；                            |
-| NotLike     | 等價於SQL中的"not like"     | findByUsernameNotLike(Stringuser)；                          |
-| OrderBy     | 等價於SQL中的"order by"     | findByUsernameOrderBySalaryAsc(String user)；                |
-| Not         | 等價於SQL中的"！ ="         | findByUsernameNot(String user)；                             |
-| In          | 等價於SQL中的"in"           | `findByUsernameIn(Collection<String> userList)`，方法的引數可以是 Collection型別，也可以是陣列或者不定長引數； |
-| NotIn       | 等價於SQL中的"not in"       | `findByUsernameNotIn(Collection<String> userList)`，方法的引數可以是 Collection型別，也可以是陣列或者不定長引數； |
-
-### @Query註解
-
-**Spring Data** 這個小型的DSL**依舊有其侷限性**,有時候透過方法名錶達預期的查詢很繁瑣,甚至無法實現.如果與呆這種情況,**Spring Data**能讓我們透過**@Query**註解來解決問題
-
-這種查詢可以宣告在 **Repository** 方法中，擺脫像命名查詢那樣的約束，將查詢直接在相應的介面方法中宣告，結構更為清晰，這是 **Spring data** 的特有實現。
-
-如果是 **@Query** 中有 **LIKE** 關鍵字，後面的引數需要前面或者後面加 **%**，這樣在傳遞引數值的時候就可以不加 **%**：
-
-**@Query**註解
- 這種查詢可以宣告在 **Repository** 方法中，擺脫像命名查詢那樣的約束，將查詢直接在相應的介面方法中宣告，結構更為清晰，這是 **Spring data** 的特有實現。
-
-自訂 **Repository** 方法
- 定義一個介面: 宣告要新增的, 並自實現的方法
- 提供該介面的實現類: 類名需在要宣告的 **Repository** 後新增 **Impl**, 並實現方法
- 宣告 **Repository** 介面, 並繼承 1) 宣告的介面
- 使用.
- 注意: 預設情況下, **Spring Data** 會在 **base-package** 中查詢 "介面名**Impl**" 作為實現類. 也可以透過　**repository-impl-postfix**　宣告尾碼
-
-```java
-@Query("select o from UserModel o where o.name like %?1")
-```
-
-### @Query來指定本地查詢
-
-使用**@Query**來指定本地查詢，只要設定**nativeQuery**為**true**
-
-```java
-@Query(value="select * from tbl_user where name like %?1" ,nativeQuery=true)
-```
-
-**@Query** 與 **@Modifying** 這兩個 **annotation**一起宣告，可定義個性化更新操作，例如只涉及某些欄位更新時最為常用
-
-**Springdata**支援**JPQL** 語句對查詢進行擴充套件，
-
-例子如下：
-
-```java
-public interface  CustomerRepository extends  CrudRepository<Customer,  Long> 
-	{   
-      @Query("select a from Customer a WHERE  a.firstName = ?")
-      List<Customer> findByQuery(StringfirstName);  
-	}  
-```
-
-EX:
-
-```java
-//宣告自訂查詢
-    /**
-    *	使用JPA SQL語句
-    *	@return
-    **/
-   @Query("select p from ProductInfoEntity p where p.productName like '%米%' ")
-   List<ProductInfoEntity> findProductInfo();
-
-
-```
-
-
-
- ```java
-/**
-*	使用JPA SQL語句 查詢價格最高的商品
-**/
-   @Query("select p from ProductInfoEntity p " +
-
-       "where p.productPrice=" +
-
-       "(select max(p2.productPrice) from ProductInfoEntity p2)")
-
-   List<ProductInfoEntity> findMaxPrice();
- ```
-
- 
-
- ````java
-  /**
-   * 使用JPA SQL語句 帶引數的查詢1
-   * @param name
-   * @param price
-   * @return
-   **/
-   @Query("select o from ProductInfoEntity o where o.productName=?1 and o.productPrice=?2")
-
-   List<ProductInfoEntity> findParam(String name, double price);
- ````
-
-
-
- 
-
-```java
-  /**
-   * 使用JPASQL語句 帶引數的查詢2
-   * @param name
-   * @param price
-   * @return
-   **/
-   @Query("select o from ProductInfoEntity o where o.productName=:name and o.productPrice=:price")
-
-   List<ProductInfoEntity> findParam2(@Param("name") String name, @Param("price") double price);
-
-當然還可以使用原生SQL語句進行查詢,只需要 nativeQuery = true 即可
-```
-
-
-
-```java
- /**
-  *使用原生SQL語句 查詢
-  * @return
-  **/
-
-  @Query(nativeQuery = true,value = "select count(*) from product_info")
-
-  Integer getCount();
-```
-
-**Spring data JPA** 更新及刪除操作整合事物的使用
-
-更新操作注意事項:
-
-```java
- /** 使用Query註解寫更新JPA語句
- *新增 @Modifying 註解
- **/
- @Modifying
-  @Query("update ProductInfoEntity o set o.productPrice =:price where o.productId=:id")
-
-  Integer updatePrice(@Param("id") String id,@Param("price") double price);
-```
-
-
-
-- 在service層新增事物     @Transactional
-
- ````java
-package com.itguang.weixinsell.service;
- 
-import com.itguang.weixinsell.repository.ProductInfoRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.stereotype.Service;
-
-import org.springframework.transaction.annotation.Transactional;
-
- 
-@Service
-
-@Transactional
-
-public class ProductInfoService {
-
-
-  @Autowired
-
-  private ProductInfoRepository infoRepository;
-
-
-  public Integer updatePrice( String id,double price){
-
-   Integer i = infoRepository.updatePrice(id, price);
-
-    return i;
-  }
-
-}
- ````
-
-
-## 參考
-
-[Spring Data](https://spring.io/projects/spring-data)
-
-[Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
-
-[Spring For All 社群 Spring Data JPA 從入門到進階系列教程 | Spring For All (spring4all.com)](http://www.spring4all.com/article/500)
+- [Spring Data](https://spring.io/projects/spring-data)
+- [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
+- [Spring For All 社群 Spring Data JPA 從入門到進階系列教程 | Spring For All (spring4all.com)](http://www.spring4all.com/article/500)

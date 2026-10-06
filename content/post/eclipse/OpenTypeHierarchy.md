@@ -1,5 +1,5 @@
 ---
-title: "Eclipse 用 Open Type Hierarchy 檢視類的繼承關係"
+title: "Eclipse 型別階層：檢視繼承與實作"
 date: 2020-05-15T16:36:13+08:00
 categories:
  - "筆記"
@@ -7,22 +7,34 @@ tags:
  - "eclipse"
 toc: true
 draft: false
+description: "補上選取型別、切換階層檢視及無法找到子類別時的檢查方式。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
+補上選取型別、切換階層檢視及無法找到子類別時的檢查方式。
 
-## Eclipse 用 Open Type Hierarchy 檢視類的繼承關係
 <!--more-->
 
-## 前言
+適用：Eclipse IDE 的 Java Development Tools；快捷鍵依 OS 與自訂 keymap 而異。
 
-有時會想要知道類別的繼承關係，此時可以使用 IDE 內建的功能來檢視。
+## 檢視操作
 
-## 使用 Eclipse
+在Java編輯器選取class或interface名稱，右鍵選Open Type Hierarchy，預設F4；也可由Navigate選單進入。Hierarchy視窗可切換完整、父型別或子型別階層，點專案開啟對應來源。方法選取可搭配階層檢視檢查覆寫，但查「誰呼叫此方法」要用Call Hierarchy，不是Type Hierarchy。
 
-用Open Type Hierarchy可以檢視類的繼承關係，可以在**Hierarchy**視窗看到繼承層次的導航。  
+![Eclipse Type Hierarchy 的型別階層視窗](/images/eclipse/OpenTypeHierarchy.png)
 
-在方法或類名上點選右鍵，選擇**Open Type Hierarchy**即可，快捷鍵是**F4**。
+## 練習與確認
 
-![OpenTypeHierarchy](/images/eclipse/OpenTypeHierarchy.png)
+建立一個Skill介面、Heal與Fire兩個實作，選Skill開啟階層，應看到兩個子型別。可使用[Java物件導向範例]({{< ref "/post/java/java_tutorial_4.md" >}})的巢狀類別練習。檢視父型別時應顯示選取類別的繼承鏈，而非目前所有開啟檔案。
 
-## 參考
+若找不到預期型別，確認專案已匯入、Build Path包含來源與依賴、filter／working set沒有排除該專案，並檢查Problems。依賴只有class沒有source時，階層仍可能有資料但不能讀到原始碼，需加入對應source attachment。
+
+不同版本的toolbar圖示可能不同，操作以名稱辨識；macOS功能鍵可能需Fn。此工具依索引與編譯資訊分析，不保證列出執行期反射或動態載入的所有實作。
+
+## 查核範圍
+
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Eclipse Type Hierarchy](https://help.eclipse.org/latest/topic/org.eclipse.jdt.doc.user/reference/views/type_hierarchy/ref-type-hierarchy.htm)

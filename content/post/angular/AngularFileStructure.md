@@ -1,5 +1,5 @@
 ---
-title: "AngularFileStructure"
+title: "Angular 目錄設計：依功能分組與共用邊界"
 date: 2020-08-03T09:18:12+08:00
 categories:
  - "筆記"
@@ -8,222 +8,68 @@ tags:
  - "FrontEnd"
 toc: true
 draft: false
+description: "保留小型與多模組專案的比較，將目錄範例整理為可依需求擴充的功能架構。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-整理 Angular 專案常見的目錄結構與各檔案用途。
+保留小型與多模組專案的比較，將目錄範例整理為可依需求擴充的功能架構。
+
 <!--more-->
 
-## Angular 程式碼目錄結構
+適用：Angular原有NgModule專案的設計情境；新程式片段採Angular20 standalone方式，舊版差異另列。先使用與專案相容的Node／TypeScript。
 
-### 初學者小專案可以用 MVC
+## 建議起點
 
-```json
-├── README.md #
-├── angular.json # Angular CLI 的設定檔
-├── node_modules # npm
-├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm install時大家的依賴能保證一致。
-├── package.json # 配置工作區中所有專案的相依套件
-├── proxy.config.json # 代理伺服器設定
-├── src
-│   ├── app
-│   │   ├── app.README.md
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.ts #根目錄的TS controller
-│   │   ├── app.module.ts #根目錄的TS module
-│   │   ├── app-routing.module.ts # 路由定義
-│   │   ├── components # component資料夾
-│   │   ├── directives # directives資料夾
-│   │   ├── http-interceptors # http-interceptors資料夾
-│   │   ├── guard # guard資料夾
-│   │   ├── models #models資料夾
-│   │   ├── pipes #pipes資料夾
-│   │   ├── services #service資料夾
-│   │   ├── shared # 共用的資料夾 不會被路由開啟的 component
-│   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
-│   │   ├── browser #
-│   │   ├── doc # 檔案
-│   │   ├── fonts # 字型資料夾
-│   │   ├── image # 圖片資料夾
-│   │   ├── plugin # 第三方套件
-│   ├── environments # 環境變數
-│   │   ├── environment.dev.ts # 開發環境變數
-│   │   ├── environment.sit.ts # 測試環境變數
-│   │   └── environment.prod.ts # 正式環境變數
-│   ├── favicon.ico # 網站圖示
-│   ├── index.html # 起始頁面
-│   ├── main.ts # 應用程式的入口點,AppModule bootstrap 的程式進入點
-│   ├── polyfills.ts # 提供對舊版本的 IE 或舊版瀏覽器的設定
-│   ├── styles.less # 整個網頁應用程式共用的scss設定檔
-│   ├── test.ts # test 的程式進入點
-├── tsconfig.json
-├── tslint # TypeScript 程式碼風格檢查器。
-├── .gitignore #  設定git 忽略那些檔案不要加入版本控管
-└── .editorconfig #  編輯器設定檔，設定處理 tab 符號、換行等等。
-
+```text
+src/app/
+  app.component.ts
+  app.config.ts
+  app.routes.ts
+  core/
+    auth/
+    http/
+  shared/
+    ui/
+  features/
+    tasks/
+      task.routes.ts
+      task-list.component.ts
+      task-api.service.ts
+      task.model.ts
+    profile/
+      profile.component.ts
 ```
 
-## Multiple Modules
+這是責任分組示意，不是CLI必然產生的完整專案。小專案可直接把相關檔案放同一feature，需求變多再拆；不必第一天建立所有空目錄。NgModule系統可在features中放feature module，standalone使用routes與component組成。
 
-```json
-├── README.md #
-├── angular.json # Angular CLI 的設定檔
-├── node_modules # npm
-├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm install時大家的依賴能保證一致。
-├── package.json # 配置工作區中所有專案的相依套件
-├── proxy.config.json # 代理伺服器設定
-├── src
-│   ├── app
-│   │   ├── app.README.md
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.ts       # 進入點TS
-│   │   ├── app.module.ts          # 根目錄的TS module
-│   │   ├── app-routing.module.ts  # 路由定義
-│   │   ├── contacts               # 模組的目錄
-│   │   │   ├── components         # 元件的資料夾
-│   │   │   │   ├── Layout
-│   │   │   │   ├── Login
-│   │   │   ├── interface          # 用來跟用來跟頁面互動的資料容器
-│   │   │   │   ├── user-info.ts                      # 如：(e.g. UserInfo)
-│   │   │   ├── services           # 處理component間的資料傳遞
-│   │   ├── shared # 共用的模組
-│   │   │   ├── components         # 不會被路由開啟的共用的 component
-│   │   │   │   ├──dialog.component.ts                # 如：對話方塊 (e.g. DialogComponent)
-│   │   │   ├── directives         # 共用的 自訂directives(指令)的資料夾
-│   │   │   │   ├──twid-validator.directive           # 如：驗證身份證 (e.g. TwidValidatorDirective)
-│   │   │   ├── guards             # 共用的 guards 資料夾
-│   │   │   │   ├──auth.guard.ts                      # 如：驗證身份證 (e.g. AuthGuard)
-│   │   │   ├── http-interceptors  # 共用的interceptors(路由攔截)的資料夾
-│   │   │   │   ├──http-mock-request.interceptor      # 如：假資料用 (e.g. HttpMockRequestInterceptor)
-│   │   │   ├── pipes              # 共用 處理資料 pipes 的資料夾
-│   │   │   │   ├──date-format.pipe.ts                # 如：日期格式化用的 (e.g. DateFormatPipe)
-│   │   │   ├── services           # 共用 services 的資料夾
-│   │   │   │   ├──messages.service.ts                # 如：開啟DialogComponent用的 (e.g. MessagesService)
-│   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
-│   │   ├── browser #
-│   │   ├── doc # 檔案
-│   │   ├── fonts # 字型資料夾
-│   │   ├── image # 圖片資料夾
-│   │   ├── plugin # 第三方套件
-│   ├── environments # 環境變數
-│   │   ├── environment.dev.ts # 開發環境變數
-│   │   ├── environment.sit.ts # 測試環境變數
-│   │   └── environment.prod.ts # 正式環境變數
-│   ├── favicon.ico # 網站圖示
-│   ├── index.html # 起始頁面
-│   ├── main.ts # 應用程式的入口點,AppModule bootstrap 的程式進入點
-│   ├── polyfills.ts # 提供對舊版本的 IE 或舊版瀏覽器的設定
-│   ├── styles.less # 整個網頁應用程式共用的scss設定檔
-│   ├── test.ts # test 的程式進入點
-├── tsconfig.json
-├── tslint # TypeScript 程式碼風格檢查器。
-├── .gitignore #  設定git 忽略那些檔案不要加入版本控管
-└── .editorconfig #  編輯器設定檔，設定處理 tab 符號、換行等等。
+## 與原技術分組比較
 
-```
+只按components/services/models分全站目錄，初學容易找到型別，但一個功能會分散多處；依功能分組讓同一需求的UI、API與型別一起維護。shared只放多處使用且無業務繫結的UI／utility；core放應用層服務，不把所有無處可放的檔案堆入兩者。
 
-## 個人認為最棒的寫法
+## 依賴與載入
 
-```json
-├── README.md #
-├── angular.json # Angular CLI 的設定檔
-├── node_modules # npm
-├── package-lock.json # 鎖定安裝時的包的版本號，以保證其他人在npm i 時大家的依賴能保證一致。
-├── package.json # 配置工作區中所有專案的相依套件
-├── proxy.config.json # 代理伺服器設定
-├── mock-data # mock-data 放的地方
-├── src
-│   ├── app
-│   │   ├── app.README.md
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.ts       # 進入點TS
-│   │   ├── app.module.ts          # 根目錄的TS module
-│   │   ├── app-routing.module.ts  # 路由定義
-│   │   ├── feature                # 功能模組的目錄- 一般來說放入頁面模組相關的模組
-│   │   │   ├── Layout
-│   │   │   ├── Login              # e.g.  登入模組
-|   |   |   ├── heroes             # e.g. : 英雄模組
-|   |   |   |   ├── hero-detail      # 英雄資料 component  
-|   |   |   |   ├── hero-list        # 英雄list component
-|   |   |   |   ├── hero.service.ts  # 用於處理英雄module的service
-|   |   |   |   ├── hero.ts          # 用於處理英雄module傳遞的model  
-|   |   |   |   ├── heroes-routing.module.ts   # 英雄module 的 routing 
-|   |   |   |   ├── heroes-.module.ts   # 英雄module 的設定檔 ,設定 import  
-|   |   ├── MaterialSharedModule #Angular Material 共用模組
-│   │   ├── shared # 共用的模組 
-│   │   │   ├── components         # 不會被路由開啟的共用的 component
-│   │   │   │   ├──dialog.component.ts      # e.g.對話方塊 (DialogComponent)
-│   │   │   ├── directives         # 自訂directives(指令)的資料夾
-│   │   │   │   ├──twid-validator.directive # ex：驗證身份證 (TwidValidatorDirective)
-│   │   │   ├── enums              # enums
-│   │   │   │   ├──dialog.component.ts      # e.g.對話方塊 (DialogComponent)
-│   │   │   ├── guards             # guards 資料夾
-│   │   │   │   ├──auth.guard.ts            # e.g.驗證身份證 (AuthGuard)
-│   │   │   ├── http-interceptors  # interceptors(路由攔截)的資料夾
-│   │   │   │   ├──http-mock-request.interceptor # e.g. 模擬用 call API
-│   │   │   ├── models             # 共用的傳遞物件
-│   │   │   ├── pipes              # 處理資料 pipes 的資料夾
-│   │   │   │   ├──date-format.pipe.ts      # e.g.日期格式化用的 (DateFormatPipe)
-│   │   │   ├── services           # 共用 services 的資料夾
-│   │   │   │   ├──messages.service.ts      # e.g.開啟DialogComponent用(MessagesService)
-│   │   ├── shared.module.ts        # 共用模組的設定檔
-│   ├── assets # 靜態資源資料夾，用來放images、多國語系…等
-│   │   ├── browser #
-│   │   ├── doc # 檔案
-│   │   ├── fonts # 字型資料夾
-│   │   ├── image # 圖片資料夾
-│   │   ├── plugin # 第三方套件
-│   ├── environments # 環境變數
-│   │   ├── environment.dev.ts # 開發環境變數
-│   │   ├── environment.sit.ts # 測試環境變數
-│   │   └── environment.prod.ts # 正式環境變數
-│   ├── favicon.ico # 網站圖示
-│   ├── index.html # 起始頁面
-│   ├── main.ts # 應用程式的入口點,AppModule bootstrap 的程式進入點
-│   ├── polyfills.ts # 提供對舊版本的 IE 或舊版瀏覽器的設定
-│   ├── styles.less # 整個網頁應用程式共用的scss設定檔
-│   ├── test.ts # test 的程式進入點
-├── tsconfig.json
-├── tslint # TypeScript 程式碼風格檢查器。
-├── .gitignore #  設定git 忽略那些檔案不要加入版本控管
-└── .editorconfig #  編輯器設定檔，設定處理 tab 符號、換行等等。
-```
+feature可依賴shared/core，但shared不反向依賴feature。route以loadComponent或loadChildren延遲載入，驗證實際bundle而非僅看資料夾名；把所有service預先import到root可能影響拆包。path alias需同步tsconfig與工具設定，不能只改import字串。
 
-## **Angular Build 指令**
+移動檔案後確認CLI build、路由、測試與迴圈引用。Angular不是傳統伺服器MVC，component/template/service責任可以比較，但不能把資料夾命名當成架構正確的保證。部署細節在Tomcat篇，目錄設計不應包含硬編碼production機器路徑。
 
-Run `ng build to` build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Build 與部署的位置
 
-`ng build --prod`
+原筆記同時列出 build 和部署，這兩步仍保留在架構決策中。先在 workspace root 執行 `ng build --configuration production`，輸出位置看 angular.json 的 builder 與 outputPath；新版 application builder 可在輸出下另有 browser 子目錄，不把所有版本都寫成同一路徑。
 
-`ng build --configuration=sit`
+靜態檔需由 HTTP 主機服務，SPA 的深層路由重整要回 index.html，而靜態資源不存在時仍應正確回 404。Tomcat 的 context path／base href 與伺服器 fallback 見[部署篇]({{< ref "/post/angular/AngularDeployTomcat.md" >}})。依 feature 分目錄不會自行產生 lazy bundle，路由仍要明確使用動態匯入。
 
-`ng build --configuration=uat`
+## 查核範圍
 
-`ng build --configuration=production`
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-- -prod : 把 `src/environments/environment.ts` 檔案替換成針對特定目標的版本 , 且編譯出來的檔案會小很多
-- -output-path : 表示輸出路徑 : ex : 輸出到當前目錄的 web資料夾底下
-- -base-href : 修改 index.html 裡的 `<base href="/">`：例如 `<base href="/web/">`
-- ***編譯完成後 確認****
+## 參考資料
 
-index.html 裡的：`<base href="/web/">`
+- [Angular Style Guide](https://angular.dev/style-guide)
+- [延遲載入路由](https://angular.dev/guide/routing/define-routes)
 
-### **部署**
+### 原始筆記保留的來源
 
-1. 部署 facial-identity-web: $Tomcat/webapps/web
-
-2. 部署 facial-identity-admin: $Tomcat/webapps/admin
-
-## 參考
-
-[Angular - Router tutorial: tour of heroes](https://angular.io/guide/router-tutorial-toh)
-
-[Angular - Guidelines for creating NgModules](https://angular.io/guide/module-types)
-
-[Angular 4 File Structure | John Wu's Blog](https://blog.johnwu.cc/article/angular-4-file-structure.html)
-
-[為中大型的Angular專案設計專案結構. 最近有一個新專案要用 Angular 8開發，因為之前開發的都是以傳統C#… | by Tim Tsai | Medium](https://medium.com/@sky22357168/angular-8-file-structure-6cda90142ba4)
-
-[[Angular 大師之路] Day 06 - 模組化的基本觀念 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天 (ithome.com.tw)](https://ithelp.ithome.com.tw/articles/10203876)
+- [Angular - Router tutorial: tour of heroes](https://angular.io/guide/router-tutorial-toh)
+- [Angular - Guidelines for creating NgModules](https://angular.io/guide/module-types)
+- [Angular 4 File Structure | John Wu's Blog](https://blog.johnwu.cc/article/angular-4-file-structure.html)
+- [為中大型的Angular專案設計專案結構. 最近有一個新專案要用 Angular 8開發，因為之前開發的都是以傳統C#… | by Tim Tsai | Medium](https://medium.com/@sky22357168/angular-8-file-structure-6cda90142ba4)

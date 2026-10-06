@@ -1,154 +1,73 @@
 ---
-title: "Vue 教學 07 - 自定義 hooks"
+title: "Vue 教學 07：自訂 composable 與可重用狀態"
 date: 2026-03-22T20:07:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "hooks"
-- "Composition API"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "把計數器邏輯抽成 useCounter，辨識每次呼叫獨立的狀態與共用單例。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+把計數器邏輯抽成 useCounter，辨識每次呼叫獨立的狀態與共用單例。
+
 <!--more-->
 
-# 這是範本的使用(標題)
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 前言(各章節)
+## 抽出邏輯
 
-import {ref, reactive} from 'vue'
-import axios from'axios'
+`src/composables/useCounter.js`：
 
-// 資料
-let sum = ref(0)
-let doglist = reactive([
-
-'https://images.dog.ceo/breeds/pembroke/ne2113023_4373.jpg' ])
-
-// 方法
-
-function add()5.
-
-hooks ??.js / ??.tsasync function getDog() {⋯
+```javascript
+import { ref, computed } from 'vue'
+export function useCounter(initial = 0) {
+  const count = ref(initial)
+  const doubled = computed(() => count.value * 2)
+  function increment() { count.value++ }
+  function reset() { count.value = initial }
+  return { count, doubled, increment, reset }
 }
+```
+
+`src/App.vue`：
+
+```vue
+<script setup>
+import { useCounter } from './composables/useCounter.js'
+const { count, doubled, increment, reset } = useCounter(2)
 </script>
-
-<style scoped〉…
-</style>
-
-useDog useOrder
-
-useTeacher
-
-
-```
-import {reactive} from 'vue'
-
-import axios from 'axios'
-
-export default function (){
-// 資料
-
-let doglist = reactive([
-'https://images.dog.ceo/breeds/pembroke/n@2113023_4373.jpg'
-
-)
-
-/ 方法
-
-async function getDog(){
-
-try{
-
-let result = await axios.get('https://dog.ceo/api/breed/pembroke/images/ndogList.push(result.data.message)
-
-} catch (error){
-alert(error)
-}
-
-給外部提供東西
-return {doglist, getDog}
-
-}
-```
-
-```
-import { ref }from 'vue'
-export default function (){
-// 資料
-let sum = ref(0)
-
-11 方法
-function add(){
-
-sum.value += 1
-
-}
-
-// 給外部提供東西
-return [sum,addj
-```
-
-```
-<template〉
-
-<div class="penson">
-<h2>目前求和為:{{ sum }}</h2>
-<button @click="add">點我sum+1</button>
-<hr>
-<img v-for="(dog,index) in dogList" :src="dog" :key="index"><br>
-<button @click="getDog">再來一隻小狗</button>
-</div>
-
+<template>
+  <p>{{ count }} / {{ doubled }}</p>
+  <button @click="increment">加一</button>
+  <button @click="reset">重設</button>
 </template>
-
-<script lang="ts" setup name="Person">
-import useSum from'@/hooks/useSum'
-
-import useDog from '@/hooks/useDog'
-
-const {sum, add} = useSum()
-const {dogList, getDog} = useDog()
-
-</script>
-
-I
-
-<style scoped〉…
-</style>
 ```
 
-```
-<template〉
-<div class="penson">
-＜h2>目前求和為:{{ sum }},放大10倍後: {{ bigsum }}</h2>
+初始 2 / 4，加一後 3 / 6，重設回 2 / 4。回傳 ref 的物件能安全解構；若回傳 reactive 物件，直接解構其原始值屬性會失去連動。
 
-<button @click="add">點我sum+1</button〉 <hr>
-<img v-for="(dog, index) ) in dogList" :src="dog" :key="index">
+## 邊界與常見問題
 
-<br>
-<button @click="getDog">再來一隻小狗</button></div>
-</template〉
+此例每次呼叫建立新的 count，兩個元件互不影響；把 count 移到函式外會變成共用狀態，SSR 還可能讓不同使用者共用資料。全域應用狀態可用 Pinia 管理。
 
-<script lang="ts" setup name="Person">
-import useSum from '@/hooks/useSum'
-import useDog from'@/hooks/useDog'
-
-const {sum,add, bigsum} = useSum()
-const {dogList,getDog} = useDog ()
-</script>
-
-<style scoped>…
-</style〉
-```
+Composable 若註冊事件或 timer，需一併在解除安裝時清除。命名以 `use` 開頭是慣例，不是編譯器要求；與 React Hooks 的規則不同，不應照搬 React 的依賴陣列。原筆記的圖片、hook 名稱與未完成片段已改成以上可執行範例。
 
 
+## 章節導覽
 
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-06-生命週期.md" >}}) · [下一章]({{< ref "/post/vue/vue-08-響應式進階整理.md" >}})
 
-## Summary
+## 查核範圍
 
-## 參考
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證；本文store/composable直接匯入測試狀態、action與錯誤分支。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-[範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)
+## 參考資料
+
+- [Composable 設計](https://vuejs.org/guide/reusability/composables.html)
+
+### 原始筆記保留的來源
+
+- [範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)

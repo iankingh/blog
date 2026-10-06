@@ -1,7 +1,7 @@
 ---
-title: "SpringBoot_ConditionalOnProperty"
+title: "ConditionalOnProperty：條件式 Bean 與測試"
 date: 2021-02-03T11:41:55+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
@@ -9,93 +9,84 @@ tags:
  - "Spring"
  - "Spring boot"
 toc: true
+description: "清除 TODO 與過時註解屬性，完整示範存在、false、true 和缺值的行為。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## TODO Spring ConditionalOnProperty的作用和用法
+清除 TODO 與過時註解屬性，完整示範存在、false、true 和缺值的行為。
+
 <!--more-->
 
-## 前言
+適用：原 Spring／Spring Boot 歷史筆記；新的可重現練習採 Spring Boot 3.5.0、Java21與Maven，使用jakarta套件。此為固定練習組合，上線另選相容且仍受支援的修補版。
 
-   在spring 中有時會希望在某些特定環境底下才能生效的component，例如:建立假資料等，但我們在正式環境底下又不希望使用時，可以使用@ConditionalOnProperty 來達成
+先備：先依[共用 Spring Boot 練習專案]({{< ref "/post/spring-boot/spring-boot-interview.md" >}})建立 pom.xml 與 NoteApplication，再加入本文檔案。
 
-## @ConditionalOnProperty的作用和用法
+## 最小配置
 
-   在spring boot中需要控制配置類是否生效，可以使用@ConditionalOnProperty註解來控@Configuration是否生效
-
-### ConditionalOnProperty的使用
+先建立[共用Spring專案]({{< ref "/post/spring-boot/spring-boot-interview.md" >}})。新增src/main/java/notes/DemoConfig.java：
 
 ```java
-	@Retention(RetentionPolicy.RUNTIME)
-	@Target({ElementType.TYPE, ElementType.METHOD})
-	@Documented
-	@Conditional({OnPropertyCondition.class})
-	public @interface ConditionalOnProperty {
-	    String[] value() default {}; //陣列，獲取對應property名稱的值，與name不可同時使用
-	 
-	    String prefix() default "";//property名稱的首碼，可有可無
-	 
-	    String[] name() default {};//陣列，property完整名稱或部分名稱（可與prefix組合使用，組成完整的property名稱），與value不可同時使用
-
-	    String havingValue() default "";//可與name組合使用，比較獲取到的屬性值與havingValue給定的值是否相同，相同才載入配置
- 
-	    boolean matchIfMissing() default false;//缺少該property時是否可以載入。如果為true，沒有該property也會正常載入；反之報錯
-
-	    boolean relaxedNames() default true;//是否可以鬆散匹配
-	}
+package notes;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+@Configuration
+public class DemoConfig {
+    @Bean
+    @ConditionalOnProperty(prefix = "notes", name = "demo", havingValue = "true", matchIfMissing = false)
+    public String demoMessage() { return "demo enabled"; }
+}
 ```
 
-### 配置類程式碼:
+application.properties設`notes.demo=true`時bean存在；false或缺值時不存在，並非自動報錯。只有另一個bean強制依賴它且沒有替代才可能導致啟動失敗。
+
+## 可執行測試
+
+src/test/java/notes/DemoConfigTest.java：
 
 ```java
-@Configuration
-@ConditionalOnProperty(prefix = "filter",name = "loginFilter",havingValue = "true")
-public class FilterConfig {
-	//prefix為設定檔中的首碼,
-	//name為配置的名字
-	//havingValue是與配置的值對比值,當兩個值相同返回true,配置類生效.
-    @Bean
-    public FilterRegistrationBean getFilterRegistration() {
-        FilterRegistrationBean filterRegistration  = new FilterRegistrationBean(new LoginFilter());
-        filterRegistration.addUrlPatterns("/*");
-        return filterRegistration;
+package notes;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import static org.assertj.core.api.Assertions.assertThat;
+class DemoConfigTest {
+    private final ApplicationContextRunner runner = new ApplicationContextRunner().withUserConfiguration(DemoConfig.class);
+    @Test void enabled() {
+        runner.withPropertyValues("notes.demo=true").run(context -> assertThat(context).hasBean("demoMessage"));
+    }
+    @Test void disabled() {
+        runner.withPropertyValues("notes.demo=false").run(context -> assertThat(context).doesNotHaveBean("demoMessage"));
+    }
+    @Test void missing() {
+        runner.run(context -> assertThat(context).doesNotHaveBean("demoMessage"));
     }
 }
 ```
 
-### 設定檔中的程式碼
+`mvn test -Dtest=DemoConfigTest`應三個測試通過。
 
-```java
-filter.loginFilter=true
-```
+## 條件語意
 
-### 測試
+沒指定havingValue時，預設屬性存在且值不是false才符合，不等於只能接受true。多個name需全部符合，prefix以點連線屬性名稱。集合屬性的索引不適合直接靠此條件推斷。舊範本的relaxedNames不是此練習版本可用屬性，已移除。
 
-當設定檔中值為true時:輸出了"篩檢程式"三個字,說明loginFilter生效了,說明配置類生效了.
- 
-當設定檔中值為false時:沒有輸出了"篩檢程式"三個字,說明loginFilter沒有生效,說明配置類沒有生效.
- 
-總結:
-透過@ConditionalOnProperty控制配置類是否生效,可以將配置與程式碼進行分離,實現了更好的控制配置.
-@ConditionalOnProperty實現是透過havingValue與設定檔中的值對比,返回為true則配置類生效,反之失效.
+條件在建立context時判定，不是每次修改env就動態切換bean。用它控制示範資料或可選整合，避免把認證／授權的必要元件以易誤設旗標關掉。
 
+## 查核範圍
 
-@ConditionalOnExpression("{'prod', 'alsoProd'}.contains('${env.name}')")
+直接編譯本文 DemoConfig／DemoConfigTest，true／false／缺值 3 個 ApplicationContextRunner 測試通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
+## 參考資料
 
+- [ConditionalOnProperty API](https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html)
+- [Context runner](https://docs.spring.io/spring-boot/3.5/reference/features/developing-auto-configuration.html#features.developing-auto-configuration.testing)
 
-## 參考
+### 原始筆記保留的來源
 
-[@ConditionalOnProperty的作用和用法_sqlgao22的部落格-CSDN部落格](https://blog.csdn.net/sqlgao22/article/details/96476754)
+- [@ConditionalOnProperty的作用和用法_sqlgao22的部落格-CSDN部落格](https://blog.csdn.net/sqlgao22/article/details/96476754)
 
-Conditional Beans with Spring Boot
-https://reflectoring.io/spring-boot-conditionals/
+### 原始筆記的其他連結
 
-ConditionalOnProperty的使用_堅持，讓夢想閃耀！-CSDN部落格
-https://blog.csdn.net/u010002184/article/details/79353696
-
-java - Spring Boot SpEL ConditionalOnExpression check multiple properties - Stack Overflow
-https://stackoverflow.com/questions/40477251/spring-boot-spel-conditionalonexpression-check-multiple-properties/40497419#40497419
-
-java - Spring @ConditionalOnExpression with OR statement - Stack Overflow
-https://stackoverflow.com/questions/45736846/spring-conditionalonexpression-with-or-statement
-
+- [原始參考入口 1](https://reflectoring.io/spring-boot-conditionals/)
+- [原始參考入口 2](https://blog.csdn.net/u010002184/article/details/79353696)
+- [原始參考入口 3](https://stackoverflow.com/questions/40477251/spring-boot-spel-conditionalonexpression-check-multiple-properties/40497419#40497419)
+- [原始參考入口 4](https://stackoverflow.com/questions/45736846/spring-conditionalonexpression-with-or-statement)

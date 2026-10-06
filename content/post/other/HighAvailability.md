@@ -1,5 +1,5 @@
 ---
-title: "HighAvailability"
+title: "高可用性架構：Active-Active、備援與故障測試"
 date: 2021-04-18T15:42:33+08:00
 categories:
  - "筆記"
@@ -7,69 +7,54 @@ tags:
  - "架構"
 toc: true
 draft: false
+description: "查核原 HA 說明，區分負載平衡、資料一致性、RTO/RPO 與單點故障。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
-## 高可用性網路架構 High Availability  
 
-記錄一些常用的HA架構
-<!-- more -->
-
-高可用性網路架構 High Availability   簡稱 HA
-
-高可用就是常常聽到的 HA (High Availability) 機制，建立的 SaaS 雲服務要高可用，首先第一件事情就是要具備容錯能力，避免一時的故障影響到系統運作。
-
-要實現 HA 目前有三種常見的機制，分別是 Master Slave Mode (MS)、Active Active Mode (AA) 與由 AA 進化變形的分散式架構 (Decentralized Architecture)。
-
-高可用性架構 HA (High Availability) 是企業面臨 IT 架構轉型的過程中，維持系統不中斷的重要方案。企業除了雲端服務的選擇外，當選擇自建 (On-Premise) 郵件系統時，就要思考備援方案的架構規劃，自建系統的特點在於可以善用現有的軟硬體資源，以及保有企業內部系統管理彈性。因此對於機敏資料在雲端存取安全性仍有疑慮的企業，繼續使用自建環境仍是相對適合的選擇，以下針對常見的企業郵件系統三種高可用性架構，區分單一主機、多主機、虛擬環境提供架構整理說明。
+查核原 HA 說明，區分負載平衡、資料一致性、RTO/RPO 與單點故障。
 
 <!--more-->
 
+適用：Web／資料庫服務的架構閱讀筆記；概念不能代替特定產品的支援拓撲。
 
-## A-A (Active-Active ) Mode
+## 先定義目標
 
-Active-Active：不中斷服務
+可用性是服務在約定時間與條件下正常工作的比例；RTO是容許恢復時間、RPO是容許資料回退量。備份可幫助恢復但不是即時HA，負載平衡也不保證資料層沒有單點。
 
-兩臺（或N臺）同時運作，這個要視該應用程式系統的定義而定。
+| 模式 | 工作分配 | 主要代價 |
+| --- | --- | --- |
+| Active-Active | 多個節點同時提供服務 | 共享狀態、一致性與衝突處理 |
+| Active-Standby／Passive | 主要節點服務，備援接手 | 切換時間、備援容量與狀態同步 |
+| 多區域／分散式 | 分散故障域 | 網路分割槽、延遲與操作複雜度 |
 
-以Microsoft SQL來說，AA Mode就是兩臺伺服器上安裝兩個資料庫例項，每臺伺服器分別執行一個資料庫例項。當某一臺伺服器發生故障時系統將把發生故障的伺服器上的資料庫例項切換到另一臺伺服器上執行，也就是說另一臺伺服器上同時執行兩個例項，當伺服器恢復正常後再手動將一個資料庫例項切換回另一臺伺服器。AA模式保證了兩臺伺服器資源都被利用。
+Active-Active不等於絕不中斷。兩個SQL Server instance互為備援，不等於同一資料庫可任意雙寫；MSDTC是分散式交易協調，不是將一個查詢自動分給兩臺算的機制。
 
-所以並不是同一個程式，連到一臺認知中的資料庫，就可以啟動AA交易喔，沒有那麼簡單容易的事。如果要完成單一程式碼，連到認知中的單一資料庫，進行IO，然後後面所有的資料庫要起來幫我運算執行，這個就要使用SQL的分散式交易MSDTC。
+## 資料層與故障域
 
+共用NAS/SAN需產品與檔案系統支援多主機一致訪問，也可能成為單點；不能簡單說SAN必然不可共享或NAS自動安全。資料複寫需區分同步／非同步、誰可寫與故障接手條件，防split-brain需quorum、fencing等設計。
 
-佈署上只少需二臺郵件主機運作同時搭配一組 NAS 提供共用儲存空間，從架構上可以區分成應用系統跟資料儲存分別佈署方式，應用系統可多臺運作，透過前端搭配 L4-Switch 進行負載平衡 (Load Balance) 同時可以對主機進行定時服務檢查 (Health Check) 監控服務回應狀況。
-https://ithelp.ithome.com.tw/upload/images/20200925/20000181kYVKAOpTD1.jpg
-各臺郵件系統以提供服務為主，資料採用即時抄寫的方式，結合 NAS 功能，提供各臺主機相同掛載點，因此不論信件轉送 (SMTP) 或帳號連線登入 (HTTP/HTTPS) 到其中一臺都可以正常進行資料讀寫。企業環境如果是使用 SAN 架構，由於 SAN 跟 NAS 不同，無法支援共享存取資料的功能，因此儲存架構上需要搭配 NAS Gateway 來協助控制不同主機對資料的讀寫。就平行擴充而言，郵件系統搭配 NAS 相對適合，資料的備份機制則透過儲存裝置的鏡射 (Mirror) 或快照 (Snap shot)進行。
+VM HA通常恢復／重啟VM，不直接保證應用交易不中斷。跨同一機房兩臺主機可能仍共享電源、交換器與storage，不是完整獨立故障域。
 
+## 驗證方法
 
-## A-S (Active-Standby)Mode
+列出元件與依賴，先量正常負載，再在測試環境停單節點、斷網或隔離資料層，觀察錯誤率、切換時間、重試與資料遺失。故障恢復後確認回切不會再次寫錯，備份要實際還原檢查。
 
-一臺做活動的伺服器，另一臺做待命伺服器，待命的機器也開機。
+把結果對照SLO/RTO/RPO，含容量不足與維護升級的情境。這是設計檢核路徑，本文未聲稱實際做過生產故障演練。
 
+## 查核範圍
 
-郵件系統單一主機 (Active-Standby) 架構
-佈署上需要二臺郵件主機Master & Slave 架構搭配本機空間 (DAS) 進行運作，其中 Master 主機為主要的郵件伺服器，因此使用較高等級裝置，Slave 為備援用途，平常不運作，有需要才開機，因此使用次級可用裝置，當 Master 服務異常時，可以接手郵件收發運作，待 Master 主機恢復運作後，再重新成為 Slave 裝置。
-https://ithelp.ithome.com.tw/upload/images/20200925/20000181MLtJh1ovAp.jpg
-但實務上也有企業 Master & Slave 均採用同等級裝置，但運作差異在於當 Master 異常時，雖然 Slave 接手處理，但同時角色互換成為 Master 主機，原來主機恢復正常程，角色變成 Slave 主機。資料備份上以時間點進行切分，定期同步 (Rsync) Master 主機上的系統設定檔與郵件資料，政策上可以全備份後每日進行差異化備份。
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
+## 參考資料
 
-## A-P (Active-Passive) Mode
+- [Google SRE Availability](https://sre.google/sre-book/availability-table/)
+- [SQL Server HA](https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
+- [AWS reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html)
 
-一臺做活動的伺服器，另一臺做待命伺服器，待命的機器，在活動機器正常運作時，基本上就是在那邊睡覺浪費電用。一般在講failover就是屬於這個，也是cluster HA基本款。
+### 原始筆記保留的來源
 
-
-## 虛擬化 (Virtualization) 架構
-
-佈署上需要搭配虛擬機器完成，郵件系統軟體 (Software) 連同作業系統 (Guest OS) 同時安裝在虛擬機器。如果是單臺虛擬機器運作，則資料直接儲存在本機端，可以針對架構進行壓測，確認單臺虛擬機器的運作效能以不影響郵件處理反應時間為主，如果有差異建議仍以外部儲存裝置的提供資料存取 ; 如果是多臺虛擬機器運作，由於郵件系統讀寫頻率頻繁，建議搭配外部儲存裝置進行運作。
-https://ithelp.ithome.com.tw/upload/images/20200925/20000181HRkVDrKMQp.jpg
-虛擬機器的備援機制建議直接使用虛擬系統本身提供虛擬機器擴充功能 (ex. Vmware vMotion) 建立並複製一臺虛擬機器提供執行。除了用虛擬機器達成單臺或多臺運作架構外，在大型架構下，可以利用虛擬機器的優勢，將郵件系統服務分別建立 SMTP、POP3、IMAP、HTTP (WebMail)的服務分散系統負載。
-
-上述三種郵件系統架構，各有其優缺點跟適合範圍，以成本管理角度來看，單一主機架構相對適合一般企業佈署。至於多主機架構，則適合用在中大型企業。虛擬化的方式最彈性，可以同時提供給一般企業或中大型企業，針對超過數萬的帳號數規模，可以彈性將服務從郵件系統內拆解成各自獨立的系統，提供分散式架構服務。但要注意的地方，不論需要匯入哪一種架構，網路防火牆、備份機制、系統相關監控機制不可少，才能確保郵件系統基本架構安全。
-
-
-## 參考
-[Active-Standby Mode](https://docs.tibco.com/pub/trns/1.1.0/doc/html/GUID-6B16E55F-D833-4A96-A8FC-5BB5F8E07E30.html)
-[Cluster專用的名詞AP Mode/AA Mode](http://slashview.com/archive2013/20131206.html)
-[高可用性網路架構High Availability,AA Mode | 景佳科技 FansySoft](https://www.fansysoft.com/liferay-high-availability)
-[企業郵件系統常見高可用性 (HA) 架構整理 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10243564?sc=rss.iron)
-[2個防火牆做HA, 應該設定成Active-Active 還是 Active Standby? - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/questions/10199789)
-
-
+- [Active-Standby Mode](https://docs.tibco.com/pub/trns/1.1.0/doc/html/GUID-6B16E55F-D833-4A96-A8FC-5BB5F8E07E30.html)
+- [Cluster專用的名詞AP Mode/AA Mode](http://slashview.com/archive2013/20131206.html)
+- [高可用性網路架構High Availability,AA Mode | 景佳科技 FansySoft](https://www.fansysoft.com/liferay-high-availability)
+- [企業郵件系統常見高可用性 (HA) 架構整理 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10243564?sc=rss.iron)
+- [2個防火牆做HA, 應該設定成Active-Active 還是 Active Standby? - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/questions/10199789)

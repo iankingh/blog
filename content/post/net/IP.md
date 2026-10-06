@@ -1,5 +1,5 @@
 ---
-title: "IP"
+title: "IP 與子網：IPv4、IPv6、私有位址和 CIDR"
 date: 2020-10-06T22:18:37+08:00
 draft: false
 categories:
@@ -9,59 +9,73 @@ tags:
  - "ip"
  - "internet"
 toc: true
+description: "修正所有 IP 都全域唯一的說法，補上私有範圍、路由與可重現的子網計算。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
-## 前言
 
-在 TCP/IP 通訊協定組的 IP 層裡，用來辨識每臺電腦的東西，稱為網際網路位址 ( Internet address ) 或 IP 位址 ( IP address )。
-IP 位址是一個 32 位元的二進位制數字，具有全域性，用來唯一的定義 Internet 上的一臺電腦或一臺路由器。
-所有 IP 位址都是唯一的。「唯一」是指一個位址只定義一個與 Internet 的連線 ( connection )。Internet 上不可以有兩臺裝置有著相同的 IP 位址。 
+修正所有 IP 都全域唯一的說法，補上私有範圍、路由與可重現的子網計算。
 
-1. **一個 IP 位址為一個 32 位元的位址。**
+<!--more-->
 
-2. **IP 位址是唯一的。** 
+適用：IPv4／IPv6與一般開發網路診斷。平臺專用命令按本文標示的OS使用，不混用Linux與Windows引數。
 
-3. **IPv4 的位址空間為 232 或 4,294,967,296。** 
-   <!--more-->
+## 位址的意義
 
+IPv4是32位、IPv6是128位；位址對應網路介面／配置，不一定一臺主機只有一個。私有位址在不同網路可以重複，NAT、多網絡卡、VIP與anycast也使「每IP唯一一臺機器」過度簡化。
 
+| RFC1918 範圍 | CIDR |
+| --- | --- |
+| 10.0.0.0–10.255.255.255 | 10.0.0.0/8 |
+| 172.16.0.0–172.31.255.255 | 172.16.0.0/12 |
+| 192.168.0.0–192.168.255.255 | 192.168.0.0/16 |
 
-## 私有網路 IP 範圍
+127.0.0.0/8是IPv4 loopback，169.254.0.0/16是link-local，不屬於上面三組。IPv6 loopback為::1、unique local常見fc00::/7，不能套IPv4遮罩模型。
 
-| RFC1918 規定區塊名 |          IP位址區段           |   IP數量   | [分類網路](https://zh.wikipedia.org/wiki/分类网络) 說明 | 最大[CIDR](https://zh.wikipedia.org/wiki/无类别域间路由)區塊 （[子網路遮罩](https://zh.wikipedia.org/wiki/子网#网络掩码)） | 主機端位長 |
-| :----------------: | :---------------------------: | :--------: | :-----------------------------------------------------: | :----------------------------------------------------------: | :--------: |
-|     24位元區塊     |   10.0.0.0 – 10.255.255.255   | 16,777,216 |                       單個A類網路                       |                    10.0.0.0/8 (255.0.0.0)                    |   24位元   |
-|      20位區塊      |  172.16.0.0 – 172.31.255.255  | 1,048,576  |                     16個連續B類網路                     |                 172.16.0.0/12 (255.240.0.0)                  |    20位    |
-|     16位元區塊     | 192.168.0.0 – 192.168.255.255 |   65,536   |                    256個連續C類網路                     |                 192.168.0.0/16 (255.255.0.0)                 |   16位元   |
+## Python 計算
 
-正是由於這些限制，當我們使用這些私有位址來設定網路的時候，就無需擔心會和其它也使用相同位址的網路衝突。而這些無需註冊就能自由使用的 IP ，我們稱之為 **私有 IP( Private IP )**。當我們架設 IP 網路的時候，私有 IP 給與我們很大的方便。比方說：您目前的公司還沒有連上Internet，且也沒有或得公共 IP 的註冊。倘若使用公共 IP 的話，等到以後真正要連上網路的時候，就很可能和別人衝突了。其壞處是：由於您的 IP 不是合法授權使用的，別人跟本連不進來，而且，與您衝突的 IP 您卻永遠沒法連上去(若對方是您的最大客戶可就慘了)。若是那時候再重新規劃 IP 的話，將是件非常頭痛的問題！
+```python
+import ipaddress
+network = ipaddress.ip_network('192.168.10.0/24')
+print(network.num_addresses)
+print(network.netmask)
+print(ipaddress.ip_address('192.168.10.7') in network)
+print(ipaddress.ip_address('192.168.11.7') in network)
+```
 
+```text
+256
+255.255.255.0
+True
+False
+```
 
+/24表示網路字首24位，總地址256；一般IPv4子網排除network/broadcast有254個host位址，/31與/32等情境另有規則，不能統一減2。
 
-解決的辦法是：我們可以先利用私有位址來架設網路，等到真要連上 intetnet 的時候，我們可以使用代理伺服器( proxy )或 IP 轉換( NAT --- Network Addresss Translation) 等技術，配合新註冊的 IP 就可以了。
+## 封包如何選路
 
-由於私有位址在 Internet 上是不能路由的，用來架設企業內部網路，在安全上面也是有所幫助的。
+同網段可直接解析對方的鏈路地址，不同網段依路由表經下一跳；預設gateway只是沒有更具體匹配時的候選。網路層與TCP/UDP port是不同層，IP可達不代表服務可用。
 
+檢查OS地址、CIDR、default route與DNS，再測特定目的服務。多個介面重複網段、VPN路由與DHCP變更可能影響結果，不只猜「IP衝突」。
 
+## 查核範圍
 
-## 路由器 
-兩個不同的網域是無法透過廣播來資料的傳遞，此時便需要 IP 的路徑選擇 (routing) 功能，才能決定要透過哪個網路來傳送封包，
-路由器乃是決定最佳路徑的方式，如果沒有路由器的話，就無法在不同網域之間傳送資料了。
-例如，192.168.0.0 與 192.168.1.0 是不同網域，所以主機 A 與主機 B 是不能直接互通資料，必須有路由器找尋需要經過哪些網路才能到達 B 網域的主機 B。
-1. 查詢 IP 封包的目標 IP 位址：
-   當主機 A 有 IP 封包需要傳送時，主機會查閱 IP 封包表頭的目標 IP 位址； 
-2. 查詢主機所在的網域：
-   當主機 A 發現目標 IP 與本機 IP 的 Net_ID 相同時 (同一網域)，則主機 A 會直接透過區域網路功能，將資料直接傳送給目的地主機； 
-3. 送出封包至路由器：
-   在本例中，主機 A 與主機 B 並非同一網域，因此主機 A 直接將該 IP 封包送到路由器上，路由器接收到這個封包後，會分析路由資料表當中與目的地網路之間的距離、
-   下一個負責中繼的路由器、與路由器互相連線的來源端 Port，然後繼續傳輸到正確的目標主機 B。如下圖所示： 
+Python ipaddress實際執行，四行輸出一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
+## 參考資料
 
-## 參考
+- [RFC1918](https://www.rfc-editor.org/rfc/rfc1918)
+- [IPv6 RFC8200](https://www.rfc-editor.org/rfc/rfc8200)
+- [Python ipaddress](https://docs.python.org/3/library/ipaddress.html)
 
-http://dns-learning.twnic.net.tw/internet/intro7.html
+### 原始筆記保留的來源
 
-https://www.netadmin.com.tw/netadmin/zh-tw/technology/EFA52337DD5D4026BB9E594A3B71EC5B
+- [分類網路](https://zh.wikipedia.org/wiki/分类网络)
+- [CIDR](https://zh.wikipedia.org/wiki/无类别域间路由)
+- [子網路遮罩](https://zh.wikipedia.org/wiki/子网#网络掩码)
 
-https://zh.wikipedia.org/wiki/%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C
+### 原始筆記的其他連結
 
-http://kevin.hwai.edu.tw/~kevin/material/EAssistant/IP_Class.htm
+- [原始參考入口 1](http://dns-learning.twnic.net.tw/internet/intro7.html)
+- [原始參考入口 2](https://www.netadmin.com.tw/netadmin/zh-tw/technology/EFA52337DD5D4026BB9E594A3B71EC5B)
+- [原始參考入口 3](https://zh.wikipedia.org/wiki/%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C)
+- [原始參考入口 4](http://kevin.hwai.edu.tw/~kevin/material/EAssistant/IP_Class.htm)

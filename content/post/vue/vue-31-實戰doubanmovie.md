@@ -1,234 +1,93 @@
 ---
-title: "Vue 教學 31 - 實戰 doubanmovie"
+title: "Vue 教學 31：電影目錄實作與本地模擬資料"
 date: 2026-03-22T20:31:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "實戰"
-- "SSR"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "保留豆瓣電影專案的搜尋與列表情境，以本地 JSON 完成可重現的載入、錯誤與篩選流程。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+保留豆瓣電影專案的搜尋與列表情境，以本地 JSON 完成可重現的載入、錯誤與篩選流程。
+
 <!--more-->
 
-# 第12章 實戰專案 完整原始檔
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 原始檔：src/main.js
+## 專案邊界
 
-```js
+原筆記引用豆瓣外部服務與多個缺漏頁面，無法保證 API 存在、允許跨域或有使用授權。練習改用自己建立的虛構電影資料，沒有抓取豆瓣內容；正式整合應另確認 API 文件、授權、速率限制與 CORS。
 
-import App from './App.vue'
-import { createSSRApp } from 'vue'
-import { createRouter } from './router/router.js'
-import { createStore } from './store/store.js'
+建立 `public/movies.json`：
 
-export function createApp() {
-  // 如果使用服務端渲染需要將createApp替換為createSSRApp方法
-  const app = createSSRApp(App)
-  // 路由
-  const router = createRouter()
-  // store
-  const store = createStore()
-  app.use(router)
-  app.use(store)
-  // 將根例項以及路由暴露給呼叫者
-  return { app, router, store } 
-}
+```json
+[
+  {"id": 1, "title": "星際營火", "year": 2024, "genre": "科幻"},
+  {"id": 2, "title": "山城日記", "year": 2025, "genre": "劇情"},
+  {"id": 3, "title": "營火之後", "year": 2026, "genre": "劇情"}
+]
 ```
 
-## 原始檔：src/entry-client.js
+回到第 00 章無 Router 的 main.js，App.vue：
 
-```js
-import { createApp } from './main'
-
-const { app, router,store } = createApp()
-// 針對有懶載入路由元件的情況，需等待路由解析完
-router.isReady().then(() => {
-  app.mount('#app')
-})
-if(window.__INIT_STATE__) {
-  // 當使用 template 時，context.state 將作為 window.__INIT_STATE__ 狀態自動嵌入到最終的 HTML
-  // 在客戶端掛載到應用程式之前，store 就應該取得狀態：
-
-  store.replaceState(window.__INIT_STATE__._state.data)
-}
-```
-
-## 原始檔：src/entry-server.js
-
-```js
-import { createApp } from './main'
-import { renderToString } from 'vue/server-renderer'
-import { getAsyncData } from './store/getAsyncData';  // 非同步處理資料的時候使用
-
-export async function render(url, manifest) {
-  const { app, router, store } = createApp()
-
-  // 設定預設的路由，/ 預設走 home 路由
-  router.push(url)
-  // 等待路由載入完成
-  await router.isReady()
-  // 取得首屏需要的非同步資料store
-  await getAsyncData(router,store, true)
-  
-  // store中已經存放了資料 提供渲染出 HTML 字串
-  const ctx = {}
-  ctx.state = store.state
-  const html = await renderToString(app, ctx)
-
-  // 處理需要預載入的連結
-  const preloadLinks = renderPreloadLinks(ctx.modules, manifest)
-  return [html, preloadLinks, store]
-}
-
-// 取得需要 preload 的資源
-function renderPreloadLinks(modules, manifest) {
-
-  let links = ''
-  const seen = new Set()
-  modules.forEach((id) => {
-    const files = manifest[id]
-    if (files) {
-      files.forEach((file) => {
-        if (!seen.has(file)) {
-          seen.add(file)
-          links += renderPreloadLink(file)
-        }
-      })
+```vue
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+const movies = ref([])
+const query = ref('')
+const loading = ref(false)
+const error = ref('')
+const filtered = computed(() => movies.value.filter(movie => movie.title.includes(query.value.trim())))
+async function load() {
+  loading.value = true
+  error.value = ''
+  try {
+    const response = await fetch(`${import.meta.env.BASE_URL}movies.json`)
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    const data = await response.json()
+    if (!Array.isArray(data) || !data.every(x => Number.isInteger(x.id) && typeof x.title === 'string' && Number.isInteger(x.year) && typeof x.genre === 'string')) {
+      throw new Error('電影資料格式不正確')
     }
-  })
-
-  return links
+    movies.value = data
+  } catch (cause) { error.value = cause.message }
+  finally { loading.value = false }
 }
-
-function renderPreloadLink(file) {
-  if (file.endsWith('.js')) {
-    return `<link rel="modulepreload" crossorigin href="${file}">`
-  } else if (file.endsWith('.css')) {
-    return `<link rel="stylesheet" href="${file}">`
-  } else if (file.endsWith('.woff')) {
-    return ` <link rel="preload" href="${file}" as="font" type="font/woff" crossorigin>`
-  } else if (file.endsWith('.woff2')) {
-    return ` <link rel="preload" href="${file}" as="font" type="font/woff2" crossorigin>`
-  } else if (file.endsWith('.gif')) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/gif">`
-  } else if (file.endsWith('.jpg') || file.endsWith('.jpeg')) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/jpeg">`
-  } else if (file.endsWith('.png')) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/png">`
-  } else {
-    // TODO
-    return ''
-  }
-}
-
+onMounted(load)
+</script>
+<template>
+  <h1>電影目錄</h1>
+  <label>片名 <input v-model="query"></label>
+  <p v-if="loading" role="status">讀取中</p>
+  <p v-else-if="error" role="alert">{{ error }} <button @click="load">重試</button></p>
+  <template v-else>
+    <p>顯示 {{ filtered.length }} / {{ movies.length }} 部</p>
+    <ul><li v-for="movie in filtered" :key="movie.id">{{ movie.title }}（{{ movie.year }}）／{{ movie.genre }}</li></ul>
+    <p v-if="filtered.length === 0">沒有符合的電影</p>
+  </template>
+</template>
 ```
 
-## 原始檔：src/router/router.js
+## 操作與確認
 
-```js
+啟動後三部電影；輸入營火剩兩部，輸入不存在片名顯示空結果。暫時改名 movies.json 並重新整理，應出現 HTTP 錯誤，改回後按重試可恢復。改 JSON 為物件應顯示格式錯誤。
 
-import home from '../views/home/home.vue'
-
-import {
-  createMemoryHistory,
-  createRouter as _createRouter,
-  createWebHistory,
-  // createWebHashHistory
-} from 'vue-router'
-
-export function createRouter() {
-  return _createRouter({
-    // use appropriate history implementation for server/client
-    // import.meta.env.SSR is injected by Vite.
-    history: import.meta.env.SSR ? createMemoryHistory('/') : createWebHistory('/'),
-    routes:[
-      { path: '/', redirect: '/home' },// 配置預設路由，重新導向到/home
-      { path: '/home', component: home },
-      { path: '/detail', component:() => import('../views/detail/detail.vue') },
-      { path: '/publish', component:() => import('../views/publish/publish.vue') },
-      { path: '/login', component:() => import('../views/login/login.vue') },
-      { path: '/search', component:() => import('../views/search/search.vue') }
-    ]
-  })
-}
-```
-
-## 原始檔：src/utils/service.js
-
-```js
-import axios from 'axios'
+此練習是 CSR、本地載入與前端搜尋，沒有 SSR、後端分頁或登入。要增加詳情頁先依第 17／22 章傳入 id；要跨頁共享改用第 26 章 store。資料量大時應改 API 搜尋與分頁，不把所有資料永久下載到前端。
 
 
-const baseURL = import.meta.env.SSR ? 'http://localhost:8887' : '/'// 此處和 webpack 的 publicPath 保持一致
-// 機密金鑰只保留在 SSR／後端環境，不要提交到版本控制或送到瀏覽器。
-const apiKey = import.meta.env.SSR ? process.env.DOUBAN_API_KEY : undefined
+## 章節導覽
 
-// 建立 axios 例項
-let service = axios.create({
-  baseURL: baseURL,
-  withCredentials: true,// 跨域訪問帶上cookie
-  timeout: 30000, // 請求超時時間,
-})
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-30-SSR服務端渲染.md" >}})
 
-// 新增request攔截器
-service.interceptors.request.use(config => {
-  if (apiKey && config.params) {
-    config.params = {
-      apiKey:apiKey,
-      ...config.params
-    }
-  }
-  if (apiKey && config.data) {
-    config.data = {
-      apiKey:apiKey,
-      ...config.data
-    }
-  }
-  return config
-}, error => {
-  Promise.reject(error)
-})
-// 新增respone攔截器
-service.interceptors.response.use(
-  response => {
-    return response.data
-  },
-  error => {
-    return Promise.reject(error.response)
-  }
-)
+## 查核範圍
 
-const get = (url, params = {}) =>{
-  return service({
-    url: url,
-    method: 'get',
-    params,
-  })
-}
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-// 封裝 post 請求
-const post = (url, data = {}) =>{
-  // 預設配置
-  let sendObject = {
-    url: url,
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    },
-    data: data
-  }
-  return service(sendObject)
-}
+## 參考資料
 
-
-// 不要忘記 export
-export default {
-  get,
-  post,
-  baseURL
-}
-```
+- [Vue 非同步與生命週期](https://vuejs.org/guide/essentials/lifecycle.html)
+- [Vite 靜態資源](https://vite.dev/guide/assets.html)
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)

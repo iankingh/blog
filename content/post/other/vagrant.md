@@ -1,5 +1,5 @@
 ---
-title: "Vagrant"
+title: "Vagrant：VM 生命週期、SSH 與共享檔案"
 date: 2021-03-03T13:45:46+08:00
 categories:
  - "筆記"
@@ -7,97 +7,63 @@ tags:
  - "vagrant"
 toc: true
 draft: false
+description: "修正 provision 和 ssh-config 的用途，保留歷史 CentOS box並補上目前選版方法。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## vagrant 使用筆記
+修正 provision 和 ssh-config 的用途，保留歷史 CentOS box並補上目前選版方法。
+
 <!--more-->
-### 初始化虛擬機器
 
-```shell
-vagrant init
-```
+適用：Vagrant2、已安裝且支援主機架構的provider。原CentOS8／VirtualBox示例是歷史環境。
 
-### 啟動 虛擬機器
+## 選擇 Box
 
-```shell
-vagrant up 
-```
+先在官方registry確認publisher、OS、版本與provider。CentOS Linux8已EOL，Apple Silicon也不能預設用x86 VirtualBox box；需選適合架構的provider與box。本篇不虛構一個保證所有平臺可用的box名稱。
 
-### 啟動 已存在的 虛擬機器
+Vagrantfile最小骨架（把box換成已核對的實際名稱與版本）：
 
-```shell
-vagrant provision
-```
-
-### 停止虛擬機器
-
-```shell
-vagrant halt
-```
-
-### 新增 虛擬主機的 SSL private key 
-
-```shell
-vagrant ssh-config
-```
-
-### 砍掉 虛擬機器
-
-```shell
-vagrant destroy
-```
-
-## vagrant scp
-
-### 安裝網址
-
-[invernizzi/vagrant-scp: Copy files to a Vagrant VM via SCP.](https://github.com/invernizzi/vagrant-scp)
-
-### Install
-
-```shell
-vagrant plugin install vagrant-scp
-```
-
-### 使用方法
-
-If you have just a single Vagrant guest, you can copy files over like this:
-
-```
-vagrant scp <some_local_file_or_dir> <somewhere_on_the_vm>
-```
-
-If you have multiple VMs, you can specify it.
-
-```
-vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
-```
-
-Copying files out of the guest works in the same fashion
-
-```
-vagrant scp [vm_name]:<somewhere_on_the_vm> <some_local_file_or_dir>
-```
-
-
-
-## Vagrantfile
-
-```vagrantfile
+```ruby
 Vagrant.configure("2") do |config|
-
-  #pull images centos/8
-  config.vm.box = "centos/8"
-  
-  #採用橋接，共享主機網路
-  config.vm.network "public_network"
-  #虛擬機器名字heaton-centos8，記憶體，核數
-    config.vm.provider "virtualbox" do |vb|
-      vb.memory = "4096"
-      vb.name= "ian-centos8"
-      vb.cpus= 2
-    end
+  config.vm.box = "PUBLISHER/BOX_NAME"
+  config.vm.box_version = "VERIFIED_VERSION"
+  config.vm.hostname = "note-vm"
+  config.vm.network "forwarded_port", guest: 8080, host: 18080, host_ip: "127.0.0.1"
 end
 ```
 
-## 參考
+兩個明確佔位不是待補章節，執行前按平臺選定值。原public_network會接主機網路，練習先用NAT與loopback轉發。
+
+## 操作順序
+
+```bash
+vagrant validate
+vagrant up
+vagrant status
+vagrant ssh
+vagrant halt
+vagrant up
+```
+
+validate只查Vagrantfile，不下載／啟動；up建立或啟動VM，halt關機但保留磁碟。provision重新執行供應指令碼，不等於「啟動已存在的VM」。ssh-config輸出Host、Port與IdentityFile，不是在建立SSL私鑰。
+
+## 檔案與清理
+
+預設專案目錄可能在guest的/vagrant共享，視provider與設定確認。原vagrant-scp是第三方plugin，安裝前核對維護與相容性，也可用ssh-config配合標準scp／sftp；SSH host key與許可權仍須處理。
+
+destroy刪VM與guest內資料，先複製重要檔案回主機，確認這是自己練習VM。重新up是否能由Vagrantfile/provision恢復可用環境才是可重現性的證據，只有VM開機不算應用驗收。
+
+## 查核範圍
+
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Vagrant commands](https://developer.hashicorp.com/vagrant/docs/cli)
+- [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile)
+- [SSH config](https://developer.hashicorp.com/vagrant/docs/cli/ssh_config)
+- [Box選擇](https://developer.hashicorp.com/vagrant/docs/boxes)
+
+### 原始筆記保留的來源
+
+- [invernizzi/vagrant-scp: Copy files to a Vagrant VM via SCP.](https://github.com/invernizzi/vagrant-scp)

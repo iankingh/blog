@@ -1,73 +1,64 @@
 ---
-title: "GitCommitMessage"
+title: "Git 提交訊息：Conventional Commits 與拆分原則"
 date: 2021-02-04T12:52:04+08:00
-draft: true
+draft: false
 categories:
  - "學習"
 tags:
  - "git"
 toc: true
+description: "修正 type、scope 的格式，提供繁體中文提交示例與不相容變更標示。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Git Commit Message 規範
+修正 type、scope 的格式，提供繁體中文提交示例與不相容變更標示。
+
 <!--more-->
 
-## 前言
+適用：採 Conventional Commits 1.0 的專案；團隊原有規範優先。
 
-一般來說Git Commit 要包含 
+## 格式
 
-## Commit Message 規範
+```text
+type(scope): 簡短摘要
 
-### commit message格式
+說明修改原因與使用者可觀察的結果。
 
-```
-<type>: scope : <subject>
-
-```
-EX:
-```
-feat:DAO:新增使用者(Customer)的DAO
+BREAKING CHANGE: 描述相容性影響與遷移方式。
 ```
 
+scope 可省略，不寫成 `type: scope : subject`。feat 表示新增功能、fix 表示修正錯誤；docs、test、refactor、build、ci、chore 為常見團隊擴充，不由此規格統一定義發布版本。原筆記的 modify/delete 可保留為歷史團隊習慣，但不要混稱標準 type。
 
-#### type 的規範：
-- feat: 新增/修改功能 (feature)。
-- modify：功能上的修正（非 bug）
-- fix: 修補 bug (bug fix)。
-- delete：刪除檔案
-- docs: 檔案 (documentation)。
-- style: 格式 (不影響程式碼執行的變動 white-space, formatting, missing semi colons, etc)。
-- refactor: 重構 (既不是新增功能，也不是修補 bug 的程式碼變動)。
-- test: 增加測試 (when adding missing tests)。
-- chore: 建構程式或輔助工具的變動 (maintain)。
-- revert: 撤銷回覆先前的 commit 例如：revert: type(scope): subject (回覆版本：xxxx)。
-- perf: 改善效能 (A code change that improves performance)。
+## 依結果命名
 
-Type 是用來告訴進行 Code Review 的人應該以什麼態度來檢視 Commit 內容。
-例如：
-看到 Type 為 fix，進行 Code Review 的人就可以用「觀察 Commit 如何解決錯誤」的角度來閱讀程式碼。
-若是 refactor，則可以放輕鬆閱讀程式碼如何被重構，因為重構的本質是不會影響既有的功能。
-利用不同的 Type 來決定進行 Code Review 檢視的角度，可以提升 Code Review 的速度。因此開發團隊應該要對這些 Type 的使用時機有一致的認同。
+```text
+fix(search): 修正更新日期的顯示
 
-#### scope 的規範：
+搜尋結果改用 lastmod，缺值時才回退到發布日期。
+```
 
-scope 用於說明 commit  影響的範圍，EX:Controller 、 Dao、 view
+```text
+feat(api)!: 調整任務查詢回應格式
 
-如果修改影響不只一個scope，可以使用*代替。
+BREAKING CHANGE: items 改為 tasks，客戶端需更新欄位名稱。
+```
 
-#### subject :
+不相容變更可以用 ! 或 BREAKING CHANGE footer 表示。摘要說明改變，不只寫「修改程式」或羅列檔名。若只是資料層重構且行為不變，使用 refactor 比 feat 清楚。
 
-subject是commit目的的臨時描述，不超過50個字元。
+## 提交前檢查
 
-建議使用中文（感覺中國人用中文描述問題能更清楚一些）。
+閱讀 `git diff --cached`，確認訊息與 staged 內容相符。一個提交有一個可理解目的；功能和必要測試可同一提交，不相關格式化另外拆。不要為了美觀把本來可獨立回滾的改動混在一起。產生訊息工具只協助草擬，提交者仍需核對實際 diff。
 
-開頭不加句號或其他標點符號。
-根據以上規範git commit message將是如下的格式：
+## 查核範圍
 
-### 總結
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-### 參考
+## 參考資料
 
-[如何規範你的Git commit？-阿里雲開發者社群](https://developer.aliyun.com/article/770277)
+- [Conventional Commits 1.0](https://www.conventionalcommits.org/zh-hant/v1.0.0/)
+- [git-commit](https://git-scm.com/docs/git-commit)
 
-[Git Commit Message 這樣寫會更好，替專案引入規範與範例](https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html)
+### 原始筆記保留的來源
+
+- [如何規範你的Git commit？-阿里雲開發者社群](https://developer.aliyun.com/article/770277)
+- [Git Commit Message 這樣寫會更好，替專案引入規範與範例](https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html)

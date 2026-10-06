@@ -1,425 +1,87 @@
 ---
-title: "Vue 教學 06 - 生命週期"
+title: "Vue 教學 06：生命週期與資源釋放"
 date: 2026-03-22T20:06:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "生命週期"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "以計時器示範掛載、更新與解除安裝，確保元件移除後不留下背景工作。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+以計時器示範掛載、更新與解除安裝，確保元件移除後不留下背景工作。
+
 <!--more-->
 
-# 元件的生命週期
-
-## 前言
-
-元件的生命週期:
-
-【時刻】【呼叫特定的函式】
-建立 created
-
-掛載 mounted
-
-更新
-銷毀
-
-生命週期、生命週期函式、生命週期鉤子
-
-建立 (建立前,建立完畢)
-
-
-掛載 (掛載前,掛載完畢)
-
-
-更新 (更新前,更新完畢)
-
-
-銷毀 (銷毀前,銷毀完畢)
-
-
-
-核心：Vue 元件例項在建立時要經歷一系列的初始化步驟，在此過程中 Vue 會在合適的時機呼叫特定函
-數，從而讓開發者有機會在特定階段執行自己的程式碼，這些特定的函式統稱為：生命週期鉤子
- · 規律:
-
-生命週期整體分為四個階段,分別是:建立、掛載、更新、銷毀,每個階段都有兩個鉤子,一前一後.
-
- · Vue2 的生命週期
-
-建立階段: beforeCreate、 created
-
-掛載階段: beforeMount、 mounted
-
-更新階段: beforeUpdate、 updated
-
-銷毀階段 beforeDestroy、 destroyed
-
- · Vue3 的生命週期
-
-建立階段: setup
-
-掛載階段: onBeforeMount、 onMounted
-
-更新階段: onBeforeUpdate、 onupdated
-
-銷毀階段: onBeforeUnmount onUnmounted
-
- · 常用的鉤子: onMounted(掛載完畢)、 onupdated (更新完畢)、 onBeforeUnmount (解除安裝之前)
-
- · 示例程式碼:
-
- 尚矽谷 建立階段: beforeCreate、 created
-
-14:3Z 掛載階段: beforeMount、 mounted
-
-更新階段: beforeUpdate、 updated
-
-銷毀階段: beforeDestroy、 destroyed
-
-Vue3 的生命週期
-
-建立階段: setup
-
-掛載階段: onBeforeMount、 onMounted
-
-更新階段: onBeforeUpdate、 onUpdated
-
-解除安裝階段: onBeforeUnmount onUnmounted
-
-常用的鉤子: onMountea( 掛載完畢)、 onUpdated (更新完畢)、 onBeforeUnmount(解除安裝之前) 示例程式碼:
-
-<template〉
-
-＜h2>目前求和為:{{ sum }}/h2>
-<button @click="changeSum">點我sum+1</button></div>
-
-</template>
-
-```
-<template〉
-
-<div class="person">
-<h2>目前求和為:{{ sum }}</h2>
-<button @click="add">點我sum+1</button>
-<hr>
-<img v-for="(dog,index)in dogList" :src="dog" :key="index">
-
-</div>
-
-</templatex
-
-I
-
-<script lang="ts" setup name="Person">
-
-import {ref, reactive} from 'vue'
-import axios from 'axios'
-
-// 資料
-
-let sum = ref(0)
-let doglist = reactive([
-'https://images.dog.ceo/breeds/pembroke/n2113023_4373.jpg' ])
-
-1/ 方法
-
-function add(){
-
-sum.value += 1
-```
-
-
-```
-</aIV>
-</template>
-
-<script lang="ts" setup name="Person">
-
-import {ref, reactive} from 'vue'
-import axios from 'axios'
-
-// 資料
-
-let sum = ref(0)
-let doglist = reactive([
-
-'https://images.dog.ceo/breeds/pembroke/n92113023 4373.jpg'
-
-])
-
-1/ 方法
-
-function add(){
-
-sum.value += 1
-
-async function getDog(){
-
-let result = await axios.get('https://dog.ceo/api/breed/pembroke/images/ doglist.push(result.data.message)
-
-}
-
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
+
+## 計時元件
+
+建立 `src/components/Clock.vue`：
+
+```vue
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+const seconds = ref(0)
+let timer
+onMounted(() => { timer = setInterval(() => seconds.value++, 1000) })
+onUnmounted(() => clearInterval(timer))
 </script>
+<template><p>此元件已存活 {{ seconds }} 秒</p></template>
 ```
 
-## CSS
-```
-<style scoped>
-person {
+`src/App.vue`：
 
-background-color: skyblue; box-shadow: 0 0 10px; border-radius: 10px; padding: 20px; }
-
-button
-margin: 5px; }
-
-1i {
-
-font-size: 20px; }
-
-img {
-
-height: 100px; margin-right: 10px; }
-```
-
-```
-<script>
-export default [ /* eslint-disable */ name: 'Person',
-
-// 資料
-
- · .. data(){
-
-// 方法
-
-methods:{…
-}, I
-
-// 建立前的鉤子
-beforeCreate(){ console.1og('建立前') },
-
-
-```
-
-```
-methods:{…
-},
-
-// 建立前的鉤子beforeCreate(){… },
-
-// 建立完畢的鉤子
-created(){…
-
-},
-
-// 掛載前
-
-beforeMount(){
-console.1og('掛載前'DF},
-
-// 掛載完畢
-mounted(){
-
-console.1og('掛載完畢') }s
-```
-
-```
-created(){…
-
-/ 掛載前beforeMount(){ console.1og('掛載前') },
-掛載完畢
-mounted(){
-
-console.1og('掛載完畢') / 更新前beforeUpdate(){ console.1og('更新前') },
-
-/ 更新完畢
-updated(){
-console.1og(更新完畢:) }
-
-[
-}
-```
-
-建立(建立前 i beforeCreate,建立完畢 created)
-掛載(掛載前,掛載完畢)
-
-更新(更新前,更新完畢)
-
-銷毀(銷毀前,銷毀完畢)
-
-```
-beforeMount(){
-console.1og('掛載前') },
-
-// 掛載完畢
-
-mounted(){
-
-console.1og('掛載完畢') // 更新前
-
-IbeforeUpdate(){
-console.1og('更新前') // 更新完畢
-updated({
-console.log('更新完畢') },
-
-// 銷毀前
-
-beforeDestroy(){
-console.1og('銷毀前') },
-
-// 銷毀完畢
-
-destroyed(){
-```
-
-
-```
-<button @click="add">點我sum+1</button>
-</div>
-</template>
-
-<script 1ang="ts" setup name="Person">
-import {ref} from 'vue'
-
-// 資料
-
-let sum = ref(0)
-
-// 方法
-
-function add(){
-
-sum.value += 1
-
-一> setup }
-// 建立 beforeCreate created
-
+```vue
+<script setup>
+import { ref } from 'vue'
+import Clock from './components/Clock.vue'
+const visible = ref(true)
 </script>
-
- · <style scoped>
-</style>
-```
-```
-}
-
-// 建立
-
-console.1og('建立') // 掛載前
-
-onBeforeMount(()=>{ console.log('掛載前') })
-
-掛載完畢onMounted(()=>{ console.1og('掛載完畢') })
-
-// 更新前onBeforeUpdate(()=>{ console.log('更新前') })
-
-// 更新完畢onUpdated(C)=>{ console.1og('D
-```
-
-```
-})
-// 更新前
-
-onBeforeUpdate(()=>{ console.1og('更新前') })
-// 更新完畢
-
-onUpdated(()=>{
-console.log('更新完畢') })
-// 解除安裝前
-
-onBeforeUnmount(()=>{ console.log('解除安裝前') })
-// 解除安裝完畢
-
-onUnmounted(()=>{ console.log('解除安裝完畢') })
-```
-
-```
 <template>
-<Person v-if="isshow"/>
+  <button @click="visible = !visible">切換計時器</button>
+  <Clock v-if="visible" />
 </template>
-
-<script lang="ts" setup name="App">
-import Person from'./components/Person.vue' import {ref, onMounted} from 'vue'
-
-let isShow = ref(true)
-
-// 掛載完畢
-
-onMounted(()=>{
-
-console.1og('父---掛載完畢"】
-
-}
-
-</script>
 ```
 
-```
-<template》
-<div class-"penson"
+等兩秒後關閉再開啟，計數應從 0 重來。`v-if` 會解除安裝元件，`v-show` 只隱藏，因此換成 v-show 時計時器會持續執行。
 
-<h2>目前求和為:{ sum }s/h2>
-《button @click-"add">點我sum+1</button>
+## Hook 的執行位置
 
-</div>
-</template>
+`onMounted` 適合需要 DOM 的初始化，`onUnmounted` 清除 timer、事件監聽與訂閱。Hook 應在 setup 同步執行時註冊，不要等任意非同步回呼再註冊。資料改變後 DOM 不是立即同步，需等 `nextTick`；不要在 `onUpdated` 無條件修改會導致重渲染的狀態。
 
-《script lang-"ts" setup name-"Person">
-import (ref, onBeforeMount, onMlounted, onBeforelpdate, onlpdated, onBeforeUnmount, onlnmounted} from 'vue'
-// 效瓶
-1et sum - ref(0)
-1/ 方法
-function addC)f
-
-sum.value +- 1
-
-1/ 建立
-console.1og('建立:)
-
-1/ 掛載前
-
-onBeforeMlount(()-x{
-
-// console.1og('掛前")
-
-// 掛載完畢
-onMounted(()-2/
-
-console.1og(' - -掛載完畢”)
-
-1! 更新前
-onBeforelpdate(()-y
-
-1/ console.1og('更新前")
-
-})
-1/ 更新完畢
-onlpdated(()-y
-
-console.1og('更新完畢”)
-
-})
-1/ 解除安裝前
-onBeforeUnmount(()
-
- · 1/ console.1og('解除安裝前")
-
-})
-
-// 解除安裝完畢
-
-onUnmounted(C)-2{
-
-1/ console.1og('解除安裝完畢")
-
-</scPipt>
-```
+Vue 2 的 `beforeDestroy` / `destroyed` 在 Vue 3 Options API 對應 `beforeUnmount` / `unmounted`。SSR 不會執行 mounted，因此 browser-only 初始化放在 mounted，避免伺服器存取 `window`。
 
 
-## Summary
+## 其他生命週期與版本對照
 
-## 參考
+| Hook | 可觀察時機與用途 |
+| --- | --- |
+| `onBeforeMount`／`onMounted` | 初次渲染前／掛載後；需要實際 DOM 的程式放 mounted |
+| `onBeforeUpdate`／`onUpdated` | 響應狀態造成 DOM 更新前／後；不要在 updated 無條件再改狀態形成循環 |
+| `onBeforeUnmount`／`onUnmounted` | 卸載前／後；清理自行建立的 timer、監聽與外部資源 |
+| `onActivated`／`onDeactivated` | KeepAlive 快取元件啟用／停用，停用不等於 unmount，背景工作應按需求暫停 |
+| `onErrorCaptured` | 處理子元件錯誤，回傳 false 可停止繼續向上傳播，需保留可診斷資訊 |
+| `onServerPrefetch` | SSR 取得本次請求所需資料；不把不同使用者資料放全域共享狀態 |
 
-[範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)
+原 Vue 2 的 beforeDestroy／destroyed 在 Vue 3 改名為 beforeUnmount／unmounted；Composition API hooks 要在 setup 的同步執行期註冊，不能等任意 await 結束後才建立。SSR 不執行 mounted，瀏覽器專屬功能仍需分開處理。上表的全部 hook 未逐項以瀏覽器實機測試，本篇實際測試範圍仍以下方紀錄為準。
+
+## 章節導覽
+
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-05-watch監視屬性.md" >}}) · [下一章]({{< ref "/post/vue/vue-07-自定義hooks.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [生命週期](https://vuejs.org/guide/essentials/lifecycle.html)
+- [生命週期 API](https://vuejs.org/api/composition-api-lifecycle.html)
+
+### 原始筆記保留的來源
+
+- [範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)

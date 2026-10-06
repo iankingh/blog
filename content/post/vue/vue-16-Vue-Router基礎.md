@@ -1,117 +1,66 @@
 ---
-title: "Vue 教學 16 - Vue Router 基礎"
+title: "Vue 教學 16：匹配、重新導向與找不到頁面"
 date: 2026-03-22T20:16:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
+- "Vue 3"
 - "Vue Router"
 toc: true
-draft: true
+draft: false
+description: "在共用骨架加入任務頁、重新導向與 404，檢查路由匹配的完整行為。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+在共用骨架加入任務頁、重新導向與 404，檢查路由匹配的完整行為。
+
 <!--more-->
 
-# Vue Router 基礎
+適用：Vue 3.5 與 Vue Router 4。先完成第 00 章環境與[第 15 章的路由骨架]({{< ref "/post/vue/vue-15-路由基本接線.md" >}})，後續範例依指定檔案替換。
 
-1.路由就是一組 key-Value 對應關係。
-2.多個路由，需要經過路由器的管理。
+## 擴充 routes
 
-router 路由器
+建立 `src/views/NotFound.vue`：
 
-keyl+ value1 => => 路由 route
-key2+ value2 => 路由 route
-key3+ value3 => => 路由route
-key4+ value4 => 路由route
-
-
-
-1.導航區、展示區 2.請來路由器
-3.制定路由的具體規則 4.形成一個一個的路由。
-
-```
-<template〉
-<div class="app">
-
-<h2>Vue路由測試</h2>
-
-<!-- 導航區 -->
-
-<div class="navigate">
-<a href="#”>首頁</a>
-<a href="#”>新聞</a>
-<a href="#”>關於</a〉
-</div>
-
-<!-- 展示區--＞
-<div class="main-content">
-此處以後可能要展示各種元件,到底展示哪個元件,需要看路徑
-
-</div>
-
-</div>
-</template>
-
-<script lang="ts" setup name="App">
-
-</script>
+```vue
+<template><h1>找不到這個任務</h1><RouterLink to="/">回首頁</RouterLink></template>
 ```
 
-```
-11 建立一個路由器,並暴露出去
+在第 15 章 router.js 匯入 NotFound，將 routes 改為：
 
-// 第一步:引入 createRouter
-import {createRouter, createwebHistory}from 'vue-router' // 引入一個一個可能要呈現元件
-import Home from '@/components/Home.vue'
-import News from '@/components/News.vue'
-impont About from '@/components/About.vue'
-
-// 第二步:建立路由器
-const router = createRouter({
-history:createWebHistory(),//路由器的工作模式(稍後講解) routes:[ //一個一個的路由規則⋯
-
+```javascript
+const routes = [
+  { path: '/', name: 'home', component: Home },
+  { path: '/about', name: 'about', component: About },
+  { path: '/start', redirect: { name: 'home' } },
+  { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound }
 ]
-
-}
-
-// 暴露出去 router
-export default router
 ```
 
-main.ts
-```
-// 引入 createApp 用於建立應用 import {createApp}from from 'vue' // 引入 App 根元件
-import App from'./App.vue' // 引入路由器
-import router from'./router' // 建立一個應用
-const app = createApp(App) // 使用路由器
+將 createRouter 裡的 `routes: [...]` 改為 `routes`。開啟 `#/start` 應轉到首頁；開 `#/missing` 應顯示找不到任務。catch-all 是 Router 4 寫法，不能使用 Router 3 的單獨 `*` 路徑。
 
-app.use (router)
-/1 掛載整個應用到 app 容器中app.mount ('#app')
-```
+## active class 與導向
 
-```
-<template>
-<div class="app">
+RouterLink 會為符合紀錄的連結加入 active class，巢狀頁面可能使父連結也 active；只要完全相符用 exact-active-class。redirect 改變目的地，alias 則讓不同網址對應同一紀錄且保留使用者輸入的網址。
 
-<h2 class="title">Vue路由測試</h2>
-
-<!-- 導航區 -->
-<div class="navigate">
-<RouterLink to="/home" active-class="active">首頁</RouterLink><RouterLink to="/news" active-class="active">新聞</RouterLink><RouterLink to="/about" active-class="active">關於</RouterLink>
-
-≤/div>
-
-<!--展示區 -->
-
-<div class="main-content">
-
-<RouterView></RouterView>
-
-</div>
-```
+SPA 顯示 404 元件不代表伺服器回應 HTTP 404，SEO 或 SSR 需要後端配合。這份入門骨架使用 hash，只展示前端狀態；部署回應碼另行驗證。
 
 
-## 參考
+## 章節導覽
 
-[範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-15-路由基本接線.md" >}}) · [下一章]({{< ref "/post/vue/vue-17-to的兩種寫法.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [重新導向與別名](https://router.vuejs.org/guide/essentials/redirect-and-alias.html)
+- [路由匹配](https://router.vuejs.org/guide/essentials/route-matching-syntax.html)
+- [Active links](https://router.vuejs.org/guide/essentials/active-links.html)
+
+### 原始筆記保留的來源
+
+- [範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)

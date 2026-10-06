@@ -1,5 +1,5 @@
 ---
-title: "docker 指令"
+title: "Docker 常用指令：映像、容器與排錯"
 date: 2020-05-31T17:40:46+08:00
 toc: true
 draft: false
@@ -7,224 +7,75 @@ categories:
   - "筆記"
 tags:
  - "docker"
+description: "整理容器生命週期、日誌、資源與空間檢查，改用正確引數並限制操作到練習容器。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-
-## Docker 指令
-
-紀錄一些常用的Docker指令
+整理容器生命週期、日誌、資源與空間檢查，改用正確引數並限制操作到練習容器。
 
 <!--more-->
 
-## Images 相關的指令
+適用：Docker Engine 與 Compose v2 的 Linux 容器練習。先確認 Docker daemon 已啟動，以獨立測試專案操作，避免和既有服務同名。
 
-### bulid images
+## 啟動與檢查
 
-建立一個docker image  
-
-```shell
-docker build -t <image_name> .
+```bash
+docker version
+docker info
+docker pull nginx:1.28-alpine
+docker run -d --name note-web -p 127.0.0.1:8080:80 nginx:1.28-alpine
+docker ps --filter name=note-web
+curl http://127.0.0.1:8080/
 ```
 
-### see images(看映像)
+curl 應取得 Nginx 歡迎 HTML。主機 8080 對應容器 80；EXPOSE 不會自行公開連線埠。若 8080 已使用改為其他主機 port，不修改容器內服務 port。
 
-```shell
-docker images
+## 診斷與操作
+
+```bash
+docker logs --tail 50 note-web
+docker inspect --format '{{.State.Status}}' note-web
+docker exec note-web nginx -t
+docker stats --no-stream note-web
+docker stop note-web
+docker ps -a --filter name=note-web
+docker start note-web
+docker stop note-web
+docker rm note-web
 ```
 
-### pull image(下載映像)
+停止後應為 exited；start 使用同一容器，run 建立新容器。Alpine 未必有 bash，互動式 shell 優先用 `docker exec -it note-web sh`。inspect 可能含環境秘密，不將完整輸出貼到公開紀錄。
 
-```sell
-docker pull <image_name>
-```
+## 映像與空間
 
-### see registry images(看 registry 映像)
+`docker image ls` 看映像，`docker build -t note-app:1 .` 由目前 context 建置，`docker system df -v` 看佔用。移除練習映像使用 `docker image rm note-app:1`，前提是沒有依賴容器。prune 會影響多個資源，不能把它當無條件清理；先列出對象與備份資料。docker commit 不包含 volume，且不如 Dockerfile 可重現。
 
-```sell
-curl -XGET 192.168.x.x:5000/v2/_catalog
-```
+本例的 tag 是練習版本；正式維運應確認支援與修補、必要時固定 digest。原筆記的 `docker ps -f id(ContainerId)` 應改為 `--filter id=實際ID`，sell 拼字已修正為 bash。
 
-## container 相關的指令
+## 原指令小抄的補充
 
-### docker container ls(看容器)
+| 工作 | 指令或限制 |
+| --- | --- |
+| 只取 container ID | `docker ps -q`；`-a` 含停止的容器，`-l` 只列最新建立者 |
+| 從映像 registry 搜尋 | `docker search nginx` 是搜尋 Docker Hub，不是列出本機所有映像；私有 registry 依其 API 或介面查詢 |
+| 容器內環境 | `docker exec note-web printenv` 會揭露環境變數，只在自己的測試環境使用 |
+| 一次與持續日誌 | `docker logs --tail 50 note-web` 與 `docker logs -f note-web`，持續模式以 Ctrl+C 結束查看，不會停止容器 |
+| 進入容器 | `docker exec -it note-web sh`，不要假設精簡映像有 bash；exit 離開此次 exec shell |
+| 從容器製作映像 | commit 只保存容器檔案系統的變更，不含 mounted volume、完整 build 歷程或可重現安裝步驟 |
+| 清理空間 | `docker system df -v` 先查佔用；system prune 會清理停止容器、未用網路、可清理映像／build cache，`-a`／`--volumes` 改變範圍，須先確認資料 |
 
-看container(容器)狀態
+本篇只操作具名的練習資源；原先 stop／rm 全部 container 的組合指令不作預設做法。移除 volume 是資料生命週期決定，不能只因容器停止就推定資料不需要。
 
-```sell
-docker container ls
-```
+## 查核範圍
 
-### docker ps (看容器)
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-```sell
-docker ps
-```
+## 參考資料
 
-#### -a : 看到的所有容器
+- [Docker CLI](https://docs.docker.com/reference/cli/docker/)
+- [容器生命週期](https://docs.docker.com/engine/containers/run/)
 
-```sell
-docker ps -a 
-```
+### 原始筆記保留的來源
 
-#### -l :顯示最新建立的容器(包括所有狀態)
-
-```sell
-docker ps -l
-```
-
-#### -q :只顯示數字ID
-
-```sell
-docker ps -q 
-```
-
-#### -f:  過濾器
-
-```shell
-docker ps -f id(ContainerId)
-```
-
-### docker Stop container (停掉Container)
-
-```sell
-docker stop <container_id>
-```
-
-### docker remove container (移除停掉的Container)
-
-```sell
-docker rm  <container_id>
-```
-
-### stop && rm docker container
-
-```sell
-docker stop  <container_id> && docker rm <container_id>
-```
-
-#### docker see Container's logs (看log once)
-
-```sell
-docker logs <container_id>
-```
-
-#### docker see Container's logs continuing
-
-```sell
-docker logs -f  <container_id>
-```
-
-### See Container ENV
-
-獲取容器/映象的 ENV
-
-```sell
-docker inspect <container_id> > Y.txt 
-```
-
-### Into Container (進入 container 裡面)
-
-```sell
-docker exec -it <container_id> bash 
-```
-
-### into 執行命令
-
-```sell
-docker exec -it <container_id> bash -c 'echo "$envKey"'
-```
-
-### Container status (檢視docker 容器使用的資源)
-
-```sell
-docker stats  
-```
-
-### commit container to images (把容器轉成映像)
-
-```sell
-docker commit <container_id>
-```
-
-## docker system
-
-看系統容器的狀態
-
-### docker system df (空間分佈)
-
-```sell
-docker system df
-```
-
-可用於查詢（Images）、（Containers）和（Local Volumes）等空間使用大戶的空間佔用情況。
-
-#### -v 表示細節檢視空間佔用細節
-
-```sell
-docker system df -v
-```
-
-### docker system prune (空間清理)
-
-可以透過 Docker 內建的 CLI 指令 `docker system prune` 來進行自動空間清理。
-
-```sell
-docker system prune
-```
-
-WARNING! This will remove:
-
- \- all stopped containers (已經停止的容器（container）)
-
- \- all networks not used by at least one container(未被使用的網路)
-
- \- all dangling images(Dangling images are layers that have no relationship to any tagged images.)(所有未打標籤的映象(images)。)
-
- \- all dangling build cache(構建映象時產生的快取)
-
-該指令預設只會清除懸空映象，未被使用的映象不會被刪除。
-
-·    新增 `-a `或 `--all` 引數後，可以一併清除所有未使用的映象和懸空映象。
-
-·    可以新增 `-f `或` --force` 引數用以忽略相關告警確認資訊。
-
-·    指令結尾處會顯示總計清理釋放的空間大小。
-
-#### 刪除已經停止的容器
-
-```sell
-docker container prune
-```
-
-#### 刪除未被使用的網路
-
-```sell
-docker network prune
-```
-
-#### 刪除沒有Tag的映象
-
-```sell
-docker image prune
-```
-
-#### 刪除沒有容器的映象
-
-````sell
-docker image prune -a
-````
-
-#### 刪除未被使用的資料卷
-
-````sell
-docker volume prune
-````
-
-## 參考
-
-[Docker常用命令小記_程式設計師欣宸的部落格-CSDN部落格](https://blog.csdn.net/boling_cavalry/article/details/101145739)
-
-[docker container ls命令 - Docker教程™](https://www.yiibai.com/docker/container_ls.html)
-
-[[Docker] Docker 指令小抄 - Miles's Journey](https://mileslin.github.io/2019/04/Docker-%E6%8C%87%E4%BB%A4%E5%B0%8F%E6%8A%84/)
-
+- [Docker常用命令小記_程式設計師欣宸的部落格-CSDN部落格](https://blog.csdn.net/boling_cavalry/article/details/101145739)
+- [docker container ls命令 - Docker教程™](https://www.yiibai.com/docker/container_ls.html)

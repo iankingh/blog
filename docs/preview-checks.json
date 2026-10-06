@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-10-07",
+  "url": "http://localhost:1315/blog/",
+  "server": "Hugo server (不含 -D)，1315 port，輸出 /tmp/blog-review-preview",
+  "screens": [
+    {
+      "width": 390,
+      "height": 844,
+      "homeColumns": 1,
+      "homeCards": 10,
+      "documentWidth": 390,
+      "article": "Spring Data JPA：Repository 與分頁查詢",
+      "code": "pre overflow-x:auto，314px client width；長行在區塊內捲動",
+      "table": "314px、可換行，整頁無橫向溢出",
+      "navigation": "手機漢堡選單可開分類；Esc 可關閉搜尋"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "homeColumns": 2,
+      "homeCards": 10,
+      "documentWidth": 1920
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "homeColumns": 2,
+      "documentWidth": 2560,
+      "mainX": 596,
+      "mainWidth": 1644,
+      "rightMargin": 320
+    }
+  ],
+  "samplePages": [
+    "首頁",
+    "Spring Data JPA 文章",
+    "Vue 00 系列目錄",
+    "分類索引",
+    "筆記分類每頁10筆",
+    "標籤索引",
+    "Vue 標籤32篇／4頁",
+    "首頁第13頁10篇"
+  ],
+  "search": {
+    "shortcut": "實際按 /，dialog 開啟且 INPUT aria-label 搜尋筆記取得焦點",
+    "query": "Spring Data JPA",
+    "results": 2,
+    "date": "2026.10.07",
+    "resultNavigation": "可開啟 JPA 文章"
+  },
+  "validationScope": "UI 抽查不代表所有瀏覽器或所有第三方服務均實測；全部正式 HTML 的內部連結與資源另由腳本檢查"
+}

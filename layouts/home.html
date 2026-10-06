@@ -1,4 +1,4 @@
-{{- $posts := (where (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) "Draft" false).ByDate.Reverse -}}
+{{- $posts := (where (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) "Draft" false).ByLastmod.Reverse -}}
 {{- $paginator := .Paginate $posts -}}
 {{- $count := len $posts -}}
 {{- $skills := partialCached "rpg/skills-data.html" .Site .Site.Language.Lang -}}

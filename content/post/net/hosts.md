@@ -1,5 +1,5 @@
 ---
-title: "hosts"
+title: "hosts 設定：本地名稱對映與 DNS 診斷"
 date: 2021-04-06T09:40:12+08:00
 categories:
  - "筆記"
@@ -8,90 +8,52 @@ tags:
  - "hosts"
 toc: true
 draft: false
+description: "補上有效格式、平臺路徑與驗證方式，區分 hosts、DNS 快取與 HTTPS 憑證。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## hosts筆記
-<!-- 簡介 -->
-
-在架設網站時，除了伺服主機的網路設定之外，還要配合 DNS 伺服器才能讓網站正常運作，而 DNS 上面的記錄在變更之後，通常都會需要幾個小時才會生效，所以很多人在架設網站初期都會浪費許多時間在等待 DNS 生效，才進行後續的設定，其實我們可以在 DNS 生效之前，以動的方式自行先設定自己電腦上的 hosts 檔，加速網站的建置工作。
+補上有效格式、平臺路徑與驗證方式，區分 hosts、DNS 快取與 HTTPS 憑證。
 
 <!--more-->
 
-## hosts 設定檔？？
+適用：IPv4／IPv6與一般開發網路診斷。平臺專用命令按本文標示的OS使用，不混用Linux與Windows引數。
 
-對於網際網路的基礎知識有瞭解的人應該都清楚網址與 IP 的對應關係，每個網站的網址都會對應一個或多個 IP 位址，當使用者要連上一個網站之前，要先知道網站的網址（如 www.google.com），接著連線至 DNS 伺服器，查詢該網址所對應的 IP 位址，獲得網站的實際 IP 位址之後，才能連上該網站瀏覽上面的內容。
+## 格式與位置
 
-![ DNS01](/images/net/DNS01.png)
+Windows為C:\Windows\System32\drivers\etc\hosts，Linux/macOS為/etc/hosts。以管理許可權修改前備份原內容；新增測試項：
 
-**DNS** **的作用**
-
-DNS 伺服器的作用就是負責將網址轉換成 IP 位址，而 hosts 設定檔的作用跟 DNS 伺服器相同，這個檔案裡面紀錄了一些網址與 IP 位址的對應表，一般的電腦在需要查詢網址與 IP 位址的時候，會先開啟這個檔案來查詢，如果這個檔案裡面剛好有電腦需要查詢的對應記錄，就可以直接連上網站來瀏覽；如果從 hosts 設定檔裡面查不到，才會連線至 DNS 伺服器來查詢。
-
-![ DNS01](/images/net/hosts.png)
-
-
-
-這個 hosts 設定檔在臺電腦中都有，只是一般人可能沒注意到它的存在，也沒有在這個檔案加入任何對應的內容，當這個檔案沒有任何內容時，就等於沒有任何作用，所有的網址與 IP 位址的對應還是會依賴 DNS 伺服起來處理，絕大部分的電腦應該都是處於這樣的狀況。
-
-## 如何設定 hosts 檔？？
-
-hosts 設定檔在 Windows 與 Linux 系統上都有，而且裡面的資料格式完全一樣，只是放置檔案的目錄有差異而已。
-
-### Windows 系統
-
-Windows 系統上的 hosts 設定檔路徑是：
-
-```
-C:\WINDOWS\system32\drivers\etc\hosts
+```text
+127.0.0.1 note.test
+::1 note.test
 ```
 
-用記事本開啟 hosts
+一行先IP再hostname，空白分隔，#註釋。不含http://、path或port，不能用wildcard替换全部subdomain。若本機服務只监听IPv4，先只用IPv4項，避免IPv6優先連線失敗。
 
-```
-45.118.135.69	blog.ian		# ian 部落格
-```
+## 本地確認
 
-**另存新檔**
+先啟動獨立HTTP服務，如`python3 -m http.server 8086 --bind 127.0.0.1`，再訪問`http://note.test:8086/`。這是HTTP練習，HTTPS憑證仍需匹配note.test，hosts不會建立信任。
 
-我們可以將新的 hosts 檔另存新檔，儲存在別的目錄中，然後在用滑鼠拖進系統的 etc 目錄。
+Windows使用`ping note.test`看解析地址，Python可用`socket.getaddrinfo('note.test',8086)`檢查系統解析。nslookup常直接問DNS，不證明所有應用會讀取同一hosts結果。瀏覽器DNS／proxy／DoH行為需按實際配置確認。
 
-### Linux 系統
+## 排錯與復原
 
-在 Linux 系統上的 hosts 設定檔路徑是：
+儲存後確認不是hosts.txt、許可權與檔案編碼正常。Windows可視需要ipconfig /flushdns，macOS/Linux快取機制不同，不套同一命令。企業proxy可能在代理端解析目標，修改本機hosts不一定影響它。
 
-```
-/etc/hosts
-```
+完成練習後移除自己加入的項並確認恢復，不刪除原有系統內容。hosts只能對映名稱，不是防火牆或訪問許可權；共享團隊環境應使用可維護DNS／配置，而不是要求每個人手動改大量hosts。
 
-如果要修改它，要使用 root 管理者許可權修改：
+## 查核範圍
 
-```
-$ sudo vi /etc/hosts
-```
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
+## 參考資料
 
+- [Windows name resolution](https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/troubleshoot-dns-client-resolution-issues)
+- [Python socket](https://docs.python.org/3/library/socket.html#socket.getaddrinfo)
 
-## hosts 設定檔用途
+### 原始筆記保留的來源
 
-大部分的使用者可能不會需要使用到 hosts 設定檔，反而是有些惡意程式（病毒）會竄改 hosts 設定檔，讓使用者連線至某些特定的網頁主機（俗稱綁架網頁），遇到這樣的狀況就可以去檢查一下 hosts 設定檔，看看有沒有什麼異常的記錄在裡面。
+- [轉移網站的過程](https://blog.gtwang.org/wordpress/migrate-wordpress-to-lemp-server/)
 
-舉例來說，如果您發現您電腦中的 hosts 記錄檔裡面有類似這樣的記錄：
+### 原始筆記的其他連結
 
-12.34.67.78  tw.yahoo.com
-
-45.32.83.18  www.google.com.tw
-
-192.94.57.8  www.pchome.com.tw
-
-那就表示您的電腦可能已經中毒了，因為通常網路上公開的網站都是透過 DNS 伺服器來查詢網址與 IP 的對應關係，不會使用 hosts 設定檔，會寫在 hosts 檔中的大部分都是內部網路的主機，也就是說這裡通常只會有私人的主機，如果出現公開的網站的話，就有點不太正常。
-
-除了惡意程式的問題之外，網站的管理者也時常有機會使用 hosts 設定檔來測試自己網站，以我個人的經驗來說，當架設新網站或是[轉移網站的過程](https://blog.gtwang.org/wordpress/migrate-wordpress-to-lemp-server/)都會需要藉由修改 hosts 設定檔，在網站正式公開之前，對網站做一些測試，避免公開網站後才發現問題，影響訪客的瀏覽。
-
-在更換網頁主機（網站搬家）時，如果 hosts 設定檔運用得當，甚至可以讓網站維持 100% 的 uptime，網頁主機更換的過程中，完全不會影像使用者的瀏覽。
-
-
-
-## 參考
-
-手動設定網址與 IP 對應的 hosts 檔教學，適用 Windows、Mac OS X 與 Linux 系統 - G. T. Wang
-https://blog.gtwang.org/windows/windows-linux-hosts-file-configuration/
+- [原始參考入口 1](https://blog.gtwang.org/windows/windows-linux-hosts-file-configuration/)

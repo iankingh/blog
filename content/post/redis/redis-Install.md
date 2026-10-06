@@ -1,5 +1,5 @@
 ---
-title: "Redis簡介"
+title: "Redis 安裝：本機 Docker 與平臺選擇"
 date: 2020-05-20T10:11:13+08:00
 draft: false
 categories:
@@ -7,155 +7,60 @@ categories:
 tags:
  - "redis"
 toc: true
+description: "修正 Redis port 對映及舊 Windows 移植版資訊，提供 localhost 測試與停止流程。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Redis Install
-
-<!-- 簡介 -->
-## Redis簡介
-
-Redis是一個使用ANSI C編寫的開源、支援、基於記憶體、可選永續性的鍵值對儲存資料庫。
-
-`Redis` 是一個使用 `ANSI C` 編寫的開源、支援 **網路**、基於**記憶體(記憶體)**、**單執行緒**、**可選永續性 **的 **鍵值儲存資料庫**。
-
-以官方的解釋，Redis是一套Open source的In-memory NoSQL database，可以應用在Cache、Database及簡單的Message broker。
-
-作者則說它是一個Data Structures Server，顧名思義，它提供了很多種資料結構及相對應的指令去操作這些資料。由於它是以In-Memory的方式為主，另一個很明顯的特性就是它很快，非常快，正確使用下可以輕鬆的處理每秒上萬的請求。
-
+修正 Redis port 對映及舊 Windows 移植版資訊，提供 localhost 測試與停止流程。
 
 <!--more-->
 
-## Redis Install
+適用：Redis 7.4 的獨立測試 instance。舊 Redis 6 與 microsoftarchive Windows 版本只作為歷史背景。
 
-## 1.Window 下 安裝
+## 以 Docker 建立隔離測試
 
-### 安裝網址
+先完成 Docker 安裝並確認 daemon，使用限定 loopback 的 port：
 
-https://github.com/microsoftarchive/redis/releases
-
-### 啟動指令
-
-```powershell
-redis-server.exe redis.windows.conf
+```bash
+docker run -d --name note-redis -p 127.0.0.1:6379:6379 redis:7.4-alpine
+docker exec note-redis redis-cli PING
+docker exec note-redis redis-cli SET note:hello campfire
+docker exec note-redis redis-cli GET note:hello
 ```
 
-### 啟動畫面
+依序應為 PONG、OK、campfire。原 `6379:6369` 右側寫錯，Redis 預設監聽6379。若只在容器內操作，可以省略 -p；不需要為練習公開到所有網絡卡。
 
-![runRedisWin](/images/redis/runRedisWin.png)
+## 平臺差異
 
-### 測試  
+原 microsoftarchive/redis 是已封存的舊 Windows port，不當目前官方版本。Windows可依官方 WSL/Docker 路線；Linux選擇官方支援的repo或固定版本原始碼、核對checksum；不要以舊 `http://...redis-6.0.3` 當「最新版」。發行版的 systemd 服務名稱與配置位置要用套件檔案確認。
 
-```powershell
-#連線指令
-redis-cli.exe -h 127.0.0.1 -p 6379
-#塞值
-Set testkey testvalue
-#取值
-Get testkey
+Redis 是記憶體資料結構伺服器，持久化為可選設計；主命令處理模型、IO執行緒與背景任務不應全數概括為只有一條執行緒。可當快取、資料儲存或訊息元件，但可靠性、驅逐策略與一致性要求不同。
+
+## 停止與資料
+
+```bash
+docker stop note-redis
+docker rm note-redis
 ```
 
-![redisWinTest](/images/redis/redisWinTest.png)
+這個無 volume 的練習刪除容器後資料不保留。若要儲存參考[Redis 設定]({{< ref "/post/redis/redis-config.md" >}})與 Docker volume。正式環境另設 ACL、網路隔離、備份與復原測試，不能拿測試 instance 當 production。
 
+## 查核範圍
 
-## 2.Linux 安裝
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-```shell
-#用wget從Redis官網下載最新的Redis安裝包，
-#下載完成後解壓縮到你想要放的位置，然後執行make進行編譯
-$ wget http://download.redis.io/releases/redis-6.0.3.tar.gz
-$ tar xzf redis-6.0.3.tar.gz
-$ cd redis-6.0.3
-$ make
-```
+## 參考資料
 
-### 啟動
+- [Redis 安裝](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/)
+- [Windows 路線](https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/install-redis-on-windows/)
 
-``` shell
-src/redis-server
-```
+### 原始筆記保留的來源
 
-![runRedisUbuntu](/images/redis/runRedisUbuntu.png)
+- [Redis - 維基百科，自由的百科全書 (wikipedia.org)](https://zh.wikipedia.org/wiki/Redis)
+- [Redis系列 - 環境建置篇 - Jed's blog (jed1978.github.io)](https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html)
+- [How to Install Redis Server on CentOS 8 / RHEL 8 (linuxtechi.com)](https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/)
+- [Redis - 在 Windows 上建立高可用性的 Redis :: 天空的垃圾場 v3 (skychang.github.io)](https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/)
 
-### 測試
+### 原始筆記的其他連結
 
-![redisUbuntuTest](/images/redis/redisUbuntuTest.png)
-
-```shell
-#連線指令
-src/redis-cli  
-# 塞值
-redis> set foo bar  
-# 取值
-redis> get foo  
-```
-
-### 3. cntos install redis
-
-### 更新 dnf
-
-```shell
-sudo dnf update -y
-```
-
-### 下載 redis 
-
-1. 下載
-
-```shell
-sudo dnf install redis -y
-```
-
-2. 啟動
-
-```shell
-sudo systemctl start redis 
-
-sudo systemctl enable redis
-```
-
-3. 確認啟動
-
-```shell
-sudo systemctl status redis
-```
-
-4. 看佔用的port
-
-```shell
- sudo netstat -pnltu | grep redis
-```
-
-### 3.使用Docker
-
-#### 安裝
-
-已經安裝好Docker的環境，只要輸入下列指令就能快速的跑起來一個Redis instance
-
-```
-docker run --name MyRedisCache -d -p 6379:6369 redis
-```
-
-#### 測試
-
-**進入 container 測試**
-
-```
-#連線指令
-redis-cli
-# 塞值
-127.0.0.1:6379> set hello "hello world"
-# 取值
-127.0.0.1:6379> get hello
-```
-
-
-
-## 參考
-
-[Redis - 維基百科，自由的百科全書 (wikipedia.org)](https://zh.wikipedia.org/wiki/Redis)
-
-[Redis系列 - 環境建置篇 - Jed's blog (jed1978.github.io)](https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html)
-
-[How to Install Redis Server on CentOS 8 / RHEL 8 (linuxtechi.com)](https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/)
-
-[Redis - 在 Windows 上建立高可用性的 Redis :: 天空的垃圾場 v3 (skychang.github.io)](https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/)
+- [原始參考入口 1](https://github.com/microsoftarchive/redis/releases)

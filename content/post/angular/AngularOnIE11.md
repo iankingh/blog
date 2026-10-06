@@ -1,5 +1,5 @@
 ---
-title: "Angular on IE 11"
+title: "Angular 與 IE11：歷史相容維護及遷移"
 date: 2021-03-10T13:21:43+08:00
 aliases:
  - "/post/angular/angualronie11/"
@@ -10,301 +10,45 @@ tags:
  - "FrontEnd"
 toc: true
 draft: false
+description: "標示 IE11 支援終止的版本界線，移除過時 beta shim 的直接套用建議。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Angular IE 11 使用筆記
-
-在IE 11 上的 使用 Angular
+標示 IE11 支援終止的版本界線，移除過時 beta shim 的直接套用建議。
 
 <!--more-->
 
-## 前言
+適用：Angular12及更早版本的IE11歷史維護情境；本次沒有IE11實機，僅檔案查核。
 
-Angular 在 IE 11 上的相容性有限；若舊系統仍必須支援 IE 11，可留意以下設定。
+## 歷史版本定位
 
-設定Index
-於`index.html`  加上
+Angular13開始移除IE11支援。本篇原本記錄舊Angular的IE11相容工作，不適用Angular20／現行CLI。IE11本身已結束大部分桌面支援；企業Edge IE mode是不同管理與生命週期情境，不會讓新版Angular重新支援IE。
 
-```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11" >
+## 若仍需重現舊系統
 
-```
+在隔離的歷史測試環境保留原package.json、lockfile、Node與Angular major。核對該major的browser support、tsconfig target、polyfills入口和browserslist，依官方當時檔案加入必要polyfill。`X-UA-Compatible`只能影響舊瀏覽器檔案模式，不會補足Promise、Proxy或現代語法。
 
-### 在 angular.json 的scripts 引用
+原筆記的Angular2 beta shim、手改Function.prototype與URL polyfill不應作通用方案；測試用shim不等於production polyfill。程式庫需要額外polyfill也要查該版本檔案，不能看到弱掃失敗便刪功能使其表面通過。
 
-如果要引用外部js 可以在 angular.json 的scripts 地方做全域性引用 ,他會在要用到的地方引用
+## 驗證範圍
 
-程式碼的部分
+測登入、表單、HTTP、下載、路由、中文輸入與CSS佈局；記錄IE版本／檔案模式、JS錯誤與實際失敗操作。現代Chrome測試通過不代表IE可用，語法降版也不代表DOM/Web API都可用。
 
-ex. 
+## 替代路線
 
-```json
-"scripts": [
+先確認是否真的有IE使用者與硬性系統依賴，再規劃受支援瀏覽器入口、舊系統隔離與替換時間。Angular按官方update guide逐major升級並測試，每個依賴都有自己的相容界線。若必須長期留IE，明確標記風險與維護限制，不能當作新專案預設。
 
-"src/assets/js/jquery.js" ,
+## 查核範圍
 
-"src/assets/js/ie.js"
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-]
-```
+## 參考資料
 
-### 引用 ie.js 
+- [Angular browser support](https://angular.dev/reference/versions#browser-support)
+- [Angular13發布說明](https://github.com/angular/angular/blob/13.0.0/CHANGELOG.md)
+- [Microsoft IE lifecycle](https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge)
 
-引用 ie.js ;新建一個 ie.js ,再引用內容如下
+### 原始筆記保留的來源
 
-[https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js](https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js)
-
-程式碼的部分
-ex. 
-
-```jsx
-// function.name (all IE)
-
-/*! @source http://stackoverflow.com/questions/6903762/function-name-not-supported-in-ie*/
-
-if (!Object.hasOwnProperty('name')) {
-
-Object.defineProperty(Function.prototype, 'name', {
-
-get: function() {
-
-var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
-
-var name = matches && matches.length > 1 ? matches[1] : "";
-
-// For better performance only parse once, and then cache the
-
-// result through a new accessor for repeated access.
-
-Object.defineProperty(this, 'name', {value: name});
-
-return name;
-
-}
-
-});
-
-}
-
-//此處弱掃會有問題 ,可以先拿掉看可不可以運作 ,不行再加回來
-
-// URL polyfill for SystemJS (all IE)
-
-/*! @source https://github.com/ModuleLoader/es6-module-loader/blob/master/src/url-polyfill.js*/
-
-// from https://gist.github.com/Yaffle/1088850
-
-(function(global) {
-
-function URLPolyfill(url, baseURL) {
-
-if (typeof url != 'string') {
-
-throw new TypeError('URL must be a string');
-
-}
-
-var m = String(url).replace(/^\s+|\s+$/g, "").match(/^([^:\/?#]+:)?(?:\/\/(?:([^:@\/?#]*)(?::([^:@\/?#]*))?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);
-
-if (!m) {
-
-throw new RangeError();
-
-}
-
-var protocol = m[1] || "";
-
-var username = m[2] || "";
-
-var password = m[3] || "";
-
-var host = m[4] || "";
-
-var hostname = m[5] || "";
-
-var port = m[6] || "";
-
-var pathname = m[7] || "";
-
-var search = m[8] || "";
-
-var hash = m[9] || "";
-
-if (baseURL !== undefined) {
-
-var base = baseURL instanceof URLPolyfill ? baseURL : new URLPolyfill(baseURL);
-
-var flag = protocol === "" && host === "" && username === "";
-
-if (flag && pathname === "" && search === "") {
-
-search = base.search;
-
-}
-
-if (flag && pathname.charAt(0) !== "/") {
-
-pathname = (pathname !== "" ? (((base.host !== "" || base.username !== "") && base.pathname === "" ? "/" : "") + base.pathname.slice(0, base.pathname.lastIndexOf("/") + 1) + pathname) : base.pathname);
-
-}
-
-// dot segments removal
-
-var output = [];
-
-pathname.replace(/^(\.\.?(\/|$))+/, "")
-
-.replace(/\/(\.(\/|$))+/g, "/")
-
-.replace(/\/\.\.$/, "/../")
-
-.replace(/\/?[^\/]*/g, function (p) {
-
-if (p === "/..") {
-
-output.pop();
-
-} else {
-
-output.push(p);
-
-}
-
-});
-
-pathname = output.join("").replace(/^\//, pathname.charAt(0) === "/" ? "/" : "");
-
-if (flag) {
-
-port = base.port;
-
-hostname = base.hostname;
-
-host = base.host;
-
-password = base.password;
-
-username = base.username;
-
-}
-
-if (protocol === "") {
-
-protocol = base.protocol;
-
-}
-
-}
-
-// convert windows file URLs to use /
-
-if (protocol == 'file:')
-
-pathname = pathname.replace(/\\/g, '/');
-
-this.origin = protocol + (protocol !== "" || host !== "" ? "//" : "") + host;
-
-this.href = protocol + (protocol !== "" || host !== "" ? "//" : "") + (username !== "" ? username + (password !== "" ? ":" + password : "") + "@" : "") + host + pathname + search + hash;
-
-this.protocol = protocol;
-
-this.username = username;
-
-this.password = password;
-
-this.host = host;
-
-this.hostname = hostname;
-
-this.port = port;
-
-this.pathname = pathname;
-
-this.search = search;
-
-this.hash = hash;
-
-}
-
-global.URLPolyfill = URLPolyfill;
-
-})(typeof self != 'undefined' ? self : global);
-
-//classList (IE9)
-
-/*! @license please refer to http://unlicense.org/ */
-
-/*! @author Eli Grey */
-
-/*! @source https://github.com/eligrey/classList.js */
-
-;if("document" in self&&!("classList" in document.createElement("_"))){(function(j){"use strict";if(!("Element" in j)){return}var a="classList",f="prototype",m=j.Element[f],b=Object,k=String[f].trim||function(){return this.replace(/^\s+|\s+$/g,"")},c=Array[f].indexOf||function(q){var p=0,o=this.length;for(;p<o;p++){if(p in this&&this[p]===q){return p}}return -1},n=function(o,p){this.name=o;this.code=DOMException[o];this.message=p},g=function(p,o){if(o===""){throw new n("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(o)){throw new n("INVALID_CHARACTER_ERR","String contains an invalid character")}return c.call(p,o)},d=function(s){var r=k.call(s.getAttribute("class")||""),q=r?r.split(/\s+/):[],p=0,o=q.length;for(;p<o;p++){this.push(q[p])}this._updateClassName=function(){s.setAttribute("class",this.toString())}},e=d[f]=[],i=function(){return new d(this)};n[f]=Error[f];e.item=function(o){return this[o]||null};e.contains=function(o){o+="";return g(this,o)!==-1};e.add=function(){var s=arguments,r=0,p=s.length,q,o=false;do{q=s[r]+"";if(g(this,q)===-1){this.push(q);o=true}}while(++r<p);if(o){this._updateClassName()}};e.remove=function(){var t=arguments,s=0,p=t.length,r,o=false;do{r=t[s]+"";var q=g(this,r);if(q!==-1){this.splice(q,1);o=true}}while(++s<p);if(o){this._updateClassName()}};e.toggle=function(p,q){p+="";var o=this.contains(p),r=o?q!==true&&"remove":q!==false&&"add";if(r){this[r](p)}return !o};e.toString=function(){return this.join(" ")};if(b.defineProperty){var l={get:i,enumerable:true,configurable:true};try{b.defineProperty(m,a,l)}catch(h){if(h.number===-2146823252){l.enumerable=false;b.defineProperty(m,a,l)}}}else{if(b[f].__defineGetter__){m.__defineGetter__(a,i)}}}(self))};
-
-//console mock (IE9)
-
-if (!window.console) window.console = {};
-
-if (!window.console.log) window.console.log = function () { };
-
-if (!window.console.error) window.console.error = function () { };
-
-if (!window.console.warn) window.console.warn = function () { };
-
-if (!window.console.assert) window.console.assert = function () { };
-
-//RequestAnimationFrame (IE9, Android 4.1, 4.2, 4.3)
-
-/*! @author Paul Irish */
-
-/*! @source https://gist.github.com/paulirish/1579671 */
-
-// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-
-// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-
-// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
-
-// MIT license
-
-(function() {
-
-var lastTime = 0;
-
-if (!window.requestAnimationFrame)
-
-window.requestAnimationFrame = function(callback, element) {
-
-var currTime = Date.now();
-
-var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-
-var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-
-timeToCall);
-
-lastTime = currTime + timeToCall;
-
-return id;
-
-};
-
-if (!window.cancelAnimationFrame)
-
-window.cancelAnimationFrame = function(id) {
-
-clearTimeout(id);
-
-};
-
-}());
-```
-
-## Summary
-
-在IE 上使用Angular 十分麻煩
-
-**祝大家工作上都不要碰到IE**
-
-## 參考
-
-[IE 11 Syntax error after doing ng serve · Issue #9508 · angular/angular-cli (github.com)](https://github.com/angular/angular-cli/issues/9508)
+- [https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js](https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js)
+- [IE 11 Syntax error after doing ng serve · Issue #9508 · angular/angular-cli (github.com)](https://github.com/angular/angular-cli/issues/9508)

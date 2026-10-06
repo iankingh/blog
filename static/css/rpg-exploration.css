@@ -6,7 +6,6 @@
 .topbar .brand-emblem .icon { width: 25px; height: 25px; }
 .topbar-actions { justify-content: flex-end; gap: 12px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); }
 .world-status { margin-right: auto; }
-.quest-meta { min-height: 44px; }
 .quest-card h3 { min-height: 3.2em; }
 .quest-card > p { min-height: 3.6em; }
 .quest-bottom { min-height: 50px; }
@@ -25,6 +24,15 @@
 .radar-scale, .radar-note { color: var(--muted); font-size: 12px; line-height: 1.8; }
 .radar-scale { margin: 0; }
 .radar-note { padding-top: 16px; border-top: 1px solid var(--line); margin: 22px 0 0; }
+/* Use wider screens for the journal grid while keeping long-form reading bounded. */
+@media (min-width: 1600px) {
+  .shell, .topbar-inner { width: calc(100% - 192px); max-width: 1920px; }
+  .article-page { width: 100%; max-width: 1080px; justify-self: center; }
+}
+/* Reserve space for the corner without covering search, theme or menu controls. */
+@media (max-width: 1512px) {
+  .has-github-corner .topbar-inner { padding-right: clamp(28px, calc(756px - 50vw), 96px); }
+}
 .radar-picker { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .radar-picker button { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px; padding: 10px 12px; min-height: 44px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface-raised); color: var(--text); text-align: left; font-size: 13px; }
 .radar-picker button span { color: var(--muted); font: 11px var(--mono); }
@@ -46,12 +54,14 @@
 @media (max-width: 820px) {
   .topbar-inner { display: flex; gap: 12px; }
   .topbar-actions { background: none; padding: 0; border: 0; }
+  .has-github-corner .topbar-inner { padding-right: 86px; }
 }
 @media (max-width: 540px) {
   .topbar .brand { font-size: 18px; gap: 9px; }
   .topbar .brand-emblem { width: 25px; height: 25px; }
   .topbar .brand-emblem .icon { width: 20px; height: 20px; }
   .topbar-actions { gap: 6px; }
+  .has-github-corner .topbar-inner { padding-right: 66px; }
   .skill-radar { padding: 20px 16px; }
   .radar-heading h2 { font-size: 22px; }
   .radar-label { font-size: 20px; }

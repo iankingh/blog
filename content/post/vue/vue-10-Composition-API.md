@@ -1,271 +1,60 @@
 ---
-title: "Vue 教學 10 - Composition API"
+title: "Vue 教學 10：Composition API 的組織方式"
 date: 2026-03-22T20:10:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "Composition API"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "用可搜尋的待辦列表組合 ref、computed 與函式，理解 setup 的責任與 Options API 的對照。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+用可搜尋的待辦列表組合 ref、computed 與函式，理解 setup 的責任與 Options API 的對照。
+
 <!--more-->
 
-# 第4章 Vue.js Composition API 完整原始檔
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 原始檔：src/main.js
-
-```js
-import { createApp } from 'vue';
-import App from './App.vue'
-import mitt from 'mitt'
-
-let app = createApp(App)
-
-
-window.mitt = mitt()
-
-
-app.mount('#app')
-
-```
-
-## 原始檔：src/views/todo.vue
+## 依功能組織狀態
 
 ```vue
-<template>
-  <div class="todo">
-    <div class="title">
-      事項列表
-    </div>
-    <div class="add-new">
-      <input v-model.trim="state.newTodoContent" class="input" type="text" name="new_todo" placeholder="請輸入內容" enterkeyhint="send"
-        @keyup.enter.prevent="saveTodo">
-    </div>
-    <div>
-        <titem v-for="item in state.todoItems" :item="item"  :key="item.id" @delete="deleteItem" @complete="completeItem"></titem>
-    </div>
-  </div>
-</template>
-
-<script>
-  import titem from '../components/titem.vue'
-  import {onMounted,reactive,watch} from 'vue'
-  
-  import dataUtils from '../utils/dataUtils'
-  /**
-   * 待辦事項頁面元件
-   */
-  export default {
-    name: 'todo',// 元件的名稱，盡量和檔名一致
-    components: {
-      titem
-    },
-    setup(){
-      const state = reactive({
-        newTodoContent: '',// 輸入框 input 的內容
-        todoItems: []// 待辦事項的列表
-      })
-
-      function fetchData() {
-        state.todoItems = dataUtils.getItem('todoList') || []
-      }
-      /**
-       * 建立事項
-       */
-      function saveTodo() {
-
-        // 如果沒有輸入內容，直接返回
-        if (!state.newTodoContent) return
-        // 將事項存入列表
-        state.todoItems.push({
-          id: Math.random().toString(36).substr(2, 5),// 取得隨機 ID 值
-          content: state.newTodoContent// 設定內容
-        })
-        // 建立完成後清空輸入框內容
-        state.newTodoContent = ''
-      }
-      /**
-       * 儲存事項列表
-       */
-      function storeItems(array) {
-
-        dataUtils.setItem('todoList', array)
-      }
-      /**
-       * 刪除事項
-       */
-      function deleteItem(obj) {
-        // 以下邏輯為找到對應 id 的事項，然後刪除
-        state.todoItems = state.todoItems.filter(item=>{
-            return item.id != obj.id
-        })
-        // 通知已刪除事項頁面，即時更新已刪除資料
-        window.mitt.emit('addDelete', obj)
-      }
-
-      /**
-       * 修改事項
-       */
-      function completeItem(obj) {
-        // 找到對應 id 的事項，然後替換
-        for (let i = 0 ; i < state.todoItems.length ; i++) {
-          if (state.todoItems[i].id == obj.id) {
-            state.todoItems[i] = obj
-            break
-          }
-        }
-      }
-
-
-      watch(
-        () => _.cloneDeep(state.todoItems),// 利用_.cloneDeep複製複雜物件
-        (val, oldVal) => {
-          storeItems(val)// 一旦有改動立刻呼叫更新儲存
-        },{deep:true}
-      )
-
-      onMounted(()=>{
-        window.mitt.on('addRevert', (obj) =>{
-          state.todoItems.push(obj)
-          
-        })
-        fetchData()
-      })
-
-
-      return {
-        state,
-        deleteItem,
-        completeItem,
-        saveTodo
-      }
-    }
-  }
+<script setup>
+import { ref, computed } from 'vue'
+const keyword = ref('')
+const tasks = ref(['讀 Vue 文件', '練習 Java', '整理 Vue 元件'])
+const filtered = computed(() => tasks.value.filter(
+  title => title.toLowerCase().includes(keyword.value.toLowerCase())
+))
+function clear() { keyword.value = '' }
 </script>
-<style scoped>
-  .todo .title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 27px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .todo .add-new {
-    margin-bottom: 10px;
-  }
-
-  .todo .add-new input {
-    box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, .05);/* 新增陰影效果 */
-    width: 100%;/* 設定寬度 */
-    height: 40px;/* 設定高度 */
-    padding: 4px;/* 設定內邊距 */
-    font-size: 16px;/* 設定字型大小 */
-    color: #363636;/* 設定字型顏色 */
-    background-color: #fff;/* 設定背景顏色 */
-    border-color: transparent;/* 去除預設背景邊框 */
-    border-radius: 4px;/* 設定圓角 */
-    box-sizing: border-box;/* 設定內邊距不佔據寬高 */
-  }
-
-</style>
-
+<template>
+  <label>搜尋 <input v-model="keyword"></label><button @click="clear">清除</button>
+  <ul><li v-for="title in filtered" :key="title">{{ title }}</li></ul>
+  <p>顯示 {{ filtered.length }} / {{ tasks.length }} 筆</p>
+</template>
 ```
 
-## 原始檔：src/views/recycle.vue
+輸入 vue 後顯示兩筆，清除後三筆。computed 的 getter 不應發請求或更改 tasks，這樣才容易推導輸入與輸出的關係。
 
-```vue
-<template>
-  <div class="recycle">
-    <div class="title">
-      回收站
-    </div>
-    <div class="no-data" v-if="state.recycleItems.length == 0">暫無已刪除的事項</div>
-    <ritem v-for="item in state.recycleItems" :key="item.id" :item="item" @revert="revertItem"></ritem>
+## 與 Options API 比較
 
-  </div>
-</template>
+Options API 按 data、computed、methods 分組，Composition API 可把同一功能的資料與操作放一起並抽成 composable。兩者都可用於 Vue 3，Composition API 不等於效能必然更好。`<script setup>` 頂層宣告可直接在模板使用；普通 `setup()` 必須 return 模板要使用的內容。
 
-<script>
-  import ritem from '../components/ritem.vue'
-  import dataUtils from '../utils/dataUtils'
-  import {onMounted,reactive,watch} from 'vue'
-  /**
-   *  回收站頁面元件
-   */
-  export default {
-    name: 'recycle',// 元件的名稱，盡量和檔名一致
-    components: {
-      ritem
-    },
+setup 不以 `this` 存取元件，從 Vue 2 搬過來的 `this.tasks` 需改為 ref/reactive。方法解構後保留 ref，避免把 `.value` 的快照當成會自動更新的資料。原始課程的待辦／回收桶邏輯可分成 `useTasks`，但跨頁共用的單例狀態應交給 store。
 
-    setup(){
-      const state = reactive({
-        recycleItems: []// 已刪除事項的列表
-      })
 
-      /**
-       * 從儲存中取得已刪除事項資料
-       */
-      function fetchData() {
-        state.recycleItems = dataUtils.getItem('recycleList') || []
-      }
-      /**
-       * 恢復事項
-       */
-      function revertItem(obj) {
-        // 將需要恢復的事項從已刪除事項列表中剔除
-        state.recycleItems = state.recycleItems.filter(item=>{
-            return item.id != obj.id
-        })
+## 章節導覽
 
-        window.mitt.emit('addRevert', obj)
-      }
-      /**
-       * 儲存已刪除事項列表
-       */
-      function storeItems(array) {
-        dataUtils.setItem('recycleList', array)
-      }
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-09-元件化.md" >}}) · [下一章]({{< ref "/post/vue/vue-11-元件通訊與Pinia.md" >}})
 
-      watch(
-        () => JSON.parse(JSON.stringify(state.recycleItems)),
-        (val, oldVal) => {
-          storeItems(val)// 一旦有改動立刻呼叫更新儲存
-        },{deep:true}
-      )
+## 查核範圍
 
-      onMounted(()=>{
-        window.mitt.on('addDelete', (obj) =>{
-          state.recycleItems.push(obj)
-        })
-        fetchData()
-      })
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-      return {
-        state,
-        revertItem
-      }
+## 參考資料
 
-    }
-
-  }
-</script>
-<style scoped>
-  .recycle .title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 27px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .recycle .no-data {
-    text-align: center;
-  }
-</style>
-
-```
+- [Composition API 常見問題](https://vuejs.org/guide/extras/composition-api-faq.html)
+- [script setup](https://vuejs.org/api/sfc-script-setup.html)

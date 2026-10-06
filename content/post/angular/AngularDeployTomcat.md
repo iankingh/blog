@@ -1,5 +1,5 @@
 ---
-title: "AngularDeployTomcat"
+title: "Angular 部署 Tomcat：base href、靜態檔與子路徑"
 date: 2020-09-25T20:40:28+08:00
 categories:
  - "筆記"
@@ -8,167 +8,55 @@ tags:
  - "Tomcat"
 toc: true
 draft: false
+description: "補上建置輸出與部署驗證，區分 SPA fallback、hash 路由與 API 404。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-
-## **Angular Deploy Tomcat**
+補上建置輸出與部署驗證，區分 SPA fallback、hash 路由與 API 404。
 
 <!--more-->
 
-### **編譯Project**
+適用：Angular原有NgModule專案的設計情境；新程式片段採Angular20 standalone方式，舊版差異另列。先使用與專案相容的Node／TypeScript。
 
-到專案目錄執行 **編譯指令如下**
+## 建置與放置
 
-`ng build --prod --base-href /project_Name/`
+原部署情境為Tomcat9、Angular CLI專案，部署路徑假設`/task-app/`：
 
-匯出 `index.html` 如下
-
-```html
-<!doctype html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-
-    <title>Title</title>
-
-    <base href="/project_Name/">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.479444a78a429503e78e.css">
-</head>
-
-<body class="mat-typography">
-
-    <app-root></app-root>
-
-    <script src="runtime.c51bd5b1c616d9ffddc1.js" defer></script>
-
-    <script src="polyfills-es5.272209ba9e789fcad1c2.js" nomodule defer></script>
-
-    <script src="polyfills.7f244a820a4deda6d9fd.js" defer></script>
-
-    <script src="main.d604dab66ca826078124.js" defer></script>
-
-</body>
-
-</html>
+```bash
+npx ng build --configuration production --base-href /task-app/
 ```
 
-- **prod** : 把 `src/environments/environment.ts`檔案替換成針對特定目標的版本 , 且編譯出來的檔案會小很多
-- **output-path** : 表示輸出路徑 : ex : 輸出到當前目錄的 web資料夾底下
-- **base-href** : 修改 index.html 裡的 `<base href="/">` : ex : `<base href="/project_Name/">`
+檢視angular.json的outputPath，新builder可能輸出到`dist/專案/browser/`。把**含index.html的目錄內容**放Tomcat的webapps/task-app，不再套一層browser。靜態SPA本身不需要Java Servlet程式才能顯示。
 
-### **部屬到AP Server**
+## 路由策略
 
-把project/dist裡的project的資料夾 移動到  `$Tomcat/webapps`
+首次開啟 `/task-app/` 應正常；history模式直接開 `/task-app/about` 時Tomcat會尋找該資源，可能404。可選hash策略：在standalone `provideRouter(routes, withHashLocation())`，或舊RouterModule.forRoot(routes,{useHash:true})。這讓網址變為`/task-app/#/about`，不用伺服器fallback。
 
-### **Deploy Tomcat9**
+若需history，設定該應用專用rewrite／forward到index.html，並排除JS、CSS、圖片及API。不要在全站把所有404都映到index.html，否則缺資源得到200 HTML、API錯誤被掩蓋。單純error-page可能保留404狀態且不同容器行為，需檢查Network而非只看頁面。
 
-調整 server.xml，將 http port 改為 80，https port 改為 443。
+## 驗收順序
 
-```xml
-<Connector port="80" protocol="HTTP/1.1"
+1. 清除舊建置殘留，用新bundle完整替換同一應用，避免index與hash檔版本不一致。
+2. 首頁、點連結、直接開子路徑、重新整理與返回鍵都測。
+3. Network確認JS/CSS的MIME與200回應，不是登入頁或HTML fallback。
+4. API以實際base URL測，核對CORS、proxy與認證；開發server的proxy不會跟著dist部署。
 
-connectionTimeout="20000"
+Tomcat服務安裝、管理帳號與Java版本是容器維運，參考Tomcat系列，不為靜態站修改所有server.xml的Host。production與本機環境檔都是前端公開資訊，不放密碼。
 
-redirectPort="443" />
-```
+## 查核範圍
 
-### **Installing services**
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-Install the service named 'Tomcat9'
+## 參考資料
 
-`service.bat install`
+- [Angular 部署](https://angular.dev/tools/cli/deployment)
+- [Angular Hash 路由](https://angular.dev/api/router/withHashLocation)
+- [Tomcat deployment](https://tomcat.apache.org/tomcat-9.0-doc/deployer-howto.html)
 
-### 解決404的問題
+### 原始筆記保留的來源
 
-因為 Angular 是 SPA，所以在網頁伺服器要將所有的 request 全部導回到 index.html 才可以正常地顯示，如果在沒有設定下直接開啟網址 web/home，他會去找 home 資料夾下的 **index.html**
-
-- **(1)將以下程式碼放在部署資料夾的web.xml中：**
-
-```xml
-<error-page>
-
-	<error-code>404</error-code>
-
-	<location>/index.html</location>
-
-</error-page>
-```
-
-- **(2)將HashLocationStrategy與路由的URL中的＃一起使用**
-
-修改 **app-routing.module.ts**
-
-使用:
-
-`RouterModule.forRoot(routes, { useHash: true })`
-
-代替:
-
-`RouterModule.forRoot(routes)`
-
-使用**HashLocationStrategy**，您的網址將類似於：
-
-`http://localhost/#/route`
-
-**app-routing.module.ts**
-
-```tsx
-@NgModule({
-
-imports: [RouterModule.forRoot(routes, { useHash: true })],
-
-exports: [RouterModule]
-
-})
-```
-
-- **(3) Tomcat URL Rewrite Valve：如果找不到資源，則使用伺服器級別的配置來重寫URL，以重定向到index.html。**
-- (3.1)在server.xml中配置RewriteValve
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-
-<Context>
-
-<Valve className="org.apache.catalina.valves.rewrite.RewriteValve" />
-
-</Context>
-```
-
-- (3.2)在rewrite.config中寫入重寫規則
-
-建立目錄結構–〜/ conf / Catalina / localhost /並使用以下內容在其中建立rewrite.config檔案。
-
-注意-這裡考慮將其`/web`作為應用程式的上下文路徑。
-
-```xml
-RewriteCond %{REQUEST_PATH} !-f
-
-RewriteRule ^/web/(.*) /web/index.html
-```
-
-## **參考**
-
-[Angular - Deployment](https://angular.io/guide/deployment)
-
-[Apache Tomcat 9 (9.0.59) - Windows Service How-To](https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html)
-
-[maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow](https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server)
-
-[`<base href="/">` 與 `<base href="./">` 的差別？- General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/881/12)
-
-[[討論]Routing with ng build找不到路徑的問題 - #2 Kevin - General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/1839/2)
-
-[如何將 Angular 2 含有路由機制的 SPA 網頁應用程式部署到 IIS 網站伺服器 | The Will Will Web (miniasp.com)](https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS)
+- [Angular - Deployment](https://angular.io/guide/deployment)
+- [Apache Tomcat 9 (9.0.59) - Windows Service How-To](https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html)
+- [maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow](https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server)
+- [`<base href="/">` 與 `<base href="./">` 的差別？- General - 臺灣 Angular 技術論壇](https://forum.angular.tw/t/topic/881/12)
+- [如何將 Angular 2 含有路由機制的 SPA 網頁應用程式部署到 IIS 網站伺服器 | The Will Will Web (miniasp.com)](https://blog.miniasp.com/post/2017/01/17/Angular-2-deploy-on-IIS)

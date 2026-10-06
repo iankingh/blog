@@ -1,5 +1,5 @@
 ---
-title: "ChromeTools"
+title: "Chrome DevTools Overrides：本地模擬回應與保留修改"
 date: 2021-04-11T19:11:37+08:00
 categories:
  - "筆記"
@@ -8,68 +8,47 @@ tags:
  - "chrome"
 toc: true
 draft: false
+description: "補上建立 override、確認生效和停用流程，區分 DOM 修改與真正來源檔案。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## chrome 筆記
-<!-- 簡介 -->
-
+補上建立 override、確認生效和停用流程，區分 DOM 修改與真正來源檔案。
 
 <!--more-->
 
-## 使用 overrides
+適用：Chrome DevTools近期版本的Local Overrides；不同版本選單名稱可能略有差異。本次以檔案核對流程，未修改外部服務。
 
-### 前言
+## 操作步驟
 
-overrides 是 chrome 在 65推出的新功能 
+開啟一個可測的本地頁面，DevTools → Network選回應，右鍵Override content／headers。首次選擇本機資料夾並允許DevTools存取；也可從Sources → Overrides配置。修改內容並儲存，再重新載入。
 
-其目的是為 可以在重新整理後還可以用使用修改後的 js ,css ...等
+對JSON回應可把任務清單改為空陣列，核對UI空狀態；對CSS可改間距，確認重新整理仍保留。Network的override標記表示回應被替換，應記錄原內容與改動用於復原。
 
-本地覆蓋使您可以在DevTools中進行更改，並在頁面載入期間保留這些更改。
-以前，重新載入頁面時，您在DevTools中所做的任何更改都將丟失。
-本地替代適用於大多數檔案型別，但有一些例外。
+## 與其他功能的區別
 
+Elements臨時改DOM通常不會被Overrides儲存；由HTML內嵌CSS的Styles修改也有不同限制，應編輯對應來源內容。Workspaces是對映實際原始來源並儲存，Overrides是取代瀏覽器讀到的網路回應，不會改伺服器。
 
-### 操作步驟
+開啟Overrides時DevTools會停用cache，效能測試要記錄此影響。source-mapped資源可能需操作實際network原始檔，不直接在對映後的來源點選就認為伺服器內容改變。
 
-1. Open the Sources panel  - 開啟 Sources 
+## 確認與清理
 
-2. Open the Overrides tab  - 點選 Overrides
+關閉Enable Local Overrides後重新整理，確認回到原回應；測試結論明確標註模擬資料與真實服務差異。不要用修改Authorization／CORS回應頭的本地模擬宣稱後端許可權已修復，實際伺服器仍需正確設定。
 
-![ chromeUseDevtoolsSourcesOverrides.png ](/images/chromeTools/chromeUseDevtoolsSourcesOverrides.png) 
+可用於介面尚未完成時測試UI，但變更只影響自己的瀏覽器；要團隊重現需將假資料與測試server存專案，而非只交截圖。override資料夾可能存實際響應，注意不包含秘密或個人資料。
 
-3. Select which directory you want to save your changes to
+## 查核範圍
 
-   3.1 點選 +Select folder for overrides 
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-   3.2 選擇 要存在本地的目錄
+## 參考資料
 
-![ chromeUseOverridesSelectFolder1.png ](/images/chromeTools/chromeUseOverridesSelectFolder1.png) 
+- [Chrome Overrides](https://developer.chrome.com/docs/devtools/overrides/)
+- [Chrome Workspaces](https://developer.chrome.com/docs/devtools/workspaces/)
 
-​		3.3 點選 Allows 
-![ chromeUseOverridesSelectFolder2.png ](/images/chromeTools/chromeUseOverridesSelectFolder2.png) 
+### 原始筆記保留的來源
 
-​		3.4 勾選 Enable Local Overrides
-![ chromeUseOverridesSelectFolder3.png ](/images/chromeTools/chromeUseOverridesSelectFolder3.png) 
+- [Chrome Dev Tool 的好用功能 - overrides](https://pvencs.blogspot.com/2019/01/chrome-dev-tool-overrides.html)
 
-4. test 修改 JS 
+### 原始筆記的其他連結
 
-   4.1 到 Page 修改 測試的JS
-
-![ chromeUseOverridesModifyPageJs1.png ](/images/chromeTools/chromeUseOverridesModifyPageJs1.png) 
-
-​	4.2 修改後 會有一個紫色點點,表示修改完成
-
-![ chromeUseOverridesModifyPageJs2.png ](/images/chromeTools/chromeUseOverridesModifyPageJs2.png) 
-
-​		4.3 按F5 重新整理 , 就可以看到效果
-
-![ chromeUseOverridesModifyPageJs3.png ](/images/chromeTools/chromeUseOverridesModifyPageJs3.png) 
-
-
-
-## 參考
-
-[Chrome Dev Tool 的好用功能 - overrides](https://pvencs.blogspot.com/2019/01/chrome-dev-tool-overrides.html)
-
-https://developer.chrome.com/blog/new-in-devtools-65/#overrides
-
+- [原始參考入口 1](https://developer.chrome.com/blog/new-in-devtools-65/#overrides)

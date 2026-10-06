@@ -1,172 +1,61 @@
 ---
-title: "Redis_config"
+title: "Redis 設定：監聽、記憶體與持久化"
 date: 2021-04-06T10:22:06+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
  - "redis"
 toc: true
+description: "移除不能直接使用的編號設定片段，補上有效 redis.conf 與核對方式。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## redis config
-<!-- 簡介 -->
+移除不能直接使用的編號設定片段，補上有效 redis.conf 與核對方式。
+
 <!--more-->
 
-windows : 
+適用：Redis 7.4 的 localhost 練習；Redis Cluster 不支援用 SELECT 做多資料庫隔離。
 
-redis.windows-service.conf
+## 最小本機設定
 
-linux : 
-
-
-
-
-
-
-
-**redis設定檔**
+在獨立目錄先建立 data，儲存 redis.conf：
 
 ```conf
-
-1. Redis預設不是以守護程式的方式執行，可以透過該配置項修改，使用yes啟用守護程式
-　　　　daemonize yes
- 
-  　　2. 當Redis以守護程式方式執行時，Redis預設會把pid寫入/var/run/redis.pid檔，可以透過pidfile指定
-  
-   　　　　pidfile /var/run/redis.pid
-   
-   　　3. 指定Redis監聽埠，預設埠為6379，作者在自己的一篇博文中解釋了為什麼選用6379作為預設埠，因為6379在手機按鍵上MERZ對應的號碼，而MERZ取自義大利歌女Alessia Merz的名字
- 
-  　　　　port 6379
-  
-  　　4. 繫結的主機位址
- 
-  　　　　bind 127.0.0.1 這個Ip要設定成你伺服器的Ip
-  
-  　　5.當 使用者端閒置多長時間後關閉連線，如果指定為0，表示關閉該功能
-  
-  　　　　timeout 300
- 
-  　　6. 指定日誌記錄級別，Redis總共支援四個級別：debug、verbose、notice、warning，預設為verbose
-  
-  　　　　loglevel verbose
- 
-  　　7. 日誌記錄方式，預設為標準輸出，如果配置Redis為守護程式方式執行，而這裡又配置為日誌記錄方式為標準輸出，則日誌將會傳送給/dev/null
-  
-  　　　　logfile stdout
-  
-  　　8. 設定資料庫的數量，預設資料庫為0，可以使用SELECT <dbid>命令在連線上指定資料庫id
-  
-  　　　　databases 16
-  
-  　　9. 指定在多長時間內，有多少次更新操作，就將資料同步到資料檔案，可以多個條件配合
-  
-  　　　　save <seconds> <changes>
-  
-  　　　　Redis預設設定檔中提供了三個條件：
-  　　　　　　save 900 1
-  　　　　　　save 300 10
-  　　　　　　save 60 10000
-  　　　　分別表示900秒（15分鐘）內有1個更改，300秒（5分鐘）內有10個更改以及60秒內有10000個更改。
-  
-  　　10. 指定儲存至本地資料庫時是否壓縮資料，預設為yes，Redis採用LZF壓縮，如果為了節省CPU時間，可以關閉該選項，但會導致資料庫檔變的巨大
-  
-  　　　　rdbcompression yes
- 
-  　　11. 指定本地資料庫檔案名，預設值為dump.rdb
-  
-  　　　　dbfilename dump.rdb
-  
-  　　12. 指定本地資料庫存放目錄
-  
-  　　　　dir ./
-  
-  　　13. 設定當本機為slav服務時，設定master服務的IP位址及埠，在Redis啟動時，它會自動從master進行資料同步
-  
-  　　　　slaveof <masterip> <masterport>
-  
-  　　14. 當master服務設定了密碼保護時，slav服務連線master的密碼
-  
-  　　　　masterauth <master-password>
-  
-  　　15. 設定Redis連線密碼，如果配置了連線密碼，使用者端在連線Redis時需要透過AUTH <password>命令提供密碼，預設關閉
- 
-  　　　　requirepass foobared
-  
-  　　16. 設定同一時間最大使用者端連線數，預設無限制，Redis可以同時開啟的使用者端連線數為Redis程式可以開啟的最大檔描述符數，如果設定 maxclients 0，表示不作限制。當使用者端連線數到達限制時，Redis會關閉新的連線並向用戶端返回max number of clients reached錯誤資訊
-  
-  　　　　maxclients 128
-  
-  　　17. 指定Redis最大記憶體限制，Redis在啟動時會把資料載入到記憶體中，達到最大記憶體後，Redis會先嘗試清除已到期或即將到期的Key，當此方法處理 後，仍然到達最大記憶體設定，將無法再進行寫入操作，但仍然可以進行讀取操作。Redis新的vm機制，會把Key存放記憶體，Value會存放在swap區
- 
-  　　　　maxmemory <bytes>
-  
-  　　18. 指定是否在每次更新操作後進行日誌記錄，Redis在預設情況下是非同步的把資料寫入磁片，如果不開啟，可能會在斷電時導致一段時間內的資料丟失。因為 redis本身同步資料檔案是按上面save條件來同步的，所以有的資料會在一段時間內只存在於記憶體中。預設為no
-  
-  　　　　appendonly no
- 
-  　　19. 指定更新日誌檔案名，預設為appendonly.aof
-  
-  　　　　appendfilename appendonly.aof
-  
-  　　20. 指定更新日誌條件，共有3個可選值：
-  
-  　　　　no：表示等作業系統進行資料快取同步到磁片（快） 
-  　　　　always：表示每次更新操作後手動呼叫fsync()將資料寫到磁片（慢，安全） 
-  　　　　everysec：表示每秒同步一次（折衷，預設值）
-  　　　　appendfsync everysec
-  
-  　　21. 指定是否啟用虛擬記憶體機制，預設值為no，簡單的介紹一下，VM機制將資料分頁存放，由Redis將訪問量較少的頁即冷資料swap到磁片上，訪問多的頁面由磁片自動換出到記憶體中（在後面的文章我會仔細分析Redis的VM機制）
-  
-  　　　　vm-enabled no
-  
-  　　22. 虛擬記憶體檔路徑，預設值為/tmp/redis.swap，不可多個Redis例項共用
-  
- 　　　　vm-swap-file /tmp/redis.swap
-  
-  　　23. 將所有大於vm-max-memory的資料存入虛擬記憶體,無論vm-max-memory設定多小,所有索引資料都是記憶體儲存的(Redis的索引資料 就是keys),也就是說,當vm-max-memory設定為0的時候,其實是所有value都存在於磁片。預設值為0
-  
- 　　　　vm-max-memory 0
- 
- 　　24. Redis swap檔分成了很多的page，一個物件可以儲存在多個page上面，但一個page上不能被多個物件共用，vm-page-size是要根據儲存的 資料大小來設定的，作者建議如果儲存很多小物件，page大小最好設定為32或者64bytes；如果儲存很大大物件，則可以使用更大的page，如果不 確定，就使用預設值
- 
- 　　　　vm-page-size 32
-
- 　　25. 設定swap檔中的page數量，由於頁表（一種表示頁面空閒或使用的bitmap）是在放在記憶體中的，，在磁片上每8個pages將消耗1byte的記憶體。
- 
- 　　　　vm-pages 134217728
- 
- 　　26. 設定訪問swap檔的執行緒數,最好不要超過機器的核數,如果設定為0,那麼所有對swap檔的操作都是串列的，可能會造成比較長時間的延遲。預設值為4
- 
- 　　　　vm-max-threads 4
- 
- 　　27. 設定在向用戶端應答時，是否把較小的包合併為一個包傳送，預設為開啟
- 
- 　　　　glueoutputbuf yes
- 
- 　　28. 指定在超過一定的數量或者最大的元素超過某一臨界值時，採用一種特殊的雜湊演算法
-
- 　　　　hash-max-zipmap-entries 64
- 
- 　　　　hash-max-zipmap-value 512
- 
- 　　29. 指定是否啟動重置雜湊，預設為開啟（後面在介紹Redis的雜湊演算法時具體介紹）
- 
- 　　　　activerehashing yes
- 
- 　　30. 指定包含其它的設定檔，可以在同一主機上多個Redis例項之間使用同一份設定檔，而同時各個例項又擁有自己的特定設定檔
- 
-　　　　include /path/to/local.conf
- 
-注意：protected-mode引數是為了禁止外網訪問redis，如果需要外網訪問，需要設定為 no
-
-
-
+bind 127.0.0.1
+protected-mode yes
+port 6379
+daemonize no
+logfile ""
+dir ./data
+dbfilename dump.rdb
+save 60 100
+appendonly yes
+appendfsync everysec
+maxmemory 128mb
+maxmemory-policy allkeys-lru
 ```
 
+以原生 Redis 執行 `redis-server ./redis.conf`。另開終端執行 `redis-cli PING`，應 PONG；`redis-cli CONFIG GET maxmemory` 應128MiB對應的134217728。配置不能混入條列編號或中文說明，註釋以 # 開頭。
 
+## 持久化與限制
 
+RDB 依時間與修改數量產生快照，AOF 記錄寫操作；everysec 不是每次寫入都同步落盤，故障可能丟失近期資料。Redis 7 使用多段 AOF，備份不能只找舊版單一 appendonly.aof。兩者都不是自動跨機器備份，需要驗證複製與恢復。
 
+allkeys-lru 可驅逐任何鍵，適合練習快取，不適合把資料當不可丟失記錄。noeviction 達上限會拒絕部分寫入，應用要處理錯誤。maxmemory不等於整個程式RSS上限，複製、緩衝與allocator也佔記憶體。
 
-## 參考
+## 平臺與確認
+
+容器內若使用此 bind127.0.0.1，其他容器不能連到它；容器網路配置需另選監聽地址並以網路／ACL限制，不單純複製本機檔。systemd／container通常前景執行，不需daemonize yes。logfile空字串表示stdout，不寫成 `logfile stdout`。
+
+CONFIG SET 的變更不保證重啟後儲存，需維護真正的配置或依授權使用 CONFIG REWRITE。修改後確認啟動日誌、CONFIG GET、讀寫及重啟資料，再測備份還原。密碼與ACL從部署秘密來源提供，文章不使用預設弱密碼。
+
+## 查核範圍
+
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
+- [Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+- [Eviction](https://redis.io/docs/latest/develop/reference/eviction/)

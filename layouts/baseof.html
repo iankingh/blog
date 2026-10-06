@@ -5,6 +5,7 @@
     {{- $pages = (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).ByDate.Reverse -}}
     {{- if ne .Section "archives" -}}{{- $pages = where $pages "Section" "eq" .Section -}}{{- end -}}
   {{- end -}}
+  {{- if ne .Section "archives" -}}{{- $pages = $pages.ByLastmod.Reverse -}}{{- end -}}
   {{- $paginator := .Paginate $pages -}}
   {{- .Store.Set "rpgPaginator" $paginator -}}
   {{- $canonical = $paginator.URL | absURL -}}

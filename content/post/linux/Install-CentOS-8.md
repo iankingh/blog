@@ -1,5 +1,5 @@
 ---
-title: "Install-CentOS-8"
+title: "CentOS Linux 8 安裝紀錄：VM 流程與 EOL 說明"
 date: 2020-06-29T08:51:38+08:00
 categories:
  - "筆記"
@@ -7,192 +7,64 @@ tags:
  - "Linux"
  - "CentOS"
 toc: true
-draft: true
+draft: false
+description: "補齊原本空白的安裝章節，採 VM 說明磁碟、網路與帳號設定，標示替代發行版。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Install-CentOS-8
+補齊原本空白的安裝章節，採 VM 說明磁碟、網路與帳號設定，標示替代發行版。
+
 <!--more-->
 
+適用：CentOS Linux 8 的歷史安裝情境。該版本已結束維護；本篇用於理解舊系統，不建議新服務繼續部署。
 
-## Step 1: Download Centos 8
+## 準備與版本選擇
 
-在 CentOS 官方網站 https://www.centos.org/download/ 下載 CentOS 8 ISO 檔案。
+CentOS Linux 8 的 EOL 日期為 2021-12-31。新環境可評估 CentOS Stream、Rocky Linux 或 AlmaLinux，但它們不是原 CentOS Linux 8 的相同發布模式，需依硬體、套件相容性與供應商支援選擇。
 
-CentOS 8 的新特性
+在隔離 VM 準備專用虛擬磁碟、ISO、網路與足夠記憶體／磁碟。ISO 從發行版官方來源取得，核對其 SHA-256 與簽章。原筆記的 dd USB 操作易選錯實體磁碟，本篇以掛載 ISO 的 VM 流程取代，不涉及主機磁碟覆寫。
 
-- DNF 成為了預設的軟體包管理器，同時 yum 仍然是可用的
-- 使用網路管理器（nmcli 和 nmtui）進行網路配置，移除了網路指令碼
-- 使用 Podman     進行容器管理
-- 引入了兩個新的包倉庫：BaseOS 和 AppStream
-- 使用     Cockpit 作為預設的系統管理工具
-- 預設使用     Wayland 作為顯示伺服器
-- iptables 將被 nftables 取代
-- 使用 Linux 核心 4.18
-- 提供 PHP     7.2、Python 3.6、Ansible 2.8、VIM 8.0 和 Squid 4
+## 安裝順序
 
-CentOS 8 所需的最低硬體配置:
+1. 由 ISO 開機，選 Install，設定語言與鍵盤。
+2. 在 Installation Summary 選目的磁碟，確認只選 VM 的專用磁碟；初學採自動分割，手動分割先規劃 `/`、boot 與所需 swap。
+3. 選時區、同步時間、設定 hostname 與網絡卡；確認 DHCP 或靜態地址符合所在網段。
+4. 選擇軟體組合，如 Minimal Install。建立具管理許可權的一般帳號，設定強密碼。
+5. 開始安裝，完成後解除安裝 ISO 並重開，避免又進安裝畫面。
 
-- 2 GB     RAM
-- 64 位 x86 架構、2 GHz 或以上的 CPU
-- 20 GB 硬碟空間
+## 開機確認
 
-## Step 2: Make a bootable device(建立 CentOS 8 啟動介質)
-
-使用 dd建立
-
-```
-dd if=CentOS-8-x86_64-1905-dvd1.iso of=/dev/sdb
+```bash
+cat /etc/os-release
+lsblk
+ip address
+ip route
+ timedatectl
+systemctl --failed
 ```
 
-## Step 3:Start with the installation process
+應從硬碟進系統，根目錄掛在預期虛擬磁碟、網路地址／default route正確、沒有意外失敗服務。若無網路先看網絡卡狀態與VM NAT/bridge，再檢查DNS，不先換掉所有repo。
 
-當系統從 CentOS 8 ISO 啟動介質啟動之後，就可以看到以下這個介面。
+Cockpit 若實際需要，依受支援系統的套件檔案安裝並只向管理網段開放；不要因筆記有一個命令就在歷史系統上公開9090。舊系統遷移先備份、另建新VM還原與測試，保留回復路線。
 
-使用 CentOS 8 安裝檔開機會有下述三種模式：
+## 查核範圍
 
-1. Install CentOS Linux 8：正常安裝系統流程。
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-2. Test this media & install CentOS Linux 8：測試媒體後在進入安裝系統流程。
+## 參考資料
 
-3. Troubleshooting：進入【除錯模式】，能夠救授 CentOS 系統和執行記憶體測試 (Run a memory test) ...。
+- [CentOS Linux EOL](https://www.centos.org/centos-linux-eol/)
+- [CentOS Stream](https://www.centos.org/centos-stream/)
+- [Rocky 文件](https://docs.rockylinux.org/)
+- [AlmaLinux 文件](https://wiki.almalinux.org/)
 
-選擇“Install CentOS Linux 8.0”（安裝 CentOS Linux 8.0）選項。
+### 原始筆記保留的來源
 
-![Start with the installation process](/images/Linux/Start-with-the-installation-process.png)
+- [參考 Red Hat swap 建議](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap)
+- [Cockpit](https://cockpit-project.org/)
 
+### 原始筆記的其他連結
 
-
-## Step 4: Choose the language for the installation process
-
- 選擇系統語言
-
-選擇想要在 CentOS 8 安裝過程中使用的語言，然後繼續。
-
-![Choose the language for the installation process](/images/Linux/Choose-the-language-for-the-installation-process.png)
-
-## Step5 : Select the keyboard language for the installation process
-
-
-
-## Step 7: Configure the network and hostname
-
-
-
-## **Step 8: Configure the location and the timezone**
-
-
-
-
-
-## **Step 9: Select the destination for the installation**
-
-磁碟分割與檔案系統
-
-/home、swap 和 / 這三個【掛載點】將來容量有可能會變動，因此【裝置型別】設定為可以彈性增加和減少檔案系統容量的 LVM。
-
-| 磁碟分割建議表 |              |              |                                                              |
-| -------------- | ------------ | ------------ | ------------------------------------------------------------ |
-| **掛載點**     | **裝置型別** | **檔案系統** | **建議容量**                                                 |
-| biosboot       | 標準分割區   | BIOS Boot    | 2MB                                                          |
-| /boot          | 標準分割區   | ext4         | 1GB                                                          |
-| /home          | LVM          | xfs          | 10GB 以上                                                    |
-| swap           | LVM          | swap         | [參考 Red Hat swap 建議](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) |
-| /              | LVM          | xfs          | 剩餘容量                                                     |
-
- 
-
-
-
-
-
-## Step 10: Choose the partitioning scheme
-
-
-
-## **Step 11: Create the mount points**
-
-
-
-
-
-**Step 12: Select the server environment and the features to install**
-
-
-
-**Step 13: Begin the installation**
-
-
-
-**Step 14: Create your user account**
-
-
-
-**Step 15: Configure the root password**
-
-
-
-**Step 16: Reboot and accept the licence agreement**
-
-
-
-**Step 17: Log in your new system**
-
-
-
-## 安裝 Cockpit
-
-[Cockpit](https://cockpit-project.org/) 是基於 Web 介面的應用程式，可用來管理伺服器並監視和調整系統資源。
-
-如果 CentOS 8 是使用【最小型安裝】Cockpit 須手動安裝：
-
-dnf install -y cockpit
-
-Bash
-
-Copy
-
-設定 Cockpit 開機自動啟用 (enable) 且立即啟用 (--now)：
-
-systemctl enable --now cockpit.socket
-
-Bash
-
-Copy
-
-firewall 預設已允許 cockpit (port 9090)：
-
-firewall-cmd --list-all
-
-Bash
-
-Copy
-
-public (active)
-
- target: default
-
- icmp-block-inversion: no
-
- interfaces: enp0s3
-
- sources:
-
- services: cockpit dhcpv6-client ssh
-
-
-
-開啟瀏覽器輸入 IP:9090 即可連結到 Cockpit。
-
-## 參考
-
-CentOS 8 安裝圖解 | IT人
-
-https://iter01.com/443455.html
-
-How to Install CentOS 8 (Step by Step with Screenshots)
-
-https://linoxide.com/distros/how-to-install-centos/
-
-CentOS 8 伺服器作業系統安裝和設定 - MIS 腳印
-
-https://www.footmark.info/linux/centos/centos8-installation/
+- [原始參考入口 1](https://iter01.com/443455.html)
+- [原始參考入口 2](https://linoxide.com/distros/how-to-install-centos/)
+- [原始參考入口 3](https://www.footmark.info/linux/centos/centos8-installation/)

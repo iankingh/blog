@@ -1,5 +1,5 @@
 <article class="quest-card panel">
-  <div class="quest-meta"><span class="quest-category">{{ with .Params.categories }}{{ index . 0 }}{{ else }}探索{{ end }}</span><span class="quest-dates"><span>發布 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time></span>{{ if .Lastmod.After .Date }}<span>更新 <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time></span>{{ end }}</span></div>
+  <div class="quest-meta"><span class="quest-category">{{ with .Params.categories }}{{ index . 0 }}{{ else }}探索{{ end }}</span><span>更新 <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time></span></div>
   <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
   <p>{{ (partial "rpg/summary.html" .) | truncate 85 }}</p>
   <div class="quest-bottom"><div class="quest-tags">{{ range first 2 (.GetTerms "tags") }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div><span class="reading-time">{{ partial "rpg/icon.html" "clock" }}{{ .ReadingTime }} 分鐘 <span class="quest-arrow">↗</span></span></div>

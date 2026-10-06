@@ -1,8 +1,8 @@
 ---
-title: "Java DecimalFormat：明確控制格式、Locale 與捨入"
+title: "Java 數字格式：DecimalFormat 與 BigDecimal"
 date: 2020-05-26T08:59:50+08:00
-lastmod: 2026-10-05T21:48:32+08:00
-description: "用 Java 21 的完整範例整理 DecimalFormat：0 與 #、千分位、百分比、Locale 以及 BigDecimal 的 HALF_EVEN 與 HALF_UP 捨入結果。"
+lastmod: 2026-10-07T00:01:00+08:00
+description: "比較 DecimalFormat 的格式、Locale 與捨入方式，使用 BigDecimal 避免金額精度誤判。"
 featuredOrder: 3
 categories: ["筆記"]
 tags: ["java"]
@@ -10,9 +10,15 @@ toc: true
 draft: false
 ---
 
-當 API、報表或畫面需要固定的小數位數與千分位，可以用 `DecimalFormat` 控制呈現。要讓不同電腦產生相同結果，除了 pattern，也需要明確指定 Locale 與捨入方式。
+比較 DecimalFormat 的格式、Locale 與捨入方式，使用 BigDecimal 避免金額精度誤判。
 
 <!--more-->
+
+適用：Java 21 標準函式庫；本次以 JDK 25 的 --release 21 編譯，核對輸出。原 OpenJDK 21.0.1 驗證環境保留如下。
+
+當 API、報表或畫面需要固定的小數位數與千分位，可以用 `DecimalFormat` 控制呈現。要讓不同電腦產生相同結果，除了 pattern，也需要明確指定 Locale 與捨入方式。
+
+
 
 ## 使用情境與適用環境
 
@@ -92,7 +98,7 @@ java DecimalFormatDemo
 ## 限制與常見錯誤
 
 - `Locale.US` 是本文重現結果的選擇；多語系畫面應依目標使用者的 Locale 呈現。
-- `DecimalFormat` 不是執行緒安全的物件，不要把單一實例放進多執行緒共用且沒有同步的服務。
+- `DecimalFormat` 不是執行緒安全的物件，不要把單一例項放進多執行緒共用且沒有同步的服務。
 - 數值 `0.125` 使用 `%` 會變成 `12.50%`；已經以 `12.5` 表達百分比的資料，不能再套用同樣轉換。
 - 把 `$` 寫進 pattern 只會加上字元，不會選擇貨幣或進行匯率轉換。
 - 若需要處理輸入字串，`parse()` 的規則與回傳型別也必須另外確認，不能只靠輸出格式推斷。
@@ -101,9 +107,30 @@ java DecimalFormatDemo
 
 固定 Locale、使用明確的十進位資料與捨入方式，範例才能在不同環境中重現。選好 pattern 之後，再確認百分比、分組符號與多執行緒使用方式是否符合需求。
 
-## 參考
 
 - [Java SE 21：DecimalFormat](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
+- [Java SE 21：BigDecimal](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
+- [Java SE 21：RoundingMode](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
+- [Oracle Java Tutorials：Customizing Formats](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)
+
+## 修訂確認
+
+原有完整範例保留；本文是可控的學習情境，實際系統還需依資料庫延遲與併發負載調整。查核不代表任何引數能直接適用所有 production 服務。
+
+## 系列導覽
+
+[00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
+
+## 查核範圍
+
+JDK25 --release21 執行，預設 locale 與德文 locale 的標準輸出逐字比對均通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Java 數字格式：DecimalFormat 與 BigDecimal官方參考](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
+
+### 原始筆記保留的來源
+
 - [Java SE 21：BigDecimal](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
 - [Java SE 21：RoundingMode](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
 - [Oracle Java Tutorials：Customizing Formats](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)

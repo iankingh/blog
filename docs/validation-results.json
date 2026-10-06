@@ -1,0 +1,22 @@
+{
+  "completedAt": "2026-10-07",
+  "notes": 130,
+  "originalPublished": 73,
+  "originalDrafts": 57,
+  "publishedAfterReview": 130,
+  "checks": {
+    "hugo": "PASS Hugo Extended0.167.0 正式壓縮建置；不含草稿旗標，輸出 /tmp/blog-review-output",
+    "noteContent": "PASS 130 篇原始發布日期、摘要、情境、來源、程式碼語言與內部 ref；235 個原參考網址保留（修正一個末尾逗號）",
+    "renderedSite": "PASS 346 HTML 的內部連結、錨點、圖片／資源與 alt；搜尋130唯一 URL；首頁及筆記各13頁×10筆",
+    "search": "PASS lazy load/cache、全文、輸入／重開競態、HTTP／network／malformed 重試、安全文字呈現與焦點",
+    "security": "PASS 346 HTML 的網站安全檢查",
+    "java": "PASS 六個 release8 範例；三個 release21 範例，HikariCP依賴固定、DecimalFormat德文locale另測",
+    "webExamples": "PASS 全新隔離目錄 npm ci 重現；38 SFC、30 Vite正式建置、store/router/SSR、15 JSON/YAML區塊、DOM/標準輸出",
+    "angular": "PASS 9 個 ngc strict／strictTemplates TypeScript區塊與對應類別方法分支",
+    "spring": "PASS 8 tests，0 failure/error/skipped；固定Boot3.5.0／springdoc2.8.9，資料庫H2",
+    "gitPython": "PASS IP輸出；暫存Git repo檔名空格／新增修改刪除／無差異ZIP",
+    "browser": "PASS 手機390、桌面1920／2560、分類／標籤／第13頁／系列目錄／報告130列／搜尋斜線快捷鍵",
+    "diffWhitespace": "PASS git diff --check"
+  },
+  "scope": "64 篇有隔離執行／編譯／mock，其餘66篇為文件查核；平台與格式限制詳逐篇清單，未提交、推送或部署"
+}

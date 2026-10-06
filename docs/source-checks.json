@@ -1,0 +1,3214 @@
+[
+  {
+    "url": "http://www.catb.org/~esr/faqs/smart-questions.html",
+    "status": null,
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://0.30000000000000004.com/",
+    "status": 200,
+    "finalUrl": "https://0.30000000000000004.com/",
+    "bytesRead": 149500,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Floating Point Math"
+    ]
+  },
+  {
+    "url": "https://alexcorvi.github.io/heic2any/",
+    "status": 200,
+    "finalUrl": "https://alexcorvi.github.io/heic2any/",
+    "bytesRead": 8785,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "\r\n\t\t\tHeic2any: Client-side conversion of HEIC/HEIF image files to JPEG,\r\n\t\t\tPNG, or GIF in the browser.\r\n\t\t"
+    ]
+  },
+  {
+    "url": "https://angular.dev/api/router/withHashLocation",
+    "status": 200,
+    "finalUrl": "https://angular.dev/api/router/withHashLocation",
+    "bytesRead": 149994,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "withHashLocation • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/cli/build",
+    "status": 200,
+    "finalUrl": "https://angular.dev/cli/build",
+    "bytesRead": 149903,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ng build • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/cli/generate",
+    "status": 200,
+    "finalUrl": "https://angular.dev/cli/generate",
+    "bytesRead": 137395,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ng generate • Overview • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/ecosystem/rxjs-interop",
+    "status": 200,
+    "finalUrl": "https://angular.dev/ecosystem/rxjs-interop",
+    "bytesRead": 149988,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Signals interop • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/errors/NG0201",
+    "status": 200,
+    "finalUrl": "https://angular.dev/errors/NG0201",
+    "bytesRead": 135937,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "NG0201: No Provider Found • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/components/lifecycle",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/components/lifecycle",
+    "bytesRead": 149988,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Lifecycle • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/di",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/di",
+    "bytesRead": 149976,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Dependency Injection • Overview • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/forms",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/forms",
+    "bytesRead": 149982,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Forms • Overview • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/forms/form-validation",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/forms/form-validation",
+    "bytesRead": 149982,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Validate form input • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/forms/reactive-forms",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/forms/reactive-forms",
+    "bytesRead": 149988,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Reactive forms • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/forms/template-driven-forms",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/forms/template-driven-forms",
+    "bytesRead": 149986,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Template-driven forms • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/forms/typed-forms",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/forms/typed-forms",
+    "bytesRead": 149988,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Strictly typed reactive forms • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/http/setup",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/http/setup",
+    "bytesRead": 149897,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Setting up HttpClient • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/routing",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/routing",
+    "bytesRead": 149891,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Routing • Overview • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/routing/define-routes",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/routing/define-routes",
+    "bytesRead": 149986,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Define routes • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/guide/templates",
+    "status": 200,
+    "finalUrl": "https://angular.dev/guide/templates",
+    "bytesRead": 149891,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Templates • Overview • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/installation",
+    "status": 200,
+    "finalUrl": "https://angular.dev/installation",
+    "bytesRead": 149888,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Installation • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/reference/configs/workspace-config",
+    "status": 200,
+    "finalUrl": "https://angular.dev/reference/configs/workspace-config",
+    "bytesRead": 149992,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Workspace configuration • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/reference/configs/workspace-config#styles-and-scripts-configuration",
+    "status": 200,
+    "finalUrl": "https://angular.dev/reference/configs/workspace-config#styles-and-scripts-configuration",
+    "bytesRead": 149992,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Workspace configuration • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/reference/versions",
+    "status": 200,
+    "finalUrl": "https://angular.dev/reference/versions",
+    "bytesRead": 139829,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Version compatibility • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/reference/versions#browser-support",
+    "status": 200,
+    "finalUrl": "https://angular.dev/reference/versions#browser-support",
+    "bytesRead": 139829,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Version compatibility • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/style-guide",
+    "status": 200,
+    "finalUrl": "https://angular.dev/style-guide",
+    "bytesRead": 149940,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Style Guide • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/tools/cli",
+    "status": 200,
+    "finalUrl": "https://angular.dev/tools/cli",
+    "bytesRead": 147049,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Angular CLI • Overview • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/tools/cli/deployment",
+    "status": 200,
+    "finalUrl": "https://angular.dev/tools/cli/deployment",
+    "bytesRead": 149897,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Deployment • Angular"
+    ]
+  },
+  {
+    "url": "https://angular.dev/update-guide",
+    "status": 200,
+    "finalUrl": "https://angular.dev/update-guide",
+    "bytesRead": 135125,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Update guide • Angular"
+    ]
+  },
+  {
+    "url": "https://apidocjs.com/",
+    "status": 200,
+    "finalUrl": "https://apidocjs.com/",
+    "bytesRead": 78045,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "apiDoc - Inline Documentation for RESTful web APIs"
+    ]
+  },
+  {
+    "url": "https://code.visualstudio.com/docs/remote/ssh",
+    "status": 200,
+    "finalUrl": "https://code.visualstudio.com/docs/remote/ssh",
+    "bytesRead": 140925,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Remote Development using SSH"
+    ]
+  },
+  {
+    "url": "https://code.visualstudio.com/docs/remote/troubleshooting",
+    "status": 200,
+    "finalUrl": "https://code.visualstudio.com/docs/remote/troubleshooting",
+    "bytesRead": 149481,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Remote Development Tips and Tricks"
+    ]
+  },
+  {
+    "url": "https://code.visualstudio.com/docs/setup/windows",
+    "status": 200,
+    "finalUrl": "https://code.visualstudio.com/docs/setup/windows",
+    "bytesRead": 113119,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Installing Visual Studio Code on Windows"
+    ]
+  },
+  {
+    "url": "https://compodoc.app/guides/installation.html",
+    "status": 200,
+    "finalUrl": "https://compodoc.app/guides/installation.html",
+    "bytesRead": 9683,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Compodoc - The missing documentation tool for your Angular application"
+    ]
+  },
+  {
+    "url": "https://compodoc.app/guides/options.html",
+    "status": 200,
+    "finalUrl": "https://compodoc.app/guides/options.html",
+    "bytesRead": 13718,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Compodoc - The missing documentation tool for your Angular application"
+    ]
+  },
+  {
+    "url": "https://dev.java/learn/",
+    "status": 200,
+    "finalUrl": "https://dev.java/learn/",
+    "bytesRead": 20045,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Learn Java - Dev.java"
+    ]
+  },
+  {
+    "url": "https://dev.java/learn/exceptions/",
+    "status": 200,
+    "finalUrl": "https://dev.java/learn/exceptions/",
+    "bytesRead": 390,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": []
+  },
+  {
+    "url": "https://developer.android.com/build/jdks",
+    "status": 200,
+    "finalUrl": "https://developer.android.com/build/jdks",
+    "bytesRead": 149839,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Java versions in Android builds &nbsp;|&nbsp; Android Studio &nbsp;|&nbsp; Android Developers"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/google/play/requirements/target-sdk",
+    "status": 200,
+    "finalUrl": "https://developer.android.com/google/play/requirements/target-sdk",
+    "bytesRead": 149837,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Meet Google Play&#39;s target API level requirement &nbsp;|&nbsp; Other Play guides &nbsp;|&nbsp; Android Developers"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/studio/projects/create-project",
+    "status": 200,
+    "finalUrl": "https://developer.android.com/studio/projects/create-project",
+    "bytesRead": 149839,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Create a project &nbsp;|&nbsp; Android Studio &nbsp;|&nbsp; Android Developers"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/studio/run/emulator",
+    "status": 200,
+    "finalUrl": "https://developer.android.com/studio/run/emulator",
+    "bytesRead": 149839,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Run apps on the Android Emulator &nbsp;|&nbsp; Android Studio &nbsp;|&nbsp; Android Developers"
+    ]
+  },
+  {
+    "url": "https://developer.chrome.com/docs/devtools/overrides/",
+    "status": 200,
+    "finalUrl": "https://developer.chrome.com/docs/devtools/overrides/",
+    "bytesRead": 149895,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Override web content and HTTP response headers locally &nbsp;|&nbsp; Chrome DevTools &nbsp;|&nbsp; Chrome for Developers"
+    ]
+  },
+  {
+    "url": "https://developer.chrome.com/docs/devtools/workspaces/",
+    "status": 200,
+    "finalUrl": "https://developer.chrome.com/docs/devtools/workspaces/",
+    "bytesRead": 149895,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Set up workspaces to save changes to source files &nbsp;|&nbsp; Chrome DevTools &nbsp;|&nbsp; Chrome for Developers"
+    ]
+  },
+  {
+    "url": "https://developer.hashicorp.com/vagrant/docs/boxes",
+    "status": 200,
+    "finalUrl": "https://developer.hashicorp.com/vagrant/docs/boxes",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Vagrant Boxes | Vagrant | HashiCorp Developer"
+    ]
+  },
+  {
+    "url": "https://developer.hashicorp.com/vagrant/docs/cli",
+    "status": 200,
+    "finalUrl": "https://developer.hashicorp.com/vagrant/docs/cli",
+    "bytesRead": 147440,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Command-Line Interface | Vagrant | HashiCorp Developer"
+    ]
+  },
+  {
+    "url": "https://developer.hashicorp.com/vagrant/docs/cli/ssh_config",
+    "status": 200,
+    "finalUrl": "https://developer.hashicorp.com/vagrant/docs/cli/ssh_config",
+    "bytesRead": 145661,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "vagrant ssh-config - Command-Line Interface | Vagrant | HashiCorp Developer"
+    ]
+  },
+  {
+    "url": "https://developer.hashicorp.com/vagrant/docs/vagrantfile",
+    "status": 200,
+    "finalUrl": "https://developer.hashicorp.com/vagrant/docs/vagrantfile",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Vagrantfile | Vagrant | HashiCorp Developer"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement",
+    "bytesRead": 149863,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Document: createElement() method - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event",
+    "bytesRead": 149894,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Element: input event - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "bytesRead": 149841,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Using the Fetch API - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL",
+    "bytesRead": 149887,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "HTMLCanvasElement: toDataURL() method - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions",
+    "bytesRead": 149952,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "HTMLSelectElement: selectedOptions property - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent",
+    "bytesRead": 149904,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Node: textContent property - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static",
+    "bytesRead": 149870,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "URL: createObjectURL() static method - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia",
+    "bytesRead": 149907,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Window: matchMedia() method - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/print",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Window/print",
+    "bytesRead": 149878,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Window: print() method - Web APIs | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/pointer",
+    "bytesRead": 149948,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "pointer CSS media feature - CSS | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing",
+    "bytesRead": 149928,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Printing - CSS | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/CORS_enabled_image",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/CORS_enabled_image",
+    "bytesRead": 149778,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Use cross-origin images in a canvas - HTML | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select",
+    "bytesRead": 149911,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "&lt;select&gt; HTML select element - HTML | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table",
+    "bytesRead": 149856,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "&lt;table&gt; HTML table element - HTML | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden",
+    "bytesRead": 149916,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "hidden HTML global attribute - HTML | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent",
+    "bytesRead": 149772,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Browser detection using the user agent string (UA sniffing) - HTTP | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+    "bytesRead": 149812,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Cross-Origin Resource Sharing (CORS) - HTTP | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "bytesRead": 149855,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Closures - JavaScript | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures",
+    "bytesRead": 149762,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JavaScript data types and data structures - JavaScript | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+    "bytesRead": 149851,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Functions - JavaScript | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+    "bytesRead": 149883,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JSON.parse() - JavaScript | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "bytesRead": 149874,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Number - JavaScript | MDN"
+    ]
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes",
+    "status": 200,
+    "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes",
+    "bytesRead": 149914,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "String.prototype.includes() - JavaScript | MDN"
+    ]
+  },
+  {
+    "url": "https://developers.google.com/analytics/devguides/collection/ga4",
+    "status": 200,
+    "finalUrl": "https://developers.google.com/analytics/devguides/collection/ga4",
+    "bytesRead": 128091,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Google Analytics for developers &nbsp;|&nbsp; Google for Developers"
+    ]
+  },
+  {
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
+    "status": 200,
+    "finalUrl": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
+    "bytesRead": 14666,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Reliability Pillar - AWS Well-Architected Framework - Reliability Pillar"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/build/cache/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/build/cache/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Docker build cache | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/build/concepts/context/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/build/concepts/context/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Build context | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/compose/how-tos/networking/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/compose/how-tos/networking/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Networking in Compose | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/compose/how-tos/startup-order/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/compose/how-tos/startup-order/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Control startup and shutdown order in Compose | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/desktop/features/wsl/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/desktop/features/wsl/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Docker Desktop WSL 2 backend on Windows | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/containers/run/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/containers/run/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Running containers | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/install/centos/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/install/centos/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Install Docker Engine on CentOS | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/install/linux-postinstall/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/install/linux-postinstall/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Linux post-installation steps for Docker Engine | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/storage/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/storage/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Storage | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/storage/bind-mounts/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/storage/bind-mounts/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Bind mounts | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/storage/volumes/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/storage/volumes/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Volumes | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/swarm/secrets/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/swarm/secrets/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Manage sensitive data with Docker secrets | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Create a swarm | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/reference/cli/docker/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/reference/cli/docker/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "docker | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/reference/cli/docker/service/update/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/reference/cli/docker/service/update/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "docker service update | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/reference/compose-file/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/reference/compose-file/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Compose file reference | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.docker.com/reference/dockerfile/",
+    "status": 200,
+    "finalUrl": "https://docs.docker.com/reference/dockerfile/",
+    "bytesRead": 149998,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Dockerfile reference | Docker Docs"
+    ]
+  },
+  {
+    "url": "https://docs.gitlab.com/user/profile/personal_access_tokens/",
+    "status": 200,
+    "finalUrl": "https://docs.gitlab.com/user/profile/personal_access_tokens/",
+    "bytesRead": 81261,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Personal access tokens | GitLab Docs"
+    ]
+  },
+  {
+    "url": "https://docs.gitlab.com/user/ssh/",
+    "status": 200,
+    "finalUrl": "https://docs.gitlab.com/user/ssh/",
+    "bytesRead": 54199,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Use SSH keys with GitLab | GitLab Docs"
+    ]
+  },
+  {
+    "url": "https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html",
+    "status": 200,
+    "finalUrl": "https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html",
+    "bytesRead": 83293,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Javadoc - Gradle DSL Version 9.8.0"
+    ]
+  },
+  {
+    "url": "https://docs.gradle.org/current/userguide/java_plugin.html",
+    "status": 200,
+    "finalUrl": "https://docs.gradle.org/current/userguide/java_plugin.html",
+    "bytesRead": 149982,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "The Java Plugin"
+    ]
+  },
+  {
+    "url": "https://docs.junit.org/current/user-guide/",
+    "status": 200,
+    "finalUrl": "https://docs.junit.org/6.1.3/overview.html",
+    "bytesRead": 28192,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Overview :: JUnit User Guide"
+    ]
+  },
+  {
+    "url": "https://docs.npmjs.com/cli/v11/commands/npm-ci",
+    "status": 200,
+    "finalUrl": "https://docs.npmjs.com/cli/v11/commands/npm-ci/",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "npm-ci | npm Docs"
+    ]
+  },
+  {
+    "url": "https://docs.npmjs.com/cli/v11/commands/npm-explain",
+    "status": 200,
+    "finalUrl": "https://docs.npmjs.com/cli/v11/commands/npm-explain/",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "npm-explain | npm Docs"
+    ]
+  },
+  {
+    "url": "https://docs.openssl.org/master/man1/openssl-dgst/",
+    "status": 200,
+    "finalUrl": "https://docs.openssl.org/master/man1/openssl-dgst/",
+    "bytesRead": 47960,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "openssl-dgst - OpenSSL Documentation"
+    ]
+  },
+  {
+    "url": "https://docs.openssl.org/master/man1/openssl-s_client/",
+    "status": 200,
+    "finalUrl": "https://docs.openssl.org/master/man1/openssl-s_client/",
+    "bytesRead": 92240,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "openssl-s_client - OpenSSL Documentation"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "BigDecimal (Java SE 21 &amp; JDK 21)"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html",
+    "bytesRead": 116429,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "DecimalFormat (Java SE 21 &amp; JDK 21)"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "The java Command"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html",
+    "bytesRead": 104944,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "The javac Command"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html",
+    "bytesRead": 12033,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Overview of JDK Installation"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-16.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/26/",
+    "bytesRead": 33753,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JDK 26 Documentation - Home"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-4.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/26/",
+    "bytesRead": 33753,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JDK 26 Documentation - Home"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html",
+    "bytesRead": 86811,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Troubleshoot Memory Leaks"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html",
+    "bytesRead": 23799,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Interfaces (The Java&trade; Tutorials &gt;        \n            Learning the Java Language &gt; Interfaces and Inheritance)\n"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html",
+    "bytesRead": 23452,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Polymorphism (The Java&trade; Tutorials &gt;        \n            Learning the Java Language &gt; Interfaces and Inheritance)\n"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/javase/tutorial/java/concepts/",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/javase/tutorial/java/concepts/",
+    "bytesRead": 19621,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Lesson: Object-Oriented Programming Concepts (The Java&trade; Tutorials &gt; Learning the Java Language)"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html",
+    "bytesRead": 33786,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Primitive Data Types (The Java&trade; Tutorials &gt;        \n            Learning the Java Language &gt; Language Basics)\n"
+    ]
+  },
+  {
+    "url": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html",
+    "status": 200,
+    "finalUrl": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html",
+    "bytesRead": 25336,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Variables (The Java&trade; Tutorials &gt;        \n            Learning the Java Language &gt; Language Basics)\n"
+    ]
+  },
+  {
+    "url": "https://docs.python.org/3/library/ipaddress.html",
+    "status": 200,
+    "finalUrl": "https://docs.python.org/3/library/ipaddress.html",
+    "bytesRead": 145910,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ipaddress — IPv4/IPv6 manipulation library &#8212; Python 3.14.8 documentation"
+    ]
+  },
+  {
+    "url": "https://docs.python.org/3/library/socket.html#socket.getaddrinfo",
+    "status": 200,
+    "finalUrl": "https://docs.python.org/3/library/socket.html#socket.getaddrinfo",
+    "bytesRead": 149835,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "socket — Low-level networking interface &#8212; Python 3.14.8 documentation"
+    ]
+  },
+  {
+    "url": "https://docs.rockylinux.org/",
+    "status": 200,
+    "finalUrl": "https://docs.rockylinux.org/",
+    "bytesRead": 149972,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Home - Documentation"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html",
+    "bytesRead": 16526,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ConditionalOnProperty (Spring Boot 3.5.16 API)"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/features/developing-auto-configuration.html#features.developing-auto-configuration.testing",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/3.5/reference/features/developing-auto-configuration.html#features.developing-auto-configuration.testing",
+    "bytesRead": 123181,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Creating Your Own Auto-configuration :: Spring Boot"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Externalized Configuration :: Spring Boot"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/features/profiles.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/3.5/reference/features/profiles.html",
+    "bytesRead": 86552,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Profiles :: Spring Boot"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/using/auto-configuration.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/3.5/reference/using/auto-configuration.html",
+    "bytesRead": 75461,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Auto-configuration :: Spring Boot"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html",
+    "bytesRead": 96605,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Build Systems :: Spring Boot"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-boot/docs/2.7.18/reference/html/application-properties.html#application-properties.web.spring.servlet.multipart.max-file-size",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-boot/docs/2.7.18/reference/html/application-properties.html#application-properties.web.spring.servlet.multipart.max-file-size",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Common Application Properties"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-cloud-gateway/reference/",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-cloud-gateway/reference/",
+    "bytesRead": 59031,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Spring Cloud Gateway :: Spring Cloud Gateway"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/actuator-api.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/actuator-api.html",
+    "bytesRead": 80004,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Actuator API :: Spring Cloud Gateway"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-cloud-netflix/reference/spring-cloud-netflix.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-cloud-netflix/reference/spring-cloud-netflix.html",
+    "bytesRead": 81417,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Spring Cloud Netflix Features :: Spring Cloud Netflix"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-data/commons/reference/repositories/definition.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-data/commons/reference/repositories/definition.html",
+    "bytesRead": 49634,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Defining Repository Interfaces :: Spring Data Commons"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html",
+    "bytesRead": 118730,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JPA Query Methods :: Spring Data JPA"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-data/jpa/reference/jpa/transactions.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-data/jpa/reference/jpa/transactions.html",
+    "bytesRead": 45790,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Transactionality :: Spring Data JPA"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html",
+    "bytesRead": 149972,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Using @Transactional :: Spring Framework"
+    ]
+  },
+  {
+    "url": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/tx-propagation.html",
+    "status": 200,
+    "finalUrl": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/tx-propagation.html",
+    "bytesRead": 117862,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Transaction Propagation :: Spring Framework"
+    ]
+  },
+  {
+    "url": "https://editorconfig.org/",
+    "status": 200,
+    "finalUrl": "https://editorconfig.org/",
+    "bytesRead": 27442,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "EditorConfig"
+    ]
+  },
+  {
+    "url": "https://es6.ruanyifeng.com/",
+    "status": 200,
+    "finalUrl": "https://es6.ruanyifeng.com/",
+    "bytesRead": 1477,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ES6 入门教程"
+    ]
+  },
+  {
+    "url": "https://felo.ai/",
+    "status": 200,
+    "finalUrl": "https://felo.ai/search",
+    "bytesRead": 149884,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Felo — Free Multilingual AI Search &amp; Creation Platform"
+    ]
+  },
+  {
+    "url": "https://firewalld.org/documentation/man-pages/firewall-cmd.html",
+    "status": 200,
+    "finalUrl": "https://firewalld.org/documentation/man-pages/firewall-cmd.html",
+    "bytesRead": 149994,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Documentation - Manual Pages - firewall-cmd | firewalld"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-add",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-add",
+    "bytesRead": 79223,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-add Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-archive",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-archive",
+    "bytesRead": 50059,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-archive Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-commit",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-commit",
+    "bytesRead": 122777,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-commit Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-diff",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-diff",
+    "bytesRead": 149901,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-diff Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-merge",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-merge",
+    "bytesRead": 142033,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-merge Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-pull",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-pull",
+    "bytesRead": 149909,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-pull Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-rebase",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-rebase",
+    "bytesRead": 149897,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-rebase Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-reflog",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-reflog",
+    "bytesRead": 43960,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-reflog Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-reset",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-reset",
+    "bytesRead": 77147,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-reset Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-restore",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-restore",
+    "bytesRead": 51118,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-restore Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-revert",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-revert",
+    "bytesRead": 48448,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-revert Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-stash",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-stash",
+    "bytesRead": 89261,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-stash Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/git-status",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/git-status",
+    "bytesRead": 99860,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - git-status Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/gitcredentials",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/gitcredentials",
+    "bytesRead": 55512,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - gitcredentials Documentation"
+    ]
+  },
+  {
+    "url": "https://git-scm.com/docs/gitignore",
+    "status": 200,
+    "finalUrl": "https://git-scm.com/docs/gitignore",
+    "bytesRead": 50365,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git - gitignore Documentation"
+    ]
+  },
+  {
+    "url": "https://gitforwindows.org/",
+    "status": 200,
+    "finalUrl": "https://gitforwindows.org/",
+    "bytesRead": 7235,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Git for Windows"
+    ]
+  },
+  {
+    "url": "https://github.com/alexcorvi/heic2any",
+    "status": 200,
+    "finalUrl": "https://github.com/alexcorvi/heic2any",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GitHub - alexcorvi/heic2any: Converting HEIF/HEIF image formats to PNG/GIF/JPEG in the browser · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.com/angular/angular/blob/13.0.0/CHANGELOG.md",
+    "status": 200,
+    "finalUrl": "https://github.com/angular/angular/blob/13.0.0/CHANGELOG.md",
+    "bytesRead": 149984,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "angular/CHANGELOG.md at 13.0.0 · angular/angular · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.com/apache/tomcat/blob/9.0.x/RUNNING.txt",
+    "status": 200,
+    "finalUrl": "https://github.com/apache/tomcat/blob/9.0.x/RUNNING.txt",
+    "bytesRead": 149996,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "tomcat/RUNNING.txt at 9.0.x · apache/tomcat · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.com/brettwooldridge/HikariCP",
+    "status": 200,
+    "finalUrl": "https://github.com/brettwooldridge/HikariCP",
+    "bytesRead": 149971,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GitHub - brettwooldridge/HikariCP: 光 HikariCP・A solid, high-performance, JDBC connection pool at last. · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.com/slatedocs/slate",
+    "status": 200,
+    "finalUrl": "https://github.com/slatedocs/slate",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GitHub - slatedocs/slate: Beautiful static documentation for your API · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.com/smartloli/kafka-eagle",
+    "status": 200,
+    "finalUrl": "https://github.com/smartloli/EFAK",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GitHub - smartloli/EFAK: A AI-Driven, Distributed and high-performance monitoring system, for comprehensive monitoring and management of kafka cluster. · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.com/springfox/springfox",
+    "status": 200,
+    "finalUrl": "https://github.com/springfox/springfox",
+    "bytesRead": 149999,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GitHub - springfox/springfox: Automated JSON API documentation for API&#39;s built with Spring · GitHub"
+    ]
+  },
+  {
+    "url": "https://github.github.com/gfm/#tables-extension-",
+    "status": 200,
+    "finalUrl": "https://github.github.com/gfm/#tables-extension-",
+    "bytesRead": 149801,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GitHub Flavored Markdown Spec"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/commands/hugo_new_content/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/commands/hugo_new_content/",
+    "bytesRead": 76060,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "hugo new content"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/configuration/markup/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/configuration/markup/",
+    "bytesRead": 149980,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Configure markup"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/configuration/services/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/configuration/services/",
+    "bytesRead": 73594,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Configure services"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/content-management/front-matter/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/content-management/front-matter/",
+    "bytesRead": 143013,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Front matter"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/content-management/syntax-highlighting/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/content-management/syntax-highlighting/",
+    "bytesRead": 97782,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Syntax highlighting"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/functions/resources/fingerprint/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/functions/resources/fingerprint/",
+    "bytesRead": 65302,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "resources.Fingerprint"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/getting-started/directory-structure/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/getting-started/directory-structure/",
+    "bytesRead": 80989,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Directory structure"
+    ]
+  },
+  {
+    "url": "https://gohugo.io/installation/",
+    "status": 200,
+    "finalUrl": "https://gohugo.io/installation/",
+    "bytesRead": 58105,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Installation"
+    ]
+  },
+  {
+    "url": "https://help.disqus.com/en/articles/1717084-javascript-configuration-variables",
+    "status": 200,
+    "finalUrl": "https://help.disqus.com/en/articles/1717084-javascript-configuration-variables",
+    "bytesRead": 80806,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JavaScript configuration variables | Disqus"
+    ]
+  },
+  {
+    "url": "https://help.disqus.com/en/articles/1717163-troubleshooting-disqus-on-localhost",
+    "status": 200,
+    "finalUrl": "https://help.disqus.com/en/articles/1717163-using-disqus-on-ajax-sites",
+    "bytesRead": 62133,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Using Disqus on AJAX sites | Disqus"
+    ]
+  },
+  {
+    "url": "https://help.eclipse.org/latest/topic/org.eclipse.jdt.doc.user/reference/views/type_hierarchy/ref-type-hierarchy.htm",
+    "status": 200,
+    "finalUrl": "https://help.eclipse.org/latest/topic/org.eclipse.jdt.doc.user/reference/views/type_hierarchy/ref-type-hierarchy.htm",
+    "bytesRead": 1316,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Page not found"
+    ]
+  },
+  {
+    "url": "https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/reference/ref-40.htm",
+    "status": 200,
+    "finalUrl": "https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/reference/ref-40.htm",
+    "bytesRead": 1278,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Page not found"
+    ]
+  },
+  {
+    "url": "https://immersivetranslate.com/",
+    "status": 200,
+    "finalUrl": "https://immersivetranslate.com/en/",
+    "bytesRead": 149888,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": []
+  },
+  {
+    "url": "https://jakarta.ee/specifications/transactions/",
+    "status": 200,
+    "finalUrl": "https://jakarta.ee/specifications/transactions/",
+    "bytesRead": 149977,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Jakarta Transactions | Jakarta EE | The Eclipse Foundation"
+    ]
+  },
+  {
+    "url": "https://junit.org/junit5/docs/5.10.3/user-guide/",
+    "status": 200,
+    "finalUrl": "https://docs.junit.org/5.10.3/user-guide/",
+    "bytesRead": 149973,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "JUnit 5 User Guide"
+    ]
+  },
+  {
+    "url": "https://kafka.apache.org/40/configuration/broker-configs/",
+    "status": 200,
+    "finalUrl": "https://kafka.apache.org/40/configuration/broker-configs/",
+    "bytesRead": 149990,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Broker Configs | Apache Kafka"
+    ]
+  },
+  {
+    "url": "https://kafka.apache.org/40/documentation/#upgrade",
+    "status": 200,
+    "finalUrl": "https://kafka.apache.org/40/documentation/#upgrade",
+    "bytesRead": 20034,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Documentation Redirect | Apache Kafka"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge",
+    "bytesRead": 70603,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Lifecycle FAQ - Internet Explorer and Microsoft Edge | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-netroute",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-netroute?view=windowsserver2025-ps",
+    "bytesRead": 87873,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Get-NetRoute (NetTCPIP) | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/new-netroute",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/new-netroute?view=windowsserver2025-ps",
+    "bytesRead": 78212,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "New-NetRoute (NetTCPIP) | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection?view=windowsserver2025-ps",
+    "bytesRead": 71243,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Test-NetConnection (NetTCPIP) | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver17",
+    "bytesRead": 72814,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Database-Level Roles - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/database-engine/sql-server-business-continuity-dr?view=sql-server-ver17",
+    "bytesRead": 90565,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Business Continuity and Database Recovery - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/rollback-transaction-transact-sql",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/rollback-transaction-transact-sql?view=sql-server-ver17",
+    "bytesRead": 60775,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ROLLBACK TRANSACTION (Transact-SQL) - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql?view=sql-server-ver17",
+    "bytesRead": 149990,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ALTER TABLE (Transact-SQL) - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql?view=sql-server-ver17",
+    "bytesRead": 112504,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "CREATE LOGIN (Transact-SQL) - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver17",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "CREATE TABLE (Transact-SQL) - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql?view=sql-server-ver17",
+    "bytesRead": 92409,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "CREATE USER (Transact-SQL) - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql?view=sql-server-ver17",
+    "bytesRead": 67074,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "GRANT Object Permissions (Transact-SQL) - SQL Server | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/troubleshoot-dns-client-resolution-issues",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/troubleshoot-dns-client-resolution-issues",
+    "bytesRead": 57571,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Troubleshoot DNS Client Name Resolution Issues - Windows Client | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference?view=windows-11",
+    "bytesRead": 65050,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Windows Recovery Environment (Windows RE) | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+    "bytesRead": 55001,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ipconfig | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat",
+    "bytesRead": 53403,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "netstat | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008",
+    "bytesRead": 56638,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "route | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows/package-manager/winget/",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows/package-manager/winget/",
+    "bytesRead": 64479,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Use WinGet to install and manage applications | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-overview",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-overview",
+    "bytesRead": 72283,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "BitLocker recovery overview | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows/wsl/install",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows/wsl/install",
+    "bytesRead": 63182,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Install WSL | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/windows/wsl/troubleshooting",
+    "status": 200,
+    "finalUrl": "https://learn.microsoft.com/en-us/windows/wsl/troubleshooting",
+    "bytesRead": 115090,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Troubleshooting Windows Subsystem for Linux | Microsoft Learn"
+    ]
+  },
+  {
+    "url": "https://man.openbsd.org/sftp",
+    "status": 200,
+    "finalUrl": "https://man.openbsd.org/sftp",
+    "bytesRead": 43452,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "sftp(1) - OpenBSD manual pages"
+    ]
+  },
+  {
+    "url": "https://man7.org/linux/man-pages/man8/ss.8.html",
+    "status": 200,
+    "finalUrl": "https://man7.org/linux/man-pages/man8/ss.8.html",
+    "bytesRead": 29077,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "ss(8) - Linux manual page"
+    ]
+  },
+  {
+    "url": "https://maven.apache.org/guides/introduction/introduction-to-profiles.html",
+    "status": 200,
+    "finalUrl": "https://maven.apache.org/guides/introduction/introduction-to-profiles.html",
+    "bytesRead": 52159,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Introduction to Build Profiles – Maven"
+    ]
+  },
+  {
+    "url": "https://maven.apache.org/pom.html#properties",
+    "status": 200,
+    "finalUrl": "https://maven.apache.org/pom.html#properties",
+    "bytesRead": 121808,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "POM Reference – Maven"
+    ]
+  },
+  {
+    "url": "https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html",
+    "status": 200,
+    "finalUrl": "https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html",
+    "bytesRead": 39698,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Using JUnit 5 Platform – Maven Surefire Plugin"
+    ]
+  },
+  {
+    "url": "https://mermaid.js.org/syntax/flowchart.html",
+    "status": 200,
+    "finalUrl": "https://mermaid.js.org/syntax/flowchart.html",
+    "bytesRead": 149433,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Flowcharts Syntax | Mermaid"
+    ]
+  },
+  {
+    "url": "https://mermaid.live/",
+    "status": 200,
+    "finalUrl": "https://mermaid.live/",
+    "bytesRead": 3775,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Online FlowChart &amp; Diagrams Editor - Mermaid Live Editor"
+    ]
+  },
+  {
+    "url": "https://monica.im/",
+    "status": 200,
+    "finalUrl": "https://monica.im/",
+    "bytesRead": 149813,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Monica - All-in-One AI Assistant for Chat, Writing &amp; Research"
+    ]
+  },
+  {
+    "url": "https://nginx.org/en/docs/beginners_guide.html",
+    "status": 200,
+    "finalUrl": "https://nginx.org/en/docs/beginners_guide.html",
+    "bytesRead": 17982,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Beginner’s Guide"
+    ]
+  },
+  {
+    "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files",
+    "status": 200,
+    "finalUrl": "https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files",
+    "bytesRead": 149176,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Module ngx_http_core_module"
+    ]
+  },
+  {
+    "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass",
+    "status": 200,
+    "finalUrl": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass",
+    "bytesRead": 130815,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Module ngx_http_proxy_module"
+    ]
+  },
+  {
+    "url": "https://nginx.org/en/docs/windows.html",
+    "status": 200,
+    "finalUrl": "https://nginx.org/en/docs/windows.html",
+    "bytesRead": 5599,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "nginx for Windows"
+    ]
+  },
+  {
+    "url": "https://nodejs.org/api/http.html",
+    "status": 200,
+    "finalUrl": "https://nodejs.org/api/http.html",
+    "bytesRead": 149938,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "HTTP | Node.js v26.10.0 Documentation"
+    ]
+  },
+  {
+    "url": "https://pinia.vuejs.org/cookbook/migration-vuex.html",
+    "status": 200,
+    "finalUrl": "https://pinia.vuejs.org/cookbook/migration-vuex.html",
+    "bytesRead": 129810,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Migrating from Vuex ≤4 | Pinia"
+    ]
+  },
+  {
+    "url": "https://pinia.vuejs.org/core-concepts/",
+    "status": 200,
+    "finalUrl": "https://pinia.vuejs.org/core-concepts/",
+    "bytesRead": 91451,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Defining a Store | Pinia"
+    ]
+  },
+  {
+    "url": "https://pinia.vuejs.org/core-concepts/actions.html",
+    "status": 200,
+    "finalUrl": "https://pinia.vuejs.org/core-concepts/actions.html",
+    "bytesRead": 108742,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Actions | Pinia"
+    ]
+  },
+  {
+    "url": "https://pinia.vuejs.org/core-concepts/getters.html",
+    "status": 200,
+    "finalUrl": "https://pinia.vuejs.org/core-concepts/getters.html",
+    "bytesRead": 115179,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Getters | Pinia"
+    ]
+  },
+  {
+    "url": "https://pinia.vuejs.org/core-concepts/state.html",
+    "status": 200,
+    "finalUrl": "https://pinia.vuejs.org/core-concepts/state.html",
+    "bytesRead": 117147,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "State | Pinia"
+    ]
+  },
+  {
+    "url": "https://poe.com/",
+    "status": 200,
+    "finalUrl": "https://poe.com/login?redirect_url=%2F",
+    "bytesRead": 75437,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Poe - Fast, Helpful AI Chat"
+    ]
+  },
+  {
+    "url": "https://prismjs.com/",
+    "status": 200,
+    "finalUrl": "https://prismjs.com/",
+    "bytesRead": 50471,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "\n\t\t Prism \n\t"
+    ]
+  },
+  {
+    "url": "https://projectreactor.io/docs/core/release/reference/",
+    "status": 200,
+    "finalUrl": "https://projectreactor.io/docs/core/release/reference/",
+    "bytesRead": 843,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Redirect Notice"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/commands/scan/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/commands/scan/",
+    "bytesRead": 149994,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "SCAN | Docs"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/commands/set/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/commands/set/",
+    "bytesRead": 149984,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "SET | Docs"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/develop/data-types/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/develop/data-types/",
+    "bytesRead": 137532,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Redis data types | Docs"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/develop/reference/eviction/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/develop/reference/eviction/",
+    "bytesRead": 133249,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Key eviction | Docs"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/install-redis-on-windows/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/install-redis-on-windows/",
+    "bytesRead": 122229,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Install Redis on Windows | Docs"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/",
+    "bytesRead": 1283,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/config/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/operate/oss_and_stack/management/config/",
+    "bytesRead": 121866,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Redis configuration | Docs"
+    ]
+  },
+  {
+    "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/",
+    "status": 200,
+    "finalUrl": "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/",
+    "bytesRead": 149974,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Redis persistence | Docs"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/",
+    "bytesRead": 77567,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Getting Started | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/composition-api.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/composition-api.html",
+    "bytesRead": 70116,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Vue Router and the Composition API | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/lazy-loading.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/lazy-loading.html",
+    "bytesRead": 59575,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Lazy Loading Routes | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/navigation-failures.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/navigation-failures.html",
+    "bytesRead": 63732,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Waiting for the result of a Navigation | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+    "bytesRead": 110311,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Navigation Guards | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/active-links.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/active-links.html",
+    "bytesRead": 58109,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Active links | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+    "bytesRead": 73706,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Dynamic Route Matching with Params | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/history-mode.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/history-mode.html",
+    "bytesRead": 85294,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Different History modes | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/named-routes.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/named-routes.html",
+    "bytesRead": 50099,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Named Routes | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/navigation.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/navigation.html",
+    "bytesRead": 69782,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Programmatic Navigation | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/navigation.html#replace-current-location",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/navigation.html#replace-current-location",
+    "bytesRead": 69782,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Programmatic Navigation | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/nested-routes.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/nested-routes.html",
+    "bytesRead": 71678,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Nested Routes | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/passing-props.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/passing-props.html",
+    "bytesRead": 65162,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Passing Props to Route Components | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/redirect-and-alias.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/redirect-and-alias.html",
+    "bytesRead": 63785,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Redirect and Alias | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/guide/essentials/route-matching-syntax.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/guide/essentials/route-matching-syntax.html",
+    "bytesRead": 71033,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Routes' Matching Syntax | Vue Router"
+    ]
+  },
+  {
+    "url": "https://router.vuejs.org/installation.html",
+    "status": 200,
+    "finalUrl": "https://router.vuejs.org/installation.html",
+    "bytesRead": 58717,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Installation | Vue Router"
+    ]
+  },
+  {
+    "url": "https://scrumguides.org/scrum-guide.html",
+    "status": 200,
+    "finalUrl": "https://scrumguides.org/scrum-guide.html",
+    "bytesRead": 34920,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Scrum Guide | Scrum Guides"
+    ]
+  },
+  {
+    "url": "https://spec.commonmark.org/",
+    "status": 200,
+    "finalUrl": "https://spec.commonmark.org/",
+    "bytesRead": 7859,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "CommonMark Spec"
+    ]
+  },
+  {
+    "url": "https://spec.openapis.org/oas/latest.html",
+    "status": 200,
+    "finalUrl": "https://spec.openapis.org/oas/latest.html",
+    "bytesRead": 149880,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "OpenAPI Specification v3.2.1"
+    ]
+  },
+  {
+    "url": "https://spec.openapis.org/oas/v3.0.3.html",
+    "status": 200,
+    "finalUrl": "https://spec.openapis.org/oas/v3.0.3.html",
+    "bytesRead": 149924,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "OpenAPI Specification v3.0.3"
+    ]
+  },
+  {
+    "url": "https://spring.io/guides",
+    "status": 200,
+    "finalUrl": "https://spring.io/guides/",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": []
+  },
+  {
+    "url": "https://spring.io/projects/spring-cloud#overview",
+    "status": 200,
+    "finalUrl": "https://spring.io/projects/spring-cloud/",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": []
+  },
+  {
+    "url": "https://springdoc.org/",
+    "status": 200,
+    "finalUrl": "https://springdoc.org/",
+    "bytesRead": 149970,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "springdoc-openapi &#8212; OpenAPI 3 &amp; Swagger UI for Spring Boot"
+    ]
+  },
+  {
+    "url": "https://sre.google/sre-book/availability-table/",
+    "status": 200,
+    "finalUrl": "https://sre.google/sre-book/availability-table/",
+    "bytesRead": 18506,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Google SRE - Table For Service Availability"
+    ]
+  },
+  {
+    "url": "https://stackoverflow.com/help/minimal-reproducible-example",
+    "status": 200,
+    "finalUrl": "https://stackoverflow.com/help/minimal-reproducible-example",
+    "bytesRead": 95245,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "How to create a Minimal, Reproducible Example - Help Center - Stack Overflow"
+    ]
+  },
+  {
+    "url": "https://support.google.com/analytics/answer/7201382",
+    "status": 200,
+    "finalUrl": "https://support.google.com/analytics/answer/7201382",
+    "bytesRead": 149996,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Monitor events in DebugView - Analytics Help"
+    ]
+  },
+  {
+    "url": "https://swagger.io/tools/swagger-ui/",
+    "status": 200,
+    "finalUrl": "https://swagger.io/open-source/swagger-ui/",
+    "bytesRead": 109190,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "REST API Documentation Tool | Swagger UI"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/migration-10.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/migration-10.html",
+    "bytesRead": 19287,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat&reg; - Migration Guide - Tomcat 10.0.x"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/tomcat-9.0-doc/config/context.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/tomcat-9.0-doc/config/context.html",
+    "bytesRead": 86591,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat 9 Configuration Reference (9.0.122) - The Context Container"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/tomcat-9.0-doc/config/http.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/tomcat-9.0-doc/config/http.html",
+    "bytesRead": 148040,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat 9 Configuration Reference (9.0.122) - The HTTP Connector"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/tomcat-9.0-doc/deployer-howto.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/tomcat-9.0-doc/deployer-howto.html",
+    "bytesRead": 20691,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat 9 (9.0.122) - Tomcat Web Application Deployment"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/tomcat-9.0-doc/jndi-resources-howto.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/tomcat-9.0-doc/jndi-resources-howto.html",
+    "bytesRead": 58842,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat 9 (9.0.122) - JNDI Resources How-To"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/tomcat-9.0-doc/manager-howto.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/tomcat-9.0-doc/manager-howto.html",
+    "bytesRead": 75952,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat 9 (9.0.122) - Manager App How-To"
+    ]
+  },
+  {
+    "url": "https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html",
+    "status": 200,
+    "finalUrl": "https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html",
+    "bytesRead": 62028,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Apache Tomcat 9 (9.0.122) - Realm Configuration How-To"
+    ]
+  },
+  {
+    "url": "https://vite.dev/config/server-options.html#server-proxy",
+    "status": 200,
+    "finalUrl": "https://vite.dev/config/server-options.html#server-proxy",
+    "bytesRead": 116376,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Server Options | Vite"
+    ]
+  },
+  {
+    "url": "https://vite.dev/guide/",
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/",
+    "bytesRead": 89486,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Getting Started | Vite"
+    ]
+  },
+  {
+    "url": "https://vite.dev/guide/assets.html",
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/assets.html",
+    "bytesRead": 89659,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Static Asset Handling | Vite"
+    ]
+  },
+  {
+    "url": "https://vite.dev/guide/build.html",
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/build.html",
+    "bytesRead": 149842,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Building for Production | Vite"
+    ]
+  },
+  {
+    "url": "https://vite.dev/guide/build.html#public-base-path",
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/build.html#public-base-path",
+    "bytesRead": 149842,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Building for Production | Vite"
+    ]
+  },
+  {
+    "url": "https://vite.dev/guide/env-and-mode.html",
+    "status": 200,
+    "finalUrl": "https://vite.dev/guide/env-and-mode.html",
+    "bytesRead": 74456,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Env Variables and Modes | Vite"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/api/application.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/application.html",
+    "bytesRead": 145569,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Application API | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/api/composition-api-lifecycle.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/composition-api-lifecycle.html",
+    "bytesRead": 118826,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Composition API: Lifecycle Hooks | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/api/reactivity-advanced.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/reactivity-advanced.html",
+    "bytesRead": 121579,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Reactivity API: Advanced | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/api/reactivity-utilities.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/reactivity-utilities.html",
+    "bytesRead": 115153,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Reactivity API: Utilities | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/api/sfc-script-setup.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/sfc-script-setup.html",
+    "bytesRead": 149722,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "&lt;script setup&gt; | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/api/ssr.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/api/ssr.html",
+    "bytesRead": 106500,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Server-Side Rendering API | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/built-ins/transition-group.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/built-ins/transition-group.html",
+    "bytesRead": 103941,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "TransitionGroup | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/built-ins/transition.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/built-ins/transition.html",
+    "bytesRead": 149758,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Transition | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/components/attrs.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/attrs.html",
+    "bytesRead": 109260,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Fallthrough Attributes | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/components/events.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/events.html",
+    "bytesRead": 117745,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Component Events | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/components/props.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/props.html",
+    "bytesRead": 149742,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Props | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/components/provide-inject.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/provide-inject.html",
+    "bytesRead": 127335,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Provide / Inject | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/components/slots.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/slots.html",
+    "bytesRead": 149806,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Slots | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/components/v-model.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/components/v-model.html",
+    "bytesRead": 149830,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Component v-model | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/component-basics.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/component-basics.html",
+    "bytesRead": 149802,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Components Basics | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/computed.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/computed.html",
+    "bytesRead": 127669,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Computed Properties | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/conditional.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/conditional.html",
+    "bytesRead": 99897,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Conditional Rendering | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/forms.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/forms.html",
+    "bytesRead": 140120,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Form Input Bindings | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/lifecycle.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/lifecycle.html",
+    "bytesRead": 93618,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Lifecycle Hooks | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/list.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/list.html",
+    "bytesRead": 141148,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "List Rendering | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+    "bytesRead": 149764,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Reactivity Fundamentals | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/template-refs.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/template-refs.html",
+    "bytesRead": 124594,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Template Refs | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/template-syntax.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/template-syntax.html",
+    "bytesRead": 121335,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Template Syntax | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/watchers.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/essentials/watchers.html",
+    "bytesRead": 149788,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Watchers | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/extras/composition-api-faq.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/extras/composition-api-faq.html",
+    "bytesRead": 108821,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Composition API FAQ | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/introduction.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/introduction.html",
+    "bytesRead": 114092,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Introduction | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/quick-start.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/quick-start.html",
+    "bytesRead": 133401,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Quick Start | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/reusability/composables.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/reusability/composables.html",
+    "bytesRead": 142831,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Composables | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/reusability/custom-directives.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/reusability/custom-directives.html",
+    "bytesRead": 116755,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Custom Directives | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuejs.org/guide/scaling-up/ssr.html",
+    "status": 200,
+    "finalUrl": "https://vuejs.org/guide/scaling-up/ssr.html",
+    "bytesRead": 131737,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Server-Side Rendering (SSR) | Vue.js"
+    ]
+  },
+  {
+    "url": "https://vuex.vuejs.org/",
+    "status": 200,
+    "finalUrl": "https://vuex.vuejs.org/",
+    "bytesRead": 25801,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "What is Vuex? | Vuex"
+    ]
+  },
+  {
+    "url": "https://vuex.vuejs.org/guide/",
+    "status": 200,
+    "finalUrl": "https://vuex.vuejs.org/guide/",
+    "bytesRead": 25660,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Getting Started | Vuex"
+    ]
+  },
+  {
+    "url": "https://vuex.vuejs.org/guide/actions.html",
+    "status": 200,
+    "finalUrl": "https://vuex.vuejs.org/guide/actions.html",
+    "bytesRead": 38964,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Actions | Vuex"
+    ]
+  },
+  {
+    "url": "https://wiki.almalinux.org/",
+    "status": 200,
+    "finalUrl": "https://wiki.almalinux.org/",
+    "bytesRead": 31784,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "About AlmaLinux Wiki | AlmaLinux Wiki"
+    ]
+  },
+  {
+    "url": "https://www.centos.org/centos-linux-eol/",
+    "status": 200,
+    "finalUrl": "https://www.centos.org/centos-linux-eol/",
+    "bytesRead": 12758,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "CentOS Linux EOL - The CentOS Project"
+    ]
+  },
+  {
+    "url": "https://www.centos.org/centos-stream/",
+    "status": 200,
+    "finalUrl": "https://www.centos.org/centos-stream/",
+    "bytesRead": 13011,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "CentOS Stream - The CentOS Project"
+    ]
+  },
+  {
+    "url": "https://www.conventionalcommits.org/zh-hant/v1.0.0/",
+    "status": 200,
+    "finalUrl": "https://www.conventionalcommits.org/zh-hant/v1.0.0/",
+    "bytesRead": 15916,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "慣例式提交"
+    ]
+  },
+  {
+    "url": "https://www.drawio.com/docs/",
+    "status": 200,
+    "finalUrl": "https://www.drawio.com/docs/",
+    "bytesRead": 19942,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "draw.io documentation | draw.io"
+    ]
+  },
+  {
+    "url": "https://www.gnu.org/software/coreutils/manual/html_node/Basic-operations.html",
+    "status": null,
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html",
+    "status": null,
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+    "status": 200,
+    "finalUrl": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+    "bytesRead": 79480,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Learning about users and their needs - Service Manual - GOV.UK"
+    ]
+  },
+  {
+    "url": "https://www.kafka-eagle.org/",
+    "status": 200,
+    "finalUrl": "https://www.kafka-eagle.org/",
+    "bytesRead": 19493,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "EFAK"
+    ]
+  },
+  {
+    "url": "https://www.manning.com/books/spring-boot-in-action",
+    "status": 200,
+    "finalUrl": "https://www.manning.com/books/spring-boot-in-action",
+    "bytesRead": 149996,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Spring Boot in Action - Craig Walls"
+    ]
+  },
+  {
+    "url": "https://www.manning.com/books/spring-in-action-sixth-edition",
+    "status": 200,
+    "finalUrl": "https://www.manning.com/books/spring-in-action-sixth-edition",
+    "bytesRead": 149988,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Spring in Action, Sixth Edition - Craig Walls"
+    ]
+  },
+  {
+    "url": "https://www.mongodb.com/docs/manual/reference/configuration-options/",
+    "status": 200,
+    "finalUrl": "https://www.mongodb.com/docs/manual/reference/configuration-options/",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Self-Managed Configuration File Options - Database Manual - MongoDB Docs"
+    ]
+  },
+  {
+    "url": "https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/",
+    "status": 200,
+    "finalUrl": "https://www.mongodb.com/docs/manual/administration/install-community-windows/?win-method=wizard",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Install MongoDB Community on Windows - Database Manual - MongoDB Docs"
+    ]
+  },
+  {
+    "url": "https://www.mongodb.com/docs/mongodb-shell/",
+    "status": 200,
+    "finalUrl": "https://www.mongodb.com/docs/mongodb-shell/",
+    "bytesRead": 150000,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Welcome to MongoDB Shell (mongosh) - mongosh - MongoDB Docs"
+    ]
+  },
+  {
+    "url": "https://www.phind.com/",
+    "status": 404,
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc1918",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc1918/",
+    "bytesRead": 149989,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 1918: Address Allocation for Private Internets | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc3022",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc3022/",
+    "bytesRead": 149994,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 3022: Traditional IP Network Address Translator (Traditional NAT) | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc4217",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc4217/",
+    "bytesRead": 149995,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 4217: Securing FTP with TLS | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc5246",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc5246/",
+    "bytesRead": 149982,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 5246: The Transport Layer Security (TLS) Protocol Version 1.2 | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc8200",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc8200/",
+    "bytesRead": 149992,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 8200: Internet Protocol, Version 6 (IPv6) Specification | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc8446",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc8446/",
+    "bytesRead": 149996,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 8446: The Transport Layer Security (TLS) Protocol Version 1.3 | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc9110",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc9110/",
+    "bytesRead": 149899,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 9110: HTTP Semantics | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc9114",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc9114/",
+    "bytesRead": 149884,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 9114: HTTP&#x2F;3 | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc9293",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc9293/",
+    "bytesRead": 149858,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 9293: Transmission Control Protocol (TCP) | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc959",
+    "status": 200,
+    "finalUrl": "https://www.rfc-editor.org/info/rfc959/",
+    "bytesRead": 149989,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "RFC 959: File Transfer Protocol | RFC Editor"
+    ]
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "bytesRead": 149996,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "TypeScript: Handbook - The TypeScript Handbook"
+    ]
+  },
+  {
+    "url": "https://www.typescriptlang.org/tsconfig/allowJs.html",
+    "status": 200,
+    "finalUrl": "https://www.typescriptlang.org/tsconfig/allowJs.html",
+    "bytesRead": 149994,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "TypeScript: TSConfig Option: allowJs"
+    ]
+  },
+  {
+    "url": "https://www.wireshark.org/docs/",
+    "status": 200,
+    "finalUrl": "https://www.wireshark.org/docs/",
+    "bytesRead": 84821,
+    "checkedAt": "2026-10-06",
+    "bodyTitle": [
+      "Wireshark • Go Deep | Documentation"
+    ]
+  }
+]

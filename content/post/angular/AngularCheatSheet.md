@@ -1,5 +1,5 @@
 ---
-title: "AngularCheatSheet"
+title: "Angular 小抄：模板、生命週期、DI 與路由"
 date: 2020-11-06T22:11:38+08:00
 categories:
  - "筆記"
@@ -7,342 +7,71 @@ tags:
  - "Angular"
  - "FrontEnd"
 toc: true
-draft: true
+draft: false
+description: "重整過時 API 與不完整範例，提供核心概念對照及完整路由接線。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Angular Cheat Sheet (Angular 小抄)
+重整過時 API 與不完整範例，提供核心概念對照及完整路由接線。
+
 <!--more-->
 
-## Angular CLI(Angular 指令)
+適用：Angular原有NgModule專案的設計情境；新程式片段採Angular20 standalone方式，舊版差異另列。先使用與專案相容的Node／TypeScript。
 
-- `npm install -g @angular/cli` :
-This command will install the Angular CLI into our local machine using npm.(此命令將使用npm將Angular CLI安裝到我們的本地計算機中。)
-- `ng new <application name>` : This will setup a new Angular application using the ng new command.(這將使用ng new命令設定一個新的Angular應用程式。)
-- `ng new --help`: This returns all available Angular command list.(這將返回所有可用的Angular命令列表)
+## 快速對照
 
-- `ng generate component <name>`: This will create a new component on our application. We can also use the `ng g c <name>` shorthand to do this.(這將在我們的應用程式上建立一個新元件。我們也可以使用ng g c <name>的簡寫方式來做到這一點。)
+| 需求 | API／寫法 | 注意事項 |
+| --- | --- | --- |
+| 顯示文字 | `{{ value }}` | 不當作HTML執行 |
+| 屬性／事件 | `[disabled]` / `(click)` | 分別為資料與事件方向 |
+| 表單雙向繫結 | `[(ngModel)]` | 需FormsModule，form內需name |
+| 資料初始化 | ngOnInit | 不保證子檢視已完成 |
+| DOM／子檢視 | ngAfterViewInit | 避免在此無條件修改造成檢查錯誤 |
+| 清理 | ngOnDestroy／DestroyRef | timer、listener與subscription都需處理 |
+| 共用服務 | providedIn:root | provider層級影響例項範圍 |
 
-- `ng build`: Builds the application for production and stores it in the `dist` directory.
+新控制流@for需track穩定鍵；舊*ngFor的trackBy同樣為節點識別。Signal適合響應式狀態，RxJS適合非同步流，兩者可互通但不能混稱同一API。
 
-- `ng serve -o`: Serves the application by opening up the application in a browser using any port 4200 or any available port. `-o` : open
+## 最小路由
 
+假設已有HomeComponent、AboutComponent，app.routes.ts：
 
-
-- `ng g d <directive name>`: This command angular directive.
-- `ng g s <service name>` : Creates a new Javascript class based service.
-- `ng g p <pipe name>`: Generates a new pipe
-- `ng g cl <destination>` : This will create a new class in the specified directory.
-- 
-
-
-
-## Angular Lifecycle Hooks
-
-A component in Angular has a life-cycle, a number of different phases it goes through from birth to death.We can hook into those different phases to get some pretty fine grained control of our application.Here are some of the hooks:
-
-- `ngOnChanges`: This is called whenever one of input properties change.
-- `ngOnInit`: This is called immediately after `ngOnChanges` is completed and it is called once.
-- `ngOnDestroy`: Called before angular destroys a directory or component
-- `ngDoCheck`: Whenever a change detection is ran, this is called.
-- `ngAfterContentInit`: Invoked *after* Angular performs any content projection into the component’s view.
-- `ngAfterContentChecked`:This is called each time the content of the given component has been checked by the change detection mechanism of Angular.
-- `ngAfterViewInit` This is called when the component’s view has been fully initialized.
-- `ngAfterViewChecked`: Invoked each time the view of the given component has been checked by the change detection mechanism of Angular.
-
-## How Angular Hooks are used
-
-Always remember that hooks working in a component or directory, so use them in our component, we can do this:
-
-```
-`class ComponentName {
-    @Input('data') data: Data;
-    constructor() {
-        console.log(`new - data is ${this.data}`);
-    }
-    ngOnChanges() {
-        console.log(`ngOnChanges - data is ${this.data}`);
-    }
-    ngOnInit() {
-        console.log(`ngOnInit  - data is ${this.data}`);
-    }
-    ngDoCheck() {
-        console.log("ngDoCheck")
-    }
-    ngAfterContentInit() {
-        console.log("ngAfterContentInit");
-    }
-    ngAfterContentChecked() {
-        console.log("ngAfterContentChecked");
-    }
-    ngAfterViewInit() {
-        console.log("ngAfterViewInit");
-    }
-    ngAfterViewChecked() {
-        console.log("ngAfterViewChecked");
-    }
-    ngOnDestroy() {
-        console.log("ngOnDestroy");
-    }
-}
-```
-
-
-
-## Component DOM
-
-Angular comes with its DOM features where you can do a whole lot from binding of data and defining of dynamic styles. Let’s take a look at some features:
-Before we dive into the features, a simple component.ts file is in this manner:
-
-```
-import { Component } from '@angular/core';
-@Component({
-    // component attributes
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.less']
-})
-export class AppComponent {
-    name: 'Sunil';
-}
-```
-
-
-
-## Lets look at some template syntax:
-
-- `Interpolation`: using ```{{data to be displayed}}``` will display dynamic content from the ts file.
-- `<button (click)="callMethod()" ... />` : Adding Click events to buttons to call a method defined in the ts file
-- `<button *ngIf="loading" ... />`: Adding Conditionals to to elements. Conditionals have to listen to truthy or falsy value.
-- `*ngFor="let item of items``"`: iterate throught a defined list of items.Picture this as a for loop.
-- `<div [ngClass]="{green: isTrue(), bold: itTrue()}"/>`: Adding dynamic classes based on conditionals.
-- `<div [ngStyle]="{'color': isTrue() ? '#bbb' : '#ccc'}"/>`: Adding dynamic styles to template based on conditions
-
-## Component Communication
-
-Passing data from one component to another can be a little bit tricky in Angular. You can pass data from child to parent, parent to parent and between two unrelated components:
-
-- `input()`: This method helps To pass value into child component.
-
-``export class SampleComponent {@Input() value: 'Some Data should go in here';}``
-Child components are registered in parents component like this:
-
-```
-<child-component [value]="data"></child-component>
-```
-
-
-
-- `output()`: This method Emits event to the parent component. Bunch of data can be passed into emitted event which makes it a medium of passing data from child to parent:
-
-To Emit the event from the child component:
-
-```
-@Output() myEvent: EventEmitter < MyModel > = new EventEmitter();
-calledEvt(item: MyModel) {
-    this.myEvent.emit(item);
-}
-```
-
-
-
-And then the parent component listens to that event:
-
-```
-<parent-component 
-(myEvent)="callMethod()"></parent-component>
-```
-
-
-
-## Angular Routing
-
-Routing is another cool feature of Angular, with the Angular Routing system we can navigate through pages and even add route guards.
-
-- Component Routing: We can define routes in our application by defining the path and the component to be rendered: `` const routes: Routes = [ { path: 'home', component:HomeComponent }, { path: 'blog/:id', component: BlogPostCompoent }, { path: '**', component: PageNotFoundComponent } ]; ``
-
-For routing to work, add this the your `angular.module.ts` file:
-
-```
-RouterModule.forRoot(routes)
-```
-
-
-
-There are situations where by you want to keep track of what is happening in your routes, you can add this to enable tracking in your angular project:
-
-```
-RouterModule.forRoot(routes,{enableTracking:true})
-```
-
-
-
-To navigate through pages in Angular, we can use the `routerLink` attribute which takes in the name of the component we are routing to:
-
-```
-<a routerLink="/home" routerLinkActive="active"> Crisis Center</a>
-```
-
-
-
-The `routerLinkActive="active``"` will add an active class to the link when active.
-
-## Writing Route Guards
-
-We can define guard for route authentication. We can use the `CanActivate` class to do this:
-
-```
-class AlwaysAuthGuard implements CanActivate {        
-        canActivate() {
-                return true;
-        }
-}
-```
-
-
-
-To use this rote guard in our routes we can define it here:
-
-```
-const routes: Routes = [
-  { path: 'home', component:HomeComponent },
-  { path: 'blog/:id', component: BlogPostCompoent,canActivate: [AlwaysAuthGuard],  },
-    { path: '**', component: PageNotFoundComponent }
+```typescript
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', redirectTo: '' }
 ];
 ```
 
+app.config providers加入provideRouter(routes)，根元件imports加入RouterLink/RouterOutlet。模板：
 
-
-## Angular Services
-
-Angular services comes in handy when you can to do things like handling of http request and seeding of data on your application.They focus on presenting data and delegate data access to a service.
-
-```
-@Injectable()
-export class MyService {
-    public users: Users[];
-    constructor() { }
-    getAllUsers() {
-        // some implementation
-    }
-}
+```html
+<a routerLink="/">首頁</a> <a routerLink="/about">關於</a>
+<router-outlet />
 ```
 
+點關於顯示對應元件，瀏覽器返回回首頁。前端guard不是後端許可權；HttpClient請求需獨立配置provider與錯誤處理。
 
+## 原版本差異
 
-To use this service in your component, import it using the import statement and then register it in the constructor
+舊`Http`改HttpClient，TSLint與--prod是歷史情境，standalone不一定有AppModule。RxJS訂閱應清理、HTTP用可取消／可組合的流，不把每個subscribe巢狀在另一個裡。這是查詢小抄，完整操作見表單、CLI與部署各篇。
 
-```
-import MyService from '<path>'
-constructor(private UserService: MyService) 
-```
+## 查核範圍
 
+Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
+## 參考資料
 
-To make things easier, we can use this command to generate a service in Angular
+- [模板](https://angular.dev/guide/templates)
+- [生命週期](https://angular.dev/guide/components/lifecycle)
+- [路由](https://angular.dev/guide/routing)
+- [RxJS interop](https://angular.dev/ecosystem/rxjs-interop)
 
-```
-ng g s <service name>
-```
+### 原始筆記的其他連結
 
-
-
-## Http Service
-
-Angular comes with its own http service for making http request. To use it, you have to first of all import it into your root module:
-
-```
-import { HttpClientModule} from "@angular/common/http";
-```
-
-
-
-After importing it, we can now use it inside our service for making of http request:
-
-```
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-@Injectable({
-    providedIn: 'root'
-})
-export class UserService {
-    constructor(private http: HttpClient) { }
-    getAllUsers() {
-        return this.http.get(`${baseURL}admin/list-users`);
-    }
-}
-```
-
-
-
-## Http Interceptors
-
-An **interceptor** is a piece of code that gets activated for every single **HTTP** request received by your application. Picture an interceptor as a middleware in nodejs where by where http request made is passed through this piece of code.
-
-To define an interceptor create a `http-interceptor.ts` file inside your src directory and add this:
-
-```
-import { Injectable } from '@angular/core';
-import {
-    HttpEvent,
-    HttpInterceptor,
-    HttpHandler,
-    HttpRequest,
-    HttpErrorResponse,
-    HttpResponse
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-@Injectable({
-    providedIn: 'root'
-})
-export class HttpConfigInterceptor implements HttpInterceptor {
-    constructor() { }
-    intercept(req: HttpRequest<any>, next: HttpHandler) {
-        // Get the auth token from  localstorage.
-        const authToken = localStorage.getItem('token');
-        // Clone the request and replace the original headers with
-        // cloned headers, updated with the authorization.
-        const authReq = req.clone({
-            headers: req.headers.set('Authorization', authToken)
-        });
-        // send cloned request with header to the next handler.
-        return next.handle(authReq);
-    }
-}
-```
-
-
-
-This is a simple interceptor which checks if users has token in their device localstorage. If the user does , it will pass the token in all the http headers.
-
-## Pipes
-
-Pipes in Angular gives us the ability to transform data to any specific format. For example you can write a simple pipe that will format an integer to a currency format or format dates to any form.
-Angular comes with some built in pipes like the date and currency pipe.
-
-We can define our own custom pipes too by doing this:
-
-```
-import { Pipe, PipeTransform } from '@angular/core';
-
-@Pipe({ name: 'exponentialStrength' })
-export class ExponentialStrengthPipe implements PipeTransform {
-    transform(value: number, exponent?: number): number {
-        return Math.pow(value, isNaN(exponent) ? 1 : exponent);
-    }
-}
-```
-
-
-
-to use a pipe in our component we can do this:
-\```{{power | exponentialStrength: factor}}`
-
-
-## 參考
-
-Angular Cheat Sheet - DEV
-
-https://dev.to/suniljoshi19/angular-cheat-sheet-46bo?fbclid=IwAR1hL9OTHVIthSFCqOH4pGuMK3447-ru5vPxKT-EI4AAOyGoLAJ3iiQ7K8I
-
-https://gist.github.com/doggy8088/7f148e6288cdd8a3588f0ebbd57735ef?fbclid=IwAR2vPjd4AFcPZFHW_74n43bL5eQ-420yFGbntB-mTNoftuTPIOfjScgVddw
+- [原始參考入口 1](https://dev.to/suniljoshi19/angular-cheat-sheet-46bo?fbclid=IwAR1hL9OTHVIthSFCqOH4pGuMK3447-ru5vPxKT-EI4AAOyGoLAJ3iiQ7K8I)
+- [原始參考入口 2](https://gist.github.com/doggy8088/7f148e6288cdd8a3588f0ebbd57735ef?fbclid=IwAR2vPjd4AFcPZFHW_74n43bL5eQ-420yFGbntB-mTNoftuTPIOfjScgVddw)

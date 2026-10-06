@@ -1,5 +1,5 @@
 ---
-title: "AngularBsN02"
+title: "Angular CLI 專案結構：舊 NgModule 與新版差異"
 date: 2020-07-05T19:02:31+08:00
 draft: false
 categories:
@@ -8,191 +8,60 @@ tags:
 - "Angular"
 - "FrontEnd"
 toc: true
+description: "保留 Angular 初學專案架構，補上設定檔責任、生成版本差異與啟動檢查。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## **從 0 開始的 Angular 生活 第2天- Angular CLI 建立的專案架構**
+保留 Angular 初學專案架構，補上設定檔責任、生成版本差異與啟動檢查。
 
 <!--more-->
 
-### **angular.json**
+適用：原筆記的Angular CLI／NgModule專案；新範例以Angular 20的standalone元件說明。建立專案前按官方版本表選Node與TypeScript，不能把舊專案直接套最新CLI。
 
-Angular CLI 的設定檔 ，可以在這邊看到專案的一些設定 ,EX: 輸出目錄 , bulid 之類的。
+## 認識目錄
 
-### **.editorconfig**
+| 路徑 | 責任 |
+| --- | --- |
+| angular.json | workspace、builder、build/serve設定 |
+| package.json / lockfile | 指令、依賴與可重現版本 |
+| tsconfig*.json | TypeScript與Angular編譯設定 |
+| src/main.ts | bootstrap入口 |
+| src/index.html | HTML殼與根元件host |
+| src/app | 應用元件、服務與路由 |
+| public 或 src/assets | 依CLI版本設定的靜態資源 |
+| node_modules | 安裝的依賴，不提交 |
 
-編輯器設定檔，設定處理 tab 符號、換行等等。[EditorConfig](https://editorconfig.org/)
+原筆記稱node_modeles是拼字錯誤。Angular舊CLI常生成app.module.ts、polyfills.ts、karma.conf.js與tslint.json；新版可能生成standalone app.config.ts、不同測試builder與檔名，不代表缺檔。TSLint已是歷史工具，需lint時依專案選ESLint整合。
 
-### **.gitignore**
+## 建立與檢查
 
-設定git 忽略那些檔案不要加入版本控管。
+選定相容Node與CLI major後，例如歷史練習Angular20：
 
-### **karma.conf.js**
-
-karma.conf.js: Angular 單元測試的工具。
-
-[Karma - Spectacular Test Runner for Javascript (karma-runner.github.io)](https://karma-runner.github.io/latest/index.html)
-
-### **tsconfig.json**
-
-TypeScript 編譯設定。
-
-### **tslint.json**
-
-TypeScript 程式碼風格檢查器。
-
-### **package.json**
-
-npm 的設定檔， `scripts` 區塊定義了在開發 Angular 時用到的命令 EX: ng serve  。
-
-### **node_modeles  Folder**
-
-存放`npm install` 後所有被下載下來所有的套件。
-
-### **src Folder(重要)**
-
-根據 Angular 官網的 Style Guide 建立而成Angular 應用程式主要的原始碼。
-
-### **app Folder(重要)**
-
-app.module 在這一個資料夾中 作為啟動的 module 
-
-### **index.html**
-
-SPA 的html , build 好的js 都會放到這邊 ,也可以當作一個入口。
-
-### **style.css**
-
-在這裡它是 「global styles」也就是整個應用程式都會套用到的 CSS 定義，全部都可以寫在這裡。
-
-### **main.ts**
-
-main.ts 是 Angular 中 JavaScript 程式的進入點。(.ts 代表 TypeScript)
-
-**bootstrapModule**  表示以引入**AppModule** 啟動
-
-```tsx
-import { enableProdMode } from '@angular/core';
-
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-
-import { environment } from './environments/environment';
-
-if (environment.production) {
-
-enableProdMode();
-
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-
-.catch(err => console.error(err));
+```bash
+npx @angular/cli@20 new angular-note-lab --standalone --routing --style=css
+cd angular-note-lab
+npm start
+npm run build
 ```
 
-### **app.module.ts**
+以終端顯示地址開啟，應看到初始app；build輸出依angular.json的outputPath，別假設永遠dist/project根層。入口的bootstrapApplication與App元件需配對，NgModule則是bootstrapModule。
 
-根目錄的TS module
+## 修改規則
 
-```tsx
-import { BrowserModule } from '@angular/platform-browser';
+只改src業務來源，不直接改node_modules產物。加套件讓package與lock一起更新；移動資料夾後修正import與路由。`.editorconfig`處理編輯器格式，不控制HTTP／DB編碼；`.gitignore`不會移除已追蹤秘密。
 
-import { NgModule } from '@angular/core';
+## 查核範圍
 
-import { FormsModule } from '@angular/forms';
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-import { AppRoutingModule } from './app-routing.module';
+## 參考資料
 
-import { AppComponent } from './app.component';
+- [Angular workspace](https://angular.dev/reference/configs/workspace-config)
+- [版本相容](https://angular.dev/reference/versions)
+- [Angular 安裝](https://angular.dev/installation)
 
-@NgModule({
+### 原始筆記保留的來源
 
-declarations: [
-
-AppComponent
-
-],
-
-imports: [
-
-BrowserModule,
-
-AppRoutingModule,
-
-FormsModule
-
-],
-
-providers: [],
-
-bootstrap: [AppComponent]
-
-})
-
-export class AppModule { }
-```
-
-### **app.component.ts**
-
-根目錄的 component  ,進入的第一支 component 
-
-```tsx
-import { Component } from '@angular/core';
-
-@Component({
-
-selector: 'app-root',
-
-templateUrl: './app.component.html',
-
-styleUrls: ['./app.component.scss']
-
-})
-
-export class AppComponent {
-
-title = 'firstAngular';
-
-}
-```
-
-### **assets(資產) folder**
-
-放置所有的靜態檔案的資料夾，如額外的 JavaScript、JQery、CSS、圖片.........等等。
-
-### **environments folder**
-
-透過 TypeScript 定義一些環境變數。
-
-這個資料夾內有預設有兩個檔案，分別是 environment.ts 與 environment.prod.ts 。
-
-一般來說會有開發 ,sit ,uat ,prod 4種
-
-1. environment.ts
-2. environment.sit.ts
-3. environment.uat.ts
-4. environment.prod.ts
-
-### **favicon.ico**
-
-瀏覽器業籤上面的圖示。
-
-### **polyfills.ts**
-
-當你的 Angular 應用程式同時要符合 IE 或舊版瀏覽器時。
-
-### **test.ts**
-
-測試設定檔決定是否要跑甚麼測試檔案
-
-### **tsconfig.app.json**
-
-Typescripe編譯成Javascript時的編譯設定
-
-## **參考**
-
-[[從 0 開始的 Angular 生活]No.2 檔案架構 | pvt5r486's Blog](https://pvt5r486.github.io/f2e/20190520/3222844657/)
-
-[Angular CLI 7.3 使用 ES2015 的 nomodule 屬性載入 Polyfills 函式庫 | The Will Will Web (miniasp.com)](https://blog.miniasp.com/post/2019/02/03/Angular-CLI-73-Use-ES2015-nomodule-load-polyfills)
-
-[[DAY-19] Angular架構與學習資源介紹 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天 (ithome.com.tw)](https://ithelp.ithome.com.tw/articles/10225044)
+- [EditorConfig](https://editorconfig.org/)
+- [Karma - Spectacular Test Runner for Javascript (karma-runner.github.io)](https://karma-runner.github.io/latest/index.html)
+- [Angular CLI 7.3 使用 ES2015 的 nomodule 屬性載入 Polyfills 函式庫 | The Will Will Web (miniasp.com)](https://blog.miniasp.com/post/2019/02/03/Angular-CLI-73-Use-ES2015-nomodule-load-polyfills)

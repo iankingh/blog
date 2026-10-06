@@ -1,5 +1,5 @@
 ---
-title: "Angular Forms"
+title: "Angular Reactive Forms：模型、驗證與提交"
 date: 2021-06-24T14:00:58+08:00
 categories:
  - "筆記"
@@ -7,101 +7,71 @@ tags:
  - "Angular"
  - "FrontEnd"
 toc: true
-draft: true
+draft: false
+description: "整理兩種表單的適用情境，補上型別化 FormGroup 與完整範例。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Angular Forms 
-<!-- 簡介 -->
-
-Angular 中有2種表單 :
-
-Template-Driven Forms - 模板驅動表單
-
-Model-Driven Forms (基本上都說是 Reactive Forms)- 響應式的表單
-
+整理兩種表單的適用情境，補上型別化 FormGroup 與完整範例。
 
 <!--more-->
 
-### Template-Driven Forms 與 Model-Driven Forms的介紹
+適用：原筆記的Angular CLI／NgModule專案；新範例以Angular 20的standalone元件說明。建立專案前按官方版本表選Node與TypeScript，不能把舊專案直接套最新CLI。
 
-#### Template-Driven Forms
+## 比較
 
-Template-driven forms是將元件驗證控制的功能寫在像是
-的標籤內，並利用ngModel來確認是否輸入了合法的內容。
-使用表單驅動驗證不需要自己建立control objects，因為angular已經為我們建好了。
-ngModel會處理使用者改變與輸入表單的事件，並更新ngModel裡面的可變資料，讓我們可以去處理後續的事。
-也因此ngModel並不是ReactiveFormsModule的一部份。
-這代表著使用表單驅動驗證，我們需要撰寫的程式碼更少。
-但是如果我們的表單需要很複雜的驗證步驟並且要顯示很多不同的錯誤訊息時，使用表單驅動驗證會使事情變得更複雜並難以維護。
+| 方式 | 資料模型 | 適合 |
+| --- | --- | --- |
+| Template-driven | 由ngModel在模板建立 | 簡單欄位、少量規則 |
+| Reactive | TypeScript明確建立control | 多欄位、動態規則、較多測試 |
 
-#### Model-Driven Forms Reactive forms
+新版另有Signal Forms，需依實際Angular版本評估，不把本篇Reactive API混寫成Signal API。FormControl管理單欄、FormGroup管理鍵名集合、FormArray管理動態清單。
 
-Reactive forms的驗證大多是直接寫在controller裡的，會是一個明確的、非UI的data flowing。
-Reactive forms的reactive patterns可以讓測試與驗證更加簡單。
-使用Reactive forms可以用一個樹狀的控制物件來binding到表單template的元件上，這讓所有驗證的程式碼都集中在一起，方便維護與管理，在撰寫單元測試時也會較為容易。
-使用Model-Driven Forms也較符合reactive programming的概念（延伸閱讀：Functional Reactive Programming 的入門心得）
+先依[Angular CLI 篇]({{< ref "/post/angular/AngularCLInotes.md" >}})建立相容版本的 standalone 專案。下例可存為 `src/app/app.component.ts`；`src/main.ts` 改為從 `./app/app.component` 匯入 `AppComponent`，並使用 `bootstrapApplication(AppComponent, appConfig)`，保留 CLI 產生的 `appConfig`。Angular 20 的預設 root 可能叫 `App`、位於 `app.ts`，檔名與啟動類別要一併對齊，不能只貼程式卻仍啟動舊元件。
 
-#### 最大的差異，同步與非同步
+## 完整元件
 
-Reactive forms是同步的而Template-driven forms為非同步處理，是這兩者間最大的差異。
-對Reactive forms來說，所有表單的資料是在code裡以tree的方式來呈現，所以在任一個節點可以取得其他表單的資料，並且這些資料是即時同步被更新的。我們也可以在使用者修改了某個input的值時，去為使用者自動update另一個input內的預設值，這是因為所有資料都是隨時可取得的。
-Template-driven forms在每一個表單元件各自透過directive委派檢查的功能，為了避免檢查後修改而造成檢查失效的問題，directive會在更多的時後去檢查輸入的值的正確性，因此並沒有辦法立即的得到回應，而需要一小段的時間才有辦法得到使用者輸入的值是否合法的回應。這會讓我們在撰寫單元測試時更加複雜，我們會需要利用setTimeout去讓取得的檢查結果是正確的
+```typescript
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+@Component({
+  selector: 'app-root', standalone: true, imports: [ReactiveFormsModule],
+  template: `<form [formGroup]="form" (ngSubmit)="submit()">
+    <label>名稱 <input formControlName="name"></label>
+    <label>Email <input formControlName="email" type="email"></label>
+    <button [disabled]="form.invalid">送出</button>
+  </form><p>{{ result }}</p>`
+})
+export class AppComponent {
+  form = new FormGroup({
+    name: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] })
+  });
+  result = '';
+  submit(): void {
+    this.form.markAllAsTouched();
+    if (this.form.invalid) return;
+    this.result = JSON.stringify(this.form.getRawValue());
+  }
+}
+```
 
-### Template-Driven Forms vs Model-Driven Form (Reactive Forms)
+空表單停用送出，填Ian與ian@example.test後顯示JSON。nonNullable使reset回初始字串而不是null；getRawValue包含disabled欄位，value可能不含，所以選擇需符合目的。
 
-Template-Driven Forms (範本驅動表單) 的特點
+## 常見問題
 
-採用宣告的方式建立表單 (較為簡單) (維護較為容易)
+setValue要求完整結構，patchValue允許部分欄位。valueChanges訂閱要清理，可用takeUntilDestroyed；大量訂閱或HTTP搜尋要處理去抖與取消。不要在同一輸入同時使用ngModel與formControlName。前端email驗證只檢查格式，不證明信箱存在或歸屬。
 
-適合固定欄位數量的表單
-會員註冊、登入、線上下單、修改會員資料、…
+## 查核範圍
 
-透過 ngModel 進行資料繫結
+Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器；執行表單驗證／提交、pipe 方法、圖片無效尺寸或 JS 匯入對應分支（沒有驗證 Canvas 畫素輸出）。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-不易於單元測試
+## 參考資料
 
+- [Reactive Forms](https://angular.dev/guide/forms/reactive-forms)
+- [Typed Forms](https://angular.dev/guide/forms/typed-forms)
+- [Forms比較](https://angular.dev/guide/forms)
 
-Model-Driven Form (Reactive Forms)- (響應式表單) 的特點
+### 原始筆記的其他連結
 
-採用程式的方式建立表單 (較為繁瑣) (程式碼維護較為麻煩)
-
-適合動態欄位數量的表單 (動態表單)
-由後臺定義的動態問卷系統、變動選項的投票系統、…
-
-把部分邏輯抽離Template至component
-
-易於單元測試
-
-
-### formcontrol
-
-`Angular forms` 裡面有個 `formcontrol` (表單控制項)實體
-
-他可以追蹤form表單中控制元件的值及驗證狀態
-
-1. `template-driven form` 中主要是用 NgModel 主要是建立一個 FormControl 還要加上 name =""
-
-EX:
- `<input type="email" [ngModel]="email" #mEmail="ngModel" name="email" required email>`
-
-
-2. `Reactive forms` 中主要是用 FormControlName 建立一個formcontrol
-
-EX: 
-`<input type="email" formControlName="email">`
-
-
-
-`template-driven form` 與 `Reactive forms` 其目的都是要建立一個 `formcontrol` 
-
-`FormControl` の主要用途
-用來追蹤使用者在表單欄位輸入或選取的 `value` (值)
-用來追蹤使用者在表單欄位上的互動狀態 ( `pristine, dirty, touched, untouched` )
-用來追蹤表單欄位的驗證狀態 (errors)
-用來維持與元件中 `Model` 進行同步 (單向屬性繫結或雙向繫結)
-
-
-## 參考
-
-https://angular.io/api/forms/FormControl
-
+- [原始參考入口 1](https://angular.io/api/forms/FormControl)

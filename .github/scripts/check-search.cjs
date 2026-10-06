@@ -103,14 +103,14 @@ const type = (h, value) => { h.input.value = value; h.input.dispatch('input'); }
   assert.equal(h.results.children.length, 1);
   assert.equal(h.results.children[0].children[0].textContent, fixture[0].title);
   assert.equal(h.results.children[0].children[1].textContent, 'Short excerpt');
-  assert.equal(h.results.children[0].children[2].textContent, '發布 2024.07.02 · 更新 2026.03.26 · Java');
+  assert.equal(h.results.children[0].children[2].textContent, '更新 2026.03.26 · Java');
   assert.equal(h.results.getAttribute('aria-busy'), 'false');
   type(h, 'JAvA FULLTEXT_ONLY');
   await tick();
   assert.equal(h.results.children.length, 1, 'All words must match case-insensitively across title/tags/full text');
   type(h, 'Other');
   await tick();
-  assert.equal(h.results.children[0].children[2].textContent, '發布 2026.10.04', 'An older index without lastmod must still display its publication date');
+  assert.equal(h.results.children[0].children[2].textContent, '更新 2026.10.04', 'An older index without lastmod must fall back to its publication date');
   type(h, 'no-result');
   await tick();
   assert.equal(h.results.children.length, 0);

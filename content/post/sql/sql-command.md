@@ -1,5 +1,5 @@
 ---
-title: "SQLcommand"
+title: "SQL Server T-SQL：建表、修改欄位與交易練習"
 date: 2021-03-15T09:31:14+08:00
 draft: false
 categories:
@@ -7,98 +7,60 @@ categories:
 tags:
  - "SQL"
 toc: true
+description: "修正 SQL Server ADD COLUMN 說法，補上完整暫存表練習與預期查詢結果。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
-## SQL Server 相關的語法和操作
 
-<!-- 簡介 -->
-記錄一些 SQL Server 相關的語法和操作，以下是更完整的說明：
+修正 SQL Server ADD COLUMN 說法，補上完整暫存表練習與預期查詢結果。
+
 <!--more-->
 
-## ALTER TABLE
+適用：SQL Server2019/2022的T-SQL；在測試session操作#暫存表，不對正式資料庫做DDL。
 
-ALTER TABLE：用於修改已存在的資料表結構，可以使用 ADD COLUMN 增加欄位。例如：
-
-- 增加欄位 (ADD COLUMN)
-- 語法
-
-```SQL
-ALTER TABLE table_name ADD column_name datatype;
-```
-
-要為新欄位加上預設值，可以使用以下語法：
-
-```SQL 
-ALTER TABLE customer ADD DEFAULT '未知' FOR Address;
-
-```
-
-## CREATE LOGIN [Account]
-
-CREATE LOGIN：用於新增一個登入帳號，可以指定密碼、預設資料庫和語言等屬性。例如：
+## 單一 session 的完整練習
 
 ```sql
-CREATE LOGIN [Account] WITH PASSWORD=N'<STRONG_PASSWORD>', DEFAULT_DATABASE=[DATABASE_Name], DEFAULT_LANGUAGE=[Traditional Chinese], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON
+CREATE TABLE #NoteTasks (
+    Id int NOT NULL PRIMARY KEY,
+    Title nvarchar(100) NOT NULL
+);
+ALTER TABLE #NoteTasks ADD Done bit NOT NULL DEFAULT 0;
+INSERT INTO #NoteTasks (Id, Title) VALUES (1, N'讀文件'), (2, N'寫測試');
+BEGIN TRANSACTION;
+UPDATE #NoteTasks SET Done = 1 WHERE Id = 1;
+SELECT Id, Title, Done FROM #NoteTasks ORDER BY Id;
+ROLLBACK TRANSACTION;
+SELECT Id, Title, Done FROM #NoteTasks ORDER BY Id;
+DROP TABLE #NoteTasks;
 ```
 
-## CREATE USER
+第一次SELECT的Done應為1、0，rollback後0、0。N字首為Unicode字串，中文欄位用nvarchar；#暫存表在目前session，換連線後看不到是預期。
 
-CREATE USER：用於新增一個使用者，可以指定該使用者所屬的登入帳號。例如：
+## ALTER 與 DEFAULT
 
-```sql
-USE [DATABASE_Name]
-GO
-CREATE USER [user_name] FOR LOGIN [Account];
-GO
-```
+T-SQL增加欄位是`ALTER TABLE table ADD column type`，不是通用`ADD COLUMN`。新增default constraint為未提供值的INSERT設預設，不會把明確寫入NULL自動改成預設；既有資料補值要按nullable與WITH VALUES規則規劃。
 
-- 也可以先新增登入帳號，再使用該帳號建立使用者：
+大量表DDL可能鎖表、重建或影響索引，正式改動先做migration、備份與回復設計。測試temp table的成本不等於production大表成本。
 
-```sql
-CREATE LOGIN Account WITH PASSWORD = '<STRONG_PASSWORD>';
+## 查詢與許可權
 
-CREATE USER  user_name FOR LOGIN user_name; 
+SELECT指定必要欄位並提供穩定ORDER BY，TOP無排序不保證取到哪筆。client引數使用引數化，不把使用者輸入拼成SQL。登入LOGIN、DB USER與角色授權見[SQL Server帳號篇]({{< ref "/post/sql/sql-server.md" >}})，不要為日常查詢隨意授db_owner。
 
-```
+## 驗證範圍
 
-## DROP USER
+本次無SQL Server instance，T-SQL依官方文件查核；共通INSERT/UPDATE/ROLLBACK邏輯可以本地SQLite模擬，但#table、bit、N字串與許可權並非SQLite語法，不能把模擬通過稱為SQL Server實機通過。
 
-DROP USER：用於刪除一個使用者。例如：
+## 查核範圍
 
-```sql
-DROP USER user_name
-GO
-```
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-### GRANT CREATE 
+## 參考資料
 
-GRANT：用於授權使用者執行某些操作，例如 GRANT CREATE ANY DATABASE 可以讓使用者建立任何資料庫，而 GRANT SELECT 可以讓使用者查詢資料表中的資料。例如：
+- [ALTER TABLE](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql)
+- [交易ROLLBACK](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/rollback-transaction-transact-sql)
+- [暫存表](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql)
 
-```sql
-GRANT CREATE ANY DATABASE TO [user_name]
-GO
-```
+### 原始筆記保留的來源
 
-### Grant select to user
-
-要授權使用者執行 SELECT 操作，可以使用以下語法：
-
-```sql
-GRANT SELECT ON table_name TO user_name;
-GO
-```
-
-
-###  SQL server 知識
- 
-- sql cluster 是提供服務的
-
-- sql server 是提供連線服務介面的
-
-
-## 參考
-
-[SQL DEFAULT 預設值 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/default-constraint.html)
-
-[SQL ALTER TABLE 更改資料表 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/alter-table.html)
-
-
+- [SQL DEFAULT 預設值 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/default-constraint.html)
+- [SQL ALTER TABLE 更改資料表 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/alter-table.html)

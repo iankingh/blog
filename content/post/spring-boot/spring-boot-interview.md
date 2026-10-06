@@ -1,5 +1,5 @@
 ---
-title: "Spring_interview"
+title: "Spring Boot 核心觀念：自動配置、設定與可驗證回答"
 date: 2021-03-16T13:17:45+08:00
 draft: false
 categories:
@@ -8,296 +8,106 @@ tags:
  - "spring"
  - "spring Boot"
 toc: true
+description: "將 Spring Boot 核心觀念對照可觀察的配置與測試，釐清舊版面試題和現代專案的差異。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Spring boot 面試題
+將 Spring Boot 核心觀念對照可觀察的配置與測試，釐清舊版面試題和現代專案的差異。
+
 <!--more-->
-### 1、什麼是 Spring Boot？
 
-Spring Boot 是 Spring 開源組織的子專案，是 Spring 元件一站式解決方案，主要是簡化了使用 Spring 的難度，不必繁重的配置，提供了各種啟動器，開發者能快速上手。
+適用：原 Spring／Spring Boot 歷史筆記；新的可重現練習採 Spring Boot 3.5.0、Java21與Maven，使用jakarta套件。此為固定練習組合，上線另選相容且仍受支援的修補版。
 
-SpringBoot是非常適合開發Web應用的，因為他內嵌有Tomcat、Jetty、Undertow或者Netty。大部分的應用可以透過載入spring-boot-starter-web模組能夠快速的建立並啟動一個Web應用。
+## 共用練習專案
 
+建立pom.xml：
 
-
-### 2、為什麼要用 Spring Boot(優點)？
-
-Spring Boot 優點非常多，如：
-
-- 獨立執行
-- 簡化配置
-- 自動配置
-- 無程式碼生成和XML配置
-- 應用監控
-- 上手容易
-
-### 3、Spring Boot 的核心設定檔有哪幾個？它們的區別是什麼？
-
-Spring Boot 的核心設定檔是 application 和 bootstrap 設定檔。
-
-application 設定檔這個容易理解，主要用於 Spring Boot 專案的自動化配置。
-
-bootstrap 設定檔有以下幾個應用場景。
-
-- 使用     Spring Cloud Config 配置中心時，這時需要在 bootstrap 設定檔中新增連線到配置中心的配置屬性來載入外部配置中心的配置資訊；
-- 一些固定的不能被覆蓋的屬性；
-- 一些加密/解密的場景；
-
-### 4、Spring Boot 的設定檔有哪幾種格式？它們有什麼區別？
-
-**.properties** 和 **.yml**，它們的區別主要是書寫格式不同。
-
-(1)**.properties**
-
-```
-app.user.name = javastack
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.5.0</version><relativePath/></parent>
+  <groupId>notes</groupId><artifactId>spring-note-lab</artifactId><version>1.0.0</version>
+  <properties><java.version>21</java.version></properties>
+  <dependencies>
+    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
+    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-data-jpa</artifactId></dependency>
+    <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><scope>runtime</scope></dependency>
+    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
+  </dependencies>
+  <build><plugins><plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin></plugins></build>
+</project>
 ```
 
-(2)**.yml**
+src/main/java/notes/NoteApplication.java：
 
-```
-app:
-  user:
-    name: javastack
-```
-
-另外，.yml 格式不支援 `@PropertySource` 註解匯入配置。
-
-### 5、Spring Boot 的核心註解是哪個？它主要由哪幾個註解組成的？
-
-啟動類上面的註解是@SpringBootApplication，它也是 Spring Boot 的核心註解，主要組合包含了以下 3 個註解：
-
-@SpringBootConfiguration：組合了 @Configuration 註解，實現設定檔的功能。
-
-@EnableAutoConfiguration：開啟自動配置的功能，也可以關閉某個自動配置的選項，如關閉資料來源自動配置功能： @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。
-
-@ComponentScan：Spring元件掃描。
-
-### 6、開啟 Spring Boot 特性有哪幾種方式？
-
-- 繼承spring-boot-starter-parent專案
-
-- 匯入spring-boot-dependencies專案依賴
-
-### 7、Spring Boot 需要獨立的容器執行嗎？
-
-- 可以不需要，內建了 Tomcat/ Jetty 等容器。
-
-### 8、執行 Spring Boot 有哪幾種方式？
-
-- 打包用命令或者放到容器中執行
-
-- 用 Maven/ Gradle 外掛程式執行
-
-- 直接執行 main 方法執行
-
-### 9、Spring Boot 自動配置原理是什麼？
-
-註解 @EnableAutoConfiguration, @Configuration, @ConditionalOnClass 就是自動配置的核心，首先它得是一個設定檔，其次根據類路徑下是否有這個類去自動配置。
-
-### 10、Spring Boot 的目錄結構是怎樣的？
-
-#### 1.1   目錄結構
-
-專案的目錄結構建置，基本上照著大原則去做初步的分類，像是應用主類、實體層、邏輯層、Web層；而在不同的專案中，常常會再根據自己的開發需求、功能…等等去做目錄結構的細分。
-
-#### 1.1.2  常用目錄結構
-
-##### 1.1.2.1      程式碼層的目錄結構
-
--  實體層 (Entity)
-
-```
-├── com.ian.entity (實體) 
-├── com.ian.model (模型) 
+```java
+package notes;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class NoteApplication {
+    public static void main(String[] args) { SpringApplication.run(NoteApplication.class, args); }
+}
 ```
 
-​		Entity：包中的類是必須和資料庫相對應的。
-
-​		Model：是為前端頁面提供資料和資料校驗的。
-
--  資料訪問物件 (Data Access Object 簡稱：DAO)
-
-```
-├── com.ian.dao (JPA專案)  
-註：它是一個面向物件的資料庫介面，負責持久層的操作，為邏輯層提供介面，主要用來封裝對資料庫的訪問
-```
-
-- 邏輯介面層 (Service)
-
-```
-└── com.ian.service
-```
-
-- 邏輯實作層 (Service Implements)
-
-```
-└── com.ian.service.impl
-```
-
--  Web層 (Controller)
-
-```
-└── com.ian.controller  註：如果是混和開發可以再細分頁面(web)的處理和單純的API 
-├── com.ian.controller.web  
-└── com.ian.controller.api
-```
-
-- 共用工具類 (utils)
-
-```
-└── com.ian.utils  註：共用性很高的類，例 DateUtil
-```
-
--  資料傳輸層 (Data Transfer Object 簡稱：DTO)
-
-```
-└── com.ian.dto  註：資料傳輸物件（DTO）用於封裝多個實體類（domain）之間的關係，不破壞原有的實體類結構
-```
-
-##### 1.1.2.2      靜態資源的目錄結構(resources)
-
--  設定檔
-
-```
-resources/application.yml  註：官方推薦使用.yml來做撰寫，當然您也可以用.properties
-```
-
-- 靜態資源目錄
-
-```
-resources/static/  註：用於存放css、js、images等，基本上會再細分  
-├── resources/static/css  
-├── resources/static/js  
-└── resources/static/images
-```
-
-- 範本目錄
-
-```
-resources/templates/  註：Spring Boot提供了預設配置的範本引擎，官方建議使用這些範本引擎(Thymeleaf、FreeMarker、Velocity、Groovy、Mustache)，避免使用JSP  
-```
-
-##### 1.1.2.3     整體目錄
-
-```
-com
- +- ian
-     +- Application.java
-     |
-     +- customer
-     |   +- Customer.java
-     |   +- CustomerController.java
-     |   +- CustomerService.java
-     |   +- CustomerRepository.java
-     |
-     +- order
-         +- Order.java
-         +- OrderController.java
-         +- OrderService.java
-         +- OrderRepository.java
-```
-
- 啟動類 (Application.java)，推薦放置根目錄com.ian下
-
-### 11、你如何理解 Spring Boot 中的 Starters？
-
-Starters可以理解為啟動器，它包含了一系列可以整合到應用裡面的依賴包，你可以一站式整合 Spring 及其他技術，而不需要到處找示例程式碼和依賴包。如你想使用 Spring JPA 訪問資料庫，只要加入 spring-boot-starter-data-jpa 啟動器依賴就能使用了。
-
-Starters包含了許多專案中需要用到的依賴，它們能快速持續的執行，都是一系列得到支援的管理傳遞性依賴。
-
-### 12、如何在 Spring Boot 啟動的時候執行一些特定的程式碼
-
-可以實現介面 ApplicationRunner 或者 CommandLineRunner，這兩個介面實現方式一樣，它們都只提供了一個 run 方法。
-
-### 13、Spring Boot 有哪幾種讀取配置的方式？
-
-Spring Boot 可以透過 @PropertySource,@Value,@Environment, @ConfigurationProperties 來繫結變數。
-
-### 14、Spring Boot 支援哪些日誌框架？推薦和預設的日誌框架是哪個？
-
-Spring Boot 支援 Java Util Logging, Log4j2, Lockback 作為日誌框架，如果你使用 Starters 啟動器，Spring Boot 將使用 Logback 作為預設日誌框架。
-
-### 15、SpringBoot 實現熱部署有哪幾種方式？
-
-主要有兩種方式：
-
-- Spring Loaded
-- Spring-boot-devtools
-
-### 16、你如何理解 Spring Boot 配置載入順序？
-
-在 Spring Boot 裡面，可以使用以下幾種方式來載入配置。
-
-- properties檔案；
-- YAML檔案；
-- 系統環境變數；
-- 命令列引數；
-
-### 17、Spring Boot 如何定義多套不同環境配置？
-
-提供多套設定檔，如：
-
-```
-applcation.properties
- 
-application-dev.properties
- 
-application-test.properties
- 
-application-prod.properties
-```
-
-執行時指定具體的設定檔，具體請看這篇文章。
-
-### 18、Spring Boot 可以相容老 Spring 專案嗎，如何做？
-
-可以相容，使用 `@ImportResource` 註解匯入老 Spring 專案設定檔。
-
-### 19、保護 Spring Boot 應用有哪些方法？
-
-- 在生產中使用HTTPS
-- 使用Snyk檢查你的依賴關係
-- 升級到最新版本
-- 啟用CSRF保護
-- 使用內容安全性原則防止XSS攻擊
-
-### 20、Spring Boot 2.X 有什麼新特性？與 1.X 有什麼區別？
-
-- 配置變更
-- JDK 版本升級
-- 協力廠商類庫升級
-- 回應式     Spring 程式設計支援
-- HTTP/2 支援
-- 配置屬性繫結
-
-
-## 參考
-
-[吐血整理 20 道 Spring Boot 面試題，我經常拿來面試別人！ - Java技術棧 - SegmentFault 思否](https://segmentfault.com/a/1190000016686735)
-
-[什麼是Spring Boot?](https://mp.weixin.qq.com/s/jWLcPxTg9bH3D9_7qbYbfw)
-
-[Spring Boot 核心設定檔詳解](https://mp.weixin.qq.com/s/BzXNfBzq-2TOCbiHG3xcsQ)
-
-[Spring Boot 配置載入順序詳解](https://mp.weixin.qq.com/s/tFrRMM25LVE_2AG23lK5qQ)
-
-[Spring Boot Profile 不同環境配置](https://mp.weixin.qq.com/s/K0kdQwoo2t5FDsTUJttSAA)
-
-[Spring Boot開啟的2種方式](https://mp.weixin.qq.com/s/PYM_iV-u3dPMpP3MNz7Hig)
-
-[Spring Boot自動配置原理、實戰](https://mp.weixin.qq.com/s/gs2zLSH6m9ijO0-pP2sr9Q)
-
-[10 種保護 Spring Boot 應用的絕佳方法](https://mp.weixin.qq.com/s/HG4_StZyNCoWx02mUVCs1g)
-
-[Spring Boot 主類及目錄結構介紹](https://mp.weixin.qq.com/s/auJGrOFVGlH8uzdk9SIHPw)
-
-[Spring Boot Starters啟動器](https://mp.weixin.qq.com/s/9HJVGlplze5p0eBayvhFCA)
-
-[Spring Boot讀取配置的幾種方式](https://mp.weixin.qq.com/s/aen2PIh0ut-BSHad-Bw7hg)
-
-[Spring Boot實現熱部署](https://mp.weixin.qq.com/s/uv8jIztilO_QvGc7qGhSAA)
-
-[Spring Boot日誌整合](https://mp.weixin.qq.com/s/OAyzUNIgBPkPVCy23gh-WA)
-
-[SpringBoot - 第三章 | 目錄結構 | J.J.'s Blogs  ](https://morosedog.gitlab.io/springboot-20190314-springboot3/)
+執行`mvn test`、`mvn spring-boot:run`，初始沒有Controller所以首頁404是預期，不是啟動失敗；後續JPA與Swagger章加業務內容。
+
+## 面試回答應包含什麼
+
+- Spring Boot建立在Spring之上，提供依賴管理、starter、自動配置與執行／維運整合，不是取代Spring。
+- @SpringBootApplication組合配置、auto-configuration與component scan；主類別放共同根package，避免掃描漏掉。
+- 自動配置依classpath、bean、properties等條件決定，使用--debug檢視conditions report；自己提供bean常使對應配置退讓，不是固定生成所有bean。
+- starter-parent提供Maven慣例與依賴管理，單純import BOM不會自動帶入相同plugin配置。
+- application.properties/yaml為應用配置，bootstrap是部分Spring Cloud歷史機制，不是所有Boot專案必備；新版Config Data另有spring.config.import。
+- Web starter與WebFlux使用不同程式模型／容器組合，不能說所有Boot都使用同一Tomcat；外部WAR部署也需核對Servlet版本。
+- Actuator提供觀測端點，但公開哪些、是否可寫和如何授權需要設計，不能全部公開。
+
+## 驗證答案
+
+問題要能落到一個可觀察實驗：移除starter看classpath變化、提供自訂bean看條件報告、改變profile看設定來源。配置不等於效能或微服務架構已完成；還需測試、監控與部署策略。
+
+## 原面試題的補充範圍
+
+保留原二十題的主題，以下是前面核心觀念之外需要講清楚的項目：
+
+| 題目 | 回答與核對方式 |
+| --- | --- |
+| 配置格式 | properties 與 YAML 都可使用；YAML 依縮排、properties 依鍵名表達。用同一個設定值與啟動輸出確認解析結果，不把格式當功能差異 |
+| 啟動方式 | IDE main、`mvn spring-boot:run`、可執行 JAR；傳統 WAR 需相容 Servlet 容器及 initializer，打包格式和執行方式分開討論 |
+| 啟動後的程式 | CommandLineRunner／ApplicationRunner 可取得啟動參數；順序、耗時與例外會影響應用啟動，參考 Profile 篇的 banner 範例 |
+| 讀取配置 | @Value 適合少量值，@ConfigurationProperties 適合型別化群組與驗證；Environment 可查來源，避免把配置散落成魔法字串 |
+| 日誌 | 常用 starter 預設經 SLF4J 使用 Logback；替換日誌實作需排除衝突依賴，觀察 dependency tree，不將所有實作同時引入 |
+| 開發重新啟動 | DevTools 是開發工具；restart、LiveReload、JVM HotSwap 行為不同，瀏覽器重新整理不代表後端程式已更新，也不把 DevTools 帶入正式功能 |
+| 配置優先順序 | 啟動引數、環境變數、外部配置與 packaged 配置按所用 Boot 版本的官方順序覆寫；以相同 key 的可觀察值確認，參考 Profile 篇 |
+| 舊 Spring 整合 | @Import 引入 Java 配置，@ImportResource 可載入需要保留的 XML；先核對 bean、掃描與相容依賴，並不保證所有舊 servlet／javax 庫可直接進 Boot3 |
+| 保護應用 | 身分驗證、API 授權、輸入驗證、秘密管理與依賴維護各有責任；Actuator 管理端點另控管，不以隱藏 UI 當 API 授權 |
+| 1.x／2.x／3.x 差異 | 原題的 Boot2／Spring5／Java8 是歷史版本線；Boot3 的 Java17 最低要求與 Jakarta 遷移另查 migration guide，本篇練習固定 Java21，不表示所有版本最低都為21 |
+
+完整功能仍應由小專案核對；例如設定為 dev 後檢查 banner、加入 Controller 後檢查 HTTP 回應，再增加資料庫與交易。不能只背一串註解就宣稱完成整合。
+
+## 查核範圍
+
+隔離 Spring Boot 3.5.0／Java21 target 專案建置，本文 NoteApplication 共用入口供 7 個測試使用；未測實際生產服務。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Auto configuration](https://docs.spring.io/spring-boot/3.5/reference/using/auto-configuration.html)
+- [Build systems](https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html)
+- [External config](https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html)
+
+### 原始筆記保留的來源
+
+- [吐血整理 20 道 Spring Boot 面試題，我經常拿來面試別人！ - Java技術棧 - SegmentFault 思否](https://segmentfault.com/a/1190000016686735)
+- [什麼是Spring Boot?](https://mp.weixin.qq.com/s/jWLcPxTg9bH3D9_7qbYbfw)
+- [Spring Boot 核心設定檔詳解](https://mp.weixin.qq.com/s/BzXNfBzq-2TOCbiHG3xcsQ)
+- [Spring Boot 配置載入順序詳解](https://mp.weixin.qq.com/s/tFrRMM25LVE_2AG23lK5qQ)
+- [Spring Boot Profile 不同環境配置](https://mp.weixin.qq.com/s/K0kdQwoo2t5FDsTUJttSAA)
+- [Spring Boot開啟的2種方式](https://mp.weixin.qq.com/s/PYM_iV-u3dPMpP3MNz7Hig)
+- [Spring Boot自動配置原理、實戰](https://mp.weixin.qq.com/s/gs2zLSH6m9ijO0-pP2sr9Q)
+- [10 種保護 Spring Boot 應用的絕佳方法](https://mp.weixin.qq.com/s/HG4_StZyNCoWx02mUVCs1g)
+- [Spring Boot 主類及目錄結構介紹](https://mp.weixin.qq.com/s/auJGrOFVGlH8uzdk9SIHPw)
+- [Spring Boot Starters啟動器](https://mp.weixin.qq.com/s/9HJVGlplze5p0eBayvhFCA)
+- [Spring Boot讀取配置的幾種方式](https://mp.weixin.qq.com/s/aen2PIh0ut-BSHad-Bw7hg)
+- [Spring Boot實現熱部署](https://mp.weixin.qq.com/s/uv8jIztilO_QvGc7qGhSAA)
+- [Spring Boot日誌整合](https://mp.weixin.qq.com/s/OAyzUNIgBPkPVCy23gh-WA)
+- [SpringBoot - 第三章 | 目錄結構 | J.J.'s Blogs  ](https://morosedog.gitlab.io/springboot-20190314-springboot3/)

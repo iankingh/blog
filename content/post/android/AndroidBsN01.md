@@ -1,5 +1,5 @@
 ---
-title: "Create an Android project(建立一個Android專案)"
+title: "Android Studio 第一個專案：模板、SDK 與執行確認"
 date: 2020-05-25T10:50:35+08:00
 draft: false
 categories:
@@ -8,71 +8,51 @@ tags:
  - "Kotlin"
  - "Android"
 toc: true
+description: "保留建立專案流程，補上 Compose／Views差異、Gradle JDK與模擬器驗收。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Create an Android project(建立一個Android專案)
+保留建立專案流程，補上 Compose／Views差異、Gradle JDK與模擬器驗收。
 
 <!--more-->
 
-## 要建立新的Android專案，請按照以下步驟操作
+適用：Android Studio建立Android專案；原截圖為較早的Java／Views流程，現代模板名稱與預設語言可能不同。
 
-### 1. 安裝最新版本的 Android Studio
+## 建立專案
 
-   [Download Android Studio and SDK tools  |  Android Developers](https://developer.android.com/studio/)
+安裝官方Android Studio與SDK，New Project選擇符合需求的模板。新Empty Activity常為Kotlin+Compose；若跟原Java/XML教學，選擇相應Empty Views Activity，不能把舊XML步驟貼到Compose模板。
 
-   下載完後點選安裝一路安裝到結束。
+填名稱、package如com.example.notelab、儲存位置與Minimum SDK。minSdk控制最低裝置API，compileSdk控制編譯API，targetSdk關係平臺行為與發布要求，三者不可互稱同一個版本。商店政策會變化，釋出前核對官方要求。
 
-### 2. 開啟新專案(cerate new project )
+## 建置環境
 
-在**Welcome to Android Studio**視窗中，單擊啟動新的**Strat a new Android Studio project**。
+等待Gradle Sync完成，保留生成的wrapper與plugin版本，先用IDE建議的相容JDK，不手動把所有Gradle、AGP、Kotlin一起升到latest。首次下載需網路，錯誤先看具體依賴、代理與SDK許可證，不反覆刪cache。
 
-![Welcome to Android Studio](/images/Android/Welcome_to_Android_Studio.png)
+在Device Manager建立與你CPU架構相容的virtual device，下載system image；也可使用USB除錯的真實裝置。虛擬化未啟用或架構不匹配可能導致模擬器不能啟動，與app程式碼無關。
 
-### 3. 選擇模板
+## 確認結果
 
-在**Select a Project Template**視窗中，選擇**Empty Activity**，然後單擊**next**。
+按Run選裝置，app應安裝啟動並顯示模板文字。修改顯示內容為「冒險筆記」後再Run，確認變化；檢視Logcat無應用崩潰。終端用專案的gradlew/gradlew.bat執行assembleDebug，輸出debug APK的實際路徑依module而定。
 
-![Configure Your Project](/images/Android/Select_a_Project_Template.png)
+真實裝置測試旋轉、字型放大、不同API與返回鍵；能在一個模擬器顯示不代表整個兼容範圍。這個入門示例不包含簽名釋出、賬號或許可權設計，新功能申請許可權需按Android版本的行為核對。
 
-### 4. 設定專案配置
+## 查核範圍
 
-在**Configure Your Project**視窗中，完成以下操作：
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-![Configure Your Project](/images/Android/Configure_Your_Project.png)
+## 參考資料
 
-- 在**Name**輸入 "Myfirstapp" 。
-- 在**Package name**欄位中輸入"com.example.myfirstapp" 。
-- `Save Location` 預設專案放置位置，如果要將專案放置在其他資料夾中，請更改其**儲存**位置。
-- 從`Language`下拉選單中選擇**Java**或**Kotlin**。
-- 在`Minimum SDK`選擇您的應用將支援的**最低** Android版本。
-- 保留其他選項不變。
+- [Create project](https://developer.android.com/studio/projects/create-project)
+- [Gradle JDK](https://developer.android.com/build/jdks)
+- [Emulator](https://developer.android.com/studio/run/emulator)
+- [Target API policy](https://developer.android.com/google/play/requirements/target-sdk)
 
-### 5 .**完成專案建置**
+### 原始筆記保留的來源
 
-經過一段時間的處理後，出現Android Studio主視窗。
-
-Android Studio主視窗
-
-現在花點時間檢視最重要的檔案。
-
-首先，請確保已開啟專案視窗`> Java> com.example.myfirstapp> MainActivity`（選擇"檢視>工具視窗>專案），並且從該視窗頂部的下拉列表中選擇了Android檢視。
-
-- Activity
-
-這是主要活動。這是您的應用程式的切入點。在構建和執行應用程式時，系統將啟動該應用程式的例項 [Activity](https://developer.android.com/reference/android/app/Activity) 並載入其佈局。
-
-應用程式> res>佈局> activity_main.xml
-
-此XML檔案定義活動的使用者介面（UI）的佈局。它包含一個[TextView](https://developer.android.com/reference/android/widget/TextView)帶有文字" Hello，World！" 的 元素。
-
-- **AndroidManifest.xml > 應用清單**
-
-該[清單檔案](https://developer.android.com/guide/topics/manifest/manifest-intro)描述了應用程式的基本特徵，並限定它的每一個元件。
-
-- **build.gradle  > Gradle 指令碼**
-
-有兩個名稱相同的檔案：一個用於專案" Project：My First App"，另一個用於應用程式模組" Module：app"。每個模組都有自己的build.gradle檔案，但是該專案當前只有一個模組。使用每個模組build.file來控制[Gradle外掛](https://developer.android.com/studio/releases/gradle-plugin)如何構建您的應用程式。有關此檔案的更多資訊，請參見 [配置構建]([Configure your build | Android Developers](https://developer.android.com/studio/build#module-level))。
-
-## 參考
-[Create an Android project | Android Developers](https://developer.android.com/training/basics/firstapp/creating-project)
-
+- [Download Android Studio and SDK tools  |  Android Developers](https://developer.android.com/studio/)
+- [Activity](https://developer.android.com/reference/android/app/Activity)
+- [TextView](https://developer.android.com/reference/android/widget/TextView)
+- [清單檔案](https://developer.android.com/guide/topics/manifest/manifest-intro)
+- [Gradle外掛](https://developer.android.com/studio/releases/gradle-plugin)
+- [Configure your build | Android Developers](https://developer.android.com/studio/build#module-level)
+- [Create an Android project | Android Developers](https://developer.android.com/training/basics/firstapp/creating-project)

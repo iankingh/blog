@@ -1,5 +1,5 @@
 ---
-title: "Install_docker_on_centos"
+title: "CentOS 8 的 Docker 安裝紀錄與替代路線"
 date: 2021-03-25T10:21:24+08:00
 categories:
  - "筆記"
@@ -8,74 +8,54 @@ tags:
  - "docker"
 toc: true
 draft: false
+description: "標示 CentOS Linux 8 結束維護，區分歷史套件操作與目前受支援系統的安裝確認。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## 安裝 Docker 在 centos8
-<!-- 簡介 -->
+標示 CentOS Linux 8 結束維護，區分歷史套件操作與目前受支援系統的安裝確認。
+
 <!--more-->
 
-## centOS-8_install_docker
+適用：原筆記的 CentOS Linux 8 歷史情境；新部署依實際受支援發行版選官方流程。本次未執行 OS 安裝或遷移。
 
-### install Docker 
+## 歷史環境
 
-```sh
-# 更新yum 
-$ sudo yum install -y yum-utils
+CentOS Linux 8 已於 2021-12-31 結束維護。原筆記的 yum/dnf repo 安裝步驟保留為情境說明，不建議為新服務改用 vault 後繼續長期運作。CentOS Stream 與 CentOS Linux 不同發行方式，不能直接視為相同版本的修補升級。
 
-# 更新 repo
-$ sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-	
-# 安裝 Docker
-$ sudo yum install docker-ce docker-ce-cli containerd.io
+先讀 `/etc/os-release` 與 `uname -m`，確認發行版、major 與架構，再按 Docker 官方對該系統的支援矩陣安裝。不要混用 RHEL、CentOS、Rocky、AlmaLinux 的套件來源；若官方未列出就以供應商檔案或受支援 VM 作替代。
 
-# 啟動 Docker 
-$ sudo systemctl start docker
+## 安裝後檢查
 
-# 配置Docker以在啟動時啟動
-$ sudo systemctl enable docker.service
-$ sudo systemctl enable containerd.service
+受支援系統完成官方 repo 與套件安裝後，檢查：
 
-# 確認Docker
-$ docker ps
-
-# 確認Docker pull run 
-$ docker run hello-world
+```bash
+sudo systemctl enable --now docker
+sudo docker version
+sudo docker info
+sudo docker run --rm hello-world
+sudo docker compose version
 ```
 
-### 加入docker 群組
+version 應同時有 Client / Server，hello-world 應輸出 Hello from Docker。daemon 未啟動先讀 `journalctl -u docker --since '10 minutes ago'`，不是重灌所有套件。
 
-```shell
-# 新增Docker 群組
-$ sudo groupadd docker
+## 許可權與遷移
 
-# 確認 使用者
-$ echo $USER
+docker 群組等同可控制主機的重要許可權，開發帳號加入前先評估，不能以 chmod 666 socket 解決。Rootless mode 是不同部署路線，需要核對限制。舊 CentOS 8 移轉前備份 volume、Compose 檔、設定與映像來源，在新 VM 重建並做還原與連線驗證。
 
-# 加入Docker 群組
-$ sudo usermod -a -G docker $USER
+原先指定 docker-ce 的精確版本可能已不在 repo；應先列出可用版本、選擇相容修補版並保留記錄，而非加 `--allowerasing` 無條件移除其他套件。
 
-# 重啟Docker
-$ sudo systemctl restart docker
+## 查核範圍
 
-# 做完需要重新開機
-$ shutdown -r now
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-# 確認Docker 
-$ docker ps
+## 參考資料
 
-# 如果不想重新開機,可以切換到 Docker 群組
-$ newgrp docker
-```
+- [CentOS EOL](https://www.centos.org/centos-linux-eol/)
+- [Docker CentOS 安裝](https://docs.docker.com/engine/install/centos/)
+- [安裝後權限](https://docs.docker.com/engine/install/linux-postinstall/)
 
-## 參考
-[linux-docker.sock](https://stackoverflow.com/questions/48568172/docker-sock-permission-denied)	
+### 原始筆記保留的來源
 
-[CentOS 8 install Docker - Pocket Admin](https://pocketadmin.tech/en/centos-8-install-docker/)
-
-
-[Post-installation steps for Linux | Docker Documentation](https://docs.docker.com/engine/install/linux-postinstall/)
-
-[Docker - 第十三章 | 安裝Apache Server | J.J.'s Blogs](https://morosedog.gitlab.io/docker-20190601-docker13/)
-
+- [linux-docker.sock](https://stackoverflow.com/questions/48568172/docker-sock-permission-denied)
+- [CentOS 8 install Docker - Pocket Admin](https://pocketadmin.tech/en/centos-8-install-docker/)
+- [Docker - 第十三章 | 安裝Apache Server | J.J.'s Blogs](https://morosedog.gitlab.io/docker-20190601-docker13/)

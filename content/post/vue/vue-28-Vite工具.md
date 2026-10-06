@@ -1,133 +1,71 @@
 ---
-title: "Vue 教學 28 - Vite 工具"
+title: "Vue 教學 28：Vite 建置、環境變數與資源路徑"
 date: 2026-03-22T20:28:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "Vite"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "補齊 Vite 專案設定，區分開發服務、正式建置與公開環境變數。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+補齊 Vite 專案設定，區分開發服務、正式建置與公開環境變數。
+
 <!--more-->
 
-# 第9章 Vite 工具 完整原始檔
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 原始檔：src/router/router.js
+## 建置流程
 
-```js
-import todo from '../views/todo.vue' // 待辦事項頁面
-import recycle from '../views/recycle.vue' // 回收站頁面
-import {createRouter,createWebHashHistory} from 'vue-router'
+沿用第 00 章專案。`npm run dev` 提供開發轉換與 HMR；`npm run build` 產生 dist；`npm run preview` 僅用於本機檢查建置成果，不是正式維運服務。
 
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [
-      { path: '/', redirect: '/todo' },// 配置預設路由，重新導向到/todo
-      { path: '/todo', component: todo },
-      { path: '/recycle', component: recycle },
-    ]
-})
+建立 `.env.development`：
 
-export default router
+```dotenv
+VITE_API_BASE=/mock
 ```
 
-## 原始檔：src/main.js
+App.vue 可檢查環境：
 
-```js
-import { createApp } from 'vue';
-import App from './App.vue'
-import store from './store/store.js'
-import router from './router/router.js'
-
-
-const app = createApp(App)
-
-app.use(store)
-app.use(router)
-app.mount('#app')
-
+```vue
+<script setup>
+const base = import.meta.env.VITE_API_BASE ?? '/api'
+const mode = import.meta.env.MODE
+</script>
+<template><p>環境 {{ mode }}，API {{ base }}</p></template>
 ```
 
-## 原始檔：src/store/store.js
+開發顯示 development／mock；沒有 `.env.production` 的 production 建置使用 `/api`。變更 env 後重啟開發 server。`VITE_` 字首會進入客戶端 bundle，不能存放密碼或私鑰。
 
-```js
+## Proxy 與資源
 
-import Vuex from 'vuex'
-import dataUtils from '../utils/dataUtils'
-const myPlugin = (store) => {
-  store.subscribe((mutation, state) => {
-    // 每次呼叫 mutation，在這裡持久化資料
-    dataUtils.setItem('todoList', state.todoItems)
-    dataUtils.setItem('recycleList', state.recycleItems)
-  })
+若本機後端在 8080，vite.config.js 的 defineConfig 內可加入：
+
+```javascript
+const server = {
+  proxy: { '/api': { target: 'http://127.0.0.1:8080', changeOrigin: true } }
 }
-export default Vuex.createStore({
-  plugins: [myPlugin],
-  state: {
-    todoItems:dataUtils.getItem('todoList') || [],
-    recycleItems:dataUtils.getItem('recycleList') || [],
-  },
-  mutations: {
-    /*
-    * 新增事項
-    */
-    addTodo (state, obj) {
-      state.todoItems.unshift(obj)
-    },
-    /*
-    * 添加回收站事項
-    */
-    addRecycle (state, obj) {
-      state.recycleItems.unshift(obj)
-    },
-    /*
-    * 刪除回收站事項
-    */
-    deleteRecycle (state, obj) {
-      // 以下邏輯為找到對應 id 的事項，然後刪除
-      state.recycleItems = state.recycleItems.filter(item=>{
-        return item.id != obj.id
-      })
-    },
-    /*
-    * 刪除事項
-    */
-    deleteTodo (state, obj) {
-      // 以下邏輯為找到對應 id 的事項，然後刪除
-      state.todoItems = state.todoItems.filter(item=>{
-        return item.id != obj.id
-      })
-    },
-    /*
-    * 重置事項列表
-    */
-    resetTodo(state, array){
-      state.todoItems = array
-    }
-  },
-  actions: {
-    addTodo (context, obj) {
-      context.commit('addTodo', obj)
-    },
-    addRecycle (context, obj) {
-      context.commit('addRecycle', obj)
-    },
-    deleteTodo(context, obj){
-      // 先刪除待辦事項
-      context.commit('deleteTodo', obj)
-      // 後增加回收站事項
-      context.commit('addRecycle', obj)
-    },
-    revertTodo(context, obj){
-      // 先刪回收站事項
-      context.commit('deleteRecycle', obj)
-      // 後增加待辦事項
-      context.commit('addTodo', obj)
-    }
-  }
-})
 ```
 
+再把 server 加入設定物件；只在開發服務生效，正式站臺需反向代理或 API 的 CORS 設定。此片段不是會自動啟動後端的設定。
+
+`src/assets` 的匯入資源可參與雜湊與打包；public 下檔案保持名稱直接複製。部署到子路徑時設 base，模板中處理 public 路徑可用 `import.meta.env.BASE_URL`。Vite 7 練習環境使用 Node 22.12 以上；舊筆記使用其他 Vite major 時先核對 engine，而非直接升級 Node/外掛全部套件。
+
+
+## 章節導覽
+
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-27-Vuex狀態管理.md" >}}) · [下一章]({{< ref "/post/vue/vue-29-Vue動畫.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Vite 入門](https://vite.dev/guide/)
+- [環境變數](https://vite.dev/guide/env-and-mode.html)
+- [正式建置](https://vite.dev/guide/build.html)
+- [開發 proxy](https://vite.dev/config/server-options.html#server-proxy)

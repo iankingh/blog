@@ -1,4 +1,4 @@
-{{- $posts := (where (where .RegularPages "Section" "in" .Params.mainSections) "Draft" false).ByDate.Reverse -}}
+{{- $posts := (where (where .RegularPages "Section" "in" .Params.mainSections) "Draft" false).ByLastmod.Reverse -}}
 {{- $skills := slice -}}
 {{- range hugo.Data.skills -}}
   {{- $definition := . -}}

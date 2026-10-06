@@ -1,5 +1,5 @@
 ---
-title: "EmbracingJUnitwithEclipse"
+title: "Eclipse 與 JUnit 5：建立並執行測試"
 date: 2020-09-29T22:13:19+08:00
 categories:
  - "筆記"
@@ -7,60 +7,62 @@ tags:
  - "eclipse"
 toc: true
 draft: false
+description: "補上完整測試與 Maven 依賴，確認 IDE 測試及命令列建置使用同一版本。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## Junit with Eclipse
+補上完整測試與 Maven 依賴，確認 IDE 測試及命令列建置使用同一版本。
+
 <!--more-->
 
-### 1.新增 Junit 5
+適用：JUnit Jupiter 5.10.3、Java 8以上與支援JUnit5的Eclipse。這是原JUnit5情境，非宣稱最新major。
 
-#### 設定 Build Path
+## 建立測試
 
-在專案上按右鍵，選擇 Build Path → Configure Build Path。
+已有Maven Java專案在pom.xml加入測試依賴與plugin：
 
-![Configure Build Path](/images/eclipse/ConfigureBuildPath.png)
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId>
+    <version>5.10.3</version><scope>test</scope>
+  </dependency>
+</dependencies>
+<build><plugins><plugin>
+  <groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.2.5</version>
+</plugin></plugins></build>
+```
 
-#### 選擇 Libraies >>Classpath >>Add Libray
+只整合既有相應節點，不在pom放兩組dependencies/build。新增 `src/test/java/MathTest.java`：
 
-![ JavaBuildPath](/images/eclipse/JavaBuildPath.png)
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+class MathTest {
+    @Test
+    void addsTwoIntegers() { assertEquals(4, 2 + 2); }
+}
+```
 
-#### Add Library  >>>> junit
+更新Maven Project後右鍵測試 → Run As → JUnit Test，預期1 tests、0 failures。`mvn test`也應成功。把預期4改成5應得到失敗，還原後再成功，確認測試確實有執行。
 
-![AddLibraryJunit.png](/images/eclipse/AddLibraryJunit.png)
+## 非 Maven 專案
 
-#### Add Library  >>>> junit5
+原操作是Build Path → Add Library → JUnit → JUnit5。這適合IDE練習，但CI仍需有明確依賴；不要同時手動加一組與Maven帶入另一組。Run Configurations的Test runner選JUnit5，確認使用的JRE。
 
-![ AddLibraryJunit-2 ](/images/eclipse/AddLibraryJunit-2.png)
+## 常見問題
 
-#### 加入完成
+「No tests found」檢查import是否Jupiter、檔案是否在test source、名稱是否符合建置工具掃描規則；JUnit4的org.junit.Test不是同一API。JUnit assertions不依賴JVM的-ea，和Java assert不同。版本升級先核對Java最低版本與extension相容性，保留lock／pom記錄。
 
-![ JavaBuildPath-2.png](/images/eclipse/JavaBuildPath-2.png)
+## 查核範圍
 
-### 2.Junit 引數設定
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-1.點選 於 Test.java(測試的類別) 點右鍵 >>>Run AS >>>>Run Configuations 
+## 參考資料
 
-![JUnit 測試結果](/images/eclipse/junit.png)
+- [JUnit 5.10.3 指南](https://junit.org/junit5/docs/5.10.3/user-guide/)
+- [Surefire JUnit](https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html)
 
-2.開啟設定
+### 原始筆記保留的來源
 
-Test runner : 可以選擇 版本
-
-Enbironment  : 可以選擇 環境變數
-
-
-
-![JUnit 執行設定](/images/eclipse/junit2.png)
-
-
-
-
-![JUnit 執行結果](/images/eclipse/junit3.png)
-
-
-
-
-## 參考
-
-[Embracing JUnit 5 with Eclipse | The Eclipse Foundation](https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php)
-
+- [Embracing JUnit 5 with Eclipse | The Eclipse Foundation](https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php)

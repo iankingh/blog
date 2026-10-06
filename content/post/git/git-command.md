@@ -1,37 +1,54 @@
 ---
-title: "GitCommand"
+title: "Git 基本流程：檢查、暫存與提交"
 date: 2021-07-14T09:21:29+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
  - "git"
 toc: true
+description: "補齊 status、diff、add、commit 的操作順序，區分工作目錄與暫存區。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## git command
-<!-- 簡介 -->
-
-紀錄 git command
+補齊 status、diff、add、commit 的操作順序，區分工作目錄與暫存區。
 
 <!--more-->
 
-### git status  看目前訊息
+適用：Git 2.x；先準備一個可丟棄的本機 repository。
 
-取得目前 Git 工作目錄的狀態用這個指令可以取得當前目錄的版控狀態，例如有檔案被變更、刪除、新增或其他。
+## 最小練習
 
-### git add   新增索引
+```bash
+mkdir git-note-lab
+cd git-note-lab
+git init
+git config user.name "Note Lab"
+git config user.email "note-lab@example.invalid"
+printf 'campfire\n' > note.txt
+git status --short
+git add note.txt
+git diff --cached
+git commit -m "docs: 新增練習筆記"
+git status --short
+```
 
-( 將尚未被 Git 追蹤的新增檔案加進去 )來告知 git，哪些是我們將要 commit 的檔案
-git add . : 把所有新增檔案與更新檔案加入編舞
+初始 status 顯示 `?? note.txt`，add 後暫存區有新增內容，commit 後 status 無輸出表示乾淨。設定只作用於此 repository，不用 --global 改個人設定。
 
-git add若加上一個小數點 ( . ) 代表目前目錄，它會自動把所有尚未版控的檔案(Untracked files) 加入到 Git 的追蹤清單中，也代表這些檔案才會經由 Git 進行版本控管。
+## 暫存不是提交
 
-git add 檔案名.副檔名 : 
+`git diff` 比較工作目錄與暫存區；`git diff --cached` 比較暫存區與 HEAD。檔案 add 後再次修改，新修改不會自動進同一個 commit，需再次 add。`git add .` 包括指定目錄內新增、修改與刪除；忽略規則不會停止追蹤已經進 Git 的檔案。
 
-如果你只想把未控管 (Untracked) 的檔案加入，則必須指定檔名來加入。
+取消暫存可用 `git restore --staged note.txt`（已有 HEAD 時）；這不會刪除工作目錄內容。不要把 `git restore note.txt` 當同一操作，後者會覆蓋尚未暫存修改。提交前檢查 staged diff，避免把 .env、編譯輸出或不相關檔案帶入。
 
+完成後在父目錄自行移除練習資料夾。這裡不含遠端操作，push 前還需確認 branch、remote 與許可權。
 
+## 查核範圍
 
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-## 參考
+## 參考資料
+
+- [git-add](https://git-scm.com/docs/git-add)
+- [git-status](https://git-scm.com/docs/git-status)
+- [git-diff](https://git-scm.com/docs/git-diff)

@@ -1,92 +1,69 @@
 ---
-title: "SelectJsonList"
+title: "JavaScript JSON 下拉選單：解析、選項與選取結果"
 date: 2021-03-16T10:04:40+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
  - "JavaScript"
 toc: true
+description: "保留機構清單選取情境，補上 JSON 格式檢查、預設選項及安全渲染。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## 筆記
-<!-- 簡介 -->
+保留機構清單選取情境，補上 JSON 格式檢查、預設選項及安全渲染。
+
 <!--more-->
 
+適用：支援ES2015以上的現代瀏覽器。HTML範例存成獨立檔案，以本地HTTP服務開啟；程式碼僅供讀者複製，不在部落格頁面執行。
+
+## 完整頁面
+
+原資料是當時銀行清單，可能有拼字與現行名稱差異；這裡用虛構資料說明操作，不當權威名單。
+
 ```html
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var jsonData = '[{"BANK_ID":"005","BRANCH_NAME":"臺灣土地銀行","BRANCH_NICKNAME":"土銀"},{"BANK_ID":"006","BRANCH_NAME":"合金庫商業銀行","BRANCH_NICKNAME":"合庫商銀"},{"BANK_ID":"007","BRANCH_NAME":"第商業銀行","BRANCH_NICKNAME":"銀"},{"BANK_ID":"008","BRANCH_NAME":"華南商業銀行","BRANCH_NICKNAME":"華銀"},{"BANK_ID":"009","BRANCH_NAME":"彰化商業銀行","BRANCH_NICKNAME":"彰銀"},{"BANK_ID":"011","BRANCH_NAME":"上海商業儲蓄銀行","BRANCH_NICKNAME":"上銀"},{"BANK_ID":"012","BRANCH_NAME":"臺北富邦商業銀行","BRANCH_NICKNAME":"北富銀"},{"BANK_ID":"013","BRANCH_NAME":"國泰華商業銀行","BRANCH_NICKNAME":"國銀"},{"BANK_ID":"016","BRANCH_NAME":"高雄銀行","BRANCH_NICKNAME":"高銀"},{"BANK_ID":"017","BRANCH_NAME":"兆豐國際商業銀行","BRANCH_NICKNAME":"兆豐銀"},{"BANK_ID":"018","BRANCH_NAME":"全國農業金庫","BRANCH_NICKNAME":"農業金庫"},{"BANK_ID":"020","BRANCH_NAME":"日商瑞穗實業銀行臺北分行","BRANCH_NICKNAME":"瑞實銀行"},{"BANK_ID":"021","BRANCH_NAME":"花旗（臺灣）商業銀行","BRANCH_NICKNAME":"花旗臺灣"},{"BANK_ID":"022","BRANCH_NAME":"美國銀行臺北分行","BRANCH_NICKNAME":"美銀臺北"},{"BANK_ID":"023","BRANCH_NAME":"泰國盤谷銀行臺北分行","BRANCH_NICKNAME":"盤谷臺北"},{"BANK_ID":"025","BRANCH_NAME":"菲律賓首都銀行臺北分行","BRANCH_NICKNAME":"首都臺北"},{"BANK_ID":"039","BRANCH_NAME":"澳商澳盛銀行","BRANCH_NICKNAME":"澳盛銀行"},{"BANK_ID":"040","BRANCH_NAME":"中華開發工業銀行","BRANCH_NICKNAME":"開發銀行"},{"BANK_ID":"048","BRANCH_NAME":"臺灣工業銀行","BRANCH_NICKNAME":"臺灣工銀"},{"BANK_ID":"050","BRANCH_NAME":"臺灣中小企業銀行","BRANCH_NICKNAME":"臺企"},{"BANK_ID":"052","BRANCH_NAME":"渣打國際商業銀行","BRANCH_NICKNAME":"渣商銀"},{"BANK_ID":"053","BRANCH_NAME":"臺中商業銀行","BRANCH_NICKNAME":"臺中銀"},{"BANK_ID":"054","BRANCH_NAME":"京城商業銀行","BRANCH_NICKNAME":"京城銀行"},{"BANK_ID":"060","BRANCH_NAME":"兆豐票券金融股份有限公司","BRANCH_NICKNAME":"豐票"},{"BANK_ID":"061","BRANCH_NAME":"中華票券金融股份有限公司","BRANCH_NICKNAME":"華票"},{"BANK_ID":"062","BRANCH_NAME":"國際票券金融股份有限公司","BRANCH_NICKNAME":"國票"},{"BANK_ID":"066","BRANCH_NAME":"萬通票券金融股份有限公司","BRANCH_NICKNAME":"萬票"},{"BANK_ID":"072","BRANCH_NAME":"德商德意志銀行臺北分行","BRANCH_NICKNAME":"德銀臺北"},{"BANK_ID":"075","BRANCH_NAME":"香港商東亞銀行臺北分行","BRANCH_NICKNAME":"東亞銀行"},{"BANK_ID":"076","BRANCH_NAME":"美商摩根大通銀行臺北分行","BRANCH_NICKNAME":"摩根大通銀"},{"BANK_ID":"078","BRANCH_NAME":"新加坡商星展銀行臺北分行","BRANCH_NICKNAME":"星展銀行"},{"BANK_ID":"081","BRANCH_NAME":"匯豐（臺灣）商業銀行","BRANCH_NICKNAME":"匯豐臺灣"},{"BANK_ID":"082","BRANCH_NAME":"法國巴黎銀行臺北分行","BRANCH_NICKNAME":"巴黎銀行"},{"BANK_ID":"085","BRANCH_NAME":"新加坡商新加坡華僑銀行臺北分行","BRANCH_NICKNAME":"新僑銀行"},{"BANK_ID":"086","BRANCH_NAME":"法商東方匯理銀行臺北分行","BRANCH_NICKNAME":"東方匯理"},{"BANK_ID":"092","BRANCH_NAME":"瑞士商瑞士銀行臺北分行","BRANCH_NICKNAME":"瑞士銀行"},{"BANK_ID":"093","BRANCH_NAME":"荷商安智銀行臺北分行","BRANCH_NICKNAME":"安智銀行"},{"BANK_ID":"098","BRANCH_NAME":"日商三菱東京日聯銀行臺北分行","BRANCH_NICKNAME":"三菱日聯"},{"BANK_ID":"101","BRANCH_NAME":"大臺北商業銀行","BRANCH_NICKNAME":"大臺北銀行"},{"BANK_ID":"102","BRANCH_NAME":"華泰商業銀行","BRANCH_NICKNAME":"華泰銀行"},{"BANK_ID":"103","BRANCH_NAME":"臺灣新光商業銀行","BRANCH_NICKNAME":"新光銀行"},{"BANK_ID":"104","BRANCH_NAME":"臺北市第五信用合社","BRANCH_NICKNAME":"北五"},{"BANK_ID":"106","BRANCH_NAME":"臺北市第九信用合社","BRANCH_NICKNAME":"北九"},{"BANK_ID":"108","BRANCH_NAME":"陽信商業銀行","BRANCH_NICKNAME":"陽信銀行"},{"BANK_ID":"114","BRANCH_NAME":"基隆第信用合社","BRANCH_NICKNAME":"基"},{"BANK_ID":"115","BRANCH_NAME":"基隆市第二信用合社","BRANCH_NICKNAME":"基二"},{"BANK_ID":"118","BRANCH_NAME":"板信商業銀行","BRANCH_NICKNAME":"板信銀行"},{"BANK_ID":"119","BRANCH_NAME":"淡水第信用合社","BRANCH_NICKNAME":"淡"},{"BANK_ID":"120","BRANCH_NAME":"臺北縣淡水信用合社","BRANCH_NICKNAME":"淡信"},{"BANK_ID":"124","BRANCH_NAME":"宜蘭信用合社","BRANCH_NICKNAME":"宜信"},{"BANK_ID":"127","BRANCH_NAME":"桃園縣桃園信用合社","BRANCH_NICKNAME":"桃信"},{"BANK_ID":"130","BRANCH_NAME":"新竹第信用合社","BRANCH_NICKNAME":"竹"},{"BANK_ID":"132","BRANCH_NAME":"新竹第三信用合社","BRANCH_NICKNAME":"竹三"},{"BANK_ID":"139","BRANCH_NAME":"竹南信用合社","BRANCH_NICKNAME":"竹南信"},{"BANK_ID":"146","BRANCH_NAME":"臺中市第二信用合社","BRANCH_NICKNAME":"中二"},{"BANK_ID":"147","BRANCH_NAME":"三信商業銀行","BRANCH_NICKNAME":"三信銀行"},{"BANK_ID":"158","BRANCH_NAME":"彰化第信用合社","BRANCH_NICKNAME":"彰"},{"BANK_ID":"161","BRANCH_NAME":"彰化第五信用合社","BRANCH_NICKNAME":"彰五"},{"BANK_ID":"162","BRANCH_NAME":"彰化第六信用合社","BRANCH_NICKNAME":"彰六"},{"BANK_ID":"163","BRANCH_NAME":"彰化第十信用合社","BRANCH_NICKNAME":"彰十"},{"BANK_ID":"165","BRANCH_NAME":"彰化縣鹿港信用合社","BRANCH_NICKNAME":"鹿信"},{"BANK_ID":"178","BRANCH_NAME":"嘉義市第三信用合社","BRANCH_NICKNAME":"嘉三"},{"BANK_ID":"179","BRANCH_NAME":"嘉義市第四信用合社","BRANCH_NICKNAME":"嘉四"},{"BANK_ID":"188","BRANCH_NAME":"臺南第三信用合社","BRANCH_NICKNAME":"南三"},{"BANK_ID":"204","BRANCH_NAME":"高雄市第三信用合社","BRANCH_NICKNAME":"高三"},{"BANK_ID":"215","BRANCH_NAME":"花蓮第信用合社","BRANCH_NICKNAME":"花"},{"BANK_ID":"216","BRANCH_NAME":"花蓮第二信用合社","BRANCH_NICKNAME":"花二"},{"BANK_ID":"222","BRANCH_NAME":"澎湖縣第信用合社","BRANCH_NICKNAME":"澎"},{"BANK_ID":"223","BRANCH_NAME":"澎湖第二信用合社","BRANCH_NICKNAME":"澎二"},{"BANK_ID":"224","BRANCH_NAME":"金門縣信用合社","BRANCH_NICKNAME":"金門"},{"BANK_ID":"321","BRANCH_NAME":"日商三井住友銀行臺北分行","BRANCH_NICKNAME":"三井住友"},{"BANK_ID":"372","BRANCH_NAME":"大慶票券金融股份有限公司","BRANCH_NICKNAME":"大慶票券"},{"BANK_ID":"503","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"504","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"505","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"506","BRANCH_NAME":"聯資中心所屬會員","BRANCH_NICKNAME":"聯資中心"},{"BANK_ID":"507","BRANCH_NAME":"聯資中心所屬會員","BRANCH_NICKNAME":"聯資中心"},{"BANK_ID":"512","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"515","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"517","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"518","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"520","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"521","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"523","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"524","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"525","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"603","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"605","BRANCH_NAME":"高雄市農會","BRANCH_NICKNAME":"高農"},{"BANK_ID":"606","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"607","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"608","BRANCH_NAME":"聯資中心所屬會員","BRANCH_NICKNAME":"聯資中心"},{"BANK_ID":"609","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"610","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"611","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"612","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"613","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"614","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"616","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"617","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"618","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"619","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"620","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"621","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"622","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"623","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"624","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"625","BRANCH_NAME":"臺中市農會","BRANCH_NICKNAME":"中市農"},{"BANK_ID":"627","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"700","BRANCH_NAME":"中華郵政股份有限公司","BRANCH_NICKNAME":"郵政公司"},{"BANK_ID":"803","BRANCH_NAME":"聯邦商業銀行","BRANCH_NICKNAME":"聯邦銀行"},{"BANK_ID":"805","BRANCH_NAME":"遠東國際商業銀行","BRANCH_NICKNAME":"遠東銀行"},{"BANK_ID":"806","BRANCH_NAME":"元大商業銀行","BRANCH_NICKNAME":"元大銀行"},{"BANK_ID":"807","BRANCH_NAME":"永豐商業銀行","BRANCH_NICKNAME":"永豐銀行"},{"BANK_ID":"808","BRANCH_NAME":"玉山商業銀行","BRANCH_NICKNAME":"玉山銀行"},{"BANK_ID":"809","BRANCH_NAME":"萬泰商業銀行","BRANCH_NICKNAME":"萬泰銀行"},{"BANK_ID":"810","BRANCH_NAME":"星展銀行－原寶華銀行","BRANCH_NICKNAME":"星展寶華銀"},{"BANK_ID":"812","BRANCH_NAME":"臺新國際商業銀行","BRANCH_NICKNAME":"臺新銀行"},{"BANK_ID":"814","BRANCH_NAME":"大眾商業銀行","BRANCH_NICKNAME":"大眾銀行"},{"BANK_ID":"815","BRANCH_NAME":"日盛國際商業銀行","BRANCH_NICKNAME":"日盛銀行"},{"BANK_ID":"816","BRANCH_NAME":"安泰商業銀行","BRANCH_NICKNAME":"安泰銀行"},{"BANK_ID":"822","BRANCH_NAME":"中國信託商業銀行","BRANCH_NICKNAME":"中信銀行"},{"BANK_ID":"901","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"903","BRANCH_NAME":"新北市汐止區農會","BRANCH_NICKNAME":"汐農"},{"BANK_ID":"904","BRANCH_NAME":"新北市新莊區農會","BRANCH_NICKNAME":"莊農"},{"BANK_ID":"912","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"916","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"922","BRANCH_NAME":"臺南市農會","BRANCH_NICKNAME":"臺南市農會"},{"BANK_ID":"928","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"952","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"995","BRANCH_NAME":"關貿網路股份有限公司","BRANCH_NICKNAME":"關貿網路"},{"BANK_ID":"996","BRANCH_NAME":"財政部臺北區支付處","BRANCH_NICKNAME":"財支"}]';
-            var trHTML = '';
-                $.each(JSON.parse(jsonData), function (i, item) {
-                    if (i % 3 == 0) {
-                        trHTML += '<tr><td  style="text-align:right;">'
-                            + item.BANK_ID + '       '
-                            + item.BRANCH_NAME + '      '
-                            + '<input type="button" class="btn btn-default" value="選用" ></input>'
-                            + '</td>'
-                    } else {
-                        trHTML += '<td style="text-align:right;">'
-                            + item.BANK_ID + '      '
-                            + item.BRANCH_NAME + '      '
-                            + '<input type="button" class="btn btn-default" value="選用" ></input>'
-                            + '</td>'
-                    }
-                });
-                $('#Bank_table').append(trHTML);
-        });
-
-        //
-        function chooseBankId(BANK_ID) {
-            var lenght = 3;
-            var str = BANK_ID.toString();
-            if (str.length >= lenght) {
-                return str;
-            } else {
-                alert(str.length >= lenght ? str : new Array(lenght - str.length + 1).join("0") + str);
-                return str.length >= lenght ? str : new Array(lenght - str.length + 1).join("0") + str;
-            }
-
-        }
-        function selectListByMapKey(mapKey) {
-            // mapkey == BANK_ID
-            alert("mapKey  : " + mapKey)
-            var jsonData = '[{"BANK_ID":"005","BRANCH_NAME":"臺灣土地銀行","BRANCH_NICKNAME":"土銀"},{"BANK_ID":"006","BRANCH_NAME":"合金庫商業銀行","BRANCH_NICKNAME":"合庫商銀"},{"BANK_ID":"007","BRANCH_NAME":"第商業銀行","BRANCH_NICKNAME":"銀"},{"BANK_ID":"008","BRANCH_NAME":"華南商業銀行","BRANCH_NICKNAME":"華銀"},{"BANK_ID":"009","BRANCH_NAME":"彰化商業銀行","BRANCH_NICKNAME":"彰銀"},{"BANK_ID":"011","BRANCH_NAME":"上海商業儲蓄銀行","BRANCH_NICKNAME":"上銀"},{"BANK_ID":"012","BRANCH_NAME":"臺北富邦商業銀行","BRANCH_NICKNAME":"北富銀"},{"BANK_ID":"013","BRANCH_NAME":"國泰華商業銀行","BRANCH_NICKNAME":"國銀"},{"BANK_ID":"016","BRANCH_NAME":"高雄銀行","BRANCH_NICKNAME":"高銀"},{"BANK_ID":"017","BRANCH_NAME":"兆豐國際商業銀行","BRANCH_NICKNAME":"兆豐銀"},{"BANK_ID":"018","BRANCH_NAME":"全國農業金庫","BRANCH_NICKNAME":"農業金庫"},{"BANK_ID":"020","BRANCH_NAME":"日商瑞穗實業銀行臺北分行","BRANCH_NICKNAME":"瑞實銀行"},{"BANK_ID":"021","BRANCH_NAME":"花旗（臺灣）商業銀行","BRANCH_NICKNAME":"花旗臺灣"},{"BANK_ID":"022","BRANCH_NAME":"美國銀行臺北分行","BRANCH_NICKNAME":"美銀臺北"},{"BANK_ID":"023","BRANCH_NAME":"泰國盤谷銀行臺北分行","BRANCH_NICKNAME":"盤谷臺北"},{"BANK_ID":"025","BRANCH_NAME":"菲律賓首都銀行臺北分行","BRANCH_NICKNAME":"首都臺北"},{"BANK_ID":"039","BRANCH_NAME":"澳商澳盛銀行","BRANCH_NICKNAME":"澳盛銀行"},{"BANK_ID":"040","BRANCH_NAME":"中華開發工業銀行","BRANCH_NICKNAME":"開發銀行"},{"BANK_ID":"048","BRANCH_NAME":"臺灣工業銀行","BRANCH_NICKNAME":"臺灣工銀"},{"BANK_ID":"050","BRANCH_NAME":"臺灣中小企業銀行","BRANCH_NICKNAME":"臺企"},{"BANK_ID":"052","BRANCH_NAME":"渣打國際商業銀行","BRANCH_NICKNAME":"渣商銀"},{"BANK_ID":"053","BRANCH_NAME":"臺中商業銀行","BRANCH_NICKNAME":"臺中銀"},{"BANK_ID":"054","BRANCH_NAME":"京城商業銀行","BRANCH_NICKNAME":"京城銀行"},{"BANK_ID":"060","BRANCH_NAME":"兆豐票券金融股份有限公司","BRANCH_NICKNAME":"豐票"},{"BANK_ID":"061","BRANCH_NAME":"中華票券金融股份有限公司","BRANCH_NICKNAME":"華票"},{"BANK_ID":"062","BRANCH_NAME":"國際票券金融股份有限公司","BRANCH_NICKNAME":"國票"},{"BANK_ID":"066","BRANCH_NAME":"萬通票券金融股份有限公司","BRANCH_NICKNAME":"萬票"},{"BANK_ID":"072","BRANCH_NAME":"德商德意志銀行臺北分行","BRANCH_NICKNAME":"德銀臺北"},{"BANK_ID":"075","BRANCH_NAME":"香港商東亞銀行臺北分行","BRANCH_NICKNAME":"東亞銀行"},{"BANK_ID":"076","BRANCH_NAME":"美商摩根大通銀行臺北分行","BRANCH_NICKNAME":"摩根大通銀"},{"BANK_ID":"078","BRANCH_NAME":"新加坡商星展銀行臺北分行","BRANCH_NICKNAME":"星展銀行"},{"BANK_ID":"081","BRANCH_NAME":"匯豐（臺灣）商業銀行","BRANCH_NICKNAME":"匯豐臺灣"},{"BANK_ID":"082","BRANCH_NAME":"法國巴黎銀行臺北分行","BRANCH_NICKNAME":"巴黎銀行"},{"BANK_ID":"085","BRANCH_NAME":"新加坡商新加坡華僑銀行臺北分行","BRANCH_NICKNAME":"新僑銀行"},{"BANK_ID":"086","BRANCH_NAME":"法商東方匯理銀行臺北分行","BRANCH_NICKNAME":"東方匯理"},{"BANK_ID":"092","BRANCH_NAME":"瑞士商瑞士銀行臺北分行","BRANCH_NICKNAME":"瑞士銀行"},{"BANK_ID":"093","BRANCH_NAME":"荷商安智銀行臺北分行","BRANCH_NICKNAME":"安智銀行"},{"BANK_ID":"098","BRANCH_NAME":"日商三菱東京日聯銀行臺北分行","BRANCH_NICKNAME":"三菱日聯"},{"BANK_ID":"101","BRANCH_NAME":"大臺北商業銀行","BRANCH_NICKNAME":"大臺北銀行"},{"BANK_ID":"102","BRANCH_NAME":"華泰商業銀行","BRANCH_NICKNAME":"華泰銀行"},{"BANK_ID":"103","BRANCH_NAME":"臺灣新光商業銀行","BRANCH_NICKNAME":"新光銀行"},{"BANK_ID":"104","BRANCH_NAME":"臺北市第五信用合社","BRANCH_NICKNAME":"北五"},{"BANK_ID":"106","BRANCH_NAME":"臺北市第九信用合社","BRANCH_NICKNAME":"北九"},{"BANK_ID":"108","BRANCH_NAME":"陽信商業銀行","BRANCH_NICKNAME":"陽信銀行"},{"BANK_ID":"114","BRANCH_NAME":"基隆第信用合社","BRANCH_NICKNAME":"基"},{"BANK_ID":"115","BRANCH_NAME":"基隆市第二信用合社","BRANCH_NICKNAME":"基二"},{"BANK_ID":"118","BRANCH_NAME":"板信商業銀行","BRANCH_NICKNAME":"板信銀行"},{"BANK_ID":"119","BRANCH_NAME":"淡水第信用合社","BRANCH_NICKNAME":"淡"},{"BANK_ID":"120","BRANCH_NAME":"臺北縣淡水信用合社","BRANCH_NICKNAME":"淡信"},{"BANK_ID":"124","BRANCH_NAME":"宜蘭信用合社","BRANCH_NICKNAME":"宜信"},{"BANK_ID":"127","BRANCH_NAME":"桃園縣桃園信用合社","BRANCH_NICKNAME":"桃信"},{"BANK_ID":"130","BRANCH_NAME":"新竹第信用合社","BRANCH_NICKNAME":"竹"},{"BANK_ID":"132","BRANCH_NAME":"新竹第三信用合社","BRANCH_NICKNAME":"竹三"},{"BANK_ID":"139","BRANCH_NAME":"竹南信用合社","BRANCH_NICKNAME":"竹南信"},{"BANK_ID":"146","BRANCH_NAME":"臺中市第二信用合社","BRANCH_NICKNAME":"中二"},{"BANK_ID":"147","BRANCH_NAME":"三信商業銀行","BRANCH_NICKNAME":"三信銀行"},{"BANK_ID":"158","BRANCH_NAME":"彰化第信用合社","BRANCH_NICKNAME":"彰"},{"BANK_ID":"161","BRANCH_NAME":"彰化第五信用合社","BRANCH_NICKNAME":"彰五"},{"BANK_ID":"162","BRANCH_NAME":"彰化第六信用合社","BRANCH_NICKNAME":"彰六"},{"BANK_ID":"163","BRANCH_NAME":"彰化第十信用合社","BRANCH_NICKNAME":"彰十"},{"BANK_ID":"165","BRANCH_NAME":"彰化縣鹿港信用合社","BRANCH_NICKNAME":"鹿信"},{"BANK_ID":"178","BRANCH_NAME":"嘉義市第三信用合社","BRANCH_NICKNAME":"嘉三"},{"BANK_ID":"179","BRANCH_NAME":"嘉義市第四信用合社","BRANCH_NICKNAME":"嘉四"},{"BANK_ID":"188","BRANCH_NAME":"臺南第三信用合社","BRANCH_NICKNAME":"南三"},{"BANK_ID":"204","BRANCH_NAME":"高雄市第三信用合社","BRANCH_NICKNAME":"高三"},{"BANK_ID":"215","BRANCH_NAME":"花蓮第信用合社","BRANCH_NICKNAME":"花"},{"BANK_ID":"216","BRANCH_NAME":"花蓮第二信用合社","BRANCH_NICKNAME":"花二"},{"BANK_ID":"222","BRANCH_NAME":"澎湖縣第信用合社","BRANCH_NICKNAME":"澎"},{"BANK_ID":"223","BRANCH_NAME":"澎湖第二信用合社","BRANCH_NICKNAME":"澎二"},{"BANK_ID":"224","BRANCH_NAME":"金門縣信用合社","BRANCH_NICKNAME":"金門"},{"BANK_ID":"321","BRANCH_NAME":"日商三井住友銀行臺北分行","BRANCH_NICKNAME":"三井住友"},{"BANK_ID":"372","BRANCH_NAME":"大慶票券金融股份有限公司","BRANCH_NICKNAME":"大慶票券"},{"BANK_ID":"503","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"504","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"505","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"506","BRANCH_NAME":"聯資中心所屬會員","BRANCH_NICKNAME":"聯資中心"},{"BANK_ID":"507","BRANCH_NAME":"聯資中心所屬會員","BRANCH_NICKNAME":"聯資中心"},{"BANK_ID":"512","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"515","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"517","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"518","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"520","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"521","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"523","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"524","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"525","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"603","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"605","BRANCH_NAME":"高雄市農會","BRANCH_NICKNAME":"高農"},{"BANK_ID":"606","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"607","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"608","BRANCH_NAME":"聯資中心所屬會員","BRANCH_NICKNAME":"聯資中心"},{"BANK_ID":"609","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"610","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"611","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"612","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"613","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"614","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"616","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"617","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"618","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"619","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"620","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"621","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"622","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"623","BRANCH_NAME":"北農中心所屬會員","BRANCH_NICKNAME":"北農中心"},{"BANK_ID":"624","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"625","BRANCH_NAME":"臺中市農會","BRANCH_NICKNAME":"中市農"},{"BANK_ID":"627","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"700","BRANCH_NAME":"中華郵政股份有限公司","BRANCH_NICKNAME":"郵政公司"},{"BANK_ID":"803","BRANCH_NAME":"聯邦商業銀行","BRANCH_NICKNAME":"聯邦銀行"},{"BANK_ID":"805","BRANCH_NAME":"遠東國際商業銀行","BRANCH_NICKNAME":"遠東銀行"},{"BANK_ID":"806","BRANCH_NAME":"元大商業銀行","BRANCH_NICKNAME":"元大銀行"},{"BANK_ID":"807","BRANCH_NAME":"永豐商業銀行","BRANCH_NICKNAME":"永豐銀行"},{"BANK_ID":"808","BRANCH_NAME":"玉山商業銀行","BRANCH_NICKNAME":"玉山銀行"},{"BANK_ID":"809","BRANCH_NAME":"萬泰商業銀行","BRANCH_NICKNAME":"萬泰銀行"},{"BANK_ID":"810","BRANCH_NAME":"星展銀行－原寶華銀行","BRANCH_NICKNAME":"星展寶華銀"},{"BANK_ID":"812","BRANCH_NAME":"臺新國際商業銀行","BRANCH_NICKNAME":"臺新銀行"},{"BANK_ID":"814","BRANCH_NAME":"大眾商業銀行","BRANCH_NICKNAME":"大眾銀行"},{"BANK_ID":"815","BRANCH_NAME":"日盛國際商業銀行","BRANCH_NICKNAME":"日盛銀行"},{"BANK_ID":"816","BRANCH_NAME":"安泰商業銀行","BRANCH_NICKNAME":"安泰銀行"},{"BANK_ID":"822","BRANCH_NAME":"中國信託商業銀行","BRANCH_NICKNAME":"中信銀行"},{"BANK_ID":"901","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"903","BRANCH_NAME":"新北市汐止區農會","BRANCH_NICKNAME":"汐農"},{"BANK_ID":"904","BRANCH_NAME":"新北市新莊區農會","BRANCH_NICKNAME":"莊農"},{"BANK_ID":"912","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"916","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"922","BRANCH_NAME":"臺南市農會","BRANCH_NICKNAME":"臺南市農會"},{"BANK_ID":"928","BRANCH_NAME":"板農中心所屬會員","BRANCH_NICKNAME":"板農中心"},{"BANK_ID":"952","BRANCH_NAME":"南農中心所屬會員","BRANCH_NICKNAME":"南農中心"},{"BANK_ID":"995","BRANCH_NAME":"關貿網路股份有限公司","BRANCH_NICKNAME":"關貿網路"},{"BANK_ID":"996","BRANCH_NAME":"財政部臺北區支付處","BRANCH_NICKNAME":"財支"}]';
-            var helperjson = JSON.parse(jsonData);
-
-            //find object in list
-            var result = $.map(helperjson, function (item, index) {
-               return item.BANK_ID;
-            }).indexOf(mapKey);
-            alert(result)
-            alert(helperjson[result].BRANCH_NAME)
-        }
-
-
-    </script>
-</head>
-
-<body>
-
-    <button onclick="selectListByMapKey('623')" type="button">Click Me!</button>
-    <table border="1" id="Bank_table">
-
-    </table>
-
-</body>
-
-</html>
-
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>JSON 選單</title>
+<label>選擇機構 <select id="bank"><option value="">請選擇</option></select></label>
+<p id="result" role="status">尚未選擇</p>
+<script>
+const raw = '[{"code":"001","name":"營火機構"},{"code":"002","name":"山城機構"}]';
+const select = document.querySelector('#bank');
+const result = document.querySelector('#result');
+try {
+  const records = JSON.parse(raw);
+  if (!Array.isArray(records) || !records.every(x => x && typeof x.code === 'string' && typeof x.name === 'string')) {
+    throw new Error('清單格式不正確');
+  }
+  for (const record of records) {
+    const option = document.createElement('option');
+    option.value = record.code;
+    option.textContent = record.name;
+    select.append(option);
+  }
+  select.addEventListener('change', () => {
+    result.textContent = select.value ? `已選：${select.value} ${select.selectedOptions[0].textContent}` : '尚未選擇';
+  });
+} catch (error) {
+  select.disabled = true;
+  result.textContent = error.message;
+}
+</script></html>
 ```
 
+初始尚未選擇；選山城應為已選：002 山城機構。把raw改成`{}`應停用選單並顯示格式錯誤，無效JSON則進catch。
 
-## 參考
+## 限制與維護
+
+JSON是資料格式，不使用eval解析。選項名稱可變，value用穩定程式碼；後端仍要驗證程式碼可用與許可權，使用者可改DOM。大量選項需要搜尋／分頁控制與a11y評估，原超長清單不適合拿來堆積範例篇幅。
+
+這個原生版本不依賴jQuery；若維護原jQuery3.4專案，保留資料契約並用相容且受支援的庫版本，不能只換CDN就算遷移完成。
+
+## 查核範圍
+
+本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+- [select](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select)
+- [selectedOptions](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions)

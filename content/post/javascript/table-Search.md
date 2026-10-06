@@ -1,116 +1,66 @@
 ---
-title: "JavaScript 實作簡易網頁表格資料搜尋與篩選功能 "
+title: "JavaScript 表格搜尋：保留欄位並篩選整列"
 date: 2021-03-16T10:02:22+08:00
-draft: true
+draft: false
 categories:
  - "筆記"
 tags:
  - "JavaScript"
 toc: true
+description: "修正原本隱藏個別儲存格造成的欄位錯位，補上計數與空結果。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## JavaScript 實作簡易網頁表格資料搜尋與篩選功能 
-<!-- 簡介 -->
+修正原本隱藏個別儲存格造成的欄位錯位，補上計數與空結果。
+
 <!--more-->
 
+適用：支援ES2015以上的現代瀏覽器。HTML範例存成獨立檔案，以本地HTTP服務開啟；程式碼僅供讀者複製，不在部落格頁面執行。
+
+## 完整頁面
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <script>
-        (function (document) {
-            'use strict';
-            // 建立 LightTableFilter
-            var LightTableFilter = (function (Arr) {
-                var _input;
-                // 資料輸入事件處理函式
-                function _onInputEvent(e) {
-                    _input = e.target;
-                    var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
-                    Arr.forEach.call(tables, function (table) {
-                        Arr.forEach.call(table.tBodies, function (tbody) {
-                            Arr.forEach.call(tbody.rows, _filter);
-                        });
-                    });
-                }
-                // 資料篩選函式，顯示包含關鍵字的列，其餘隱藏
-                function _filter(row) {
-                    var text = row.textContent.toLowerCase();
-                    var val = _input.value.toLowerCase();
-                    row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
-                    Arr.forEach.call(row.cells, _filter_cells);
-                }
-                // 資料篩選函式，顯示包含關鍵字的行，其餘隱藏
-                function _filter_cells(cells) {
-                    var text = cells.textContent.toLowerCase();
-                    var val = _input.value.toLowerCase();
-                    cells.style.display = text.indexOf(val) === -1 ? 'none' : 'table-cell';
-                }
-                return {
-                    // 初始化函式
-                    init: function () {
-                        var inputs = document.getElementsByClassName('light-table-filter');
-                        Arr.forEach.call(inputs, function (input) {
-                            input.oninput = _onInputEvent;
-                        });
-                    }
-                };
-
-            })(Array.prototype);
-            // 網頁載入完成後，啟動 LightTableFilter
-            document.addEventListener('readystatechange', function () {
-                if (document.readyState === 'complete') {
-                    LightTableFilter.init();
-                }
-            });
-        })(document);
-
-    </script>
-
-    搜尋：<input type="search" class="light-table-filter" data-table="order-table" placeholder="請輸入關鍵字">
-
-    <table class="order-table" border="1">
-        <tbody>
-            <tr>
-                <td>004 臺灣銀行 <button>選我</button></td>
-                <td>005 土地銀行 <button>選我</button></td>
-                <td>006 合庫商銀 <button>選我</button></td>
-            </tr>
-            <tr>
-                <td>007 第一銀行 <button>選我</button></td>
-                <td>008 華南銀行 <button>選我</button></td>
-                <td>009 彰化銀行 <button>選我</button></td>
-            </tr>
-            <tr>
-                <td>011 上海銀行 <button>選我</button></td>
-                <td>012 臺北富邦 <button>選我</button></td>
-                <td>013 國泰世華 <button>選我</button></td>
-            </tr>
-            <tr>
-                <td>016 高雄銀行 <button>選我</button></td>
-                <td>017 兆豐商銀 <button>選我</button></td>
-                <td>018 農業金庫 <button>選我</button></td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-
-
-
-</html>
-
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>表格搜尋</title>
+<label>搜尋任務 <input id="query" type="search"></label>
+<p id="status" role="status"></p>
+<table><caption>本地任務</caption><thead><tr><th scope="col">名稱</th><th scope="col">類型</th></tr></thead>
+<tbody id="rows"><tr><td>Vue 入門</td><td>前端</td></tr><tr><td>Java 練習</td><td>後端</td></tr><tr><td>Docker 操作</td><td>維運</td></tr></tbody></table>
+<script>
+const input = document.querySelector('#query');
+const rows = [...document.querySelectorAll('#rows tr')];
+const status = document.querySelector('#status');
+function filter() {
+  const query = input.value.trim().toLocaleLowerCase();
+  let count = 0;
+  for (const row of rows) {
+    row.hidden = !row.textContent.toLocaleLowerCase().includes(query);
+    if (!row.hidden) count++;
+  }
+  status.textContent = count ? `顯示 ${count} / ${rows.length} 筆` : '沒有符合的任務';
+}
+input.addEventListener('input', filter);
+filter();
+</script></html>
 ```
 
+初始3筆；輸入vue顯示1筆，輸入不存在文字顯示空結果，清除恢復3筆。隱藏整列，列中的兩個儲存格仍一起保留。原逐cell過濾會破壞欄位對齊，已移除。
 
-## 參考
+## 搜尋語意與限制
 
-JavaScript 實作簡易網頁表格資料搜尋與篩選功能 - G. T. Wang
-https://blog.gtwang.org/web-development/light-javascript-table-filter-tutorial/
+此例是不分大小寫的單一子字串搜尋，不是分詞、模糊排序或後端全文索引。表格新增列後需更新rows集合；資料多時每次input遍歷可能成本高，評估debounce或伺服器分頁，並維持可分享的篩選狀態。
+
+計數以role=status通知，不依顏色表示結果。空輸入匹配全部；trim去頭尾空白但不把中間空白拆成多關鍵字，若要AND/OR需定義規則並測試。
+
+## 查核範圍
+
+本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [hidden](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden)
+- [input event](https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event)
+- [String.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
+
+### 原始筆記的其他連結
+
+- [原始參考入口 1](https://blog.gtwang.org/web-development/light-javascript-table-filter-tutorial/)

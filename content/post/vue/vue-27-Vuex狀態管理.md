@@ -1,330 +1,87 @@
 ---
-title: "Vue 教學 27 - Vuex 狀態管理"
+title: "Vue 教學 27：Vuex 4 與既有狀態管理維護"
 date: 2026-03-22T20:27:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "Vuex"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "保留 Vuex 的 state、getter、mutation、action 流程，並對照新專案的 Pinia 路線。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+保留 Vuex 的 state、getter、mutation、action 流程，並對照新專案的 Pinia 路線。
+
 <!--more-->
 
-# 第6章 Vuex 狀態管理 完整原始檔
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-## 原始檔：src/store/store.js
+## 歷史版本定位
 
-```js
+Vuex 4 支援 Vue 3，Vuex 3 常見於 Vue 2。此章使用 Vuex 4.1，是維護舊專案的對照；新專案先參考第 26 章 Pinia。不要直接將 Vuex 的 mapState 套到 Pinia store。
 
-import {createStore} from 'vuex'
-import dataUtils from '../utils/dataUtils'
-const myPlugin = (store) => {
-  store.subscribe((mutation, state) => {
-    // 每次呼叫 mutation，在這裡持久化資料
-    dataUtils.setItem('todoList', state.todoItems)
-    dataUtils.setItem('recycleList', state.recycleItems)
-  })
-}
+`src/store.js`：
+
+```javascript
+import { createStore } from 'vuex'
 export default createStore({
-  plugins: [myPlugin],
-  state: {
-    todoItems:dataUtils.getItem('todoList') || [],
-    recycleItems:dataUtils.getItem('recycleList') || [],
-  },
-  mutations: {
-    /*
-    * 新增事項
-    */
-    addTodo (state, obj) {
-      state.todoItems.unshift(obj)
-    },
-    /*
-    * 添加回收站事項
-    */
-    addRecycle (state, obj) {
-      state.recycleItems.unshift(obj)
-    },
-    /*
-    * 刪除回收站事項
-    */
-    deleteRecycle (state, obj) {
-      // 以下邏輯為找到對應 id 的事項，然後刪除
-      state.recycleItems = state.recycleItems.filter(item=>{
-        return item.id != obj.id
-      })
-    },
-    /*
-    * 刪除事項
-    */
-    deleteTodo (state, obj) {
-      // 以下邏輯為找到對應 id 的事項，然後刪除
-      state.todoItems = state.todoItems.filter(item=>{
-        return item.id != obj.id
-      })
-    },
-    /*
-    * 重置事項列表
-    */
-    resetTodo(state, array){
-      state.todoItems = array
-    }
-  },
+  state: () => ({ tasks: [] }),
+  getters: { count: state => state.tasks.length },
+  mutations: { setTasks(state, tasks) { state.tasks = tasks } },
   actions: {
-    addTodo (context, obj) {
-      context.commit('addTodo', obj)
-    },
-    addRecycle (context, obj) {
-      context.commit('addRecycle', obj)
-    },
-    deleteTodo(context, obj){
-      // 先刪除待辦事項
-      context.commit('deleteTodo', obj)
-      // 後增加回收站事項
-      context.commit('addRecycle', obj)
-    },
-    revertTodo(context, obj){
-      // 先刪回收站事項
-      context.commit('deleteRecycle', obj)
-      // 後增加待辦事項
-      context.commit('addTodo', obj)
+    async load({ commit }) {
+      const tasks = await Promise.resolve([{ id: 1, title: 'Vuex 維護練習' }])
+      commit('setTasks', tasks)
     }
   }
 })
 ```
 
-## 原始檔：src/views/todo.vue
+`src/main.js`：
 
-```vue
-<template>
-  <div class="todo">
-    <div class="title">
-      事項列表<span class="shuffle-btn" @click="shuffleList"></span>
-    </div>
-    <div class="add-new">
-      <input v-model.trim="newTodoContent" class="input" type="text" name="new_todo" placeholder="請輸入內容" enterkeyhint="send"
-        @keyup.enter.prevent="saveTodo">
-    </div>
-    <div class="s-wrap">
-        <transition-group name="list-complete" tag="div">
-          <div v-for="item in todoItems" class="list-complete-item"  :key="item.id">
-            <titem :item="item" @delete="deleteItem" @complete="completeItem"></titem>
-          </div>
-        </transition-group>
-    </div>
-  </div>
-</template>
-
-<script>
-  import titem from '../components/titem.vue'
-  import {ref,computed,toRaw} from 'vue'
-  
-  import dataUtils from '../utils/dataUtils'
-  import Vuex from 'vuex'
-  /**
-   * 待辦事項頁面元件
-   */
-  export default {
-    name: 'todo',// 元件的名稱，盡量和檔名一致
-    components: {
-      titem
-    },
-    setup(){
-      const store = Vuex.useStore()
-      let todoItems = computed(() => store.state.todoItems)
-
-      let newTodoContent = ref('')// 輸入框 input 的內容
-      
-      /**
-       * 建立事項
-       */
-      function saveTodo() {
-
-        // 如果沒有輸入內容，直接返回
-        if (!newTodoContent.value) return
-        // 將事項存入列表
-        store.dispatch('addTodo',{
-          id: Math.random().toString(36).substr(2, 5),// 取得隨機 ID 值
-          content: newTodoContent.value// 設定內容
-        })
-        // 建立完成後清空輸入框內容
-        newTodoContent.value = ''
-      }
-      /**
-       * 刪除事項
-       */
-
-      const deleteItem = (obj)=>store.dispatch('deleteTodo',obj)
-
-      /**
-       * 修改事項
-       */
-      function completeItem(obj) {
-        let arr = []
-        // 找到對應 id 的事項，然後替換
-        for (let i = 0 ; i < todoItems.value.length ; i++) {
-          if (todoItems.value[i].id == obj.id) {
-            arr.push(obj)
-          } else {
-            arr.push(todoItems.value[i])
-          }
-        }
-
-        store.commit('resetTodo',arr)
-      }
-      /**
-       * 打亂順序
-       */
-      let shuffleList = ()=> {
-          store.commit('resetTodo',_.shuffle(toRaw(todoItems.value)))
-      }
-
-      return {
-        newTodoContent,
-        deleteItem,
-        todoItems,
-        completeItem,
-        shuffleList,
-        saveTodo
-      }
-    }
-  }
-</script>
-<style scoped>
-  .todo {
-    position: absolute;/* 絕對定位 */
-    background: #ededed;/* 設定背景顏色 */
-    left: 16px;/* 設定位置 */
-    right: 16px;
-    top:90px;
-  }
-  .s-wrap {
-    overflow-y:auto;/* 設定可縱向捲動 */
-    height: 208px;
-  }
-  .todo .title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 27px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .todo .add-new {
-    margin-bottom: 10px;
-  }
-
-  .todo .add-new input {
-    box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, .05);/* 新增陰影效果 */
-    width: 100%;/* 設定寬度 */
-    height: 40px;/* 設定高度 */
-    padding: 4px;/* 設定內邊距 */
-    font-size: 16px;/* 設定字型大小 */
-    color: #363636;/* 設定字型顏色 */
-    background-color: #fff;/* 設定背景顏色 */
-    border-color: transparent;/* 去除預設背景邊框 */
-    border-radius: 4px;/* 設定圓角 */
-    box-sizing: border-box;/* 設定內邊距不佔據寬高 */
-  }
-  
-  .list-complete-item {
-    transition: all 0.8s ease;/* 全狀態新增過渡 */
-  }
-  /* 動畫進入和離開時套用 CSS 樣式 */
-  .list-complete-enter-from,
-  .list-complete-leave-to {
-    opacity: 0;/* 漸隱效果 */
-    transform: translateY(20px);/* 向下移動 */
-  }
-  .shuffle-btn {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    background-image: url('../assets/shuffle.png');/* 設定背景圖片 */
-    background-size: 60% 60%;/* 設定背景尺寸 */
-    background-repeat: no-repeat;/* 設定背景不重複 */
-    background-position: center;/* 設定背景位置 */
-    border-radius: 50%;/* 設定 div 為圓形 */
-    display: inline-block;/* 橫向排列 */
-    vertical-align: -8px;
-  }
-</style>
-
+```javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+import store from './store.js'
+createApp(App).use(store).mount('#app')
 ```
 
-## 原始檔：src/views/recycle.vue
+App.vue：
 
 ```vue
-<template>
-  <div class="recycle">
-    <div class="title">
-      回收站
-    </div>
-    <div class="no-data" v-if="recycleItems.length == 0">暫無已刪除的事項</div>
-    <div class="s-wrap">
-      <ritem v-for="item in recycleItems" :key="item.id" :item="item" @revert="revertItem"></ritem>
-    </div>
-  </div>
-</template>
-
-<script>
-  import ritem from '../components/ritem.vue'
-  import dataUtils from '../utils/dataUtils'
-  import {computed} from 'vue'
-  import Vuex from 'vuex'
-  /**
-   *  回收站頁面元件
-   */
-  export default {
-    name: 'recycle',// 元件的名稱，盡量和檔名一致
-    components: {
-      ritem
-    },
-
-    setup(){
-
-      const store = Vuex.useStore()
-      let recycleItems = computed(() => store.state.recycleItems)
-      /**
-       * 恢復事項
-       */
-      const revertItem = (obj)=>store.dispatch('revertTodo',obj)
-
-      return {
-        recycleItems,
-        revertItem
-      }
-
-    }
-
-  }
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
+const tasks = computed(() => store.state.tasks)
+const count = computed(() => store.getters.count)
 </script>
-<style scoped>
-  .recycle {
-    position: absolute;
-    background: #ededed;
-    left: 16px;
-    right: 16px;
-    top: 90px;
-  }
-  .s-wrap {
-    overflow-y:auto;
-    height: 208px;
-  }
-  .recycle .title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 27px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .recycle .no-data {
-    text-align: center;
-  }
-</style>
-
+<template>
+  <button @click="store.dispatch('load')">讀取</button>
+  <ul><li v-for="task in tasks" :key="task.id">{{ task.title }}</li></ul>
+  <p>{{ count }} 筆</p>
+</template>
 ```
 
+讀取後顯示一筆。mutation 保持同步，非同步操作放 action，再以 commit 改資料。此例 Promise 模擬成功回應，正式請求仍需 error/loading。
+
+## 遷移時比較
+
+Pinia 不要求 mutation，action 可直接改 state；Vuex 的 namespaced modules 對應到多個 Pinia store 時要重看依賴與迴圈引用，而不是只換函式名。先列出每個 action 的輸入、狀態變化與副作用，再逐步切換呼叫端並保留測試。
+
+
+## 章節導覽
+
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-26-Pinia集中式狀態管理.md" >}}) · [下一章]({{< ref "/post/vue/vue-28-Vite工具.md" >}})
+
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證；本文store/composable直接匯入測試狀態、action與錯誤分支。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Vuex 4 入門](https://vuex.vuejs.org/guide/)
+- [Vuex Actions](https://vuex.vuejs.org/guide/actions.html)
+- [Pinia 遷移](https://pinia.vuejs.org/cookbook/migration-vuex.html)

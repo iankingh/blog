@@ -1,8 +1,8 @@
 ---
-title: "Java 多型：讓相同呼叫執行不同實作"
+title: "Java 多型：介面、覆寫與執行時派發"
 date: 2023-08-02T07:38:35+08:00
-lastmod: 2026-10-05T21:48:32+08:00
-description: "用可執行的 Java 範例理解多型：Animal 參考如何呼叫 Cat 與 Dog 的不同實作，以及覆寫、參考型別與執行期分派的差異。"
+lastmod: 2026-10-07T00:01:00+08:00
+description: "用完整 Java 範例理解共同型別、方法覆寫與執行期派發，並區分多型和多載。"
 featuredOrder: 1
 categories: ["筆記"]
 tags: ["Polymorphism", "java"]
@@ -10,9 +10,15 @@ toc: true
 draft: false
 ---
 
-當程式要處理不同種類的物件，但它們共享同一組行為時，可以讓呼叫端依賴共同型別，由各個類別提供自己的實作。這篇用動物的 `sound()` 示範 Java 的多型。
+用完整 Java 範例理解共同型別、方法覆寫與執行期派發，並區分多型和多載。
 
 <!--more-->
+
+適用：Java 21 標準函式庫；本次以 JDK 25 的 --release 21 編譯，核對輸出。原 OpenJDK 21.0.1 驗證環境保留如下。
+
+當程式要處理不同種類的物件，但它們共享同一組行為時，可以讓呼叫端依賴共同型別，由各個類別提供自己的實作。這篇用動物的 `sound()` 示範 Java 的多型。
+
+
 
 ## 使用情境與概念
 
@@ -20,7 +26,7 @@ draft: false
 
 可以先定義共同的 `Animal` 型別，再讓 `Cat` 與 `Dog` 覆寫 `sound()`。呼叫 `animal.sound()` 時，Java 依物件在執行期的實際類別選擇方法實作。
 
-參考型別決定編譯期可以呼叫哪些方法；實際物件型別決定被覆寫的實例方法會執行哪個版本。
+參考型別決定編譯期可以呼叫哪些方法；實際物件型別決定被覆寫的例項方法會執行哪個版本。
 
 ## 驗證環境
 
@@ -85,17 +91,38 @@ Animal breathes
 
 ## 常見混淆與限制
 
-- **覆寫與多載不同。** 覆寫使用相同方法簽章，由執行期物件決定實作；多載是同名但不同參數的方法，選擇主要依編譯期型別進行。
+- **覆寫與多載不同。** 覆寫使用相同方法簽章，由執行期物件決定實作；多載是同名但不同引數的方法，選擇主要依編譯期型別進行。
 - **子類別專屬方法不會自動成為共同介面。** 如果 `Cat` 有額外方法，`Animal` 參考不能直接呼叫它；先判斷需求是否真的需要依賴該具體類別。
-- **靜態方法與欄位不是這個範例的分派方式。** 本文討論的是被覆寫的實例方法。
+- **靜態方法與欄位不是這個範例的分派方式。** 本文討論的是被覆寫的例項方法。
 - 此範例為概念練習；實際系統也能用介面表達共同契約，選擇繼承或介面取決於是否需要共享狀態與實作。
 
 ## 重點回顧
 
 呼叫端用共同型別描述需要的行為，實作類別處理各自細節。重點是共同契約與可替換的實作，而不是只把不同物件放在同一個陣列裡。
 
-## 參考
 
 - [Oracle Java Tutorials：Polymorphism](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)
 - [Java Language Specification 21：Method Invocation Expressions](https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.12)
 - 原始學習參考：[Polymorphism 影片](https://www.youtube.com/watch?v=tYw-BKKcD3s)、[Java 多型教學](https://www.learnerslesson.com/JAVA/Java-Polymorphism.htm)。上方程式已整理為獨立可執行範例。
+
+## 修訂確認
+
+原有完整範例保留；本文是可控的學習情境，實際系統還需依資料庫延遲與併發負載調整。查核不代表任何引數能直接適用所有 production 服務。
+
+## 系列導覽
+
+[00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
+
+## 查核範圍
+
+JDK25 --release21 編譯，標準輸出逐字比對通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Java 多型：介面、覆寫與執行時派發官方參考](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)
+
+### 原始筆記保留的來源
+
+- [Java Language Specification 21：Method Invocation Expressions](https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.12)
+- [Polymorphism 影片](https://www.youtube.com/watch?v=tYw-BKKcD3s)
+- [Java 多型教學](https://www.learnerslesson.com/JAVA/Java-Polymorphism.htm)

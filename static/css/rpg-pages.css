@@ -158,4 +158,3 @@
   .not-found h2 { font-size: 23px; }
   .not-found p br { display: none; }
 }
-.quest-dates { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }

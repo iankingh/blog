@@ -1,55 +1,59 @@
 ---
-title: "Vue 教學 14 - 路由核心概念"
+title: "Vue 教學 14：路由的角色與網址對映"
 date: 2026-03-22T20:14:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
+- "Vue 3"
 - "Vue Router"
 toc: true
-draft: true
+draft: false
+description: "釐清 Router、RouterLink、RouterView 與頁面元件的分工，建立 SPA 路由的操作流程。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+釐清 Router、RouterLink、RouterView 與頁面元件的分工，建立 SPA 路由的操作流程。
+
 <!--more-->
 
-# 路由核心概念
+適用：Vue 3.5 與 Vue Router 4。先完成第 00 章環境與[第 15 章的路由骨架]({{< ref "/post/vue/vue-15-路由基本接線.md" >}})，後續範例依指定檔案替換。
 
-## 你要先知道的事
+## 一次導航經過什麼
 
-在 SPA（單頁應用）裡，頁面看起來像在換頁，其實多數時候是：
+1. RouterLink 或 router.push 提出目標網址。
+2. Router 根據 routes 與網址比對紀錄，執行必要的守衛。
+3. 成功後更新目前 route 與瀏覽器歷史。
+4. RouterView 根據匹配紀錄顯示頁面元件。
 
-- URL 改變
-- 路由規則比對
-- 指定元件被渲染到展示區
+RouterLink 是導航控制，並不承載目標頁面內容；RouterView 是展示位置，巢狀路由需要巢狀 RouterView。
 
-也就是：路徑（path）對應到元件（component）。
+## 網址與頁面的關係
 
-## 基本角色分工
+| 網址 | 配對規則 | 可用資料 |
+| --- | --- | --- |
+| `/` | `/` | 首頁 |
+| `/tasks/7` | `/tasks/:id` | params.id 是字串 7 |
+| `/tasks?done=1` | `/tasks` | query.done 是字串 1 |
 
-- Router（路由器）：管理所有路由規則
-- Route（路由規則）：單筆對應關係
-- RouterLink：做導覽跳轉
-- RouterView：顯示目前路由對應元件
+先使用第 15 章的首頁／關於頁例子，點導航後網址變動而整頁不過載，再直接輸入網址確認展示結果。若改用 hash 模式，畫面仍能切換，但網址含 `#`。
 
-## 最小心智模型
+## 路由與後端的邊界
 
-把 Router 想像成總機：
+前端守衛只能改善操作流程，不能保護 API。伺服器仍要驗證身分及許可權。History 模式下重新整理子路徑會直接請求伺服器，需設定 SPA fallback；API、資源及真正不存在的路徑不應全數偽裝成成功頁面。
 
-1. 接收你要去哪（URL）
-2. 在 routes 清單找到對應規則
-3. 把對應元件渲染到 RouterView
+Vue Router 3 配合 Vue 2 使用，Router 4 以 createRouter 建立例項；舊 `new VueRouter()` 不應複製到本系列。
 
-## 常見誤解
 
-### 誤解 1：RouterLink 會直接把元件插進畫面
-不是。RouterLink 只負責導航，真正顯示元件的是 RouterView。
+## 章節導覽
 
-### 誤解 2：路由切換就等於整頁重整
-不是。大多是前端路由切換，不會像傳統多頁網站整頁重新整理。
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-13-Vue3進階實務整理.md" >}}) · [下一章]({{< ref "/post/vue/vue-15-路由基本接線.md" >}})
 
-## 練習檢核
+## 查核範圍
 
-- 你能口頭解釋 path 到 component 的關係嗎？
-- 你知道 RouterLink 與 RouterView 的職責差異嗎？
-- 你知道為何 SPA 體感更流暢嗎？
+Vue Router API文件查核；memory history實測命名參數、query、resolve與守衛導向。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [Vue Router 概述](https://router.vuejs.org/guide/)
+- [路由匹配](https://router.vuejs.org/guide/essentials/dynamic-matching.html)

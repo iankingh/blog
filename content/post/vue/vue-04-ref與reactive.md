@@ -1,141 +1,68 @@
 ---
-title: "Vue 教學 04 - ref 與 reactive"
+title: "Vue 教學 04：ref、reactive 與模板引用"
 date: 2026-03-22T20:04:00+08:00
 categories:
 - "筆記"
 tags:
 - "Vue"
-- "ref"
-- "reactive"
+- "Vue 3"
 toc: true
-draft: true
+draft: false
+description: "區分響應式資料與 DOM 引用，修正原始筆記中的 TypeScript 與模板語法。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-<!-- 簡介 -->
+區分響應式資料與 DOM 引用，修正原始筆記中的 TypeScript 與模板語法。
+
 <!--more-->
 
-# Vue 學習
+適用：Vue 3.5 的單檔元件與 Composition API。先依[第 00 章]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}})建立 Vite 專案；除另有指定，範例取代 `src/App.vue`。
 
-標籤的 ref 屬性
+## 同時操作資料與輸入欄
 
-作用：用於註冊模板引用。
-• 用在普通DOM 標籤上,獲取的是DOM節點.
-• 用在元件標籤上,獲取的是元件例項物件.
-用在普通DOM 標籤上:
-<template>
-‹div class="person" ›
-<h1 ref="title1">尚矽谷</h1>
-<h2 ref="title2">前端</h2>
-<h3 ref="title3" >Vue</h3>
-<input type="text" ref="inpt"> <bry<bry
-<button @click="showLog">點我列印內容</button>
-‹/div›
-‹/template>
-< script lang="ts" setup name="Person">
-import (ref) from 'vue'
-let titlel = ref()
-let title2 = ref()
-
-```
-// 定義一個介面，用於限制 person 物件的具體屬性
-export interface PersonInter {
-id:string,
-
-name:string,
-age:number
-
+```vue
+<script setup>
+import { ref, reactive, nextTick } from 'vue'
+const count = ref(0)
+const person = reactive({ name: 'Ian', age: 18 })
+const input = ref(null)
+async function focusInput() {
+  count.value++
+  person.age++
+  await nextTick()
+  input.value?.focus()
 }
-
-// 一個自定義型別
-// export type Persons = Array<PersonInter>
-export type Persons = PersonInten[]
-```
-
-```
+</script>
 <template>
-<div class="person">
-
-???
-
-</div>
+  <label>名稱 <input ref="input" v-model="person.name"></label>
+  <p>{{ person.name }}：{{ person.age }} 歲，操作 {{ count }} 次</p>
+  <button @click="focusInput">加一並聚焦</button>
 </template>
-
-<script lang="ts" setup name="Person">
-import {type PersonInter, type Persons} from '@/types'
-
-1/ let person: PersonInter = {id:'asyud7asfdo1', name:'張三',age:60} let personList:Persons = [
-
-{id:'asyud7asfdo1', name:'張三',age:60}, {id:'asyud7asfdo2',name:'李四',age:18}, {id:'asyud7asfde3', name:'王五',age:5}
-
-]
-
-</script>
-
-<style scoped>…
 ```
 
-父
-```
-<template〉
-<Person a="哈哈" List="personList"/>
+初始為 Ian、18 歲、0 次；按一次後 19 歲、1 次，遊標進入輸入欄。`ref="input"` 是模板引用，掛載前為 `null`；`ref(0)` 是狀態容器。兩者同名 API，但用途不同。
 
-</template〉
+## 選擇原則
 
-<script lang="ts" setup name="App">
-import Person from'./components/Person.vue' import {reactive} from 'vue'
-import {type Persons} from '@/types'
+原始值或需要整體替換的資料通常用 `ref`；以屬性更新的物件可用 `reactive`。不要以 `person = {...}` 取代 const proxy；改用 `Object.assign(person, newData)`，或一開始就選 `ref`。解構 `const { age } = person` 會取出當下的值，需維持連動可使用 `toRefs(person)`。
 
-let personList = reactive<Persons>([
-{id:'asudfysafde1', name:'張三',age:18}, {id:'asudfysafdo2'
-'李四',age:20},
-
-{id:'asudfysaf)de3', name:'王五',age:22} ])
-
-</script>
-```
-
-Person.vue
-```
-<template〉
-<div class="person"
-
-<h2>{{a}}</h2>
-<h2>{{list}}</h2>
-
-</div>
-</template〉
-
-<script Lang="ts" setup name="Person"〉 impoft {defineProps} from 'vue' // 接收a
-
-// 只接收list
-
-// defineProps(['list'])
-
-// 接收 list + 限制型別
-// defineProps<{list:Persons}>()
-
-// 接收 list + 限制型別 + 限制必要性 + 指定預設
-defineProps<{list?:Persons}>()
-
-// 接收 list + 限制型別
-// defineProps<{list: Persons}>()
-
-// 接收 list + 限制型別 + 限制必要性 + 指定預設值
-
-withDefaults(defineProps<(list?)Persons}>(),{
-
-list:()=> [{id:'ausydgyuon ,hame:'康師傅 王麻子 特侖蘇',age:19}] }
-
-接收 a，同時將 props 儲存起來
-/* let x = defineProps(['a'])
-console.1og(x.a)*/
-
-</script>
-```
+TypeScript 可將引用寫為 `ref<HTMLInputElement | null>(null)`，並把 script 改為 `lang="ts"`、安裝 TypeScript。元件引用只能取得子元件公開的 API，不能把它當作任意讀寫子元件狀態的入口；第 12 章示範 `defineExpose`。
 
 
-## Summary
+## 章節導覽
 
-## 參考
+[系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-03-列表渲染.md" >}}) · [下一章]({{< ref "/post/vue/vue-05-watch監視屬性.md" >}})
 
-[範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)
+## 查核範圍
+
+SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
+
+## 參考資料
+
+- [響應式基礎](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
+- [模板引用](https://vuejs.org/guide/essentials/template-refs.html)
+- [響應式工具](https://vuejs.org/api/reactivity-utilities.html)
+
+### 原始筆記保留的來源
+
+- [範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)

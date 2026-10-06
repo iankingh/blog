@@ -1,5 +1,5 @@
 ---
-title: "GIT Export Diff File"
+title: "Git 匯出版本差異：固定目標提交並保留空白路徑"
 date: 2022-02-23T18:13:27+08:00
 categories:
  - "筆記"
@@ -8,102 +8,70 @@ tags:
  - "版控"
 toc: true
 draft: false
+description: "補齊從兩個版本匯出改動檔案的可靠指令碼，排除刪除檔並記錄刪除清單。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-## GIT 匯出差異檔案
-<!-- 簡介 -->
+補齊從兩個版本匯出改動檔案的可靠指令碼，排除刪除檔並記錄刪除清單。
+
 <!--more-->
 
-## 前言
+適用：Git 2.x 與 Python 3；匯出的是已提交目標版本，不包含未提交的工作目錄。
 
-在一般的時候我們會需要匯出程式差異清單來交付
+## 完整匯出指令碼
 
-## 目的
+原 `git archive HEAD $(git diff-tree ...)` 會錯用 HEAD，且空白路徑被 shell 拆開。儲存為 export_diff.py：
 
-- 產生差異清單
-- 匯出差異檔案(含完整目錄)
+```python
+import json
+import subprocess
+import sys
+from pathlib import Path
 
-## **產生差異清單**
+def git(*args):
+    return subprocess.check_output(['git', *args])
 
-```bash
-git diff-tree -r --no-commit-id --name-status --text --diff-filter=ACDMRT  commit-id-1 commit-id-2 > changes.txt
+if len(sys.argv) != 4:
+    raise SystemExit('usage: python3 export_diff.py BASE TARGET OUTPUT_DIR')
+base, target, output = sys.argv[1:]
+base = git('rev-parse', '--verify', base + '^{commit}').decode().strip()
+target = git('rev-parse', '--verify', target + '^{commit}').decode().strip()
+destination = Path(output)
+destination.mkdir(parents=True, exist_ok=True)
+changed = git('diff', '--name-only', '-z', '--diff-filter=ACMRT', '--no-renames', base, target)
+paths = [value.decode('utf-8') for value in changed.split(b'\0') if value]
+deleted = git('diff', '--name-only', '-z', '--diff-filter=D', '--no-renames', base, target)
+(destination / 'deleted.json').write_text(json.dumps([p.decode('utf-8') for p in deleted.split(b'\0') if p], ensure_ascii=False, indent=2), encoding='utf-8')
+archive = destination / 'changed.zip'
+if paths:
+    subprocess.run(['git', 'archive', '--format=zip', '-o', str(archive.resolve()), target, '--', *paths], check=True)
+else:
+    import zipfile
+    with zipfile.ZipFile(archive, 'w'): pass
+print(f'exported {len(paths)} paths from {target}')
 ```
 
-**引數說明**
-
-- diff-tree                 : 比較兩個 commit 之間的差異。
-- r                             : 列出完整路徑。
-- name-status          :  顯示檔案名稱和檔案的變更狀態
-- diff-filter=ACMRT : 列出指定型別檔案**[(A|C|D|M|R|T|U|X|B)…[*]]**。
-    - A - Added
-    - C - Copied
-    - D - Deleted
-    - M - Modified
-    - R - Renamed
-    - T - have their type (mode) changed
-    - U - Unmerged
-    - X - Unknown
-    - B - have had their pairing Broken
-    - - All-or-none 的檔案
-
-### **範例 :**
-
-先用git log 找出差異ID
-
- `git log`
-
-![git log](/images/git/git-log.png)
-
-
 ```bash
-git diff-tree -r --no-commit-id  --name-status --text --diff-filter=ACDMRT  c19c 9676 > differences.txt
+python3 export_diff.py HEAD~1 HEAD ./export-result
 ```
 
-**差異如下**
-![git diff](/images/git/git-diff.png)
+## 確認與限制
 
-## 匯出差異檔
+changed.zip 包含 TARGET 的新增／修改檔，deleted.json 列出部署時需另外處理的刪除路徑；rename 以刪除＋新增記錄。以含空白檔名、只有刪除、無差異三種情境核對，解壓後再比對目標提交。
 
-```bash
-git archive --format=zip --output=files.zip HEAD $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT commit-id-1 commit-id-2)
-```
+此指令碼選用 UTF-8 路徑，非 UTF-8 repository 需另設編碼策略；大量路徑可能超過 OS argv 上限，應改批次或先匯出完整版本再取檔。Git submodule 的內容不由父 repository 的 archive 打包。差異檔也不是完整可部署成品，仍需建置與依賴確認。
 
-⚠️ 若沒加 `$(git diff-tree -r — no-commit-id — name-only— diff-filter=ACMRT HEAD)`則會包到整個專案的檔案
+## 查核範圍
 
-### **範例 :**
+隔離Git repo測空白檔名、修改/新增/刪除與無差異ZIP，內容與目標提交一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-```bash
-git archive --format=zip --output=files.zip HEAD $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT c19c 9676)
-```
+## 參考資料
 
-### sh匯出檔案
+- [git-archive](https://git-scm.com/docs/git-archive)
+- [git-diff](https://git-scm.com/docs/git-diff)
 
-**exportDifferences.sh**
+### 原始筆記保留的來源
 
-```bash
-#!/bin/sh
- 
-# TODAY=`date '+%Y-%m-%d %H:%M:%S'`
-TODAY=`date '+%Y-%m-%d'`
-
-name=files_"$TODAY"
-
-echo "$name"
-
-git archive --format=zip --output="$name".zip HEAD $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT c19c 9676)
-```
-
-## **Summary**
-
-透過 git 內建指令我們可以簡單的 匯出差異檔案 及 差異清單 
-
-## 參考 :
-
-[匯出 Git Commit 檔案並維持資料夾結構-黑暗執行緒 (darkthread.net)](https://blog.darkthread.net/blog/export-git-commit-files/)
-
-[GIT 檢視/匯出差異檔案 - LinYoYo_攻城獅_學習筆記 (hank7891.github.io)](https://hank7891.github.io/2021/08/11/GIT%E6%9F%A5%E7%9C%8B:%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%AA%94%E6%A1%88/)
-
-[git 匯出差異清單和檔案. 匯出特定版本中新增或修改過的檔案 | by Jingle Lin | Jiingler | Medium](https://medium.com/jiingler/git-%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%B8%85%E5%96%AE%E5%92%8C%E6%AA%94%E6%A1%88-42b6ab9c7594)
-
-
-
+- [匯出 Git Commit 檔案並維持資料夾結構-黑暗執行緒 (darkthread.net)](https://blog.darkthread.net/blog/export-git-commit-files/)
+- [GIT 檢視/匯出差異檔案 - LinYoYo_攻城獅_學習筆記 (hank7891.github.io)](https://hank7891.github.io/2021/08/11/GIT%E6%9F%A5%E7%9C%8B:%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%AA%94%E6%A1%88/)
+- [git 匯出差異清單和檔案. 匯出特定版本中新增或修改過的檔案 | by Jingle Lin | Jiingler | Medium](https://medium.com/jiingler/git-%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%B8%85%E5%96%AE%E5%92%8C%E6%AA%94%E6%A1%88-42b6ab9c7594)

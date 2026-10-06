@@ -1,5 +1,5 @@
 ---
-title: "Hugo使用筆記"
+title: "Hugo 基礎：建立文章、圖片與本地建置"
 date: 2020-04-21T22:29:36+08:00
 draft: false
 categories:
@@ -7,106 +7,70 @@ categories:
 tags:
  - "hugo"
 toc: true
+description: "從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。"
+lastmod: 2026-10-07T00:01:00+08:00
 ---
 
-#  Hugo使用筆記
-
-紀錄Hugo使用的筆記
+從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。
 
 <!--more-->
 
-## Hugo 基本指令
+適用：Hugo現行Extended版本與本站NexT版面覆寫。原文的TOML／舊設定保留為歷史對照，實際以config.yaml及部署固定版本為準。
 
-### 安裝
+## 使用本站
 
-透過Chocolatey 安裝
+先`hugo version`核對README及workflow要求的Extended版本，Git submodule需初始化。預覽與輸出分開：
 
-```shell
-hchoco install hugo -confirm
+```bash
+git submodule update --init --recursive
+hugo server --bind 127.0.0.1 --port 1315
+hugo --minify --destination /tmp/blog-build-check
 ```
 
- **Check version:**
+網址依終端顯示，本站含`/blog/`。正式建置不含draft:true；-D僅用於草稿預覽。本站public是gh-pages的submodule，測試輸出別直接寫public。
 
-```shell
-hugo version
+## 新站與文章
+
+新站可`hugo new site myblog`，再安裝相容主題、配置theme與baseURL。本站新文章用`hugo new content post/topic/new-note.md`，檢查archetype產生的front matter：
+
+```yaml
+title: "具體的技術主題"
+date: 2026-10-06T12:00:00+08:00
+lastmod: 2026-10-06T12:00:00+08:00
+draft: true
+description: "說明用途與讀者能完成的事。"
+categories: ["筆記"]
+tags: ["Git"]
 ```
 
-### 建立新Blog
+date記原發布時間，lastmod僅在實際修訂時更新，不能為了看起來新而改原date。本站任務列表用lastmod排序與顯示，每頁10篇、每列最多2篇。
 
-```shell
-hugo new site blog
-```
+## 圖片與內部連結
 
-### 新增文章
+static/images/demo.png對映為images/demo.png，不在網址加/static。baseURL有/blog時優先用Hugo的ref／資源處理以配合部署；本站Markdown圖片render hook處理根路徑的站點字首。圖片必須有描述性alt，純裝飾由版面明確決定空alt。
 
-```shell
-hugo new post/文章名稱.md
-```
+程式碼用有語言fence，如bash/java/vue，不把原始script放文章HTML。內部文章使用ref，檔案路徑不變即保持既有URL。建置成功後還需查連結、資源、搜尋索引與手機排版。
 
-生成的檔案預設為會帶上 draft: true標記，不會發布。
+原`hchoco`是拼字錯誤；Windows安裝可按Hugo官方方式選hugo-extended，package來源與版本另核對，不任意全域性升級造成CI差異。
 
-### run server
+## 查核範圍
 
-**不 run  draft: true 的標記(未發布)**
+官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
-```shell
-hugo server
-```
+## 參考資料
 
-**run 全部**
+- [Hugo安裝](https://gohugo.io/installation/)
+- [New content](https://gohugo.io/commands/hugo_new_content/)
+- [Static files](https://gohugo.io/getting-started/directory-structure/)
+- [Front matter](https://gohugo.io/content-management/front-matter/)
 
-```shell
-hugo server -D
-```
+### 原始筆記保留的來源
 
-### 插入圖片
+- [右上角github 貓 GitHub Corners](https://tholman.com/github-corners/#)
+- [使用Github部署Hugo靜態網站](https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/)
+- [hugo搭建靜態部落格 | 生信筆記](https://www.bioinfo-scrounger.com/archives/809/)
+- [使用Hugo搭建部落格系統 - XniLe - Ops 2.0](https://blog.dianduidian.com/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/)
 
-```shell
-![Example image](/static/image.png)
-```
+### 原始筆記的其他連結
 
-## 建立及設定部落格專案  
-
-我們先使用 hugo 命令新增一個空白專案，然後下載一個Template到我們的專案裡面  
-
-接著新增四個我們想加到模板 Menu 的頁面: about, history, tags, categories
-
-最後則是新增一篇空白的文章到專案內。
-
-
-1.create the project
-
-```Shell Script
-$ hugo new site myblog
-```
-2.add a theme
-```
-$ git submodule add https://github.com/laozhu/hugo-nuo themes/hugo-nuo
-```
-3.add new pages
-```
-$ hugo new about.md
-$ hugo new hisroty.md
-$ hugo new tags.md
-$ hugo new categories.md
-```
-4.add new article
-```
-$ hugo new post/welcome.md
-```
-5. run 
-hugo server -D
-
-
-## 參考
-
-[右上角github 貓 GitHub Corners](https://tholman.com/github-corners/#)
-
-https://hugo-next.eu.org
-
-[使用Github部署Hugo靜態網站](https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/)  
-
-[hugo搭建靜態部落格 | 生信筆記](https://www.bioinfo-scrounger.com/archives/809/)
-
-[使用Hugo搭建部落格系統 - XniLe - Ops 2.0](https://blog.dianduidian.com/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/)
-    
+- [原始參考入口 1](https://hugo-next.eu.org)
