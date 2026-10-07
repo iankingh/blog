@@ -900,8 +900,8 @@ Prism 接線 在一個使用Prism的測試主題partial可載入：
 Prism加上執行期JS成本；Chroma在建置時處理，語言支援與樣式來源不同。不要因換高亮器就開Goldmark unsafe讓文章script執行。本站實際沿用Chroma，本次僅查核Prism替代路線，不額外安裝第二套高亮。
 參考資料 Hugo高亮 Prism官方 Hugo资源雜湊 Hugo / 如何在 Hugo 中用 Prism.js 提供程式碼色彩標註 | sujj blog 漂亮的程式碼語法高亮外掛Prism.js簡單使用檔案 - 嚴穎專欄 -SegmentFault 思否   ]]></content></entry><entry><title>Hugo 基礎：建立文章、圖片與本地建置</title><url>/blog/post/hugo/hugonotes/</url><categories><category>筆記</category></categories><tags><tag>hugo</tag></tags><content type="html"><![CDATA[  從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。
 適用：Hugo現行Extended版本與本站NexT版面覆寫。原文的TOML／舊設定保留為歷史對照，實際以config.yaml及部署固定版本為準。
-使用本站 先hugo version核對README及workflow要求的Extended版本，Git submodule需初始化。預覽與輸出分開：
-git submodule update --init --recursive hugo server --bind 127.0.0.1 --port 1315 hugo --minify --destination /tmp/blog-build-check網址依終端顯示，本站含/blog/。正式建置不含draft:true；-D僅用於草稿預覽。本站public是gh-pages的submodule，測試輸出別直接寫public。
+使用本站 先hugo version核對README及workflow要求的Extended版本，主題子模組需初始化。預覽與輸出分開：
+git submodule update --init --recursive themes/hugo-theme-next hugo server --bind 127.0.0.1 --port 1315 hugo --minify --destination /tmp/blog-build-check網址依終端顯示，本站含/blog/。正式建置不含draft:true；-D僅用於草稿預覽。本站唯一子模組為themes/hugo-theme-next；public是Hugo預設建置輸出，已由Git忽略，可重新產生。正式部署使用暫存產物發布至gh-pages。
 新站與文章 新站可hugo new site myblog，再安裝相容主題、配置theme與baseURL。本站新文章用hugo new content post/topic/new-note.md，檢查archetype產生的front matter：
 title: &#34;具體的技術主題&#34; date: 2026-10-06T12:00:00+08:00 lastmod: 2026-10-06T12:00:00+08:00 draft: true description: &#34;說明用途與讀者能完成的事。&#34; categories: [&#34;筆記&#34;] tags: [&#34;Git&#34;]date記原發布時間，lastmod僅在實際修訂時更新，不能為了看起來新而改原date。本站任務列表用lastmod排序與顯示，每頁10篇、每列最多2篇。
 圖片與內部連結 static/images/demo.png對映為images/demo.png，不在網址加/static。baseURL有/blog時優先用Hugo的ref／資源處理以配合部署；本站Markdown圖片render hook處理根路徑的站點字首。圖片必須有描述性alt，純裝飾由版面明確決定空alt。
