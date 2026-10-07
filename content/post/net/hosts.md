@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上有效格式、平臺路徑與驗證方式，區分 hosts、DNS 快取與 HTTPS 憑證。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上有效格式、平臺路徑與驗證方式，區分 hosts、DNS 快取與 HTTPS 憑證。
@@ -41,19 +41,9 @@ Windows使用`ping note.test`看解析地址，Python可用`socket.getaddrinfo('
 
 完成練習後移除自己加入的項並確認恢復，不刪除原有系統內容。hosts只能對映名稱，不是防火牆或訪問許可權；共享團隊環境應使用可維護DNS／配置，而不是要求每個人手動改大量hosts。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Windows name resolution](https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/troubleshoot-dns-client-resolution-issues)
 - [Python socket](https://docs.python.org/3/library/socket.html#socket.getaddrinfo)
-
-### 原始筆記保留的來源
-
 - [轉移網站的過程](https://blog.gtwang.org/wordpress/migrate-wordpress-to-lemp-server/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://blog.gtwang.org/windows/windows-linux-hosts-file-configuration/)

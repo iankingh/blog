@@ -8,7 +8,7 @@ tags:
  - "git"
 toc: true
 description: "重整易混淆指令，區分 revert、reset 與工作目錄還原。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 重整易混淆指令，區分 revert、reset 與工作目錄還原。
@@ -45,10 +45,6 @@ branch -vv 顯示追蹤關係，但 ahead/behind 是根據最近一次 fetch，�
 reset --hard 會覆蓋 tracked 的未提交內容，不能作為「檢視舊版」的捷徑。只想探索舊提交可建獨立 worktree 或 detached checkout，先儲存當前修改。revert merge commit 還要指定主線，需先理解歷史圖再操作。
 
 確認回復後看 diff 與測試，並在 commit 訊息寫明原始提交與回復理由。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

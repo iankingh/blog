@@ -8,7 +8,7 @@ tags:
  - "git"
 toc: true
 description: "補齊 status、diff、add、commit 的操作順序，區分工作目錄與暫存區。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊 status、diff、add、commit 的操作順序，區分工作目錄與暫存區。
@@ -42,10 +42,6 @@ git status --short
 取消暫存可用 `git restore --staged note.txt`（已有 HEAD 時）；這不會刪除工作目錄內容。不要把 `git restore note.txt` 當同一操作，後者會覆蓋尚未暫存修改。提交前檢查 staged diff，避免把 .env、編譯輸出或不相關檔案帶入。
 
 完成後在父目錄自行移除練習資料夾。這裡不含遠端操作，push 前還需確認 branch、remote 與許可權。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

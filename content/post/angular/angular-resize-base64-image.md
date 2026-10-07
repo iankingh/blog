@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上比例計算、載入錯誤與空 context 處理，區分縮放和格式轉換。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上比例計算、載入錯誤與空 context 處理，區分縮放和格式轉換。
@@ -61,16 +61,9 @@ export class ImageService {
 
 手機相片的EXIF方向、色彩與HEIC格式另需測，不能把可載入JPEG的示例稱為所有格式轉換器。驗證輸出MIME、寬高、背景與視覺品質，同時測無效src和尺寸錯誤。
 
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器；執行表單驗證／提交、pipe 方法、圖片無效尺寸或 JS 匯入對應分支（沒有驗證 Canvas 畫素輸出）。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Canvas toDataURL](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL)
 - [Canvas CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/CORS_enabled_image)
-
-### 原始筆記保留的來源
-
 - [typescript - how to resize base64 image in angular - Stack Overflow](https://stackoverflow.com/questions/56967991/how-to-resize-base64-image-in-angular)
 - [angular7中實現圖片上傳、圖片壓縮、圖片裁剪功能_yw00yw的部落格-CSDN部落格](https://blog.csdn.net/yw00yw/article/details/90450000)

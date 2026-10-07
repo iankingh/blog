@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "提供入口、路由器、兩個頁面與展示區的完整檔案，作為後續路由章節的基礎。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 提供入口、路由器、兩個頁面與展示區的完整檔案，作為後續路由章節的基礎。
@@ -76,10 +76,6 @@ createApp(App).use(router).mount('#app')
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-14-路由核心概念.md" >}}) · [下一章]({{< ref "/post/vue/vue-16-Vue-Router基礎.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

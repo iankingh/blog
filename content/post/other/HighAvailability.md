@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "查核原 HA 說明，區分負載平衡、資料一致性、RTO/RPO 與單點故障。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 查核原 HA 說明，區分負載平衡、資料一致性、RTO/RPO 與單點故障。
@@ -41,18 +41,11 @@ VM HA通常恢復／重啟VM，不直接保證應用交易不中斷。跨同一�
 
 把結果對照SLO/RTO/RPO，含容量不足與維護升級的情境。這是設計檢核路徑，本文未聲稱實際做過生產故障演練。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Google SRE Availability](https://sre.google/sre-book/availability-table/)
 - [SQL Server HA](https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
 - [AWS reliability](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html)
-
-### 原始筆記保留的來源
-
 - [Active-Standby Mode](https://docs.tibco.com/pub/trns/1.1.0/doc/html/GUID-6B16E55F-D833-4A96-A8FC-5BB5F8E07E30.html)
 - [Cluster專用的名詞AP Mode/AA Mode](http://slashview.com/archive2013/20131206.html)
 - [高可用性網路架構High Availability,AA Mode | 景佳科技 FansySoft](https://www.fansysoft.com/liferay-high-availability)

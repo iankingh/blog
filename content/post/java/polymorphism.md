@@ -1,7 +1,7 @@
 ---
 title: "Java 多型：介面、覆寫與執行時派發"
 date: 2023-08-02T07:38:35+08:00
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 description: "用完整 Java 範例理解共同型別、方法覆寫與執行期派發，並區分多型和多載。"
 featuredOrder: 1
 categories: ["筆記"]
@@ -113,16 +113,9 @@ Animal breathes
 
 [00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
 
-## 查核範圍
-
-JDK25 --release21 編譯，標準輸出逐字比對通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Java 多型：介面、覆寫與執行時派發官方參考](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)
-
-### 原始筆記保留的來源
-
 - [Java Language Specification 21：Method Invocation Expressions](https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.12)
 - [Polymorphism 影片](https://www.youtube.com/watch?v=tYw-BKKcD3s)
 - [Java 多型教學](https://www.learnerslesson.com/JAVA/Java-Polymorphism.htm)

@@ -8,7 +8,7 @@ tags:
  - "hugo"
 toc: true
 description: "從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。
@@ -53,24 +53,14 @@ static/images/demo.png對映為images/demo.png，不在網址加/static。baseUR
 
 原`hchoco`是拼字錯誤；Windows安裝可按Hugo官方方式選hugo-extended，package來源與版本另核對，不任意全域性升級造成CI差異。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Hugo安裝](https://gohugo.io/installation/)
 - [New content](https://gohugo.io/commands/hugo_new_content/)
 - [Static files](https://gohugo.io/getting-started/directory-structure/)
 - [Front matter](https://gohugo.io/content-management/front-matter/)
-
-### 原始筆記保留的來源
-
 - [右上角github 貓 GitHub Corners](https://tholman.com/github-corners/#)
 - [使用Github部署Hugo靜態網站](https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/)
 - [hugo搭建靜態部落格 | 生信筆記](https://www.bioinfo-scrounger.com/archives/809/)
 - [使用Hugo搭建部落格系統 - XniLe - Ops 2.0](https://blog.dianduidian.com/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://hugo-next.eu.org)

@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "重整舊 ZooKeeper 配置，補上 listener、JMX、認證與 KRaft 替代的核對順序。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 重整舊 ZooKeeper 配置，補上 listener、JMX、認證與 KRaft 替代的核對順序。
@@ -45,19 +45,12 @@ Kafka4移除ZooKeeper模式，新建Kafka不能照舊ZK配置啟動。工具是�
 
 在測試cluster讀broker／topic與消費者lag，與Kafka原生命令結果比對；停一個測試broker觀察狀態，再恢復。lag只是消費進度差，不等於業務成功。本文未建立Kafka叢集或寫入外部服務，配置概念僅官方核對，不聲稱GUI所有版本可重現。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [EFAK 官方](https://www.kafka-eagle.org/)
 - [EFAK 原始庫](https://github.com/smartloli/kafka-eagle)
 - [Kafka4 upgrade](https://kafka.apache.org/40/documentation/#upgrade)
 - [Kafka broker配置](https://kafka.apache.org/40/configuration/broker-configs/)
-
-### 原始筆記保留的來源
-
 - [Kafka Eagle分散式模式 - 哥不是小蘿莉 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/smartloli/p/15732794.html)
 - [Kafka Eagle 3.0.1功能預覽 - 哥不是小蘿莉 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/smartloli/p/16728995.html)
 - [大資料Hadoop之——Kafka 圖形化工具 EFAK（EFAK環境部署） - 大資料老司機 - 部落格園 (cnblogs.com)](https://www.cnblogs.com/liugp/p/16307589.html)

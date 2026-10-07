@@ -10,7 +10,7 @@ tags:
  - "Spring Cloud"
 toc: true
 description: "整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。
@@ -59,18 +59,11 @@ management:
 
 確認predicate、filter順序和傳往後端的path，客戶端看到200不代表認證、請求限制和錯誤處理完整。此篇僅檔案核對，未聲稱測完整gateway叢集。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Gateway官方](https://docs.spring.io/spring-cloud-gateway/reference/)
 - [Actuator access](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/actuator-api.html)
 - [Spring Cloud相容](https://spring.io/projects/spring-cloud#overview)
-
-### 原始筆記保留的來源
-
 - [GatewayFilter factories](https://cloud.spring.io/spring-cloud-gateway/multi/multi__actuator_api.html)
 - [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
 - [SpringCloud gateway （史上最全） - 瘋狂創客圈 - 部落格園](https://www.cnblogs.com/crazymakercircle/p/11704077.html)

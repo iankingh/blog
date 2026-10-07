@@ -1,7 +1,7 @@
 ---
 title: "HikariCP 連線逾時：診斷與可重現範例"
 date: 2021-05-06T21:18:55+08:00
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 description: "依連線池狀態診斷取得連線逾時，以 H2 範例重現耗盡、釋放與再次取得連線。"
 featuredOrder: 2
 categories: ["筆記"]
@@ -175,16 +175,9 @@ Windows 的 classpath 分隔符改用 `;`，執行時使用 `java -cp ".;lib/*" 
 
 [00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
 
-## 查核範圍
-
-JDK25 --release21，HikariCP7.0.2／H2 2.4.240／SLF4J2.0.17，借滿、逾時與釋放後再借的輸出逐字比對通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [HikariCP 連線逾時：診斷與可重現範例官方參考](https://github.com/brettwooldridge/HikariCP)
-
-### 原始筆記保留的來源
-
 - [HikariCP 7.0.2：Configuration](https://github.com/brettwooldridge/HikariCP/blob/HikariCP-7.0.2/README.md#frequently-used)
 - [H2：Database URL 與 Embedded Mode](https://h2database.com/html/features.html#database_url)
 - [Stack Overflow：HikariPool connection timeout](https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for)

@@ -12,7 +12,7 @@ tags:
 toc: true
 draft: false
 description: "按操作結果導航，使用 useRouter、push、replace 與 navigation failure 判斷完成狀態。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 按操作結果導航，使用 useRouter、push、replace 與 navigation failure 判斷完成狀態。
@@ -59,10 +59,6 @@ useRoute 取得目前位置資料；useRouter 取得導航能力。`router.go(-1
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-23-replace屬性.md" >}}) · [下一章]({{< ref "/post/vue/vue-25-Vue-Router進階.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

@@ -10,7 +10,7 @@ tags:
  - "Spring boot"
 toc: true
 description: "保留 Springfox 2.2.2 情境，補上相容界線、現代 springdoc 替代與驗證方式。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 Springfox 2.2.2 情境，補上相容界線、現代 springdoc 替代與驗證方式。
@@ -58,10 +58,6 @@ public class HelloController {
 執行mvn spring-boot:run。GET `/api/hello`應回`{"message":"campfire"}`，`/v3/api-docs`應包含openapi與/api/hello，開`/swagger-ui/index.html`能看到並呼叫介面。WebFlux專案需對應webflux starter，不混用webmvc與webflux UI依賴。
 
 springdoc2.x對應Boot3、3.x對應Boot4的版本線，安裝前檢視相容表與修補版。前端檔案能開啟不代表契約完整，還需描述錯誤回應、認證、DTO欄位與範例。公開API文件不加入真正token，UI endpoint依部署政策授權。
-
-## 查核範圍
-
-本文 HelloController 於 MockMvc 回 /api/hello 與 /v3/api-docs，核對 JSON 與 API 路徑；未用瀏覽器呼叫 Swagger UI 或跑原 Springfox2。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

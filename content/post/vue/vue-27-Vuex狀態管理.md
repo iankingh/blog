@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "保留 Vuex 的 state、getter、mutation、action 流程，並對照新專案的 Pinia 路線。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 Vuex 的 state、getter、mutation、action 流程，並對照新專案的 Pinia 路線。
@@ -75,10 +75,6 @@ Pinia 不要求 mutation，action 可直接改 state；Vuex 的 namespaced modul
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-26-Pinia集中式狀態管理.md" >}}) · [下一章]({{< ref "/post/vue/vue-28-Vite工具.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證；本文store/composable直接匯入測試狀態、action與錯誤分支。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

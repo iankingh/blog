@@ -9,7 +9,7 @@ tags:
 - "JDK"
 toc: true
 description: "區分堆空間不足、GC 壓力與資源未關閉，補上 heap dump 診斷及 Tomcat 設定位置。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 區分堆空間不足、GC 壓力與資源未關閉，補上 heap dump 診斷及 Tomcat 設定位置。
@@ -52,17 +52,10 @@ Tomcat shell 啟動在 `CATALINA_BASE/bin/setenv.sh` 設 CATALINA_OPTS；Windows
 
 [00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [JDK 記憶體排錯](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html)
 - [Java 啟動參數](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
-
-### 原始筆記保留的來源
-
 - [若系統執行一段時間後無法連線，且tomcat或jboss的log裡出現java.lang.OutOfMemoryError: Java heap space，應如何避免此狀況?　(2008/11/25) | TAIR User Group](http://ir.org.tw/node/78)
 - [讀寫檔案時記憶體溢位問題思考（OutOfMemoryError: Java heap space）_WolfShadow的部落格-CSDN部落格](https://blog.csdn.net/u010188178/article/details/83183321)
 - [JAVA遇到大批資料處理時會出現Java heap space的報錯的解決方案 - IT閱讀](https://www.itread01.com/content/1546150350.html)

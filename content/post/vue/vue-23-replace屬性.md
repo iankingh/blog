@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "透過返回鍵實驗 push 與 replace，選擇適合登入導向與篩選更新的行為。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 透過返回鍵實驗 push 與 replace，選擇適合登入導向與篩選更新的行為。
@@ -51,10 +51,6 @@ await router.replace({ name: 'about' })
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-22-路由props配置.md" >}}) · [下一章]({{< ref "/post/vue/vue-24-程式設計式導航.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

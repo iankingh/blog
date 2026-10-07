@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "補上完整 nginx.conf，保留 Windows 路徑與 reload 操作並說明平臺限制。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上完整 nginx.conf，保留 Windows 路徑與 reload 操作並說明平臺限制。
@@ -59,18 +59,11 @@ upstream多節點會按策略分派，但單純新增節點不處理session／�
 
 Windows路徑使用正斜線，官方該平臺版本不是Windows service，不能把Start-Process當完成服務管理。正式Linux通常有不同process/IO能力與維護路線，原Windows筆記只作本機概念練習。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Nginx Windows](https://nginx.org/en/docs/windows.html)
 - [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass)
 - [Nginx beginner](https://nginx.org/en/docs/beginners_guide.html)
-
-### 原始筆記保留的來源
-
 - [ASP.NET Core](https://docs.microsoft.com/zh-tw/aspnet/core/host-and-deploy/linux-nginx)
 - [ngx_http_proxy_module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html)
 - [proxy_set_header](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header)
@@ -83,7 +76,4 @@ Windows路徑使用正斜線，官方該平臺版本不是Windows service，不�
 - [gzip](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)
 - [gzip_proxied](http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_proxied)
 - [Full Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://blog.kkbruce.net/2018/06/nginx-basic-for-windows-based.html?m=1#.XxwnEZ4vNPY)

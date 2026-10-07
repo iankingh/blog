@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "重整過時 API 與不完整範例，提供核心概念對照及完整路由接線。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 重整過時 API 與不完整範例，提供核心概念對照及完整路由接線。
@@ -60,18 +60,11 @@ app.config providers加入provideRouter(routes)，根元件imports加入RouterLi
 
 舊`Http`改HttpClient，TSLint與--prod是歷史情境，standalone不一定有AppModule。RxJS訂閱應清理、HTTP用可取消／可組合的流，不把每個subscribe巢狀在另一個裡。這是查詢小抄，完整操作見表單、CLI與部署各篇。
 
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [模板](https://angular.dev/guide/templates)
 - [生命週期](https://angular.dev/guide/components/lifecycle)
 - [路由](https://angular.dev/guide/routing)
 - [RxJS interop](https://angular.dev/ecosystem/rxjs-interop)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://dev.to/suniljoshi19/angular-cheat-sheet-46bo?fbclid=IwAR1hL9OTHVIthSFCqOH4pGuMK3447-ru5vPxKT-EI4AAOyGoLAJ3iiQ7K8I)
 - [原始參考入口 2](https://gist.github.com/doggy8088/7f148e6288cdd8a3588f0ebbd57735ef?fbclid=IwAR2vPjd4AFcPZFHW_74n43bL5eQ-420yFGbntB-mTNoftuTPIOfjScgVddw)

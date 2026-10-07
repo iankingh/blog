@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "補上完整測試與 Maven 依賴，確認 IDE 測試及命令列建置使用同一版本。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上完整測試與 Maven 依賴，確認 IDE 測試及命令列建置使用同一版本。
@@ -54,15 +54,8 @@ class MathTest {
 
 「No tests found」檢查import是否Jupiter、檔案是否在test source、名稱是否符合建置工具掃描規則；JUnit4的org.junit.Test不是同一API。JUnit assertions不依賴JVM的-ea，和Java assert不同。版本升級先核對Java最低版本與extension相容性，保留lock／pom記錄。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [JUnit 5.10.3 指南](https://junit.org/junit5/docs/5.10.3/user-guide/)
 - [Surefire JUnit](https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html)
-
-### 原始筆記保留的來源
-
 - [Embracing JUnit 5 with Eclipse | The Eclipse Foundation](https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php)

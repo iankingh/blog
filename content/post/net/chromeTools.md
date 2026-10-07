@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上建立 override、確認生效和停用流程，區分 DOM 修改與真正來源檔案。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上建立 override、確認生效和停用流程，區分 DOM 修改與真正來源檔案。
@@ -36,19 +36,9 @@ Elements臨時改DOM通常不會被Overrides儲存；由HTML內嵌CSS的Styles�
 
 可用於介面尚未完成時測試UI，但變更只影響自己的瀏覽器；要團隊重現需將假資料與測試server存專案，而非只交截圖。override資料夾可能存實際響應，注意不包含秘密或個人資料。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Chrome Overrides](https://developer.chrome.com/docs/devtools/overrides/)
 - [Chrome Workspaces](https://developer.chrome.com/docs/devtools/workspaces/)
-
-### 原始筆記保留的來源
-
 - [Chrome Dev Tool 的好用功能 - overrides](https://pvencs.blogspot.com/2019/01/chrome-dev-tool-overrides.html)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://developer.chrome.com/blog/new-in-devtools-65/#overrides)

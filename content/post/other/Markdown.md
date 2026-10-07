@@ -8,7 +8,7 @@ tags:
  - "Markdown"
 toc: true
 description: "修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。
@@ -62,17 +62,10 @@ console.log('campfire');
 
 Hugo unsafe=false，不在文章插原始script／iframe來排版。圖片路徑依據static對映與站點base，內部文章用ref；新例子檔案要存在才能發布，不留下不存在的示範圖連結。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [CommonMark](https://spec.commonmark.org/)
 - [Hugo Goldmark](https://gohugo.io/configuration/markup/)
 - [GFM表格](https://github.github.com/gfm/#tables-extension-)
-
-### 原始筆記保留的來源
-
 - [link](https://iankingh.github.io/)
 - [markdown語法介紹 - HackMD](https://hackmd.io/@wootu/SkY0M5wsZ?type=view)

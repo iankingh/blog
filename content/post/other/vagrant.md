@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "修正 provision 和 ssh-config 的用途，保留歷史 CentOS box並補上目前選版方法。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 provision 和 ssh-config 的用途，保留歷史 CentOS box並補上目前選版方法。
@@ -53,17 +53,10 @@ validate只查Vagrantfile，不下載／啟動；up建立或啟動VM，halt關�
 
 destroy刪VM與guest內資料，先複製重要檔案回主機，確認這是自己練習VM。重新up是否能由Vagrantfile/provision恢復可用環境才是可重現性的證據，只有VM開機不算應用驗收。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Vagrant commands](https://developer.hashicorp.com/vagrant/docs/cli)
 - [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile)
 - [SSH config](https://developer.hashicorp.com/vagrant/docs/cli/ssh_config)
 - [Box選擇](https://developer.hashicorp.com/vagrant/docs/boxes)
-
-### 原始筆記保留的來源
-
 - [invernizzi/vagrant-scp: Copy files to a Vagrant VM via SCP.](https://github.com/invernizzi/vagrant-scp)

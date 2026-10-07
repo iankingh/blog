@@ -2,7 +2,7 @@
 title: "AI 工具清單：聊天、搜尋與翻譯"
 description: "依用途比較聊天、搜尋與翻譯工具，說明來源查核、資料範圍與使用限制。"
 date: 2024-07-02T20:47:15+08:00
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 categories:
 - "筆記"
 tags:
@@ -46,10 +46,6 @@ draft: false
 
 需要帳號／外部服務的操作本次未登入或提交資料。先檢查擴充會讀取哪些頁面、檔案如何處理，再決定是否用於工作資料；使用自製假資料作比較，保留prompt與日期讓結果可追溯。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Monica官方](https://monica.im/)
@@ -57,9 +53,6 @@ draft: false
 - [Phind官方](https://www.phind.com/)
 - [Felo官方](https://felo.ai/)
 - [沉浸式翻譯官方](https://immersivetranslate.com/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://monica.im/home)
 - [原始參考入口 2](https://poe.com/ChatGPT)
 - [原始參考入口 3](https://www.phind.com/search?home=true)

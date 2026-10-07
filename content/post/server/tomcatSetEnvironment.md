@@ -9,7 +9,7 @@ tags:
  - "tomcat"
 toc: true
 description: "保留 context.xml 的 JNDI 情境，說明它與 OS 環境及 Spring profile 的差異。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 context.xml 的 JNDI 情境，說明它與 OS 環境及 Spring profile 的差異。
@@ -47,10 +47,6 @@ Spring Boot 某些設定來源可讀取JNDI，但依部署模式與版本而定�
 ## 確認
 
 重新啟動後通過應用輸出非敏感的ENV值或受控診斷確認，檢查真正的啟動命令／服務設定。不要在日誌列出所有環境秘密；JNDI名稱與大小寫一致。無法lookup時先核對應用context檔名、目錄與java:comp/env字首，再看啟動日誌。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

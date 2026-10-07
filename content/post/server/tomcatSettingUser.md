@@ -11,7 +11,7 @@ tags:
  - "tomcat"
 toc: true
 description: "修正不合法 XML 佔位值，補上 manager-gui 許可權及 401／403 診斷。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正不合法 XML 佔位值，補上 manager-gui 許可權及 401／403 診斷。
@@ -45,16 +45,9 @@ manager-gui 提供GUI管理；manager-script 提供程式介面，因CSRF防護�
 
 若使用外部Realm或容器映象的自訂配置，此檔未必是認證來源，先看server.xml與日誌再修改。帳號輪替與許可權審計屬於維護流程，不是一次建立後永久不管。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Manager 存取](https://tomcat.apache.org/tomcat-9.0-doc/manager-howto.html)
 - [Realm](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html)
-
-### 原始筆記保留的來源
-
 - [tomcat配置管理員-走後門 - WhyWin - 部落格園](https://www.cnblogs.com/0201zcr/p/6668010.html)
 - [如何進入tomcat的管理頁面 - begin27的部落格 - CSDN部落格](https://blog.csdn.net/begin27/article/details/50966261)

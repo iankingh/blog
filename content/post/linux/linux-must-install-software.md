@@ -8,7 +8,7 @@ tags:
  - "Linux"
 toc: true
 description: "補齊網路與防火牆診斷，修正 firewalld state 和 zone 的混淆。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊網路與防火牆診斷，修正 firewalld state 和 zone 的混淆。
@@ -44,19 +44,9 @@ sudo firewall-cmd --list-all
 
 服務無法連線依序看監聽位址（127.0.0.1／0.0.0.0）、port、zone規則、主機上游防火牆與實際客戶端。不要以停止防火牆當長期解法。本篇只示範查詢，不代替實際主機的變更核准與回復流程。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [firewalld CLI](https://firewalld.org/documentation/man-pages/firewall-cmd.html)
 - [ss 手冊](https://man7.org/linux/man-pages/man8/ss.8.html)
-
-### 原始筆記保留的來源
-
 - [How To Set Up a Firewall Using firewalld on CentOS 8 | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-8)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://www.itzgeek.com/how-tos/linux/centos-how-tos/netstat-command-not-found-on-centos-8-rhel-8-quick-fix.html)

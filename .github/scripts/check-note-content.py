@@ -60,6 +60,8 @@ class Page(HTMLParser):
             fail('Image missing alt attribute')
 
 def check_site(site):
+    if (site / 'note-review').exists():
+        fail('Retired note-review page must not be generated (use a clean output directory)')
     index = json.loads((site / 'search-index.json').read_text())
     entries = index if isinstance(index, list) else index['posts']
     if len(entries) != 130 or len({x['url'] for x in entries}) != 130:
@@ -124,6 +126,21 @@ def main():
             if source not in body:
                 fail(f'{p}: original reference removed: {source}')
         prose = fences(body, row['path'])
+        if re.search(r'^## 查核範圍\s*$|^### 原始筆記(?:保留的來源|的其他連結)\s*$', prose, re.M):
+            fail(f'{p}: validation/source bookkeeping belongs in docs, not article sections')
+        if '/note-review' in prose:
+            fail(f'{p}: retired note-review page is still linked')
+        if len(re.findall(r'^## 參考資料\s*$', prose, re.M)) != 1:
+            fail(f'{p}: expected one reference section')
+        bibliography = prose.split('## 參考資料', 1)[1]
+        urls = re.findall(r'^- .*?\]\((https?://[^\s]+)\)', bibliography, re.M)
+        if len(urls) != len(set(urls)):
+            fail(f'{p}: duplicate URLs in reference list')
+        lastmod = re.search(r'^lastmod:\s*(.*)$', front, re.M)[1].strip('"\'')
+        if lastmod.split('T')[0] != row['lastmod']:
+            fail(f'{p}: lastmod date differs from the manifest')
+        if row.get('presentationUpdatedAt') and lastmod != row['presentationUpdatedAt']:
+            fail(f'{p}: presentation revision time differs from lastmod')
         if re.search(r'^(?:<<<<<<<|=======|>>>>>>>|#+\s*(?:TODO|TBD|待補|未完成)\s*$)', prose, re.M):
             fail(f'{p}: conflict/template marker')
         if '適用' not in prose or not row['context'] or not row['sources'] or not row['verification']:

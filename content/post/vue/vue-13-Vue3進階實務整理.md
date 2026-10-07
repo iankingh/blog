@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "完成可雙向繫結的輸入元件，對照 Vue 3 的 modelValue 協定與 defineModel。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 完成可雙向繫結的輸入元件，對照 Vue 3 的 modelValue 協定與 defineModel。
@@ -61,10 +61,6 @@ directive 使用於元件時可能套在根節點，遇到多根元件要改在�
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-12-元件通訊進階.md" >}}) · [下一章]({{< ref "/post/vue/vue-14-路由核心概念.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

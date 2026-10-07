@@ -8,7 +8,7 @@ tags:
  - "SQL"
 toc: true
 description: "修正 SQL Server ADD COLUMN 說法，補上完整暫存表練習與預期查詢結果。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 SQL Server ADD COLUMN 說法，補上完整暫存表練習與預期查詢結果。
@@ -50,17 +50,10 @@ SELECT指定必要欄位並提供穩定ORDER BY，TOP無排序不保證取到哪
 
 本次無SQL Server instance，T-SQL依官方文件查核；共通INSERT/UPDATE/ROLLBACK邏輯可以本地SQLite模擬，但#table、bit、N字串與許可權並非SQLite語法，不能把模擬通過稱為SQL Server實機通過。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [ALTER TABLE](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql)
 - [交易ROLLBACK](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/rollback-transaction-transact-sql)
 - [暫存表](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql)
-
-### 原始筆記保留的來源
-
 - [SQL DEFAULT 預設值 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/default-constraint.html)
 - [SQL ALTER TABLE 更改資料表 - SQL 語法教學 Tutorial (fooish.com)](https://www.fooish.com/sql/alter-table.html)

@@ -66,7 +66,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/android/AndroidBsN01.md",
@@ -139,7 +141,9 @@
       "https://developer.android.com/studio/build#module-level",
       "https://developer.android.com/studio/releases/gradle-plugin",
       "https://developer.android.com/training/basics/firstapp/creating-project"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/Angular-NullInjectorError.md",
@@ -200,7 +204,9 @@
     "originalReferences": [
       "https://cloud.tencent.com/developer/article/1700456",
       "https://stackoverflow.com/questions/46299952/no-provider-for-custompipe-angular-4"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/Angular-forms-Template-Driven-Forms.md",
@@ -251,7 +257,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/Angular-forms.md",
@@ -309,7 +317,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/Angular-npm-Error.md",
@@ -374,7 +384,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularBsN02.md",
@@ -436,7 +448,9 @@
       "https://blog.miniasp.com/post/2019/02/03/Angular-CLI-73-Use-ES2015-nomodule-load-polyfills",
       "https://editorconfig.org/",
       "https://karma-runner.github.io/latest/index.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularCLInotes.md",
@@ -497,7 +511,9 @@
     "originalReferences": [
       "https://angular.io/cli/generate",
       "https://gist.github.com/doggy8088/15e434b43992cf25a78700438743774a"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularCheatSheet.md",
@@ -562,7 +578,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularDeployTomcat.md",
@@ -626,7 +644,9 @@
       "https://forum.angular.tw/t/topic/881/12",
       "https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server",
       "https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularFileStructure.md",
@@ -682,7 +702,9 @@
       "https://angular.io/guide/router-tutorial-toh",
       "https://blog.johnwu.cc/article/angular-4-file-structure.html",
       "https://medium.com/@sky22357168/angular-8-file-structure-6cda90142ba4"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularOnIE11.md",
@@ -743,7 +765,9 @@
     "originalReferences": [
       "https://github.com/angular/angular-cli/issues/9508",
       "https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularUseCompodoc.md",
@@ -799,7 +823,9 @@
       "https://semlinker.com/ng-compodoc-intro/",
       "https://tpu.thinkpower.com.tw/tpu/articleDetails/864",
       "https://www.ucamc.com/e-learning/javascript/250-javascript-use-jsdoc"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/AngularUseJavaScript.md",
@@ -854,7 +880,9 @@
       "https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control",
       "https://stackoverflow.com/questions/49526681/how-to-call-javascript-functions-from-typescript-in-angular-5",
       "https://www.cxyzjd.com/article/qq_43205711/84139445"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/angular/angular-resize-base64-image.md",
@@ -908,7 +936,9 @@
     "originalReferences": [
       "https://blog.csdn.net/yw00yw/article/details/90450000",
       "https://stackoverflow.com/questions/56967991/how-to-resize-base64-image-in-angular"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/build-tools/gradle-error.md",
@@ -959,7 +989,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/docker-command.md",
@@ -1013,7 +1045,9 @@
     "originalReferences": [
       "https://blog.csdn.net/boling_cavalry/article/details/101145739",
       "https://www.yiibai.com/docker/container_ls.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/docker-compose.md",
@@ -1076,7 +1110,9 @@
       "https://docs.docker.com/compose/install/",
       "https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42",
       "https://mp.weixin.qq.com/s/DCqjeXtGoHnM7Wfm5Sme6w?"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/docker-file.md",
@@ -1136,7 +1172,9 @@
     },
     "originalReferences": [
       "http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/docker-swarm.md",
@@ -1194,7 +1232,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/docker-volumes.md",
@@ -1258,7 +1298,9 @@
       "https://docs.docker.com/userguide/dockervolumes/",
       "https://larrylu.blog/share-image-on-dockerhub-ccb7d9b26fa8",
       "https://www.cnblogs.com/51kata/p/5266626.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/install-docker-on-centos8.md",
@@ -1321,7 +1363,9 @@
       "https://morosedog.gitlab.io/docker-20190601-docker13/",
       "https://pocketadmin.tech/en/centos-8-install-docker/",
       "https://stackoverflow.com/questions/48568172/docker-sock-permission-denied"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/docker/install-docker-on-windows-WSL.md",
@@ -1383,7 +1427,9 @@
       "https://blog.miniasp.com/post/2020/07/26/Multiple-Linux-Dev-Environment-build-on-WSL-2",
       "https://rdfarm.net/wsl2-error-0xc03a001a/",
       "https://zhuanlan.zhihu.com/p/147233604"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/eclipse/OpenTypeHierarchy.md",
@@ -1427,7 +1473,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/eclipse/eclipseSettingUtf-8.md",
@@ -1485,7 +1533,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/eclipse/eclipseUseJUnit.md",
@@ -1538,7 +1588,9 @@
     },
     "originalReferences": [
       "https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/GIT-export-diff-file.md",
@@ -1593,7 +1645,9 @@
       "https://blog.darkthread.net/blog/export-git-commit-files/",
       "https://hank7891.github.io/2021/08/11/GIT%E6%9F%A5%E7%9C%8B:%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%AA%94%E6%A1%88/",
       "https://medium.com/jiingler/git-%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%B8%85%E5%96%AE%E5%92%8C%E6%AA%94%E6%A1%88-42b6ab9c7594"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/git-branch-update-master.md",
@@ -1653,7 +1707,9 @@
     },
     "originalReferences": [
       "https://cythilya.github.io/2018/06/19/git-merge-branch-into-master/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/git-command.md",
@@ -1711,7 +1767,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/git-commit-message.md",
@@ -1765,7 +1823,9 @@
     "originalReferences": [
       "https://developer.aliyun.com/article/770277",
       "https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/git-error.md",
@@ -1826,7 +1886,9 @@
     "originalReferences": [
       "https://gitbook.tw/chapters/faq/stash.html",
       "https://www.itread01.com/content/1545046022.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/git-note.md",
@@ -1891,7 +1953,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/git/gitLab-error.md",
@@ -1951,7 +2015,9 @@
     },
     "originalReferences": [
       "https://dotblogs.com.tw/zeroade/2018/10/11/111941"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/hugo/HugoAddPrism.md",
@@ -2012,7 +2078,9 @@
     "originalReferences": [
       "https://segmentfault.com/a/1190000009122617",
       "https://sujingjhong.com/posts/how-to-add-prismjs-into-hugo/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/hugo/HugoAddisqus.md",
@@ -2074,7 +2142,9 @@
       "https://coreychen71.github.io/posts/2019-05/hugoadddisqus/",
       "https://vineo.cn/config-disqus.html",
       "https://zh4ui.net/post/2017-04-20-hugo-with-disqus/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/hugo/hugoAddGoogleAnalytics.md",
@@ -2134,7 +2204,9 @@
     },
     "originalReferences": [
       "https://gohugo.io/templates/embedded/#google-analytics"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/hugo/hugonotes.md",
@@ -2204,7 +2276,9 @@
       "https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/",
       "https://tholman.com/github-corners/#",
       "https://www.bioinfo-scrounger.com/archives/809/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/HikariPool-1-error.md",
@@ -2250,7 +2324,9 @@
       "https://github.com/brettwooldridge/HikariCP/blob/HikariCP-7.0.2/README.md#frequently-used",
       "https://h2database.com/html/features.html#database_url",
       "https://stackoverflow.com/questions/47758091/hikaripool-1-connection-is-not-available-request-timed-out-after-30000ms-for"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/Java-heap-space.md",
@@ -2309,7 +2385,9 @@
       "https://crunchify.com/how-to-change-jvm-heap-setting-xms-xmx-of-tomcat/",
       "https://www.itread01.com/content/1546150350.html",
       "https://www.itread01.com/content/1546839425.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java-DecimalFormat.md",
@@ -2356,7 +2434,9 @@
       "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html",
       "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html",
       "https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java-error.md",
@@ -2409,7 +2489,9 @@
     },
     "originalReferences": [
       "https://blog.csdn.net/huangbaokang/article/details/75287126"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java_tutorial_0.md",
@@ -2460,7 +2542,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java_tutorial_1.md",
@@ -2511,7 +2595,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java_tutorial_2.md",
@@ -2564,7 +2650,9 @@
     },
     "originalReferences": [
       "https://blog.csdn.net/fysuccess/article/details/40656761"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java_tutorial_3.md",
@@ -2615,7 +2703,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/java_tutorial_4.md",
@@ -2666,7 +2756,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/java/polymorphism.md",
@@ -2713,7 +2805,9 @@
       "https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html",
       "https://www.learnerslesson.com/JAVA/Java-Polymorphism.htm",
       "https://www.youtube.com/watch?v=tYw-BKKcD3s"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/Heic2any.md",
@@ -2773,7 +2867,9 @@
     },
     "originalReferences": [
       "https://alexcorvi.github.io/heic2any/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/Hide-Button-when-printing.md",
@@ -2826,7 +2922,9 @@
     },
     "originalReferences": [
       "https://awpluway.pixnet.net/blog/post/361202835"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/array-Create-Table.md",
@@ -2884,7 +2982,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/detect-mobile-device.md",
@@ -2944,7 +3044,9 @@
     },
     "originalReferences": [
       "https://tso1158687.github.io/blog/2019/03/10/detect-mobile-device/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/joinWillJavaScriptCourse.md",
@@ -3002,7 +3104,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/select-JsonList.md",
@@ -3060,7 +3164,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/javascript/table-Search.md",
@@ -3118,7 +3224,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/kafka/kafka-eagle.md",
@@ -3190,7 +3298,9 @@
       "https://www.cnblogs.com/liugp/p/16898002.html",
       "https://www.cnblogs.com/smartloli/p/15732794.html",
       "https://www.cnblogs.com/smartloli/p/16728995.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/linux/Install-CentOS-8.md",
@@ -3258,7 +3368,9 @@
     "originalReferences": [
       "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap",
       "https://cockpit-project.org/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/linux/LinuxCommand.md",
@@ -3307,7 +3419,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/linux/linux-must-install-software.md",
@@ -3360,7 +3474,9 @@
     },
     "originalReferences": [
       "https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-8"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/net/IP.md",
@@ -3422,7 +3538,9 @@
       "https://zh.wikipedia.org/wiki/分类网络",
       "https://zh.wikipedia.org/wiki/子网#网络掩码",
       "https://zh.wikipedia.org/wiki/无类别域间路由"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/net/SSLandTLSandHttps.md",
@@ -3524,7 +3642,9 @@
       "https://zh.wikipedia.org/wiki/传输控制协议",
       "https://zh.wikipedia.org/wiki/傳輸層安全性協定",
       "https://zh.wikipedia.org/wiki/超文本传输安全协议"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/net/chromeTools.md",
@@ -3577,7 +3697,9 @@
     },
     "originalReferences": [
       "https://pvencs.blogspot.com/2019/01/chrome-dev-tool-overrides.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/net/hosts.md",
@@ -3630,7 +3752,9 @@
     },
     "originalReferences": [
       "https://blog.gtwang.org/wordpress/migrate-wordpress-to-lemp-server/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/net/windows-route.md",
@@ -3688,7 +3812,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/net/windowsNetCmd.md",
@@ -3750,7 +3876,9 @@
       "https://blog.csdn.net/cryhelyxx/article/details/17919897",
       "https://kknews.cc/zh-tw/code/o3jx8z5.html",
       "https://www.itread01.com/content/1550289784.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/nginx/NginxForwindows.md",
@@ -3821,7 +3949,9 @@
       "http://nginx.org/en/docs/ngx_core_module.html#worker_processes",
       "https://docs.microsoft.com/zh-tw/aspnet/core/host-and-deploy/linux-nginx",
       "https://www.nginx.com/resources/wiki/start/topics/examples/full/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/FTPvsFTPSvsSFTP.md",
@@ -3881,7 +4011,9 @@
     },
     "originalReferences": [
       "https://hackmd.io/tBJORR5_R7mNTMnijUlOfw?both"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/HighAvailability.md",
@@ -3945,7 +4077,9 @@
       "https://ithelp.ithome.com.tw/articles/10243564?sc=rss.iron",
       "https://ithelp.ithome.com.tw/questions/10199789",
       "https://www.fansysoft.com/liferay-high-availability"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/Java技術人員技能.md",
@@ -4010,7 +4144,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/Markdown.md",
@@ -4071,7 +4207,9 @@
     "originalReferences": [
       "https://hackmd.io/@wootu/SkY0M5wsZ?type=view",
       "https://iankingh.github.io/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/SA.md",
@@ -4122,7 +4260,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/ask-questions.md",
@@ -4175,7 +4315,9 @@
     "originalReferences": [
       "https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way",
       "https://tw.alphacamp.co/blog/orid-objective-reflective-interpretive-decisional"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/book.md",
@@ -4240,7 +4382,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/mongodb_install.md",
@@ -4303,7 +4447,9 @@
       "https://blog.csdn.net/qq_39940205/article/details/120434224",
       "https://ithelp.ithome.com.tw/articles/10186324",
       "https://www.mongodb.com/download-center/community/releases"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/vagrant.md",
@@ -4370,7 +4516,9 @@
     },
     "originalReferences": [
       "https://github.com/invernizzi/vagrant-scp"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/windows_裝機必裝.md",
@@ -4435,7 +4583,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/使用notepad指令救援資料.md",
@@ -4486,7 +4636,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/前後端分離.md",
@@ -4544,7 +4696,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/名詞.md",
@@ -4617,7 +4771,9 @@
       "https://p3t.lu/posts/github-slang/",
       "https://www.design-hu.com/web-news/cms.html",
       "https://www.itread01.com/content/1533656342.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/寫程式API文件的工具.md",
@@ -4686,7 +4842,9 @@
       "https://hackmd.io/@YuTingKung/HkrFjefxt#SwaggerHub-API-Auto-Mocking",
       "https://softnshare.com/opensource-slate/",
       "https://weijutu.github.io/2018/08/02/tools/slate-api-document/"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/畫流程圖的工具.md",
@@ -4746,7 +4904,9 @@
     },
     "originalReferences": [
       "https://mermaid.live/edit#pako:eNp1kltPgzAUx79K0xdfdiljF2h0RjNd9HGbMTG8NHDGGqHFtkTnsu9uKbBL5iAh9H_O738u6Q7HMgFMsYavEkQMM85SxfJIIPsUTBke84IJg56VFAZEchl5ZPHnv4GH0mzIpTyXMs0gEnWk9e1Op40RRfOnFepnMuWinzbJVWoTt5nOmaKlPWmkqta1Qd_cbBpz5GAkC8NlU8chFq0TKFpAwhXERqM3DQoZeY4WLIWLBlvWEWBVpVsqVpBYhbNM11itH3tdgCmVqKvdHLCXma1sh7rWo5usaZGLtVQ5q0ZCpeYiPUWvlWu7P6XPix22Xm_Tyej1fXXqftx860eRTwaor8F0Xd69-97dWnBaEbiDc7D1eGIv165yibDZQA4RpvY3gTUrMxPhSOxtKiuNXG5FjKlRJXRwWSTMtHexFe3l-ZDy9IjpDv9g6hHS871xYF9_MgzHw6CDt1YOhr3A84NgNPI8j4SDwb6Df50D6YW-Nwk9nxCfjCbhKNz_AZyq_-w"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/other/算錢用浮點，遲早被人扁.md",
@@ -4807,7 +4967,9 @@
     "originalReferences": [
       "https://blog.darkthread.net/blog/about-money-distribution/",
       "https://www.ithome.com.tw/voice/112663"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/redis/redis-Install.md",
@@ -4863,7 +5025,9 @@
       "https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/",
       "https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/",
       "https://zh.wikipedia.org/wiki/Redis"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/redis/redis-command.md",
@@ -4921,7 +5085,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/redis/redis-config.md",
@@ -4979,7 +5145,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/server/tomcatSetEnvironment.md",
@@ -5037,7 +5205,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/server/tomcatSetserverxml.md",
@@ -5095,7 +5265,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/server/tomcatSettingUser.md",
@@ -5149,7 +5321,9 @@
     "originalReferences": [
       "https://blog.csdn.net/begin27/article/details/50966261",
       "https://www.cnblogs.com/0201zcr/p/6668010.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring-boot/spring-boot-Swagger2.md",
@@ -5207,7 +5381,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring-boot/spring-boot-active-profile.md",
@@ -5271,7 +5447,9 @@
       "https://docs.spring.io/spring-boot/docs/1.0.1.RELEASE/reference/html/howto-properties-and-configuration.html",
       "https://matthung0807.blogspot.com/2020/04/spring-boot-different-environment.html",
       "https://www.baeldung.com/spring-profiles"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring-boot/spring-boot-conditionalOnProperty.md",
@@ -5324,7 +5502,9 @@
     },
     "originalReferences": [
       "https://blog.csdn.net/sqlgao22/article/details/96476754"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring-boot/spring-boot-interview.md",
@@ -5397,7 +5577,9 @@
       "https://mp.weixin.qq.com/s/tFrRMM25LVE_2AG23lK5qQ",
       "https://mp.weixin.qq.com/s/uv8jIztilO_QvGc7qGhSAA",
       "https://segmentfault.com/a/1190000016686735"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring-cloud/spring-cloud-Eureka.md",
@@ -5448,7 +5630,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring-cloud/spring-cloud-Gateway.md",
@@ -5511,7 +5695,9 @@
       "https://cloud.spring.io/spring-cloud-gateway/multi/multi__actuator_api.html",
       "https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/",
       "https://www.cnblogs.com/crazymakercircle/p/11704077.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring/spring-data-Jpa-Notes.md",
@@ -5573,7 +5759,9 @@
       "http://www.spring4all.com/article/500",
       "https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference",
       "https://spring.io/projects/spring-data"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/spring/spring-transactional.md",
@@ -5635,7 +5823,9 @@
       "https://docs.oracle.com/javaee/7/api/javax/transaction/Transactional.TxType.html",
       "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Propagation.html",
       "https://stackoverflow.com/questions/26387399/javax-transaction-transactional-vs-org-springframework-transaction-annotation-tr"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/sql/sql-command.md",
@@ -5696,7 +5886,9 @@
     "originalReferences": [
       "https://www.fooish.com/sql/alter-table.html",
       "https://www.fooish.com/sql/default-constraint.html"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/sql/sql-server.md",
@@ -5761,7 +5953,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/visual-studio-code/VSCodeUseRemote.md",
@@ -5824,7 +6018,9 @@
       "https://code.visualstudio.com/docs/remote/remote-overview",
       "https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client",
       "https://hackmd.io/@brick9450/vscode-remote"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-00-學習路線總整理.md",
@@ -5882,7 +6078,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-01-Vue概述.md",
@@ -5933,7 +6131,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-02-Vue-js基礎.md",
@@ -5991,7 +6191,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-03-列表渲染.md",
@@ -6035,7 +6237,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-04-ref與reactive.md",
@@ -6095,7 +6299,9 @@
     },
     "originalReferences": [
       "https://www.notion.so/98b881454a694080a84fb7988c2b3d8a"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-05-watch監視屬性.md",
@@ -6139,7 +6345,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-06-生命週期.md",
@@ -6192,7 +6400,9 @@
     },
     "originalReferences": [
       "https://www.notion.so/98b881454a694080a84fb7988c2b3d8a"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-07-自定義hooks.md",
@@ -6238,7 +6448,9 @@
     },
     "originalReferences": [
       "https://www.notion.so/98b881454a694080a84fb7988c2b3d8a"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-08-響應式進階整理.md",
@@ -6289,7 +6501,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-09-元件化.md",
@@ -6347,7 +6561,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-10-Composition-API.md",
@@ -6398,7 +6614,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-11-元件通訊與Pinia.md",
@@ -6456,7 +6674,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-12-元件通訊進階.md",
@@ -6514,7 +6734,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-13-Vue3進階實務整理.md",
@@ -6572,7 +6794,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-14-路由核心概念.md",
@@ -6623,7 +6847,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-15-路由基本接線.md",
@@ -6674,7 +6900,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-16-Vue-Router基礎.md",
@@ -6734,7 +6962,9 @@
     },
     "originalReferences": [
       "https://www.notion.so/98b881454a694080a84fb7988c2b3d8a"
-    ]
+    ],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-17-to的兩種寫法.md",
@@ -6785,7 +7015,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-18-history與hash模式.md",
@@ -6843,7 +7075,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-19-命名與巢狀路由.md",
@@ -6894,7 +7128,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-20-路由元件生命週期.md",
@@ -6945,7 +7181,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-21-路由傳參query與params.md",
@@ -6996,7 +7234,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-22-路由props配置.md",
@@ -7040,7 +7280,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-23-replace屬性.md",
@@ -7084,7 +7326,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-24-程式設計式導航.md",
@@ -7135,7 +7379,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-25-Vue-Router進階.md",
@@ -7186,7 +7432,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-26-Pinia集中式狀態管理.md",
@@ -7244,7 +7492,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-27-Vuex狀態管理.md",
@@ -7302,7 +7552,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-28-Vite工具.md",
@@ -7367,7 +7619,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-29-Vue動畫.md",
@@ -7418,7 +7672,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-30-SSR服務端渲染.md",
@@ -7476,7 +7732,9 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   },
   {
     "path": "content/post/vue/vue-31-實戰doubanmovie.md",
@@ -7534,6 +7792,8 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "originalReferences": []
+    "originalReferences": [],
+    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
   }
 ]

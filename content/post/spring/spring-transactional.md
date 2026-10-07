@@ -9,7 +9,7 @@ tags:
  - "spring"
 toc: true
 description: "修正 Spring 與 JTA 註解比較，補上真正經過代理的回滾測試與限制。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 Spring 與 JTA 註解比較，補上真正經過代理的回滾測試與限制。
@@ -74,18 +74,11 @@ mvn test -Dtest=TaskServiceTest應通過；測試本身不包@Transactional，�
 
 確認回滾以資料庫結果與交易日誌為準，不只看到exception。非關聯資料庫與reactive交易還需不同管理器和context傳播策略。
 
-## 查核範圍
-
-本文 TaskService／TaskServiceTest 經 Spring 真實 proxy 呼叫，例外後查詢確認回滾；未模擬分散式交易。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Spring Transactional](https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html)
 - [交易传播](https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/tx-propagation.html)
 - [Jakarta Transactions](https://jakarta.ee/specifications/transactions/)
-
-### 原始筆記保留的來源
-
 - [`Propagation`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Propagation.html)
 - [`TxType`](https://docs.oracle.com/javaee/7/api/javax/transaction/Transactional.TxType.html)
 - [java - javax.transaction.Transactional vs org.springframework.transaction.annotation.Transactional - Stack Overflow](https://stackoverflow.com/questions/26387399/javax-transaction-transactional-vs-org-springframework-transaction-annotation-tr)

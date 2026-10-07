@@ -8,7 +8,7 @@ tags:
  - "JavaScript"
 toc: true
 description: "以小型本地資料取代過長的銀行清單，保留陣列轉表格情境並補上文字轉義。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 以小型本地資料取代過長的銀行清單，保留陣列轉表格情境並補上文字轉義。
@@ -46,10 +46,6 @@ for (const bank of banks) {
 實際API先核對資料schema，不依物件屬性列舉順序決定業務欄位。重新渲染前使用replaceChildren清除或建立新fragment替換，避免重複追加。多筆資料可用DocumentFragment集中插入，資料量大時分頁或虛擬列表。
 
 表格提供caption與th scope供輔助技術讀取，不用div硬模擬所有語意。使用textContent而非把使用者內容串進innerHTML；即使資料來源目前受控，也要清楚區分文字與HTML。
-
-## 查核範圍
-
-本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

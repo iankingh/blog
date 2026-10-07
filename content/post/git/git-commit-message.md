@@ -8,7 +8,7 @@ tags:
  - "git"
 toc: true
 description: "修正 type、scope 的格式，提供繁體中文提交示例與不相容變更標示。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 type、scope 的格式，提供繁體中文提交示例與不相容變更標示。
@@ -49,16 +49,9 @@ BREAKING CHANGE: items 改為 tasks，客戶端需更新欄位名稱。
 
 閱讀 `git diff --cached`，確認訊息與 staged 內容相符。一個提交有一個可理解目的；功能和必要測試可同一提交，不相關格式化另外拆。不要為了美觀把本來可獨立回滾的改動混在一起。產生訊息工具只協助草擬，提交者仍需核對實際 diff。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Conventional Commits 1.0](https://www.conventionalcommits.org/zh-hant/v1.0.0/)
 - [git-commit](https://git-scm.com/docs/git-commit)
-
-### 原始筆記保留的來源
-
 - [如何規範你的Git commit？-阿里雲開發者社群](https://developer.aliyun.com/article/770277)
 - [Git Commit Message 這樣寫會更好，替專案引入規範與範例](https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html)

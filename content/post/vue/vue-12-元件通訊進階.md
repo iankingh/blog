@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "完成可聚焦的輸入元件，示範屬性透傳、defineExpose 與跨層 provide / inject。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 完成可聚焦的輸入元件，示範屬性透傳、defineExpose 與跨層 provide / inject。
@@ -63,10 +63,6 @@ provide('fieldLabel', '冒險者名稱')
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-11-元件通訊與Pinia.md" >}}) · [下一章]({{< ref "/post/vue/vue-13-Vue3進階實務整理.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

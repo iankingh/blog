@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "整理兩種表單的適用情境，補上型別化 FormGroup 與完整範例。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 整理兩種表單的適用情境，補上型別化 FormGroup 與完整範例。
@@ -62,16 +62,9 @@ export class AppComponent {
 
 setValue要求完整結構，patchValue允許部分欄位。valueChanges訂閱要清理，可用takeUntilDestroyed；大量訂閱或HTTP搜尋要處理去抖與取消。不要在同一輸入同時使用ngModel與formControlName。前端email驗證只檢查格式，不證明信箱存在或歸屬。
 
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器；執行表單驗證／提交、pipe 方法、圖片無效尺寸或 JS 匯入對應分支（沒有驗證 Canvas 畫素輸出）。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Reactive Forms](https://angular.dev/guide/forms/reactive-forms)
 - [Typed Forms](https://angular.dev/guide/forms/typed-forms)
 - [Forms比較](https://angular.dev/guide/forms)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://angular.io/api/forms/FormControl)

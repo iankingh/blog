@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "比較固定網址與命名路由導航，避免以 path 搭配 params 造成引數遺失。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 比較固定網址與命名路由導航，避免以 path 搭配 params 造成引數遺失。
@@ -50,10 +50,6 @@ router.js 匯入 Task，加入 `{ path: '/tasks/:id', name: 'task', component: T
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-16-Vue-Router基礎.md" >}}) · [下一章]({{< ref "/post/vue/vue-18-history與hash模式.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證；memory history實測命名參數、query、resolve與守衛導向。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

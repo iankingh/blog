@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "保留豆瓣電影專案的搜尋與列表情境，以本地 JSON 完成可重現的載入、錯誤與篩選流程。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留豆瓣電影專案的搜尋與列表情境，以本地 JSON 完成可重現的載入、錯誤與篩選流程。
@@ -81,10 +81,6 @@ onMounted(load)
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-30-SSR服務端渲染.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

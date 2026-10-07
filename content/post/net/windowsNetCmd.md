@@ -9,7 +9,7 @@ tags:
  - "Cmd"
 toc: true
 description: "修正 Run 快捷鍵及混用 Linux netstat 引數，建立分層診斷順序。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 Run 快捷鍵及混用 Linux netstat 引數，建立分層診斷順序。
@@ -44,22 +44,12 @@ ipconfig看介面、DHCP、DNS與gateway；Resolve-DnsName看DNS回答；Test-Ne
 
 ipconfig /release、/renew等會影響連線，不當每次排錯的第一步。記錄目標、時間、OS與測試結果，公開輸出先去掉內部地址／host資訊；對真實主機的修正仍需實際拓撲。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [ipconfig](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig)
 - [netstat](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat)
 - [Test-NetConnection](https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection)
-
-### 原始筆記保留的來源
-
 - [檢視哪些程式佔用了埠 - zhuxiongxian的挨踢部落格 - CSDN部落格](https://blog.csdn.net/cryhelyxx/article/details/17919897)
 - [ping、telnet、tracert簡介與使用 - IT閱讀](https://www.itread01.com/content/1550289784.html)
 - [windows網路命令：ping、ipconfig、tracert、netstat、arp - 每日頭條](https://kknews.cc/zh-tw/code/o3jx8z5.html)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://medium.com/@CarterTsai/%E5%88%A9%E7%94%A8powershell%E7%9A%84test-netconnection%E4%BE%86%E5%8F%96%E4%BB%A3telnet%E4%BE%86%E6%AA%A2%E6%9F%A5%E7%B6%B2%E7%AB%99%E7%9A%84port%E6%9C%89%E6%B2%92%E6%9C%89%E8%A2%AB%E9%96%8B%E5%95%9F-5bc18909ce67)

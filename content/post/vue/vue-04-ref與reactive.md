@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "區分響應式資料與 DOM 引用，修正原始筆記中的 TypeScript 與模板語法。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 區分響應式資料與 DOM 引用，修正原始筆記中的 TypeScript 與模板語法。
@@ -53,16 +53,9 @@ TypeScript 可將引用寫為 `ref<HTMLInputElement | null>(null)`，並把 scri
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-03-列表渲染.md" >}}) · [下一章]({{< ref "/post/vue/vue-05-watch監視屬性.md" >}})
 
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [響應式基礎](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
 - [模板引用](https://vuejs.org/guide/essentials/template-refs.html)
 - [響應式工具](https://vuejs.org/api/reactivity-utilities.html)
-
-### 原始筆記保留的來源
-
 - [範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)

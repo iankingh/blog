@@ -11,7 +11,7 @@ tags:
  - "Visual Studio Code"
 toc: true
 description: "補齊原測試章節，以示例主機取代真實公網地址，說明遠端server與extension範圍。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊原測試章節，以示例主機取代真實公網地址，說明遠端server與extension範圍。
@@ -49,18 +49,11 @@ Host note-lab
 
 埠forward用於本地檢視遠端服務時限制loopback，未要求分享就不公開。結束close remote connection，別把本機目錄／remote目錄混作同一工作樹。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Remote SSH](https://code.visualstudio.com/docs/remote/ssh)
 - [Remote troubleshooting](https://code.visualstudio.com/docs/remote/troubleshooting)
 - [Vagrant ssh-config](https://developer.hashicorp.com/vagrant/docs/cli/ssh_config)
-
-### 原始筆記保留的來源
-
 - [Remote - SSH](https://code.visualstudio.com/docs/remote/remote-overview)
 - [ssh client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
 - [vscode remote vagrant ssh](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh)

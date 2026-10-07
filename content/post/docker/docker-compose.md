@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "用完整 Node Web 與 Redis 小專案理解 Compose 服務解析、健康檢查及持久化。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 用完整 Node Web 與 Redis 小專案理解 Compose 服務解析、健康檢查及持久化。
@@ -112,18 +112,11 @@ docker compose down
 
 不要把可支援 scale 等同服務已具備 HA；仍要處理入口、session、資料共享與依賴故障。原未提供的 Spring Boot app 已由本文明確的 Node 小服務取代，兩者的語言和框架不同，網路與持久化觀念相同。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Compose 規格](https://docs.docker.com/reference/compose-file/)
 - [服務啟動順序](https://docs.docker.com/compose/how-tos/startup-order/)
 - [Compose 網路](https://docs.docker.com/compose/how-tos/networking/)
-
-### 原始筆記保留的來源
-
 - [Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
 - [使用 docker-compose 替代 docker run - 張志敏的技術專欄](https://beginor.github.io/2017/06/08/use-compose-instead-of-run.html)
 - [Angular — Local Development With Docker-Compose | by Bhargav Bachina | Bachina Labs | Medium](https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42)

@@ -11,7 +11,7 @@ tags:
 toc: true
 draft: false
 description: "標示 IE11 支援終止的版本界線，移除過時 beta shim 的直接套用建議。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 標示 IE11 支援終止的版本界線，移除過時 beta shim 的直接套用建議。
@@ -38,17 +38,10 @@ Angular13開始移除IE11支援。本篇原本記錄舊Angular的IE11相容工�
 
 先確認是否真的有IE使用者與硬性系統依賴，再規劃受支援瀏覽器入口、舊系統隔離與替換時間。Angular按官方update guide逐major升級並測試，每個依賴都有自己的相容界線。若必須長期留IE，明確標記風險與維護限制，不能當作新專案預設。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Angular browser support](https://angular.dev/reference/versions#browser-support)
 - [Angular13發布說明](https://github.com/angular/angular/blob/13.0.0/CHANGELOG.md)
 - [Microsoft IE lifecycle](https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge)
-
-### 原始筆記保留的來源
-
 - [https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js](https://npmcdn.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js)
 - [IE 11 Syntax error after doing ng serve · Issue #9508 · angular/angular-cli (github.com)](https://github.com/angular/angular-cli/issues/9508)

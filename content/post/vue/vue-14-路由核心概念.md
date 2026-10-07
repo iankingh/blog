@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "釐清 Router、RouterLink、RouterView 與頁面元件的分工，建立 SPA 路由的操作流程。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 釐清 Router、RouterLink、RouterView 與頁面元件的分工，建立 SPA 路由的操作流程。
@@ -48,10 +48,6 @@ Vue Router 3 配合 Vue 2 使用，Router 4 以 createRouter 建立例項；舊 
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-13-Vue3進階實務整理.md" >}}) · [下一章]({{< ref "/post/vue/vue-15-路由基本接線.md" >}})
-
-## 查核範圍
-
-Vue Router API文件查核；memory history實測命名參數、query、resolve與守衛導向。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

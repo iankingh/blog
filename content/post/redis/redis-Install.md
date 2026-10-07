@@ -8,7 +8,7 @@ tags:
  - "redis"
 toc: true
 description: "修正 Redis port 對映及舊 Windows 移植版資訊，提供 localhost 測試與停止流程。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 Redis port 對映及舊 Windows 移植版資訊，提供 localhost 測試與停止流程。
@@ -45,22 +45,12 @@ docker rm note-redis
 
 這個無 volume 的練習刪除容器後資料不保留。若要儲存參考[Redis 設定]({{< ref "/post/redis/redis-config.md" >}})與 Docker volume。正式環境另設 ACL、網路隔離、備份與復原測試，不能拿測試 instance 當 production。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Redis 安裝](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/)
 - [Windows 路線](https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/install-redis-on-windows/)
-
-### 原始筆記保留的來源
-
 - [Redis - 維基百科，自由的百科全書 (wikipedia.org)](https://zh.wikipedia.org/wiki/Redis)
 - [Redis系列 - 環境建置篇 - Jed's blog (jed1978.github.io)](https://jed1978.github.io/2018/05/02/Redis-Environment-Installation-Configuration.html)
 - [How to Install Redis Server on CentOS 8 / RHEL 8 (linuxtechi.com)](https://www.linuxtechi.com/install-redis-server-on-centos-8-rhel-8/)
 - [Redis - 在 Windows 上建立高可用性的 Redis :: 天空的垃圾場 v3 (skychang.github.io)](https://skychang.github.io/2017/04/09/Redis-Create_Redis_HA/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://github.com/microsoftarchive/redis/releases)

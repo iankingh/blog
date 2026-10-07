@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "保留 0x80370102 與 0xc03a001a 情境，補上虛擬化、WSL 狀態與 Docker 整合的診斷順序。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 0x80370102 與 0xc03a001a 情境，補上虛擬化、WSL 狀態與 Docker 整合的診斷順序。
@@ -47,18 +47,11 @@ docker run --rm hello-world
 
 應有 Server 資訊與 Hello from Docker。若只有 Windows 終端正常、WSL 不正常，檢查 integration 與 PATH。檔案大量 IO 的專案可放在 Linux 檔案系統，再從 VS Code Remote WSL 操作，避免把差異誤判為容器效能。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [WSL 安裝](https://learn.microsoft.com/en-us/windows/wsl/install)
 - [WSL 排錯](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting)
 - [Docker WSL backend](https://docs.docker.com/desktop/features/wsl/)
-
-### 原始筆記保留的來源
-
 - [wsl2的Error 0x80370102 解決方案 - 知乎](https://zhuanlan.zhihu.com/p/147233604)
 - [安裝WSL2子系統出現 0xc03a001a錯誤 - 清晨小農夫](https://rdfarm.net/wsl2-error-0xc03a001a/)
 - [使用 WSL 2 打造優質的多重 Linux 開發環境 | The Will Will Web](https://blog.miniasp.com/post/2020/07/26/Multiple-Linux-Dev-Environment-build-on-WSL-2)

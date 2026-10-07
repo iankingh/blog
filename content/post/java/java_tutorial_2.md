@@ -10,7 +10,7 @@ tags:
 - "JDK"
 toc: true
 description: "修正 boolean 大小與浮點範圍說明，示範數值提升、欄位預設值及字元輸出。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 boolean 大小與浮點範圍說明，示範數值提升、欄位預設值及字元輸出。
@@ -75,15 +75,8 @@ A 與 B 中間是 tab。byte + byte 會數值提升為 int，不能直接賦回 
 
 [上一章]({{< ref "/post/java/java_tutorial_1.md" >}}) · [下一章]({{< ref "/post/java/java_tutorial_3.md" >}})
 
-## 查核範圍
-
-JDK25以--release 8編譯並執行，標準輸出與本文完全一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Java 8 基本型別](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
 - [Java 21 型別規格](https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-4.html)
-
-### 原始筆記保留的來源
-
 - [Java中8種基本資料型別及其預設值_飛月程式人生-CSDN部落格_float預設值](https://blog.csdn.net/fysuccess/article/details/40656761)

@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "比較 ES module、allowJs、型別提示與全域 scripts，確認 JavaScript 在 Angular 中的載入方式。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 比較 ES module、allowJs、型別提示與全域 scripts，確認 JavaScript 在 Angular 中的載入方式。
@@ -48,17 +48,10 @@ window／document不存在於Node SSR，browser-only庫要限制在瀏覽器流�
 
 確認方式是build成功、問候輸出符合預期且script只載入一次。原合併衝突標記與重複compilerOptions範本已經移除。
 
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器；執行表單驗證／提交、pipe 方法、圖片無效尺寸或 JS 匯入對應分支（沒有驗證 Canvas 畫素輸出）。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Angular workspace scripts](https://angular.dev/reference/configs/workspace-config#styles-and-scripts-configuration)
 - [TypeScript allowJs](https://www.typescriptlang.org/tsconfig/allowJs.html)
-
-### 原始筆記保留的來源
-
 - [angular在ts中使用第三方js_weixin_43182222的部落格-CSDN部落格](https://blog.csdn.net/weixin_43182222/article/details/105205283?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control)
 - [How to call JavaScript functions from Typescript in Angular 5? - Stack Overflow](https://stackoverflow.com/questions/49526681/how-to-call-javascript-functions-from-typescript-in-angular-5)
 - [Angular引入自己寫的js或者其他_qq_43205711的部落格-程式設計師宅基地_angular引用自己的js - 程式設計師宅基地 (cxyzjd.com)](https://www.cxyzjd.com/article/qq_43205711/84139445)

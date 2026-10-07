@@ -9,7 +9,7 @@ tags:
  - "TLS"
 toc: true
 description: "修正鎖頭代表網站可信的說法，區分加密、憑證與應用安全，補上排錯順序。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正鎖頭代表網站可信的說法，區分加密、憑證與應用安全，補上排錯順序。
@@ -57,19 +57,12 @@ HTTPS 的信任邊界包含 CA、用戶端信任庫、私鑰保護與終端設�
 
 原 TCP 三向交握是傳輸連線步驟，TLS 握手在其上協商加密（HTTP/3 則使用 QUIC，不能直接套 TCP 流程）。HTTP 的 request／response 語意與下層安全協商分開看，排錯才知道應查 DNS、路由、TLS 還是 HTTP 狀態。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [TLS1.3 RFC8446](https://www.rfc-editor.org/rfc/rfc8446)
 - [TLS1.2 RFC5246](https://www.rfc-editor.org/rfc/rfc5246)
 - [HTTP3 RFC9114](https://www.rfc-editor.org/rfc/rfc9114)
 - [OpenSSL s_client](https://docs.openssl.org/master/man1/openssl-s_client/)
-
-### 原始筆記保留的來源
-
 - [HTTPS (HTTP Secure)](https://en.wikipedia.org/wiki/HTTPS)
 - [ HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 - [chain of trust 機制](https://jennycodes.me/posts/security-ssl-https#chainoftrust)
@@ -106,9 +99,6 @@ HTTPS 的信任邊界包含 CA、用戶端信任庫、私鑰保護與終端設�
 - [網站下載](https://www.openssl.org/source/)
 - [s_client 的 man page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html)
 - [https://medium.com/starbugs/security-ssl-https-%E8%83%8C%E5%BE%8C%E7%9A%84%E5%8A%9F%E8%87%A3-df714e4df77b](https://medium.com/starbugs/security-ssl-https-背後的功臣-df714e4df77b)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://ithelp.ithome.com.tw/articles/10193095)
 - [原始參考入口 2](https://support.unethost.com/index.php?rp=/knowledgebase/82/SSLSSL-certificate.html)
 - [原始參考入口 3](https://tw.alphacamp.co/blog/http-https-difference)

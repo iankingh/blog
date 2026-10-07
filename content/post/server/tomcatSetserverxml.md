@@ -9,7 +9,7 @@ tags:
  - "Tomcat"
 toc: true
 description: "修正 maxPostSize 的範圍，補上 Connector、multipart 與獨立 Context 設定方式。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 maxPostSize 的範圍，補上 Connector、multipart 與獨立 Context 設定方式。
@@ -43,10 +43,6 @@ maxPostSize限制Tomcat將請求體解析成引數的某些情況，不是所有
 先備份既有配置、核對xml格式、在測試環境重新啟動，查Catalina日誌。用小檔、超過單檔限制與超過總請求限制的樣本分開測；HTTP413可能來自代理而不是Tomcat，需檢查每層日誌。redirectPort只指定需TLS時的轉向目的port，不會自動啟用HTTPS connector。
 
 配置尺寸還需配合臨時目錄、磁碟空間、時間限制與應用驗證。成功上傳一個小檔不能證明200MB檔案能處理，更不能證明服務承受得住併發上傳。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

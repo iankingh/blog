@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "保留原提問與除錯主題，整理成可複製模板，移除難以辨識來源的個人經驗敘事。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留原提問與除錯主題，整理成可複製模板，移除難以辨識來源的個人經驗敘事。
@@ -42,16 +42,9 @@ lastmod: 2026-10-07T00:01:00+08:00
 
 問設計理由可用「目前理解是X，這裡採Y是為了哪些限制」，不需要先稱讚來交換回答。回報修復方法、驗證結果與適用版本，讓後續讀者受益。原筆記中的training故事無法辨識是否作者或轉貼，改為一般實踐，不新增個人經歷。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [How to Ask Questions 原文](http://www.catb.org/~esr/faqs/smart-questions.html)
 - [Stack Overflow minimal example](https://stackoverflow.com/help/minimal-reproducible-example)
-
-### 原始筆記保留的來源
-
 - [如何用 ORID 提問框架，記錄心得、回顧發現、內化學習｜ALPHA Camp Blog](https://tw.alphacamp.co/blog/orid-objective-reflective-interpretive-decisional)
 - [ryanhanwu/How-To-Ask-Questions-The-Smart-Way: 本文原文由知名 Hacker Eric S. Raymond 所撰寫，教你如何正確的提出技術問題並獲得你滿意的答案。 (github.com)](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)

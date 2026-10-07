@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "標示 CentOS Linux 8 結束維護，區分歷史套件操作與目前受支援系統的安裝確認。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 標示 CentOS Linux 8 結束維護，區分歷史套件操作與目前受支援系統的安裝確認。
@@ -44,18 +44,11 @@ docker 群組等同可控制主機的重要許可權，開發帳號加入前先�
 
 原先指定 docker-ce 的精確版本可能已不在 repo；應先列出可用版本、選擇相容修補版並保留記錄，而非加 `--allowerasing` 無條件移除其他套件。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [CentOS EOL](https://www.centos.org/centos-linux-eol/)
 - [Docker CentOS 安裝](https://docs.docker.com/engine/install/centos/)
 - [安裝後權限](https://docs.docker.com/engine/install/linux-postinstall/)
-
-### 原始筆記保留的來源
-
 - [linux-docker.sock](https://stackoverflow.com/questions/48568172/docker-sock-permission-denied)
 - [CentOS 8 install Docker - Pocket Admin](https://pocketadmin.tech/en/centos-8-install-docker/)
 - [Docker - 第十三章 | 安裝Apache Server | J.J.'s Blogs](https://morosedog.gitlab.io/docker-20190601-docker13/)

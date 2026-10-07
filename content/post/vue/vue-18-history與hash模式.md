@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "說明兩種網址模式、子目錄部署與重新整理 404 的修正方式。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 說明兩種網址模式、子目錄部署與重新整理 404 的修正方式。
@@ -52,10 +52,6 @@ hash 的 `#` 後內容不送給伺服器，通常不需 fallback，適合無 rew
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-17-to的兩種寫法.md" >}}) · [下一章]({{< ref "/post/vue/vue-19-命名與巢狀路由.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

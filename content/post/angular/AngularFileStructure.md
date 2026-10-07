@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "保留小型與多模組專案的比較，將目錄範例整理為可依需求擴充的功能架構。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留小型與多模組專案的比較，將目錄範例整理為可依需求擴充的功能架構。
@@ -58,17 +58,10 @@ feature可依賴shared/core，但shared不反向依賴feature。route以loadComp
 
 靜態檔需由 HTTP 主機服務，SPA 的深層路由重整要回 index.html，而靜態資源不存在時仍應正確回 404。Tomcat 的 context path／base href 與伺服器 fallback 見[部署篇]({{< ref "/post/angular/AngularDeployTomcat.md" >}})。依 feature 分目錄不會自行產生 lazy bundle，路由仍要明確使用動態匯入。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Angular Style Guide](https://angular.dev/style-guide)
 - [延遲載入路由](https://angular.dev/guide/routing/define-routes)
-
-### 原始筆記保留的來源
-
 - [Angular - Router tutorial: tour of heroes](https://angular.io/guide/router-tutorial-toh)
 - [Angular - Guidelines for creating NgModules](https://angular.io/guide/module-types)
 - [Angular 4 File Structure | John Wu's Blog](https://blog.johnwu.cc/article/angular-4-file-structure.html)

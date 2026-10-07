@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上建置輸出與部署驗證，區分 SPA fallback、hash 路由與 API 404。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上建置輸出與部署驗證，區分 SPA fallback、hash 路由與 API 404。
@@ -43,18 +43,11 @@ npx ng build --configuration production --base-href /task-app/
 
 Tomcat服務安裝、管理帳號與Java版本是容器維運，參考Tomcat系列，不為靜態站修改所有server.xml的Host。production與本機環境檔都是前端公開資訊，不放密碼。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Angular 部署](https://angular.dev/tools/cli/deployment)
 - [Angular Hash 路由](https://angular.dev/api/router/withHashLocation)
 - [Tomcat deployment](https://tomcat.apache.org/tomcat-9.0-doc/deployer-howto.html)
-
-### 原始筆記保留的來源
-
 - [Angular - Deployment](https://angular.io/guide/deployment)
 - [Apache Tomcat 9 (9.0.59) - Windows Service How-To](https://tomcat.apache.org/tomcat-9.0-doc/windows-service-howto.html)
 - [maven - Url rewriting Angular 4 on tomcat 8 server - Stack Overflow](https://stackoverflow.com/questions/51042875/url-rewriting-angular-4-on-tomcat-8-server)

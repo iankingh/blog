@@ -9,7 +9,7 @@ tags:
  - "版控"
 toc: true
 description: "以儲存修改為起點，補上 stash、衝突診斷與復原確認，移除無條件 hard reset 的建議。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 以儲存修改為起點，補上 stash、衝突診斷與復原確認，移除無條件 hard reset 的建議。
@@ -43,17 +43,10 @@ fetch 更新遠端追蹤分支，不會自動丟掉工作目錄修改；pull 會
 
 已提交但誤刪的歷史可從 reflog 找到候選 commit，再建立新的救援分支檢查；reflog 有儲存期限且不能恢復從未進 Git 的檔案。確認修復以 status、diff、log 及功能測試為準，不只命令退出碼。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [git-stash](https://git-scm.com/docs/git-stash)
 - [git-reflog](https://git-scm.com/docs/git-reflog)
 - [git-merge](https://git-scm.com/docs/git-merge)
-
-### 原始筆記保留的來源
-
 - [git pull遇到錯誤：error: Your local changes to the following files would be overwritten by merge:解決方法](https://www.itread01.com/content/1545046022.html)
 - [【狀況題】手邊的工作做到一半，臨時要切換到別的任務 - 為你自己學 Git | 高見龍](https://gitbook.tw/chapters/faq/stash.html)

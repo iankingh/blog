@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "建立可重現的 Vue 3 練習專案，依基礎、元件、路由、狀態管理與工程化循序完成 31 個主題。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 建立可重現的 Vue 3 練習專案，依基礎、元件、路由、狀態管理與工程化循序完成 31 個主題。
@@ -121,10 +121,6 @@ npm run build
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [下一章]({{< ref "/post/vue/vue-01-Vue概述.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

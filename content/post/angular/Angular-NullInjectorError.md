@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上錯誤鏈閱讀、服務註冊及 HttpClient 的新舊配置差異。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上錯誤鏈閱讀、服務註冊及 HttpClient 的新舊配置差異。
@@ -74,17 +74,10 @@ Angular 4 的 NgModule 專案改在合適的元件或 module 設定 `providers: 
 
 執行原本出錯操作，確認服務方法回應與沒有注入錯誤，再測元件銷毀重建是否取得預期例項。若注入interface，TypeScript型別執行期不存在，改用InjectionToken並指定useValue／useFactory。迴圈依賴是不同問題，不要以重複provider掩蓋。
 
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器；執行表單驗證／提交、pipe 方法、圖片無效尺寸或 JS 匯入對應分支（沒有驗證 Canvas 畫素輸出）。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [依賴注入](https://angular.dev/guide/di)
 - [HTTP 設定](https://angular.dev/guide/http/setup)
 - [NG0201](https://angular.dev/errors/NG0201)
-
-### 原始筆記保留的來源
-
 - [No Provider for CustomPipe - angular 4 - Stack Overflow](https://stackoverflow.com/questions/46299952/no-provider-for-custompipe-angular-4)
 - [Angular依賴注入的一個常見錯誤NullInjectorError,No provider for XXX - 雲+社群 - 騰訊雲 (tencent.com)](https://cloud.tencent.com/developer/article/1700456)

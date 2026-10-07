@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "說明 fetch、fast-forward 與 merge 的差異，補上衝突處理及中止方式。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 說明 fetch、fast-forward 與 merge 的差異，補上衝突處理及中止方式。
@@ -37,16 +37,9 @@ merge 衝突時 status 列出檔案。檢查衝突區段兩側的意圖，修改
 
 確認 `git log --oneline --graph --decorate -10`，看主分支提交是否已在工作分支歷史，並檢查實際功能。`git rebase origin/master` 是重排自己的提交而非建立 merge commit；已共享的歷史需團隊協調，不能把兩者當無差異替換。這個同步流程沒有替你推送分支。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [git-merge](https://git-scm.com/docs/git-merge)
 - [git-pull](https://git-scm.com/docs/git-pull)
 - [git-rebase](https://git-scm.com/docs/git-rebase)
-
-### 原始筆記保留的來源
-
 - [Git: 四種將分支與主線同步的方法 | Summer。桑莫。夏天](https://cythilya.github.io/2018/06/19/git-merge-branch-into-master/)

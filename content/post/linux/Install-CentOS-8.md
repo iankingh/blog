@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補齊原本空白的安裝章節，採 VM 說明磁碟、網路與帳號設定，標示替代發行版。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊原本空白的安裝章節，採 VM 說明磁碟、網路與帳號設定，標示替代發行版。
@@ -47,24 +47,14 @@ systemctl --failed
 
 Cockpit 若實際需要，依受支援系統的套件檔案安裝並只向管理網段開放；不要因筆記有一個命令就在歷史系統上公開9090。舊系統遷移先備份、另建新VM還原與測試，保留回復路線。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [CentOS Linux EOL](https://www.centos.org/centos-linux-eol/)
 - [CentOS Stream](https://www.centos.org/centos-stream/)
 - [Rocky 文件](https://docs.rockylinux.org/)
 - [AlmaLinux 文件](https://wiki.almalinux.org/)
-
-### 原始筆記保留的來源
-
 - [參考 Red Hat swap 建議](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap)
 - [Cockpit](https://cockpit-project.org/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://iter01.com/443455.html)
 - [原始參考入口 2](https://linoxide.com/distros/how-to-install-centos/)
 - [原始參考入口 3](https://www.footmark.info/linux/centos/centos8-installation/)

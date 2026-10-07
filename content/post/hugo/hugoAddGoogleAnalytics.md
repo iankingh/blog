@@ -8,7 +8,7 @@ tags:
  - "hugo"
 toc: true
 description: "補上本站的本機停用行為、Measurement ID 與 GA4 的實際驗證範圍。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上本站的本機停用行為、Measurement ID 與 GA4 的實際驗證範圍。
@@ -41,16 +41,9 @@ G-MEASUREMENT_ID是佔位值，需換成自己的streamID。通用Hugo內建模�
 
 本次確認的是本站模板與靜態產物，本地不會向GA寫事件，無法據此宣稱帳號報表已驗收。正式部署後再按上面順序進行賬號端檢查。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Hugo Analytics](https://gohugo.io/configuration/services/)
 - [Google tag設定](https://developers.google.com/analytics/devguides/collection/ga4)
 - [DebugView](https://support.google.com/analytics/answer/7201382)
-
-### 原始筆記保留的來源
-
 - [Hugo Google Analytics 模板](https://gohugo.io/templates/embedded/#google-analytics)

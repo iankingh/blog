@@ -8,7 +8,7 @@ tags:
  - "hugo"
 toc: true
 description: "補上穩定討論識別碼與動態載入限制，修正為本機啟用留言的錯誤建議。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上穩定討論識別碼與動態載入限制，修正為本機啟用留言的錯誤建議。
@@ -43,18 +43,11 @@ loopback主機停用Disqus，避免把localhost建成正式討論。本文本機
 
 Disqus為外部服務，停用JS、斷網或指令碼被擋時文章仍應能閱讀。管理員稽核、通知及資料處理政策由站點設定維護，不把賬號管理token放前端。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Hugo services](https://gohugo.io/configuration/services/)
 - [Disqus configuration](https://help.disqus.com/en/articles/1717084-javascript-configuration-variables)
 - [Disqus localhost](https://help.disqus.com/en/articles/1717163-troubleshooting-disqus-on-localhost)
-
-### 原始筆記保留的來源
-
 - [Hugo 加入 Disqus 整合性留言管理系統](https://coreychen71.github.io/posts/2019-05/hugoadddisqus/)
 - [給Hugo新增disqus評論服務 - Marvin's Blog【程式人生】](https://zh4ui.net/post/2017-04-20-hugo-with-disqus/)
 - [為你部落格新增disqus評論系統 | 23.9K | Vineo](https://vineo.cn/config-disqus.html)

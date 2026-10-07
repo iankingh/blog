@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "使用 Node 與 Vue server-renderer 回傳 HTML，釐清 SSR、hydration 與跨請求狀態。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 使用 Node 與 Vue server-renderer 回傳 HTML，釐清 SSR、hydration 與跨請求狀態。
@@ -65,10 +65,6 @@ server.listen(3000, '127.0.0.1', () => console.log('http://127.0.0.1:3000'))
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-29-Vue動畫.md" >}}) · [下一章]({{< ref "/post/vue/vue-31-實戰doubanmovie.md" >}})
-
-## 查核範圍
-
-直接匯入本文createPage，SSR renderToString輸出及文字轉義通過；HTTP與hydration非此測試範圍。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

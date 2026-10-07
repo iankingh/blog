@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "補上 manager 初始化與單節點練習，整理 service、replica、task 與環境變數更新。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上 manager 初始化與單節點練習，整理 service、replica、task 與環境變數更新。
@@ -49,10 +49,6 @@ docker service rm note-swarm
 routing mesh 將 published port 分派到 task，多主機要核對 overlay 和管理連線的必要 port。registry 若需認證，部署時按檔案提供認證；不要把密碼寫進 service env，使用 secrets。local volume 不會自動在所有節點同步。
 
 練習結束若確定此為全新的單節點且無其他服務，可用 `docker swarm leave --force` 離開；既有叢集 manager 不應套用此清理動作。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

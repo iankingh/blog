@@ -8,7 +8,7 @@ tags:
  - "書單"
 toc: true
 description: "保留原待讀書單，補上主題、版本限制與閱讀產出，不假裝已完成閱讀。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留原待讀書單，補上主題、版本限制與閱讀產出，不假裝已完成閱讀。
@@ -40,19 +40,12 @@ lastmod: 2026-10-07T00:01:00+08:00
 
 Spring官方guide、Vue／Angular版本表與TypeScript Handbook用於查核，不替代書的整體脈絡。付費課程、書籍和網站的存在／edition可能變化，購買前查看出版資訊，這份清單不聲稱所有連結現在都可免費閱讀。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Spring Boot in Action 出版社](https://www.manning.com/books/spring-boot-in-action)
 - [Spring in Action 出版社](https://www.manning.com/books/spring-in-action-sixth-edition)
 - [ES6作者教材](https://es6.ruanyifeng.com/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://www.tenlong.com.tw/products/9787115433145)
 - [原始參考入口 2](https://segmentfault.com/a/1190000009310174)
 - [原始參考入口 3](https://www.tenlong.com.tw/products/9787115527929?list_name=b-r30-zh_cn)

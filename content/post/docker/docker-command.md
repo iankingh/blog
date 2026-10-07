@@ -8,7 +8,7 @@ categories:
 tags:
  - "docker"
 description: "整理容器生命週期、日誌、資源與空間檢查，改用正確引數並限制操作到練習容器。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 整理容器生命週期、日誌、資源與空間檢查，改用正確引數並限制操作到練習容器。
@@ -66,16 +66,9 @@ docker rm note-web
 
 本篇只操作具名的練習資源；原先 stop／rm 全部 container 的組合指令不作預設做法。移除 volume 是資料生命週期決定，不能只因容器停止就推定資料不需要。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Docker CLI](https://docs.docker.com/reference/cli/docker/)
 - [容器生命週期](https://docs.docker.com/engine/containers/run/)
-
-### 原始筆記保留的來源
-
 - [Docker常用命令小記_程式設計師欣宸的部落格-CSDN部落格](https://blog.csdn.net/boling_cavalry/article/details/101145739)
 - [docker container ls命令 - Docker教程™](https://www.yiibai.com/docker/container_ls.html)

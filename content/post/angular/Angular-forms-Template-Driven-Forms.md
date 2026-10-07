@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補齊原空白筆記，以名稱表單示範 FormsModule、name、required 與提交。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊原空白筆記，以名稱表單示範 FormsModule、name、required 與提交。
@@ -51,10 +51,6 @@ export class AppComponent {
 NgModule專案在宣告元件的module匯入FormsModule，模板控制流可用`*ngIf`並匯入CommonModule。standalone的imports與NgModule的imports不是同一檔案。ngModel在form內需name，否則不能註冊到ngForm；若刻意獨立控制項可設定standalone選項。
 
 模板驅動適合簡單表單，複雜跨欄位或動態表單先比較[Reactive Forms]({{< ref "/post/angular/Angular-forms.md" >}})。錯誤顯示使用touched/dirty，避免使用者尚未操作就整頁警告。
-
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器；執行表單驗證／提交、pipe 方法、圖片無效尺寸或 JS 匯入對應分支（沒有驗證 Canvas 畫素輸出）。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

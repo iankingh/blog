@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "理解 Repository 介面與分頁，以 H2 範例比較衍生查詢、JPQL 及 native SQL。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 理解 Repository 介面與分頁，以 H2 範例比較衍生查詢、JPQL 及 native SQL。
@@ -122,18 +122,11 @@ List<Task> findExactNative(@Param("title") String title);
 
 常用衍生條件有 `And`、`Or`、`Between`、`LessThan`、`IsNull`、`Containing`、`In`，屬性拼字需和 Entity 一致；查詢名字過長時用 @Query 或 Specification，比堆疊難閱讀的方法名更合適。Specification 以 Criteria API 組合 predicate，並不取代授權、穩定排序或查詢成本評估。
 
-## 查核範圍
-
-本文 Entity、Repository 與增補查詢片段於 H2 2.3.232 實測分頁、衍生方法、JPQL 與 native query，含查無資料分支；未連 SQL Server 等外部 DB。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Query methods](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)
 - [Repository 介面](https://docs.spring.io/spring-data/commons/reference/repositories/definition.html)
 - [JPA交易](https://docs.spring.io/spring-data/jpa/reference/jpa/transactions.html)
-
-### 原始筆記保留的來源
-
 - [Spring Data](https://spring.io/projects/spring-data)
 - [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
 - [Spring For All 社群 Spring Data JPA 從入門到進階系列教程 | Spring For All (spring4all.com)](http://www.spring4all.com/article/500)

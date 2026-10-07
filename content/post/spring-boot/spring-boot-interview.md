@@ -9,7 +9,7 @@ tags:
  - "spring Boot"
 toc: true
 description: "將 Spring Boot 核心觀念對照可觀察的配置與測試，釐清舊版面試題和現代專案的差異。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 將 Spring Boot 核心觀念對照可觀察的配置與測試，釐清舊版面試題和現代專案的差異。
@@ -85,18 +85,11 @@ public class NoteApplication {
 
 完整功能仍應由小專案核對；例如設定為 dev 後檢查 banner、加入 Controller 後檢查 HTTP 回應，再增加資料庫與交易。不能只背一串註解就宣稱完成整合。
 
-## 查核範圍
-
-隔離 Spring Boot 3.5.0／Java21 target 專案建置，本文 NoteApplication 共用入口供 7 個測試使用；未測實際生產服務。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Auto configuration](https://docs.spring.io/spring-boot/3.5/reference/using/auto-configuration.html)
 - [Build systems](https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html)
 - [External config](https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html)
-
-### 原始筆記保留的來源
-
 - [吐血整理 20 道 Spring Boot 面試題，我經常拿來面試別人！ - Java技術棧 - SegmentFault 思否](https://segmentfault.com/a/1190000016686735)
 - [什麼是Spring Boot?](https://mp.weixin.qq.com/s/jWLcPxTg9bH3D9_7qbYbfw)
 - [Spring Boot 核心設定檔詳解](https://mp.weixin.qq.com/s/BzXNfBzq-2TOCbiHG3xcsQ)

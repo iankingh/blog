@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "以任務識別碼變動示範元件重用，避免只在 mounted 讀取一次 params。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 以任務識別碼變動示範元件重用，避免只在 mounted 讀取一次 params。
@@ -51,10 +51,6 @@ onMounted(() => console.log('Task 元件掛載'))
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-19-命名與巢狀路由.md" >}}) · [下一章]({{< ref "/post/vue/vue-21-路由傳參query與params.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

@@ -9,7 +9,7 @@ tags:
 - "JDK"
 toc: true
 description: "建立編譯、類別載入與執行例外的診斷順序，補齊 Eclipse unresolved compilation problems 的處理。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 建立編譯、類別載入與執行例外的診斷順序，補齊 Eclipse unresolved compilation problems 的處理。
@@ -59,15 +59,8 @@ public class ExceptionDemo {
 
 [00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
 
-## 查核範圍
-
-JDK25以--release 8編譯並執行，標準輸出與本文完全一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [例外教學](https://dev.java/learn/exceptions/)
 - [javac 診斷](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
-
-### 原始筆記保留的來源
-
 - [java.lang.Error: Unresolved compilation problems:解決方案 - huangbaokang的部落格 - CSDN部落格](https://blog.csdn.net/huangbaokang/article/details/75287126)

@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "從完整 Dockerfile 與 HTML 建置映像，補上 context、快取、COPY 及執行結果。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 從完整 Dockerfile 與 HTML 建置映像，補上 context、快取、COPY 及執行結果。
@@ -59,16 +59,9 @@ FROM 選基底、WORKDIR 設後續工作目錄、COPY 帶入檔案、RUN 在建�
 
 不要在 ARG/ENV、COPY 或 RUN 中放秘密，以免留在映像或快取。若需下載依賴，優先先 COPY lockfile 安裝，再 COPY 來源，以改善可重現性與快取。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Dockerfile 語法](https://docs.docker.com/reference/dockerfile/)
 - [建置快取](https://docs.docker.com/build/cache/)
 - [建置 context](https://docs.docker.com/build/concepts/context/)
-
-### 原始筆記保留的來源
-
 - [Dockerfile **使用介紹 -** **純潔的微笑部落格**](http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html)

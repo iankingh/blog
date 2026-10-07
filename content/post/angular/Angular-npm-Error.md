@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上 Node、Angular、TypeScript 相容檢查，避免以 force 跳過真正的版本衝突。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上 Node、Angular、TypeScript 相容檢查，避免以 force 跳過真正的版本衝突。
@@ -41,10 +41,6 @@ npm explain typescript
 EACCES檢查套件目錄許可權，不用sudo全域性install修復一切；ECONNRESET/TLS錯誤查proxy、registry與CA，不關strict-ssl。`npm cache verify`檢查快取，只有證據指向快取損壞才清理。
 
 確認修正以npm ci、專案build及測試為準，不只install成功。網路服務／private registry錯誤要留去識別化日誌與HTTP狀態，token不貼公開。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

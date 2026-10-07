@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "在共用骨架加入任務頁、重新導向與 404，檢查路由匹配的完整行為。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 在共用骨架加入任務頁、重新導向與 404，檢查路由匹配的完整行為。
@@ -51,16 +51,9 @@ SPA 顯示 404 元件不代表伺服器回應 HTTP 404，SEO 或 SSR 需要後�
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-15-路由基本接線.md" >}}) · [下一章]({{< ref "/post/vue/vue-17-to的兩種寫法.md" >}})
 
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [重新導向與別名](https://router.vuejs.org/guide/essentials/redirect-and-alias.html)
 - [路由匹配](https://router.vuejs.org/guide/essentials/route-matching-syntax.html)
 - [Active links](https://router.vuejs.org/guide/essentials/active-links.html)
-
-### 原始筆記保留的來源
-
 - [範本 (notion.so)](https://www.notion.so/98b881454a694080a84fb7988c2b3d8a)

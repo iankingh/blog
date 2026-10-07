@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "修正主動／被動模式的方向及 FTPS 分類，提供連線選擇與診斷依據。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正主動／被動模式的方向及 FTPS 分類，提供連線選擇與診斷依據。
@@ -42,16 +42,9 @@ SSH生態中的檔案交換可採SFTP，企業既有FTP流程可依需求支援F
 
 測試登入、列目錄、上傳小檔、下載並核對checksum及許可權。SFTP的`put`/`get`與遠端shell命令不同，使用受控測試目錄而非覆蓋正式資料。傳輸加密不等於儲存加密、備份或檔案內容可信。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [FTP RFC959](https://www.rfc-editor.org/rfc/rfc959)
 - [FTP over TLS RFC4217](https://www.rfc-editor.org/rfc/rfc4217)
 - [OpenSSH sftp](https://man.openbsd.org/sftp)
-
-### 原始筆記保留的來源
-
 - [SFTP, FTP與FTPS - HackMD](https://hackmd.io/tBJORR5_R7mNTMnijUlOfw?both)

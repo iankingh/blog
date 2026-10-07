@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "補上最長字首優先與 metric 比較，提供有前提的測試路由及精確移除方式。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上最長字首優先與 metric 比較，提供有前提的測試路由及精確移除方式。
@@ -48,17 +48,10 @@ route -p add可保留規則，但DHCP、VPN或interface改變後可能失效，�
 
 新增路由不會讓路由器自動有回程路線，也不開啟遠端防火牆。單向不通檢查回程、NAT與目的服務；tracert星號不代表必然故障，部分裝置不回ICMP。修改前後儲存去識別化route輸出，清楚記錄驗證的網路範圍。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Windows route](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008)
 - [Get-NetRoute](https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-netroute)
 - [New-NetRoute](https://learn.microsoft.com/en-us/powershell/module/nettcpip/new-netroute)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://jemmywalker.pixnet.net/blog/post/38323627)
 - [原始參考入口 2](http://ctwivan.blogspot.com/2010/08/windowsstatic-route.html)

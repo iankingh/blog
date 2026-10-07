@@ -1,7 +1,7 @@
 ---
 title: "Java 數字格式：DecimalFormat 與 BigDecimal"
 date: 2020-05-26T08:59:50+08:00
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 description: "比較 DecimalFormat 的格式、Locale 與捨入方式，使用 BigDecimal 避免金額精度誤判。"
 featuredOrder: 3
 categories: ["筆記"]
@@ -121,16 +121,9 @@ java DecimalFormatDemo
 
 [00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
 
-## 查核範圍
-
-JDK25 --release21 執行，預設 locale 與德文 locale 的標準輸出逐字比對均通過。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Java 數字格式：DecimalFormat 與 BigDecimal官方參考](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
-
-### 原始筆記保留的來源
-
 - [Java SE 21：BigDecimal](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
 - [Java SE 21：RoundingMode](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
 - [Oracle Java Tutorials：Customizing Formats](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)

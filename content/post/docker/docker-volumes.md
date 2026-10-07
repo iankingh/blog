@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "重整 volume、bind mount 與唯讀掛載範例，補上實際寫入確認、備份還原與多主機限制。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 重整 volume、bind mount 與唯讀掛載範例，補上實際寫入確認、備份還原與多主機限制。
@@ -57,26 +57,16 @@ docker run --rm --mount type=volume,src=note-restored,dst=/data,readonly alpine:
 
 多容器共用 volume 仍需應用程式處理併發；NFS 或第三方 driver 需獨立驗證認證、延遲與故障。練習完成再用 `docker volume rm note-data note-restored`，只刪本文建立的 volume；全域 prune 前先確認沒有其他待保留資料。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Volumes](https://docs.docker.com/engine/storage/volumes/)
 - [Bind mounts](https://docs.docker.com/engine/storage/bind-mounts/)
 - [儲存方式](https://docs.docker.com/engine/storage/)
-
-### 原始筆記保留的來源
-
 - [**Understanding Volumes in Docker**](http://container-solutions.com/2014/12/understanding-volumes-docker/)
 - [**https://docs.docker.com/userguide/dockervolumes/**](https://docs.docker.com/userguide/dockervolumes/)
 - [docker學習筆記18：Dockerfile 指令 VOLUME 介紹](https://www.cnblogs.com/51kata/p/5266626.html)
 - [Docker 實戰系列（二）：在 DockerHub 上分享自己的 image](https://larrylu.blog/share-image-on-dockerhub-ccb7d9b26fa8)
 - [官方文件](https://docs.docker.com/storage/volumes/)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://www.itread01.com/content/1548752791.html)
 - [原始參考入口 2](https://julianchu.net/2016/04/19-docker.html)
 - [原始參考入口 3](http://chenxiaoyu.org/2014/12/26/docker-volume-chown/)

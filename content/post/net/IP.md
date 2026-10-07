@@ -10,7 +10,7 @@ tags:
  - "internet"
 toc: true
 description: "修正所有 IP 都全域唯一的說法，補上私有範圍、路由與可重現的子網計算。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正所有 IP 都全域唯一的說法，補上私有範圍、路由與可重現的子網計算。
@@ -57,24 +57,14 @@ False
 
 檢查OS地址、CIDR、default route與DNS，再測特定目的服務。多個介面重複網段、VPN路由與DHCP變更可能影響結果，不只猜「IP衝突」。
 
-## 查核範圍
-
-Python ipaddress實際執行，四行輸出一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [RFC1918](https://www.rfc-editor.org/rfc/rfc1918)
 - [IPv6 RFC8200](https://www.rfc-editor.org/rfc/rfc8200)
 - [Python ipaddress](https://docs.python.org/3/library/ipaddress.html)
-
-### 原始筆記保留的來源
-
 - [分類網路](https://zh.wikipedia.org/wiki/分类网络)
 - [CIDR](https://zh.wikipedia.org/wiki/无类别域间路由)
 - [子網路遮罩](https://zh.wikipedia.org/wiki/子网#网络掩码)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](http://dns-learning.twnic.net.tw/internet/intro7.html)
 - [原始參考入口 2](https://www.netadmin.com.tw/netadmin/zh-tw/technology/EFA52337DD5D4026BB9E594A3B71EC5B)
 - [原始參考入口 3](https://zh.wikipedia.org/wiki/%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C)

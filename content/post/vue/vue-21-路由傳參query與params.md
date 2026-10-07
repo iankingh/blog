@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "用任務編號與頁碼比較路徑引數、查詢引數，避免直接把網址值當成可信數字。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 用任務編號與頁碼比較路徑引數、查詢引數，避免直接把網址值當成可信數字。
@@ -57,10 +57,6 @@ params 在 routes 中必須有對應的動態片段；路徑缺少必填 id 會�
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-20-路由元件生命週期.md" >}}) · [下一章]({{< ref "/post/vue/vue-22-路由props配置.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證；memory history實測命名參數、query、resolve與守衛導向。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

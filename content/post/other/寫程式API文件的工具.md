@@ -8,7 +8,7 @@ tags:
 toc: true
 draft: false
 description: "補上契約來源、生成方式與限制，提供最小 OpenAPI 文件。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上契約來源、生成方式與限制，提供最小 OpenAPI 文件。
@@ -59,19 +59,12 @@ paths:
 
 選擇spec-first或code-first後定義唯一權威來源，CI檢查生成差異與實際響應schema。工具版本鎖定，別在每次build抓latest生成不同檔案。檔案示例用本地假資料，不含真實token／個資；公開範圍與程式原始碼範圍分開考慮。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [OpenAPI3.0.3](https://spec.openapis.org/oas/v3.0.3.html)
 - [Slate](https://github.com/slatedocs/slate)
 - [apiDoc](https://apidocjs.com/)
 - [SwaggerUI](https://swagger.io/tools/swagger-ui/)
-
-### 原始筆記保留的來源
-
 - [API文件和模擬工具 - HackMD](https://hackmd.io/@YuTingKung/HkrFjefxt#SwaggerHub-API-Auto-Mocking)
 - [建立漂亮的靜態 API 文件開源工具 - Soft & Share (softnshare.com)](https://softnshare.com/opensource-slate/)
 - [Slate - 為你打造漂亮的 API 文件 | 丸匠筆記 (weijutu.github.io)](https://weijutu.github.io/2018/08/02/tools/slate-api-document/)

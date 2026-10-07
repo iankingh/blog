@@ -122,11 +122,11 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 `content/post/` 的 130 篇筆記已逐篇整理，原 57 篇草稿在內容與適用驗證完成後公開。保留原始 `date`、檔案路徑與文章網址；`lastmod` 記錄實際內容修訂日期。教學、排錯、清單與閱讀筆記按用途整理，不要求所有文章套同一組章節。
 
 - [逐篇檢核清單](docs/note-review.json)：原公開狀態、原發布日期、缺漏、修訂項目、版本情境、來源與實際驗證範圍。
-- [整理與驗證報告](docs/note-review.md)：130 篇結果與平台限制；站內讀者版在 `/note-review/`。
+- [整理與驗證報告](docs/note-review.md)：130 篇結果與平台限制，僅留存在專案內，不產生站內頁面。
 - [來源網址檢查](docs/source-checks.json)：記錄 HTTP 狀態。成功開啟只證明入口可讀，不能取代技術內容查核；保留的失效／逾時來源明確列於報告。
 - [隔離範例重跑方式](docs/verification/README.md)：固定 npm 鎖檔、Java／Python／Git 及 Spring 測試。
 
-修改文章時先確認技術版本與原情境，增加官方來源與可觀察的結果，舊版另標替代路線。程式碼註明語言，不保留空白範例、合併衝突或待補標題。文章間連結使用 Hugo `ref`，草稿完成內容及可適用的驗證後才改 `draft: false`；平台未實測時如實標記，不把模擬當成實機。
+修改文章時先確認技術版本與原情境，增加官方來源與可觀察的結果，舊版另標替代路線。程式碼註明語言，不保留空白範例、合併衝突或待補標題。文章間連結使用 Hugo `ref`，草稿完成內容及可適用的驗證後才改 `draft: false`；平台未實測時如實標記，不把模擬當成實機。文章只保留與操作相關的限制；制式查核範圍留在內部紀錄。參考資料統一為單一區塊，官方文件在前，再列其他來源；合併相同網址並保留說明。
 
 Vue 00 是環境與系列目錄，15 是路由共同骨架；各章包含先備條件和前後章連結。Java 00–04 的基礎練習與多型／格式／連線池排錯也互相連結。新增文章時須同步維護檢核清單；130 是此次整理基線，之後新增篇數時再調整檢查器的預期篇數。
 
@@ -136,6 +136,20 @@ python3 .github/scripts/check-basic-note-examples.py
 # 建置後連同搜尋、十三頁分頁及內部連結／圖片一起查核
 hugo --minify --destination /tmp/blog-review-output
 python3 .github/scripts/check-note-content.py --site /tmp/blog-review-output
+```
+
+### 正式部署與版本查核紀錄
+
+推送 `master` 或手動啟動部署後，工作流程先建置、檢查內容／搜尋／安全，再發布至 `gh-pages`。部署不取消進行中的工作；即使產物相同也建立帶有來源 SHA 的產物提交，以確認每次發布的來源。查核紀錄只留在專案，不產生獨立的站內查核頁面。
+
+發布後每 15 秒查詢 GitHub Pages 建置，最多等待 10 分鐘；必須是本次 `gh-pages` SHA 的 `built` 結果才建立 Tag／Release。Tag 為 `deploy-YYYYMMDD-<run_id>`，日期使用原工作流程啟動時間的臺灣日期，指向本次來源 SHA；重跑跨日也沿用同一 Tag。既有 Tag 指向其他 SHA 時失敗，不覆寫版本。
+
+Release 提供正式站台、來源提交、站台產物提交、工作流程，以及該來源 SHA 下的完整報告和 JSON 證據。本次建置檢查與既有技術查核分開列出，沒有宣稱每次部署重跑所有技術範例。Pages 失敗／逾時不建立 Release；Release 建立失敗會回報部署工作流程失敗，但已更新的站台不會回滾，可重跑恢復。已有相同 SHA 的正式 Release 時直接沿用；僅有 Tag 的情況可補建 Release。
+
+此流程從下一次正式部署開始留存，不補建歷史版本。GitHub Actions 的部署 job 使用 `contents: write`、`pages: read` 與 `actions: read` 權限，憑證只從 `GH_TOKEN` 環境變數取得。模擬測試不連 GitHub，也不建立任何版本：
+
+```bash
+python3 -m unittest discover -s .github/scripts -p 'test_deployment_release.py'
 ```
 
 ### 搜尋摘要與分享圖

@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "保留 ZIP 安裝情境，補上有效 YAML、資料目錄、localhost 與 shell 測試。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 ZIP 安裝情境，補上有效 YAML、資料目錄、localhost 與 shell 測試。
@@ -60,18 +60,11 @@ ping回ok:1，insert回acknowledged:true，find可見任務。`use note_lab`是m
 
 此設定只有loopback、本地無認證練習；正式網路服務必須按官方設身分驗證、許可權與備份，不能只把bindIp改0.0.0.0。Ctrl+C停本地foreground程式，資料目錄保留，不宣稱已建立Windows service。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [MongoDB Windows](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
 - [Configuration options](https://www.mongodb.com/docs/manual/reference/configuration-options/)
 - [mongosh](https://www.mongodb.com/docs/mongodb-shell/)
-
-### 原始筆記保留的來源
-
 - [MongoDB Community Downloads | MongoDB](https://www.mongodb.com/download-center/community/releases)
 - [MongoDB免安裝版安裝_java後端指南的部落格-CSDN部落格](https://blog.csdn.net/Ting1king/article/details/124757490)
 - [windowns免安裝MongoDB_windows免安裝mongodb_花哥碼天下的部落格-CSDN部落格](https://blog.csdn.net/qq_39940205/article/details/120434224)

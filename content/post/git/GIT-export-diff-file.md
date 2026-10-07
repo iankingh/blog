@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補齊從兩個版本匯出改動檔案的可靠指令碼，排除刪除檔並記錄刪除清單。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊從兩個版本匯出改動檔案的可靠指令碼，排除刪除檔並記錄刪除清單。
@@ -61,17 +61,10 @@ changed.zip 包含 TARGET 的新增／修改檔，deleted.json 列出部署時�
 
 此指令碼選用 UTF-8 路徑，非 UTF-8 repository 需另設編碼策略；大量路徑可能超過 OS argv 上限，應改批次或先匯出完整版本再取檔。Git submodule 的內容不由父 repository 的 archive 打包。差異檔也不是完整可部署成品，仍需建置與依賴確認。
 
-## 查核範圍
-
-隔離Git repo測空白檔名、修改/新增/刪除與無差異ZIP，內容與目標提交一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [git-archive](https://git-scm.com/docs/git-archive)
 - [git-diff](https://git-scm.com/docs/git-diff)
-
-### 原始筆記保留的來源
-
 - [匯出 Git Commit 檔案並維持資料夾結構-黑暗執行緒 (darkthread.net)](https://blog.darkthread.net/blog/export-git-commit-files/)
 - [GIT 檢視/匯出差異檔案 - LinYoYo_攻城獅_學習筆記 (hank7891.github.io)](https://hank7891.github.io/2021/08/11/GIT%E6%9F%A5%E7%9C%8B:%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%AA%94%E6%A1%88/)
 - [git 匯出差異清單和檔案. 匯出特定版本中新增或修改過的檔案 | by Jingle Lin | Jiingler | Medium](https://medium.com/jiingler/git-%E5%8C%AF%E5%87%BA%E5%B7%AE%E7%95%B0%E6%B8%85%E5%96%AE%E5%92%8C%E6%AA%94%E6%A1%88-42b6ab9c7594)

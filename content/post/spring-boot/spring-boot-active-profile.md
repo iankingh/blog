@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "補上可比較的配置與啟動命令，說明 profile 不會自動在兩種工具間同步。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上可比較的配置與啟動命令，說明 profile 不會自動在兩種工具間同步。
@@ -69,18 +69,11 @@ Maven可在pom profiles定義id後用`mvn -Pdev help:active-profiles`確認；�
 
 spring.profiles.active不放在已由profile啟用的專屬檔案內遞迴決定自身。profile不是秘密管理系統，勿提交prod密碼。Config Data／Spring Cloud bootstrap機制在不同major有變化，新專案按所用版本選spring.config.import，不複製舊bootstrap.yml當通用配置。
 
-## 查核範圍
-
-本文 BannerConfig 與 application-dev.properties 於 @ActiveProfiles(dev) context 執行，確認 notes.banner=development；Maven profile 未另設情境。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Spring profiles](https://docs.spring.io/spring-boot/3.5/reference/features/profiles.html)
 - [外部配置](https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html)
 - [Maven profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
-
-### 原始筆記保留的來源
-
 - [Spring Profiles | Baeldung](https://www.baeldung.com/spring-profiles)
 - [Spring profiles or Maven profiles? (frankel.ch)](https://blog.frankel.ch/spring-profiles-or-maven-profiles/)
 - [深入淺出 Spring Boot 多重設定檔管理 (Spring Profiles) | The Will Will Web (miniasp.com)](https://blog.miniasp.com/post/2022/09/21/Mastering-Spring-Boot-Profiles)

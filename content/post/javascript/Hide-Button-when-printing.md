@@ -8,7 +8,7 @@ tags:
  - "JavaScript"
 toc: true
 description: "以有效 HTML 與列印樣式取代不存在的 div media 屬性，補上列印預覽驗證。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 以有效 HTML 與列印樣式取代不存在的 div media 屬性，補上列印預覽驗證。
@@ -41,15 +41,8 @@ lastmod: 2026-10-07T00:01:00+08:00
 
 先測PDF預覽的頁面分割、表格、長連結與紙張尺寸，再測實際印表機。圖片可能仍未載完，重要內容在列印前確認；背景圖與顏色是否列印取決於瀏覽器／使用者設定，不當唯一資訊。公司的CSP若禁止inline style/script，將兩者拆外部檔並配置允許來源。
 
-## 查核範圍
-
-本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [CSS printing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing)
 - [window.print](https://developer.mozilla.org/en-US/docs/Web/API/Window/print)
-
-### 原始筆記保留的來源
-
 - [在列印時不顯示列印按鈕 @ 柯佳思吃吃吃 :: 痞客邦 :: (pixnet.net)](https://awpluway.pixnet.net/blog/post/361202835)

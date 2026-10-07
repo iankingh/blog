@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "補上伺服器與資料庫身份差異，以無登入測試使用者驗證 SELECT 許可權。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上伺服器與資料庫身份差異，以無登入測試使用者驗證 SELECT 許可權。
@@ -54,10 +54,6 @@ DROP TABLE dbo.NoteTasks;
 只清除本篇建立的測試物件。db_datareader可讀DB內廣泛user表、db_datawriter可寫，仍需判斷是否比單表授權過大；db_owner是很高許可權，不等於「所有開發者都需要」。DROP USER不會自動DROP LOGIN，兩者生命週期不同。
 
 確認許可權用受測身份執行允許／拒絕操作與資料庫metadata，不只看GRANT沒有報錯。本文僅官方文件核對，未對實際SQL Server寫入賬號或修改許可權。
-
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

@@ -10,7 +10,7 @@ tags:
  - "Spring Cloud"
 toc: true
 description: "補齊 server/client 配置、相容版本與本地雙服務確認，區分註冊和負載平衡。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補齊 server/client 配置、相容版本與本地雙服務確認，區分註冊和負載平衡。
@@ -72,15 +72,8 @@ client註冊有心跳與快取延遲，關掉instance後不一定立刻消失；
 
 生產註冊中心限制網路並認證，保護dashboard。Kubernetes等環境也有其他發現方式，選Eureka需考慮現有生態，而非所有微服務都必須部署。相容版本、實機啟動與故障測試範圍應獨立記錄。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Eureka官方文件](https://docs.spring.io/spring-cloud-netflix/reference/spring-cloud-netflix.html)
 - [Release train](https://spring.io/projects/spring-cloud#overview)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](http://www.ityouknow.com/springcloud/2017/05/10/springcloud-eureka.html)

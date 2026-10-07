@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "用可搜尋的待辦列表組合 ref、computed 與函式，理解 setup 的責任與 Options API 的對照。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 用可搜尋的待辦列表組合 ref、computed 與函式，理解 setup 的責任與 Options API 的對照。
@@ -49,10 +49,6 @@ setup 不以 `this` 存取元件，從 Vue 2 搬過來的 `this.tasks` 需改為
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-09-元件化.md" >}}) · [下一章]({{< ref "/post/vue/vue-11-元件通訊與Pinia.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

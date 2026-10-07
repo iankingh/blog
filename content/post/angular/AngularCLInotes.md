@@ -9,7 +9,7 @@ tags:
  - "FrontEnd"
 toc: true
 description: "整理 serve、generate、build、test 與 update，補上本機 CLI 和 outputPath 確認。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 整理 serve、generate、build、test 與 update，補上本機 CLI 和 outputPath 確認。
@@ -44,17 +44,10 @@ serve持續運作，以Ctrl+C停止。dry-run先列出變更，不寫檔；確�
 
 升級以`npx ng update`列建議，再按官方跨版本指引逐major處理，保留Git可回復狀態與測試。這些CLI操作會改檔，先看dry-run與diff再確認結果。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Angular CLI](https://angular.dev/tools/cli)
 - [ng build](https://angular.dev/cli/build)
 - [ng generate](https://angular.dev/cli/generate)
-
-### 原始筆記保留的來源
-
 - [Angular官網generate介紹](https://angular.io/cli/generate)
 - [Angular 13 開發環境說明 (github.com)](https://gist.github.com/doggy8088/15e434b43992cf25a78700438743774a)

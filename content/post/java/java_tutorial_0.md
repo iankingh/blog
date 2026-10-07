@@ -10,7 +10,7 @@ tags:
 - "JDK"
 toc: true
 description: "保留 Windows 的 Java 8 設定情境，補上 JDK 選擇、正確版本指令與 PATH 排錯。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 Windows 的 Java 8 設定情境，補上 JDK 選擇、正確版本指令與 PATH 排錯。
@@ -61,10 +61,6 @@ JDK can compile and run
 [00 環境]({{< ref "/post/java/java_tutorial_0.md" >}}) · [01 第一支程式]({{< ref "/post/java/java_tutorial_1.md" >}}) · [02 型別]({{< ref "/post/java/java_tutorial_2.md" >}}) · [03 變數]({{< ref "/post/java/java_tutorial_3.md" >}}) · [04 物件導向]({{< ref "/post/java/java_tutorial_4.md" >}}) · [多型範例]({{< ref "/post/java/polymorphism.md" >}})
 
 [下一章]({{< ref "/post/java/java_tutorial_1.md" >}})
-
-## 查核範圍
-
-JDK25以--release 8編譯並執行，標準輸出與本文完全一致。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

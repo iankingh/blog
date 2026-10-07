@@ -9,7 +9,7 @@ tags:
 toc: true
 draft: false
 description: "修正 CLI 選項與註解範例，補上輸入 tsconfig、版本固定及檔案範圍。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正 CLI 選項與註解範例，補上輸入 tsconfig、版本固定及檔案範圍。
@@ -50,17 +50,10 @@ export class HelloService {
 
 產物可能含內部路徑、路由及程式碼，不無條件公開到網路。升級Angular後核對Compodoc支援，不要用全域性未知版本生成與CI不同的檔案。
 
-## 查核範圍
-
-Angular 20.3 ngc strict／strictTemplates 編譯通過；輔助路由元件為本地最小 fixture，未跑完整 CLI／瀏覽器。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Compodoc CLI](https://compodoc.app/guides/options.html)
 - [Compodoc installation](https://compodoc.app/guides/installation.html)
-
-### 原始筆記保留的來源
-
 - [Angular 工具篇之檔案管理 | 前端修仙之路](https://semlinker.com/ng-compodoc-intro/)
 - [Angular #10 Angular Documentation](https://tpu.thinkpower.com.tw/tpu/articleDetails/864)
 - [Javascript檔案註解規則使用方式@use JSDoc - ucamc](https://www.ucamc.com/e-learning/javascript/250-javascript-use-jsdoc)

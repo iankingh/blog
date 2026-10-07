@@ -8,7 +8,7 @@ tags:
  - "JavaScript"
 toc: true
 description: "保留 userAgent 比對的歷史情境，補上 matchMedia、觸控與鍵盤測試的限制。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留 userAgent 比對的歷史情境，補上 matchMedia、觸控與鍵盤測試的限制。
@@ -44,16 +44,9 @@ update();
 
 舊瀏覽器的MediaQueryList使用addListener，維護時依實際支援範圍處理；現代例子採addEventListener，不宣稱適用IE11。
 
-## 查核範圍
-
-本文 HTML 在 jsdom 以 matchMedia fixture 測初始輸出與 change 事件；未辨識實際手機硬體。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [避免UA偵測](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent)
 - [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
 - [pointer](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer)
-
-### 原始筆記保留的來源
-
 - [原行動裝置偵測筆記（修正原網址末尾的逗號）](https://tso1158687.github.io/blog/2019/03/10/detect-mobile-device/)

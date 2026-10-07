@@ -10,7 +10,7 @@ tags:
 toc: true
 draft: false
 description: "建立帶子頁的任務殼層，理解相對 children path 與第二層 RouterView。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 建立帶子頁的任務殼層，理解相對 children path 與第二層 RouterView。
@@ -70,10 +70,6 @@ children path 不以 `/` 開頭才會接在父 path 後面；以 `/` 開頭會�
 ## 章節導覽
 
 [系列目錄]({{< ref "/post/vue/vue-00-學習路線總整理.md" >}}) · [上一章]({{< ref "/post/vue/vue-18-history與hash模式.md" >}}) · [下一章]({{< ref "/post/vue/vue-20-路由元件生命週期.md" >}})
-
-## 查核範圍
-
-SFC/script/template編譯與隔離Vite正式建置通過；非完整瀏覽器互動驗證。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

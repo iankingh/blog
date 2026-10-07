@@ -9,7 +9,7 @@ tags:
  - "Android"
 toc: true
 description: "保留建立專案流程，補上 Compose／Views差異、Gradle JDK與模擬器驗收。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 保留建立專案流程，補上 Compose／Views差異、Gradle JDK與模擬器驗收。
@@ -36,19 +36,12 @@ lastmod: 2026-10-07T00:01:00+08:00
 
 真實裝置測試旋轉、字型放大、不同API與返回鍵；能在一個模擬器顯示不代表整個兼容範圍。這個入門示例不包含簽名釋出、賬號或許可權設計，新功能申請許可權需按Android版本的行為核對。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Create project](https://developer.android.com/studio/projects/create-project)
 - [Gradle JDK](https://developer.android.com/build/jdks)
 - [Emulator](https://developer.android.com/studio/run/emulator)
 - [Target API policy](https://developer.android.com/google/play/requirements/target-sdk)
-
-### 原始筆記保留的來源
-
 - [Download Android Studio and SDK tools  |  Android Developers](https://developer.android.com/studio/)
 - [Activity](https://developer.android.com/reference/android/app/Activity)
 - [TextView](https://developer.android.com/reference/android/widget/TextView)

@@ -9,7 +9,7 @@ tags:
  - "Heic2any"
 toc: true
 description: "補上 Blob 陣列、錯誤處理與 object URL 清理，區分圖片轉換和 metadata 保留。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 補上 Blob 陣列、錯誤處理與 object URL 清理，區分圖片轉換和 metadata 保留。
@@ -59,10 +59,6 @@ HTML對應片段：
 選擇合法HEIC應顯示JPEG預覽，錯誤檔應顯示失敗並恢復input。accept只是選擇提示，不驗證內容；多影像檔可能回Blob陣列，此例只展示第一張，不能宣稱保留所有影格。
 
 套件不保證保留EXIF／metadata，方向、色彩和高解析度記憶體需用實際來源樣本檢查。沒有提供HEIC樣本時只能核對API與流程，不能宣稱已解碼所有手機相片。遠端載入還需CORS；離線轉換不等於零記憶體成本。需要metadata或後端大批處理時評估有明確格式支援的服務／原生工具。
-
-## 查核範圍
-
-本文事件流程以假 Blob／轉換器測單張、陣列、錯誤、input 恢復與 URL 清理；未提供 HEIC 樣本，未驗證真實解碼、方向、色彩或 metadata。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
 
 ## 參考資料
 

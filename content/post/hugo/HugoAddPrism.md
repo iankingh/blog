@@ -8,7 +8,7 @@ tags:
  - "hugo"
 toc: true
 description: "說明原 Prism 整合方式與現行 Hugo 高亮選擇，避免雙重包裝同一段程式碼。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 說明原 Prism 整合方式與現行 Hugo 高亮選擇，避免雙重包裝同一段程式碼。
@@ -48,17 +48,10 @@ markup:
 
 Prism加上執行期JS成本；Chroma在建置時處理，語言支援與樣式來源不同。不要因換高亮器就開Goldmark unsafe讓文章script執行。本站實際沿用Chroma，本次僅查核Prism替代路線，不額外安裝第二套高亮。
 
-## 查核範圍
-
-官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [Hugo高亮](https://gohugo.io/content-management/syntax-highlighting/)
 - [Prism官方](https://prismjs.com/)
 - [Hugo资源雜湊](https://gohugo.io/functions/resources/fingerprint/)
-
-### 原始筆記保留的來源
-
 - [Hugo / 如何在 Hugo 中用 Prism.js 提供程式碼色彩標註 | sujj blog](https://sujingjhong.com/posts/how-to-add-prismjs-into-hugo/)
 - [漂亮的程式碼語法高亮外掛Prism.js簡單使用檔案 - 嚴穎專欄 -SegmentFault 思否](https://segmentfault.com/a/1190000009122617)

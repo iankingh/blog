@@ -8,7 +8,7 @@ tags:
  - "JavaScript"
 toc: true
 description: "修正原本隱藏個別儲存格造成的欄位錯位，補上計數與空結果。"
-lastmod: 2026-10-07T00:01:00+08:00
+lastmod: 2026-10-07T20:50:40+08:00
 ---
 
 修正原本隱藏個別儲存格造成的欄位錯位，補上計數與空結果。
@@ -51,16 +51,9 @@ filter();
 
 計數以role=status通知，不依顏色表示結果。空輸入匹配全部；trim去頭尾空白但不把中間空白拆成多關鍵字，若要AND/OR需定義規則並測試。
 
-## 查核範圍
-
-本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試。詳細紀錄見[逐篇查核紀錄]({{< ref "/note-review.md" >}})。
-
 ## 參考資料
 
 - [hidden](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden)
 - [input event](https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event)
 - [String.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
-
-### 原始筆記的其他連結
-
 - [原始參考入口 1](https://blog.gtwang.org/web-development/light-javascript-table-filter-tutorial/)
