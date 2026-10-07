@@ -12,18 +12,18 @@ tags:
 - "JDK"
 toc: true
 description: "補齊區域、實體及靜態變數的差異，使用完整範例觀察兩個物件的狀態。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 補齊區域、實體及靜態變數的差異，使用完整範例觀察兩個物件的狀態。
 
 <!--more-->
 
-適用：Java 8 基礎語法；新版練習可使用 JDK 21。先安裝 JDK 並瞭解第 0 篇的編譯／執行環境。
+適用：JDK 25 編譯與執行；保留原筆記的基礎語法與教學情境。先安裝 JDK 25，並依第 0 篇確認編譯／執行環境。
 
 ## 命名與生命週期
 
-一般變數用 lowerCamelCase、常數用 UPPER_SNAKE_CASE；不可使用保留字或以數字開頭。Java 允許部分 Unicode 識別字，但團隊慣例應優先可讀性。Java 9 起單獨 `_` 不能當識別字。
+一般變數用 lowerCamelCase、常數用 UPPER_SNAKE_CASE；不可使用保留字或以數字開頭。Java 允許部分 Unicode 識別字，但團隊慣例應優先可讀性。Java 9 起單獨 `_` 不能作為可引用的變數名稱。JDK 25 已支援未命名變數，可在特定宣告位置使用 `_` 表示不需要引用的值；它不等於一般變數名稱，也不是本篇範例的必要寫法。
 
 區域變數在方法／區塊內，使用前需初始化；實體欄位每個物件各有一份；static 欄位屬於類別，通常在同一 class loader 下共用。作用域決定名字能否存取，物件存活時間則與引用及 GC 有關，不能等同區塊生命週期。
 
@@ -70,5 +70,8 @@ first 與 second 的 score 分開，created 記錄建立兩個物件。amount、
 
 ## 參考資料
 
+- [Java 25 宣告、識別字與未命名變數](https://docs.oracle.com/javase/specs/jls/se25/html/jls-6.html#jls-6.1)
+
+- [JDK 25 變數初始化規格](https://docs.oracle.com/en/java/javase/25/jls/se25/html/jls-16.html)
 - [變數](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html)
-- [變數初始化規格](https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-16.html)
+- [變數初始化規格（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-16.html)

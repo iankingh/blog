@@ -10,7 +10,7 @@ tags:
  - "Spring Cloud"
 toc: true
 description: "補齊 server/client 配置、相容版本與本地雙服務確認，區分註冊和負載平衡。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 補齊 server/client 配置、相容版本與本地雙服務確認，區分註冊和負載平衡。
@@ -71,6 +71,12 @@ eureka:
 client註冊有心跳與快取延遲，關掉instance後不一定立刻消失；先看client日誌、server連線與instance地址。Docker內127.0.0.1是自己，需改服務名稱。註冊中心不會自動代理HTTP，也不能提供業務授權；負載均衡client需另配。
 
 生產註冊中心限制網路並認證，保護dashboard。Kubernetes等環境也有其他發現方式，選Eureka需考慮現有生態，而非所有微服務都必須部署。相容版本、實機啟動與故障測試範圍應獨立記錄。
+
+## JDK 25 的新版路線
+
+若要與本系列的 JDK 25 練習一致，採 Spring Boot 3.5.16、`java.version=25`，並依官方相容表選 Spring Cloud 2025.0.x 的 BOM；此處的舊版組合不作為 JDK 25 的編譯成果。2025.0.x 是對應 Boot 3.5 的版本線，是否仍受支援須另查官方維護狀態。
+
+Eureka server／client 分別使用 `spring-cloud-starter-netflix-eureka-server` 與 `spring-cloud-starter-netflix-eureka-client`；套用 BOM 後確認實際依賴，不能直接沿用 Cloud 2021.0.9。本文尚未以新版組合啟動雙服務或叢集，前面的預期註冊結果是操作確認方法。
 
 ## 參考資料
 

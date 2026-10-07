@@ -7,6 +7,9 @@ import re
 import sys
 import shutil
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / '.github/scripts'))
+from jdk25 import require_jdk25
+require_jdk25()
 LAB = Path(sys.argv[1]).resolve()
 if LAB == ROOT or ROOT in LAB.parents:
     raise SystemExit('Use an isolated directory outside the repository')
@@ -21,6 +24,8 @@ files = [
 def blocks(path):
     return re.findall(r'^```(\w+)\s*\n(.*?)^```\s*$',path.read_text(),re.M|re.S)
 pom = next(c for l,c in blocks(ROOT / 'content/post' / files[0]) if l == 'xml')
+if '<java.version>25</java.version>' not in pom:
+    raise SystemExit('The article Maven project must target Java 25')
 extra = next(c for l,c in blocks(ROOT / 'content/post' / files[3]) if l == 'xml')
 (LAB/'pom.xml').write_text(pom.replace('</dependencies>',extra+'</dependencies>'))
 for name in files:

@@ -1,7 +1,7 @@
 ---
 title: "Java 數字格式：DecimalFormat 與 BigDecimal"
 date: 2020-05-26T08:59:50+08:00
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 description: "比較 DecimalFormat 的格式、Locale 與捨入方式，使用 BigDecimal 避免金額精度誤判。"
 featuredOrder: 3
 categories: ["筆記"]
@@ -14,7 +14,7 @@ draft: false
 
 <!--more-->
 
-適用：Java 21 標準函式庫；本次以 JDK 25 的 --release 21 編譯，核對輸出。原 OpenJDK 21.0.1 驗證環境保留如下。
+適用：JDK 25 標準函式庫；本文範例以 JDK 25 原生編譯並執行，核對下列輸出。
 
 當 API、報表或畫面需要固定的小數位數與千分位，可以用 `DecimalFormat` 控制呈現。要讓不同電腦產生相同結果，除了 pattern，也需要明確指定 Locale 與捨入方式。
 
@@ -22,7 +22,7 @@ draft: false
 
 ## 使用情境與適用環境
 
-本文示例在 OpenJDK 21.0.1 執行，僅使用 Java 標準函式庫。選用 `Locale.US`，讓小數點使用 `.`、分組符號使用 `,`。
+本文示例以 OpenJDK 25.0.4.1 編譯並執行，僅使用 Java 標準函式庫。選用 `Locale.US`，讓小數點使用 `.`、分組符號使用 `,`。
 
 格式化的結果是字串。資料本身的計算與畫面的輸出格式是兩個步驟，顯示為兩位小數不代表原始數值已改變。
 
@@ -73,7 +73,7 @@ public class DecimalFormatDemo {
 執行：
 
 ```shell
-javac DecimalFormatDemo.java
+javac -encoding UTF-8 DecimalFormatDemo.java
 java DecimalFormatDemo
 ```
 
@@ -108,9 +108,9 @@ java DecimalFormatDemo
 固定 Locale、使用明確的十進位資料與捨入方式，範例才能在不同環境中重現。選好 pattern 之後，再確認百分比、分組符號與多執行緒使用方式是否符合需求。
 
 
-- [Java SE 21：DecimalFormat](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
-- [Java SE 21：BigDecimal](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
-- [Java SE 21：RoundingMode](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
+- [Java SE 21：DecimalFormat（歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
+- [Java SE 21：BigDecimal（歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
+- [Java SE 21：RoundingMode（歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
 - [Oracle Java Tutorials：Customizing Formats](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)
 
 ## 修訂確認
@@ -123,7 +123,10 @@ java DecimalFormatDemo
 
 ## 參考資料
 
-- [Java 數字格式：DecimalFormat 與 BigDecimal官方參考](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
-- [Java SE 21：BigDecimal](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
-- [Java SE 21：RoundingMode](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
+- [JDK 25 Java 數字格式：DecimalFormat 與 BigDecimal官方參考](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/text/DecimalFormat.html)
+- [JDK 25 Java SE 25：BigDecimal](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html)
+- [JDK 25 Java SE 25：RoundingMode](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/RoundingMode.html)
+- [Java 數字格式：DecimalFormat 與 BigDecimal官方參考（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DecimalFormat.html)
+- [Java SE 21：BigDecimal（歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html)
+- [Java SE 21：RoundingMode（歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/RoundingMode.html)
 - [Oracle Java Tutorials：Customizing Formats](https://docs.oracle.com/javase/tutorial/i18n/format/decimalFormat.html)

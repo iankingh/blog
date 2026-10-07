@@ -10,14 +10,14 @@ tags:
 - "JDK"
 toc: true
 description: "從 HelloJava.java 到 class 檔，補上檔名規則、classpath、預期輸出與常見錯誤。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 從 HelloJava.java 到 class 檔，補上檔名規則、classpath、預期輸出與常見錯誤。
 
 <!--more-->
 
-適用：Java 8 基礎語法；新版練習可使用 JDK 21。先安裝 JDK 並瞭解第 0 篇的編譯／執行環境。
+適用：JDK 25 編譯與執行；保留原筆記的基礎語法與教學情境。先安裝 JDK 25，並依第 0 篇確認編譯／執行環境。
 
 ## 程式與執行
 
@@ -46,9 +46,9 @@ Hello java
 
 ## 編譯與執行分開排錯
 
-找不到符號或分號屬於 javac 編譯錯誤，先修正第一個錯誤再重編譯。`Could not find or load main class` 先檢查執行目錄、classpath 與 package；有 package 時用完整類別名稱並以 package 根目錄作 classpath。`UnsupportedClassVersionError` 是執行 JVM 太舊，要對齊 JDK 或以正確的 --release 編譯，不是增加記憶體。
+找不到符號或分號屬於 javac 編譯錯誤，先修正第一個錯誤再重編譯。`Could not find or load main class` 先檢查執行目錄、classpath 與 package；有 package 時用完整類別名稱並以 package 根目錄作 classpath。`UnsupportedClassVersionError` 是執行 JVM 太舊，要將編譯器與執行 JVM 都對齊 JDK 25，不是增加記憶體。
 
-Java 11 以上可以 `java HelloJava.java` 直接執行單一來源檔；本篇保留 Java 8 的兩步流程，方便理解產生的 class 與後續多檔案程式。
+Java 11 以上可以 `java HelloJava.java` 直接執行單一來源檔；本篇以 JDK 25 採用編譯、執行的兩步流程，方便理解產生的 class 與後續多檔案程式。
 
 
 先備：[第 00 章]({{< ref "/post/java/java_tutorial_0.md" >}})的基礎概念與已確認的 JDK 編譯環境。
@@ -61,5 +61,7 @@ Java 11 以上可以 `java HelloJava.java` 直接執行單一來源檔；本篇�
 
 ## 參考資料
 
-- [編譯器](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
-- [Java 啟動器](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
+- [JDK 25 編譯器](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html)
+- [JDK 25 Java 啟動器](https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html)
+- [編譯器（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
+- [Java 啟動器（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)

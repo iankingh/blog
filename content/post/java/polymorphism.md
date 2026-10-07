@@ -1,7 +1,7 @@
 ---
 title: "Java 多型：介面、覆寫與執行時派發"
 date: 2023-08-02T07:38:35+08:00
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 description: "用完整 Java 範例理解共同型別、方法覆寫與執行期派發，並區分多型和多載。"
 featuredOrder: 1
 categories: ["筆記"]
@@ -14,7 +14,7 @@ draft: false
 
 <!--more-->
 
-適用：Java 21 標準函式庫；本次以 JDK 25 的 --release 21 編譯，核對輸出。原 OpenJDK 21.0.1 驗證環境保留如下。
+適用：JDK 25 標準函式庫；本文範例以 JDK 25 原生編譯並執行，核對下列輸出。
 
 當程式要處理不同種類的物件，但它們共享同一組行為時，可以讓呼叫端依賴共同型別，由各個類別提供自己的實作。這篇用動物的 `sound()` 示範 Java 的多型。
 
@@ -30,7 +30,7 @@ draft: false
 
 ## 驗證環境
 
-- OpenJDK 21.0.1。
+- OpenJDK 25.0.4.1；java 與 javac 均為 25，編譯產物 class major version 為 69。
 - 範例僅使用 Java 標準函式庫，不需要框架或外部依賴。
 
 ## 完整範例
@@ -74,7 +74,7 @@ class Dog extends Animal {
 執行：
 
 ```shell
-javac PolymorphismDemo.java
+javac -encoding UTF-8 PolymorphismDemo.java
 java PolymorphismDemo
 ```
 

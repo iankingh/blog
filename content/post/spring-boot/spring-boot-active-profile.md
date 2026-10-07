@@ -10,14 +10,14 @@ tags:
 toc: true
 draft: false
 description: "補上可比較的配置與啟動命令，說明 profile 不會自動在兩種工具間同步。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 補上可比較的配置與啟動命令，說明 profile 不會自動在兩種工具間同步。
 
 <!--more-->
 
-適用：原 Spring／Spring Boot 歷史筆記；新的可重現練習採 Spring Boot 3.5.0、Java21與Maven，使用jakarta套件。此為固定練習組合，上線另選相容且仍受支援的修補版。
+適用：保留原 Spring／Spring Boot 歷史筆記；可重現練習統一採 Spring Boot 3.5.16、JDK 25 與 Maven，使用 jakarta 套件。編譯目標為 Java 25；上線仍需核對依賴及部署環境。
 
 先備：先依[共用 Spring Boot 練習專案]({{< ref "/post/spring-boot/spring-boot-interview.md" >}})建立 pom.xml 與 NoteApplication，再加入本文檔案。
 

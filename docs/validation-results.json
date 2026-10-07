@@ -5,18 +5,60 @@
   "originalDrafts": 57,
   "publishedAfterReview": 130,
   "checks": {
-    "hugo": "PASS Hugo Extended0.167.0 正式壓縮建置；不含草稿旗標，輸出 /tmp/blog-review-output",
-    "noteContent": "PASS 130 篇原始發布日期、摘要、情境、來源、程式碼語言與內部 ref；235 個原參考網址保留（修正一個末尾逗號）",
-    "renderedSite": "PASS 346 HTML 的內部連結、錨點、圖片／資源與 alt；搜尋130唯一 URL；首頁及筆記各13頁×10筆",
+    "hugo": "PASS Hugo Extended 0.167.0 正式壓縮建置；不含草稿旗標，輸出 /tmp/blog-jdk25-output",
+    "noteContent": "PASS 130 篇原始發布日期、摘要、情境、單一參考區塊、程式碼語言與內部 ref；原始參考網址保留",
+    "renderedSite": "PASS 345 HTML 的內部連結、錨點、圖片／資源與 alt；搜尋 130 唯一 URL；首頁及筆記各 13 頁 × 10 筆",
     "search": "PASS lazy load/cache、全文、輸入／重開競態、HTTP／network／malformed 重試、安全文字呈現與焦點",
-    "security": "PASS 346 HTML 的網站安全檢查",
-    "java": "PASS 六個 release8 範例；三個 release21 範例，HikariCP依賴固定、DecimalFormat德文locale另測",
+    "security": "PASS 345 HTML 的網站安全檢查",
+    "java": "PASS JDK 25.0.4.1 原生編譯／執行九個範例；所有 class 為版本 69，stdout 一致；HikariCP 固定依賴，DecimalFormat 加測德文 locale",
     "webExamples": "PASS 全新隔離目錄 npm ci 重現；38 SFC、30 Vite正式建置、store/router/SSR、15 JSON/YAML區塊、DOM/標準輸出",
     "angular": "PASS 9 個 ngc strict／strictTemplates TypeScript區塊與對應類別方法分支",
-    "spring": "PASS 8 tests，0 failure/error/skipped；固定Boot3.5.0／springdoc2.8.9，資料庫H2",
+    "spring": "PASS JDK 25.0.4.1／Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；clean test 8 tests，0 failure/error/skipped；7 個 main class 與 5 個 test class 均為版本 69",
     "gitPython": "PASS IP輸出；暫存Git repo檔名空格／新增修改刪除／無差異ZIP",
-    "browser": "PASS 手機390、桌面1920／2560、分類／標籤／第13頁／系列目錄／報告130列／搜尋斜線快捷鍵",
-    "diffWhitespace": "PASS git diff --check"
+    "browser": "PASS 390／820／1024／1280／1440／1920／2560px；MENU 間距 24／20px、文章靠左／1080px 上限、手機選單、晝夜切換、首頁／分類／標籤／第 2 與 13 頁；無水平溢出或 GitHub corner 遮擋控制按鈕",
+    "diffWhitespace": "PASS git diff --check",
+    "jdkGuards": "PASS 六項隔離測試：非 25／不一致 java 與 javac、缺少工具、Java 8／21 bytecode、preview class、無產物／無效 class；實際使用 OpenJDK 21.0.1 執行驗證工具，確認於編譯前以清楚錯誤拒絕",
+    "currentSources": "PASS 本次新增 16 個官方文件／API 入口均 HTTP 200；HTTP 狀態不等同範例實測"
   },
-  "scope": "64 篇有隔離執行／編譯／mock，其餘66篇為文件查核；平台與格式限制詳逐篇清單，未提交、推送或部署"
+  "scope": "64 篇有既有隔離執行／編譯／mock，另 66 篇為文件查核；本次重跑九個 Java 範例、六篇 Spring 共八項測試、IP／Git 與網站檢查，其餘技術範例沿用既有證據；heap 故障與 Spring Cloud 服務未實機重現",
+  "revision": {
+    "checkedAt": "2026-10-07T23:48:44+08:00",
+    "changedArticles": 18,
+    "jdk": "25.0.4.1",
+    "classMajorVersion": 69,
+    "rerunChecks": [
+      "hugo",
+      "noteContent",
+      "renderedSite",
+      "search",
+      "security",
+      "java",
+      "spring",
+      "gitPython",
+      "browser",
+      "jdkGuards",
+      "currentSources",
+      "diffWhitespace"
+    ],
+    "retainedTechnicalChecks": [
+      "webExamples",
+      "angular"
+    ],
+    "springResults": {
+      "java": "25.0.4.1",
+      "javac": "25.0.4.1",
+      "springBoot": "3.5.16",
+      "springdoc": "2.8.9",
+      "h2": "2.3.232",
+      "classMajorVersion": 69,
+      "mainClasses": 7,
+      "testClasses": 5,
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "scope": "六篇文章抽取程式與本地 H2；API／profile／查詢另用 fixture，未連外部 DB 或叢集"
+    },
+    "delivery": "本地預覽；未提交、推送或正式部署"
+  }
 }

@@ -10,14 +10,14 @@ tags:
 toc: true
 draft: false
 description: "理解 Repository 介面與分頁，以 H2 範例比較衍生查詢、JPQL 及 native SQL。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 理解 Repository 介面與分頁，以 H2 範例比較衍生查詢、JPQL 及 native SQL。
 
 <!--more-->
 
-適用：原 Spring／Spring Boot 歷史筆記；新的可重現練習採 Spring Boot 3.5.0、Java21與Maven，使用jakarta套件。此為固定練習組合，上線另選相容且仍受支援的修補版。
+適用：保留原 Spring／Spring Boot 歷史筆記；可重現練習統一採 Spring Boot 3.5.16、JDK 25 與 Maven，使用 jakarta 套件。編譯目標為 Java 25；上線仍需核對依賴及部署環境。
 
 先備：先依[共用 Spring Boot 練習專案]({{< ref "/post/spring-boot/spring-boot-interview.md" >}})建立 pom.xml 與 NoteApplication，再加入本文檔案。
 
@@ -25,7 +25,7 @@ lastmod: 2026-10-07T20:50:40+08:00
 
 JPA是持久化規格，Hibernate是實作之一，Spring Data JPA在其上提供Repository抽象。它不會替你決定所有業務交易，也不是「永遠不用SQL」；複雜查詢、索引、N+1與資料庫差異仍要理解。
 
-使用共用Boot3.5.0專案（web、data-jpa與H2）。src/main/java/notes/Task.java：
+使用共用Boot3.5.16專案（web、data-jpa與H2）。src/main/java/notes/Task.java：
 
 ```java
 package notes;

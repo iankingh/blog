@@ -1,21 +1,24 @@
 """Run six Java lessons, Python IP output and Git export in temporary directories.
-Requires JDK 8+ and Git/Python. Optional first argument writes a JSON result file.
+Requires JDK 25 and Git/Python. Optional first argument writes a JSON result file.
 """
 from pathlib import Path
 import re,subprocess,json,tempfile,sys
+from jdk25 import check_class_versions, require_jdk25
 root=Path(__file__).resolve().parents[2];results={}
+versions=require_jdk25()
 def blocks(s):return re.findall(r'^```(\w+)\s*\n(.*?)^```\s*$',s,re.M|re.S)
 with tempfile.TemporaryDirectory(prefix='blog-java-review-') as tmp:
  for p in sorted((root/'content/post/java').glob('*.md')):
   if p.name in ['HikariPool-1-error.md','java-DecimalFormat.md','polymorphism.md','Java-heap-space.md']:continue
   b=blocks(p.read_text());java=next((c for l,c in b if l=='java'),None)
   if not java:continue
-  cls=re.search(r'public class (\w+)',java)[1];d=Path(tmp)/cls;d.mkdir();f=d/(cls+'.java');f.write_text(java)
-  subprocess.run(['javac','--release','8','-encoding','UTF-8',str(f)],check=True,capture_output=True)
-  output=subprocess.check_output(['java','-cp',str(d),cls],text=True)
-  expected=next(c for l,c in b if l=='text')
-  assert output.rstrip()==expected.rstrip(),(p.name,output,expected)
-  results[str(p.relative_to(root))]='JDK25以--release 8編譯並執行，標準輸出與本文完全一致'
+  cls=re.search(r'public class (\w+)',java)[1];d=Path(tmp)/cls;d.mkdir();f=d/(cls+'.java');f.write_text(java,encoding="utf-8")
+  subprocess.run(['javac','-encoding','UTF-8',str(f)],check=True,capture_output=True)
+  class_count=check_class_versions(d)
+  output=subprocess.check_output(['java','-Dfile.encoding=UTF-8','-cp',str(d),cls],text=True,encoding='utf-8',timeout=30)
+  expected=next(c for l,c in b if l=='text').rstrip('\r\n')+'\n'
+  if output!=expected:raise RuntimeError(f'{p.name}: documented output differs\nExpected: {expected!r}\nActual: {output!r}')
+  results[str(p.relative_to(root))]=f'JDK 25 原生編譯與執行（java {versions["java"]}／javac {versions["javac"]}；{class_count} 個 class 均為版本 69），標準輸出與本文完全一致'
   print('PASS',p.name)
 # Standalone Python subnet example and Git archive export.
 p=root/'content/post/net/IP.md';code=next(c for l,c in blocks(p.read_text()) if l=='python')

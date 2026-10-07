@@ -116,7 +116,7 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 
 任務卡片、精選筆記與搜尋結果只標示最近更新日期；未填 `lastmod` 時使用原始 `date`。首頁、筆記與標籤／分類任務依最近更新時間排序，歸檔仍依原始發布年份分組。既有文章補上 `lastmod` 時，以確認過的內容修訂日期為準，避免將網站版面或部署時間當作文章更新日期。
 
-目前精選為 Java 多型、HikariPool 連線取得逾時與 DecimalFormat。保留原 OpenJDK 21 驗證紀錄，本次另以 JDK 25 的 `--release 21` 重跑；依賴版本及實際結果見內容查核紀錄。
+目前精選為 Java 多型、HikariPool 連線取得逾時與 DecimalFormat。目前範例均以 JDK 25 原生編譯及執行，核對 class 版本 69 與標準輸出；歷史驗證保留於 Git／Release，依賴版本及本次結果見內容查核紀錄。
 
 ### 全部筆記的內容維護
 
@@ -171,8 +171,13 @@ node .github/scripts/create-share-card.mjs /path/to/node_modules/sharp
 # 搜尋載入、快取、競態、失敗重試與焦點（Node.js，無外部套件）
 node .github/scripts/check-search.cjs
 
-# Java 21 範例；HikariCP / H2 / SLF4J JAR 的提供方式見 --help
+# JDK 25 原生編譯／執行，核對 class 版本 69；外部 JAR 的提供方式見 --help
 python3 .github/scripts/check-java-notes.py --help
+python3 .github/scripts/check-basic-note-examples.py
+python3 -m unittest discover -s .github/scripts -p 'test_jdk25.py'
+
+# 六篇 Spring 筆記、8 項測試，使用隔離目錄與 JDK 25
+python3 docs/verification/check-spring-notes.py /tmp/blog-spring-lab
 
 # 正式建置與既有安全檢查，輸出不納入版本控制
 hugo --minify --destination .local-public

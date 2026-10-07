@@ -9,14 +9,14 @@ tags:
 - "JDK"
 toc: true
 description: "區分堆空間不足、GC 壓力與資源未關閉，補上 heap dump 診斷及 Tomcat 設定位置。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 區分堆空間不足、GC 壓力與資源未關閉，補上 heap dump 診斷及 Tomcat 設定位置。
 
 <!--more-->
 
-適用：Java 8 基礎語法；新版練習可使用 JDK 21。先安裝 JDK 並瞭解第 0 篇的編譯／執行環境。
+適用：JDK 25 的 JVM 記憶體診斷；以下引數為既有應用的設定示意，本文未提供可執行 app.jar，也未重現實際記憶體不足事故。
 
 ## 症狀與診斷順序
 
@@ -54,8 +54,10 @@ Tomcat shell 啟動在 `CATALINA_BASE/bin/setenv.sh` 設 CATALINA_OPTS；Windows
 
 ## 參考資料
 
-- [JDK 記憶體排錯](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html)
-- [Java 啟動參數](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
+- [JDK 25 記憶體排錯](https://docs.oracle.com/en/java/javase/25/troubleshoot/troubleshooting-memory-leaks.html)
+- [JDK 25 Java 啟動參數](https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html)
+- [JDK 記憶體排錯（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html)
+- [Java 啟動參數（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
 - [若系統執行一段時間後無法連線，且tomcat或jboss的log裡出現java.lang.OutOfMemoryError: Java heap space，應如何避免此狀況?　(2008/11/25) | TAIR User Group](http://ir.org.tw/node/78)
 - [讀寫檔案時記憶體溢位問題思考（OutOfMemoryError: Java heap space）_WolfShadow的部落格-CSDN部落格](https://blog.csdn.net/u010188178/article/details/83183321)
 - [JAVA遇到大批資料處理時會出現Java heap space的報錯的解決方案 - IT閱讀](https://www.itread01.com/content/1546150350.html)

@@ -9,14 +9,14 @@ tags:
  - "spring Boot"
 toc: true
 description: "將 Spring Boot 核心觀念對照可觀察的配置與測試，釐清舊版面試題和現代專案的差異。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 將 Spring Boot 核心觀念對照可觀察的配置與測試，釐清舊版面試題和現代專案的差異。
 
 <!--more-->
 
-適用：原 Spring／Spring Boot 歷史筆記；新的可重現練習採 Spring Boot 3.5.0、Java21與Maven，使用jakarta套件。此為固定練習組合，上線另選相容且仍受支援的修補版。
+適用：保留原 Spring／Spring Boot 歷史筆記；可重現練習統一採 Spring Boot 3.5.16、JDK 25 與 Maven，使用 jakarta 套件。編譯目標為 Java 25；上線仍需核對依賴及部署環境。
 
 ## 共用練習專案
 
@@ -25,16 +25,26 @@ lastmod: 2026-10-07T20:50:40+08:00
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.5.0</version><relativePath/></parent>
+  <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.5.16</version><relativePath/></parent>
   <groupId>notes</groupId><artifactId>spring-note-lab</artifactId><version>1.0.0</version>
-  <properties><java.version>21</java.version></properties>
+  <properties><java.version>25</java.version></properties>
   <dependencies>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-data-jpa</artifactId></dependency>
     <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><scope>runtime</scope></dependency>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
   </dependencies>
-  <build><plugins><plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin></plugins></build>
+  <build><plugins>
+    <plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+      <executions><execution><goals><goal>properties</goal></goals></execution></executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId>
+      <configuration><argLine>-javaagent:"${org.mockito:mockito-core:jar}"</argLine></configuration>
+    </plugin>
+  </plugins></build>
 </project>
 ```
 
@@ -51,6 +61,10 @@ public class NoteApplication {
 ```
 
 執行`mvn test`、`mvn spring-boot:run`，初始沒有Controller所以首頁404是預期，不是啟動失敗；後續JPA與Swagger章加業務內容。
+
+先以 `java -version`、`javac -version` 與 `mvn -version` 確認均使用 JDK 25。本次使用 OpenJDK 25.0.4.1；Maven 編譯目標為 25，產生的 class major version 為 69。
+
+測試依賴中的 Mockito 需要 instrumentation。上面的 dependency plugin 取得實際 mockito-core JAR 路徑，再由 Surefire 以 `-javaagent` 載入；不依賴 JVM 自行附加 agent，也不需填入本機絕對路徑。此設定只影響測試 JVM。
 
 ## 面試回答應包含什麼
 
@@ -81,12 +95,15 @@ public class NoteApplication {
 | 配置優先順序 | 啟動引數、環境變數、外部配置與 packaged 配置按所用 Boot 版本的官方順序覆寫；以相同 key 的可觀察值確認，參考 Profile 篇 |
 | 舊 Spring 整合 | @Import 引入 Java 配置，@ImportResource 可載入需要保留的 XML；先核對 bean、掃描與相容依賴，並不保證所有舊 servlet／javax 庫可直接進 Boot3 |
 | 保護應用 | 身分驗證、API 授權、輸入驗證、秘密管理與依賴維護各有責任；Actuator 管理端點另控管，不以隱藏 UI 當 API 授權 |
-| 1.x／2.x／3.x 差異 | 原題的 Boot2／Spring5／Java8 是歷史版本線；Boot3 的 Java17 最低要求與 Jakarta 遷移另查 migration guide，本篇練習固定 Java21，不表示所有版本最低都為21 |
+| 1.x／2.x／3.x 差異 | 原題的 Boot2／Spring5／Java8 是歷史版本線；Boot3 的 Java17 最低要求與 Jakarta 遷移另查 migration guide，本篇練習固定 JDK 25，不表示 Boot 3 的最低要求也變成 25 |
 
 完整功能仍應由小專案核對；例如設定為 dev 後檢查 banner、加入 Controller 後檢查 HTTP 回應，再增加資料庫與交易。不能只背一串註解就宣稱完成整合。
 
 ## 參考資料
 
+- [Spring Boot 3.5 系統需求與 JDK 25 相容性](https://docs.spring.io/spring-boot/3.5/system-requirements.html)
+- [Mockito 在新版 JVM 的 agent 設定](https://javadoc.io/static/org.mockito/mockito-core/5.17.0/org.mockito/org/mockito/Mockito.html#0.3)
+- [Maven 依賴 properties goal](https://maven.apache.org/plugins/maven-dependency-plugin/properties-mojo.html)
 - [Auto configuration](https://docs.spring.io/spring-boot/3.5/reference/using/auto-configuration.html)
 - [Build systems](https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html)
 - [External config](https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html)

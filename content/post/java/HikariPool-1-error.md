@@ -1,7 +1,7 @@
 ---
 title: "HikariCP 連線逾時：診斷與可重現範例"
 date: 2021-05-06T21:18:55+08:00
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 description: "依連線池狀態診斷取得連線逾時，以 H2 範例重現耗盡、釋放與再次取得連線。"
 featuredOrder: 2
 categories: ["筆記"]
@@ -14,7 +14,7 @@ draft: false
 
 <!--more-->
 
-適用：本文原有 Java 21 練習環境；HikariCP 範例的第三方版本以文內依賴清單為準。
+適用：JDK 25 編譯與執行；HikariCP 範例的第三方版本以文內依賴清單為準，使用本地 H2 模擬連線池。
 
 遇到 `Connection is not available, request timed out after 30000ms`，表示呼叫端在等待期限內沒有從 HikariCP 取得可用連線。先觀察連線的使用情況，再判斷要修程式、查詢或設定。
 
@@ -61,7 +61,7 @@ spring:
 
 ## 驗證環境與依賴
 
-- OpenJDK 21.0.1。
+- OpenJDK 25.0.4.1；java 與 javac 均為 25，編譯產物 class major version 為 69。
 - HikariCP 7.0.2、H2 2.4.240、SLF4J API 2.0.17。
 - H2 使用記憶體資料庫，無需啟動外部資料庫。
 
@@ -88,6 +88,8 @@ Maven dependency 座標：
 ```
 
 若直接用 `javac`，把以上三個依賴的 JAR 放在 `lib/`。SLF4J API 沒有 provider 時會輸出提示，但不影響本範例的 JDBC 行為。
+
+若整合進 Maven 專案，編譯器也要使用 JDK 25；Spring Boot 專案設定 `java.version=25`，一般 Maven 專案則設定 `maven.compiler.release=25`。上述區塊僅列出依賴座標，本文實測使用下方的 javac／java 指令。
 
 ## 完整重現範例
 

@@ -9,21 +9,21 @@ tags:
 - "Java"
 - "JDK"
 toc: true
-description: "保留 Windows 的 Java 8 設定情境，補上 JDK 選擇、正確版本指令與 PATH 排錯。"
-lastmod: 2026-10-07T20:50:40+08:00
+description: "以 JDK 25 整理 Windows 安裝、版本確認與 PATH 排錯，完成第一個編譯練習。"
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
-保留 Windows 的 Java 8 設定情境，補上 JDK 選擇、正確版本指令與 PATH 排錯。
+以 JDK 25 整理 Windows 安裝、版本確認與 PATH 排錯，完成第一個編譯練習。
 
 <!--more-->
 
-適用：Java 8 基礎語法；新版練習可使用 JDK 21。先安裝 JDK 並瞭解第 0 篇的編譯／執行環境。
+適用：JDK 25 編譯與執行；保留原筆記的基礎語法與教學情境。先安裝 JDK 25，並依第 0 篇確認編譯／執行環境。
 
 ## 安裝與環境變數
 
-原筆記的 `jdk1.8.0_111` 是歷史示意，不應再下載該舊修補版本。維護 Java 8 系統選擇供應商仍支援的 Java 8 更新版本；新練習可安裝 JDK 21。JDK 包含 javac，僅安裝 JRE 不能編譯本系列程式。
+原筆記的 `jdk1.8.0_111` 是歷史示意，不應再下載該舊修補版本。本系列統一安裝 JDK 25；若維護既有 Java 8 系統，另依該系統的相容版本處理。JDK 包含 javac，僅安裝 JRE 不能編譯本系列程式。
 
-Windows 安裝後以實際目錄設定 JAVA_HOME，例如 `C:\Program Files\Java\jdk-21`，不要在值末尾加 `bin` 或引號；將 `%JAVA_HOME%\bin` 加入 Path，重新開終端。
+Windows 安裝後以實際目錄設定 JAVA_HOME，例如 `C:\Program Files\Java\jdk-25`，不要在值末尾加 `bin` 或引號；將 `%JAVA_HOME%\bin` 加入 Path，重新開終端。
 
 ```powershell
 java -version
@@ -33,7 +33,7 @@ where.exe javac
 $env:JAVA_HOME
 ```
 
-java 與 javac 主版本應符合預期。where.exe 若列出多個位置，檢查最前面是否來自舊安裝或 IDE；JAVA_HOME 不會自動改變 Path 的優先順序。
+java 與 javac 主版本均應為 25；本次實測兩者均為 25.0.4.1。where.exe 若列出多個位置，檢查最前面是否來自舊安裝或 IDE；JAVA_HOME 不會自動改變 Path 的優先順序。
 
 macOS 使用 `/usr/libexec/java_home -V` 檢視已安裝 JDK；Linux 用 `command -v java` 與供應商的安裝流程確認。不同版本並存時，IDE、Maven／Gradle 與終端的 JDK 都要一致，不能只看一次 java -version。
 
@@ -47,7 +47,7 @@ public class EnvironmentDemo {
 }
 ```
 
-儲存為 EnvironmentDemo.java，執行 `javac -encoding UTF-8 EnvironmentDemo.java` 再 `java EnvironmentDemo`。
+儲存為 EnvironmentDemo.java，執行 `javac -encoding UTF-8 EnvironmentDemo.java` 再 `java EnvironmentDemo`。以 `javap -verbose EnvironmentDemo` 查看 `major version: 69`，可確認產物對應 Java 25。
 
 ```text
 JDK can compile and run
@@ -64,5 +64,7 @@ JDK can compile and run
 
 ## 參考資料
 
-- [JDK 安裝指南](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html)
-- [javac](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
+- [JDK 25 安裝指南](https://docs.oracle.com/en/java/javase/25/install/overview-jdk-installation.html)
+- [JDK 25 javac](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html)
+- [JDK 安裝指南（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html)
+- [javac（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)

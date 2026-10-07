@@ -9,14 +9,14 @@ tags:
 - "JDK"
 toc: true
 description: "建立編譯、類別載入與執行例外的診斷順序，補齊 Eclipse unresolved compilation problems 的處理。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 建立編譯、類別載入與執行例外的診斷順序，補齊 Eclipse unresolved compilation problems 的處理。
 
 <!--more-->
 
-適用：Java 8 基礎語法；新版練習可使用 JDK 21。先安裝 JDK 並瞭解第 0 篇的編譯／執行環境。
+適用：JDK 25 編譯與執行；保留原筆記的基礎語法與教學情境。先安裝 JDK 25，並依第 0 篇確認編譯／執行環境。
 
 ## 先辨識失敗階段
 
@@ -50,7 +50,7 @@ public class ExceptionDemo {
 程式繼續
 ```
 
-儲存為 ExceptionDemo.java 後編譯／執行。只捕捉預期可處理的錯誤，避免捕捉所有 Throwable 並忽略它；Error 通常表示更嚴重的環境／VM 問題。保留完整堆疊與 cause，不只貼最後一行訊息。
+儲存為 ExceptionDemo.java，以 `javac -encoding UTF-8 ExceptionDemo.java` 編譯，再用 `java ExceptionDemo` 執行。只捕捉預期可處理的錯誤，避免捕捉所有 Throwable 並忽略它；Error 通常表示更嚴重的環境／VM 問題。保留完整堆疊與 cause，不只貼最後一行訊息。
 
 確認修正時使用相同輸入重跑，再加正常值與邊界值；不要只因 Clean 後暫時沒有紅字便認定修復。
 
@@ -61,6 +61,7 @@ public class ExceptionDemo {
 
 ## 參考資料
 
+- [JDK 25 javac 診斷](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html)
 - [例外教學](https://dev.java/learn/exceptions/)
-- [javac 診斷](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
+- [javac 診斷（Java 21 歷史參考）](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
 - [java.lang.Error: Unresolved compilation problems:解決方案 - huangbaokang的部落格 - CSDN部落格](https://blog.csdn.net/huangbaokang/article/details/75287126)

@@ -9,11 +9,11 @@
 - Hugo Extended 0.167.0 正式建置，不使用 -D；搜尋索引收錄 130 篇唯一筆記。
 - 首頁和筆記列表各 13 頁，每頁 10 篇；任務卡片最多兩欄，手機單欄，列表只顯示最近更新日期。
 - 130 篇摘要、情境、分類／標籤、程式碼語言、來源與查核範圍完成檢查，無空白 code fence、未完成標題或合併衝突標記。
-- 346 個 HTML 頁面的內部連結、錨點、圖片／資源與圖片 alt 檢查通過；搜尋載入、快取、競態、失敗重試、文字安全與焦點測試通過，網站安全檢查通過。
-- Java 六個基礎練習以 JDK25 --release8 編譯及逐字輸出比對；另三個既有 Java 範例以 --release21 重跑，DecimalFormat 加測德文預設 locale，HikariCP 使用文章指定依賴。
+- 345 個 HTML 頁面的內部連結、錨點、圖片／資源與圖片 alt 檢查通過；搜尋載入、快取、競態、失敗重試、文字安全與焦點測試通過，網站安全檢查通過。
+- Java 共九個範例以 JDK 25.0.4.1 原生編譯與執行，所有 class major version 為 69，逐字輸出比對通過；DecimalFormat 加測德文預設 locale，HikariCP 使用文章指定依賴。
 - Vue 38 個 SFC 語法／模板編譯及 30 個 Vite 正式建置通過，另測 composable、Pinia／Vuex、memory router、SSR renderToString。
 - Angular 9 個 TypeScript 區塊通過 strict 與 strictTemplates 編譯，表單、pipe、JS 匯入與圖片錯誤尺寸分支執行通過。此為 compiler 測試，不代表完整 CLI／UI 已於 Node26 實測。
-- Spring Boot3.5.0、springdoc2.8.9 共 8 個測試通過，含條件 Bean、dev profile、API／OpenAPI、JPA 分頁／查詢與真實 proxy 交易回滾；資料庫是隔離 H2。
+- Spring Boot 3.5.16／JDK 25、springdoc 2.8.9 共 8 個測試通過，含條件 Bean、dev profile、API／OpenAPI、JPA 分頁／查詢與真實 proxy 交易回滾；資料庫是隔離 H2。
 - JavaScript DOM 範例測清單、選擇／錯誤資料、搜尋與列印呼叫；matchMedia 使用假裝置值，HEIC 使用假轉換器與 Blob 測流程，沒有宣稱實際 HEIC 解碼或紙張列印完成。
 - Python IP 計算及 Git 匯出腳本實測通過，Git 涵蓋檔名空格、新增、修改、刪除與無差異。
 
@@ -66,16 +66,16 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 | 35 | [Hugo Disqus：識別碼、本機停用與留言整合](../content/post/hugo/HugoAddisqus.md) | 公開 → 修訂 | 補上穩定討論識別碼與動態載入限制，修正為本機啟用留言的錯誤建議。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 36 | [Hugo GA4：正式站載入與事件確認](../content/post/hugo/hugoAddGoogleAnalytics.md) | 公開 → 修訂 | 補上本站的本機停用行為、Measurement ID 與 GA4 的實際驗證範圍。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 37 | [Hugo 基礎：建立文章、圖片與本地建置](../content/post/hugo/hugonotes.md) | 公開 → 修訂 | 修正安裝及 static 路徑，補上草稿、發布／更新日期與子目錄預覽流程。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 38 | [HikariCP 連線逾時：診斷與可重現範例](../content/post/java/HikariPool-1-error.md) | 公開 → 修訂 | 保留連線池耗盡重現程式，補上適用依賴版本及相關 Java 筆記。 | JDK25 --release21，HikariCP7.0.2／H2 2.4.240／SLF4J2.0.17，借滿、逾時與釋放後再借的輸出逐字比對通過 |
-| 39 | [Java heap space：記憶體不足的診斷與確認](../content/post/java/Java-heap-space.md) | 公開 → 修訂 | 區分堆空間不足、GC 壓力與資源未關閉，補上 heap dump 診斷及 Tomcat 設定位置。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 40 | [Java 數字格式：DecimalFormat 與 BigDecimal](../content/post/java/java-DecimalFormat.md) | 公開 → 修訂 | 保留格式與金額範例，查核 Locale、捨入及精度，補上系列連結。 | JDK25 --release21 執行，預設 locale 與德文 locale 的標準輸出逐字比對均通過 |
-| 41 | [Java 排錯：編譯問題、例外與版本不一致](../content/post/java/java-error.md) | 草稿 → 公開 | 建立編譯、類別載入與執行例外的診斷順序，補齊 Eclipse unresolved compilation problems 的處理。 | JDK25以--release 8編譯並執行，標準輸出與本文完全一致 |
-| 42 | [Java 入門 00：JDK 安裝與環境確認](../content/post/java/java_tutorial_0.md) | 公開 → 修訂 | 保留 Windows 的 Java 8 設定情境，補上 JDK 選擇、正確版本指令與 PATH 排錯。 | JDK25以--release 8編譯並執行，標準輸出與本文完全一致 |
-| 43 | [Java 入門 01：編譯並執行第一支程式](../content/post/java/java_tutorial_1.md) | 公開 → 修訂 | 從 HelloJava.java 到 class 檔，補上檔名規則、classpath、預期輸出與常見錯誤。 | JDK25以--release 8編譯並執行，標準輸出與本文完全一致 |
-| 44 | [Java 入門 02：基本型別、預設值與跳脫字元](../content/post/java/java_tutorial_2.md) | 公開 → 修訂 | 修正 boolean 大小與浮點範圍說明，示範數值提升、欄位預設值及字元輸出。 | JDK25以--release 8編譯並執行，標準輸出與本文完全一致 |
-| 45 | [Java 入門 03：變數、初始化與作用域](../content/post/java/java_tutorial_3.md) | 公開 → 修訂 | 補齊區域、實體及靜態變數的差異，使用完整範例觀察兩個物件的狀態。 | JDK25以--release 8編譯並執行，標準輸出與本文完全一致 |
-| 46 | [Java 入門 04：封裝、繼承與多型](../content/post/java/java_tutorial_4.md) | 公開 → 修訂 | 以技能介面和角色物件示範物件導向，補上可執行程式與設計限制。 | JDK25以--release 8編譯並執行，標準輸出與本文完全一致 |
-| 47 | [Java 多型：介面、覆寫與執行時派發](../content/post/java/polymorphism.md) | 公開 → 修訂 | 保留完整多型範例，補上系列導覽與編譯／執行結果查核。 | JDK25 --release21 編譯，標準輸出逐字比對通過 |
+| 38 | [HikariCP 連線逾時：診斷與可重現範例](../content/post/java/HikariPool-1-error.md) | 公開 → 修訂 | 保留連線池耗盡重現程式，補上適用依賴版本及相關 Java 筆記。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69）；HikariCP 7.0.2／H2 2.4.240／SLF4J API 2.0.17；借滿、逾時與釋放後再借，標準輸出逐字比對通過 |
+| 39 | [Java heap space：記憶體不足的診斷與確認](../content/post/java/Java-heap-space.md) | 公開 → 修訂 | 區分堆空間不足、GC 壓力與資源未關閉，補上 heap dump 診斷及 Tomcat 設定位置。 補上 JDK 25 適用環境與新版替代路線，保留未實測限制。 | JDK 25 的 JVM 記憶體診斷、啟動引數與官方文件查核；未提供可執行 app.jar，未重現實際 heap 故障，也未測試 Tomcat 平台設定 |
+| 40 | [Java 數字格式：DecimalFormat 與 BigDecimal](../content/post/java/java-DecimalFormat.md) | 公開 → 修訂 | 保留格式與金額範例，查核 Locale、捨入及精度，補上系列連結。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69）；預設與德文 locale，標準輸出逐字比對通過 |
+| 41 | [Java 排錯：編譯問題、例外與版本不一致](../content/post/java/java-error.md) | 草稿 → 公開 | 建立編譯、類別載入與執行例外的診斷順序，補齊 Eclipse unresolved compilation problems 的處理。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69），標準輸出與本文完全一致 |
+| 42 | [Java 入門 00：JDK 安裝與環境確認](../content/post/java/java_tutorial_0.md) | 公開 → 修訂 | 以 JDK 25 整理 Windows 安裝、版本確認、PATH 排錯與第一個編譯練習。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69），標準輸出與本文完全一致 |
+| 43 | [Java 入門 01：編譯並執行第一支程式](../content/post/java/java_tutorial_1.md) | 公開 → 修訂 | 從 HelloJava.java 到 class 檔，補上檔名規則、classpath、預期輸出與常見錯誤。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69），標準輸出與本文完全一致 |
+| 44 | [Java 入門 02：基本型別、預設值與跳脫字元](../content/post/java/java_tutorial_2.md) | 公開 → 修訂 | 修正 boolean 大小與浮點範圍說明，示範數值提升、欄位預設值及字元輸出。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69），標準輸出與本文完全一致 |
+| 45 | [Java 入門 03：變數、初始化與作用域](../content/post/java/java_tutorial_3.md) | 公開 → 修訂 | 補齊區域、實體及靜態變數的差異，使用完整範例觀察兩個物件的狀態。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；1 個 class 均為版本 69），標準輸出與本文完全一致 |
+| 46 | [Java 入門 04：封裝、繼承與多型](../content/post/java/java_tutorial_4.md) | 公開 → 修訂 | 以技能介面和角色物件示範物件導向，補上可執行程式與設計限制。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；5 個 class 均為版本 69），標準輸出與本文完全一致 |
+| 47 | [Java 多型：介面、覆寫與執行時派發](../content/post/java/polymorphism.md) | 公開 → 修訂 | 保留完整多型範例，補上系列導覽與編譯／執行結果查核。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（java 25.0.4.1／javac 25.0.4.1；4 個 class 均為版本 69）；多型呼叫，標準輸出逐字比對通過 |
 | 48 | [HEIC 轉 JPEG：heic2any 的載入、錯誤與輸出限制](../content/post/javascript/Heic2any.md) | 公開 → 修訂 | 補上 Blob 陣列、錯誤處理與 object URL 清理，區分圖片轉換和 metadata 保留。 | 本文事件流程以假 Blob／轉換器測單張、陣列、錯誤、input 恢復與 URL 清理；未提供 HEIC 樣本，未驗證真實解碼、方向、色彩或 metadata |
 | 49 | [列印隱藏按鈕：CSS print media 與預覽確認](../content/post/javascript/Hide-Button-when-printing.md) | 公開 → 修訂 | 以有效 HTML 與列印樣式取代不存在的 div media 屬性，補上列印預覽驗證。 | 本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試 |
 | 50 | [JavaScript 陣列產生表格：安全文字與完整欄位](../content/post/javascript/array-Create-Table.md) | 公開 → 修訂 | 以小型本地資料取代過長的銀行清單，保留陣列轉表格情境並補上文字轉義。 | 本文HTML直接於jsdom執行，核對DOM／事件與錯誤分支；列印只驗證print呼叫及樣式，紙張輸出未實機測試 |
@@ -116,14 +116,14 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 | 85 | [Tomcat 設定：JNDI、環境變數與 JVM 引數](../content/post/server/tomcatSetEnvironment.md) | 公開 → 修訂 | 保留 context.xml 的 JNDI 情境，說明它與 OS 環境及 Spring profile 的差異。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 86 | [Tomcat server.xml：上傳限制與應用部署](../content/post/server/tomcatSetserverxml.md) | 公開 → 修訂 | 修正 maxPostSize 的範圍，補上 Connector、multipart 與獨立 Context 設定方式。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 87 | [Tomcat Manager：角色、使用者與存取範圍](../content/post/server/tomcatSettingUser.md) | 公開 → 修訂 | 修正不合法 XML 佔位值，補上 manager-gui 許可權及 401／403 診斷。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 88 | [Spring Boot API 文件：Swagger 2 歷史整合與 OpenAPI 3](../content/post/spring-boot/spring-boot-Swagger2.md) | 草稿 → 公開 | 保留 Springfox 2.2.2 情境，補上相容界線、現代 springdoc 替代與驗證方式。 | 本文 HelloController 於 MockMvc 回 /api/hello 與 /v3/api-docs，核對 JSON 與 API 路徑；未用瀏覽器呼叫 Swagger UI 或跑原 Springfox2 |
-| 89 | [Spring Profile 與 Maven Profile：執行期和建置期](../content/post/spring-boot/spring-boot-active-profile.md) | 草稿 → 公開 | 補上可比較的配置與啟動命令，說明 profile 不會自動在兩種工具間同步。 | 本文 BannerConfig 與 application-dev.properties 於 @ActiveProfiles(dev) context 執行，確認 notes.banner=development；Maven profile 未另設情境 |
-| 90 | [ConditionalOnProperty：條件式 Bean 與測試](../content/post/spring-boot/spring-boot-conditionalOnProperty.md) | 草稿 → 公開 | 清除 TODO 與過時註解屬性，完整示範存在、false、true 和缺值的行為。 | 直接編譯本文 DemoConfig／DemoConfigTest，true／false／缺值 3 個 ApplicationContextRunner 測試通過 |
-| 91 | [Spring Boot 核心觀念：自動配置、設定與可驗證回答](../content/post/spring-boot/spring-boot-interview.md) | 公開 → 修訂 | 查核原面試題中的過度簡化說法，補上共用練習專案與實際診斷方式。原二十題主題逐項對照並補上版本界線。 | 隔離 Spring Boot 3.5.0／Java21 target 專案建置，本文 NoteApplication 共用入口供 8 個測試使用；未測實際生產服務 |
-| 92 | [Spring Cloud Eureka：服務註冊與健康確認](../content/post/spring-cloud/spring-cloud-Eureka.md) | 草稿 → 公開 | 補齊 server/client 配置、相容版本與本地雙服務確認，區分註冊和負載平衡。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 93 | [Spring Cloud Gateway：路由、過濾與 Actuator 邊界](../content/post/spring-cloud/spring-cloud-Gateway.md) | 公開 → 修訂 | 整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 94 | [Spring Data JPA：Repository 與分頁查詢](../content/post/spring/spring-data-Jpa-Notes.md) | 公開 → 修訂 | 查核原 Repository 小抄，補上 Entity、查詢範例和新版排序介面的差異。補回原 Repository 介面比較、衍生查詢／JPQL／native 分類，固定 H2 實測。 | 本文 Entity、Repository 與增補查詢片段於 H2 2.3.232 實測分頁、衍生方法、JPQL 與 native query，含查無資料分支；未連 SQL Server 等外部 DB |
-| 95 | [Transactional：代理、回滾與交易範圍](../content/post/spring/spring-transactional.md) | 草稿 → 公開 | 修正 Spring 與 JTA 註解比較，補上真正經過代理的回滾測試與限制。 | 本文 TaskService／TaskServiceTest 經 Spring 真實 proxy 呼叫，例外後查詢確認回滾；未模擬分散式交易 |
+| 88 | [Spring Boot API 文件：Swagger 2 歷史整合與 OpenAPI 3](../content/post/spring-boot/spring-boot-Swagger2.md) | 草稿 → 公開 | 保留 Springfox 2.2.2 情境，補上相容界線、現代 springdoc 替代與驗證方式。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（25.0.4.1；class 版本 69），Spring Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；本文 HelloController 於 MockMvc 回 /api/hello 與 /v3/api-docs，核對 JSON 與 API 路徑；未用瀏覽器呼叫 Swagger UI 或跑原 Springfox2 |
+| 89 | [Spring Profile 與 Maven Profile：執行期和建置期](../content/post/spring-boot/spring-boot-active-profile.md) | 草稿 → 公開 | 補上可比較的配置與啟動命令，說明 profile 不會自動在兩種工具間同步。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（25.0.4.1；class 版本 69），Spring Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；本文 BannerConfig 與 application-dev.properties 於 @ActiveProfiles(dev) context 執行，確認 notes.banner=development；Maven profile 未另設情境 |
+| 90 | [ConditionalOnProperty：條件式 Bean 與測試](../content/post/spring-boot/spring-boot-conditionalOnProperty.md) | 草稿 → 公開 | 清除 TODO 與過時註解屬性，完整示範存在、false、true 和缺值的行為。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（25.0.4.1；class 版本 69），Spring Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；直接編譯本文 DemoConfig／DemoConfigTest，true／false／缺值 3 個 ApplicationContextRunner 測試通過 |
+| 91 | [Spring Boot 核心觀念：自動配置、設定與可驗證回答](../content/post/spring-boot/spring-boot-interview.md) | 公開 → 修訂 | 查核原面試題中的過度簡化說法，補上共用練習專案與實際診斷方式。原二十題主題逐項對照並補上版本界線。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（25.0.4.1；class 版本 69），Spring Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；本文 NoteApplication 共用入口供 8 個測試使用；未測實際生產服務 |
+| 92 | [Spring Cloud Eureka：服務註冊與健康確認](../content/post/spring-cloud/spring-cloud-Eureka.md) | 草稿 → 公開 | 補齊 server/client 配置、相容版本與本地雙服務確認，區分註冊和負載平衡。 補上 JDK 25 適用環境與新版替代路線，保留未實測限制。 | 官方相容表與 Gateway／Eureka 文件查核，補上 Boot 3.5.16／JDK 25／Cloud 2025.0.x 的替代路線；未在本次編譯或啟動 Spring Cloud 服務／叢集 |
+| 93 | [Spring Cloud Gateway：路由、過濾與 Actuator 邊界](../content/post/spring-cloud/spring-cloud-Gateway.md) | 公開 → 修訂 | 整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。 補上 JDK 25 適用環境與新版替代路線，保留未實測限制。 | 官方相容表與 Gateway／Eureka 文件查核，補上 Boot 3.5.16／JDK 25／Cloud 2025.0.x 的替代路線；未在本次編譯或啟動 Spring Cloud 服務／叢集 |
+| 94 | [Spring Data JPA：Repository 與分頁查詢](../content/post/spring/spring-data-Jpa-Notes.md) | 公開 → 修訂 | 查核原 Repository 小抄，補上 Entity、查詢範例和新版排序介面的差異。補回原 Repository 介面比較、衍生查詢／JPQL／native 分類，固定 H2 實測。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（25.0.4.1；class 版本 69），Spring Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；本文 Entity、Repository 與增補查詢片段於 H2 2.3.232 實測分頁、衍生方法、JPQL 與 native query，含查無資料分支；未連 SQL Server 等外部 DB |
+| 95 | [Transactional：代理、回滾與交易範圍](../content/post/spring/spring-transactional.md) | 草稿 → 公開 | 修正 Spring 與 JTA 註解比較，補上真正經過代理的回滾測試與限制。 環境統一為 JDK 25，原生編譯並核對 class 版本 69 與輸出。 | JDK 25 原生編譯與執行（25.0.4.1；class 版本 69），Spring Boot 3.5.16／springdoc 2.8.9／H2 2.3.232；本文 TaskService／TaskServiceTest 經 Spring 真實 proxy 呼叫，例外後查詢確認回滾；未模擬分散式交易 |
 | 96 | [SQL Server T-SQL：建表、修改欄位與交易練習](../content/post/sql/sql-command.md) | 公開 → 修訂 | 修正 SQL Server ADD COLUMN 說法，補上完整暫存表練習與預期查詢結果。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 97 | [SQL Server 許可權：Login、User 與最小角色](../content/post/sql/sql-server.md) | 公開 → 修訂 | 補上伺服器與資料庫身份差異，以無登入測試使用者驗證 SELECT 許可權。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 98 | [VS Code Remote SSH：連線、遠端資料夾與 Vagrant](../content/post/visual-studio-code/VSCodeUseRemote.md) | 公開 → 修訂 | 補齊原測試章節，以示例主機取代真實公網地址，說明遠端server與extension範圍。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
@@ -186,3 +186,17 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 - `test_deployment_release.py` 的 17 個隔離測試通過，涵蓋 Pages 精確 SHA、成功／失敗／逾時、Tag 衝突、跨日重跑、既有 Tag／Release、建立失敗與 CLI 引數；所有 GitHub 回應均為模擬，未建立真實版本。
 - 本地抽查 SQL 的合併來源與未實測限制、Vue／Java 系列導覽及首頁，確認每頁 10 篇與 130／13 頁資訊正常。清除既有預覽目錄中的舊頁面 HTML 後，已刪頁面回傳 404。
 - 部署工作流程的 YAML 語法與觸發設定檢查通過。此處記錄發布前的本地與模擬結果；正式部署及自動 Release 的執行狀態，以對應的工作流程日誌與 Release 為準。
+
+## JDK 25 與 MENU 間距調整
+
+本次修訂將 18 篇 Java／Spring／Spring Cloud 筆記的現行環境及替代路線統一到 JDK 25；保留原技術情境、發布日期及來源。Java／Spring 的執行證據已重跑，Vue／Angular／其他平台的技術證據沿用既有查核日期，沒有宣稱本次重新執行。
+
+- Java：java／javac 均為 OpenJDK 25.0.4.1，六個基礎範例與三個完整範例原生編譯，所有產物 class major version 為 69；標準輸出一致，DecimalFormat 的德文 locale 也通過。
+- Spring：使用文章共用 POM 的 Boot 3.5.16、java.version=25、springdoc 2.8.9、H2 2.3.232；隔離 clean test 產生 7 個主程式 class 與 5 個測試 class，均為版本 69，8 tests／0 failures／0 errors／0 skipped。Mockito agent 從實際 Maven 依賴路徑載入。
+- 版本防護：六項隔離測試涵蓋舊 java、舊 javac、工具缺少、Java 8／21 bytecode、preview class 及無編譯產物；錯誤時不記錄為 JDK 25 驗證成功；另以實際 OpenJDK 21.0.1 執行工具，確認在編譯前拒絕。
+- heap space 與 Eureka／Gateway：更新官方文件及 JDK 25 替代方式，未重現實際 heap 故障，也未啟動 Spring Cloud 服務／叢集；不能與已通過的九個 Java 範例及八項 Spring 測試混為一談。
+- 桌面共用 MENU 間距統一為 24px，821–1100px 為 20px；頂部網格同步，1600px 以上文章靠主內容左側排列並保留 1080px 上限。
+
+本次僅提供未提交的內容與本地預覽，Git 歷史與既有 Release 保持原版本。新版編譯結果見 example-results.json 與逐篇清單；網站與本次檢查紀錄見 validation-results.json。
+
+本次新增的 16 個 JDK 25／Spring／Mockito／Maven 官方文件及 API 入口均回應 HTTP 200，逐篇 sourceChecks 已保留實際日期；原查核的 324 個 URL 統計屬此前整理範圍。正式建置與內容、搜尋、安全檢查通過，345 個 HTML、130 篇筆記、首頁與筆記列表各 13 × 10 分頁。瀏覽器抽查 390 至 2560px，MENU 間距、文章靠左、手機選單、晝夜切換及第 2／13 頁正常。

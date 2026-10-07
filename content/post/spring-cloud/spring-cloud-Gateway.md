@@ -10,7 +10,7 @@ tags:
  - "Spring Cloud"
 toc: true
 description: "整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 整理舊 WebFlux Gateway 配置，補上本地後端、路徑改寫與安全的端點確認。
@@ -59,8 +59,17 @@ management:
 
 確認predicate、filter順序和傳往後端的path，客戶端看到200不代表認證、請求限制和錯誤處理完整。此篇僅檔案核對，未聲稱測完整gateway叢集。
 
+## JDK 25 的新版路線
+
+若要與本系列的 JDK 25 練習一致，採 Spring Boot 3.5.16、`java.version=25`，並依官方相容表選 Spring Cloud 2025.0.x 的 BOM；此處的舊版組合不作為 JDK 25 的編譯成果。2025.0.x 是對應 Boot 3.5 的版本線，是否仍受支援須另查官方維護狀態。
+
+新版 WebFlux 專案使用 `spring-cloud-starter-gateway-server-webflux`，路由配置改用 `spring.cloud.gateway.server.webflux.routes`，並沿用前面的本地 HTTP 後端作為測試資料。本文尚未以新版組合建置或啟動 Gateway；既有 YAML 是舊版本示意，不能直接宣稱 JDK 25 實測通過。
+
 ## 參考資料
 
+- [Gateway 4.3 WebFlux 設定](https://docs.spring.io/spring-cloud-gateway/reference/4.3/spring-cloud-gateway-server-webflux/configuration.html)
+- [Gateway 4.3 路由配置索引](https://docs.spring.io/spring-cloud-gateway/reference/4.3/appendix.html)
+- [Gateway 4.3 WebFlux starter](https://docs.spring.io/spring-cloud-gateway/reference/4.3/spring-cloud-gateway-server-webflux/starter.html)
 - [Gateway官方](https://docs.spring.io/spring-cloud-gateway/reference/)
 - [Actuator access](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/actuator-api.html)
 - [Spring Cloud相容](https://spring.io/projects/spring-cloud#overview)

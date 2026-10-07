@@ -1,6 +1,6 @@
 """Compile article examples and compare their stdout with the documented output.
 
-Requires Python 3.9+ and a JDK supporting Java 21. Compilation happens in a
+Requires Python 3.9+ and JDK 25 for both compilation and execution. Compilation happens in a
 temporary directory; source articles are never modified and no JARs are fetched.
 
 Usage:
@@ -13,6 +13,7 @@ classpath. JAVA_NOTES_CLASSPATH can supply the same value as --classpath.
 
 import argparse
 import difflib
+import json
 import os
 from pathlib import Path
 import re
@@ -20,6 +21,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
+
+from jdk25 import check_class_versions, require_jdk25
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -88,7 +91,9 @@ def main():
         "--standard-only", action="store_true",
         help="Explicitly run only the two examples that need no external JARs",
     )
+    parser.add_argument('--results', type=Path, help='Write verified article results as JSON')
     args = parser.parse_args()
+    versions = require_jdk25()
     java, javac = shutil.which("java"), shutil.which("javac")
     if not java or not javac:
         parser.error("java and javac must be available on PATH")
@@ -101,6 +106,7 @@ def main():
         for entry in args.classpath.split(os.pathsep) if entry
     )
     checked = 0
+    results = {}
     with tempfile.TemporaryDirectory(prefix="java-notes-") as temporary:
         for filename, class_name, external in ARTICLES:
             if external and args.standard_only:
@@ -110,13 +116,14 @@ def main():
             directory.mkdir()
             source_file = directory / f"{class_name}.java"
             source_file.write_text(source, encoding="utf-8")
-            compile_command = [javac, "--release", "21", "-encoding", "UTF-8"]
+            compile_command = [javac, "-encoding", "UTF-8"]
             runtime_classpath = str(directory)
             if external:
                 compile_command.extend(["-cp", dependencies])
                 runtime_classpath += os.pathsep + dependencies
             compile_command.append(str(source_file))
             run_command(compile_command, directory)
+            class_count = check_class_versions(directory)
             java_command = [java, "-Dfile.encoding=UTF-8", "-cp", runtime_classpath]
             check_output(java_command + [class_name], directory, expected, class_name)
             if class_name == "DecimalFormatDemo":
@@ -125,8 +132,19 @@ def main():
                     directory, expected, f"{class_name} (German default locale)",
                 )
             checked += 1
+            detail = {
+                'PoolTimeoutDemo': 'HikariCP 7.0.2／H2 2.4.240／SLF4J API 2.0.17；借滿、逾時與釋放後再借',
+                'DecimalFormatDemo': '預設與德文 locale',
+                'PolymorphismDemo': '多型呼叫',
+            }[class_name]
+            results[f'content/post/java/{filename}'] = (
+                f'JDK 25 原生編譯與執行（java {versions["java"]}／javac {versions["javac"]}；'
+                f'{class_count} 個 class 均為版本 69）；{detail}，標準輸出逐字比對通過'
+            )
     mode = "JDK-only" if args.standard_only else "full"
     print(f"Verified {checked} article examples ({mode}).")
+    if args.results:
+        args.results.write_text(json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
 if __name__ == "__main__":

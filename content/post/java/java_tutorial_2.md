@@ -10,14 +10,14 @@ tags:
 - "JDK"
 toc: true
 description: "修正 boolean 大小與浮點範圍說明，示範數值提升、欄位預設值及字元輸出。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T23:41:34+08:00
 ---
 
 修正 boolean 大小與浮點範圍說明，示範數值提升、欄位預設值及字元輸出。
 
 <!--more-->
 
-適用：Java 8 基礎語法；新版練習可使用 JDK 21。先安裝 JDK 並瞭解第 0 篇的編譯／執行環境。
+適用：JDK 25 編譯與執行；保留原筆記的基礎語法與教學情境。先安裝 JDK 25，並依第 0 篇確認編譯／執行環境。
 
 ## 八種基本型別
 
@@ -77,6 +77,7 @@ A 與 B 中間是 tab。byte + byte 會數值提升為 int，不能直接賦回 
 
 ## 參考資料
 
+- [JDK 25 型別規格](https://docs.oracle.com/en/java/javase/25/jls/se25/html/jls-4.html)
 - [Java 8 基本型別](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
-- [Java 21 型別規格](https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-4.html)
+- [Java 21 型別規格（歷史參考）](https://docs.oracle.com/en/java/javase/21/jls/se21/html/jls-4.html)
 - [Java中8種基本資料型別及其預設值_飛月程式人生-CSDN部落格_float預設值](https://blog.csdn.net/fysuccess/article/details/40656761)

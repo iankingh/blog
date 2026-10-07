@@ -1,5 +1,5 @@
 /* Match the main content grid while keeping controls together in one panel. */
-.topbar-inner { display: grid; grid-template-columns: 234px minmax(0, 1fr); gap: 42px; }
+.topbar-inner { display: grid; grid-template-columns: 234px minmax(0, 1fr); gap: var(--layout-gap); }
 .topbar .brand { font-size: 20px; gap: 10px; letter-spacing: 0; }
 .topbar .brand small { font-size: 10px; letter-spacing: .8px; }
 .topbar .brand-emblem { width: 36px; height: 36px; }
@@ -27,7 +27,7 @@
 /* Use wider screens for the journal grid while keeping long-form reading bounded. */
 @media (min-width: 1600px) {
   .shell, .topbar-inner { width: calc(100% - 192px); max-width: 1920px; }
-  .article-page { width: 100%; max-width: 1080px; justify-self: center; }
+  .article-page { width: 100%; max-width: 1080px; justify-self: start; }
 }
 /* Reserve space for the corner without covering search, theme or menu controls. */
 @media (max-width: 1512px) {
@@ -44,10 +44,10 @@
 .radar-detail p:not(.eyebrow) { font-size: 13px; color: var(--muted); line-height: 1.8; margin: 7px 0; }
 .radar-detail a { margin-top: 8px; }
 @media (max-width: 1380px) {
-  .topbar-inner { grid-template-columns: 220px minmax(0, 1fr); gap: 30px; }
+  .topbar-inner { grid-template-columns: 220px minmax(0, 1fr); }
 }
 @media (max-width: 1100px) {
-  .topbar-inner { grid-template-columns: 200px minmax(0, 1fr); gap: 22px; }
+  .topbar-inner { grid-template-columns: 200px minmax(0, 1fr); }
   .radar-layout { grid-template-columns: 1fr; gap: 18px; }
   .radar-chart svg { max-width: 440px; }
 }
