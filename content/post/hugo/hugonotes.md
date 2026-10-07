@@ -8,7 +8,7 @@ tags:
  - "hugo"
 toc: true
 description: "從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。"
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-07T21:55:51+08:00
 ---
 
 從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。
@@ -19,15 +19,15 @@ lastmod: 2026-10-07T20:50:40+08:00
 
 ## 使用本站
 
-先`hugo version`核對README及workflow要求的Extended版本，Git submodule需初始化。預覽與輸出分開：
+先`hugo version`核對README及workflow要求的Extended版本，主題子模組需初始化。預覽與輸出分開：
 
 ```bash
-git submodule update --init --recursive
+git submodule update --init --recursive themes/hugo-theme-next
 hugo server --bind 127.0.0.1 --port 1315
 hugo --minify --destination /tmp/blog-build-check
 ```
 
-網址依終端顯示，本站含`/blog/`。正式建置不含draft:true；-D僅用於草稿預覽。本站public是gh-pages的submodule，測試輸出別直接寫public。
+網址依終端顯示，本站含`/blog/`。正式建置不含draft:true；-D僅用於草稿預覽。本站唯一子模組為themes/hugo-theme-next；public是Hugo預設建置輸出，已由Git忽略，可重新產生。正式部署使用暫存產物發布至gh-pages。
 
 ## 新站與文章
 

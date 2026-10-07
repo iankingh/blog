@@ -7,7 +7,7 @@
 
 - 本儲存庫的 `master` 分支保存網站設定、文章與版面覆寫。
 - `themes/hugo-theme-next/` 是上游 Hugo NexT 主題的 Git submodule。
-- `public/` 是同一個 `iankingh/blog` 儲存庫 `gh-pages` 分支的 Git submodule，僅保留既有的發布快照；目前正式部署不會寫入它。
+- `public/` 是 Hugo 預設的本機建置輸出，已由 `.gitignore` 排除；正式部署使用暫存產物。
 - [`iankingh/hugo-theme-next-starter`](https://github.com/iankingh/hugo-theme-next-starter) 是可重用的主題範例，不是此站的部署來源。
 - [`iankingh/iankingh.github.io`](https://github.com/iankingh/iankingh.github.io) 的根頁面會將瀏覽器導向本部落格。
 - [`iankingh/iankingh`](https://github.com/iankingh/iankingh) 是 GitHub 個人檔案 README，並非網站建置的一部分。
@@ -34,7 +34,7 @@ cd blog
 git submodule update --init --recursive
 ```
 
-這會同時取得主題與 `public/` 所記錄的發布快照。
+這會取得 `themes/hugo-theme-next/` 主題；主題是目前唯一的 Git submodule。
 
 ## 預覽與建置
 
@@ -47,15 +47,16 @@ hugo server -D
 `http://localhost:1313/blog/`；請以 Hugo 啟動時顯示的網址為準。
 
 ```bash
-# 與自動部署相同的壓縮建置；輸出到獨立目錄以免改動 public submodule
+# 與自動部署相同的壓縮建置；使用獨立的本機輸出目錄
 hugo --minify --destination .local-public
 
 # 驗證完成後移除本機輸出
 rm -rf .local-public
 ```
 
-直接執行 `hugo` 會把預設輸出寫到 `public/`。因為該路徑本身是 Git
-submodule，這會改動其工作目錄；一般維護與部署不需要提交這些輸出。
+直接執行 `hugo` 會把預設輸出寫到 `public/`。`public/` 與 `.local-public/`
+都是可重新產生且由 Git 忽略的本機輸出，一般維護與部署不需提交。
+`.hugo_build.lock` 與 `resources/_gen/` 同樣是 Hugo 執行時產物，不納入版本控制。
 
 ## 內容與設定
 
@@ -173,7 +174,7 @@ node .github/scripts/check-search.cjs
 # Java 21 範例；HikariCP / H2 / SLF4J JAR 的提供方式見 --help
 python3 .github/scripts/check-java-notes.py --help
 
-# 正式建置與既有安全檢查，勿輸出到 public 子模組
+# 正式建置與既有安全檢查，輸出不納入版本控制
 hugo --minify --destination .local-public
 python3 .github/scripts/check-site-security.py .local-public
 ```
@@ -190,13 +191,14 @@ hugo new content/post/<分類>/<文章名稱>.md
 
 推送至 `master` 後，`.github/workflows/deploy.yml` 會：
 
-1. 唯讀的 `build` job 取出原始碼與 submodules，且不保留 Git 憑證；
+1. 唯讀的 `build` job 取出原始碼與主題子模組，且不保留 Git 憑證；
 2. 安裝 Hugo Extended `0.167.0`，驗證搜尋互動，再執行 `hugo --minify`；
 3. 檢查產出 HTML 的 CSP、內嵌腳本與事件處理器，再上傳建置產物；
-4. 獨立 `deploy` job 只下載通過檢查的產物，發布至 `gh-pages` 分支。
+4. 獨立 `deploy` job 取出發布腳本、下載通過檢查的產物，發布至 `gh-pages` 分支；
+5. 確認本次 GitHub Pages 建置完成，再自動建立指向來源提交的 Tag／Release。
 
 工作流程也可由 GitHub Actions 頁面手動執行，只有 `master` 能發布。
-僅發布 job 具有 `contents: write`；不會更新或提交本機 `public/` submodule。
+僅發布 job 具有 `contents: write`；正式站台產物由工作流程發布，本機建置輸出由 Git 忽略。
 Actions 固定為官方 release 對應的完整 commit SHA，由 Dependabot 每週提出
 更新 PR。Hugo 版本需另外檢查正式 release，升級時同步修改 workflow 與本文件。
 
@@ -215,8 +217,8 @@ git submodule update --init --recursive
 ```
 
 升級主題時，請在 `themes/hugo-theme-next/` 選定並測試明確的 release 或
-commit，再由本儲存庫提交新的 submodule pointer。不要在 `public/` 內維護
-文章或手動部署內容；`gh-pages` 由工作流程管理。
+commit，再由本儲存庫提交新的 submodule pointer。文章在 `content/` 維護；
+`gh-pages` 的正式產物由工作流程管理。
 
 ## 已知注意事項
 

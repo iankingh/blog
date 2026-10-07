@@ -1,7 +1,10 @@
 # Hugo 建置檔案
 .hugo_build.lock
 /public/
+/.local-public/
 /resources/_gen/
+__pycache__/
+*.pyc
 
 # 備份檔案
 _backup_drafts/
