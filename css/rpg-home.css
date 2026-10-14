@@ -505,13 +505,16 @@ h1>span {
   color:var(--gold);
 }
 
-.hero h2 {
+.hero :is(h1, h2) {
   font:34px/1.55 var(--serif);
   letter-spacing:2px;
   margin:14px 0 12px;
 }
 
-.hero h2 span {
+.hero :is(h1, h2) span {
+  font: inherit;
+  margin-left: 0;
+  letter-spacing: inherit;
   color:var(--gold);
 }
 
@@ -567,7 +570,8 @@ h1>span {
 }
 
 .hero-art>img {
-  width:125%;
+  image-rendering: pixelated;
+  width:100%;
   max-width:none;
   height:100%;
   object-fit:cover;
@@ -1116,7 +1120,7 @@ a:hover.profile-link,.section-heading>a:hover {
   .hero {
     min-height:340px;
   }
-  .hero h2 {
+  .hero :is(h1, h2) {
     font-size:38px;
   }
   .hero-copy {
@@ -1141,7 +1145,7 @@ a:hover.profile-link,.section-heading>a:hover {
     padding-left:24px;
     padding-right:24px;
   }
-  .hero h2 {
+  .hero :is(h1, h2) {
     font-size:29px;
   }
   .hero-copy {
@@ -1256,11 +1260,11 @@ a:hover.profile-link,.section-heading>a:hover {
   .hero-copy {
     padding:28px 0 25px 25px;
   }
-  .hero h2 {
+  .hero :is(h1, h2) {
     font-size:32px;
   }
   .hero-art>img {
-    width:130%;
+    width:100%;
   }
   .world-stats>div {
     padding:0 18px;
@@ -1357,7 +1361,7 @@ a:hover.profile-link,.section-heading>a:hover {
     font-size:12px;
     letter-spacing:1px;
   }
-  .hero h2 {
+  .hero :is(h1, h2) {
     font-size:32px;
     margin:13px 0 12px;
   }
