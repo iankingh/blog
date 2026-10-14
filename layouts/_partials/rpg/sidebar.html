@@ -16,12 +16,12 @@
       <div class="character-label"><span>寫作經驗 EXP</span><b>{{ $xp }} / 10</b></div>
       <progress class="xp-progress" value="{{ $xp }}" max="10" aria-label="寫作經驗：{{ $xp }} / 10"></progress>
       <p class="xp-note">每累積 10 篇筆記，升 1 級</p>
-      <div class="character-stats"><a href="{{ "archives/" | relURL }}"><b>{{ $count }}</b><span>冒險筆記</span></a><a href="{{ "tags/" | relURL }}"><b>{{ len .Site.Taxonomies.tags }}</b><span>技能標籤</span></a></div>
+      <div class="character-stats"><a href="{{ "archives/" | relURL }}"><b>{{ $count }}</b><span>冒險筆記</span></a><a href="{{ "tags/" | relURL }}"><b>{{ len .Site.Taxonomies.tags }}</b><span>筆記標籤</span></a></div>
       <a class="profile-link" href="{{ "about/" | relURL }}">查看角色檔案 {{ partial "rpg/icon.html" "arrow" }}</a>
     </section>
     <nav class="side-nav secondary-nav" aria-label="筆記分類與歷程">
       <p class="nav-label">更多閱讀方式 <span>EXPLORE</span></p>
-      <a href="{{ "tags/" | relURL }}" {{ if eq .Data.Plural "tags" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "code" }}技能標籤</a>
+      <a href="{{ "tags/" | relURL }}" {{ if eq .Data.Plural "tags" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "code" }}筆記標籤</a>
       <a href="{{ "categories/" | relURL }}" {{ if eq .Data.Plural "categories" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "map" }}探索地圖</a>
       <a href="{{ "archives/" | relURL }}" {{ if eq .Section "archives" }}class="active" aria-current="page"{{ end }}>{{ partial "rpg/icon.html" "archive" }}歷程圖鑑</a>
     </nav>

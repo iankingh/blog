@@ -6,7 +6,7 @@
 .secondary-nav > a { font-size: 13px; }
 .hero-copy { padding-right: 18px; }
 .hero-art > img { width: 100%; }
-.hero h2 { font-size: clamp(28px, 2.4vw, 38px); line-height: 1.55; }
+.hero :is(h1, h2) { font-size: clamp(28px, 2.4vw, 38px); line-height: 1.55; }
 .topbar { position: relative; padding: 0; }
 .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; max-width: 1320px; margin: auto; }
 .github-corner { position: absolute; top: 0; right: 0; z-index: 2; width: 80px; height: 80px; color: #25291c; }
@@ -115,7 +115,7 @@
   .hero { min-height: 440px; }
   .hero-copy { padding: 24px 23px 200px; }
   .hero-copy > p { font-size: 15px; margin-bottom: 18px; }
-  .hero h2 { font-size: 30px; }
+  .hero :is(h1, h2) { font-size: 30px; }
   .hero-art > img { opacity: .85; height: 44%; }
   .scene-caption { display: none; }
   .hero-footnote { letter-spacing: 0; }

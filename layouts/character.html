@@ -35,7 +35,7 @@
       <div class="sheet-experience"><div><span>寫作經驗 EXP</span><b>{{ $xp }} / 10 篇</b></div><progress class="xp-progress" value="{{ $xp }}" max="10" aria-label="距下一個寫作等級已累積 {{ $xp }} 篇，共需 10 篇"></progress><p>再記錄 {{ sub 10 $xp }} 篇筆記，就能抵達 Lv. {{ add $level 1 }}。</p></div>
       <dl class="sheet-facts">
         <div><dt>已記錄的冒險</dt><dd>{{ $count }} <span>篇筆記</span></dd></div>
-        <div><dt>修練技能</dt><dd>{{ len $skills }} <span>項技能</span></dd></div>
+        <div><dt>技能領域</dt><dd>{{ len $skills }} <span>項技能領域</span></dd></div>
         <div><dt>首次筆記</dt><dd class="first-entry">{{ range first 1 $posts.Reverse }}{{ .Date.Format "2006.01" }}{{ else }}待啟程{{ end }}</dd></div>
       </dl>
       <blockquote class="sheet-creed">「總有一天，你的日積月累，<br>會變成他人的望塵莫及。」<cite>— 冒險者信條</cite></blockquote>

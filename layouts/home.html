@@ -13,9 +13,8 @@
 <div class="shell">
   {{ partial "rpg/sidebar.html" . }}
   <main id="main" class="main-content">
-    <div class="page-heading"><div><p class="eyebrow">FULL STACK · AI PLANNING</p><h1>Ian Huang<span>全端工程師・AI 規劃師</span></h1></div></div>
     <section class="hero panel" aria-labelledby="hero-title">
-      <div class="hero-copy"><span class="hero-label">✦ 每一次實作，都是新的經驗值</span><h2 id="hero-title">我是 Ian<br><span>全端工程師<br>AI 規劃師</span></h2><p>這裡記錄全端開發、AI 規劃、解題實作與持續學習。</p><div class="hero-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub ↗</a><a class="button-secondary" href="{{ .Site.BaseURL }}#quests">{{ partial "rpg/icon.html" "book" }}閱讀筆記</a></div><span class="hero-footnote">從程式原理到實際問題，把探索留下來。</span></div>
+      <div class="hero-copy"><span class="hero-label">✦ 每一次實作，都是新的經驗值</span><h1 id="hero-title">我是 Ian<br><span>全端工程師<br>AI 規劃師</span></h1><p>這裡記錄全端開發、AI 規劃、解題實作與持續學習。</p><div class="hero-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub ↗</a><a class="button-secondary" href="{{ .Site.BaseURL }}#quests">{{ partial "rpg/icon.html" "book" }}閱讀筆記</a></div><span class="hero-footnote">從程式原理到實際問題，把探索留下來。</span></div>
       <div class="hero-art"><img src="{{ "images/rpg-camp.svg" | relURL }}" alt="像素風的森林營地：冒險者在營火旁休息" width="600" height="390"><div class="scene-caption" aria-hidden="true"><i></i> CAMPFIRE SAVE POINT <span>存檔點：學習的日常</span></div></div>
     </section>
     <section id="quests" class="quests-section">
@@ -26,11 +25,11 @@
         <div class="featured-grid">{{ range first 3 . }}{{ partial "rpg/featured-card.html" . }}{{ end }}</div>
       </section>
       {{ end }}{{ end }}
-      <div class="quest-toolbar"><span><i></i> 最新探索紀錄 <small>共 {{ $count }} 篇筆記 · 第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 頁</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}尋找任務</button></div>
+      <div class="quest-toolbar"><span><i></i> 最新探索紀錄 <small>依最後更新排序 · 共 {{ $count }} 篇筆記 · 第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 頁</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}尋找任務</button></div>
       <div class="quest-grid">{{ range $paginator.Pages }}{{ partial "rpg/quest-card.html" . }}{{ end }}</div>
       {{ partial "rpg/pagination.html" (dict "paginator" $paginator "anchor" "quests") }}
     </section>
-    <div class="learning-summary panel"><span>持續累積的學習紀錄</span><a href="{{ "archives/" | relURL }}">{{ $count }} 篇公開筆記</a><a href="{{ "skills/" | relURL }}">{{ len $skills }} 項修練技能</a><a href="{{ "categories/" | relURL }}">{{ len .Site.Taxonomies.categories }} 個分類</a></div>
+    <div class="learning-summary panel"><span>持續累積的學習紀錄</span><a href="{{ "archives/" | relURL }}">{{ $count }} 篇公開筆記</a><a href="{{ "skills/" | relURL }}">{{ len $skills }} 項技能領域</a><a href="{{ "tags/" | relURL }}">{{ len .Site.Taxonomies.tags }} 個筆記標籤</a><a href="{{ "categories/" | relURL }}">{{ len .Site.Taxonomies.categories }} 個文章分類</a></div>
     {{ partial "rpg/footer.html" . }}
   </main>
 </div>

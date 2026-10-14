@@ -412,5 +412,248 @@
       "theme": "light"
     }
   },
-  "validationScope": "UI 抽查及 DOM 量測；非所有瀏覽器或 Spring Cloud 服務的實機測試。搜尋與全部內部連結另由腳本驗證。"
+  "validationScope": "UI 抽查及 DOM 量測；非所有瀏覽器或 Spring Cloud 服務的實機測試。搜尋與全部內部連結另由腳本驗證。",
+  "homepageHierarchy": {
+    "checkedOn": "2026-10-14",
+    "revision": "首頁視覺層級與統計名稱",
+    "url": "http://localhost:1315/blog/",
+    "layoutMeasurements": [
+      {
+        "actionsRight": 324,
+        "artWidth": 354,
+        "cardCount": 10,
+        "columns": "356px",
+        "dpr": 1,
+        "h1": 1,
+        "imageRendering": "pixelated",
+        "imageWidth": 354,
+        "mainRight": 373,
+        "overflow": false,
+        "panelBackground": "rgba(0, 0, 0, 0)",
+        "panelBorder": "0px",
+        "spanFont": "30px",
+        "titleFont": "30px",
+        "width": 390
+      },
+      {
+        "actionsRight": 734,
+        "artWidth": 387,
+        "cardCount": 10,
+        "columns": "380.5px 380.5px",
+        "dpr": 1,
+        "h1": 1,
+        "imageRendering": "pixelated",
+        "imageWidth": 387,
+        "mainRight": 798,
+        "overflow": false,
+        "panelBackground": "rgba(0, 0, 0, 0)",
+        "panelBorder": "0px",
+        "spanFont": "28px",
+        "titleFont": "28px",
+        "width": 820
+      },
+      {
+        "actionsRight": 928,
+        "artWidth": 387.984375,
+        "cardCount": 10,
+        "columns": "370.5px 370.5px",
+        "dpr": 1,
+        "h1": 1,
+        "imageRendering": "pixelated",
+        "imageWidth": 387.984375,
+        "mainRight": 1000,
+        "overflow": false,
+        "panelBackground": "rgba(0, 0, 0, 0)",
+        "panelBorder": "0px",
+        "spanFont": "28px",
+        "titleFont": "28px",
+        "width": 1024
+      },
+      {
+        "actionsRight": 1344,
+        "artWidth": 545.4375,
+        "cardCount": 10,
+        "columns": "523.5px 523.5px",
+        "dpr": 1,
+        "h1": 1,
+        "imageRendering": "pixelated",
+        "imageWidth": 545.4375,
+        "mainRight": 1380,
+        "overflow": false,
+        "panelBackground": "rgba(0, 0, 0, 0)",
+        "panelBorder": "0px",
+        "spanFont": "34.56px",
+        "titleFont": "34.56px",
+        "width": 1440
+      },
+      {
+        "actionsRight": 1824,
+        "artWidth": 755.3828125,
+        "cardCount": 10,
+        "columns": "727.5px 727.5px",
+        "dpr": 1,
+        "h1": 1,
+        "imageRendering": "pixelated",
+        "imageWidth": 755.3828125,
+        "mainRight": 1824,
+        "overflow": false,
+        "panelBackground": "rgba(0, 0, 0, 0)",
+        "panelBorder": "0px",
+        "spanFont": "38px",
+        "titleFont": "38px",
+        "width": 1920
+      },
+      {
+        "actionsRight": 2240,
+        "artWidth": 854.1796875,
+        "cardCount": 10,
+        "columns": "823.5px 823.5px",
+        "dpr": 1,
+        "h1": 1,
+        "imageRendering": "pixelated",
+        "imageWidth": 854.1796875,
+        "mainRight": 2240,
+        "overflow": false,
+        "panelBackground": "rgba(0, 0, 0, 0)",
+        "panelBorder": "0px",
+        "spanFont": "38px",
+        "titleFont": "38px",
+        "width": 2560
+      }
+    ],
+    "sharedPageMeasurements": [
+      {
+        "cards": 10,
+        "columns": "356px",
+        "mainWidth": 356,
+        "menuGap": null,
+        "overflow": false,
+        "path": "/blog/post/",
+        "shellLeft": 0,
+        "shellRight": 0,
+        "toolbar": "最新探索紀錄 依最後更新排序 · 共 130 篇筆記 · 第 1 / 13 頁\n尋找任務",
+        "width": 390
+      },
+      {
+        "cards": 0,
+        "columns": null,
+        "mainWidth": 356,
+        "menuGap": null,
+        "overflow": false,
+        "path": "/blog/post/spring-boot/spring-boot-interview/",
+        "shellLeft": 0,
+        "shellRight": 0,
+        "width": 390
+      },
+      {
+        "cards": 10,
+        "columns": "727.5px 727.5px",
+        "mainWidth": 1470,
+        "menuGap": 24,
+        "overflow": false,
+        "path": "/blog/post/",
+        "shellLeft": 96,
+        "shellRight": 96,
+        "toolbar": "最新探索紀錄 依最後更新排序 · 共 130 篇筆記 · 第 1 / 13 頁\n尋找任務",
+        "width": 1920
+      },
+      {
+        "cards": 0,
+        "columns": null,
+        "mainWidth": 1080,
+        "menuGap": 24,
+        "overflow": false,
+        "path": "/blog/post/spring-boot/spring-boot-interview/",
+        "shellLeft": 291,
+        "shellRight": 291,
+        "width": 1920
+      },
+      {
+        "cards": 10,
+        "columns": "823.5px 823.5px",
+        "mainWidth": 1662,
+        "menuGap": 24,
+        "overflow": false,
+        "path": "/blog/post/",
+        "shellLeft": 320,
+        "shellRight": 320,
+        "toolbar": "最新探索紀錄 依最後更新排序 · 共 130 篇筆記 · 第 1 / 13 頁\n尋找任務",
+        "width": 2560
+      },
+      {
+        "cards": 0,
+        "columns": null,
+        "mainWidth": 1080,
+        "menuGap": 24,
+        "overflow": false,
+        "path": "/blog/post/spring-boot/spring-boot-interview/",
+        "shellLeft": 611,
+        "shellRight": 611,
+        "width": 2560
+      }
+    ],
+    "pages": [
+      {
+        "count": "8 項技能領域",
+        "heading": "技能圖鑑Skill Codex",
+        "overflow": false,
+        "path": "/blog/skills/",
+        "summary": "以 Java 後端與前端開發為主，持續累積解題與實作紀錄。"
+      },
+      {
+        "count": "67 個筆記標籤",
+        "heading": "筆記標籤Journal Tags",
+        "overflow": false,
+        "path": "/blog/tags/",
+        "summary": "筆記標籤標示文章涉及的技術與主題；技能領域則是本站自訂的分組，可涵蓋多個標籤。技能領域與寫作進度請查看技能圖鑑。"
+      },
+      {
+        "count": "3 個文章分類",
+        "heading": "探索地圖Categories",
+        "overflow": false,
+        "path": "/blog/categories/",
+        "summary": "文章分類提供較廣的內容分組；選擇一個分類，閱讀相關筆記。"
+      },
+      {
+        "heading": "角色檔案Character Sheet",
+        "overflow": false,
+        "path": "/blog/about/",
+        "summary": "Lv. 依相關公開筆記累積，每 10 篇升 1 級；這是學習紀錄進度。"
+      },
+      {
+        "heading": "任務日誌Quest Log",
+        "overflow": false,
+        "path": "/blog/post/",
+        "summary": "收錄 130 篇探索筆記，沿著技術與學習的路線繼續前進。"
+      },
+      {
+        "dates": "發布 2021.03.16更新 2026.10.07\n約 5 分鐘Ian Huang",
+        "heading": "Spring Boot 核心觀念：自動配置、設定與可驗證回答",
+        "overflow": false,
+        "path": "/blog/post/spring-boot/spring-boot-interview/"
+      }
+    ],
+    "pixelDensities": [
+      1,
+      2
+    ],
+    "interactions": {
+      "slashFocus": true,
+      "searchResults": true,
+      "dayNight": true,
+      "mobileMenu": true
+    },
+    "buildChecks": {
+      "hugo": "passed",
+      "content": "130 notes; home/post 13 pages × 10; internal links/assets passed",
+      "security": "345 HTML pages passed",
+      "search": "passed"
+    },
+    "highDensityCheck": {
+      "width": 1280,
+      "devicePixelRatio": 2,
+      "imageRendering": "pixelated",
+      "overflow": false
+    }
+  }
 }

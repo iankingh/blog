@@ -92,13 +92,14 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 - `layouts/baseof.html`：文章及列表頁共用的頁首、角色側欄與搜尋。
 - `layouts/page.html`：文章閱讀面板、可收合目錄、分類標籤、相鄰文章與留言。
 - `layouts/guestbook.html`、`static/js/rpg-guestbook.js`：想法營地與 Disqus 載入狀態。留言板使用固定的 `disqusIdentifier`，請勿隨意更換，以免分離既有討論；本機只預覽版面，正式站台提供留言。留言區使用固定淺色底，避免切換網站主題時影響正在編輯的留言。
-- `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、分類與技能標籤列表。
+- `layouts/section.html`、`layouts/term.html`、`layouts/taxonomy.html`：文章列表、文章分類與筆記標籤列表；任務卡片顯示更新日期，列表明示依最後更新排序。
 - `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
 - `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；頂部功能列與主內容共用版面寬度，右上角保留 GitHub Corners 折角與揮手動畫，使用既有 githubBanner 設定連至個人 GitHub，窄螢幕會預留空間避免遮住操作按鈕。
-- `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單。
+- `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單；首頁直接以 Hero H1 開始，營火 SVG 保留 crispEdges 並使用 pixelated，圖片寬度為容器的 100%。
 - `static/css/rpg-pages.css`、`static/js/rpg-article.js`：全站列表與文章排版、程式碼複製；圖片原生延遲載入，表格與程式碼可水平捲動。
 - `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站的「夜間紮營／白晝探索」主題切換，預設白晝；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
-- `static/css/rpg-exploration.css`：與主內容網格對齊的頂部控制面板、卡片日期與底部高度及技能雷達圖排版。1600px 以上任務列表採較寬版面（上限 1920px），每列最多兩篇、手機採單欄；文章內頁將 MENU 與 1080px 閱讀區整組置中，頂部功能列使用相同寬度，避免右側留下空網格。
+- `static/css/rpg-exploration.css`：與主內容網格對齊、靠右排列且無外層框線的頂部控制列、卡片日期與底部高度及技能雷達圖排版。1600px 以上任務列表採較寬版面（上限 1920px），每列最多兩篇、手機採單欄；文章內頁將 MENU 與 1080px 閱讀區整組置中，頂部功能列使用相同寬度，避免右側留下空網格。
+- 統計名稱：技能圖鑑的自訂分組稱為「技能領域」，Hugo tags 稱為「筆記標籤」，categories 稱為「文章分類」。數字由資料動態計算；一項技能領域可涵蓋多個標籤，三種統計不互相加總。
 - `layouts/_partials/rpg/asset-url.html`：CSS／JavaScript 網址附上檔案內容雜湊，修改資源後自動更新瀏覽器快取。
 - `layouts/_partials/rpg/pagination.html`：首頁、筆記、標籤／分類列表及年份歸檔使用數字分頁器與上一頁／下一頁，統一依 `config.yaml` 的 `pagination.pagerSize: 10` 每頁顯示最多 10 篇；切換後直接定位到列表，不需 JavaScript。
 - `layouts/_partials/rpg/skill-radar.html`、`static/js/rpg-skills.js`：技能圖鑑使用原生 SVG 雷達圖呈現公開筆記數，各軸使用同一尺度。按鈕支援滑鼠、Enter、方向鍵、Home／End 選擇，顯示技能進度與文章入口；圖形含螢幕閱讀器文字描述。DevOps 對應既有版本控制、容器與部署筆記，不另設能力評分。
