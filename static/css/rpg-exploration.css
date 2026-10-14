@@ -27,6 +27,8 @@
 /* Use wider screens for the journal grid while keeping long-form reading bounded. */
 @media (min-width: 1600px) {
   .shell, .topbar-inner { width: calc(100% - 192px); max-width: 1920px; }
+  /* Center the menu and reading column as one group, without an empty grid track. */
+  .reading-layout .shell, .reading-layout .topbar-inner { max-width: calc(234px + var(--layout-gap) + 1080px); }
   .article-page { width: 100%; max-width: 1080px; justify-self: start; }
 }
 /* Reserve space for the corner without covering search, theme or menu controls. */

@@ -15,7 +15,7 @@
 <head>
   {{ partial "rpg/head.html" (dict "page" . "title" .Title "canonical" $canonical) }}
 </head>
-<body>
+<body{{ if and .IsPage (eq .Section "post") }} class="reading-layout"{{ end }}>
 <a class="skip-link" href="#main">跳至主要內容</a>
 {{ partial "rpg/header.html" . }}
 <div class="shell">
