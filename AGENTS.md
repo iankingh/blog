@@ -1,0 +1,33 @@
+# Blog 開發入口
+
+本站是繁體中文 Hugo 技術筆記部落格；專案結構、啟動與內容慣例見 `readme.md`。
+Hugo Extended 版本以 `.github/workflows/deploy.yml` 為準。
+`themes/hugo-theme-next/` 是子模組；本站版面優先修改 `layouts/`、`static/`。
+
+## 開工與交班
+
+- 先看本次需求、`git status` 與相關檔案，保留既有未提交修改。
+- 跨會話或涉及多步驟的任務，依 `docs/harness/task-template.md` 留下範圍、驗收與下一步。
+- 接續任務時核對當前程式、差異與測試狀態；舊報告只代表當時的版本。
+
+## 驗證與回饋
+
+- 交付前從儲存庫執行 `python3 .github/scripts/verify-blog.py`。
+- 結果與各步日誌在命令印出的暫存目錄；失敗時先讀對應日誌，依證據修正再重跑。
+- 兩輪相同失敗且沒有新線索時，轉做診斷、縮小重現範圍並記錄阻礙；不要無限重試。
+- 檢查失敗、工具缺漏、逾時及未執行都不能寫成通過，也不能藉修改標準讓結果變綠。
+- 新增／修正行為需有對應案例；版面與互動變更還需實際瀏覽器檢查。
+- 網站驗證不會重跑全部技術教學。修改 Java／Spring／Vue／Angular 範例時，另依
+  `docs/verification/README.md` 執行適用檢查並說明未測部分。
+- 最後說明改了什麼、實際驗證結果、證據路徑與剩餘限制。
+
+## 必須保留的專案限制
+
+- 文章路徑與原始 `date` 保留；內容實際修訂才更新 `lastmod`，並同步 `docs/note-review.json`。
+- 文章內部連結使用 Hugo `ref`／`relref`；保留來源，查核紀錄留在 `docs/`。
+- Goldmark 原始 HTML 保持關閉；保留既有 CSP，不用放寬限制來修復功能。
+- 保留留言板的 `disqusIdentifier`，避免分離既有討論。
+- 站點在 `/blog/` 路徑，資源與內部連結要以實際建置結果確認。
+- 本機與 PR 驗證只產生測試證據；發布、推送與部署另依使用者要求處理。
+
+完整操作流程與驗收範圍見 `docs/harness/README.md`。

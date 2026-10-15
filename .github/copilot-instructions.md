@@ -2,6 +2,9 @@
 
 本站是繁體中文 Hugo 技術筆記部落格，版面以 RPG 冒險者為主題，正式網址為 `https://iankingh.github.io/blog/`。
 
+共用開發與驗證規則見根目錄 [AGENTS.md](../AGENTS.md)；交付前執行
+`python3 .github/scripts/verify-blog.py`，依日誌修正失敗，範圍見 [Harness 指南](../docs/harness/README.md)。
+
 ## 專案與建置
 
 - 最新架構、維護方式、建置與部署說明以根目錄 `readme.md` 為準；Hugo 版本以 `.github/workflows/deploy.yml` 固定的 Extended 版本為準。

@@ -12,6 +12,20 @@
 - [`iankingh/iankingh.github.io`](https://github.com/iankingh/iankingh.github.io) 的根頁面會將瀏覽器導向本部落格。
 - [`iankingh/iankingh`](https://github.com/iankingh/iankingh) 是 GitHub 個人檔案 README，並非網站建置的一部分。
 
+## AI 開發與統一驗證
+
+共用開發入口見 [AGENTS.md](AGENTS.md)，多步驟任務與失敗恢復見
+[Harness 操作指南](docs/harness/README.md) 及 [任務範本](docs/harness/task-template.md)。
+
+```bash
+python3 .github/scripts/verify-blog.py
+```
+
+此命令重用文章、搜尋、Python 單元測試、Hugo 建置及生成內容／安全檢查，將結果與日誌
+存入每輪獨立的暫存目錄。失敗、缺工具、逾時與跳過都不會回報成功；來源在驗證途中改變也會失敗。
+PR 與部署的 build job 使用相同入口。Java／Spring／Vue／Angular 教學範例與瀏覽器外觀
+仍需依變更另做適用驗證，詳見 [隔離範例驗證](docs/verification/README.md)。
+
 ## 環境需求
 
 - Git
@@ -198,8 +212,8 @@ hugo new content/post/<分類>/<文章名稱>.md
 推送至 `master` 後，`.github/workflows/deploy.yml` 會：
 
 1. 唯讀的 `build` job 取出原始碼與主題子模組，且不保留 Git 憑證；
-2. 安裝 Hugo Extended `0.167.0`，驗證搜尋互動，再執行 `hugo --minify`；
-3. 檢查產出 HTML 的 CSP、內嵌腳本與事件處理器，再上傳建置產物；
+2. 安裝 Hugo Extended `0.167.0`，執行統一驗證入口（含搜尋、Python 測試與 `hugo --minify`）；
+3. 確認生成內容與 HTML 安全檢查通過，上傳建置產物，並保留當輪 report 與 logs；
 4. 獨立 `deploy` job 取出發布腳本、下載通過檢查的產物，發布至 `gh-pages` 分支；
 5. 確認本次 GitHub Pages 建置完成，再自動建立指向來源提交的 Tag／Release。
 

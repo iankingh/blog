@@ -32,26 +32,25 @@ jobs:
           hugo-version: '0.167.0'
           extended: true
 
-      - name: Check search interactions
-        run: node .github/scripts/check-search.cjs
+      - name: Verify site
+        run: python3 .github/scripts/verify-blog.py --output "$RUNNER_TEMP/blog-verification"
 
-      - name: Check deployment release logic
-        run: python3 -m unittest discover -s .github/scripts -p 'test_deployment_release.py'
-
-      - name: Build
-        run: hugo --minify --destination "$RUNNER_TEMP/blog-public"
-
-      - name: Check generated site security
-        run: python3 .github/scripts/check-site-security.py "$RUNNER_TEMP/blog-public"
-
-      - name: Check notes and generated links
-        run: python3 .github/scripts/check-note-content.py --site "$RUNNER_TEMP/blog-public"
+      - name: Upload verification evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: blog-verification
+          path: |
+            ${{ runner.temp }}/blog-verification/report.json
+            ${{ runner.temp }}/blog-verification/logs
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Upload site
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: blog-public
-          path: ${{ runner.temp }}/blog-public
+          path: ${{ runner.temp }}/blog-verification/site
           if-no-files-found: error
           retention-days: 1
 
