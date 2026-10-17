@@ -110,6 +110,7 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 - `layouts/archives/section.html`、`layouts/404.html`：依年份整理的冒險歷程與迷途頁面。
 - `layouts/_partials/rpg/`：共用頁首、導覽、搜尋、頁尾及主題切換；頂部功能列與主內容共用版面寬度，右上角保留 GitHub Corners 折角與揮手動畫，使用既有 githubBanner 設定連至個人 GitHub，窄螢幕會預留空間避免遮住操作按鈕。
 - `static/css/rpg-home.css`、`static/js/rpg-home.js`：首頁樣式、搜尋視窗及手機選單；首頁直接以 Hero H1 開始，營火 SVG 保留 crispEdges 並使用 pixelated，圖片寬度為容器的 100%。
+- `static/css/rpg-home-polish.css`：僅首頁載入的細節修整，保留角色側欄、營火 Hero、三張精選與雙欄任務卡；微調標題字距、換行與手機 44px 控制尺寸。首頁文案使用實際筆記主題，移除重複的英文標籤與口號。
 - `static/css/rpg-pages.css`、`static/js/rpg-article.js`：全站列表與文章排版、程式碼複製；圖片原生延遲載入，表格與程式碼可水平捲動。
 - `static/js/rpg-theme.js`、`static/css/rpg-theme.css`：全站的「夜間紮營／白晝探索」主題切換，預設白晝；使用獨立的儲存鍵記住選擇，儲存功能被停用時仍可切換。
 - `static/css/rpg-exploration.css`：與主內容網格對齊、靠右排列且無外層框線的頂部控制列、卡片日期與底部高度及技能雷達圖排版。1600px 以上任務列表採較寬版面（上限 1920px），每列最多兩篇、手機採單欄；文章內頁將 MENU 與 1080px 閱讀區整組置中，頂部功能列使用相同寬度，避免右側留下空網格。

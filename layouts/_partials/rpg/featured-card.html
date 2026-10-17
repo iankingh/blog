@@ -1,5 +1,4 @@
 <article class="featured-card panel">
-  <p class="eyebrow">JAVA FIELD NOTES · {{ .Params.featuredOrder }}</p>
   <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
   <p>{{ (partial "rpg/summary.html" .) | truncate 110 }}</p>
   <div class="featured-meta"><span>更新 <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time></span><span>約 {{ .ReadingTime }} 分鐘</span></div>
