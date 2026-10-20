@@ -1,0 +1,26 @@
+/* Refine copy and controls while preserving the existing RPG composition. */
+.home-refined .hero h1 {
+  letter-spacing: .02em;
+}
+
+.home-refined :is(.featured-card h4, .quest-card h3) {
+  text-wrap: pretty;
+}
+
+@media (max-width: 820px) {
+  .home-refined .topbar :is(.search-trigger, .theme-toggle, .menu-toggle) {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 540px) {
+  .home-refined .topbar :is(.search-trigger, .theme-toggle, .menu-toggle) {
+    width: 44px;
+  }
+
+  .home-refined .topbar {
+    padding-inline: 0;
+  }
+}
