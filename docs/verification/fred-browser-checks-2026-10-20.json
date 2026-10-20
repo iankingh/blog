@@ -1,0 +1,70 @@
+{
+  "checkedOn": "2026-10-20",
+  "url": "http://localhost:1315/blog/",
+  "measurements": [
+    {
+      "codeBlocks": 5,
+      "codeScrollable": true,
+      "h1": "▶️ YT-Fred 那些年我們實作過的抽獎系統｜Will 保哥 × Fred：機率設計五個維度、大獎不靠機率、Redis 扣庫存與壓測（筆記）",
+      "overflow": false,
+      "path": "/blog/post/system-design/fred-lottery-system/",
+      "privateLinks": 0,
+      "tables": 4,
+      "tablesScrollable": true,
+      "tocLinks": 13,
+      "width": 390
+    },
+    {
+      "codeBlocks": 4,
+      "codeScrollable": true,
+      "h1": "▶️ YT-Fred 聊 SOLID 設計原則｜五個原則環環相扣：SRP 是前提、OCP 是目標、DIP 是做法，LSP 與 ISP 守住介面（筆記）",
+      "overflow": false,
+      "path": "/blog/post/software-design/fred-solid-principles/",
+      "privateLinks": 0,
+      "tables": 4,
+      "tablesScrollable": true,
+      "tocLinks": 10,
+      "width": 390
+    },
+    {
+      "codeBlocks": 5,
+      "codeScrollable": true,
+      "h1": "▶️ YT-Fred 那些年我們實作過的抽獎系統｜Will 保哥 × Fred：機率設計五個維度、大獎不靠機率、Redis 扣庫存與壓測（筆記）",
+      "overflow": false,
+      "path": "/blog/post/system-design/fred-lottery-system/",
+      "privateLinks": 0,
+      "tables": 4,
+      "tablesScrollable": true,
+      "tocLinks": 13,
+      "width": 1440
+    },
+    {
+      "codeBlocks": 4,
+      "codeScrollable": true,
+      "h1": "▶️ YT-Fred 聊 SOLID 設計原則｜五個原則環環相扣：SRP 是前提、OCP 是目標、DIP 是做法，LSP 與 ISP 守住介面（筆記）",
+      "overflow": false,
+      "path": "/blog/post/software-design/fred-solid-principles/",
+      "privateLinks": 0,
+      "tables": 4,
+      "tablesScrollable": true,
+      "tocLinks": 10,
+      "width": 1440
+    }
+  ],
+  "search": {
+    "query": "Fred",
+    "results": 2
+  },
+  "lastPage": {
+    "page": 14,
+    "cards": 2
+  },
+  "toc": {
+    "target": "JDK 25 完整範例：匯出流程只依賴所需能力",
+    "headingTop": 52.046875
+  },
+  "screenshots": [
+    "/tmp/blog-fred-mobile-preview.png",
+    "/tmp/blog-fred-lottery-preview.png"
+  ]
+}

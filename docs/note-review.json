@@ -8036,5 +8036,90 @@
     "originalReferences": [],
     "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
     "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
+  },
+  {
+    "path": "content/post/system-design/▶️ YT-Fred 那些年我們實作過的抽獎系統｜Will 保哥 × Fred：機率設計五個維度、大獎不靠機率、Redis 扣庫存與壓測（筆記）.md",
+    "title": "▶️ YT-Fred 那些年我們實作過的抽獎系統｜Will 保哥 × Fred：機率設計五個維度、大獎不靠機率、Redis 扣庫存與壓測（筆記）",
+    "originalDraft": false,
+    "originalDate": "2026-10-20",
+    "lastmod": "2026-10-20",
+    "context": "適用：接觸行銷活動、即時抽獎、秒殺或系統設計的工程師。本文依既有影片筆記重新整理；影片中的歷史活動與假設數字不代表現行服務規格。時間連結沿用原筆記，未重新逐段觀看影片核對。",
+    "issues": [],
+    "changes": "保留使用者原始完整筆記名稱與檔名，轉為 Hugo 文章；重新組織段落、保留影片署名與主要時間連結，移除私人索引及筆記工具語法，新增經查核的工程補充與可執行範例。 還原原筆記「這部影片是什麼」的來源、背景／來賓、問題意識、核心觀點、適合對象與注意事項；SOLID 另保留講解順序，正文與時間連結不改寫。",
+    "sources": [
+      "https://redis.io/docs/latest/develop/programmability/eval-intro/",
+      "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "https://nodejs.org/api/crypto.html#cryptorandomintmin-max-callback",
+      "https://grafana.com/docs/k6/latest/using-k6/thresholds/",
+      "https://www.youtube.com/watch?v=e3DDXSMWr5w",
+      "https://blog.miniasp.com/",
+      "https://jmeter.apache.org/",
+      "https://locust.io/"
+    ],
+    "verification": "Node.js 26.5.0：8 個機率區間邊界、4 個無效輸入、亂數結果與全部 10000 個索引的權重計數通過；Redis Lua 僅查閱官方文件，未啟動 Redis／叢集或壓測。 影片依使用者提供 Markdown 整理，未重看全片或逐段核對時間。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "local-example-and-documentation",
+    "originalReferences": [
+      "https://www.youtube.com/watch?v=e3DDXSMWr5w"
+    ],
+    "reviewedAt": "2026-10-20",
+    "sourceNote": {
+      "filename": "▶️ YT-Fred 那些年我們實作過的抽獎系統｜Will 保哥 × Fred：機率設計五個維度、大獎不靠機率、Redis 扣庫存與壓測（筆記）.md",
+      "sha256": "03528245a74bef1b00e85b7eaec8114d94cc4b212a38a14efca278d413d78469",
+      "video": "https://www.youtube.com/watch?v=e3DDXSMWr5w",
+      "scope": "使用者提供的既有影片筆記，非本次重新取得逐字稿；2026-10-20 為新增部落格文章日期，不推定原稿或影片發布日期。"
+    },
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-20T21:35:29+08:00"
+  },
+  {
+    "path": "content/post/software-design/▶️ YT-Fred 聊 SOLID 設計原則｜五個原則環環相扣：SRP 是前提、OCP 是目標、DIP 是做法，LSP 與 ISP 守住介面（筆記）.md",
+    "title": "▶️ YT-Fred 聊 SOLID 設計原則｜五個原則環環相扣：SRP 是前提、OCP 是目標、DIP 是做法，LSP 與 ISP 守住介面（筆記）",
+    "originalDraft": false,
+    "originalDate": "2026-10-20",
+    "lastmod": "2026-10-20",
+    "context": "適用：已接觸物件導向、介面與後端服務，想把 SOLID 用在日常重構與程式審查的工程師。Java 範例使用 JDK 25 與標準函式庫，不需要 Spring 或雲端帳號。",
+    "issues": [],
+    "changes": "保留使用者原始完整筆記名稱與檔名，轉為 Hugo 文章；重新組織段落、保留影片署名與主要時間連結，移除私人索引及筆記工具語法，新增經查核的工程補充與可執行範例。 還原原筆記「這部影片是什麼」的來源、背景／來賓、問題意識、核心觀點、適合對象與注意事項；SOLID 另保留講解順序，正文與時間連結不改寫。",
+    "sources": [
+      "https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html",
+      "https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html",
+      "https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html",
+      "https://www.cs.tufts.edu/~nr/cs257/archive/barbara-liskov/data-abstraction-and-hierarchy.pdf",
+      "https://www.youtube.com/watch?v=e0UOuQ_lCUY",
+      "https://agilemanifesto.org/",
+      "https://speakerdeck.com/tastapod/why-every-element-of-solid-is-wrong"
+    ],
+    "verification": "OpenJDK 25.0.4.1 原生 javac 編譯、6 個 class 均為 major 69；兩組記憶體儲存設定、保存／讀取、覆寫及空 id 拒絕的輸出通過；沒有實際雲端儲存或並行測試。 影片依使用者提供 Markdown 整理，未重看全片或逐段核對時間。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "local-example-and-documentation",
+    "originalReferences": [
+      "https://www.youtube.com/watch?v=e0UOuQ_lCUY"
+    ],
+    "reviewedAt": "2026-10-20",
+    "sourceNote": {
+      "filename": "▶️ YT-Fred 聊 SOLID 設計原則｜五個原則環環相扣：SRP 是前提、OCP 是目標、DIP 是做法，LSP 與 ISP 守住介面（筆記）.md",
+      "sha256": "0962a34d3e27d9541eb23832691515ed95ab17fe62998829c5ab672e5ff05467",
+      "video": "https://www.youtube.com/watch?v=e0UOuQ_lCUY",
+      "scope": "使用者提供的既有影片筆記，非本次重新取得逐字稿；2026-10-20 為新增部落格文章日期，不推定原稿或影片發布日期。"
+    },
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-20T21:35:29+08:00"
   }
 ]

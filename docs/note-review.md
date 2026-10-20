@@ -200,3 +200,14 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 本次僅提供未提交的內容與本地預覽，Git 歷史與既有 Release 保持原版本。新版編譯結果見 example-results.json 與逐篇清單；網站與本次檢查紀錄見 validation-results.json。
 
 本次新增的 16 個 JDK 25／Spring／Mockito／Maven 官方文件及 API 入口均回應 HTTP 200，逐篇 sourceChecks 已保留實際日期；原查核的 324 個 URL 統計屬此前整理範圍。正式建置與內容、搜尋、安全檢查通過，345 個 HTML、130 篇筆記、首頁與筆記列表各 13 × 10 分頁。瀏覽器抽查 390 至 2560px，MENU 間距、文章靠左、手機選單、晝夜切換及第 2／13 頁正常。
+
+## 2026-10-20：新增兩篇 Fred 影片筆記
+
+原 130 篇清單與查核日期保留，本次另新增兩篇，共 132 篇。新文章保留使用者提供的完整筆記名稱與檔名，以 slug 指定簡短網址；日期為部落格新增日期，不當作原稿或影片發布日期。
+
+- 抽獎系統：五個維度、固定機率與配額、放獎節奏、機率表、庫存／冪等與壓測。Node.js 範例實際執行，Redis Lua 僅文件查核，未執行 Redis 或壓測。
+- SOLID：依業務職責、擴充點、依賴方向、替代契約與角色介面重新組織；Java 範例以 JDK 25 原生編譯及執行，6 個 class 為 69。記憶體實作不代表雲端儲存或並行測試。
+- 兩篇互相以 Hugo ref 連結，移除 Obsidian callout／wikilink、私人 Notion 入口與個人練習追蹤。來源檔案未修改，JSON 保留來源檔名、SHA-256 與實際驗證限制。
+- 原筆記的影片時間連結沿用，未重看完整影片或取得新逐字稿；另查閱 Redis、Node.js、k6 與 SOLID 原始文件，工程補充與講者筆記分開說明。
+- 檢查器改為核對全部檢核紀錄的唯一覆蓋，從筆數推導搜尋及分頁；132 篇預期 14 頁，尾頁 2 篇。新增測試覆蓋漏登、重複、錯誤搜尋筆數／網址、錯誤尾頁、缺頁與舊頁殘留，未跳過原先的來源／日期／連結檢查。
+- 範例結果：[fred-examples-results-2026-10-20.json](verification/fred-examples-results-2026-10-20.json)；本輪任務與網站驗證證據見 [任務紀錄](harness/fred-notes-to-blog-2026-10-20.md)。

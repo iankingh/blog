@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-20T13:19:38.281779+00:00",
+  "status": "passed",
+  "jdk": {
+    "java": "25.0.4.1",
+    "javac": "25.0.4.1"
+  },
+  "node": "v26.5.0",
+  "nodeChecks": "8 boundaries, 4 invalid inputs, random selection, all 10000 indices",
+  "nodeOutput": "PASS: 機率區間與無效輸入",
+  "javaOutput": "memory-a: amount=200\nmemory-b: amount=200\ninvalid invoice: rejected",
+  "javaClassCount": 6,
+  "classMajorVersion": 69,
+  "javaChecks": "two memory-store configurations, save/read, overwrite, blank id rejected",
+  "limitations": [
+    "Redis Lua not executed; no real cloud storage, concurrent service or load test"
+  ]
+}

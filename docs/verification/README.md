@@ -54,4 +54,12 @@ node .github/scripts/check-search.cjs
 python3 .github/scripts/check-site-security.py /tmp/blog-review-output
 ```
 
-內容檢查涵蓋 130 篇檢核紀錄、保留發布日期、摘要／情境／來源、程式碼區塊、內部連結與圖片、搜尋 130 筆，以及首頁／筆記列表各 13 頁，每頁 10 筆。技術正確性仍需按逐篇查核紀錄的版本與來源閱讀。
+內容檢查由完整且不重複的檢核清單推導筆數，核對發布日期、摘要／情境／來源、程式碼區塊、內部連結與圖片。2026-10-20 為 132 篇、搜尋 132 筆，首頁／筆記列表各 14 頁，前 13 頁每頁 10 筆，尾頁 2 筆。技術正確性仍需按逐篇查核紀錄的版本與來源閱讀。
+
+## Fred 影片筆記的新範例
+
+```bash
+python3 docs/verification/check-fred-examples.py --results /tmp/blog-fred-results.json
+```
+
+直接抽取新文章的 Java 與 JavaScript 程式碼，在隔離暫存目錄執行。Java 要求原生 JDK 25、確認 class 69 並比較輸出；Node 核對區間邊界、無效輸入與全部 10000 個索引的權重計數。Redis Lua 僅作文件查核，沒有本機 Redis、叢集或活動壓測；沒有連線 S3。結果見 [`fred-examples-results-2026-10-20.json`](fred-examples-results-2026-10-20.json)。本命令不由一般網站驗證自動執行。

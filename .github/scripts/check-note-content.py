@@ -1,4 +1,4 @@
-"""Check the 130-note review manifest and optional Hugo output (stdlib only).
+"""Check the complete note review manifest and optional Hugo output (stdlib only).
 
 Usage: python3 .github/scripts/check-note-content.py [--site /tmp/blog-output]
 The manifest preserves publication dates and records the actual validation scope.
@@ -59,13 +59,35 @@ class Page(HTMLParser):
         if tag == 'img' and 'alt' not in a:
             fail('Image missing alt attribute')
 
-def check_site(site):
+def validate_manifest_paths(rows, actual):
+    paths = [row['path'] for row in rows]
+    if not paths or len(paths) != len(set(paths)) or set(paths) != actual:
+        fail('Manifest must cover every note exactly once')
+
+def pagination_sizes(note_count, page_size=10):
+    if note_count <= 0 or page_size <= 0:
+        fail('Note count and page size must be positive')
+    return [min(page_size, note_count - start)
+            for start in range(0, note_count, page_size)]
+
+def check_pagination(site, pages, note_count):
+    sizes = pagination_sizes(note_count)
+    for section in ('', 'post/'):
+        for number, expected in enumerate(sizes, 1):
+            p = site / section / ('index.html' if number == 1 else f'page/{number}/index.html')
+            if not p.exists() or len(pages[p.resolve()].cards) != expected:
+                fail(f'{section or "home"} page {number}: expected {expected} quest cards')
+        for p in (site / section / 'page').glob('*/index.html'):
+            if p.parent.name.isdigit() and int(p.parent.name) > len(sizes):
+                fail(f'{section or "home"}: unexpected page {p.parent.name}')
+
+def check_site(site, note_count):
     if (site / 'note-review').exists():
         fail('Retired note-review page must not be generated (use a clean output directory)')
     index = json.loads((site / 'search-index.json').read_text())
     entries = index if isinstance(index, list) else index['posts']
-    if len(entries) != 130 or len({x['url'] for x in entries}) != 130:
-        fail('Search index must contain 130 unique published notes')
+    if len(entries) != note_count or len({x['url'] for x in entries}) != note_count:
+        fail(f'Search index must contain {note_count} unique published notes')
     pages = {p.resolve(): Page(p.read_text()) for p in site.rglob('*.html')}
     broken = []
     for filename, page in pages.items():
@@ -89,14 +111,10 @@ def check_site(site):
                     broken.append((str(filename.relative_to(site.resolve())), raw))
     if broken:
         fail('Broken internal links/assets/anchors:\n' + '\n'.join(map(str, sorted(set(broken))[:50])))
-    for section in ('', 'post/'):
-        for number in range(1, 14):
-            p = site / section / ('index.html' if number == 1 else f'page/{number}/index.html')
-            if not p.exists() or len(pages[p.resolve()].cards) != 10:
-                fail(f'{section or "home"} page {number}: expected 10 quest cards')
-        if (site / section / 'page/14/index.html').exists():
-            fail('Unexpected page 14')
-    print(f'PASS search 130 notes; home/post 13 × 10; links, anchors, images/assets in {len(pages)} HTML pages')
+    check_pagination(site, pages, note_count)
+    sizes = pagination_sizes(note_count)
+    print(f'PASS search {note_count} notes; home/post {len(sizes)} pages, '
+          f'10 per page (last {sizes[-1]}); links, anchors, images/assets in {len(pages)} HTML pages')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -104,8 +122,7 @@ def main():
     args = parser.parse_args()
     rows = json.loads((ROOT / 'docs/note-review.json').read_text())
     actual = {str(p.relative_to(ROOT)) for p in (ROOT / 'content/post').rglob('*.md')}
-    if len(rows) != 130 or {r['path'] for r in rows} != actual:
-        fail('Manifest must cover all 130 notes exactly once')
+    validate_manifest_paths(rows, actual)
     for row in rows:
         p = ROOT / row['path']
         text = p.read_text()
@@ -150,9 +167,9 @@ def main():
                 fail(f'{p}: unresolved ref {reference}')
         if not row['published'] or row['status'] != 'complete' or not re.search(r'^draft:\s*false\s*$', front, re.M):
             fail(f'{p}: review or publication incomplete')
-    print('PASS 130 manifest entries: dates retained, summaries/context/sources, code fences and refs')
+    print(f'PASS {len(rows)} manifest entries: dates retained, summaries/context/sources, code fences and refs')
     if args.site:
-        check_site(args.site.resolve())
+        check_site(args.site.resolve(), len(rows))
 
 if __name__ == '__main__':
     try:
