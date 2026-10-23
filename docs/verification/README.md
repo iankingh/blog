@@ -14,6 +14,10 @@ python3 -m unittest discover -s .github/scripts -p 'test_jdk25.py'
 
 ## Vue、Angular、JavaScript
 
+工具環境固定為 Node.js 24.22.1 LTS／npm 11.20.0（在儲存庫根目錄執行 `nvm use`）。
+2026-10-23 升級驗證工具依賴至 Angular 22、TypeScript 6、Vite 8、Pinia 4 與 Vue Router 5；
+文章保留各自介紹的版本，這組工具驗證的是範例在目前工具鏈上的相容性，不能當作原版本的驗證證據。
+
 複製測試檔與鎖檔到獨立資料夾，再安裝固定依賴。先將 `BLOG_NOTES_ROOT` 設為實際儲存庫絕對路徑：
 
 ```bash

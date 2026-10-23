@@ -55,3 +55,6 @@ Desktop.ini
 *.tmp
 *.bak
 *.log
+
+# Node.js verification dependencies
+node_modules/
