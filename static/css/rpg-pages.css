@@ -100,6 +100,9 @@
 .article-body iframe, .article-body video { max-width: 100%; }
 .article-body table { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; font-size: 15px; margin: 24px 0; }
 .article-body th, .article-body td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; min-width: 90px; }
+.article-wide-tables th, .article-wide-tables td { min-width: 180px; }
+.article-wide-tables th:last-child, .article-wide-tables td:last-child { min-width: 320px; }
+.article-wide-tables table code { white-space: nowrap; }
 .article-body th { color: var(--gold); background: var(--surface-raised); font-weight: 600; }
 .article-body tr:nth-child(even) td { background: var(--surface-hover); }
 .article-body code { font: .88em/1.7 var(--mono); color: var(--gold); padding: 2px 5px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface-raised); }

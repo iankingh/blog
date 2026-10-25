@@ -4,18 +4,17 @@
     "title": "AI 工具清單：聊天、搜尋與翻譯",
     "originalDraft": false,
     "originalDate": "2024-07-02T20:47:15+08:00",
-    "lastmod": "2026-10-07",
+    "lastmod": "2026-10-25",
     "context": "適用：原2024工具清單在2026的內容整理；產品功能、可用模型與額度會變，依官方入口確認，不列未查證價格或保證效果。",
     "issues": [],
-    "changes": "依用途整理原工具入口與限制，將清單和未來 skills／agents專案的責任分開。",
+    "changes": "依用途整理原工具入口與限制，將清單和未來 skills／agents專案的責任分開。 依使用者要求移除 Phind 失效工具列與兩入口、Monica /home、棄用 Poe /ChatGPT 及重複 Felo 搜尋入口；保留四個官方參考入口及原始發布日期。",
     "sources": [
       "https://monica.im/",
       "https://poe.com/",
-      "https://www.phind.com/",
       "https://felo.ai/",
       "https://immersivetranslate.com/"
     ],
-    "verification": "官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式",
+    "verification": "2026-10-25 以網頁工具開啟確認 Phind 兩入口回報 404、Poe /ChatGPT 顯示 DEPRECATED，以及保留的官方入口可讀或導向登入；未登入或驗證帳號功能。文章、網站與瀏覽器結果見 docs/harness/ai-skills-and-tools-2026-10-25.md。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -57,7 +56,7 @@
       }
     ],
     "versionScope": "適用：原2024工具清單在2026的內容整理；產品功能、可用模型與額度會變，依官方入口確認，不列未查證價格或保證效果。",
-    "reviewedAt": "2026-10-07",
+    "reviewedAt": "2026-10-25",
     "checks": {
       "summary": true,
       "contextAndVersion": true,
@@ -67,8 +66,8 @@
       "validationScopeRecorded": true
     },
     "originalReferences": [],
-    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
-    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
+    "presentationUpdatedAt": "2026-10-25T00:17:31+08:00",
+    "presentationChanges": "依使用者要求清理工具清單與參考入口，移除歷史 404 說明；2026-10-06 的 sourceChecks 保留為歷史證據，2026-10-25 查核與移除依據另存任務紀錄。"
   },
   {
     "path": "content/post/android/AndroidBsN01.md",
@@ -8121,5 +8120,49 @@
       "validationScopeRecorded": true
     },
     "contentUpdatedAt": "2026-10-20T21:35:29+08:00"
+  },
+  {
+    "path": "content/post/ai-skills-directories.md",
+    "title": "AI Skills：專案與全域技能目錄",
+    "originalDraft": false,
+    "originalDate": "2026-10-25T00:17:31+08:00",
+    "lastmod": "2026-10-25",
+    "context": "適用：需要在專案與個人環境管理 AI Coding 工具技能、規則及提示模板的開發者；原文完整保留，現行官方文件差異另設補充。",
+    "issues": [],
+    "changes": "保留使用者全文、標題、章節順序與三個範例；只轉換 Markdown 表格、標題與程式碼格式。新增獨立官方文件補充與來源，設為首頁第一篇精選。 啟用文章專用 wideTables 寬表格，保留目錄字串並以表格內水平捲動改善手機閱讀。 依使用者確認改名為「AI Skills：專案與全域技能目錄」；新增 Skills 定義、三個用途例子與載入流程，兩表補 OpenAI Codex，另註記舊 ~/.codex/skills 路徑。原稿快照與其餘原文、原始發布日期保留。",
+    "sources": [
+      "https://learn.chatgpt.com/docs/build-skills",
+      "https://developers.openai.com/blog/eval-skills",
+      "https://code.claude.com/docs/en/skills",
+      "https://docs.github.com/en/copilot/concepts/customizations/agent-skills",
+      "https://cursor.com/docs/skills",
+      "https://cursor.com/docs/rules",
+      "https://docs.devin.ai/desktop/cascade/skills",
+      "https://docs.devin.ai/desktop/cascade/memories",
+      "https://docs.openclaw.ai/tools/skills",
+      "https://agentskills.io/specification",
+      "https://code.visualstudio.com/docs/agent-customization/custom-instructions",
+      "https://code.visualstudio.com/docs/agent-customization/prompt-files"
+    ],
+    "verification": "本輪原稿快照、三個 code block、date 與置頂順序保留；去掉明確新增內容後原文相同，132 筆其他文章紀錄與前輪既有變更不動。OpenAI 官方文件查核、網站 9 項檢查、1440／390px 瀏覽器、新標題搜尋與 Codex 兩表驗收通過。未建立、安裝或實測產品技能載入；CI 固定版本未重現。完整證據見 docs/harness/ai-skills-codex-update-2026-10-25.md。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "source-import-and-documentation",
+    "originalReferences": [],
+    "reviewedAt": "2026-10-25",
+    "sourceNote": {
+      "filename": "ai-skills-directories-original.md",
+      "sha256": "4b2c88213f7433b38094ecb3ce889cd4ac2945ac5ad3a440dfeebc891b55a24a",
+      "scope": "使用者在本次對話提供的全文；快照只轉換 Markdown 格式。2026-10-25 是部落格新增日期，不推定原稿日期。"
+    },
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-25T00:33:07+08:00"
   }
 ]

@@ -1,0 +1,23 @@
+{
+  "source_sha256": "4b2c88213f7433b38094ecb3ce889cd4ac2945ac5ad3a440dfeebc891b55a24a",
+  "original_body_identical": true,
+  "original_examples": 3,
+  "unrelated_manifest_entries_unchanged": 131,
+  "java_changes_only_featuredOrder": true,
+  "removed_urls": [
+    "https://www.phind.com/",
+    "https://www.phind.com/search?home=true",
+    "https://monica.im/home",
+    "https://poe.com/ChatGPT",
+    "https://felo.ai/search"
+  ],
+  "remaining_references": [
+    "https://monica.im/",
+    "https://poe.com/",
+    "https://felo.ai/",
+    "https://immersivetranslate.com/"
+  ],
+  "isolated_symlink_example": "passed",
+  "product_skill_loading": "not tested",
+  "checkedAt": "2026-10-25T00:25:03+08:00"
+}

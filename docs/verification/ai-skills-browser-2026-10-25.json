@@ -1,0 +1,215 @@
+{
+  "baseURL": "http://127.0.0.1:1316/blog/",
+  "samples": [
+    {
+      "gridColumns": "343.328px 343.336px 343.336px",
+      "page": "home",
+      "pinned": [
+        {
+          "title": "AI 技能目錄：.agents/skills、.github/skills 等放在哪裡",
+          "url": "/blog/post/ai-skills-directories/"
+        },
+        {
+          "title": "Java 多型：介面、覆寫與執行時派發",
+          "url": "/blog/post/java/polymorphism/"
+        },
+        {
+          "title": "HikariCP 連線逾時：診斷與可重現範例",
+          "url": "/blog/post/java/hikaripool-1-error/"
+        }
+      ],
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "gridColumns": "356px",
+      "page": "home",
+      "pinned": [
+        "AI 技能目錄：.agents/skills、.github/skills 等放在哪裡",
+        "Java 多型：介面、覆寫與執行時派發",
+        "HikariCP 連線逾時：診斷與可重現範例"
+      ],
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "page": "home page 2",
+      "pinnedCount": 0,
+      "questCards": 10
+    },
+    {
+      "page": "skills",
+      "javaFeatured": [
+        "Java 多型：介面、覆寫與執行時派發 ↗",
+        "HikariCP 連線逾時：診斷與可重現範例 ↗",
+        "Java 數字格式：DecimalFormat 與 BigDecimal ↗"
+      ]
+    },
+    {
+      "articleLinks": [
+        "https://monica.im/",
+        "https://poe.com/",
+        "https://felo.ai/",
+        "https://immersivetranslate.com/",
+        "https://monica.im/",
+        "https://poe.com/",
+        "https://felo.ai/",
+        "https://immersivetranslate.com/"
+      ],
+      "page": "AI tools",
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "page": "AI tools",
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "page": "skills wide tables",
+      "pageScrollX": 0,
+      "scrollWidth": 390,
+      "tableScrollLeft": 40,
+      "tables": [
+        {
+          "clientWidth": 314,
+          "codeWhiteSpace": "nowrap",
+          "descriptionWidth": 320,
+          "overflowX": "auto",
+          "scrollWidth": 1060
+        },
+        {
+          "clientWidth": 314,
+          "codeWhiteSpace": "nowrap",
+          "descriptionWidth": 320,
+          "overflowX": "auto",
+          "scrollWidth": 1171
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "page": "skills wide tables",
+      "scrollWidth": 1440,
+      "tables": [
+        {
+          "clientWidth": 976,
+          "codeWhiteSpace": "nowrap",
+          "descriptionWidth": 320,
+          "overflowX": "auto",
+          "scrollWidth": 1060
+        },
+        {
+          "clientWidth": 976,
+          "codeWhiteSpace": "nowrap",
+          "descriptionWidth": 320,
+          "overflowX": "auto",
+          "scrollWidth": 1171
+        }
+      ],
+      "viewport": 1440
+    }
+  ],
+  "search": {
+    "query": "AI 技能目錄",
+    "status": "找到 1 個任務",
+    "title": "AI 技能目錄：.agents/skills、.github/skills 等放在哪裡",
+    "url": "/blog/post/ai-skills-directories/",
+    "evidence": "Observed search dialog DOM snapshot"
+  },
+  "screenshots": [
+    "/tmp/blog-ai-skills-home-desktop.png",
+    "/tmp/blog-ai-skills-home-mobile.png",
+    "/tmp/blog-ai-skills-article-desktop.png",
+    "/tmp/blog-ai-skills-article-mobile.png",
+    "/tmp/blog-ai-skills-table-mobile.png",
+    "/tmp/blog-ai-tools-desktop.png",
+    "/tmp/blog-ai-tools-mobile.png",
+    "/tmp/blog-ai-skills-table-desktop.png"
+  ],
+  "scope": "1440x1000 desktop and 390x844 responsive emulation; no physical phone or third-party product login",
+  "beforeTableFix": [
+    {
+      "codeBlocks": [
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 976
+        },
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 976
+        },
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 976
+        }
+      ],
+      "h1": "AI 技能目錄：.agents/skills、.github/skills 等放在哪裡",
+      "page": "skills article",
+      "scrollWidth": 1440,
+      "supplement": true,
+      "tables": [
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 976
+        },
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 976
+        }
+      ],
+      "viewport": 1440
+    },
+    {
+      "codeBlocks": [
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 674
+        },
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 314
+        },
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 580
+        }
+      ],
+      "h1": {
+        "bottom": 313.59375,
+        "height": 120,
+        "left": 38,
+        "right": 352,
+        "top": 193.59375,
+        "width": 314,
+        "x": 38,
+        "y": 193.59375
+      },
+      "page": "skills article",
+      "scrollWidth": 390,
+      "tables": [
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 361
+        },
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 361
+        }
+      ],
+      "viewport": 390
+    }
+  ],
+  "correctedBuildReport": "/private/tmp/blog-ai-skills-wide-tables-20261025/report.json",
+  "checkedAt": "2026-10-25T00:25:03+08:00"
+}

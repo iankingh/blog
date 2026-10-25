@@ -3,7 +3,7 @@ title: "Java 多型：介面、覆寫與執行時派發"
 date: 2023-08-02T07:38:35+08:00
 lastmod: 2026-10-07T23:41:34+08:00
 description: "用完整 Java 範例理解共同型別、方法覆寫與執行期派發，並區分多型和多載。"
-featuredOrder: 1
+featuredOrder: 2
 categories: ["筆記"]
 tags: ["Polymorphism", "java"]
 toc: true

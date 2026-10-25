@@ -3,7 +3,7 @@ title: "HikariCP 連線逾時：診斷與可重現範例"
 date: 2021-05-06T21:18:55+08:00
 lastmod: 2026-10-07T23:41:34+08:00
 description: "依連線池狀態診斷取得連線逾時，以 H2 範例重現耗盡、釋放與再次取得連線。"
-featuredOrder: 2
+featuredOrder: 3
 categories: ["筆記"]
 tags: ["java", "連線池"]
 toc: true

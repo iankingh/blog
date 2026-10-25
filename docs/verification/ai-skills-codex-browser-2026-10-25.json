@@ -1,0 +1,138 @@
+{
+  "baseURL": "http://127.0.0.1:1316/blog/",
+  "samples": [
+    {
+      "codexRows": [
+        [
+          "OpenAI Codex（補充）",
+          ".agents/skills/<skill-name>/SKILL.md",
+          "~/.agents/skills/<skill-name>/SKILL.md",
+          "從目前目錄向上至儲存庫根目錄掃描各層 .agents/skills/。每個技能包含 name、description 與操作指引，可依描述自動選用；CLI／IDE 可用 /skills 或 $skill-name 指定。見\nOpenAI 官方文件\n\n。"
+        ],
+        [
+          "OpenAI Codex（補充）",
+          ".agents/skills/<skill-name>/SKILL.md",
+          "~/.agents/skills/<skill-name>/SKILL.md",
+          "OpenAI Skills 文件\n\n列出的本機技能位置；專案內從目前目錄逐層向上掃描至儲存庫根目錄。CLI／IDE 支援 /skills 或 $skill-name 指定，也可依描述自動選用。"
+        ]
+      ],
+      "dates": [
+        "2026-10-25",
+        "2026-10-25"
+      ],
+      "h1": "AI Skills：專案與全域技能目錄",
+      "introHeading": "Skills 是做什麼的？（補充）",
+      "page": "article",
+      "scrollWidth": 1440,
+      "tables": [
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 1171
+        },
+        {
+          "clientWidth": 976,
+          "overflowX": "auto",
+          "scrollWidth": 1171
+        }
+      ],
+      "viewport": 1440
+    },
+    {
+      "codexRows": [
+        [
+          "OpenAI Codex（補充）",
+          ".agents/skills/<skill-name>/SKILL.md",
+          "~/.agents/skills/<skill-name>/SKILL.md",
+          "從目前目錄向上至儲存庫根目錄掃描各層 .agents/skills/。每個技能包含 name、description 與操作指引，可依描述自動選用；CLI／IDE 可用 /skills 或 $skill-name 指定。見\nOpenAI 官方文件\n\n。"
+        ],
+        [
+          "OpenAI Codex（補充）",
+          ".agents/skills/<skill-name>/SKILL.md",
+          "~/.agents/skills/<skill-name>/SKILL.md",
+          "OpenAI Skills 文件\n\n列出的本機技能位置；專案內從目前目錄逐層向上掃描至儲存庫根目錄。CLI／IDE 支援 /skills 或 $skill-name 指定，也可依描述自動選用。"
+        ]
+      ],
+      "definition": "Skills 是讓 AI 重複使用某類任務做法的工作流程。它把任務步驟、規範、參考資料，以及選用的腳本或模板整理在同一個資料夾，以 SKILL.md 作為入口。當你反覆要求 AI 用相同方式處理事情，就可以把這些做法整理成 Skill，減少每次重新貼上長篇指令的需要。資料夾結構見\nAgent Skills 規格\n\n。",
+      "definitionBold": "Skills 是讓 AI 重複使用某類任務做法的工作流程",
+      "h1": "AI Skills：專案與全域技能目錄",
+      "page": "article",
+      "scrollWidth": 390,
+      "tables": [
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 1171
+        },
+        {
+          "clientWidth": 314,
+          "overflowX": "auto",
+          "scrollWidth": 1171
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "page": "home",
+      "pinned": [
+        {
+          "title": "AI Skills：專案與全域技能目錄",
+          "url": "/blog/post/ai-skills-directories/"
+        },
+        {
+          "title": "Java 多型：介面、覆寫與執行時派發",
+          "url": "/blog/post/java/polymorphism/"
+        },
+        {
+          "title": "HikariCP 連線逾時：診斷與可重現範例",
+          "url": "/blog/post/java/hikaripool-1-error/"
+        }
+      ],
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "page": "home",
+      "pinned": [
+        {
+          "title": "AI Skills：專案與全域技能目錄",
+          "url": "/blog/post/ai-skills-directories/"
+        },
+        {
+          "title": "Java 多型：介面、覆寫與執行時派發",
+          "url": "/blog/post/java/polymorphism/"
+        },
+        {
+          "title": "HikariCP 連線逾時：診斷與可重現範例",
+          "url": "/blog/post/java/hikaripool-1-error/"
+        }
+      ],
+      "scrollWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "screenshots": [
+    "/tmp/blog-ai-skills-codex-desktop.png",
+    "/tmp/blog-ai-skills-codex-intro-desktop.png",
+    "/tmp/blog-ai-skills-codex-mobile.png",
+    "/tmp/blog-ai-skills-codex-intro-mobile.png",
+    "/tmp/blog-ai-skills-codex-table-mobile.png",
+    "/tmp/blog-ai-skills-codex-home-desktop.png",
+    "/tmp/blog-ai-skills-codex-home-mobile.png"
+  ],
+  "tableKeyboardScroll": {
+    "pageScrollX": 0,
+    "tableScrollLeft": 40,
+    "viewport": 390
+  },
+  "search": {
+    "query": "AI Skills：專案與全域技能目錄",
+    "status": "找到 1 個任務",
+    "title": "AI Skills：專案與全域技能目錄",
+    "url": "/blog/post/ai-skills-directories/",
+    "evidence": "Observed search dialog DOM snapshot"
+  },
+  "report": "/private/tmp/blog-ai-skills-codex-preview-20261025/report.json",
+  "scope": "1440x1000 desktop and 390x844 responsive emulation; no physical phone or product skill loading",
+  "checkedAt": "2026-10-25T00:38:29+08:00"
+}

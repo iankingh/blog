@@ -1,7 +1,7 @@
 {{ define "main_inner_class" }}article-page{{ end }}
 {{ define "main" }}
 <nav class="breadcrumbs" aria-label="頁面位置"><a href="{{ .Site.BaseURL }}">冒險大廳</a><span>/</span><a href="{{ "archives/" | relURL }}">任務日誌</a><span>/</span><span>探索筆記</span></nav>
-<article class="article-panel panel" itemscope itemtype="https://schema.org/Article">
+<article class="article-panel panel{{ if .Params.wideTables }} article-wide-tables{{ end }}" itemscope itemtype="https://schema.org/Article">
   <header class="article-header">
     <p class="eyebrow">ADVENTURE JOURNAL · 探索筆記</p>
     <h1 itemprop="headline">{{ .Title }}</h1>

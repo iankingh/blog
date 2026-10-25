@@ -2,7 +2,7 @@
 title: "AI 工具清單：聊天、搜尋與翻譯"
 description: "依用途比較聊天、搜尋與翻譯工具，說明來源查核、資料範圍與使用限制。"
 date: 2024-07-02T20:47:15+08:00
-lastmod: 2026-10-07T20:50:40+08:00
+lastmod: 2026-10-25T00:17:31+08:00
 categories:
 - "筆記"
 tags:
@@ -24,11 +24,8 @@ draft: false
 | --- | --- | --- |
 | [Monica](https://monica.im/) | 聊天、寫作與瀏覽器助理 | 擴充許可權、資料來源與帳號設定 |
 | [Poe](https://poe.com/) | 透過平臺使用不同bot | bot建立者、模型來源與限額 |
-| [Phind](https://www.phind.com/) | 原 2024 筆記中的技術搜尋工具 | 本次入口回傳 404，保留歷史參考 |
 | [Felo](https://felo.ai/) | 搜尋與資料整理 | 原始來源、地域／語言與可用功能 |
 | [沉浸式翻譯](https://immersivetranslate.com/) | 雙語閱讀與檔案翻譯 | 翻譯引擎、原文與上傳範圍 |
-
-2026-10-06 查核 Phind 官方首頁時回傳 HTTP 404；本篇保留原始來源，無法確認現行服務是否可用，也不以搜尋快取推定營運狀態。其他工具未登入測試帳號功能。
 
 原Sage／Claude+等模型名反映當時平臺，不當現行可用清單；產品入口能開啟也不表示每個功能都無帳號／免費可用。
 
@@ -50,10 +47,5 @@ draft: false
 
 - [Monica官方](https://monica.im/)
 - [Poe官方](https://poe.com/)
-- [Phind官方](https://www.phind.com/)
 - [Felo官方](https://felo.ai/)
 - [沉浸式翻譯官方](https://immersivetranslate.com/)
-- [原始參考入口 1](https://monica.im/home)
-- [原始參考入口 2](https://poe.com/ChatGPT)
-- [原始參考入口 3](https://www.phind.com/search?home=true)
-- [原始參考入口 4](https://felo.ai/search)

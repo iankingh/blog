@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-25T00:33:54+08:00",
+  "title": "AI Skills：專案與全域技能目錄",
+  "source_sha256": "4b2c88213f7433b38094ecb3ce889cd4ac2945ac5ad3a440dfeebc891b55a24a",
+  "source_snapshot_unchanged": true,
+  "authorized_original_body_additions": [
+    "table caption marking Codex addition",
+    "OpenAI Codex row in original table"
+  ],
+  "original_body_after_removing_authorized_additions_identical": true,
+  "original_code_blocks_identical": 3,
+  "original_date_and_featuredOrder_and_wideTables_unchanged": true,
+  "codex_rows": 2,
+  "intro_before_original_table": true,
+  "unrelated_manifest_entries_unchanged": 132,
+  "baseline_files_preserved_except": [
+    "content/post/ai-skills-directories.md",
+    "docs/note-review.json",
+    "readme.md"
+  ],
+  "baseline": "/tmp/blog-ai-skills-codex-baseline-20261025",
+  "product_skill_loading": "not tested; no skill installed or moved"
+}

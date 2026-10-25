@@ -22,7 +22,7 @@
       <div class="section-heading"><h2>{{ partial "rpg/icon.html" "sword" }}任務日誌</h2><a href="{{ "archives/" | relURL }}">完整歷程 {{ partial "rpg/icon.html" "arrow" }}</a></div>
       {{ if eq $paginator.PageNumber 1 }}{{ with partial "rpg/featured-posts.html" .Site }}
       <section class="pinned-notes" aria-labelledby="pinned-title">
-        <div class="pinned-heading"><div><h3 id="pinned-title">{{ partial "rpg/icon.html" "star" }}置頂精選</h3><p>從 Java 原理、連線池排錯到數字格式，三篇不同情境的實作筆記。</p></div><a class="text-link" href="{{ "projects/" | relURL }}">本站導覽與實作 {{ partial "rpg/icon.html" "arrow" }}</a></div>
+        <div class="pinned-heading"><div><h3 id="pinned-title">{{ partial "rpg/icon.html" "star" }}置頂精選</h3><p>AI 工作流、Java 原理與連線池排錯，三篇可隨時回查的筆記。</p></div><a class="text-link" href="{{ "projects/" | relURL }}">本站導覽與實作 {{ partial "rpg/icon.html" "arrow" }}</a></div>
         <div class="featured-grid">{{ range first 3 . }}{{ partial "rpg/featured-card.html" . }}{{ end }}</div>
       </section>
       {{ end }}{{ end }}
