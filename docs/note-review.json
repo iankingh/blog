@@ -4297,18 +4297,18 @@
     "title": "Markdown 筆記：語法、程式碼與 Hugo 差異",
     "originalDraft": false,
     "originalDate": "2020-11-06T22:22:00+08:00",
-    "lastmod": "2026-10-07",
+    "lastmod": "2026-10-26",
     "context": "適用：CommonMark基礎與Hugo Goldmark；不同編輯器的額外語法不保證通用。",
     "issues": [
       "缺少摘要"
     ],
-    "changes": "修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。",
+    "changes": "修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。 2026-10-26：保留 Markdown 語法、程式碼、表格、換行與 Hugo 差異，移除圖表渲染教學，改用 markdown-basics 網址。",
     "sources": [
       "https://spec.commonmark.org/",
       "https://gohugo.io/configuration/markup/",
       "https://github.github.com/gfm/#tables-extension-"
     ],
-    "verification": "官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式",
+    "verification": "2026-10-26：28 個來源與建置對應案例通過，原始日期、程式碼內容及來源連結保留；133 篇唯一搜尋索引、新網址與舊頁停用檢查通過。實際瀏覽器確認兩篇新頁、目錄、搜尋及兩個舊網址回傳 404；Mermaid 以 pre 程式碼顯示並保留換行。完整證據與最終網站基準結果見 docs/harness/markdown-mermaid-separation-2026-10-26.md。本輪未操作外部 Live Editor 繪圖或 SVG／PNG 匯出；未重跑其他技術教學。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -4352,8 +4352,9 @@
       "https://hackmd.io/@wootu/SkY0M5wsZ?type=view",
       "https://iankingh.github.io/"
     ],
-    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
-    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
+    "presentationUpdatedAt": "2026-10-26T21:42:57+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。 2026-10-26：保留 Markdown 語法、程式碼、表格、換行與 Hugo 差異，移除圖表渲染教學，改用 markdown-basics 網址。 依使用者要求停用舊網址，不建立 aliases。",
+    "contentUpdatedAt": "2026-10-26T21:42:57+08:00"
   },
   {
     "path": "content/post/other/SA.md",
@@ -4992,21 +4993,22 @@
   },
   {
     "path": "content/post/other/畫流程圖的工具.md",
-    "title": "流程圖工具：Mermaid 文字圖與圖形編輯器",
+    "title": "Mermaid 筆記：流程圖語法、驗證與匯出",
     "originalDraft": true,
     "originalDate": "2023-07-16T11:37:44+08:00",
-    "lastmod": "2026-10-07",
-    "context": "適用：設計討論與檔案中的流程／時序圖。本站目前以程式碼顯示Mermaid，未啟用執行時renderer。",
+    "lastmod": "2026-10-26",
+    "context": "適用：以文字維護流程圖、在 Git 中追蹤圖表修改的技術筆記與設計討論。本站以 Pele 顯示 Mermaid 圖表，保留可展開原始碼。",
     "issues": [
       "缺少摘要"
     ],
-    "changes": "補上可修改的流程圖範例、匯出方式與用途比較，不再只留下外部分享網址。",
+    "changes": "補上可修改的流程圖範例、匯出方式與用途比較，不再只留下外部分享網址。 2026-10-26：將 Mermaid 渲染需求集中成專文，保留原流程圖並補上節點、箭頭、分支語法及驗證／匯出步驟，改用 mermaid-flowchart 網址。 同日接續：依使用者新要求接入 Pele 1.10.0，恢復 mermaid fence 顯示圖表並保留原始碼，新增 Pele／Obsidian 專文連結。",
     "sources": [
+      "https://mermaid.js.org/intro/",
       "https://mermaid.js.org/syntax/flowchart.html",
       "https://mermaid.live/",
       "https://www.drawio.com/docs/"
     ],
-    "verification": "官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式",
+    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/pele-obsidian-2026-10-26.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -5034,10 +5036,26 @@
         "status": 200,
         "finalUrl": "https://www.drawio.com/docs/",
         "checkedAt": "2026-10-06"
+      },
+      {
+        "url": "https://mermaid.js.org/intro/",
+        "status": "read",
+        "finalUrl": "https://mermaid.js.org/intro/",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方頁面成功讀取；工具未提供 HTTP 狀態碼，不記為 HTTP 200。"
+      },
+      {
+        "url": "https://mermaid.js.org/syntax/flowchart.html",
+        "status": "read",
+        "finalUrl": "https://mermaid.js.org/syntax/flowchart.html",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方頁面成功讀取；工具未提供 HTTP 狀態碼，不記為 HTTP 200。"
       }
     ],
-    "versionScope": "適用：設計討論與檔案中的流程／時序圖。本站目前以程式碼顯示Mermaid，未啟用執行時renderer。",
-    "reviewedAt": "2026-10-07",
+    "versionScope": "適用：以文字維護流程圖、在 Git 中追蹤圖表修改的技術筆記與設計討論。本站以 Pele 顯示 Mermaid 圖表，保留可展開原始碼。",
+    "reviewedAt": "2026-10-26",
     "checks": {
       "summary": true,
       "contextAndVersion": true,
@@ -5049,8 +5067,9 @@
     "originalReferences": [
       "https://mermaid.live/edit#pako:eNp1kltPgzAUx79K0xdfdiljF2h0RjNd9HGbMTG8NHDGGqHFtkTnsu9uKbBL5iAh9H_O738u6Q7HMgFMsYavEkQMM85SxfJIIPsUTBke84IJg56VFAZEchl5ZPHnv4GH0mzIpTyXMs0gEnWk9e1Op40RRfOnFepnMuWinzbJVWoTt5nOmaKlPWmkqta1Qd_cbBpz5GAkC8NlU8chFq0TKFpAwhXERqM3DQoZeY4WLIWLBlvWEWBVpVsqVpBYhbNM11itH3tdgCmVqKvdHLCXma1sh7rWo5usaZGLtVQ5q0ZCpeYiPUWvlWu7P6XPix22Xm_Tyej1fXXqftx860eRTwaor8F0Xd69-97dWnBaEbiDc7D1eGIv165yibDZQA4RpvY3gTUrMxPhSOxtKiuNXG5FjKlRJXRwWSTMtHexFe3l-ZDy9IjpDv9g6hHS871xYF9_MgzHw6CDt1YOhr3A84NgNPI8j4SDwb6Df50D6YW-Nwk9nxCfjCbhKNz_AZyq_-w"
     ],
-    "presentationUpdatedAt": "2026-10-07T20:50:40+08:00",
-    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。"
+    "presentationUpdatedAt": "2026-10-26T22:03:30+08:00",
+    "presentationChanges": "移除制式查核段落與站內紀錄入口，整併參考資料；技術查核日期與證據沿用既有紀錄。 2026-10-26：將 Mermaid 渲染需求集中成專文，保留原流程圖並補上節點、箭頭、分支語法及驗證／匯出步驟，改用 mermaid-flowchart 網址。 依使用者要求停用舊網址，不建立 aliases。 範例 fence 的展示語言由 mermaid 改為 text，避開主題 render hook 壓平換行；圖表原始碼未改。 同日接續新需求：本站已有 Pele，改回 mermaid fence 交給站點 render hook，保留原圖表來源；前輪顯示方式屬當時版本。",
+    "contentUpdatedAt": "2026-10-26T22:03:30+08:00"
   },
   {
     "path": "content/post/other/算錢用浮點，遲早被人扁.md",
@@ -8164,5 +8183,91 @@
       "validationScopeRecorded": true
     },
     "contentUpdatedAt": "2026-10-25T00:33:07+08:00"
+  },
+  {
+    "path": "content/post/other/obsidian-pele.md",
+    "title": "Pele 使用筆記：在 Obsidian 顯示 Mermaid 圖表",
+    "originalDraft": false,
+    "originalDate": "2026-10-26T22:03:30+08:00",
+    "lastmod": "2026-10-26",
+    "context": "適用：Obsidian 使用者與網站開發者；Obsidian 依桌面 1.15.0 early access 官方說明，網站使用 Pele 1.10.0。",
+    "issues": [],
+    "changes": "新增 Pele、Mermaid 與 Obsidian 分工、內建版本／安裝界線、筆記圖表範例、主題與相容性、網站接法及排錯；本站實際接入固定版同源腳本，語法細節連回 Mermaid 專文。",
+    "sources": [
+      "https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/",
+      "https://help.obsidian.md/advanced-syntax",
+      "https://github.com/obsidianmd/pele",
+      "https://pele.run/api",
+      "https://pele.run/theming",
+      "https://pele.run/compatibility",
+      "https://pele.run/security"
+    ],
+    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/pele-obsidian-2026-10-26.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "local-integration-and-documentation",
+    "sourceChecks": [
+      {
+        "url": "https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://help.obsidian.md/advanced-syntax",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://github.com/obsidianmd/pele",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://pele.run/api",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://pele.run/theming",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://pele.run/compatibility",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://pele.run/security",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      }
+    ],
+    "versionScope": "Obsidian 桌面 1.15.0 early access 發布說明；npm pele 1.10.0。未將函式庫版本當作 Obsidian 應用程式版本。",
+    "reviewedAt": "2026-10-26",
+    "originalReferences": [],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-26T22:03:30+08:00"
   }
 ]

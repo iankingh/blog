@@ -1,5 +1,6 @@
 ---
 title: "Markdown 筆記：語法、程式碼與 Hugo 差異"
+slug: markdown-basics
 date: 2020-11-06T22:22:00+08:00
 draft: false
 categories:
@@ -7,11 +8,11 @@ categories:
 tags:
  - "Markdown"
 toc: true
-description: "修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。"
-lastmod: 2026-10-07T20:50:40+08:00
+description: "整理 Markdown 的標題、連結、程式碼區塊、表格與換行語法，說明 CommonMark 與 Hugo Goldmark 的使用差異。"
+lastmod: 2026-10-26T21:42:57+08:00
 ---
 
-修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。
+整理 Markdown 的標題、連結、程式碼區塊、表格與換行語法，說明 CommonMark 與 Hugo Goldmark 的使用差異。
 
 <!--more-->
 
@@ -56,9 +57,9 @@ console.log('campfire');
 
 表格單元格內literal管線需轉義，長內容在本站可橫向捲動。一般換行不一定變`<br>`，段落用空行；不要依賴不同編輯器的自動換行偏好。
 
-## 目錄與圖表
+## 目錄與 Hugo 注意事項
 
-[TOC]不是所有Markdown渲染器都會建立目錄；本站使用front matter toc與Hugo.TableOfContents。Mermaid、sequence、seq等都需要額外renderer，不能只寫fence就保證出圖。本站未接入Mermaid執行器，示例會顯示程式碼，需用官方Live Editor檢查或輸出SVG。
+`[TOC]` 不是所有 Markdown 渲染器都會建立目錄；本站使用 front matter 的 `toc` 設定與 `Hugo.TableOfContents` 產生文章目錄。
 
 Hugo unsafe=false，不在文章插原始script／iframe來排版。圖片路徑依據static對映與站點base，內部文章用ref；新例子檔案要存在才能發布，不留下不存在的示範圖連結。
 

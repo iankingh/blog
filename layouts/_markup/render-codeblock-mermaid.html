@@ -1,0 +1,9 @@
+{{- .Page.Store.Set "rpgHasMermaid" true -}}
+<figure class="article-diagram" data-mermaid-diagram aria-label="Mermaid 圖表與原始碼">
+  <div class="diagram-canvas" data-diagram-canvas hidden></div>
+  <p class="diagram-status" data-diagram-status role="status" hidden></p>
+  <details class="diagram-source" open>
+    <summary>圖表原始碼</summary>
+    <div class="highlight"><pre><code class="language-mermaid">{{ .Inner }}</code></pre></div>
+  </details>
+</figure>

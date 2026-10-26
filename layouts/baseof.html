@@ -27,5 +27,9 @@
 </div>
 {{ partial "rpg/search.html" . }}
 {{ if .IsPage }}<script src="{{ partial "rpg/asset-url.html" "js/rpg-article.js" }}" defer></script>{{ end }}
+{{ if .Store.Get "rpgHasMermaid" }}
+<script src="{{ partial "rpg/asset-url.html" "lib/pele/pele.global.js" }}" defer></script>
+<script src="{{ partial "rpg/asset-url.html" "js/rpg-diagrams.js" }}" defer></script>
+{{ end }}
 </body>
 </html>

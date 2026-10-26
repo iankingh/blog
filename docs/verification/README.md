@@ -51,6 +51,14 @@ python3 docs/verification/check-spring-notes.py /tmp/blog-spring-lab --results /
 
 ## 網站
 
+Mermaid 圖表整合使用根目錄固定版本的 Pele，自動檢查不依賴 `node_modules`：
+
+```bash
+node .github/scripts/check-diagrams.cjs
+```
+
+此命令使用實際發布的同源 bundle 驗證圖表來源、SVG 識別碼及原始碼退路；DOM 回呼案例為隔離 fixture，實際排版、CSP 執行與晝夜／窄螢幕行為仍需瀏覽器檢查。本命令已納入網站統一驗證。
+
 ```bash
 hugo --minify --destination /tmp/blog-review-output
 python3 .github/scripts/check-note-content.py --site /tmp/blog-review-output

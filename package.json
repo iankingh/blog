@@ -1,0 +1,11 @@
+{
+  "name": "ianhuang-blog",
+  "private": true,
+  "scripts": {
+    "vendor:pele": "node .github/scripts/vendor-pele.cjs",
+    "test:diagrams": "node .github/scripts/check-diagrams.cjs"
+  },
+  "dependencies": {
+    "pele": "1.10.0"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "checkedAt": "2026-10-26",
+  "site": "/private/tmp/blog-pele-preview-20261026/site",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "134-unique-notes",
+      "passed": true,
+      "detail": 134
+    },
+    {
+      "name": "132-other-manifest-records-preserved",
+      "passed": true,
+      "detail": 132
+    },
+    {
+      "name": "all-original-publication-dates-preserved",
+      "passed": true,
+      "detail": 133
+    },
+    {
+      "name": "prior-uncommitted-work-preserved",
+      "passed": true,
+      "detail": [
+        "content/post/other/Markdown.md",
+        "docs/harness/markdown-mermaid-separation-2026-10-26.md",
+        "docs/verification/markdown-mermaid-acceptance-2026-10-26.json",
+        "docs/verification/markdown-mermaid-browser-2026-10-26.json"
+      ]
+    },
+    {
+      "name": "original-flowchart-source-preserved",
+      "passed": true,
+      "detail": "nodes and edges unchanged"
+    },
+    {
+      "name": "unchanged:config.yaml",
+      "passed": true,
+      "detail": "ba4e398ccdab3c1b756dcd1579478439fe02dbd1c1f1b176307770e961f887a6"
+    },
+    {
+      "name": "unchanged:layouts/_partials/rpg/security-policy.html",
+      "passed": true,
+      "detail": "848227067c679a2bd31b3a3c39a70c513989f418cbcffed6fe42bf655379db7b"
+    },
+    {
+      "name": "unchanged:content/guestbook.md",
+      "passed": true,
+      "detail": "0b9e09acd3ff46c18080ab50e8c1827124e1cb78f66196558c2692a0067eed6f"
+    },
+    {
+      "name": "search-index-count",
+      "passed": true,
+      "detail": 134
+    },
+    {
+      "name": "new-note-indexed-once",
+      "passed": true,
+      "detail": "/blog/post/other/obsidian-pele/"
+    },
+    {
+      "name": "previous-new-URLs-preserved",
+      "passed": true,
+      "detail": "both preceding slugs present"
+    },
+    {
+      "name": "old-URLs-not-generated",
+      "passed": true,
+      "detail": "no old pages or aliases"
+    },
+    {
+      "name": "conditional-assets-on-exact-diagram-pages",
+      "passed": true,
+      "detail": [
+        "post/other/obsidian-pele/index.html",
+        "post/other/mermaid-flowchart/index.html"
+      ]
+    },
+    {
+      "name": "source-visible-before-JavaScript",
+      "passed": true,
+      "detail": [
+        "post/other/obsidian-pele/index.html",
+        "post/other/mermaid-flowchart/index.html"
+      ]
+    },
+    {
+      "name": "exact-Pele-version",
+      "passed": true,
+      "detail": {
+        "package": "pele",
+        "version": "1.10.0",
+        "license": "MIT",
+        "source": "https://github.com/obsidianmd/pele",
+        "sha256": "dd70e44152f7d70d62fedc622f588db3f5855859b444f4d8cf274925c12f2651"
+      }
+    },
+    {
+      "name": "vendor-integrity",
+      "passed": true,
+      "detail": "dd70e44152f7d70d62fedc622f588db3f5855859b444f4d8cf274925c12f2651"
+    },
+    {
+      "name": "official-Obsidian-version-distinguished",
+      "passed": true,
+      "detail": "1.15.0 early access; npm Pele 1.10.0"
+    }
+  ],
+  "limitations": [
+    "Obsidian 應用程式依官方文件說明，未操作或升級",
+    "此檢查不取代瀏覽器實測"
+  ]
+}

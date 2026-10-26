@@ -97,7 +97,7 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 | 66 | [FTP、FTPS 與 SFTP：協定和連線埠差異](../content/post/other/FTPvsFTPSvsSFTP.md) | 草稿 → 公開 | 修正主動／被動模式的方向及 FTPS 分類，提供連線選擇與診斷依據。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 67 | [高可用性架構：Active-Active、備援與故障測試](../content/post/other/HighAvailability.md) | 公開 → 修訂 | 查核原 HA 說明，區分負載平衡、資料一致性、RTO/RPO 與單點故障。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 68 | [Java 工程師學習地圖：基礎、交付與架構能力](../content/post/other/Java技術人員技能.md) | 公開 → 修訂 | 將原技術名單整理為可驗證的能力層級，保留 Spring、容器、資料與測試主題。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 69 | [Markdown 筆記：語法、程式碼與 Hugo 差異](../content/post/other/Markdown.md) | 公開 → 修訂 | 修正連結語法，將示例放入程式碼區塊，區分 CommonMark、表格與 Mermaid 擴充。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
+| 69 | [Markdown 筆記：語法、程式碼與 Hugo 差異](../content/post/other/Markdown.md) | 公開 → 修訂 | 保留 Markdown 語法、程式碼、表格、換行與 Hugo 差異，移除圖表渲染教學，改用 markdown-basics 網址。 | 本輪內容與網址驗收見[分篇整理紀錄](harness/markdown-mermaid-separation-2026-10-26.md)；原範例與來源保留，未實際操作外部 Live Editor 或檔案匯出。 |
 | 70 | [系統分析 SA：釐清需求與可驗收規格](../content/post/other/SA.md) | 公開 → 修訂 | 將原對話摘要整理為需求分析流程，補上衝突需求、產物與驗收例子。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 71 | [技術提問：重現步驟、預期結果與診斷證據](../content/post/other/ask-questions.md) | 公開 → 修訂 | 保留原提問與除錯主題，整理成可複製模板，移除難以辨識來源的個人經驗敘事。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 72 | [技術閱讀清單：Spring、全端與 JavaScript 的選讀方式](../content/post/other/book.md) | 草稿 → 公開 | 保留原待讀書單，補上主題、版本限制與閱讀產出，不假裝已完成閱讀。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
@@ -108,7 +108,7 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 | 77 | [前後端分離：API 契約、部署與成本](../content/post/other/前後端分離.md) | 公開 → 修訂 | 保留架構比較，補上契約例子、驗證責任與匯入判斷。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 78 | [軟體與網路名詞：NAT、代理、加密與認證](../content/post/other/名詞.md) | 公開 → 修訂 | 補齊原空白術語，修正 ping、Socket 與數位簽章的混淆。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 79 | [API 文件工具：OpenAPI、Slate 與 apiDoc 的選擇](../content/post/other/寫程式API文件的工具.md) | 公開 → 修訂 | 補上契約來源、生成方式與限制，提供最小 OpenAPI 檔案。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 80 | [流程圖工具：Mermaid 文字圖與圖形編輯器](../content/post/other/畫流程圖的工具.md) | 草稿 → 公開 | 補上可修改的流程圖範例、匯出方式與用途比較，不再只留下外部分享網址。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
+| 80 | [Mermaid 筆記：流程圖語法、驗證與匯出](../content/post/other/畫流程圖的工具.md) | 草稿 → 公開 | Mermaid 語法集中為專文；接續使用者需求，以 Pele 1.10.0 顯示原流程圖並保留可展開來源，新增 Obsidian 使用文章連結。 | 分篇歷史見[前輪紀錄](harness/markdown-mermaid-separation-2026-10-26.md)；本輪結果及限制見[Pele 整合紀錄](harness/pele-obsidian-2026-10-26.md)，不沿用前輪的程式碼展示驗收。 |
 | 81 | [金額計算與浮點誤差：整數單位、Decimal 與捨入](../content/post/other/算錢用浮點，遲早被人扁.md) | 公開 → 修訂 | 保留 0.1 加 0.2 的例子，補上金額表示、四捨五入與分攤規則。 | Node 實際執行三行浮點／整數輸出，與本文一致；業務捨入規則不由示例推定 |
 | 82 | [Redis 安裝：本機 Docker 與平臺選擇](../content/post/redis/redis-Install.md) | 公開 → 修訂 | 修正 Redis port 對映及舊 Windows 移植版資訊，提供 localhost 測試與停止流程。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 83 | [Redis 指令：鍵值、到期與資料結構](../content/post/redis/redis-command.md) | 草稿 → 公開 | 補齊原本空白的 SET/GET，提供可核對結果的本地練習及 SCAN 注意事項。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
@@ -211,3 +211,23 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 - 原筆記的影片時間連結沿用，未重看完整影片或取得新逐字稿；另查閱 Redis、Node.js、k6 與 SOLID 原始文件，工程補充與講者筆記分開說明。
 - 檢查器改為核對全部檢核紀錄的唯一覆蓋，從筆數推導搜尋及分頁；132 篇預期 14 頁，尾頁 2 篇。新增測試覆蓋漏登、重複、錯誤搜尋筆數／網址、錯誤尾頁、缺頁與舊頁殘留，未跳過原先的來源／日期／連結檢查。
 - 範例結果：[fred-examples-results-2026-10-20.json](verification/fred-examples-results-2026-10-20.json)；本輪任務與網站驗證證據見 [任務紀錄](harness/fred-notes-to-blog-2026-10-20.md)。
+
+## 2026-10-26：Markdown 與 Mermaid 分篇
+
+依使用者要求將兩篇整理為獨立主題，Markdown 只保留語法與 Hugo 差異；Mermaid 的渲染需求、原流程圖、語法說明、驗證與匯出集中在專文。保留原始檔名、發布日期、程式碼範例及來源連結，兩篇 lastmod 更新為實際修訂時間。
+
+本次是原網址保留原則的明確例外：Markdown 改用 `/blog/post/other/markdown-basics/`，Mermaid 改用 `/blog/post/other/mermaid-flowchart/`；舊網址不產生文章或轉址。未新增文章，總數仍為 133 篇。
+
+Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料保留，新增來源查核日期為 2026-10-26。網站與本機瀏覽器驗證結果及限制見[本輪任務紀錄](harness/markdown-mermaid-separation-2026-10-26.md)，不沿用先前網站綠燈，也不宣稱已操作外部 Live Editor 或匯出 SVG／PNG。
+
+本機修正後的網站基準 9 項檢查及 28 個對應案例通過；瀏覽器確認兩篇新頁、目錄、搜尋與舊網址 404。Mermaid 範例原先被主題特殊 hook 以一般文字呈現，現僅將展示語言改為 `text`，保留圖表原始碼並恢復逐行顯示。證據見[對應案例](verification/markdown-mermaid-acceptance-2026-10-26.json)與[瀏覽器紀錄](verification/markdown-mermaid-browser-2026-10-26.json)；文件收尾後的最終來源以任務紀錄所列 report 為準。
+
+## 2026-10-26：Pele 與 Obsidian 使用文章、網站圖表整合
+
+接續同日分篇需求，新增 [Pele 使用筆記：在 Obsidian 顯示 Mermaid 圖表](../content/post/other/obsidian-pele.md)，筆記總數由 133 增為 134。文章區分 Mermaid 語法、Pele 函式庫與 Obsidian 應用程式，並標示桌面 1.15.0 是 2026-10-22 的 early access 發布。語法細節連回既有 Mermaid 篇，不重寫同一份語法教學。
+
+專案固定安裝 npm Pele 1.10.0，保留 lock、MIT 授權及同源瀏覽器資源；Hugo 以站點 render hook 接入，只有含圖表的文章載入函式庫。原 Mermaid 範例恢復 mermaid fence，圖表節點與連線保留；本輪新要求取代前輪不新增渲染器的範圍。CSP、Goldmark unsafe、主題子模組與前輪新網址均保持。
+
+驗收涵蓋文章圖表來源、固定資源完整性、多圖識別、個別語法錯誤隔離、函式庫載入失敗時的來源退路、實際瀏覽器與網站基準；實際結果見[本輪紀錄](harness/pele-obsidian-2026-10-26.md)。Obsidian 端依官方文件說明，未操作使用者 vault、升級應用程式或實測其內建 Pele。
+
+修正後的網站預覽基準 10 項（含 7 個圖表回歸測試）、17 個整合／來源案例與實際瀏覽器驗收通過。證據：[整合案例](verification/pele-integration-2026-10-26.json)、[瀏覽器紀錄](verification/pele-browser-2026-10-26.json)。最終來源與各步日誌以任務紀錄所列最終 report 為準。

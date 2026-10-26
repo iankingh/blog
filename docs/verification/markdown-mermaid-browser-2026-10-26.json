@@ -1,0 +1,72 @@
+{
+  "origin": "http://127.0.0.1:1327",
+  "mermaid": {
+    "code": "flowchart TD\n    A[輸入任務] --> B{標題有效?}\n    B -->|否| C[顯示錯誤並保留輸入]\n    B -->|是| D[保存資料]\n    D --> E{保存成功?}\n    E -->|是| F[顯示更新日期]\n    E -->|否| G[提示重試]",
+    "codeBlocks": 1,
+    "pageWidth": 1280,
+    "renderedDiagrams": 0,
+    "title": "Mermaid 筆記：流程圖語法、驗證與匯出",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "whiteSpace": "pre"
+  },
+  "mermaidSearch": {
+    "query": "Mermaid",
+    "results": [
+      {
+        "href": "/blog/post/other/mermaid-flowchart/",
+        "text": "Mermaid 筆記：流程圖語法、驗證與匯出以任務保存流程示範 Mermaid 的節點、箭頭與條件分支，說明渲染需求、流程驗證及 SVG／PNG 匯出。更新 2026.10.26 · tools"
+      }
+    ],
+    "status": "找到 1 個任務"
+  },
+  "markdownSearch": {
+    "query": "Markdown 筆記：語法、程式碼與 Hugo 差異",
+    "results": [
+      {
+        "href": "/blog/post/other/markdown-basics/",
+        "text": "Markdown 筆記：語法、程式碼與 Hugo 差異整理 Markdown 的標題、連結、程式碼區塊、表格與換行語法，說明 CommonMark 與 Hugo Goldmark 的使用差異。更新 2026.10.26 · Markdown"
+      }
+    ],
+    "status": "找到 1 個任務"
+  },
+  "markdown": {
+    "articleHasMermaid": false,
+    "headings": [
+      "常用語法",
+      "表格與換行",
+      "目錄與 Hugo 注意事項",
+      "參考資料"
+    ],
+    "pageWidth": 1280,
+    "title": "Markdown 筆記：語法、程式碼與 Hugo 差異",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "tocUrl": "http://127.0.0.1:1327/blog/post/other/markdown-basics/#%E7%9B%AE%E9%8C%84%E8%88%87-hugo-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"
+  },
+  "oldMarkdown": {
+    "url": "http://127.0.0.1:1327/blog/post/other/markdown/",
+    "text": "Error response\n\nError code: 404\n\nMessage: File not found.\n\nError code explanation: 404 - Nothing matches the given URI."
+  },
+  "oldMermaid": {
+    "url": "http://127.0.0.1:1327/blog/post/other/%E7%95%AB%E6%B5%81%E7%A8%8B%E5%9C%96%E7%9A%84%E5%B7%A5%E5%85%B7/",
+    "text": "Error response\n\nError code: 404\n\nMessage: File not found.\n\nError code explanation: 404 - Nothing matches the given URI."
+  },
+  "screenshots": [
+    "/tmp/blog-markdown-mermaid-code-20261026.jpg",
+    "/tmp/blog-markdown-mermaid-search-20261026.jpg",
+    "/tmp/blog-markdown-basics-desktop-20261026.jpg"
+  ],
+  "limitations": [
+    "未操作外部 Live Editor 繪圖或 SVG／PNG 匯出",
+    "預設桌面 viewport 1280×720，未測實體手機或輔助閱讀器",
+    "曾點選既有程式碼複製按鈕，但本機瀏覽器剪貼簿讀取為空，未將複製功能記為通過"
+  ],
+  "checkedAt": "2026-10-26",
+  "sourceCommit": "b964d03b8c9fb2816baba5b60aee4824f1b29249",
+  "buildEvidence": "/private/tmp/blog-markdown-mermaid-fixed-20261026/report.json"
+}

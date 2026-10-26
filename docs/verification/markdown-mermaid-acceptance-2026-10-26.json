@@ -1,0 +1,204 @@
+{
+  "baseline": "b964d03b8c9fb2816baba5b60aee4824f1b29249",
+  "site": "/private/tmp/blog-markdown-mermaid-fixed-20261026/site",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "note-count",
+      "passed": true,
+      "detail": 133
+    },
+    {
+      "name": "unique-search-count",
+      "passed": true,
+      "detail": 133
+    },
+    {
+      "name": "markdown-basics:date-preserved",
+      "passed": true,
+      "detail": "2020-11-06T22:22:00+08:00"
+    },
+    {
+      "name": "markdown-basics:code-preserved",
+      "passed": true,
+      "detail": {
+        "blocks": 2,
+        "old_languages": [
+          "markdown",
+          "markdown"
+        ],
+        "new_languages": [
+          "markdown",
+          "markdown"
+        ]
+      }
+    },
+    {
+      "name": "markdown-basics:sources-preserved",
+      "passed": true,
+      "detail": {
+        "old": 5,
+        "new": 5
+      }
+    },
+    {
+      "name": "markdown-basics:source-history-preserved",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "name": "markdown-basics:slug-and-no-alias",
+      "passed": true,
+      "detail": "markdown-basics"
+    },
+    {
+      "name": "markdown-basics:lastmod-synced",
+      "passed": true,
+      "detail": "2026-10-26T21:42:57+08:00"
+    },
+    {
+      "name": "markdown-basics:new-output",
+      "passed": true,
+      "detail": "/private/tmp/blog-markdown-mermaid-fixed-20261026/site/post/other/markdown-basics/index.html"
+    },
+    {
+      "name": "markdown-basics:old-output-absent",
+      "passed": true,
+      "detail": "markdown"
+    },
+    {
+      "name": "markdown-basics:canonical",
+      "passed": true,
+      "detail": [
+        "https://iankingh.github.io/blog/post/other/markdown-basics/"
+      ]
+    },
+    {
+      "name": "markdown-basics:one-search-entry",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "markdown:no-diagram-teaching",
+      "passed": true,
+      "detail": "source and article body"
+    },
+    {
+      "name": "markdown:hugo-heading",
+      "passed": true,
+      "detail": "heading present"
+    },
+    {
+      "name": "mermaid-flowchart:date-preserved",
+      "passed": true,
+      "detail": "2023-07-16T11:37:44+08:00"
+    },
+    {
+      "name": "mermaid-flowchart:code-preserved",
+      "passed": true,
+      "detail": {
+        "blocks": 1,
+        "old_languages": [
+          "mermaid"
+        ],
+        "new_languages": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "mermaid-flowchart:sources-preserved",
+      "passed": true,
+      "detail": {
+        "old": 4,
+        "new": 5
+      }
+    },
+    {
+      "name": "mermaid-flowchart:source-history-preserved",
+      "passed": true,
+      "detail": 5
+    },
+    {
+      "name": "mermaid-flowchart:slug-and-no-alias",
+      "passed": true,
+      "detail": "mermaid-flowchart"
+    },
+    {
+      "name": "mermaid-flowchart:lastmod-synced",
+      "passed": true,
+      "detail": "2026-10-26T21:42:57+08:00"
+    },
+    {
+      "name": "mermaid-flowchart:new-output",
+      "passed": true,
+      "detail": "/private/tmp/blog-markdown-mermaid-fixed-20261026/site/post/other/mermaid-flowchart/index.html"
+    },
+    {
+      "name": "mermaid-flowchart:old-output-absent",
+      "passed": true,
+      "detail": "畫流程圖的工具"
+    },
+    {
+      "name": "mermaid-flowchart:canonical",
+      "passed": true,
+      "detail": [
+        "https://iankingh.github.io/blog/post/other/mermaid-flowchart/"
+      ]
+    },
+    {
+      "name": "mermaid-flowchart:one-search-entry",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "mermaid:code-displayed",
+      "passed": true,
+      "detail": [
+        "language-text"
+      ]
+    },
+    {
+      "name": "mermaid:branch-table-intact",
+      "passed": true,
+      "detail": [
+        [
+          "語法",
+          "意義"
+        ],
+        [
+          "flowchart TD",
+          "宣告由上往下排列的流程圖；若需由左往右排列，可改用 LR。"
+        ],
+        [
+          "A[輸入任務]",
+          "A 是節點識別碼，方括號中的文字顯示在矩形節點內。"
+        ],
+        [
+          "B{標題有效?}",
+          "大括號建立菱形節點，用來表示本例的判斷。"
+        ],
+        [
+          "A --> B",
+          "箭頭連接節點，表示由 A 前往 B。"
+        ],
+        [
+          "B -->|否| C",
+          "箭頭上的「否」是分支標籤，表示條件不成立時前往 C。"
+        ]
+      ]
+    },
+    {
+      "name": "mermaid:single-search-match",
+      "passed": true,
+      "detail": [
+        "/blog/post/other/mermaid-flowchart/"
+      ]
+    },
+    {
+      "name": "old-links-absent",
+      "passed": true,
+      "detail": []
+    }
+  ]
+}

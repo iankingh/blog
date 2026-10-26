@@ -1,0 +1,114 @@
+{
+  "checkedAt": "2026-10-26",
+  "version": "1.10.0",
+  "preview": "http://127.0.0.1:1327/blog/post/other/obsidian-pele/",
+  "desktop": {
+    "description": "整理筆記後寫下圖表來源，切換閱讀模式，最後確認圖表與文字說明。",
+    "labelColor": "rgb(37, 48, 33)",
+    "pageWidth": 1440,
+    "sourceOpen": false,
+    "state": "rendered",
+    "svgViewBox": "0 0 704 64",
+    "svgWidth": 704,
+    "theme": "light",
+    "title": "用文字維護筆記圖表",
+    "viewport": {
+      "height": 1000,
+      "width": 1440
+    }
+  },
+  "dark": {
+    "background": "rgb(26, 33, 28)",
+    "labelColor": "rgb(236, 232, 220)",
+    "state": "rendered",
+    "theme": "dark"
+  },
+  "mobile": {
+    "canvasWidth": 312,
+    "pageWidth": 390,
+    "sourceSummaryHeight": 44,
+    "state": "rendered",
+    "svgViewBox": "0 0 196 352",
+    "svgWidth": 196,
+    "theme": "light",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  "errorIsolation": {
+    "activeElements": 0,
+    "duplicateIds": [],
+    "errors": [
+      "",
+      "圖表暫時無法顯示，仍可閱讀下方原始碼。",
+      "",
+      ""
+    ],
+    "executableAttributes": [],
+    "sourceOpen": [
+      false,
+      true,
+      false,
+      false
+    ],
+    "states": [
+      "rendered",
+      "error",
+      "rendered",
+      "rendered"
+    ],
+    "svgCount": 3
+  },
+  "missingLibrary": {
+    "message": "圖表暫時無法顯示，仍可閱讀下方原始碼。",
+    "sourceOpen": true,
+    "state": "unavailable",
+    "svgCount": 0
+  },
+  "noRenderer": {
+    "canvasHidden": true,
+    "source": "flowchart LR\n    accTitle: 用文字維護筆記圖表\n    accDescr: 整理筆記後寫下圖表來源，切換閱讀模式，最後確認圖表與文字說明。\n    A[整理筆記] --> B[寫下圖表來源]\n    B --> C[切換閱讀模式]\n    C --> D[確認圖表與文字說明]",
+    "sourceOpen": true
+  },
+  "search": {
+    "results": [
+      {
+        "href": "/blog/post/other/obsidian-pele/",
+        "text": "Pele 使用筆記：在 Obsidian 顯示 Mermaid 圖表認識 Obsidian 的 Pele 圖表引擎，確認適用版本、使用 Mermaid 區塊繪圖，並將固定版本的 Pele 接入網站專案。更新 2026.10.26 · Obsidian / tools"
+      }
+    ],
+    "status": "找到 1 個任務"
+  },
+  "sourceKeyboard": {
+    "openedWithEnter": true,
+    "closedWithEnter": true,
+    "originalSourcePreserved": true
+  },
+  "defaultPreview": {
+    "diagramState": "rendered",
+    "figure": {
+      "bottom": 544.21875,
+      "height": 446,
+      "left": 51,
+      "right": 569,
+      "top": 98.21875,
+      "width": 518,
+      "x": 51,
+      "y": 98.21875
+    },
+    "pageWidth": 620,
+    "theme": "light",
+    "viewport": {
+      "height": 909,
+      "width": 620
+    }
+  },
+  "screenshots": [],
+  "limitations": [
+    "Obsidian 桌面 1.15.0 的操作依官方文件說明，未安裝或升級該應用程式、未操作私人 vault",
+    "瀏覽器實測原始碼保留及繪圖腳本缺失；未透過瀏覽器設定全域關閉 JavaScript",
+    "未測實體手機或螢幕閱讀器"
+  ],
+  "screenshotLimitation": "瀏覽器工具內的可見圖表已實看；另存 JPEG 的結果在本機圖片檢視中呈空白，因此不把這些檔案列為有效截圖證據。DOM、主題、寬度與失敗退路紀錄另有保留。"
+}

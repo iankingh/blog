@@ -117,6 +117,7 @@ def site_plan(output):
         Step("python-version", (sys.executable, "--version")),
         Step("note-source", (sys.executable, scripts + "check-note-content.py")),
         Step("search", ("node", scripts + "check-search.cjs"), ("node-version",)),
+        Step("diagrams", ("node", scripts + "check-diagrams.cjs"), ("node-version",)),
         Step("python-unit-tests", (sys.executable, "-m", "unittest", "discover",
                                    "-s", scripts, "-p", "test_*.py")),
         Step("build", ("hugo", "--minify", "--noBuildLock", "--cacheDir",
