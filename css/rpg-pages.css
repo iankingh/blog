@@ -112,6 +112,30 @@
 .article-body .highlight pre { margin: 0; padding-top: 44px; }
 .copy-code { position: absolute; z-index: 1; top: 8px; right: 9px; border: 1px solid #65705a; border-radius: 3px; background: #2c3427; color: #e8eddc; font-size: 12px; padding: 4px 9px; }
 .copy-code:hover { border-color: #d6b577; color: #d6b577; }
+.article-diagram { min-width: 0; margin: 24px 0; }
+.diagram-canvas {
+  overflow: auto;
+  width: 100%;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  --pele-bg: var(--panel);
+  --pele-fg: var(--text);
+  --pele-muted: var(--muted);
+  --pele-line: var(--text);
+  --pele-surface: var(--surface-raised);
+  --pele-surface-alt: var(--surface-hover);
+  --pele-border: var(--muted);
+  --pele-accent: var(--green);
+  --pele-font-mono: var(--mono);
+}
+.diagram-canvas > svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.diagram-source { margin-top: 12px; }
+.diagram-source summary { display: list-item; min-height: 44px; padding: 8px 0; cursor: pointer; color: var(--green); font-size: 14px; }
+.diagram-source summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.diagram-source .highlight { margin-top: 6px; }
+.article-body .diagram-status { color: var(--muted); font-size: 14px; }
 .article-body blockquote, .article-body .note, .article-body [class^="post-alert-"] { margin: 24px 0; padding: 14px 20px; border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; background: var(--accent-surface); }
 .article-body blockquote p { margin: 8px 0; }
 .article-body hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
