@@ -8192,7 +8192,7 @@
     "lastmod": "2026-10-26",
     "context": "適用：Obsidian 使用者與網站開發者；Obsidian 依桌面 1.15.0 early access 官方說明，網站使用 Pele 1.10.0。",
     "issues": [],
-    "changes": "新增 Pele、Mermaid 與 Obsidian 分工、內建版本／安裝界線、筆記圖表範例、主題與相容性、網站接法及排錯；本站實際接入固定版同源腳本，語法細節連回 Mermaid 專文。",
+    "changes": "新增 Pele、Mermaid 與 Obsidian 分工、內建版本／安裝界線、筆記圖表範例、主題與相容性、網站接法及排錯；本站實際接入固定版同源腳本，語法細節連回 Mermaid 專文。 同日補充：依使用者提供的影片來源，在開頭補上從 MUKI WU 分享認識 Pele 的寫作緣由，並保留完整影片標題與連結。",
     "sources": [
       "https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/",
       "https://help.obsidian.md/advanced-syntax",
@@ -8200,9 +8200,10 @@
       "https://pele.run/api",
       "https://pele.run/theming",
       "https://pele.run/compatibility",
-      "https://pele.run/security"
+      "https://pele.run/security",
+      "https://www.youtube.com/watch?v=-YlDpD8USWY"
     ],
-    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/pele-obsidian-2026-10-26.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。",
+    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/pele-obsidian-2026-10-26.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。 本次僅補影片出處；來源查核範圍與新的網站驗證結果見 docs/harness/pele-video-origin-2026-10-26.md，前述整合與瀏覽器結果保留為前輪歷史。",
     "status": "complete",
     "published": true,
     "verificationType": "local-integration-and-documentation",
@@ -8255,6 +8256,13 @@
         "checkedAt": "2026-10-26",
         "method": "web.run",
         "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=-YlDpD8USWY",
+        "status": "read",
+        "checkedAt": "2026-10-26",
+        "method": "cua_repl: YouTube 頁面與展開的作者說明",
+        "note": "確認標題、頻道 MUKI WU（哈囉沐奇）、發布日期 2026-10-21、片長 11:08 及作者說明；本次僅補寫作緣由，未讀取完整字幕、未完整觀看或轉錄，未將標題中的效能數字列為本站實測結果。"
       }
     ],
     "versionScope": "Obsidian 桌面 1.15.0 early access 發布說明；npm pele 1.10.0。未將函式庫版本當作 Obsidian 應用程式版本。",
@@ -8268,6 +8276,76 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     },
-    "contentUpdatedAt": "2026-10-26T22:03:30+08:00"
+    "contentUpdatedAt": "2026-10-26T23:36:32+08:00"
+  },
+  {
+    "path": "content/post/node/npm-omit-lockfile-registry-resolved.md",
+    "title": "npm 設定筆記：omit-lockfile-registry-resolved",
+    "originalDraft": false,
+    "originalDate": "2026-10-30T23:33:35+08:00",
+    "lastmod": "2026-10-30",
+    "context": "適用：使用 npm 與 package-lock.json 的 Node.js 專案；依 npm 11 官方文件，隔離操作使用 Node.js 26.13.0／npm 11.20.0。",
+    "issues": [],
+    "changes": "依使用者提供的 omit-lockfile-registry-resolved=true 新增筆記；說明專案 .npmrc、預設值、鎖檔欄位前後差異、既有鎖檔更新、npm ci、registry 換源取捨及排錯；未將設定套用至本站。",
+    "sources": [
+      "https://docs.npmjs.com/cli/v11/using-npm/config/#omit-lockfile-registry-resolved",
+      "https://docs.npmjs.com/cli/v11/configuring-npm/npmrc/",
+      "https://docs.npmjs.com/cli/v11/configuring-npm/package-lock-json/",
+      "https://docs.npmjs.com/cli/v11/commands/npm-install/",
+      "https://docs.npmjs.com/cli/v11/commands/npm-ci/"
+    ],
+    "verification": "npm 11.20.0 對臨時 loopback registry 執行真實 npm install／ci；核對預設 false、專案設定、移除既有 registry resolved、保留 version／integrity、直接 tarball URL 保留來源、改用新 registry 安裝且不改鎖檔，以及錯誤雜湊以 EINTEGRITY 失敗。改回 false 不保證補回既有 resolved。結果見 docs/verification/npm-omit-lockfile-results-2026-10-30.json；網站基準與各步日誌見 docs/harness/npm-omit-lockfile-registry-resolved-2026-10-30.md。未測公司代理、認證、Git 依賴、其他 npm 版本或安裝效能；未重跑其他技術教學。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "local-npm-and-documentation",
+    "sourceChecks": [
+      {
+        "url": "https://docs.npmjs.com/cli/v11/using-npm/config/#omit-lockfile-registry-resolved",
+        "status": "read",
+        "checkedAt": "2026-10-30",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://docs.npmjs.com/cli/v11/configuring-npm/npmrc/",
+        "status": "read",
+        "checkedAt": "2026-10-30",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://docs.npmjs.com/cli/v11/configuring-npm/package-lock-json/",
+        "status": "read",
+        "checkedAt": "2026-10-30",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://docs.npmjs.com/cli/v11/commands/npm-install/",
+        "status": "read",
+        "checkedAt": "2026-10-30",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      },
+      {
+        "url": "https://docs.npmjs.com/cli/v11/commands/npm-ci/",
+        "status": "read",
+        "checkedAt": "2026-10-30",
+        "method": "web.run",
+        "note": "官方文件成功讀取；工具未提供 HTTP 狀態碼。"
+      }
+    ],
+    "versionScope": "npm 11 文件；macOS arm64／Node.js 26.13.0／npm 11.20.0 本機隔離案例。",
+    "reviewedAt": "2026-10-30",
+    "originalReferences": [],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-30T23:33:35+08:00"
   }
 ]

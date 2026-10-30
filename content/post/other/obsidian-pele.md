@@ -2,7 +2,7 @@
 title: "Pele 使用筆記：在 Obsidian 顯示 Mermaid 圖表"
 slug: obsidian-pele
 date: 2026-10-26T22:03:30+08:00
-lastmod: 2026-10-26T22:03:30+08:00
+lastmod: 2026-10-26T23:36:32+08:00
 draft: false
 categories:
 - "筆記"
@@ -16,6 +16,8 @@ description: "認識 Obsidian 的 Pele 圖表引擎，確認適用版本、使�
 認識 Obsidian 的 Pele 圖表引擎，確認適用版本、使用 Mermaid 區塊繪圖，並將固定版本的 Pele 接入網站專案。
 
 <!--more-->
+
+這篇筆記的起點，是看到 MUKI WU（哈囉沐奇）分享的 [〈Mermaid 太肥太慢？Obsidian 開源的 pele，畫一張圖只要 0.3 毫秒〉](https://www.youtube.com/watch?v=-YlDpD8USWY)。看完分享後，想進一步了解 Pele 如何用在 Obsidian，也把它接入自己的部落格；因此接著查閱官方文件，整理使用方式與本站的實際整合。
 
 適用：想在 Obsidian 用文字維護圖表的使用者，以及需要在網站顯示相同圖表來源的開發者。Obsidian 操作以 2026-10-22 發布的桌面 1.15.0 搶先體驗版更新說明為依據；本站安裝的 JavaScript 套件版本為 Pele 1.10.0。
 
@@ -112,6 +114,7 @@ if (container) {
 
 ## 參考資料
 
+- [MUKI WU（哈囉沐奇）：Mermaid 太肥太慢？Obsidian 開源的 pele，畫一張圖只要 0.3 毫秒](https://www.youtube.com/watch?v=-YlDpD8USWY)（本文的認識契機；2026-10-21 發布）
 - [Obsidian 1.15.0 Desktop：early access 更新說明](https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/)
 - [Obsidian：進階格式與圖表](https://help.obsidian.md/advanced-syntax)
 - [Pele 官方儲存庫](https://github.com/obsidianmd/pele)

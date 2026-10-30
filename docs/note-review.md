@@ -231,3 +231,15 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 驗收涵蓋文章圖表來源、固定資源完整性、多圖識別、個別語法錯誤隔離、函式庫載入失敗時的來源退路、實際瀏覽器與網站基準；實際結果見[本輪紀錄](harness/pele-obsidian-2026-10-26.md)。Obsidian 端依官方文件說明，未操作使用者 vault、升級應用程式或實測其內建 Pele。
 
 修正後的網站預覽基準 10 項（含 7 個圖表回歸測試）、17 個整合／來源案例與實際瀏覽器驗收通過。證據：[整合案例](verification/pele-integration-2026-10-26.json)、[瀏覽器紀錄](verification/pele-browser-2026-10-26.json)。最終來源與各步日誌以任務紀錄所列最終 report 為準。
+
+## 2026-10-26：補上 Pele 文章的影片緣由
+
+依使用者補充，在 [Pele 使用筆記](../content/post/other/obsidian-pele.md) 開頭記錄從 MUKI WU（哈囉沐奇）的 [YouTube 分享](https://www.youtube.com/watch?v=-YlDpD8USWY) 認識 Pele 的緣由，參考資料保留完整影片標題與網址。保留原發布日期、文章路徑、範例與官方來源，更新 lastmod 及 JSON 查核紀錄。
+
+本輪讀取影片頁面與作者完整說明，確認標題、頻道、發布日期及片長；未整理完整影片或查核其效能數字。驗證範圍及證據見[任務紀錄](harness/pele-video-origin-2026-10-26.md)。
+
+## 2026-10-30：新增 npm 鎖檔設定筆記
+
+新增 [npm 設定筆記：omit-lockfile-registry-resolved](../content/post/node/npm-omit-lockfile-registry-resolved.md)，總數由 134 增為 135 篇。依使用者提供的設定與 npm 官方文件成文，涵蓋 `.npmrc`、欄位前後差異、更新既有鎖檔、`npm ci`、registry 換源情境及限制；本站 npm 設定與鎖檔未修改。
+
+使用 Node.js 26.13.0／npm 11.20.0 對臨時本機 registry 執行安裝，驗證 registry 來源欄位省略、版本與完整性保留、直接 URL 邊界、換源安裝及錯誤雜湊被拒絕；未連公司代理、驗證認證、Git 依賴或量測效能。案例結果見 [npm 隔離證據](verification/npm-omit-lockfile-results-2026-10-30.json)，網站結果、日誌及環境限制見 [任務紀錄](harness/npm-omit-lockfile-registry-resolved-2026-10-30.md)。未更動前輪的 Pele 內容與查核紀錄。

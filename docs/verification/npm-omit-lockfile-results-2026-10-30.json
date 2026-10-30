@@ -1,0 +1,145 @@
+{
+  "status": "passed",
+  "date": "2026-10-30",
+  "node": "v26.13.0",
+  "npm": "11.20.0",
+  "scope": "Real npm against a temporary loopback registry with generated tarballs; no external packages or install scripts.",
+  "cases": [
+    {
+      "case": "default-false",
+      "command": [
+        "npm",
+        "config",
+        "get",
+        "omit-lockfile-registry-resolved",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-seed-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/default-false.log"
+    },
+    {
+      "case": "default-lock",
+      "command": [
+        "npm",
+        "install",
+        "--package-lock-only",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-seed-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/default-lock.log"
+    },
+    {
+      "case": "project-config-true",
+      "command": [
+        "npm",
+        "config",
+        "get",
+        "omit-lockfile-registry-resolved",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-seed-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/project-config-true.log"
+    },
+    {
+      "case": "rewrite-existing-lock",
+      "command": [
+        "npm",
+        "install",
+        "--package-lock-only",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-seed-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/rewrite-existing-lock.log"
+    },
+    {
+      "case": "ci-new-registry-fresh-cache",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-ci-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/ci-new-registry-fresh-cache.log"
+    },
+    {
+      "case": "false-existing-lock",
+      "command": [
+        "npm",
+        "install",
+        "--package-lock-only",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-ci-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/false-existing-lock.log"
+    },
+    {
+      "case": "omit-again",
+      "command": [
+        "npm",
+        "install",
+        "--package-lock-only",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-ci-cache"
+      ],
+      "exit_code": 0,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/omit-again.log"
+    },
+    {
+      "case": "integrity-mismatch-rejected",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--fetch-retries=0",
+        "--cache",
+        "/private/tmp/blog-npm-lockfile-note-20261030/v3-bad-integrity-cache"
+      ],
+      "exit_code": 1,
+      "log": "/private/tmp/blog-npm-lockfile-note-20261030/logs/integrity-mismatch-rejected.log"
+    }
+  ],
+  "ci_requests": [
+    "/b/npm",
+    "/b/npm",
+    "/b/lockfile-demo-dep",
+    "/direct/lockfile-url-dep-1.0.0.tgz",
+    "/b/lockfile-demo-dep-1.0.0.tgz"
+  ],
+  "assertions": [
+    "default is false",
+    "project .npmrc is read",
+    "existing lock retains version and integrity while registry resolved is removed",
+    "explicit HTTP tarball retains resolved",
+    "npm ci queries the new registry with a fresh cache and installs both packages",
+    "npm ci leaves lockfile byte-identical",
+    "false with an existing omitted lock does not automatically restore resolved in this npm version",
+    "mismatched integrity fails with EINTEGRITY"
+  ],
+  "limitations": [
+    "Only npm 11.20.0 / Node.js 26.13.0 on macOS arm64",
+    "No Nexus/Artifactory, authentication, Git dependency or performance benchmark"
+  ]
+}
