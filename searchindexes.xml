@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>npm 設定筆記：omit-lockfile-registry-resolved</title><url>/blog/post/node/npm-omit-lockfile-registry-resolved/</url><categories><category>技術</category></categories><tags><tag>Node.js</tag><tag>npm</tag></tags><content type="html"><![CDATA[  在專案的 .npmrc 加上這一行，npm 寫入鎖檔時就會省略 registry 套件的 resolved 欄位：
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>AI Skills 清單：自製技能與工作流收藏</title><url>/blog/post/ai-skills-list/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag><tag>Skills</tag></tags><content type="html">  專案入口： iankingh/agent-skills 。這裡整理自己使用、製作與探索的 AI agent skills；完整技能檔案、支援工具及外部收藏由專案 README 維護。
+這篇清單方便先看用途，再決定要讀哪個技能或教學。適用：希望重複使用 Git 提交訊息、影音筆記整理流程，或想研究工程紀律與代理工作流的開發者。
+自製技能 Skill 可以幫忙做什麼 使用入口 git-commit-content 根據實際 Git 變更產生、修改或檢查繁體中文提交訊息，遵循 Conventional Commits 與專案規則 提供目前變更，要求產生提交訊息；實際提交或推送需另行要求 ig-post-to-notes 整理 Instagram 單篇貼文及完整輪播，保留來源與提示詞；依要求存入 Obsidian 提供貼文網址；需要存檔時再指定筆記庫位置 yt-video-to-notes 整理 YouTube 影片重點與時間戳，或原文匯入已整理文稿；另附章節建置與繁中檢查工具 提供影片網址或既有文稿，指定要整理還是原文匯入 IG 與 YouTube 技能在專案中提供共用版本，沒有預設個人筆記庫路徑。僅要求整理時可直接取得對話中的筆記；要寫入 Obsidian 時才指定目的地。影片網址帶有播放清單參數，也不會自動擴大成整個播放清單。
+安裝時保留完整技能資料夾與支援檔案，實際步驟見 agent-skills 使用方式 。若正在釐清工具會從哪個目錄載入技能，可先讀 AI Skills：專案與全域技能目錄 。
+外部收藏 以下兩項保留原始來源，尚未複製進專案的技能目錄，試用狀態均為待試用。教學依上游文件整理，方便理解安裝與使用流程。
+項目 簡介與收藏理由 使用教學 ub-mode 強調 TDD、重構與品質檢查的工程紀律 Skill，把開發步驟與複雜度、重複程式碼、突變測試連在一起；適合研究如何落實品質要求 ub-mode 使用指南 pstack 涵蓋任務規劃、開發、驗證與多代理協作的工作流外掛，以 /poteto-mode 選擇適合任務的流程；適合研究從需求到驗證的完整做法 pstack 使用指南 ub-mode 著重寫程式時應遵守的紀律與品質檢查；pstack 則提供較完整的任務路由、設計、協作與驗證流程。ub-mode 上游也說明，其部分原則來自 poteto-mode／pstack，再經精簡並結合品質工具。
+怎麼挑選 反覆做相同整理工作：先看自製技能，確認輸入、輸出與是否需要寫檔。 希望開發時先測試、再修正與重構：先讀 ub-mode 教學，確認專案是否有可執行的測試及相依工具。 需要設計探索、分工與多角度審查：先讀 pstack 教學，從小任務開始，提供明確的完成條件與驗證方式。 其他聊天、搜尋、翻譯與學習入口，另見 AI 工具與學習資源清單 。技能檔案與外部收藏的後續異動，以 agent-skills README 為入口。
+參考資料 iankingh/agent-skills unclebob/ub-mode Cursor plugins：pstack   </content></entry><entry><title>pstack 使用指南：從任務規劃到開發與驗證</title><url>/blog/post/pstack-guide/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag><tag>Skills</tag></tags><content type="html">   pstack 把理解程式、設計、實作、驗證與多代理協作整理成一套工作流外掛。主要入口是 /poteto-mode：描述目標與完成條件，由它選擇適合任務的工作流程，再視需要使用其他技能。
+適用：希望用 Cursor 處理需要設計、分工或驗證的開發任務，也想了解 Claude Code 適配方式的開發者。本篇依官方文件整理，尚未實機試用，收藏狀態為待試用。
+在 Cursor 安裝與設定 在 Cursor 對話輸入：
+/add-plugin pstack完成安裝後執行模型設定：
+/setup-pstack設定流程會偵測可用模型，詢問推理預算與各角色的模型選擇，並寫入個人的 ~/.cursor/rules/pstack-models.mdc。選擇環境實際提供的模型即可，不必照抄別人的型號。
+設定完成後開啟新對話，讓模型規則載入。若之後想降低成本，可重新設定較小的推理預算、減少審查角色的模型數，或讓部分角色繼承目前對話的模型。平行候選與多模型審查都會增加用量，小任務可以從少量角色開始。
+依官方設定指南，若專案沒有既有驗證流程，設定精靈也可能提議產生專案驗證技能。先確認它提出的啟動方式、操作範圍與證據適合專案，再決定是否建立；已有可用的驗證命令時，可以直接沿用。
+第一個任務：描述目標與驗證方式 不必一開始就列出所有技能名稱。先選一個小範圍且結果明確的任務：
+/poteto-mode 替這個 CLI 新增 --json 輸出。 原本文字輸出保持逐字相同；JSON 需可解析，且欄位符合既有資料結構。 先確認目前 CLI 與測試方式，再實作並實際執行兩種輸出。 交付修改內容、測試命令與結果。這次只修改與驗證，不提交或推送。這個提示詞同時提供要改的行為、相容要求與完成證據。對修錯任務，也可以直接要求「先重現，再修正與驗證」。看它建立的工作清單，確認選到的流程符合這次需求。
+規劃模式怎麼配合 pstack 沒有獨立的規劃技能。官方文件建議先理解程式，必要時用設計或原型解決不確定性，再把工作整理成可逐步驗證的計畫；Cursor 的規劃模式也可以一起使用。
+若這一輪只想取得計畫，直接限制交付物：
+/poteto-mode 規劃將同步匯入改成背景工作。 先讀現有匯入流程、資料形狀與失敗處理，再提出可分階段驗證的計畫。 每一階段列出相容要求與驗證方式。 這次只交付計畫，先不修改產品程式碼 …  </content></entry><entry><title>ub-mode 使用指南：TDD、重構與品質檢查</title><url>/blog/post/ub-mode-guide/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag><tag>Skills</tag></tags><content type="html"><![CDATA[   ub-mode 是把工程紀律寫成操作指引的 Skill。它要求代理先用測試釐清行為、做出最小修正，再改善程式結構，並搭配工具檢查複雜度、重複與測試品質。
+適用：已有程式碼與測試，希望讓 AI 修錯或重構時遵循一致流程的開發者。本篇依上游文件說明使用方式，尚未實機試用，收藏狀態為待試用。
+ub-mode 的工作流程 上游將規則分為三組：
+先讓行為正確：先釐清資料結構與邊界，寫出會因預期原因失敗的測試，再用最小修改讓測試通過。 再改善結構：修正根本原因、分段驗證，檢查複雜度與重複，再重構；每次重構後確認行為保持一致。 留下可接續的紀錄：記錄操作與原因，以小單位整理變更，檢查哪些工作目錄可以清理。 它沒有替專案帶入測試框架。使用前先確認代理知道原本的測試命令、測試資料與執行環境。上游也明確保留判斷空間：若無法寫出有意義的測試，不應為了形式補一個沒有驗證能力的測試。
+安裝 Skill 上游目前以單一 SKILL.md 提供技能。先在自行選擇的下載目錄取得來源：
+git clone https://github.com/unclebob/ub-mode.git ub-mode-source以下以 Cursor 的個人技能目錄為例，從剛才的下載目錄執行；若已有同名目錄或軟連結，先保留既有版本，不合併覆寫：
+ub_skill_dir=&amp;#34;$HOME/.cursor/skills/ub-mode&amp;#34; if [ -e &amp;#34;$ub_skill_dir&amp;#34; ] || [ -L &amp;#34;$ub_skill_dir&amp;#34; ]; then printf &amp;#39;同名技能已存在，請先確認及備份：%s\n&amp;#39; &amp;#34;$ub_skill_dir&amp;#34; else mkdir -p &amp;#34;$ub_skill_dir&amp;#34; cp ub-mode-source/SKILL.md &amp;#34;$ub_skill_dir/SKILL.md&amp;#34; fiClaude Code 可將上例的目錄改成 ~/.claude/skills/ub-mode。其他代理需依自己的技能目錄設定，保留 ub-mode/SKILL.md 結構；各工具的路徑差異可參考 AI Skills：專案與全域技能目錄 。
+在工具辨識到技能後，以 /ub-mode 開始任務。複製 …  ]]></content></entry><entry><title>npm 設定筆記：omit-lockfile-registry-resolved</title><url>/blog/post/node/npm-omit-lockfile-registry-resolved/</url><categories><category>技術</category></categories><tags><tag>Node.js</tag><tag>npm</tag></tags><content type="html"><![CDATA[  在專案的 .npmrc 加上這一行，npm 寫入鎖檔時就會省略 registry 套件的 resolved 欄位：
 omit-lockfile-registry-resolved=true後續安裝時，npm 再向目前設定的 registry 查詢該版本的套件下載位置，因此安裝可能花更久。這是 npm 的設定，通常與 Node.js 開發環境一起使用。 官方選項說明 適用：使用 npm 與 package-lock.json 管理依賴的專案。本文依 npm 11 官方文件說明，操作案例使用 Node.js 26.13.0／npm 11.20.0；其他 npm 版本先確認是否支援此選項。
 設定放在哪裡 把設定加進專案根目錄的 .npmrc，與 package.json 放在同一層：
 my-project/ ├── .npmrc ├── package.json └── package-lock.json在該目錄執行下列命令，確認 npm 讀到的有效值：
@@ -246,14 +271,14 @@ Vue 2 與 Vue 3 的模板概念相近，但 Vue 3 可使用多個根節點。表
 建立專案 在獨立的空資料夾建立以下檔案。
 package.json：
 { &amp;#34;name&amp;#34;: &amp;#34;vue-note-labs&amp;#34;, &amp;#34;private&amp;#34;: true, &amp;#34;type&amp;#34;: &amp;#34;module&amp;#34;, &amp;#34;scripts&amp;#34;: {&amp;#34;dev&amp;#34;: &amp;#34;vite&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;vite build&amp;#34;, &amp;#34;preview&amp;#34;: &amp;#34;vite preview&amp;#34;}, &amp;#34;dependencies&amp;#34;: {&amp;#34;vue&amp;#34;: &amp;#34;~3.5.0&amp;#34;, &amp;#34;vue-router&amp;#34;: &amp;#34;^4.5.0&amp;#34;, &amp;#34;pinia&amp;#34;: &amp;#34;^3.0.0&amp;#34;, &amp;#34;vuex&amp;#34;: &amp;#34;^4.1.0&amp;#34;}, &amp;#34;devDependencies&amp;#34;: {&amp;#34;vite&amp;#34;: &amp;#34;^7.0.0&amp;#34;, &amp;#34;@vitejs/plugin-vue&amp;#34;: &amp;#34;^6.0.0&amp;#34;} }index.html：
-&amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;zh-Hant&amp;#34;&amp;gt; …  ]]></content></entry><entry><title>AI 工具清單：聊天、搜尋與翻譯</title><url>/blog/post/ai-tools/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag></tags><content type="html">  依用途比較聊天、搜尋與翻譯工具，說明來源查核、資料範圍與使用限制。
+&amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;zh-Hant&amp;#34;&amp;gt; …  ]]></content></entry><entry><title>AI 工具與學習資源清單</title><url>/blog/post/ai-tools/</url><categories><category>筆記</category></categories><tags><tag>AI</tag><tag>Tools</tag></tags><content type="html">  整理聊天、搜尋與翻譯工具，以及 Skills、工作流、AI 新聞與教學資源，方便依需求找到適合的入口。
 適用：原2024工具清單在2026的內容整理；產品功能、可用模型與額度會變，依官方入口確認，不列未查證價格或保證效果。
 工具入口與用途 工具 本篇保留的用途 使用時確認 Monica 聊天、寫作與瀏覽器助理 擴充許可權、資料來源與帳號設定 Poe 透過平臺使用不同bot bot建立者、模型來源與限額 Felo 搜尋與資料整理 原始來源、地域／語言與可用功能 沉浸式翻譯 雙語閱讀與檔案翻譯 翻譯引擎、原文與上傳範圍 原Sage／Claude+等模型名反映當時平臺，不當現行可用清單；產品入口能開啟也不表示每個功能都無帳號／免費可用。
-同一問題如何比較 用一個不含秘密的技術問題，例如「Vue Router4 history模式部署到子路徑後重新整理404」，要求列出具體原因、適用版本與官方來源。逐個開啟來源核對，自己在本地測最小例子，不只比較回答流暢度。
+Skills 與工作流資源 AI Skills 清單：自製技能與工作流收藏 ：整理自製的 Git 提交訊息、IG 與 YouTube 筆記技能，以及 ub-mode、pstack 外部收藏，附兩篇使用教學。完整技能與收藏入口見 agent-skills 專案 。 Tenten 技能年鑑 ：Skills、教學與工作流策展庫，可依任務、工具或主題尋找相關文件。適合探索技能用途與實作方式；採用時再對照原始專案文件與適用版本。 AI 新聞與學習資源 AI 郵報 ：AI 新聞、工具教學與趨勢媒體，適合追蹤產品動態與尋找應用案例。閱讀時留意發布日期，操作步驟與功能仍需回到官方來源確認。 同一問題如何比較 用一個不含秘密的技術問題，例如「Vue Router4 history模式部署到子路徑後重新整理404」，要求列出具體原因、適用版本與官方來源。逐個開啟來源核對，自己在本地測最小例子，不只比較回答流暢度。
 搜尋工具的引用也可能過期／誤解；翻譯保持原文對照，API名稱、not／should等關鍵限制要回原文檢查。程式碼建議必須經過build與行為測試，不能將平臺的自信語氣當結果。
-清單與專案的分工 這篇是工具索引，不叫外掛集也不收納可執行skill／agent。未來AI-tools repository可分別記錄安裝、許可權、輸入輸出與驗證；取得確認的真實repository地址後再加blog連結，不虛構尚未建立的專案URL。
+清單與專案的分工 這篇整理工具與學習資源的用途及入口； AI Skills 清單 提供技能簡介與教學導覽， agent-skills 則保存完整技能資料夾、支援工具、使用說明與外部收藏。外部收藏的試用狀態在專案 README 標示，安裝時回到各自的原始文件。
 資料與限制 需要帳號／外部服務的操作本次未登入或提交資料。先檢查擴充會讀取哪些頁面、檔案如何處理，再決定是否用於工作資料；使用自製假資料作比較，保留prompt與日期讓結果可追溯。
-參考資料 Monica官方 Poe官方 Felo官方 沉浸式翻譯官方   </content></entry><entry><title>Kafka Eagle／EFAK：歷史監控配置與 Kafka 版本界線</title><url>/blog/post/kafka/kafka-eagle/</url><categories><category>筆記</category></categories><tags><tag>tag1</tag><tag>tag2</tag></tags><content type="html">  重整舊 ZooKeeper 配置，補上 listener、JMX、認證與 KRaft 替代的核對順序。
+參考資料 Monica官方 Poe官方 Felo官方 沉浸式翻譯官方 Tenten 技能年鑑 AI 郵報 agent-skills 專案   </content></entry><entry><title>Kafka Eagle／EFAK：歷史監控配置與 Kafka 版本界線</title><url>/blog/post/kafka/kafka-eagle/</url><categories><category>筆記</category></categories><tags><tag>tag1</tag><tag>tag2</tag></tags><content type="html">  重整舊 ZooKeeper 配置，補上 listener、JMX、認證與 KRaft 替代的核對順序。
 適用：原Kafka Eagle／EFAK的ZooKeeper時代部署筆記；版本與Kafka支援需檢視所選工具release，不套用到全部Kafka版本。
 使用前確認 先列出EFAK release、JDK、Kafka與metadata模式。舊system-config.properties使用ZooKeeper cluster地址與efak.*，較新工具／版本可能改變配置來源；不可直接把完整舊樣本貼進新包並認為啟用。下載官方release、核對示例配置與啟動指令碼，再設KE_HOME為實際工具目錄。
 Listener 與安全協定 listeners是broker實際監聽，advertised.listeners是client取得metadata後連線的地址；容器內／外網必須都能解析實際公佈的地址。SASL_PLAINTEXT有認證但無傳輸加密，PLAINTEXT既非認證亦非加密；SASL_SSL加入TLS與SASL，不能將SSL概括為自動授權。
