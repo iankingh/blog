@@ -243,3 +243,19 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 新增 [npm 設定筆記：omit-lockfile-registry-resolved](../content/post/node/npm-omit-lockfile-registry-resolved.md)，總數由 134 增為 135 篇。依使用者提供的設定與 npm 官方文件成文，涵蓋 `.npmrc`、欄位前後差異、更新既有鎖檔、`npm ci`、registry 換源情境及限制；本站 npm 設定與鎖檔未修改。
 
 使用 Node.js 26.13.0／npm 11.20.0 對臨時本機 registry 執行安裝，驗證 registry 來源欄位省略、版本與完整性保留、直接 URL 邊界、換源安裝及錯誤雜湊被拒絕；未連公司代理、驗證認證、Git 依賴或量測效能。案例結果見 [npm 隔離證據](verification/npm-omit-lockfile-results-2026-10-30.json)，網站結果、日誌及環境限制見 [任務紀錄](harness/npm-omit-lockfile-registry-resolved-2026-10-30.md)。未更動前輪的 Pele 內容與查核紀錄。
+
+## 2026-10-31：AI 工具清單擴充學習資源
+
+將原清單改名為 [AI 工具與學習資源清單](../content/post/ai-tools.md)，保留原始發布日期、文章路徑與四個工具入口。在「Skills 與工作流資源」加入 Tenten 技能年鑑，在「AI 新聞與學習資源」加入 AI 郵報，並同步摘要、開頭、分工說明與參考資料。未新增文章，仍為 135 篇；ub-mode／pstack 留待後續需求。
+
+兩個新增網站的定位以 2026-10-31 公開首頁內容查核，未登入、訂閱、安裝 Skills 或重跑個別教學。原工具的查核紀錄保留為歷史證據。來源比對、生成頁與搜尋案例、網站基準及日誌見 [本輪任務紀錄](harness/ai-learning-resources-2026-10-31.md)。
+
+## 2026-10-31：Skills 收藏與兩篇使用教學
+
+新增 [AI Skills 清單](../content/post/ai-skills-list.md)、[ub-mode 使用指南](../content/post/ub-mode-guide.md) 與 [pstack 使用指南](../content/post/pstack-guide.md)，總數由 135 增為 138 篇。清單介紹 agent-skills 的三個自製技能與兩個外部收藏，連至真實專案及獨立教學；既有 AI 工具清單保留本日前輪內容，補上清單與專案連結。
+
+首頁維持三張置頂，順序為新清單、原 AI Skills 目錄文與 Java 多型；HikariPool、DecimalFormat 依序順延。四篇既有精選僅調整 featuredOrder，正文、原始 date 與 lastmod 不變；技能圖鑑維持。
+
+教學依上游 README、Skill 與官方指南整理；特別區分 Dryer 預設 0.82 與 ub-mode 的 0.8 政策，並補充 pstack Claude Code 命令前綴。兩項外部收藏維持待試用，未安裝或執行產品。來源、網站與瀏覽器驗收及限制見 [本輪任務紀錄](harness/ai-skills-collection-2026-10-31.md)。
+
+本輪修正後的網站基準 10 項檢查及 44 項來源／生成內容／安裝片段案例通過；IAB 完成 1440px 與 390px 瀏覽器驗收，手機表格改用既有 wideTables 設定，表格與程式碼已實際鍵盤橫向捲動。證據見 [內容案例](verification/ai-skills-acceptance-2026-10-31.json) 與 [瀏覽器紀錄](verification/ai-skills-browser-2026-10-31.json)；最終來源以任務紀錄所列收尾 report 為準。

@@ -3,7 +3,7 @@ title: "Java 數字格式：DecimalFormat 與 BigDecimal"
 date: 2020-05-26T08:59:50+08:00
 lastmod: 2026-10-07T23:41:34+08:00
 description: "比較 DecimalFormat 的格式、Locale 與捨入方式，使用 BigDecimal 避免金額精度誤判。"
-featuredOrder: 4
+featuredOrder: 5
 categories: ["筆記"]
 tags: ["java"]
 toc: true

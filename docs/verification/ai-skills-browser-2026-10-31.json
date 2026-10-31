@@ -1,0 +1,464 @@
+{
+  "baseURL": "http://127.0.0.1:1317/blog/",
+  "checks": [
+    {
+      "name": "desktop home",
+      "result": {
+        "pinned": [
+          "AI Skills 清單：自製技能與工作流收藏",
+          "AI Skills：專案與全域技能目錄",
+          "Java 多型：介面、覆寫與執行時派發"
+        ],
+        "scrollWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "mobile skills list corrected",
+      "result": {
+        "code": [],
+        "h1": "AI Skills 清單：自製技能與工作流收藏",
+        "pinned": [],
+        "scrollWidth": 390,
+        "tables": [
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 681
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 681
+          }
+        ],
+        "titleBox": {
+          "height": 80,
+          "width": 314
+        },
+        "url": "http://127.0.0.1:1317/blog/post/ai-skills-list/",
+        "width": 390
+      }
+    },
+    {
+      "name": "mobile ub-mode guide",
+      "result": {
+        "code": [
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 516
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 466
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 431
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 465
+          }
+        ],
+        "h1": "ub-mode 使用指南：TDD、重構與品質檢查",
+        "pinned": [],
+        "scrollWidth": 390,
+        "tables": [
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 681
+          }
+        ],
+        "titleBox": {
+          "height": 80,
+          "width": 314
+        },
+        "url": "http://127.0.0.1:1317/blog/post/ub-mode-guide/",
+        "width": 390
+      }
+    },
+    {
+      "name": "mobile pstack guide",
+      "result": {
+        "code": [
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 314
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 314
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 444
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 431
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 444
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 473
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 379
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 405
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 314
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 497
+          }
+        ],
+        "h1": "pstack 使用指南：從任務規劃到開發與驗證",
+        "pinned": [],
+        "scrollWidth": 390,
+        "tables": [
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 681
+          }
+        ],
+        "titleBox": {
+          "height": 80,
+          "width": 314
+        },
+        "url": "http://127.0.0.1:1317/blog/post/pstack-guide/",
+        "width": 390
+      }
+    },
+    {
+      "name": "mobile table keyboard horizontal scroll",
+      "result": {
+        "client": 314,
+        "left": 49,
+        "pageWidth": 390,
+        "scroll": 681,
+        "viewport": 390
+      }
+    },
+    {
+      "name": "mobile code keyboard horizontal scroll",
+      "result": {
+        "client": 314,
+        "left": 80,
+        "pageWidth": 390,
+        "scroll": 466
+      }
+    },
+    {
+      "name": "desktop ai-skills-list corrected",
+      "result": {
+        "code": [],
+        "h1": "AI Skills 清單：自製技能與工作流收藏",
+        "pinned": [],
+        "scrollWidth": 1440,
+        "tables": [
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          }
+        ],
+        "titleBox": {
+          "height": 51.1953125,
+          "width": 976
+        },
+        "url": "http://127.0.0.1:1317/blog/post/ai-skills-list/",
+        "width": 1440
+      }
+    },
+    {
+      "name": "desktop ub-mode-guide corrected",
+      "result": {
+        "code": [
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          }
+        ],
+        "h1": "ub-mode 使用指南：TDD、重構與品質檢查",
+        "pinned": [],
+        "scrollWidth": 1440,
+        "tables": [
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          }
+        ],
+        "titleBox": {
+          "height": 51.1953125,
+          "width": 976
+        },
+        "url": "http://127.0.0.1:1317/blog/post/ub-mode-guide/",
+        "width": 1440
+      }
+    },
+    {
+      "name": "desktop pstack-guide corrected",
+      "result": {
+        "code": [
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          },
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          }
+        ],
+        "h1": "pstack 使用指南：從任務規劃到開發與驗證",
+        "pinned": [],
+        "scrollWidth": 1440,
+        "tables": [
+          {
+            "client": 976,
+            "overflow": "auto",
+            "scroll": 976
+          }
+        ],
+        "titleBox": {
+          "height": 51.1953125,
+          "width": 976
+        },
+        "url": "http://127.0.0.1:1317/blog/post/pstack-guide/",
+        "width": 1440
+      }
+    },
+    {
+      "name": "search AI Skills 清單：自製技能與工作流收藏",
+      "result": "搜尋筆記\n\n找到 2 個任務\n\nAI 工具與學習資源清單\n整理聊天、搜尋與翻譯工具，以及 Skills、工作流、AI 新聞與教學資源，說明各入口的用途與查核重點。\n更新 2026.10.31 · AI / Tools\nAI Skills 清單：自製技能與工作流收藏\n整理 agent-skills 專案的 Git 提交訊息、IG 與 YouTube 筆記技能，以及 ub-mode、pstack 外部收藏，附用途、來源與使用教學。\n更新 2026.10.31 · AI / Tools / Skills\n\nESC 關閉 · 搜尋標題、標籤與文章全文"
+    },
+    {
+      "name": "search ub-mode 使用指南：TDD、重構與品質檢查",
+      "result": "搜尋筆記\n\n找到 1 個任務\n\nub-mode 使用指南：TDD、重構與品質檢查\n介紹 ub-mode 的安裝與呼叫方式，從失敗測試、最小修正到重構，並說明 Crapper、Dryer、Mutator 的品質門檻、相依工具及使用範例。\n更新 2026.10.31 · AI / Tools / Skills\n\nESC 關閉 · 搜尋標題、標籤與文章全文"
+    },
+    {
+      "name": "search pstack 使用指南：從任務規劃到開發與驗證",
+      "result": "搜尋筆記\n\n找到 1 個任務\n\npstack 使用指南：從任務規劃到開發與驗證\n以 Cursor 示範 pstack 安裝、模型設定與 poteto-mode，整理規劃、設計、多代理協作及驗證的使用方式，並補充 Claude Code 命令差異。\n更新 2026.10.31 · AI / Tools / Skills\n\nESC 關閉 · 搜尋標題、標籤與文章全文"
+    },
+    {
+      "name": "desktop second homepage",
+      "result": {
+        "code": [],
+        "h1": "我是 Ian全端工程師AI 規劃師",
+        "pinned": [],
+        "scrollWidth": 1440,
+        "tables": [],
+        "titleBox": {
+          "height": 160.7109375,
+          "width": 464.5625
+        },
+        "url": "http://127.0.0.1:1317/blog/page/2/#quests",
+        "width": 1440
+      }
+    },
+    {
+      "name": "mobile homepage",
+      "result": {
+        "code": [],
+        "h1": "我是 Ian全端工程師AI 規劃師",
+        "pinned": [
+          "AI Skills 清單：自製技能與工作流收藏",
+          "AI Skills：專案與全域技能目錄",
+          "Java 多型：介面、覆寫與執行時派發"
+        ],
+        "scrollWidth": 390,
+        "tables": [],
+        "titleBox": {
+          "height": 139.5,
+          "width": 308
+        },
+        "url": "http://127.0.0.1:1317/blog/",
+        "width": 390
+      }
+    },
+    {
+      "name": "mobile second homepage",
+      "result": {
+        "code": [],
+        "h1": "我是 Ian全端工程師AI 規劃師",
+        "pinned": [],
+        "scrollWidth": 390,
+        "tables": [],
+        "titleBox": {
+          "height": 139.5,
+          "width": 308
+        },
+        "url": "http://127.0.0.1:1317/blog/page/2/#quests",
+        "width": 390
+      }
+    },
+    {
+      "name": "mobile skills atlas",
+      "result": {
+        "code": [],
+        "h1": "技能圖鑑Skill Codex",
+        "pinned": [],
+        "scrollWidth": 390,
+        "tables": [],
+        "titleBox": {
+          "height": 63.8984375,
+          "width": 221.8359375
+        },
+        "url": "http://127.0.0.1:1317/blog/skills/",
+        "width": 390
+      }
+    }
+  ],
+  "screenshots": [
+    "/private/tmp/blog-skills-home-desktop-20261031.jpg",
+    "/private/tmp/blog-skills-list-desktop-20261031.jpg",
+    "/private/tmp/blog-skills-list-mobile-20261031.jpg",
+    "/private/tmp/blog-skills-ub-mobile-20261031.jpg",
+    "/private/tmp/blog-skills-code-mobile-20261031.jpg",
+    "/private/tmp/blog-skills-pstack-mobile-20261031.jpg",
+    "/private/tmp/blog-skills-ai-skills-list-desktop-20261031.jpg",
+    "/private/tmp/blog-skills-ub-mode-guide-desktop-20261031.jpg",
+    "/private/tmp/blog-skills-pstack-guide-desktop-20261031.jpg",
+    "/private/tmp/blog-skills-home-mobile-20261031.jpg"
+  ],
+  "status": "passed",
+  "scope": "IAB live browser at 1440×1000 and 390×844: homepage order, second-page pin exclusion, all three articles, search, separate atlas, keyboard horizontal scrolling. No plugin/tool installation.",
+  "diagnostics": [
+    {
+      "name": "mobile skills list initial",
+      "result": {
+        "h1": "AI Skills 清單：自製技能與工作流收藏",
+        "scrollWidth": 390,
+        "tables": [
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 314
+          },
+          {
+            "client": 314,
+            "overflow": "auto",
+            "scroll": 314
+          }
+        ],
+        "width": 390
+      }
+    },
+    {
+      "name": "mobile code horizontal scroll",
+      "result": [
+        {
+          "client": 314,
+          "left": 0,
+          "scroll": 516
+        },
+        {
+          "client": 314,
+          "left": 0,
+          "scroll": 466
+        },
+        {
+          "client": 314,
+          "left": 0,
+          "scroll": 431
+        },
+        {
+          "client": 314,
+          "left": 0,
+          "scroll": 465
+        }
+      ]
+    }
+  ],
+  "atlasAssertion": "既有 H1 同時包含中文技能圖鑑與英文 Skill Codex，按中文標題及原圖鑑結構確認；相關文章可正常列於技能紀錄。"
+}

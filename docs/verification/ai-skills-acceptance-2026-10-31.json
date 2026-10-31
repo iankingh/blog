@@ -1,0 +1,234 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "README preserves all content before external collection",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "two external entries with source, reason and pending status",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "exactly three new notes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "existing date values preserved except actual ai-tools revision",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "existing lastmod values preserved except actual ai-tools revision",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only featuredOrder changed: content/post/ai-skills-directories.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only featuredOrder changed: content/post/java/polymorphism.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only featuredOrder changed: content/post/java/java-DecimalFormat.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only featuredOrder changed: content/post/java/HikariPool-1-error.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only four previous featured notes changed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "134 other review entries preserved exactly",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "previous ai-tools review and sources retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "previous four tools and latest learning resources retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "confirmed repo replaces future-repository placeholder",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "skills atlas content preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "list contains exactly three self-authored entries and two external entries",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new note metadata and source section: ai-skills-list",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "tutorial/list mutual links: ai-skills-list",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new note metadata and source section: ub-mode-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "tutorial/list mutual links: ub-mode-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new note metadata and source section: pstack-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "tutorial/list mutual links: pstack-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Dryer default and policy kept distinct",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "mutation baseline and uncovered limits documented",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "pstack native commands, checkpoints and Claude prefixes documented",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "ub-mode shell snippet 1 syntax",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "ub-mode shell snippet 2 syntax",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "isolated install-copy scenario: new destination",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "isolated install-copy scenario: existing directory",
+      "passed": true,
+      "details": "同名技能已存在，請先確認及備份：/var/folders/pc/ck1ls3rd5hg6920pxlk8xgj00000gn/T/blog-ub-install-dfqg7vip/含空格 target/ub-mode"
+    },
+    {
+      "name": "isolated install-copy scenario: existing broken symlink",
+      "passed": true,
+      "details": "同名技能已存在，請先確認及備份：/var/folders/pc/ck1ls3rd5hg6920pxlk8xgj00000gn/T/blog-ub-install-4s54ucgl/含空格 target/ub-mode"
+    },
+    {
+      "name": "home has exactly three featured notes in requested order",
+      "passed": true,
+      "details": [
+        "/blog/post/ai-skills-list/",
+        "/blog/post/ai-skills-directories/",
+        "/blog/post/java/polymorphism/"
+      ]
+    },
+    {
+      "name": "second homepage has no pinned section",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "search contains 138 unique published notes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "published page and GitHub repo link: ai-skills-list",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "generated mutual article links: ai-skills-list",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "unique searchable new article: ai-skills-list",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "published page and GitHub repo link: ub-mode-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "generated mutual article links: ub-mode-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "unique searchable new article: ub-mode-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "published page and GitHub repo link: pstack-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "generated mutual article links: pstack-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "unique searchable new article: pstack-guide",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "generated skills atlas remains separate",
+      "passed": true,
+      "details": {
+        "h1": "技能圖鑑Skill Codex",
+        "note": "技能圖鑑的 AI 領域正常包含新文章入口，故不以新文章名稱不出現為判準。"
+      }
+    },
+    {
+      "name": "source snapshots include upstream identities",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "scope": "Source preservation, generated output and isolated install-copy fixtures; no actual Skill/plugin or quality-tool installation.",
+  "buildReport": "/private/tmp/blog-skills-wide-tables-20261031/report.json"
+}

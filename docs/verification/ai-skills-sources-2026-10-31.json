@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-10-31",
+  "pstackVersion": "0.15.36",
+  "versionNote": "gitBlobSha 是個別檔案的 Git blob SHA，不是 repository commit。pstack 版本來自 plugin.json。",
+  "sources": [
+    {
+      "name": "ub_readme",
+      "url": "https://github.com/unclebob/ub-mode/blob/master/README.md",
+      "gitBlobSha": "c54164fb5a21a0f917e081fd54c959d4d235ea01",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "ub_skill",
+      "url": "https://github.com/unclebob/ub-mode/blob/master/SKILL.md",
+      "gitBlobSha": "9ac940b23b61d77e8e5192721d7b6066357f892c",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "pstack_manifest",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/.cursor-plugin/plugin.json",
+      "gitBlobSha": "1295f46878218d568a037344877f0b603a887696",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "pstack_guide",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/README.md",
+      "gitBlobSha": "17422b9921f1179b2a2b7137805267225ab271c2",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "pstack_setup",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/01-setup.md",
+      "gitBlobSha": "2c2ef341357ea7c39c8b831ee8c8669b17e85475",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "pstack_design",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/04-design.md",
+      "gitBlobSha": "9da6470a919ca21ef3e4786e08c997b69b6c5255",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "pstack_verify",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/06-verify-and-ship.md",
+      "gitBlobSha": "ffcdc0d15815cf28c8f4db6230f6cba364436aea",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "crapper",
+      "url": "https://github.com/unclebob/crapper/blob/master/README.md",
+      "gitBlobSha": "f5690415b719a010d23cfbed76fb5add957f1988",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "dryer",
+      "url": "https://github.com/unclebob/dryer/blob/master/README.md",
+      "gitBlobSha": "fae6e640c1d77ab94c599d96d987c63df5452da3",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "mutator",
+      "url": "https://github.com/unclebob/mutator/blob/main/README.md",
+      "gitBlobSha": "1152ce6da20cb132905f50ecd6304fabe313d03b",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "claude_adapter",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/harness/claude-code.md",
+      "gitBlobSha": "bf154e6464a6cca96a9627bbe10a628092e8c09e",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    },
+    {
+      "name": "pstack_readme",
+      "url": "https://github.com/cursor/plugins/blob/main/pstack/README.md",
+      "gitBlobSha": "bb613a100841eb7da66b0ee0eda1a4f728d0a6dd",
+      "checkedAt": "2026-10-31",
+      "method": "GitHub fetch_file",
+      "status": "read",
+      "scope": "讀取上游文件；未安裝或執行產品功能"
+    }
+  ]
+}

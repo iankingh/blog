@@ -1,20 +1,23 @@
 [
   {
     "path": "content/post/ai-tools.md",
-    "title": "AI 工具清單：聊天、搜尋與翻譯",
+    "title": "AI 工具與學習資源清單",
     "originalDraft": false,
     "originalDate": "2024-07-02T20:47:15+08:00",
-    "lastmod": "2026-10-25",
-    "context": "適用：原2024工具清單在2026的內容整理；產品功能、可用模型與額度會變，依官方入口確認，不列未查證價格或保證效果。",
+    "lastmod": "2026-10-31",
+    "context": "適用：2024 工具清單在 2026 擴充為工具與學習資源入口；新增資源依 2026-10-31 公開首頁確認定位，不宣稱已實測產品功能、Skills 或個別教學。",
     "issues": [],
-    "changes": "依用途整理原工具入口與限制，將清單和未來 skills／agents專案的責任分開。 依使用者要求移除 Phind 失效工具列與兩入口、Monica /home、棄用 Poe /ChatGPT 及重複 Felo 搜尋入口；保留四個官方參考入口及原始發布日期。",
+    "changes": "依用途整理原工具入口與限制，將清單和未來 skills／agents專案的責任分開。 依使用者要求移除 Phind 失效工具列與兩入口、Monica /home、棄用 Poe /ChatGPT 及重複 Felo 搜尋入口；保留四個官方參考入口及原始發布日期。 2026-10-31：依使用者要求改名為 AI 工具與學習資源清單，新增 Skills 與工作流資源、AI 新聞與學習資源兩節，分別收錄 Tenten 技能年鑑與 AI 郵報；同步摘要、開頭及分工說明，保留原日期、路徑與四個既有工具。 2026-10-31 後續：加入 Skills 清單及已確認的 iankingh/agent-skills 專案入口，替換未來 repository 的占位說明，保留 Tenten、AI 郵報與四個工具。",
     "sources": [
       "https://monica.im/",
       "https://poe.com/",
       "https://felo.ai/",
-      "https://immersivetranslate.com/"
+      "https://immersivetranslate.com/",
+      "https://skills.tenten.co/",
+      "https://www.aiposthub.com/",
+      "https://github.com/iankingh/agent-skills"
     ],
-    "verification": "2026-10-25 以網頁工具開啟確認 Phind 兩入口回報 404、Poe /ChatGPT 顯示 DEPRECATED，以及保留的官方入口可讀或導向登入；未登入或驗證帳號功能。文章、網站與瀏覽器結果見 docs/harness/ai-skills-and-tools-2026-10-25.md。",
+    "verification": "2026-10-25 以網頁工具開啟確認 Phind 兩入口回報 404、Poe /ChatGPT 顯示 DEPRECATED，以及保留的官方入口可讀或導向登入；未登入或驗證帳號功能。文章、網站與瀏覽器結果見 docs/harness/ai-skills-and-tools-2026-10-25.md。 2026-10-31：讀取 Tenten 技能年鑑與 AI 郵報公開首頁，確認技能／教學／工作流策展與 AI 新聞／指南定位。來源與生成內容案例、網站基準結果見 docs/harness/ai-learning-resources-2026-10-31.md；本輪未重驗舊工具的帳號功能或個別教學。 本輪技能入口、站內連結與來源保留驗收見 docs/harness/ai-skills-collection-2026-10-31.md；不宣稱已安裝或試用外部技能。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -53,10 +56,31 @@
         "status": 200,
         "finalUrl": "https://immersivetranslate.com/en/",
         "checkedAt": "2026-10-06"
+      },
+      {
+        "url": "https://skills.tenten.co/",
+        "status": "read",
+        "checkedAt": "2026-10-31",
+        "method": "web.run",
+        "note": "公開首頁成功讀取，依首頁內容確認網站定位；工具未提供 HTTP 狀態碼。未登入、訂閱或驗證個別教學。"
+      },
+      {
+        "url": "https://www.aiposthub.com/",
+        "status": "read",
+        "checkedAt": "2026-10-31",
+        "method": "web.run",
+        "note": "公開首頁成功讀取，依首頁內容確認網站定位；工具未提供 HTTP 狀態碼。未登入、訂閱或驗證個別教學。"
+      },
+      {
+        "url": "https://github.com/iankingh/agent-skills",
+        "status": "local-read",
+        "checkedAt": "2026-10-31",
+        "method": "local repository",
+        "note": "讀取本機 README 與 git remote，確認實際專案、三個技能及收藏慣例；未宣稱本輪未推送的收藏已上線。"
       }
     ],
-    "versionScope": "適用：原2024工具清單在2026的內容整理；產品功能、可用模型與額度會變，依官方入口確認，不列未查證價格或保證效果。",
-    "reviewedAt": "2026-10-25",
+    "versionScope": "適用：2024 工具清單在 2026 擴充為工具與學習資源入口；新增資源依 2026-10-31 公開首頁確認定位，不宣稱已實測產品功能、Skills 或個別教學。",
+    "reviewedAt": "2026-10-31",
     "checks": {
       "summary": true,
       "contextAndVersion": true,
@@ -66,8 +90,9 @@
       "validationScopeRecorded": true
     },
     "originalReferences": [],
-    "presentationUpdatedAt": "2026-10-25T00:17:31+08:00",
-    "presentationChanges": "依使用者要求清理工具清單與參考入口，移除歷史 404 說明；2026-10-06 的 sourceChecks 保留為歷史證據，2026-10-25 查核與移除依據另存任務紀錄。"
+    "presentationUpdatedAt": "2026-10-31T00:28:15+08:00",
+    "presentationChanges": "依使用者要求清理工具清單與參考入口，移除歷史 404 說明；2026-10-06 的 sourceChecks 保留為歷史證據，2026-10-25 查核與移除依據另存任務紀錄。 2026-10-31：標題、摘要與開頭配合新增兩類資源調整，原始發布日期與文章網址保持。 後續補上 Skills 清單與真實專案入口，分工描述連到各自的資料與教學。",
+    "contentUpdatedAt": "2026-10-31T00:28:15+08:00"
   },
   {
     "path": "content/post/android/AndroidBsN01.md",
@@ -8347,5 +8372,226 @@
       "validationScopeRecorded": true
     },
     "contentUpdatedAt": "2026-10-30T23:33:35+08:00"
+  },
+  {
+    "path": "content/post/ai-skills-list.md",
+    "title": "AI Skills 清單：自製技能與工作流收藏",
+    "originalDraft": false,
+    "originalDate": "2026-10-31T00:28:15+08:00",
+    "lastmod": "2026-10-31",
+    "context": "適用：三個自製技能與兩個外部收藏用途、來源與教學導覽；外部兩項待試用。",
+    "issues": [],
+    "changes": "新增自製技能與外部收藏入口，串接兩篇教學、既有技能目錄及 AI 工具清單；首頁置頂第一。",
+    "sources": [
+      "https://github.com/iankingh/agent-skills",
+      "https://github.com/unclebob/ub-mode/blob/master/README.md",
+      "https://github.com/cursor/plugins/blob/main/pstack/README.md"
+    ],
+    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/ai-skills-collection-2026-10-31.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "documentation",
+    "sourceChecks": [
+      {
+        "name": "ub_readme",
+        "url": "https://github.com/unclebob/ub-mode/blob/master/README.md",
+        "gitBlobSha": "c54164fb5a21a0f917e081fd54c959d4d235ea01",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "pstack_readme",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/README.md",
+        "gitBlobSha": "bb613a100841eb7da66b0ee0eda1a4f728d0a6dd",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      }
+    ],
+    "versionScope": "三個自製技能與兩個外部收藏用途、來源與教學導覽；外部兩項待試用。",
+    "reviewedAt": "2026-10-31",
+    "originalReferences": [],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-31T00:28:15+08:00"
+  },
+  {
+    "path": "content/post/ub-mode-guide.md",
+    "title": "ub-mode 使用指南：TDD、重構與品質檢查",
+    "originalDraft": false,
+    "originalDate": "2026-10-31T00:28:15+08:00",
+    "lastmod": "2026-10-31",
+    "context": "適用：ub-mode 上游 README／SKILL.md 與 Crapper、Dryer、Mutator 文件；未實機安裝或執行品質工具。",
+    "issues": [],
+    "changes": "新增安裝、TDD 與重構流程、品質工具角色與門檻差異、相依條件及兩個任務提示詞。",
+    "sources": [
+      "https://github.com/unclebob/ub-mode/blob/master/README.md",
+      "https://github.com/unclebob/ub-mode/blob/master/SKILL.md",
+      "https://github.com/unclebob/crapper/blob/master/README.md",
+      "https://github.com/unclebob/dryer/blob/master/README.md",
+      "https://github.com/unclebob/mutator/blob/main/README.md"
+    ],
+    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/ai-skills-collection-2026-10-31.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "documentation",
+    "sourceChecks": [
+      {
+        "name": "ub_readme",
+        "url": "https://github.com/unclebob/ub-mode/blob/master/README.md",
+        "gitBlobSha": "c54164fb5a21a0f917e081fd54c959d4d235ea01",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "ub_skill",
+        "url": "https://github.com/unclebob/ub-mode/blob/master/SKILL.md",
+        "gitBlobSha": "9ac940b23b61d77e8e5192721d7b6066357f892c",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "crapper",
+        "url": "https://github.com/unclebob/crapper/blob/master/README.md",
+        "gitBlobSha": "f5690415b719a010d23cfbed76fb5add957f1988",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "dryer",
+        "url": "https://github.com/unclebob/dryer/blob/master/README.md",
+        "gitBlobSha": "fae6e640c1d77ab94c599d96d987c63df5452da3",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "mutator",
+        "url": "https://github.com/unclebob/mutator/blob/main/README.md",
+        "gitBlobSha": "1152ce6da20cb132905f50ecd6304fabe313d03b",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      }
+    ],
+    "versionScope": "ub-mode 上游 README／SKILL.md 與 Crapper、Dryer、Mutator 文件；未實機安裝或執行品質工具。",
+    "reviewedAt": "2026-10-31",
+    "originalReferences": [],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-31T00:28:15+08:00"
+  },
+  {
+    "path": "content/post/pstack-guide.md",
+    "title": "pstack 使用指南：從任務規劃到開發與驗證",
+    "originalDraft": false,
+    "originalDate": "2026-10-31T00:28:15+08:00",
+    "lastmod": "2026-10-31",
+    "context": "適用：pstack 0.15.36 manifest 與官方指南；以 Cursor 為主並補充 Claude Code 適配；未安裝或執行外掛。",
+    "issues": [],
+    "changes": "新增 Cursor 安裝／模型設定、規劃與設計檢查點、多代理技能選擇、行為驗證及 Claude Code 命令前綴。",
+    "sources": [
+      "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/README.md",
+      "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/01-setup.md",
+      "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/04-design.md",
+      "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/06-verify-and-ship.md",
+      "https://github.com/cursor/plugins/blob/main/pstack/docs/harness/claude-code.md",
+      "https://github.com/cursor/plugins/blob/main/pstack/README.md"
+    ],
+    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/ai-skills-collection-2026-10-31.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "documentation",
+    "sourceChecks": [
+      {
+        "name": "pstack_guide",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/README.md",
+        "gitBlobSha": "17422b9921f1179b2a2b7137805267225ab271c2",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "pstack_setup",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/01-setup.md",
+        "gitBlobSha": "2c2ef341357ea7c39c8b831ee8c8669b17e85475",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "pstack_design",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/04-design.md",
+        "gitBlobSha": "9da6470a919ca21ef3e4786e08c997b69b6c5255",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "pstack_verify",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/guide/06-verify-and-ship.md",
+        "gitBlobSha": "ffcdc0d15815cf28c8f4db6230f6cba364436aea",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "claude_adapter",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/docs/harness/claude-code.md",
+        "gitBlobSha": "bf154e6464a6cca96a9627bbe10a628092e8c09e",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      },
+      {
+        "name": "pstack_readme",
+        "url": "https://github.com/cursor/plugins/blob/main/pstack/README.md",
+        "gitBlobSha": "bb613a100841eb7da66b0ee0eda1a4f728d0a6dd",
+        "checkedAt": "2026-10-31",
+        "method": "GitHub fetch_file",
+        "status": "read",
+        "scope": "讀取上游文件；未安裝或執行產品功能"
+      }
+    ],
+    "versionScope": "pstack 0.15.36 manifest 與官方指南；以 Cursor 為主並補充 Claude Code 適配；未安裝或執行外掛。",
+    "reviewedAt": "2026-10-31",
+    "originalReferences": [],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    },
+    "contentUpdatedAt": "2026-10-31T00:28:15+08:00"
   }
 ]
