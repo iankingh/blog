@@ -32,7 +32,7 @@ npm --version npm config get omit-lockfile-registry-resolved第二個命令預�
 啟用前：
 { &amp;#34;node_modules/example-package&amp;#34;: { &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;resolved&amp;#34;: &amp;#34;https://registry.example.com/example-package/-/example-package-1.0.0.tgz&amp;#34;, &amp;#34;integrity&amp;#34;: …  ]]></content></entry><entry><title>Pele 使用筆記：在 Obsidian 顯示 Mermaid 圖表</title><url>/blog/post/other/obsidian-pele/</url><categories><category>筆記</category></categories><tags><tag>Obsidian</tag><tag>tools</tag></tags><content type="html">  認識 Obsidian 的 Pele 圖表引擎，確認適用版本、使用 Mermaid 區塊繪圖，並將固定版本的 Pele 接入網站專案。
 這篇筆記的起點，是看到 MUKI WU（哈囉沐奇）分享的 〈Mermaid 太肥太慢？Obsidian 開源的 pele，畫一張圖只要 0.3 毫秒〉 。看完分享後，想進一步了解 Pele 如何用在 Obsidian，也把它接入自己的部落格；因此接著查閱官方文件，整理使用方式與本站的實際整合。
-適用：想在 Obsidian 用文字維護圖表的使用者，以及需要在網站顯示相同圖表來源的開發者。Obsidian 操作以 2026-10-22 發布的桌面 1.15.0 搶先體驗版更新說明為依據；本站安裝的 JavaScript 套件版本為 Pele 1.10.0。
+適用：想在 Obsidian 用文字維護圖表的使用者，以及需要在網站顯示相同圖表來源的開發者。Obsidian 操作以 2026-10-22 發布的桌面 1.15.0 搶先體驗版更新說明為依據；本站安裝的 JavaScript 套件版本為 Pele 1.13.0。
 Pele、Mermaid 與 Obsidian 的關係 在筆記中寫下 flowchart 等 Mermaid 語法，仍需要一個渲染器把文字轉成圖表。Pele 就是 Obsidian 團隊開發的圖表渲染器，輸出為 SVG；它使用自己的排版引擎，顏色與字型可配合所在應用程式的主題。
 名稱 在這個流程中的用途 Mermaid 語法 描述節點、箭頭、分支及其他圖表結構的文字。 Pele 讀取這些文字並產生圖表的 JavaScript 函式庫。 Obsidian 編輯與閱讀筆記的應用程式，由它整合圖表引擎。 若要查流程圖的節點與分支寫法，可閱讀 Mermaid 筆記：流程圖語法、驗證與匯出 。本篇著重如何使用與接入 Pele。
 在 Obsidian 需要另外安裝嗎？ Obsidian 桌面 1.15.0 更新說明 已列出內建 Pele。該次發布標示為 搶先體驗版（early access）；不能把版本號直接當成所有使用者都已收到的穩定版。
