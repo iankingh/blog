@@ -84,6 +84,10 @@ def run_step(step, root, output, timeout, env):
             result.update(status="unavailable", error=str(error))
             log.write(str(error) + "\n")
     result["seconds"] = round(time.monotonic() - started, 3)
+    warnings = [line.removeprefix("WARNING: ") for line in log_path.read_text(encoding="utf-8", errors="replace").splitlines()
+                if line.startswith("WARNING: ")]
+    if warnings:
+        result["warnings"] = warnings
     return result
 
 
@@ -105,6 +109,8 @@ def execute_plan(steps, root, output, timeout, env, on_result=None):
         if on_result:
             on_result(result)
         print(f"{result['status'].upper():11} {step.name}", flush=True)
+        for warning in result.get("warnings", []):
+            print(f"WARNING     {warning}", flush=True)
     return results
 
 
@@ -112,10 +118,11 @@ def site_plan(output):
     scripts = ".github/scripts/"
     site = str(output / "site")
     return [
-        Step("hugo-version", ("hugo", "version")),
-        Step("node-version", ("node", "--version")),
+        Step("hugo-version", (sys.executable, scripts + "check-tool-version.py", "hugo")),
+        Step("node-version", (sys.executable, scripts + "check-tool-version.py", "node")),
         Step("python-version", (sys.executable, "--version")),
         Step("note-source", (sys.executable, scripts + "check-note-content.py")),
+        Step("skills-source", (sys.executable, scripts + "check-skills.py")),
         Step("search", ("node", scripts + "check-search.cjs"), ("node-version",)),
         Step("diagrams", ("node", scripts + "check-diagrams.cjs"), ("node-version",)),
         Step("python-unit-tests", (sys.executable, "-m", "unittest", "discover",
@@ -124,6 +131,8 @@ def site_plan(output):
                        str(output / "cache"), "--destination", site), ("hugo-version",)),
         Step("generated-content", (sys.executable, scripts + "check-note-content.py",
                                    "--site", site), ("build",)),
+        Step("generated-skills", (sys.executable, scripts + "check-skills.py",
+                                  "--site", site), ("build",)),
         Step("generated-security", (sys.executable, scripts + "check-site-security.py", site),
              ("build",)),
     ]

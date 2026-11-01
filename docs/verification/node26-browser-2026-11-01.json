@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "date": "2026-11-01",
+  "pele": "1.13.0",
+  "baseURL": "http://127.0.0.1:1321/blog/",
+  "checks": [
+    {
+      "case": "desktop-light",
+      "diagrams": [
+        {
+          "sourceOpen": false,
+          "state": "rendered",
+          "svg": 1
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "case": "desktop-dark",
+      "diagrams": [
+        {
+          "sourceOpen": false,
+          "state": "rendered",
+          "svg": 1
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "case": "mobile-dark",
+      "diagrams": [
+        {
+          "canvasWidth": 314,
+          "sourceOpen": false,
+          "state": "rendered",
+          "svg": 1,
+          "svgWidth": 196
+        }
+      ],
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "case": "mobile-light",
+      "diagrams": [
+        {
+          "sourceOpen": false,
+          "state": "rendered",
+          "svg": 1
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "width": 390,
+      "expandedBeforeSpace": true
+    },
+    {
+      "case": "mermaid-mobile",
+      "diagrams": [
+        {
+          "state": "rendered",
+          "svg": 1
+        }
+      ],
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "case": "article-version-sync",
+      "commandVisible": true,
+      "dates": [
+        "2026-10-26",
+        "2026-11-01"
+      ],
+      "versionVisible": true
+    }
+  ],
+  "consoleErrorsAndWarnings": [],
+  "screenshots": [
+    "/private/tmp/blog-node26-20261101/diagram-desktop-light.png",
+    "/private/tmp/blog-node26-20261101/diagram-desktop-dark.png",
+    "/private/tmp/blog-node26-20261101/diagram-mobile-light.png",
+    "/private/tmp/blog-node26-20261101/diagram-mobile-dark.png"
+  ],
+  "limitations": [
+    "Local Hugo preview only; no production deployment or Obsidian application testing.",
+    "Initial preview navigation preceded server startup and failed; only successful page observations are counted.",
+    "No library-missing or syntax-error browser injection; existing automated diagram cases cover these paths."
+  ]
+}

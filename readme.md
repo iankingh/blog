@@ -29,6 +29,7 @@ PR 與部署的 build job 使用相同入口。Java／Spring／Vue／Angular 教
 ## 環境需求
 
 - Git
+- Node.js **26.13.0 LTS（Lithium）**／npm 11.20.0；與 `.nvmrc` 及 CI 一致。
 - Hugo **Extended 0.167.0 以上**（目前部署工作流程固定使用 `0.167.0`）
 
 此版本包含文章渲染與主題檔案存取的安全修正。建議本機使用與
@@ -101,7 +102,7 @@ Analytics，loopback 主機不載入 Disqus。不蒜子計數已停用。新增�
 
 ### Mermaid 圖表與 Pele
 
-文章中的 `mermaid` fenced code block 由站點的 render hook 接入 **Pele 1.10.0**。
+文章中的 `mermaid` fenced code block 由站點的 render hook 接入 **Pele 1.13.0**。
 圖表配合晝夜主題與容器寬度；原始碼可展開，腳本未載入或個別圖表繪製失敗時仍可閱讀。
 只有實際含圖表的文章載入 `static/lib/pele/` 的同源腳本，CSP 與 Goldmark unsafe 不需調整。
 
@@ -172,7 +173,7 @@ Vue 00 是環境與系列目錄，15 是路由共同骨架；各章包含先備�
 ```bash
 python3 .github/scripts/check-note-content.py
 python3 .github/scripts/check-basic-note-examples.py
-# 建置後連同搜尋、十三頁分頁及內部連結／圖片一起查核
+# 建置後連同搜尋、分頁及內部連結／圖片一起查核
 hugo --minify --destination /tmp/blog-review-output
 python3 .github/scripts/check-note-content.py --site /tmp/blog-review-output
 ```

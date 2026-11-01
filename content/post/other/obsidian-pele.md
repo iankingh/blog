@@ -2,7 +2,7 @@
 title: "Pele 使用筆記：在 Obsidian 顯示 Mermaid 圖表"
 slug: obsidian-pele
 date: 2026-10-26T22:03:30+08:00
-lastmod: 2026-10-26T23:36:32+08:00
+lastmod: 2026-11-01T00:00:00+08:00
 draft: false
 categories:
 - "筆記"
@@ -19,7 +19,7 @@ description: "認識 Obsidian 的 Pele 圖表引擎，確認適用版本、使�
 
 這篇筆記的起點，是看到 MUKI WU（哈囉沐奇）分享的 [〈Mermaid 太肥太慢？Obsidian 開源的 pele，畫一張圖只要 0.3 毫秒〉](https://www.youtube.com/watch?v=-YlDpD8USWY)。看完分享後，想進一步了解 Pele 如何用在 Obsidian，也把它接入自己的部落格；因此接著查閱官方文件，整理使用方式與本站的實際整合。
 
-適用：想在 Obsidian 用文字維護圖表的使用者，以及需要在網站顯示相同圖表來源的開發者。Obsidian 操作以 2026-10-22 發布的桌面 1.15.0 搶先體驗版更新說明為依據；本站安裝的 JavaScript 套件版本為 Pele 1.10.0。
+適用：想在 Obsidian 用文字維護圖表的使用者，以及需要在網站顯示相同圖表來源的開發者。Obsidian 操作以 2026-10-22 發布的桌面 1.15.0 搶先體驗版更新說明為依據；本站安裝的 JavaScript 套件版本為 Pele 1.13.0。
 
 ## Pele、Mermaid 與 Obsidian 的關係
 
@@ -82,7 +82,7 @@ Pele 官方相容性文件以 Mermaid 12.1.0 內建圖表類型為基準，但�
 網站開發者可以安裝固定版本。本次專案使用：
 
 ```bash
-npm install --save-exact pele@1.10.0
+npm install --save-exact pele@1.13.0
 ```
 
 若專案使用 JavaScript 模組，最小接法是取得容器，再把圖表來源交給 `mount()`：

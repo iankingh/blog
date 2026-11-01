@@ -14,7 +14,7 @@ python3 -m unittest discover -s .github/scripts -p 'test_jdk25.py'
 
 ## Vue、Angular、JavaScript
 
-工具環境固定為 Node.js 24.22.1 LTS／npm 11.20.0（在儲存庫根目錄執行 `nvm use`）。
+工具環境固定為 Node.js 26.13.0 LTS（Lithium）／npm 11.20.0。使用 nvm 時在儲存庫根目錄執行 `nvm use`；Homebrew 使用者需確認 `node --version` 與 `.nvmrc` 相同。
 2026-10-23 升級驗證工具依賴至 Angular 22、TypeScript 6、Vite 8、Pinia 4 與 Vue Router 5；
 文章保留各自介紹的版本，這組工具驗證的是範例在目前工具鏈上的相容性，不能當作原版本的驗證證據。
 
@@ -50,6 +50,18 @@ python3 docs/verification/check-spring-notes.py /tmp/blog-spring-lab --results /
 從六篇 Spring 筆記抽出主程式、設定及文章測試，額外 fixture 核對 `/api/hello`、`/v3/api-docs` 、dev profile 及衍生／JPQL／native 查詢。固定 Spring Boot 3.5.16／JDK 25／springdoc 2.8.9，資料庫使用 H2 2.3.232，共 8 個測試；未連外部 DB 或叢集。共用文章 POM 以 dependency plugin 的 properties goal 取得 mockito-core JAR 路徑，Surefire 透過 `-javaagent` 載入該版本；不需填入機器專屬路徑。驗證工具確認 Maven 使用 JDK 25、執行 `clean test`、檢查主程式與測試 class 均為版本 69，並核對 8 tests／0 failure／0 error／0 skipped。Spring Cloud 舊筆記提供 JDK 25 的替代路線，未在本次啟動 Eureka／Gateway，不能視為這 8 項測試的範圍。
 
 ## 網站
+
+Skills 的長期驗收案例已保存於儲存庫，直接抽取文章安裝片段，並核對新建置的頁面：
+
+```bash
+python3 .github/scripts/check-skills.py
+python3 .github/scripts/check-skills.py --site /tmp/blog-review-output
+```
+
+兩種模式都納入 `verify-blog.py`。安裝案例只在暫存目錄執行複製，涵蓋新目的地、
+既有目錄／檔案及有效／斷裂軟連結；生成案例核對目前設定的首頁置頂順序、第二頁、
+文章互連、搜尋及技能圖鑑。這些案例不需要相鄰的 agent-skills 專案或舊暫存快照，
+也不代表已實際安裝、試用外部 Skill／外掛。
 
 Mermaid 圖表整合使用根目錄固定版本的 Pele，自動檢查不依賴 `node_modules`：
 

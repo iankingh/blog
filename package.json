@@ -1,11 +1,15 @@
 {
   "name": "ianhuang-blog",
   "private": true,
+  "engines": {
+    "node": "^26.13.0"
+  },
+  "packageManager": "npm@11.20.0",
   "scripts": {
     "vendor:pele": "node .github/scripts/vendor-pele.cjs",
     "test:diagrams": "node .github/scripts/check-diagrams.cjs"
   },
   "dependencies": {
-    "pele": "1.10.0"
+    "pele": "1.13.0"
   }
 }

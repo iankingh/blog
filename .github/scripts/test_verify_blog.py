@@ -37,6 +37,13 @@ class VerificationTests(unittest.TestCase):
         self.assertEqual(results[0]["status"], "unavailable")
         self.assertFalse(verify.all_passed(results))
 
+    def test_tool_warnings_survive_in_the_report(self):
+        results, _ = self.run_plan([
+            verify.Step("version", (sys.executable, "-c", "print('WARNING: different CI version')")),
+        ])
+        self.assertTrue(verify.all_passed(results))
+        self.assertEqual(results[0]["warnings"], ["different CI version"])
+
     def test_timeout_is_a_failure(self):
         results, _ = self.run_plan([verify.Step("slow", (sys.executable, "-c", "import time;time.sleep(30)"))], .1)
         self.assertEqual(results[0]["status"], "timed_out")

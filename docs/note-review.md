@@ -259,3 +259,11 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 教學依上游 README、Skill 與官方指南整理；特別區分 Dryer 預設 0.82 與 ub-mode 的 0.8 政策，並補充 pstack Claude Code 命令前綴。兩項外部收藏維持待試用，未安裝或執行產品。來源、網站與瀏覽器驗收及限制見 [本輪任務紀錄](harness/ai-skills-collection-2026-10-31.md)。
 
 本輪修正後的網站基準 10 項檢查及 44 項來源／生成內容／安裝片段案例通過；IAB 完成 1440px 與 390px 瀏覽器驗收，手機表格改用既有 wideTables 設定，表格與程式碼已實際鍵盤橫向捲動。證據見 [內容案例](verification/ai-skills-acceptance-2026-10-31.json) 與 [瀏覽器紀錄](verification/ai-skills-browser-2026-10-31.json)；最終來源以任務紀錄所列收尾 report 為準。
+
+## 2026-11-01：Node 26 LTS 與 Pele 版本同步
+
+重新安裝 Node 26.13.0 LTS，統一專案與 CI 的 Node 版本，並將根目錄 Pele 更新為 1.13.0。
+[Pele 使用筆記](../content/post/other/obsidian-pele.md) 同步本站版本與固定安裝命令，保留原始 date、路徑、圖表內容及參考資料；只有實際修訂的文章更新 lastmod 與 JSON 查核紀錄。
+
+可重用的 Skills 安裝保留與生成頁面案例已納入網站統一驗證；歷史 44 項驗收仍保留原紀錄。
+7 個圖表案例通過，新的瀏覽器範圍、最終網站報告及剩餘限制見 [本輪任務紀錄](harness/node26-review-fixes-2026-11-01.md)。未操作或升級 Obsidian，也未重跑全部技術教學。

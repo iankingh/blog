@@ -33,6 +33,7 @@
 - 網站基準：`python3 .github/scripts/verify-blog.py`。本機 Hugo 為 0.168.0 Extended，CI 固定 0.167.0；本輪不變更工具版本。
 - 修正後網站命令：`python3 .github/scripts/verify-blog.py --output /private/tmp/blog-skills-wide-tables-20261031`；report 的 `status: passed`、10 項全部通過且 `source_unchanged: true`。
 - 內容驗收：`docs/verification/ai-skills-acceptance-2026-10-31.json`，44 項通過，使用上述真實建置 HTML。重跑腳本為 `/private/tmp/verify-blog-skills-20261031.py`；完整基線與網站產物留在本機暫存目錄。
+- 2026-11-01 後續維護：可重用的安裝保留與生成頁面案例已整理至 `.github/scripts/check-skills.py` 並納入網站統一驗證；不依賴上述個人路徑、相鄰專案或舊基線。原 44 項仍是歷史驗收，沒有宣稱新檢查重跑全部歷史差異比較。
 - 瀏覽器：`docs/verification/ai-skills-browser-2026-10-31.json`，IAB 1440×1000 與 390×844，三篇新文、首頁／第二頁、技能圖鑑、實際搜尋及鍵盤捲動通過。已還原 viewport；保留 `http://127.0.0.1:1317/blog/` 首頁預覽。
 - 截圖：`/private/tmp/blog-skills-home-desktop-20261031.jpg`、`/private/tmp/blog-skills-home-mobile-20261031.jpg`；其餘文章與程式碼截圖的完整路徑在瀏覽器紀錄。
 - 首次啟動預覽的 `--renderToMemory` 與 `--destination` 不相容，移除後又遇 sandbox 禁止 bind；以核准的本機 loopback Hugo 伺服器完成檢查，並未改動網站安全設定。未把啟動失敗算成驗收成功。
