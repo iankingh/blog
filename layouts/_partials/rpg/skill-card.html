@@ -6,6 +6,7 @@
   <div class="codex-xp-label"><span>筆記經驗 EXP</span><b>{{ $skill.xp }} / 10</b></div>
   <progress class="codex-progress" value="{{ $skill.xp }}" max="10" aria-label="{{ $skill.name }}：距下一級已累積 {{ $skill.xp }} 篇，共需 10 篇"></progress>
   <div class="codex-next"><span>{{ $skill.count }} 篇相關筆記</span><span>再 {{ sub 10 $skill.xp }} 篇 → Lv. {{ add $skill.level 1 }}</span></div>
+  {{ with $skill.abilities }}<div class="skill-abilities"><h4>具體能力</h4><ul>{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="ability-stage">{{ .Params.stage | default "待練習" }}</span></li>{{ end }}</ul></div>{{ end }}
   {{ if .expanded }}
     {{ if $skill.count }}<details class="codex-records"><summary>查看探索紀錄 <span>{{ $skill.count }} 篇</span></summary><ul>{{ range $skill.records }}<li><a href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">↗</span></a></li>{{ end }}</ul></details>{{ else }}<p class="codex-empty">待記錄 · 下一個任務：留下第一篇學習筆記。</p>{{ end }}
   {{ else }}<a class="codex-link" href="{{ printf "skills/#%s" $skill.id | relURL }}">查看技能圖鑑 {{ partial "rpg/icon.html" "arrow" }}</a>{{ end }}

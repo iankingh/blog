@@ -1,0 +1,15 @@
+{{ define "main_inner_class" }}article-page ability-page{{ end }}
+{{ define "main" }}
+{{ $abilities := partialCached "rpg/abilities-data.html" .Site .Site.Language.Lang }}
+{{ $skill := index (where hugo.Data.skills "id" .Params.skill) 0 }}
+{{ $posts := (where (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) "Draft" false).ByLastmod.Reverse }}
+{{ $related := where $posts "Params.abilities" "intersect" (slice .Params.ability_id) }}
+<nav class="breadcrumbs" aria-label="頁面位置"><a href="{{ "skills/" | relURL }}">技能圖鑑</a><span>/</span><a href="{{ printf "skills/#%s" $skill.id | relURL }}">{{ $skill.name }}</a><span>/</span><span>具體能力</span></nav>
+<article class="article-panel panel">
+  <header class="article-header"><h1>{{ .Title }}</h1><p class="ability-heading-meta"><a href="{{ printf "skills/#%s" $skill.id | relURL }}">{{ $skill.name }}</a><span class="ability-stage">{{ .Params.stage | default "待練習" }}</span></p><p>{{ .Description }}</p></header>
+  <div class="article-body">{{ .Content }}</div>
+  <section class="ability-connections" aria-labelledby="ability-evidence"><h2 id="ability-evidence">公開成果與驗證</h2>{{ with .Params.evidence }}<ul>{{ range . }}<li><a href="{{ .url }}">{{ .title }}</a></li>{{ end }}</ul>{{ else }}<p>目前先完成方法整理與練習設計，實際成果將在練習後補上。</p>{{ end }}</section>
+  <section class="ability-connections" aria-labelledby="ability-articles"><h2 id="ability-articles">相關文章</h2>{{ with $related }}<ul>{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>{{ else }}<p>這項能力的文章正在整理中。</p>{{ end }}</section>
+  <footer class="article-footer"><a href="{{ printf "skills/#%s" $skill.id | relURL }}">返回 {{ $skill.name }} 技能圖鑑</a> · <a href="{{ "projects/" | relURL }}">查看作品與進展</a></footer>
+</article>
+{{ end }}

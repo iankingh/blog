@@ -1,8 +1,9 @@
 [
   {"id":"java","name":"Java","emblem":"J","group":"core","description":"後端開發與程式基礎","tags":["java"]},
-  {"id":"spring-boot","name":"Spring Boot","emblem":"S","group":"core","description":"應用服務、資料存取與系統整合","tags":["spring","spring boot","spring data jpa","spring cloud"]},
+  {"id":"spring-boot","name":"Spring Boot","emblem":"S","group":"core","description":"應用服務、資料存取與系統整合","tags":["spring","spring boot","spring data jpa","spring cloud"],"growth_skills":["spring_boot"]},
   {"id":"angular","name":"Angular","emblem":"A","group":"core","description":"前端介面與互動開發","tags":["angular"]},
   {"id":"vue","name":"Vue","emblem":"V","group":"core","description":"前端元件與介面開發","tags":["vue","vue.js","vuejs"]},
+  {"id":"software-design","name":"軟體設計與架構","emblem":"SD","group":"core","description":"需求釐清、驗收案例與設計取捨","tags":["軟體設計","軟體架構","需求分析","architecture"],"growth_skills":["architecture"]},
   {"id":"devops","name":"DevOps","emblem":"D","group":"ops","description":"版本控制、容器與部署流程","tags":["git","docker","jenkins","kubernetes","ci/cd"]},
   {"id":"ai-applications","name":"AI 應用","emblem":"AI","group":"ai","description":"大型語言模型與工具整合","tags":["ai","llm","ai 應用","rag"]},
   {"id":"prompt-design","name":"提示詞設計","emblem":"P","group":"ai","description":"需求拆解、上下文與輸出驗證","tags":["提示詞設計","提示詞","prompt engineering"]},

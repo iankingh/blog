@@ -10,6 +10,7 @@
   </header>
   {{ if ne .Params.toc false }}{{ with .TableOfContents }}{{ if strings.Contains . "<li>" }}<details class="article-toc" open><summary>{{ partial "rpg/icon.html" "map" }}任務導覽 <span>TABLE OF CONTENTS</span></summary>{{ . }}</details>{{ end }}{{ end }}{{ end }}
   <div class="article-body" itemprop="articleBody">{{ .Content }}</div>
+  {{ partial "rpg/ability-links.html" . }}
   <footer class="article-footer">
     <p>✦ 本次探索已記錄，繼續前往下一個未知。</p>
     {{ if .Site.Params.creativeCommons.post }}<p class="article-license">本文採 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 授權。</p>{{ end }}

@@ -1,0 +1,4 @@
+{{ define "main" }}
+<div class="page-heading"><h1>具體能力</h1><a href="{{ "skills/" | relURL }}">返回大技能圖鑑</a></div>
+<section class="article-panel panel"><div class="article-body"><p>從一個可驗收的問題開始，把閱讀、專案與文章連到實際能力。</p><ul>{{ range partialCached "rpg/abilities-data.html" .Site .Site.Language.Lang }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> · {{ .Params.stage | default "待練習" }}</li>{{ end }}</ul></div></section>
+{{ end }}

@@ -1,0 +1,10 @@
+{{- $page := . -}}
+{{- $abilities := partialCached "rpg/abilities-data.html" .Site .Site.Language.Lang -}}
+{{- $related := where $abilities "Params.ability_id" "in" (.Params.abilities | default slice) -}}
+{{- with $related -}}
+<section class="ability-connections" aria-label="相關具體能力">
+  <h2>這篇文章連到的能力</h2>
+  <p>從文章繼續查看練習方式、專案與成果紀錄。</p>
+  <ul>{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="ability-stage">{{ .Params.stage | default "待練習" }}</span></li>{{ end }}</ul>
+</section>
+{{- end -}}
