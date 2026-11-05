@@ -555,7 +555,7 @@ params:
   # Easily browse and edit blog source code online.
   postEdit:
     enable: true
-    url: https://github.com/iankingh/blog/edit/master/content/
+    url: https://github.com/iankingh/blog/edit/main/content/
 
 
   # 设置文本的对齐方式

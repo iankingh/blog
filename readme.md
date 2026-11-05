@@ -5,7 +5,7 @@
 
 ## 專案關係
 
-- 本儲存庫的 `master` 分支保存網站設定、文章與版面覆寫。
+- 本儲存庫的 `main` 分支保存網站設定、文章與版面覆寫。
 - `themes/hugo-theme-next/` 是上游 Hugo NexT 主題的 Git submodule。
 - `public/` 是 Hugo 預設的本機建置輸出，已由 `.gitignore` 排除；正式部署使用暫存產物。
 - [`iankingh/hugo-theme-next-starter`](https://github.com/iankingh/hugo-theme-next-starter) 是可重用的主題範例，不是此站的部署來源。
@@ -180,7 +180,7 @@ python3 .github/scripts/check-note-content.py --site /tmp/blog-review-output
 
 ### 正式部署與版本查核紀錄
 
-推送 `master` 或手動啟動部署後，工作流程先建置、檢查內容／搜尋／安全，再發布至 `gh-pages`。部署不取消進行中的工作；即使產物相同也建立帶有來源 SHA 的產物提交，以確認每次發布的來源。查核紀錄只留在專案，不產生獨立的站內查核頁面。
+推送 `main` 或手動啟動部署後，工作流程先建置、檢查內容／搜尋／安全，再發布至 `gh-pages`。部署不取消進行中的工作；即使產物相同也建立帶有來源 SHA 的產物提交，以確認每次發布的來源。查核紀錄只留在專案，不產生獨立的站內查核頁面。
 
 發布後每 15 秒查詢 GitHub Pages 建置，最多等待 10 分鐘；必須是本次 `gh-pages` SHA 的 `built` 結果才建立 Tag／Release。Tag 為 `deploy-YYYYMMDD-<run_id>`，日期使用原工作流程啟動時間的臺灣日期，指向本次來源 SHA；重跑跨日也沿用同一 Tag。既有 Tag 指向其他 SHA 時失敗，不覆寫版本。
 
@@ -233,7 +233,7 @@ hugo new content/post/<分類>/<文章名稱>.md
 
 ## 部署
 
-推送至 `master` 後，`.github/workflows/deploy.yml` 會：
+推送至 `main` 後，`.github/workflows/deploy.yml` 會：
 
 1. 唯讀的 `build` job 取出原始碼與主題子模組，且不保留 Git 憑證；
 2. 安裝 Hugo Extended `0.167.0`，執行統一驗證入口（含搜尋、Python 測試與 `hugo --minify`）；
@@ -241,7 +241,7 @@ hugo new content/post/<分類>/<文章名稱>.md
 4. 獨立 `deploy` job 取出發布腳本、下載通過檢查的產物，發布至 `gh-pages` 分支；
 5. 確認本次 GitHub Pages 建置完成，再自動建立指向來源提交的 Tag／Release。
 
-工作流程也可由 GitHub Actions 頁面手動執行，只有 `master` 能發布。
+工作流程也可由 GitHub Actions 頁面手動執行，只有 `main` 能發布。
 僅發布 job 具有 `contents: write`；正式站台產物由工作流程發布，本機建置輸出由 Git 忽略。
 Actions 固定為官方 release 對應的完整 commit SHA，由 Dependabot 每週提出
 更新 PR。Hugo 版本需另外檢查正式 release，升級時同步修改 workflow 與本文件。

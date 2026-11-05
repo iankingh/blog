@@ -8,7 +8,7 @@
 ## 專案與建置
 
 - 最新架構、維護方式、建置與部署說明以根目錄 `readme.md` 為準；Hugo 版本以 `.github/workflows/deploy.yml` 固定的 Extended 版本為準。
-- `master` 保存網站原始碼；`themes/hugo-theme-next/` 是唯一的 Git submodule。使用 `git submodule update --init --recursive` 取得主題。
+- `main` 保存網站原始碼；`themes/hugo-theme-next/` 是唯一的 Git submodule。使用 `git submodule update --init --recursive` 取得主題。
 - `content/` 保存文章，`layouts/` 保存站點版面覆寫，`static/` 保存圖片、CSS 與 JavaScript。
 - `public/`、`.local-public/`、`resources/_gen/` 與 `.hugo_build.lock` 為可重新產生的本機建置產物，已由 Git 忽略。
 - 正式部署使用通過檢查的暫存產物發布到 `gh-pages`，完成 Pages 建置後自動建立 Tag／Release。
