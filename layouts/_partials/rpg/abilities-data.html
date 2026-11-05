@@ -1,0 +1,30 @@
+{{- $site := . -}}
+{{- $all := where $site.RegularPages "Section" "abilities" -}}
+{{- $visible := where $all "Draft" false -}}
+{{- $ids := slice -}}
+{{- $allowed := slice "待練習" "跟著完成" "獨立完成" "能解釋與修改" "經他人驗證" -}}
+{{- $skillIds := slice -}}
+{{- range hugo.Data.skills -}}{{- $skillIds = $skillIds | append .id -}}{{- end -}}
+{{- range $all -}}
+  {{- $id := .Params.ability_id | default "" -}}
+  {{- if or (not $id) (not (findRE `^[a-z][a-z0-9-]*$` $id)) -}}{{- errorf "Ability page requires a stable ability_id: %s" .File.Path -}}{{- end -}}
+  {{- if in $ids $id -}}{{- errorf "Duplicate ability_id: %s" $id -}}{{- end -}}
+  {{- $ids = $ids | append $id -}}
+  {{- if not (in $skillIds .Params.skill) -}}{{- errorf "Ability %s has unknown skill: %s" $id .Params.skill -}}{{- end -}}
+  {{- $stage := .Params.stage | default "待練習" -}}
+  {{- if not (in $allowed $stage) -}}{{- errorf "Ability %s has unknown stage: %s" $id $stage -}}{{- end -}}
+  {{- if and (ne $stage "待練習") (not .Params.evidence) -}}{{- errorf "Ability %s needs public evidence for stage %s" $id $stage -}}{{- end -}}
+  {{- range .Params.evidence -}}
+    {{- if or (not .title) (not .url) (not (findRE `^(https://|/)` .url)) -}}{{- errorf "Ability %s has invalid evidence link" $id -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $posts := where (where $site.RegularPages "Section" "in" $site.Params.mainSections) "Draft" false -}}
+{{- $publicIds := slice -}}
+{{- range $visible -}}{{- $publicIds = $publicIds | append .Params.ability_id -}}{{- end -}}
+{{- range $posts -}}
+  {{- $post := . -}}
+  {{- range .Params.abilities -}}
+    {{- if not (in $publicIds .) -}}{{- errorf "Article %s references an unknown or draft ability: %s" $post.File.Path . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return ($visible.ByTitle) -}}

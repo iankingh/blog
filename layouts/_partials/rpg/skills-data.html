@@ -1,14 +1,18 @@
 {{- $posts := (where (where .RegularPages "Section" "in" .Params.mainSections) "Draft" false).ByLastmod.Reverse -}}
+{{- $abilities := partialCached "rpg/abilities-data.html" . .Language.Lang -}}
 {{- $skills := slice -}}
 {{- range hugo.Data.skills -}}
   {{- $definition := . -}}
   {{- $records := slice -}}
+  {{- $skillAbilities := where $abilities "Params.skill" $definition.id -}}
+  {{- $abilityIds := slice -}}
+  {{- range $skillAbilities -}}{{- $abilityIds = $abilityIds | append .Params.ability_id -}}{{- end -}}
   {{- range $posts -}}
     {{- $tags := slice -}}
     {{- range .Params.tags -}}{{- $tags = $tags | append (lower (trim . " ")) -}}{{- end -}}
-    {{- if intersect $tags $definition.tags -}}{{- $records = $records | append . -}}{{- end -}}
+    {{- if or (intersect $tags $definition.tags) (intersect (.Params.abilities | default slice) $abilityIds) -}}{{- $records = $records | append . -}}{{- end -}}
   {{- end -}}
   {{- $count := len $records -}}
-  {{- $skills = $skills | append (merge $definition (dict "records" $records "count" $count "level" (add (div $count 10) 1) "xp" (mod $count 10))) -}}
+  {{- $skills = $skills | append (merge $definition (dict "abilities" $skillAbilities "records" $records "count" $count "level" (add (div $count 10) 1) "xp" (mod $count 10))) -}}
 {{- end -}}
 {{- return $skills -}}

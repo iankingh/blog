@@ -8593,5 +8593,33 @@
       "validationScopeRecorded": true
     },
     "contentUpdatedAt": "2026-10-31T00:28:15+08:00"
+  },
+  {
+    "path": "content/post/software-design/prototype-for-requirement-clarification.md",
+    "title": "規格寫不清楚時，如何用 Prototype 回答問題？",
+    "originalDraft": true,
+    "originalDate": "2026-11-03",
+    "lastmod": "2026-11-03",
+    "context": "適用：大致功能範圍已知，介面、互動或狀態行為仍難以確定的開發工作；是閱讀整理，並非使用者已實作的成果。",
+    "issues": [],
+    "changes": "依使用者要求從既有 Prototype 文獻另寫新文章，以待決問題、A–D 比較、交接與未執行練習重新組織敘事，保留影片來源及必要時間連結。 2026-11-04／05：新增 requirement-acceptance 能力關聯，保留正文、來源、日期與未實作限制。",
+    "sources": [
+      "https://www.youtube.com/watch?v=n0VhIVtviC0"
+    ],
+    "verification": "本輪讀取既有影片筆記，沿用其自動字幕全段與關鍵畫面閱讀範圍，未重新觀看影片或查核現行技能倉庫。網站與瀏覽器結果記於 docs/harness/vault-writing-workflow-2026-11-03.md；尚未推送或部署。 本輪能力／技能／文章／作品往返、6 項關聯案例與桌面／手機驗收見 docs/harness/adventurer-learning-loop-2026-11-04.md；本機未部署。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "documentation",
+    "originalReferences": [
+      "https://www.youtube.com/watch?v=n0VhIVtviC0"
+    ],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    }
   }
 ]

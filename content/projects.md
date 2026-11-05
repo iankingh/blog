@@ -2,7 +2,8 @@
 title: "作品・實作成果"
 layout: "portfolio"
 url: "/projects/"
-description: "Ian 的個人技術網站案例：以 Hugo、RPG 版面、技能資料與全文搜尋整理學習紀錄，透過 GitHub Actions 自動部署。"
+description: "Ian 的技術網站實作，以及準備中的記帳系統需求與驗收練習；從專案連結能力與文章。"
+lastmod: 2026-11-04
 date: 2026-10-05T21:00:00+08:00
 toc: false
 comments: false
@@ -54,3 +55,14 @@ Hugo 在建置時產生只包含公開技術文章的 JSON 索引。讀者開啟
 ### 閱讀與原始碼
 
 [閱讀 Java 技能與相關筆記]({{< relref "skills" >}}#java) · [查看網站原始碼](https://github.com/iankingh/blog) · [認識我]({{< relref "about.md" >}})
+
+
+## 個人記帳系統：準備需求與驗收規格 {#accounting-system}
+
+目前這個作品的規劃，是以 Java／Spring Boot 與 Vue 完成手動新增收支、分類、查詢及月摘要。現階段只有計畫與協作擬定的新增收支驗收規格草稿，尚未建立程式碼儲存庫、部署或通過功能測試。
+
+第一個練習是把正常輸入、零或負數金額、缺漏日期與分類等條件寫成可討論案例。本人獨立補例、檢查並修正後，再記錄實際能力；程式實作與驗證結果會隨進展補上。
+
+[查看「用可驗收案例釐清需求」能力與目前階段]({{< relref "abilities/requirement-acceptance.md" >}}) · [閱讀 Prototype 方法整理]({{< relref "post/software-design/prototype-for-requirement-clarification.md" >}})
+
+網站本身持續改善，Blog 寫作是長期經營的任務；完成一篇文章或一次網站改版，會留下成果紀錄，並繼續進行下一輪學習。

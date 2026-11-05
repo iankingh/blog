@@ -138,3 +138,21 @@
 @media (max-width: 360px) {
   .brand-emblem { display: none; }
 }
+
+
+/* Ability relations extend the existing RPG reading and skill surfaces. */
+.ability-connections { padding: 24px 0; margin-top: 24px; border-top: 1px solid var(--line); }
+.ability-connections h2 { font: 23px/1.6 var(--serif); margin: 0 0 12px; }
+.ability-connections > p { color: var(--muted); line-height: 1.9; }
+.ability-connections ul, .skill-abilities ul, .ability-summary { list-style: none; padding: 0; }
+.ability-connections li, .skill-abilities li, .ability-summary li { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; padding: 12px 0; overflow-wrap: anywhere; }
+.ability-connections a, .skill-abilities a, .ability-summary a { color: var(--green); text-underline-offset: 4px; }
+.ability-connections a:hover, .skill-abilities a:hover, .ability-summary a:hover { text-decoration: underline; }
+.ability-stage { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.skill-abilities { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
+.skill-abilities h4 { margin: 0 0 4px; font-size: 15px; }
+.skill-abilities ul { margin: 0; font-size: 14px; }
+.ability-heading-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px; }
+.ability-summary { padding: 12px 22px; }
+.ability-page .article-body { margin-top: 24px; }
+@media (max-width: 540px) { .ability-connections h2 { font-size: 21px; } .ability-summary { padding: 10px 20px; } }
