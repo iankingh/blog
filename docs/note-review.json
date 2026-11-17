@@ -8621,5 +8621,46 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     }
+  },
+  {
+    "path": "content/post/git/github-gitlab-issue-management.md",
+    "title": "GitHub／GitLab Issue 管理：提報指南、Markdown 錨點與 Issue 範本",
+    "originalDraft": false,
+    "originalDate": "2026-11-17",
+    "lastmod": "2026-11-17",
+    "context": "適用於 GitHub.com 與 GitLab.com 的專案提報流程，自架 GitLab 依執行版本確認網址與介面。",
+    "issues": [],
+    "changes": "以 skills-manager #155 為案例撰寫繁體中文教學，提供 Markdown 導覽、Bug 與功能建議範本，以及 GitHub 置頂與 GitLab 固定入口設定。",
+    "sources": [
+      "https://github.com/xingkongliang/skills-manager/issues/155",
+      "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax",
+      "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates",
+      "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository",
+      "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue",
+      "https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/pinning-an-issue-to-your-repository",
+      "https://docs.gitlab.com/user/markdown/",
+      "https://docs.gitlab.com/user/project/description_templates/",
+      "https://docs.gitlab.com/user/project/issues/create_issues/",
+      "https://docs.gitlab.com/user/project/working_with_projects/",
+      "https://docs.gitlab.com/user/project/wiki/",
+      "https://docs.gitlab.com/user/project/issue_board/",
+      "https://gitlab.com/gitlab-org/gitlab/-/issues/15831"
+    ],
+    "verification": "2026-11-17 以原始 Issue 與官方文件核對，範例及網站驗證見 docs/harness/issue-management-2026-11-17.md。未在 GitHub 或 GitLab 專案提交範本、發送或置頂 Issue。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "documentation",
+    "reviewedAt": "2026-11-17",
+    "originalReferences": [
+      "https://github.com/xingkongliang/skills-manager/issues/155"
+    ],
+    "checks": {
+      "summary": true,
+      "contextAndVersion": true,
+      "sourcesPreserved": true,
+      "codeFences": true,
+      "internalRefs": true,
+      "validationScopeRecorded": true
+    }
   }
 ]
