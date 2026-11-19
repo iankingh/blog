@@ -1,21 +1,21 @@
 ---
 title: "ＡＩ前端專案目錄"
-description: "以 Vue、TypeScript 與 Vite 專案為例，整理 GitHub Copilot 設定、專案文件、前端程式碼與測試的目錄結構，並示範如何驗證與交接一項改動。"
+description: "以 Vue、TypeScript 與 Vite 示範一般 ＡＩ 前端專案的協作指引、文件、程式碼與測試目錄，另附 GitHub Copilot 簡易設定。"
 date: 2026-11-20T00:00:00+08:00
-lastmod: 2026-11-20T00:00:00+08:00
+lastmod: 2026-11-20T00:54:13+08:00
 categories: ["筆記"]
 tags: ["AI", "Harness", "GitHub Copilot", "Vue"]
 toc: true
 draft: false
 ---
 
-這份筆記適用於使用 Vue、TypeScript、Vite 與 GitHub Copilot 的前端團隊。從專案根目錄可以找到開發規則、架構決策、程式碼，以及修改後要跑的驗證。
+這份筆記適用於在 Vue、TypeScript、Vite 專案中使用 ＡＩ 協作的前端團隊。從專案根目錄可以找到開發規則、架構決策、程式碼，以及修改後要跑的驗證。
 
 <!--more-->
 
-## 專案目錄結構
+## 一般 ＡＩ 前端專案目錄
 
-在 AI 輔助開發中，Harness 涵蓋 Agent 取得專案脈絡、操作工具、驗證結果與接續任務所需的環境和流程。這個範例以 `AGENTS.md` 作為入口，連到 `docs/` 的專案知識及 `package.json` 的驗證指令。`.github/` 則放 GitHub Copilot 的設定。
+在 AI 輔助開發中，Harness 涵蓋 Agent 取得專案脈絡、操作工具、驗證結果與接續任務所需的環境和流程。這個範例以 `AGENTS.md` 作為協作入口，記錄開工順序與專案規範，並引導團隊查閱 `docs/` 的專案知識及 `package.json` 的驗證指令。
 
 ```text
 project-root/
@@ -28,30 +28,6 @@ project-root/
 ├── eslint.config.js                   # ESLint 檢查規則
 ├── .prettierrc                        # Prettier 格式化規則
 ├── .gitignore                        # Git 忽略清單
-├── .github/
-│   ├── copilot-instructions.md        # Copilot 儲存庫層級指引
-│   ├── instructions/                 # 依路徑套用的規則
-│   │   ├── coding-standards.instructions.md
-│   │   ├── api-development.instructions.md
-│   │   ├── unit-test.instructions.md
-│   │   └── security-guideline.instructions.md
-│   ├── prompts/                      # 選用，供 VS Code Local harness
-│   ├── agents/                       # 可選用的專門角色
-│   │   ├── frontend-architect.md
-│   │   ├── code-reviewer.md
-│   │   ├── unit-test-writer.md
-│   │   └── api-analyzer.md
-│   └── skills/                       # 可重用的任務流程
-│       ├── vue-management/
-│       │   └── SKILL.md
-│       ├── api-document-generator/
-│       │   ├── SKILL.md
-│       │   ├── scripts/
-│       │   └── references/
-│       ├── dto-validator/
-│       │   └── SKILL.md
-│       └── test-case-generator/
-│           └── SKILL.md
 ├── docs/
 │   ├── architecture/                 # 架構圖、API、前端能力與 Agent 流程
 │   │   ├── api-catalog.md
@@ -134,13 +110,20 @@ project-root/
     └── generate-api-doc.sh
 ```
 
-## GitHub Copilot 檔案怎麼分工
+## GitHub Copilot 簡易版
 
-- `AGENTS.md` 是專案入口，寫開工順序、必守規範、驗證指令，以及各類文件去哪裡找。團隊若需要 Copilot 專用的儲存庫層級指引，可另外使用 `.github/copilot-instructions.md`。兩處的共用規則指向同一份文件，減少日後更新時出現差異。
-- 路徑規則使用 `*.instructions.md`。原稿的 `api-development.md` 若要作為 Copilot 路徑指引，可命名為 `api-development.instructions.md`，在 YAML front matter 設定 `applyTo: "src/api/**/*.ts"`，讓它套用到 API 呼叫層的 TypeScript 檔案。
-- 自訂 Agent 定義角色的工作範圍與可用工具，例如讓 `code-reviewer.md` 以程式碼審查為任務。在 VS Code，`.github/agents/` 支援 `.md` 和 `.agent.md`，可沿用原稿的 `.md` 檔名。
-- Skill 封裝可重用的任務流程。每個 Skill 以 `SKILL.md` 作為入口，用 `name` 和 `description` 說明名稱與使用時機。API 文件產生流程可把檢查步驟寫在 `SKILL.md`，把專用腳本與格式範本放進該 Skill 的 `scripts/` 和 `references/`。
-- 原有 Prompt 檔案如 `code-review.prompt.md`、`bug-analysis.prompt.md` 和 `feature-development.prompt.md` 可放在 `.github/prompts/`。依 VS Code 文件，這些檔案在 Local harness 的聊天工作階段執行。若團隊使用 Copilot harness，可將常用的任務步驟與輸入、輸出要求移到 Skill。
+團隊使用 GitHub Copilot 時，可在專案根目錄加上這些設定。`copilot-instructions.md` 裡的共用規則可指向 `AGENTS.md` 或同一份專案文件。
+
+```text
+.github/
+├── copilot-instructions.md   # 儲存庫層級指引
+├── instructions/            # 依路徑套用的 *.instructions.md 規則
+├── prompts/                 # VS Code Local harness 的 *.prompt.md 範本
+├── agents/                  # 自訂 Agent
+└── skills/                  # 可重用的任務流程
+    └── <skill-name>/
+        └── SKILL.md
+```
 
 ## 修改投組頁面的驗證流程
 

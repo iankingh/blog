@@ -29,3 +29,8 @@
 - 移除未登錄的 `prototype-for-requirement-clarification 2.md`。比對確認副本正文相同，且少了正式檔的 `abilities` 欄位。正式檔的內容、日期、路徑與查核清單均維持原樣。
 - 原工作目錄重跑網站基準，12 項全數通過。另核對原文章與新筆記都有生成頁面和唯一搜尋索引項目。報告位於 `/private/var/folders/pc/ck1ls3rd5hg6920pxlk8xgj00000gn/T/blog-harness-qkk7eamz/report.json`。
 - 遠端驗收以本次修復提交觸發的 GitHub Actions 執行紀錄及正式頁面為準。
+
+## 目錄範例修訂
+
+- 依使用者新要求，將一般 ＡＩ 前端專案作為主範例，GitHub Copilot 改為簡易 `.github/` 範例。兩棵目錄樹各自使用 `text` 程式碼區塊。沿用原始發布日期，更新 `lastmod` 並同步文章查核清單。
+- 網站基準 12 項通過。比對原稿與 Hugo 生成的 HTML，確認一般目錄完整，Copilot 設定限於第二個區塊。Chrome 本機預覽顯示兩段各自的複製按鈕，點擊目錄可跳至 Copilot 小節。報告位於 `/private/var/folders/pc/ck1ls3rd5hg6920pxlk8xgj00000gn/T/blog-harness-uk0pfwiu/report.json`。
