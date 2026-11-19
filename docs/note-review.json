@@ -8662,5 +8662,30 @@
       "internalRefs": true,
       "validationScopeRecorded": true
     }
+  },
+  {
+    "path": "content/post/frontend-ai-workspace.md",
+    "title": "ＡＩ前端專案目錄",
+    "originalDraft": false,
+    "originalDate": "2026-11-20T00:00:00+08:00",
+    "lastmod": "2026-11-20",
+    "context": "適用於採用 Vue、TypeScript、Vite 與 GitHub Copilot 的前端團隊。Copilot 檔案命名與支援範圍以 VS Code 官方文件為查核情境。",
+    "issues": [],
+    "changes": "整合使用者提供的文件、Copilot 設定與前端專案範例為一棵目錄樹，補充 Harness 用法、Copilot 檔案格式與投組頁面測試、交接示例。",
+    "sources": [
+      "https://openai.com/index/harness-engineering/",
+      "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+      "https://docs.github.com/en/copilot/reference/customization-cheat-sheet",
+      "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference",
+      "https://code.visualstudio.com/docs/agents/reference/custom-agent-file-reference",
+      "https://code.visualstudio.com/docs/agent-customization/agent-skills",
+      "https://code.visualstudio.com/docs/agent-customization/prompt-files",
+      "https://vuejs.org/guide/scaling-up/testing.html"
+    ],
+    "verification": "2026-11-20 以 OpenAI、Anthropic、GitHub、VS Code 與 Vue 官方資料核對。目錄與投組驗證是文件範例，未建立 Vue 專案或啟動 Copilot。網站證據見 docs/harness/frontend-ai-workspace-2026-11-20.md。",
+    "status": "complete",
+    "published": true,
+    "verificationType": "documentation",
+    "reviewedAt": "2026-11-20"
   }
 ]
