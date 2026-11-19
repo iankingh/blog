@@ -22,3 +22,10 @@
 - 正式驗證命令為 `python3 .github/scripts/verify-blog.py`。修正時區後的報告分別位於 `/private/tmp/blog-frontend-ai-workspace.zE4Ai9/workspace-evidence/report.json` 與 `/private/tmp/blog-frontend-ai-workspace.zE4Ai9/evidence-taipei/report.json`。
 - 原工作目錄的 `content/post/software-design/prototype-for-requirement-clarification 2.md` 已追蹤且未登錄，正文與正式檔一致。原工作目錄保留該檔，正式網站基準仍有此阻礙。
 - 本機使用 Hugo Extended 0.168.0，CI 固定 0.167.0。Vue 目錄與測試是文件範例，Copilot 配置以官方文件查核。未推送或部署。
+
+## 部署修復
+
+- 提交 `10dff7b4` 已推送至 `main`。GitHub Actions 的 `Verify site` 在 `note-source` 與 `generated-content` 失敗，部署步驟因此跳過。 [執行紀錄](https://github.com/iankingh/blog/actions/runs/44567654996)
+- 移除未登錄的 `prototype-for-requirement-clarification 2.md`。比對確認副本正文相同，且少了正式檔的 `abilities` 欄位。正式檔的內容、日期、路徑與查核清單均維持原樣。
+- 原工作目錄重跑網站基準，12 項全數通過。另核對原文章與新筆記都有生成頁面和唯一搜尋索引項目。報告位於 `/private/var/folders/pc/ck1ls3rd5hg6920pxlk8xgj00000gn/T/blog-harness-qkk7eamz/report.json`。
+- 遠端驗收以本次修復提交觸發的 GitHub Actions 執行紀錄及正式頁面為準。
