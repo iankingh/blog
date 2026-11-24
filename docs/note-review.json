@@ -8665,13 +8665,13 @@
   },
   {
     "path": "content/post/frontend-ai-workspace.md",
-    "title": "ＡＩ前端專案目錄",
+    "title": "ＡＩ專案目錄",
     "originalDraft": false,
     "originalDate": "2026-11-20T00:00:00+08:00",
-    "lastmod": "2026-11-20",
-    "context": "適用於在 Vue、TypeScript、Vite 專案中使用 ＡＩ 協作的團隊。GitHub Copilot 設定以 VS Code 官方文件為查核情境。",
+    "lastmod": "2026-11-24",
+    "context": "供團隊安排 AI 協作規則、角色、技能與文件。前端章節以 Vue、TypeScript 與 Vite 示範，另附 GitHub Copilot 目錄。",
     "issues": [],
-    "changes": "整理 Harness 用法及投組頁面測試與交接示例。依使用者要求，將一般 ＡＩ 前端專案目錄作為主範例，並以另一個程式碼區塊呈現 GitHub Copilot 簡易設定。",
+    "changes": "改題為〈ＡＩ專案目錄〉，先展開共用文件目錄，再展開前端程式與測試目錄。補上技能路徑的站內延伸閱讀與投組頁面的修改位置，將 Copilot 簡例移至文末。",
     "sources": [
       "https://openai.com/index/harness-engineering/",
       "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
@@ -8686,6 +8686,6 @@
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
-    "reviewedAt": "2026-11-20"
+    "reviewedAt": "2026-11-24"
   }
 ]

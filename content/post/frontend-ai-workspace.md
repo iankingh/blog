@@ -1,53 +1,77 @@
 ---
-title: "ＡＩ前端專案目錄"
-description: "以 Vue、TypeScript 與 Vite 示範一般 ＡＩ 前端專案的協作指引、文件、程式碼與測試目錄，另附 GitHub Copilot 簡易設定。"
+title: "ＡＩ專案目錄"
+description: "整理 AI 協作專案的共用規則、Agent 角色、技能與文件，再以 Vue 前端專案示範程式碼、測試與驗證紀錄的放置方式，文末附 GitHub Copilot 目錄範例。"
 date: 2026-11-20T00:00:00+08:00
-lastmod: 2026-11-20T00:54:13+08:00
+lastmod: 2026-11-24T21:51:00+08:00
 categories: ["筆記"]
 tags: ["AI", "Harness", "GitHub Copilot", "Vue"]
 toc: true
 draft: false
 ---
 
-這份筆記適用於在 Vue、TypeScript、Vite 專案中使用 ＡＩ 協作的前端團隊。從專案根目錄可以找到開發規則、架構決策、程式碼，以及修改後要跑的驗證。
+這份目錄適用於和 AI 一起開發、需要共用專案規則的團隊。成員和 Agent 都能從根目錄找到開工規則、架構決策與驗證紀錄。下面先整理共用目錄，再以 Vue 投組頁面為例，走一遍從查文件、改程式到驗證的流程。
 
 <!--more-->
 
-## 一般 ＡＩ 前端專案目錄
+## ＡＩ專案用
 
-在 AI 輔助開發中，Harness 涵蓋 Agent 取得專案脈絡、操作工具、驗證結果與接續任務所需的環境和流程。這個範例以 `AGENTS.md` 作為協作入口，記錄開工順序與專案規範，並引導團隊查閱 `docs/` 的專案知識及 `package.json` 的驗證指令。
+`AGENTS.md` 記錄團隊共用規則與開工順序，`agents/` 放自訂角色，`skills/` 放可重用的任務流程，`docs/` 則保存架構、決策與驗證紀錄。根目錄的 `agents/` 和 `skills/` 是本例的整理方式。各工具實際會從哪裡載入技能，見[〈AI Skills：專案與全域技能目錄〉]({{< relref "post/ai-skills-directories.md" >}})。
+
+下例採用 npm、TypeScript、Vite、ESLint 與 Prettier，因此列出對應設定檔。使用其他技術的團隊，可以在相同位置列出自己的建置與檢查入口。
 
 ```text
 project-root/
 ├── README.md                         # 專案介紹、啟動與快速開始
 ├── AGENTS.md                         # Agent 開發與協作入口
+├── agents/                           # 自訂 Agent 角色
+├── skills/                           # 可重用的任務流程
 ├── package.json                      # 套件與開發、測試、建置指令
 ├── package-lock.json                 # npm 套件版本鎖定
 ├── tsconfig.json                     # TypeScript 編譯設定
 ├── vite.config.ts                    # Vite 建置設定
-├── eslint.config.js                   # ESLint 檢查規則
-├── .prettierrc                        # Prettier 格式化規則
+├── eslint.config.js                  # ESLint 檢查規則
+├── .prettierrc                       # Prettier 格式化規則
 ├── .gitignore                        # Git 忽略清單
-├── docs/
-│   ├── architecture/                 # 架構圖、API、前端能力與 Agent 流程
-│   │   ├── api-catalog.md
-│   │   ├── frontend-capabilities.md
-│   │   ├── harness-layers.md
-│   │   └── system-map.md
-│   ├── decisions/                    # ADR、Prompt 與 Skill 設計決策
-│   │   ├── 001-provide-inject-instead-of-pinia.md  # 狀態共享方案
-│   │   ├── 002-api-via-makeapi.md                 # API 統一存取
-│   │   ├── 003-action-audit-in-wmc-auth.md        # 操作稽核
-│   │   └── 004-frontend-error-reporting.md       # 前端錯誤追蹤
-│   ├── failures/                     # 踩坑、問題分析與事故復盤
-│   │   ├── 2026-10-edit-built-utils-artifact.md  # Agent 誤改建置產物
-│   │   └── 2026-10-native-arithmetic-on-money.md # 金額浮點數問題
-│   ├── guides/                       # 開發、導入及維運指南
-│   │   ├── onboarding.md
-│   │   ├── deployment-flow.md
-│   │   └── troubleshooting.md
-│   ├── examples/                     # 可參考的操作與實作範例
-│   └── verification/                 # 測試輸出、審查結果與任務驗證紀錄
+└── docs/
+    ├── architecture/                 # 架構圖、API、前端能力與 Agent 流程
+    │   ├── api-catalog.md
+    │   ├── frontend-capabilities.md
+    │   ├── harness-layers.md
+    │   └── system-map.md
+    ├── decisions/                    # ADR、Prompt 與 Skill 設計決策
+    │   ├── 001-provide-inject-instead-of-pinia.md  # 狀態共享方案
+    │   ├── 002-api-via-makeapi.md                 # API 統一存取
+    │   ├── 003-action-audit-in-wmc-auth.md        # 操作稽核
+    │   └── 004-frontend-error-reporting.md        # 前端錯誤追蹤
+    ├── failures/                     # 踩坑、問題分析與事故復盤
+    │   ├── 2026-10-edit-built-utils-artifact.md   # Agent 誤改建置產物
+    │   └── 2026-10-native-arithmetic-on-money.md  # 金額浮點數問題
+    ├── guides/                       # 開發、導入及維運指南
+    │   ├── onboarding.md
+    │   ├── deployment-flow.md
+    │   └── troubleshooting.md
+    ├── examples/                     # 可參考的操作與實作範例
+    └── verification/                 # 測試輸出、審查結果與任務驗證紀錄
+```
+
+## 前端專案用
+
+Vue 專案沿用上一節的協作規則與文件。修改頁面時，可從 `src/views/` 找到畫面，沿著 `composables/`、`services/` 和 `api/` 追查資料來源，再依修改範圍到 `tests/` 找對應案例。
+
+```text
+project-root/
+├── README.md                         # 專案介紹、啟動與快速開始
+├── AGENTS.md                         # Agent 開發與協作入口
+├── agents/                           # 自訂 Agent 角色
+├── skills/                           # 可重用的任務流程
+├── package.json                      # 套件與開發、測試、建置指令
+├── package-lock.json                 # npm 套件版本鎖定
+├── tsconfig.json                     # TypeScript 編譯設定
+├── vite.config.ts                    # Vite 建置設定
+├── eslint.config.js                  # ESLint 檢查規則
+├── .prettierrc                       # Prettier 格式化規則
+├── .gitignore                        # Git 忽略清單
+├── docs/                             # 完整文件目錄見上一節「ＡＩ專案用」
 ├── public/                           # 直接提供的靜態資源
 │   ├── favicon.ico
 │   └── images/
@@ -110,6 +134,15 @@ project-root/
     └── generate-api-doc.sh
 ```
 
+### 修改投組頁面的驗證流程
+
+假設要修正投組頁面的合計金額，並補上 API 失敗時的提示。先從 `AGENTS.md` 找到 `docs/architecture/api-catalog.md`，核對投組 API 的傳輸格式，再讀 `docs/decisions/002-api-via-makeapi.md` 和 `docs/failures/2026-10-native-arithmetic-on-money.md`，確認 API 呼叫慣例與金額計算的既有問題。接著在 `src/utils/currency.ts` 修正加總邏輯，並在 `src/views/portfolio/` 補上錯誤提示。
+
+1. 在 `tests/unit/` 用單元測試檢查 `src/utils/currency.ts` 的加總與捨入，涵蓋曾發生的浮點數案例。
+2. 在本例的 `tests/integration/` 用 API mock 測試元件，確認等待回應時顯示載入狀態、成功時顯示合計金額、失敗時顯示錯誤提示。
+3. 在 `tests/e2e/` 從瀏覽器執行端到端測試，開啟投組頁面並選取投組，確認明細與合計同步更新。
+4. 執行 `package.json` 已定義的檢查，將驗收條件、實際命令、結果、證據位置和未測項目寫進 `docs/verification/`。例如，元件測試使用 mock 時，紀錄應明確標示真實 API 的驗證狀態。
+
 ## GitHub Copilot 簡易版
 
 團隊使用 GitHub Copilot 時，可在專案根目錄加上這些設定。`copilot-instructions.md` 裡的共用規則可指向 `AGENTS.md` 或同一份專案文件。
@@ -124,15 +157,6 @@ project-root/
     └── <skill-name>/
         └── SKILL.md
 ```
-
-## 修改投組頁面的驗證流程
-
-假設要修正投組頁面的合計金額，並補上 API 失敗時的提示。先從 `AGENTS.md` 找到 `docs/architecture/api-catalog.md`，核對投組 API 的傳輸格式，再讀 `docs/decisions/002-api-via-makeapi.md` 和 `docs/failures/2026-10-native-arithmetic-on-money.md`，確認 API 呼叫慣例與金額計算的既有問題。
-
-1. 在 `tests/unit/` 用單元測試檢查 `src/utils/currency.ts` 的加總與捨入，涵蓋曾發生的浮點數案例。
-2. 在本例的 `tests/integration/` 用 API mock 測試元件，確認等待回應時顯示載入狀態、成功時顯示合計金額、失敗時顯示錯誤提示。
-3. 在 `tests/e2e/` 從瀏覽器執行端到端測試，開啟投組頁面並選取投組，確認明細與合計同步更新。
-4. 執行 `package.json` 已定義的檢查，將驗收條件、實際命令、結果、證據位置和未測項目寫進 `docs/verification/`。例如，元件測試使用 mock 時，紀錄應明確標示真實 API 的驗證狀態。
 
 ## 參考資料
 
