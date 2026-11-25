@@ -8167,13 +8167,13 @@
   },
   {
     "path": "content/post/ai-skills-directories.md",
-    "title": "AI Skills：專案與全域技能目錄",
+    "title": "SKILL.md 放哪裡？各工具的技能載入路徑",
     "originalDraft": false,
     "originalDate": "2026-10-25T00:17:31+08:00",
-    "lastmod": "2026-10-25",
+    "lastmod": "2026-11-25",
     "context": "適用：需要在專案與個人環境管理 AI Coding 工具技能、規則及提示模板的開發者；原文完整保留，現行官方文件差異另設補充。",
     "issues": [],
-    "changes": "保留使用者全文、標題、章節順序與三個範例；只轉換 Markdown 表格、標題與程式碼格式。新增獨立官方文件補充與來源，設為首頁第一篇精選。 啟用文章專用 wideTables 寬表格，保留目錄字串並以表格內水平捲動改善手機閱讀。 依使用者確認改名為「AI Skills：專案與全域技能目錄」；新增 Skills 定義、三個用途例子與載入流程，兩表補 OpenAI Codex，另註記舊 ~/.codex/skills 路徑。原稿快照與其餘原文、原始發布日期保留。",
+    "changes": "保留使用者全文、標題、章節順序與三個範例；只轉換 Markdown 表格、標題與程式碼格式。新增獨立官方文件補充與來源，設為首頁第一篇精選。 啟用文章專用 wideTables 寬表格，保留目錄字串並以表格內水平捲動改善手機閱讀。 依使用者確認改名為「AI Skills：專案與全域技能目錄」；新增 Skills 定義、三個用途例子與載入流程，兩表補 OpenAI Codex，另註記舊 ~/.codex/skills 路徑。原稿快照與其餘原文、原始發布日期保留。 本次改題為「SKILL.md 放哪裡？各工具的技能載入路徑」，凸顯跨工具載入路徑。",
     "sources": [
       "https://learn.chatgpt.com/docs/build-skills",
       "https://developers.openai.com/blog/eval-skills",
@@ -8193,7 +8193,7 @@
     "published": true,
     "verificationType": "source-import-and-documentation",
     "originalReferences": [],
-    "reviewedAt": "2026-10-25",
+    "reviewedAt": "2026-11-25",
     "sourceNote": {
       "filename": "ai-skills-directories-original.md",
       "sha256": "4b2c88213f7433b38094ecb3ce889cd4ac2945ac5ad3a440dfeebc891b55a24a",

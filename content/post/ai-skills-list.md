@@ -27,7 +27,7 @@ draft: false
 
 IG 與 YouTube 技能在專案中提供共用版本，沒有預設個人筆記庫路徑。僅要求整理時可直接取得對話中的筆記；要寫入 Obsidian 時才指定目的地。影片網址帶有播放清單參數，也不會自動擴大成整個播放清單。
 
-安裝時保留完整技能資料夾與支援檔案，實際步驟見 [agent-skills 使用方式](https://github.com/iankingh/agent-skills#使用方式)。若正在釐清工具會從哪個目錄載入技能，可先讀 [AI Skills：專案與全域技能目錄]({{< ref "post/ai-skills-directories.md" >}})。
+安裝時保留完整技能資料夾與支援檔案，實際步驟見 [agent-skills 使用方式](https://github.com/iankingh/agent-skills#使用方式)。若正在釐清工具會從哪個目錄載入技能，可先讀 [SKILL.md 放哪裡？各工具的技能載入路徑]({{< ref "post/ai-skills-directories.md" >}})。
 
 ## 外部收藏
 

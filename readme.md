@@ -155,7 +155,7 @@ npm run test:diagrams
 
 任務卡片、精選筆記與搜尋結果只標示最近更新日期；未填 `lastmod` 時使用原始 `date`。首頁、筆記與標籤／分類任務依最近更新時間排序，歸檔仍依原始發布年份分組。既有文章補上 `lastmod` 時，以確認過的內容修訂日期為準，避免將網站版面或部署時間當作文章更新日期。
 
-目前首頁精選依序為 AI Skills 清單：自製技能與工作流收藏、AI Skills：專案與全域技能目錄、Java 多型；HikariPool 與 DecimalFormat 分別排第四、第五，仍保留在 Java 技能卡。Skills 清單連至 `iankingh/agent-skills`，並串接 ub-mode、pstack 使用教學；既有 `/skills/` 繼續呈現技能圖鑑。三篇 Java 精選的範例曾以 JDK 25 原生編譯及執行，核對 class 版本 69 與標準輸出；歷史驗證保留於 Git／Release，依賴版本及實際結果見內容查核紀錄。
+目前首頁精選依序為 AI Skills 清單：自製技能與工作流收藏、SKILL.md 放哪裡？各工具的技能載入路徑、Java 多型；HikariPool 與 DecimalFormat 分別排第四、第五，仍保留在 Java 技能卡。Skills 清單連至 `iankingh/agent-skills`，並串接 ub-mode、pstack 使用教學；既有 `/skills/` 繼續呈現技能圖鑑。三篇 Java 精選的範例曾以 JDK 25 原生編譯及執行，核對 class 版本 69 與標準輸出；歷史驗證保留於 Git／Release，依賴版本及實際結果見內容查核紀錄。
 
 ### 全部筆記的內容維護
 

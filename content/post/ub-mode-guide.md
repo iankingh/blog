@@ -47,7 +47,7 @@ else
 fi
 ```
 
-Claude Code 可將上例的目錄改成 `~/.claude/skills/ub-mode`。其他代理需依自己的技能目錄設定，保留 `ub-mode/SKILL.md` 結構；各工具的路徑差異可參考 [AI Skills：專案與全域技能目錄]({{< ref "post/ai-skills-directories.md" >}})。
+Claude Code 可將上例的目錄改成 `~/.claude/skills/ub-mode`。其他代理需依自己的技能目錄設定，保留 `ub-mode/SKILL.md` 結構；各工具的路徑差異可參考 [SKILL.md 放哪裡？各工具的技能載入路徑]({{< ref "post/ai-skills-directories.md" >}})。
 
 在工具辨識到技能後，以 `/ub-mode` 開始任務。複製 Skill 只提供操作指引，Crapper、Dryer、Mutator 仍需另外準備。
 

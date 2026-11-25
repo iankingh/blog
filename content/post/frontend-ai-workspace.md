@@ -15,7 +15,7 @@ draft: false
 
 ## ＡＩ專案用
 
-`AGENTS.md` 記錄團隊共用規則與開工順序，`agents/` 放自訂角色，`skills/` 放可重用的任務流程，`docs/` 則保存架構、決策與驗證紀錄。根目錄的 `agents/` 和 `skills/` 是本例的整理方式。各工具實際會從哪裡載入技能，見[〈AI Skills：專案與全域技能目錄〉]({{< relref "post/ai-skills-directories.md" >}})。
+`AGENTS.md` 記錄團隊共用規則與開工順序，`agents/` 放自訂角色，`skills/` 放可重用的任務流程，`docs/` 則保存架構、決策與驗證紀錄。根目錄的 `agents/` 和 `skills/` 是本例的整理方式。各工具實際會從哪裡載入技能，見[〈SKILL.md 放哪裡？各工具的技能載入路徑〉]({{< relref "post/ai-skills-directories.md" >}})。
 
 下例採用 npm、TypeScript、Vite、ESLint 與 Prettier，因此列出對應設定檔。使用其他技術的團隊，可以在相同位置列出自己的建置與檢查入口。
 
