@@ -119,6 +119,7 @@
   retry.addEventListener('click', () => { input.focus(); updateSearch(); });
 
   const closeMenu = (restoreFocus = false) => {
+    if (menu.getAttribute('aria-expanded') !== 'true') return;
     if (restoreFocus && sidebar.contains(document.activeElement)) menu.focus({ preventScroll: true });
     menu.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-label', '開啟冒險選單');
@@ -129,10 +130,13 @@
     menu.setAttribute('aria-expanded', String(open));
     menu.setAttribute('aria-label', open ? '關閉冒險選單' : '開啟冒險選單');
     sidebar.classList.toggle('is-open', open);
+    if (open) sidebar.querySelector('nav a').focus({ preventScroll: true });
   });
   sidebar.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !event.defaultPrevented && !dialog.open) closeMenu(true); });
-  document.addEventListener('click', event => {
-    if (!sidebar.contains(event.target) && !menu.contains(event.target)) closeMenu();
-  });
+  const dismissOutsideMenu = event => {
+    if (!dialog.open && !dialog.contains(event.target) && !sidebar.contains(event.target) && !menu.contains(event.target)) closeMenu();
+  };
+  document.addEventListener('focusin', dismissOutsideMenu);
+  document.addEventListener('click', dismissOutsideMenu);
 })();

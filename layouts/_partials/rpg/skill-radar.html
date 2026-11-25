@@ -12,7 +12,7 @@
   {{- $points = $points | append (printf "%.2f,%.2f" (add 270 (mul $x $radius)) (add 220 (mul $y $radius))) -}}
 {{- end -}}
 <section class="skill-radar panel" data-skill-radar aria-labelledby="skill-radar-title">
-  <div class="radar-heading"><p class="eyebrow">EXPLORATION MAP · SKILL DEX</p><h2 id="skill-radar-title">你的每次探索，都留下一個座標</h2><p>依公開筆記數呈現技能分佈，點選技能查看目前進度。</p></div>
+  <div class="radar-heading"><p class="eyebrow">探索地圖 · 技能分佈</p><h2 id="skill-radar-title">你的每次探索，都留下一個座標</h2><p>依公開筆記數呈現技能分佈，點選技能查看目前進度。</p></div>
   <div class="radar-layout">
     <div class="radar-chart">
       <svg viewBox="0 0 540 440" role="img" aria-labelledby="radar-svg-title radar-svg-description">

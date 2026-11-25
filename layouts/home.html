@@ -15,7 +15,7 @@
   {{ partial "rpg/sidebar.html" . }}
   <main id="main" class="main-content">
     <section class="hero panel" aria-labelledby="hero-title">
-      <div class="hero-copy"><h1 id="hero-title">我是 Ian<br><span>全端工程師<br>AI 規劃師</span></h1><p>這裡整理 Java、Spring、Angular 與 Vue 的開發筆記，記下實作步驟、遇到的問題和解法。</p><div class="hero-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub</a><a class="button-secondary" href="{{ .Site.BaseURL }}#quests">{{ partial "rpg/icon.html" "book" }}閱讀筆記</a></div><span class="hero-footnote">用來複習，也留給遇到相同問題的人。</span></div>
+      <div class="hero-copy"><h1 id="hero-title">我是 Ian<br><span>全端工程師<br>AI 規劃師</span></h1><p>這裡整理 Java、Spring、Angular 與 Vue 的開發筆記，記下實作步驟、遇到的問題和解法。</p><div class="hero-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub{{ partial "rpg/external-mark.html" . }}</a><a class="button-secondary" href="{{ .Site.BaseURL }}#quests">{{ partial "rpg/icon.html" "book" }}閱讀筆記</a></div><span class="hero-footnote">用來複習，也留給遇到相同問題的人。</span></div>
       <div class="hero-art"><img src="{{ "images/rpg-camp.svg" | relURL }}" alt="像素風的森林營地：冒險者在營火旁休息" width="600" height="390"></div>
     </section>
     <section id="quests" class="quests-section">

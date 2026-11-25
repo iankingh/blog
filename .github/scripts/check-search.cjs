@@ -60,6 +60,8 @@ function harness() {
   const sidebar = new Element('aside');
   const sideLink = new Element('a');
   sidebar.append(sideLink);
+  sidebar.querySelector = () => sideLink;
+  dialog.append(input, close, retry, results);
   sidebar.querySelectorAll = () => [sideLink];
   const bySelector = { '#search-dialog': dialog, '#quest-search': input, '.search-results': results, '.search-status': status, '.search-retry': retry, '.search-close': close, '.menu-toggle': menu, '#sidebar': sidebar };
   document.querySelector = selector => bySelector[selector];
@@ -201,7 +203,7 @@ const type = (h, value) => { h.input.value = value; h.input.dispatch('input'); }
 
   const mobile = harness();
   mobile.menu.dispatch('click');
-  mobile.sideLink.focus();
+  assert.equal(mobile.document.activeElement, mobile.sideLink);
   mobile.document.dispatch('keydown', { key: 'Escape', target: mobile.sideLink });
   assert.equal(mobile.document.activeElement, mobile.menu);
   assert.equal(mobile.menu.getAttribute('aria-expanded'), 'false');
@@ -209,9 +211,12 @@ const type = (h, value) => { h.input.value = value; h.input.dispatch('input'); }
   mobile.menu.dispatch('click');
   mobile.sideLink.focus();
   mobile.document.dispatch('keydown', { key: '/', target: mobile.sideLink });
+  mobile.document.dispatch('click', { target: mobile.input });
   mobile.document.dispatch('keydown', { key: 'Escape', target: mobile.input });
   assert.equal(mobile.document.activeElement, mobile.sideLink);
   assert(mobile.sidebar.classList.contains('is-open'), 'Closing search must not also close the menu underneath');
+  mobile.document.dispatch('focusin', { target: mobile.opener });
+  assert(!mobile.sidebar.classList.contains('is-open'), 'Tabbing outside dismisses the mobile menu');
   respond(mobile);
   await tick();
   console.log('PASS: lazy load/cache, full text, rapid input and close/reopen races, HTTP/network/malformed retry, safe text rendering, and search/mobile focus.');

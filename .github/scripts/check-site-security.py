@@ -1,9 +1,12 @@
-"""Check security invariants on the HTML that will actually be published."""
+"""Check security and link-affordance invariants on the HTML that will actually be published."""
 
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
+
+EXTERNAL_MARK = "↗"
+NEW_WINDOW_NOTE = "另開新視窗"
 
 
 class Page(HTMLParser):
@@ -12,9 +15,32 @@ class Page(HTMLParser):
         self.policy = None
         self.redirect = False
         self.errors = []
+        self.anchor = None
+
+    def handle_data(self, data):
+        if self.anchor is not None:
+            self.anchor["text"].append(data)
+
+    def handle_endtag(self, tag):
+        if tag != "a" or self.anchor is None:
+            return
+        anchor, self.anchor = self.anchor, None
+        text = "".join(anchor["text"])
+        href = anchor["href"]
+        if anchor["target"] == "_blank":
+            if "noopener" not in anchor["rel"].split():
+                self.errors.append("new-window link without rel=noopener")
+            if NEW_WINDOW_NOTE not in (anchor["label"].strip() or text):
+                self.errors.append(f"new-window link without notice: {href}")
+        elif EXTERNAL_MARK in text and not urlsplit(href).scheme:
+            self.errors.append(f"internal link uses external mark: {href}")
 
     def handle_starttag(self, tag, attrs):
         attributes = dict(attrs)
+        if tag == "a":
+            self.anchor = {"href": attributes.get("href") or "", "target": attributes.get("target") or "",
+                           "rel": (attributes.get("rel") or "").lower(),
+                           "label": attributes.get("aria-label") or "", "text": []}
         if tag == "meta":
             kind = attributes.get("http-equiv", "").lower()
             if kind == "content-security-policy":
