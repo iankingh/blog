@@ -16,17 +16,17 @@
   <main id="main" class="main-content">
     <section class="hero panel" aria-labelledby="hero-title">
       <div class="hero-copy"><h1 id="hero-title">我是 Ian<br><span>全端工程師<br>AI 規劃師</span></h1><p>這裡整理 Java、Spring、Angular 與 Vue 的開發筆記，記下實作步驟、遇到的問題和解法。</p><div class="hero-actions"><a class="button-primary" href="https://github.com/iankingh" target="_blank" rel="noopener noreferrer">查看我的 GitHub</a><a class="button-secondary" href="{{ .Site.BaseURL }}#quests">{{ partial "rpg/icon.html" "book" }}閱讀筆記</a></div><span class="hero-footnote">用來複習，也留給遇到相同問題的人。</span></div>
-      <div class="hero-art"><img src="{{ "images/rpg-camp.svg" | relURL }}" alt="像素風的森林營地：冒險者在營火旁休息" width="600" height="390"><div class="scene-caption" aria-hidden="true"><i></i> 營火旁，整理今天的筆記。</div></div>
+      <div class="hero-art"><img src="{{ "images/rpg-camp.svg" | relURL }}" alt="像素風的森林營地：冒險者在營火旁休息" width="600" height="390"></div>
     </section>
     <section id="quests" class="quests-section">
       <div class="section-heading"><h2>{{ partial "rpg/icon.html" "sword" }}任務日誌</h2><a href="{{ "archives/" | relURL }}">完整歷程 {{ partial "rpg/icon.html" "arrow" }}</a></div>
       {{ if eq $paginator.PageNumber 1 }}{{ with partial "rpg/featured-posts.html" .Site }}
       <section class="pinned-notes" aria-labelledby="pinned-title">
-        <div class="pinned-heading"><div><h3 id="pinned-title">{{ partial "rpg/icon.html" "star" }}置頂精選</h3><p>Skills 收藏、技能目錄與 Java 多型，三篇可隨時回查的筆記。</p></div><a class="text-link" href="{{ "projects/" | relURL }}">本站導覽與實作 {{ partial "rpg/icon.html" "arrow" }}</a></div>
+        <div class="pinned-heading"><h3 id="pinned-title">{{ partial "rpg/icon.html" "star" }}置頂精選</h3><a class="text-link" href="{{ "projects/" | relURL }}">本站導覽與實作 {{ partial "rpg/icon.html" "arrow" }}</a></div>
         <div class="featured-grid">{{ range first 3 . }}{{ partial "rpg/featured-card.html" . }}{{ end }}</div>
       </section>
       {{ end }}{{ end }}
-      <div class="quest-toolbar"><span><i></i> 最新探索紀錄 <small>依最後更新排序 · 共 {{ $count }} 篇筆記 · 第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 頁</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}搜尋筆記</button></div>
+      <div class="quest-toolbar"><span><i></i> 最近更新 <small>依最後更新排序 · 共 {{ $count }} 篇筆記 · 第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 頁</small></span><button data-search-open>{{ partial "rpg/icon.html" "search" }}搜尋筆記</button></div>
       <div class="quest-grid">{{ range $paginator.Pages }}{{ partial "rpg/quest-card.html" . }}{{ end }}</div>
       {{ partial "rpg/pagination.html" (dict "paginator" $paginator "anchor" "quests") }}
     </section>

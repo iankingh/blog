@@ -8167,13 +8167,13 @@
   },
   {
     "path": "content/post/ai-skills-directories.md",
-    "title": "SKILL.md 放哪裡？各工具的技能載入路徑",
+    "title": "AI Skills",
     "originalDraft": false,
     "originalDate": "2026-10-25T00:17:31+08:00",
     "lastmod": "2026-11-25",
     "context": "適用：需要在專案與個人環境管理 AI Coding 工具技能、規則及提示模板的開發者；原文完整保留，現行官方文件差異另設補充。",
     "issues": [],
-    "changes": "保留使用者全文、標題、章節順序與三個範例；只轉換 Markdown 表格、標題與程式碼格式。新增獨立官方文件補充與來源，設為首頁第一篇精選。 啟用文章專用 wideTables 寬表格，保留目錄字串並以表格內水平捲動改善手機閱讀。 依使用者確認改名為「AI Skills：專案與全域技能目錄」；新增 Skills 定義、三個用途例子與載入流程，兩表補 OpenAI Codex，另註記舊 ~/.codex/skills 路徑。原稿快照與其餘原文、原始發布日期保留。 本次改題為「SKILL.md 放哪裡？各工具的技能載入路徑」，凸顯跨工具載入路徑。",
+    "changes": "保留使用者全文、標題、章節順序與三個範例；只轉換 Markdown 表格、標題與程式碼格式。新增獨立官方文件補充與來源，設為首頁第一篇精選。 啟用文章專用 wideTables 寬表格，保留目錄字串並以表格內水平捲動改善手機閱讀。 依使用者確認改名為「AI Skills：專案與全域技能目錄」；新增 Skills 定義、三個用途例子與載入流程，兩表補 OpenAI Codex，另註記舊 ~/.codex/skills 路徑。原稿快照與其餘原文、原始發布日期保留。 曾改題為「SKILL.md 放哪裡？各工具的技能載入路徑」。依使用者要求將標題簡化為「AI Skills」。 更新置頂卡片與搜尋結果共用的文章摘要。",
     "sources": [
       "https://learn.chatgpt.com/docs/build-skills",
       "https://developers.openai.com/blog/eval-skills",
@@ -8378,10 +8378,10 @@
     "title": "AI Skills 清單：自製技能與工作流收藏",
     "originalDraft": false,
     "originalDate": "2026-10-31T00:28:15+08:00",
-    "lastmod": "2026-10-31",
+    "lastmod": "2026-11-25",
     "context": "適用：三個自製技能與兩個外部收藏用途、來源與教學導覽；外部兩項待試用。",
     "issues": [],
-    "changes": "新增自製技能與外部收藏入口，串接兩篇教學、既有技能目錄及 AI 工具清單；首頁置頂第一。",
+    "changes": "新增自製技能與外部收藏入口，串接兩篇教學、既有技能目錄及 AI 工具清單；首頁置頂第一。 更新置頂卡片與搜尋結果共用的文章摘要。",
     "sources": [
       "https://github.com/iankingh/agent-skills",
       "https://github.com/unclebob/ub-mode/blob/master/README.md",
@@ -8412,7 +8412,7 @@
       }
     ],
     "versionScope": "三個自製技能與兩個外部收藏用途、來源與教學導覽；外部兩項待試用。",
-    "reviewedAt": "2026-10-31",
+    "reviewedAt": "2026-11-25",
     "originalReferences": [],
     "checks": {
       "summary": true,
@@ -8665,13 +8665,13 @@
   },
   {
     "path": "content/post/frontend-ai-workspace.md",
-    "title": "ＡＩ專案目錄",
+    "title": "AI 專案目錄",
     "originalDraft": false,
     "originalDate": "2026-11-20T00:00:00+08:00",
-    "lastmod": "2026-11-24",
+    "lastmod": "2026-11-25",
     "context": "供團隊安排 AI 協作規則、角色、技能與文件。前端章節以 Vue、TypeScript 與 Vite 示範，另附 GitHub Copilot 目錄。",
     "issues": [],
-    "changes": "改題為〈ＡＩ專案目錄〉，先展開共用文件目錄，再展開前端程式與測試目錄。補上技能路徑的站內延伸閱讀與投組頁面的修改位置，將 Copilot 簡例移至文末。",
+    "changes": "改題為〈AI 專案目錄〉，先展開共用文件目錄，再展開前端程式與測試目錄。補上技能路徑的站內延伸閱讀與投組頁面的修改位置，將 Copilot 簡例移至文末。列為首頁第三篇置頂精選。 更新置頂卡片與搜尋結果共用的文章摘要。",
     "sources": [
       "https://openai.com/index/harness-engineering/",
       "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
@@ -8686,6 +8686,6 @@
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
-    "reviewedAt": "2026-11-24"
+    "reviewedAt": "2026-11-25"
   }
 ]

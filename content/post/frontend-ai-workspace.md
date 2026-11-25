@@ -1,8 +1,9 @@
 ---
-title: "ＡＩ專案目錄"
-description: "整理 AI 協作專案的共用規則、Agent 角色、技能與文件，再以 Vue 前端專案示範程式碼、測試與驗證紀錄的放置方式，文末附 GitHub Copilot 目錄範例。"
+title: "AI 專案目錄"
+description: "接手一個 Vue 專案時，先去哪裡找開發規則？用一個投組金額算錯的例子，從 AGENTS.md 找到架構決策、程式碼和測試。"
 date: 2026-11-20T00:00:00+08:00
-lastmod: 2026-11-24T21:51:00+08:00
+lastmod: 2026-11-25T21:55:16+08:00
+featuredOrder: 3
 categories: ["筆記"]
 tags: ["AI", "Harness", "GitHub Copilot", "Vue"]
 toc: true
@@ -15,7 +16,7 @@ draft: false
 
 ## ＡＩ專案用
 
-`AGENTS.md` 記錄團隊共用規則與開工順序，`agents/` 放自訂角色，`skills/` 放可重用的任務流程，`docs/` 則保存架構、決策與驗證紀錄。根目錄的 `agents/` 和 `skills/` 是本例的整理方式。各工具實際會從哪裡載入技能，見[〈SKILL.md 放哪裡？各工具的技能載入路徑〉]({{< relref "post/ai-skills-directories.md" >}})。
+`AGENTS.md` 記錄團隊共用規則與開工順序，`agents/` 放自訂角色，`skills/` 放可重用的任務流程，`docs/` 則保存架構、決策與驗證紀錄。根目錄的 `agents/` 和 `skills/` 是本例的整理方式。各工具實際會從哪裡載入技能，見[〈AI Skills〉]({{< relref "post/ai-skills-directories.md" >}})。
 
 下例採用 npm、TypeScript、Vite、ESLint 與 Prettier，因此列出對應設定檔。使用其他技術的團隊，可以在相同位置列出自己的建置與檢查入口。
 

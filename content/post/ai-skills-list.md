@@ -1,8 +1,8 @@
 ---
 title: "AI Skills 清單：自製技能與工作流收藏"
-description: "整理 agent-skills 專案的 Git 提交訊息、IG 與 YouTube 筆記技能，以及 ub-mode、pstack 外部收藏，附用途、來源與使用教學。"
+description: "我把寫 Git 提交訊息、整理 IG 和 YouTube 筆記的流程做成了 Skill。這裡收著原始碼，也列了我收藏的 ub-mode 和 pstack。"
 date: 2026-10-31T00:28:15+08:00
-lastmod: 2026-10-31T00:28:15+08:00
+lastmod: 2026-11-25T21:55:16+08:00
 featuredOrder: 1
 categories: ["筆記"]
 tags: ["AI", "Tools", "Skills"]
@@ -27,7 +27,7 @@ draft: false
 
 IG 與 YouTube 技能在專案中提供共用版本，沒有預設個人筆記庫路徑。僅要求整理時可直接取得對話中的筆記；要寫入 Obsidian 時才指定目的地。影片網址帶有播放清單參數，也不會自動擴大成整個播放清單。
 
-安裝時保留完整技能資料夾與支援檔案，實際步驟見 [agent-skills 使用方式](https://github.com/iankingh/agent-skills#使用方式)。若正在釐清工具會從哪個目錄載入技能，可先讀 [SKILL.md 放哪裡？各工具的技能載入路徑]({{< ref "post/ai-skills-directories.md" >}})。
+安裝時保留完整技能資料夾與支援檔案，實際步驟見 [agent-skills 使用方式](https://github.com/iankingh/agent-skills#使用方式)。若正在釐清工具會從哪個目錄載入技能，可先讀 [AI Skills]({{< ref "post/ai-skills-directories.md" >}})。
 
 ## 外部收藏
 

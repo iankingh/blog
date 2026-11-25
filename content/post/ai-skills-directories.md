@@ -1,8 +1,8 @@
 ---
-title: "SKILL.md 放哪裡？各工具的技能載入路徑"
-description: "說明 AI Skills 的用途、載入流程與實際情境，整理 Codex 等工具的專案及個人技能目錄，並區分 Skills、常駐指令與 Prompt。"
+title: "AI Skills"
+description: "SKILL.md 要放哪裡，工具才讀得到？這篇對照 Codex、Claude Code 和 Copilot 的路徑，也說明哪些技能適合跟著專案走。"
 date: 2026-10-25T00:17:31+08:00
-lastmod: 2026-11-25T21:38:45+08:00
+lastmod: 2026-11-25T21:55:16+08:00
 featuredOrder: 2
 categories: ["筆記"]
 tags: ["AI", "Tools", "Skills"]
