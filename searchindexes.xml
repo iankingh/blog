@@ -1005,12 +1005,10 @@ Prism加上執行期JS成本；Chroma在建置時處理，語言支援與樣式�
 適用：Hugo Extended 與本站 RPG 版面。原文的 TOML／舊設定保留為歷史對照，實際以 config.yaml 及部署固定版本為準。
 使用本站 取得本站原始碼後，用 hugo version 核對 README 與 workflow 指定的 Extended 版本。從儲存庫根目錄執行預覽或建置：
 hugo server --bind 127.0.0.1 --port 1315 hugo --minify --destination /tmp/blog-build-check 網址依終端顯示，本站含/blog/。正式建置不含draft:true；-D僅用於草稿預覽。public是Hugo預設建置輸出，已由Git忽略，可重新產生。正式部署使用暫存產物發布至gh-pages。
-新站與文章 新站可hugo new site myblog，再安裝相容主題、配置theme與baseURL。本站新文章用hugo new content post/topic/new-note.md，檢查archetype產生的front matter：
-title: &amp;#34;具體的技術主題&amp;#34; date: 2026-10-06T12:00:00+08:00 lastmod: 2026-10-06T12:00:00+08:00 draft: true description: &amp;#34;說明用途與讀者能完成的事。&amp;#34; categories: [&amp;#34;筆記&amp;#34;] tags: [&amp;#34;Git&amp;#34;] date記原發布時間，lastmod僅在實際修訂時更新，不能為了看起來新而改原date。本站任務列表用lastmod排序與顯示，每頁10篇、每列最多2篇。
-圖片與內部連結 static/images/demo.png對映為images/demo.png，不在網址加/static。baseURL有/blog時優先用Hugo的ref／資源處理以配合部署；本站Markdown圖片render hook處理根路徑的站點字首。圖片必須有描述性alt，純裝飾由版面明確決定空alt。
-程式碼用有語言fence，如bash/java/vue，不把原始script放文章HTML。內部文章使用ref，檔案路徑不變即保持既有URL。建置成功後還需查連結、資源、搜尋索引與手機排版。
-原hchoco是拼字錯誤；Windows安裝可按Hugo官方方式選hugo-extended，package來源與版本另核對，不任意全域性升級造成CI差異。
-參考資料 Hugo安裝↗（另開新視窗） New content↗（另開新視窗） Static files↗（另開新視窗） Front matter↗（另開新視窗） 右上角github 貓 GitHub Corners↗（另開新視窗） 使用Github部署Hugo靜態網站↗（另開新視窗） hugo搭建靜態部落格 | 生信筆記↗（另開新視窗） 使用Hugo搭建部落格系統 - XniLe - Ops 2.0↗（另開新視窗） 原始參考入口 1↗（另開新視窗）</content></entry><entry><title>關於 Ian Huang</title><url>/blog/about/</url><categories/><tags/><content type="html"> 我是 Ian，全端工程師、AI 規劃師 我記錄全端開發、前後端整合與 AI 規劃相關的學習。這個網站整理程式原理、開發工具與解題實作，讓學過的事情有地方回顧，也讓讀者可以跟著範例驗證。
+移除主題前，先比對建置產物 本站的 RPG 首頁早已使用自己的版型，但舊版搜尋索引 /blog/searchindexes.xml 仍由 NexT 主題產生。在測試副本裡只刪掉主題，Hugo 會因為找不到設定指定的主題而停止。連同 theme 設定一起移除後，首頁和目前使用的 /blog/search-index.json 都能正常產生，舊的 XML 索引卻消失了。只打開首頁，很容易漏掉這個差異。
+這次用相同的文章和 Hugo 版本，把改動前後的網站各自建置到新的空目錄。先比對輸出檔案清單，找出消失的網址，再比對文章 HTML、搜尋索引的標題與網址，以及程式碼區塊的輸出。本站最後保留 XML 索引模板、上游授權和程式碼渲染方式，才移除主題子模組及 CI 的下載步驟。乾淨副本可以直接用 Hugo Extended 建置，兩次產生的 388 個 HTML 檔案內容完全相同。
+用日期整理維護紀錄 每次調整建置流程，我會在 docs/harness/ 用 YYYY-MM-DD-主題.md 留一份紀錄。例如這次是 2026-11-26-standalone-hugo.md，在檔案清單按名稱排序，就能依日期找到當時的改動。紀錄寫下要保留的網址、重現用的命令、實際結果與測試版本。下次升級 Hugo 時，可以用同一組案例重跑。
+新增紀錄時從 task-template.md 複製；整理舊檔時沿用原紀錄日期，並同步更新 …</content></entry><entry><title>關於 Ian Huang</title><url>/blog/about/</url><categories/><tags/><content type="html"> 我是 Ian，全端工程師、AI 規劃師 我記錄全端開發、前後端整合與 AI 規劃相關的學習。這個網站整理程式原理、開發工具與解題實作，讓學過的事情有地方回顧，也讓讀者可以跟著範例驗證。
 目前的紀錄涵蓋 Java、Spring Boot、Angular 與 Vue。AI 應用、提示詞設計與 AI 輔助開發是接下來的探索方向，會以實際練習與驗證逐步累積。
 從筆記認識我 可以從技能圖鑑找到各主題的學習紀錄，也可以直接閱讀技術筆記。
 我希望筆記除了留下做法，也能說明使用情境、選擇理由與限制。較早的紀錄會逐步補上驗證環境與更新時間，保留原始發布日期。
