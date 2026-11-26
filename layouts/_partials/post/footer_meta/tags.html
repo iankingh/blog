@@ -1,9 +1,0 @@
-{{ with .Params.tags }}
-<div class="post-tags">
-  {{ range . }}
-    <a href="{{ printf "tags/%s/" (. | urlize) | absURL }}">
-    {{ . }}
-  </a>
-  {{ end }}
-</div>
-{{ end }}

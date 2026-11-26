@@ -2237,8 +2237,8 @@
     "title": "Hugo 基礎：建立文章、圖片與本地建置",
     "originalDraft": false,
     "originalDate": "2020-04-21T22:29:36+08:00",
-    "lastmod": "2026-10-07",
-    "context": "適用：Hugo現行Extended版本與本站NexT版面覆寫。原文的TOML／舊設定保留為歷史對照，實際以config.yaml及部署固定版本為準。",
+    "lastmod": "2026-11-26",
+    "context": "適用：Hugo Extended 與本站 RPG 版面。原文的 TOML／舊設定保留為歷史對照，實際以 config.yaml 及部署固定版本為準。",
     "issues": [
       "缺少摘要"
     ],
@@ -2285,7 +2285,7 @@
         "checkedAt": "2026-10-06"
       }
     ],
-    "versionScope": "適用：Hugo現行Extended版本與本站NexT版面覆寫。原文的TOML／舊設定保留為歷史對照，實際以config.yaml及部署固定版本為準。",
+    "versionScope": "適用：Hugo Extended 與本站 RPG 版面。原文的 TOML／舊設定保留為歷史對照，實際以 config.yaml 及部署固定版本為準。",
     "reviewedAt": "2026-10-07",
     "checks": {
       "summary": true,
@@ -2301,8 +2301,8 @@
       "https://tholman.com/github-corners/#",
       "https://www.bioinfo-scrounger.com/archives/809/"
     ],
-    "presentationUpdatedAt": "2026-10-07T21:55:51+08:00",
-    "presentationChanges": "整併參考資料後，同步移除 public 子模組的舊說明，改為一般 Git 忽略的建置輸出；原技術查核日期與證據保留。"
+    "presentationUpdatedAt": "2026-11-26T22:15:00+08:00",
+    "presentationChanges": "更新本站預覽與建置說明，移除已退役的主題子模組初始化指令。"
   },
   {
     "path": "content/post/java/HikariPool-1-error.md",

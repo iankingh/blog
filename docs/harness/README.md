@@ -6,7 +6,7 @@ Agent 根據錯誤修正，再重新驗證。指令文字不會取代執行環�
 
 ## 先跑一輪
 
-準備 Git、Python 3、Node.js、與部署 workflow 相同的 Hugo Extended 版本，以及已初始化的主題子模組。
+準備 Git、Python 3、Node.js 與部署 workflow 相同的 Hugo Extended 版本。
 從儲存庫執行：
 
 ```bash

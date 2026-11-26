@@ -8,6 +8,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote, urljoin
 
@@ -88,6 +89,11 @@ def check_site(site, note_count):
     entries = index if isinstance(index, list) else index['posts']
     if len(entries) != note_count or len({x['url'] for x in entries}) != note_count:
         fail(f'Search index must contain {note_count} unique published notes')
+    xml_index = ET.parse(site / 'searchindexes.xml').getroot()
+    xml_urls = [entry.findtext('url') for entry in xml_index.findall('entry')]
+    if (xml_index.tag != 'search' or len(xml_urls) != len(set(xml_urls))
+            or not {note['url'] for note in entries}.issubset(xml_urls)):
+        fail('XML search index must contain every published note at its original URL')
     pages = {p.resolve(): Page(p.read_text()) for p in site.rglob('*.html')}
     broken = []
     for filename, page in pages.items():
@@ -174,5 +180,5 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except (ValueError, OSError, KeyError) as error:
+    except (ValueError, OSError, KeyError, ET.ParseError) as error:
         raise SystemExit(f'FAIL {error}')

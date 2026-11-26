@@ -1,0 +1,21 @@
+{{ $limit := .Site.Params.localSearch.limit | default 1000 }}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<search>
+  {{range where .Site.RegularPages "Kind" "page"}}
+  <entry>
+    <title>{{ .Title | htmlEscape }}</title>
+    <url>{{ .RelPermalink | htmlEscape }}</url>
+    <categories>
+      {{ range .Params.categories }}<category>{{ . | htmlEscape }}</category>{{ end }}
+    </categories>
+    <tags>
+      {{ range .Params.tags }}
+      <tag>{{ . | htmlEscape }}</tag>
+      {{ end }}
+    </tags>
+    {{- $content := .Plain }}
+    {{- if gt .WordCount $limit }}{{ $content = $content | truncate $limit }}{{ end }}
+    <content type="html">  {{ $content | htmlEscape }}  </content>
+  </entry>
+  {{ end }}
+</search>

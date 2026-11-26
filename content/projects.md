@@ -3,7 +3,7 @@ title: "作品・實作成果"
 layout: "portfolio"
 url: "/projects/"
 description: "Ian 的技術網站實作，以及準備中的記帳系統需求與驗收練習；從專案連結能力與文章。"
-lastmod: 2026-11-04
+lastmod: 2026-11-26
 date: 2026-10-05T21:00:00+08:00
 toc: false
 comments: false
@@ -41,7 +41,7 @@ Hugo 在建置時產生只包含公開技術文章的 JSON 索引。讀者開啟
 
 ### 基礎主題與本站修改
 
-網站以 [Hugo NexT](https://github.com/hugo-next/hugo-theme-next) 為基礎，保留其主題與既有內容配置。本站的 RPG 版面、技能資料、作品頁、精選筆記、搜尋互動與部署檢查由專案中的版面覆寫及靜態資源維護。
+網站最初以 [Hugo NexT](https://github.com/hugo-next/hugo-theme-next) 建置，目前由 Hugo Extended 直接讀取本站的 RPG 版面與靜態資源。舊版 XML 搜尋索引仍在原網址提供，站內搜尋使用本站產生的 JSON 索引。
 
 這是一份本站實作的整理；上游主題、外部工具及文章參考來源都保留各自的來源說明。
 

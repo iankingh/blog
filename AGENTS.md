@@ -2,7 +2,7 @@
 
 本站是繁體中文 Hugo 技術筆記部落格；專案結構、啟動與內容慣例見 `readme.md`。
 Hugo Extended 版本以 `.github/workflows/deploy.yml` 為準。
-`themes/hugo-theme-next/` 是子模組；本站版面優先修改 `layouts/`、`static/`。
+本站的 RPG 版面與資源放在 `layouts/`、`static/`，可直接使用 Hugo Extended 建置。
 
 ## 開工與交班
 

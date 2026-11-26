@@ -62,6 +62,15 @@ class NoteContentTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     notes.check_pagination(root, pages, 132)
 
+    def test_xml_search_requires_all_json_note_urls(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'search-index.json').write_text('[{"url":"/blog/post/note/"}]')
+            (root / 'searchindexes.xml').write_text(
+                '<search><entry><url>/post/note/</url></entry></search>')
+            with self.assertRaisesRegex(ValueError, 'XML search index'):
+                notes.check_site(root, 1)
+
     def test_search_requires_exact_count_and_unique_urls(self):
         import json
         with tempfile.TemporaryDirectory() as directory:

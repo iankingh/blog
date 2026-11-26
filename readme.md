@@ -1,12 +1,10 @@
 # ianhuang 的技術筆記部落格
 
-這是 `https://iankingh.github.io/blog/` 的 Hugo 原始碼，內容以繁體中文技術筆記為主，使用
-[Hugo NexT](https://github.com/hugo-next/hugo-theme-next) 作為基礎，並以站點版面覆寫統一呈現 RPG 冒險面板。
+這是 `https://iankingh.github.io/blog/` 的 Hugo 原始碼，內容以繁體中文技術筆記為主。本站的 RPG 冒險面板由 Hugo Extended 直接建置。
 
 ## 專案關係
 
-- 本儲存庫的 `main` 分支保存網站設定、文章與版面覆寫。
-- `themes/hugo-theme-next/` 是上游 Hugo NexT 主題的 Git submodule。
+- 本儲存庫的 `main` 分支保存網站設定、文章與版面。
 - `public/` 是 Hugo 預設的本機建置輸出，已由 `.gitignore` 排除；正式部署使用暫存產物。
 - [`iankingh/hugo-theme-next-starter`](https://github.com/iankingh/hugo-theme-next-starter) 是可重用的主題範例，不是此站的部署來源。
 - [`iankingh/iankingh.github.io`](https://github.com/iankingh/iankingh.github.io) 的根頁面會將瀏覽器導向本部落格。
@@ -28,28 +26,19 @@ PR 與部署的 build job 使用相同入口。Java／Spring／Vue／Angular 教
 
 ## 環境需求
 
-- Git
-- Node.js **26.13.0 LTS（Lithium）**／npm 11.20.0；與 `.nvmrc` 及 CI 一致。
-- Hugo **Extended 0.167.0 以上**（目前部署工作流程固定使用 `0.167.0`）
+- 預覽與建置只需要 Hugo **Extended 0.167.0 以上**，目前部署固定使用 `0.167.0`。
+- 完整驗證另需 Git、Python 3 與 Node.js **26.13.0 LTS（Lithium）**。重建 Pele 靜態資源時使用 npm 11.20.0。
 
-此版本包含文章渲染與主題檔案存取的安全修正。建議本機使用與
+此 Hugo 版本包含文章渲染與主題檔案存取的安全修正。建議本機使用與
 `.github/workflows/deploy.yml` 相同的 Hugo Extended 版本。
 舊版 Hugo 會在建置時報錯，避免誤用尚未修補的版本發布。
 
 ## 取得原始碼
 
 ```bash
-git clone --recurse-submodules https://github.com/iankingh/blog.git
+git clone https://github.com/iankingh/blog.git
 cd blog
 ```
-
-若已經複製但尚未取得 submodules：
-
-```bash
-git submodule update --init --recursive
-```
-
-這會取得 `themes/hugo-theme-next/` 主題；主題是目前唯一的 Git submodule。
 
 ## 預覽與建置
 
@@ -75,13 +64,13 @@ rm -rf .local-public
 
 ## 內容與設定
 
-- `config.yaml`：Hugo 與 NexT 設定，包括 `baseURL`、語言、選單、搜尋及第三方整合。
+- `config.yaml`：本站 Hugo 設定，包括 `baseURL`、語言、選單、搜尋及第三方整合。
 - `content/post/`：依 Java、Spring、Vue、Docker、Git 等主題分類的文章。
 - `content/about.md`：關於頁面。
 - `content/guestbook.md`：公開想法留言板，獨立於技術筆記篇數與 EXP；留言由既有 Disqus 保存。
 - `content/projects.md`：本站作品案例，獨立於技術筆記數與 EXP；Markdown 圖片使用實際首頁截圖。
 - `archetypes/default.md`：新文章的 front matter 與內容範本。
-- `layouts/`：相對於主題的站點專用版面與 partial 覆寫。
+- `layouts/`：本站版面、Markdown 渲染模板與共用 partial。
 - `static/`：圖片、CSS、JavaScript 等直接複製的靜態資源。
 - `i18n/zh-tw.yaml`：繁體中文翻譯覆寫。
 
@@ -143,7 +132,7 @@ npm run test:diagrams
 - `static/images/rpg-camp.svg`：像素營地插畫，無需外部圖片服務。
 - 角色等級依已發布文章數計算，每 10 篇升一級。技能圖鑑位於 `/skills/`，與 `/tags/` 的文章標籤分開；首頁技能數量、角色檔案和圖鑑共用技能資料，技能等級與進度顯示於角色檔案和圖鑑。
 - `data/skills.json`：維護技能名稱、分組、描述及對應的文章標籤；`layouts/skills/section.html` 呈現 Lv. 與 EXP 進度條。每篇相關公開筆記累積 1 EXP（多個匹配標籤只計一次），每 10 EXP 升一級；進度條顯示距下一級的累積值。Lv. 表示筆記累積，不是專業能力評分。沒有筆記的技能仍顯示 Lv. 1、0 / 10，圖鑑可展開閱讀相關紀錄。
-- `layouts/home.searchindex.json`：產生 `/blog/search-index.json`，只收錄公開技術筆記，連 `--buildDrafts` 預覽也排除草稿與作品頁。既有 `searchindexes.xml` 仍保留供 NexT 使用。
+- `layouts/home.searchindex.json`：產生 `/blog/search-index.json`，只收錄公開技術筆記，連 `--buildDrafts` 預覽也排除草稿與作品頁。`layouts/home.localindexes.xml` 另產生既有的 XML 索引，維持 `/blog/searchindexes.xml` 網址。
 - 全文搜尋在首次開啟時才載入 JSON，同頁快取並共用載入中的請求；支援標題、標籤與正文，按 `/` 開啟、`Esc` 關閉。錯誤可重試，快速輸入或關閉重開不會顯示舊結果；結果保留精簡摘要。
 - 搜尋關閉後焦點回到觸發入口，手機導覽內按 `Esc` 關閉則回到選單按鈕。
 
@@ -237,7 +226,7 @@ hugo new content/post/<分類>/<文章名稱>.md
 
 推送至 `main` 後，`.github/workflows/deploy.yml` 會：
 
-1. 唯讀的 `build` job 取出原始碼與主題子模組，且不保留 Git 憑證；
+1. 唯讀的 `build` job 取出原始碼，且不保留 Git 憑證；
 2. 安裝 Hugo Extended `0.167.0`，執行統一驗證入口（含搜尋、Python 測試與 `hugo --minify`）；
 3. 確認生成內容與 HTML 安全檢查通過，上傳建置產物，並保留當輪 report 與 logs；
 4. 獨立 `deploy` job 取出發布腳本、下載通過檢查的產物，發布至 `gh-pages` 分支；
@@ -254,23 +243,11 @@ Actions 固定為官方 release 對應的完整 commit SHA，由 Dependabot 每�
 python3 .github/scripts/check-site-security.py .local-public
 ```
 
-## Submodule 維護
-
-日常同步至儲存庫記錄的版本：
-
-```bash
-git submodule update --init --recursive
-```
-
-升級主題時，請在 `themes/hugo-theme-next/` 選定並測試明確的 release 或
-commit，再由本儲存庫提交新的 submodule pointer。文章在 `content/` 維護；
-`gh-pages` 的正式產物由工作流程管理。
-
 ## 已知注意事項
 
 - `config.yaml` 內含留言、分析、搜尋等可選整合；啟用前應逐項填入自己的服務設定。
 - 本儲存庫未提供授權檔，不能由此 README 推定內容或程式碼的再利用授權。
-- 主題本身有獨立的 README 與授權，且其授權不會自動涵蓋本站文章。
+- XML 索引模板沿用 [Hugo NexT v4.8.3](https://github.com/hugo-next/hugo-theme-next/blob/c9624feed2861f65baf8116250b5aeaccbf15f40/layouts/list.localindexes.xml)，授權見 [MIT 授權全文](docs/licenses/hugo-next-MIT.txt)。
 
 
 ## 冒險者、具體能力與專案（2026-11-04）
