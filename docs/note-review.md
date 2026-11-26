@@ -97,7 +97,7 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 | 66 | [FTP、FTPS 與 SFTP：協定和連線埠差異](../content/post/other/FTPvsFTPSvsSFTP.md) | 草稿 → 公開 | 修正主動／被動模式的方向及 FTPS 分類，提供連線選擇與診斷依據。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 67 | [高可用性架構：Active-Active、備援與故障測試](../content/post/other/HighAvailability.md) | 公開 → 修訂 | 查核原 HA 說明，區分負載平衡、資料一致性、RTO/RPO 與單點故障。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 68 | [Java 工程師學習地圖：基礎、交付與架構能力](../content/post/other/Java技術人員技能.md) | 公開 → 修訂 | 將原技術名單整理為可驗證的能力層級，保留 Spring、容器、資料與測試主題。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 69 | [Markdown 筆記：語法、程式碼與 Hugo 差異](../content/post/other/Markdown.md) | 公開 → 修訂 | 保留 Markdown 語法、程式碼、表格、換行與 Hugo 差異，移除圖表渲染教學，改用 markdown-basics 網址。 | 本輪內容與網址驗收見[分篇整理紀錄](harness/markdown-mermaid-separation-2026-10-26.md)；原範例與來源保留，未實際操作外部 Live Editor 或檔案匯出。 |
+| 69 | [Markdown 筆記：語法、程式碼與 Hugo 差異](../content/post/other/Markdown.md) | 公開 → 修訂 | 保留 Markdown 語法、程式碼、表格、換行與 Hugo 差異，移除圖表渲染教學，改用 markdown-basics 網址。 | 本輪內容與網址驗收見[分篇整理紀錄](harness/2026-10-26-markdown-mermaid-separation.md)；原範例與來源保留，未實際操作外部 Live Editor 或檔案匯出。 |
 | 70 | [系統分析 SA：釐清需求與可驗收規格](../content/post/other/SA.md) | 公開 → 修訂 | 將原對話摘要整理為需求分析流程，補上衝突需求、產物與驗收例子。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 71 | [技術提問：重現步驟、預期結果與診斷證據](../content/post/other/ask-questions.md) | 公開 → 修訂 | 保留原提問與除錯主題，整理成可複製模板，移除難以辨識來源的個人經驗敘事。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 72 | [技術閱讀清單：Spring、全端與 JavaScript 的選讀方式](../content/post/other/book.md) | 草稿 → 公開 | 保留原待讀書單，補上主題、版本限制與閱讀產出，不假裝已完成閱讀。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
@@ -108,7 +108,7 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 | 77 | [前後端分離：API 契約、部署與成本](../content/post/other/前後端分離.md) | 公開 → 修訂 | 保留架構比較，補上契約例子、驗證責任與匯入判斷。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 78 | [軟體與網路名詞：NAT、代理、加密與認證](../content/post/other/名詞.md) | 公開 → 修訂 | 補齊原空白術語，修正 ping、Socket 與數位簽章的混淆。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 79 | [API 文件工具：OpenAPI、Slate 與 apiDoc 的選擇](../content/post/other/寫程式API文件的工具.md) | 公開 → 修訂 | 補上契約來源、生成方式與限制，提供最小 OpenAPI 檔案。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
-| 80 | [Mermaid 筆記：流程圖語法、驗證與匯出](../content/post/other/畫流程圖的工具.md) | 草稿 → 公開 | Mermaid 語法集中為專文；接續使用者需求，以 Pele 1.10.0 顯示原流程圖並保留可展開來源，新增 Obsidian 使用文章連結。 | 分篇歷史見[前輪紀錄](harness/markdown-mermaid-separation-2026-10-26.md)；本輪結果及限制見[Pele 整合紀錄](harness/pele-obsidian-2026-10-26.md)，不沿用前輪的程式碼展示驗收。 |
+| 80 | [Mermaid 筆記：流程圖語法、驗證與匯出](../content/post/other/畫流程圖的工具.md) | 草稿 → 公開 | Mermaid 語法集中為專文；接續使用者需求，以 Pele 1.10.0 顯示原流程圖並保留可展開來源，新增 Obsidian 使用文章連結。 | 分篇歷史見[前輪紀錄](harness/2026-10-26-markdown-mermaid-separation.md)；本輪結果及限制見[Pele 整合紀錄](harness/2026-10-26-pele-obsidian.md)，不沿用前輪的程式碼展示驗收。 |
 | 81 | [金額計算與浮點誤差：整數單位、Decimal 與捨入](../content/post/other/算錢用浮點，遲早被人扁.md) | 公開 → 修訂 | 保留 0.1 加 0.2 的例子，補上金額表示、四捨五入與分攤規則。 | Node 實際執行三行浮點／整數輸出，與本文一致；業務捨入規則不由示例推定 |
 | 82 | [Redis 安裝：本機 Docker 與平臺選擇](../content/post/redis/redis-Install.md) | 公開 → 修訂 | 修正 Redis port 對映及舊 Windows 移植版資訊，提供 localhost 測試與停止流程。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
 | 83 | [Redis 指令：鍵值、到期與資料結構](../content/post/redis/redis-command.md) | 草稿 → 公開 | 補齊原本空白的 SET/GET，提供可核對結果的本地練習及 SCAN 注意事項。 | 官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式 |
@@ -210,7 +210,7 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 - 兩篇互相以 Hugo ref 連結，移除 Obsidian callout／wikilink、私人 Notion 入口與個人練習追蹤。來源檔案未修改，JSON 保留來源檔名、SHA-256 與實際驗證限制。
 - 原筆記的影片時間連結沿用，未重看完整影片或取得新逐字稿；另查閱 Redis、Node.js、k6 與 SOLID 原始文件，工程補充與講者筆記分開說明。
 - 檢查器改為核對全部檢核紀錄的唯一覆蓋，從筆數推導搜尋及分頁；132 篇預期 14 頁，尾頁 2 篇。新增測試覆蓋漏登、重複、錯誤搜尋筆數／網址、錯誤尾頁、缺頁與舊頁殘留，未跳過原先的來源／日期／連結檢查。
-- 範例結果：[fred-examples-results-2026-10-20.json](verification/fred-examples-results-2026-10-20.json)；本輪任務與網站驗證證據見 [任務紀錄](harness/fred-notes-to-blog-2026-10-20.md)。
+- 範例結果：[fred-examples-results-2026-10-20.json](verification/fred-examples-results-2026-10-20.json)；本輪任務與網站驗證證據見 [任務紀錄](harness/2026-10-20-fred-notes-to-blog.md)。
 
 ## 2026-10-26：Markdown 與 Mermaid 分篇
 
@@ -218,7 +218,7 @@ Windows／IE11、CentOS／Docker daemon、Redis、Tomcat、Nginx、Eclipse、And
 
 本次是原網址保留原則的明確例外：Markdown 改用 `/blog/post/other/markdown-basics/`，Mermaid 改用 `/blog/post/other/mermaid-flowchart/`；舊網址不產生文章或轉址。未新增文章，總數仍為 133 篇。
 
-Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料保留，新增來源查核日期為 2026-10-26。網站與本機瀏覽器驗證結果及限制見[本輪任務紀錄](harness/markdown-mermaid-separation-2026-10-26.md)，不沿用先前網站綠燈，也不宣稱已操作外部 Live Editor 或匯出 SVG／PNG。
+Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料保留，新增來源查核日期為 2026-10-26。網站與本機瀏覽器驗證結果及限制見[本輪任務紀錄](harness/2026-10-26-markdown-mermaid-separation.md)，不沿用先前網站綠燈，也不宣稱已操作外部 Live Editor 或匯出 SVG／PNG。
 
 本機修正後的網站基準 9 項檢查及 28 個對應案例通過；瀏覽器確認兩篇新頁、目錄、搜尋與舊網址 404。Mermaid 範例原先被主題特殊 hook 以一般文字呈現，現僅將展示語言改為 `text`，保留圖表原始碼並恢復逐行顯示。證據見[對應案例](verification/markdown-mermaid-acceptance-2026-10-26.json)與[瀏覽器紀錄](verification/markdown-mermaid-browser-2026-10-26.json)；文件收尾後的最終來源以任務紀錄所列 report 為準。
 
@@ -228,7 +228,7 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 
 專案固定安裝 npm Pele 1.10.0，保留 lock、MIT 授權及同源瀏覽器資源；Hugo 以站點 render hook 接入，只有含圖表的文章載入函式庫。原 Mermaid 範例恢復 mermaid fence，圖表節點與連線保留；本輪新要求取代前輪不新增渲染器的範圍。CSP、Goldmark unsafe、主題子模組與前輪新網址均保持。
 
-驗收涵蓋文章圖表來源、固定資源完整性、多圖識別、個別語法錯誤隔離、函式庫載入失敗時的來源退路、實際瀏覽器與網站基準；實際結果見[本輪紀錄](harness/pele-obsidian-2026-10-26.md)。Obsidian 端依官方文件說明，未操作使用者 vault、升級應用程式或實測其內建 Pele。
+驗收涵蓋文章圖表來源、固定資源完整性、多圖識別、個別語法錯誤隔離、函式庫載入失敗時的來源退路、實際瀏覽器與網站基準；實際結果見[本輪紀錄](harness/2026-10-26-pele-obsidian.md)。Obsidian 端依官方文件說明，未操作使用者 vault、升級應用程式或實測其內建 Pele。
 
 修正後的網站預覽基準 10 項（含 7 個圖表回歸測試）、17 個整合／來源案例與實際瀏覽器驗收通過。證據：[整合案例](verification/pele-integration-2026-10-26.json)、[瀏覽器紀錄](verification/pele-browser-2026-10-26.json)。最終來源與各步日誌以任務紀錄所列最終 report 為準。
 
@@ -236,19 +236,19 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 
 依使用者補充，在 [Pele 使用筆記](../content/post/other/obsidian-pele.md) 開頭記錄從 MUKI WU（哈囉沐奇）的 [YouTube 分享](https://www.youtube.com/watch?v=-YlDpD8USWY) 認識 Pele 的緣由，參考資料保留完整影片標題與網址。保留原發布日期、文章路徑、範例與官方來源，更新 lastmod 及 JSON 查核紀錄。
 
-本輪讀取影片頁面與作者完整說明，確認標題、頻道、發布日期及片長；未整理完整影片或查核其效能數字。驗證範圍及證據見[任務紀錄](harness/pele-video-origin-2026-10-26.md)。
+本輪讀取影片頁面與作者完整說明，確認標題、頻道、發布日期及片長；未整理完整影片或查核其效能數字。驗證範圍及證據見[任務紀錄](harness/2026-10-26-pele-video-origin.md)。
 
 ## 2026-10-30：新增 npm 鎖檔設定筆記
 
 新增 [npm 設定筆記：omit-lockfile-registry-resolved](../content/post/node/npm-omit-lockfile-registry-resolved.md)，總數由 134 增為 135 篇。依使用者提供的設定與 npm 官方文件成文，涵蓋 `.npmrc`、欄位前後差異、更新既有鎖檔、`npm ci`、registry 換源情境及限制；本站 npm 設定與鎖檔未修改。
 
-使用 Node.js 26.13.0／npm 11.20.0 對臨時本機 registry 執行安裝，驗證 registry 來源欄位省略、版本與完整性保留、直接 URL 邊界、換源安裝及錯誤雜湊被拒絕；未連公司代理、驗證認證、Git 依賴或量測效能。案例結果見 [npm 隔離證據](verification/npm-omit-lockfile-results-2026-10-30.json)，網站結果、日誌及環境限制見 [任務紀錄](harness/npm-omit-lockfile-registry-resolved-2026-10-30.md)。未更動前輪的 Pele 內容與查核紀錄。
+使用 Node.js 26.13.0／npm 11.20.0 對臨時本機 registry 執行安裝，驗證 registry 來源欄位省略、版本與完整性保留、直接 URL 邊界、換源安裝及錯誤雜湊被拒絕；未連公司代理、驗證認證、Git 依賴或量測效能。案例結果見 [npm 隔離證據](verification/npm-omit-lockfile-results-2026-10-30.json)，網站結果、日誌及環境限制見 [任務紀錄](harness/2026-10-30-npm-omit-lockfile-registry-resolved.md)。未更動前輪的 Pele 內容與查核紀錄。
 
 ## 2026-10-31：AI 工具清單擴充學習資源
 
 將原清單改名為 [AI 工具與學習資源清單](../content/post/ai-tools.md)，保留原始發布日期、文章路徑與四個工具入口。在「Skills 與工作流資源」加入 Tenten 技能年鑑，在「AI 新聞與學習資源」加入 AI 郵報，並同步摘要、開頭、分工說明與參考資料。未新增文章，仍為 135 篇；ub-mode／pstack 留待後續需求。
 
-兩個新增網站的定位以 2026-10-31 公開首頁內容查核，未登入、訂閱、安裝 Skills 或重跑個別教學。原工具的查核紀錄保留為歷史證據。來源比對、生成頁與搜尋案例、網站基準及日誌見 [本輪任務紀錄](harness/ai-learning-resources-2026-10-31.md)。
+兩個新增網站的定位以 2026-10-31 公開首頁內容查核，未登入、訂閱、安裝 Skills 或重跑個別教學。原工具的查核紀錄保留為歷史證據。來源比對、生成頁與搜尋案例、網站基準及日誌見 [本輪任務紀錄](harness/2026-10-31-ai-learning-resources.md)。
 
 ## 2026-10-31：Skills 收藏與兩篇使用教學
 
@@ -256,7 +256,7 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 
 首頁維持三張置頂，順序為新清單、原 AI Skills 目錄文與 Java 多型；HikariPool、DecimalFormat 依序順延。四篇既有精選僅調整 featuredOrder，正文、原始 date 與 lastmod 不變；技能圖鑑維持。
 
-教學依上游 README、Skill 與官方指南整理；特別區分 Dryer 預設 0.82 與 ub-mode 的 0.8 政策，並補充 pstack Claude Code 命令前綴。兩項外部收藏維持待試用，未安裝或執行產品。來源、網站與瀏覽器驗收及限制見 [本輪任務紀錄](harness/ai-skills-collection-2026-10-31.md)。
+教學依上游 README、Skill 與官方指南整理；特別區分 Dryer 預設 0.82 與 ub-mode 的 0.8 政策，並補充 pstack Claude Code 命令前綴。兩項外部收藏維持待試用，未安裝或執行產品。來源、網站與瀏覽器驗收及限制見 [本輪任務紀錄](harness/2026-10-31-ai-skills-collection.md)。
 
 本輪修正後的網站基準 10 項檢查及 44 項來源／生成內容／安裝片段案例通過；IAB 完成 1440px 與 390px 瀏覽器驗收，手機表格改用既有 wideTables 設定，表格與程式碼已實際鍵盤橫向捲動。證據見 [內容案例](verification/ai-skills-acceptance-2026-10-31.json) 與 [瀏覽器紀錄](verification/ai-skills-browser-2026-10-31.json)；最終來源以任務紀錄所列收尾 report 為準。
 
@@ -266,8 +266,8 @@ Mermaid 新增說明已對照官方簡介與 flowchart 文件；原查核資料�
 [Pele 使用筆記](../content/post/other/obsidian-pele.md) 同步本站版本與固定安裝命令，保留原始 date、路徑、圖表內容及參考資料；只有實際修訂的文章更新 lastmod 與 JSON 查核紀錄。
 
 可重用的 Skills 安裝保留與生成頁面案例已納入網站統一驗證；歷史 44 項驗收仍保留原紀錄。
-7 個圖表案例通過，新的瀏覽器範圍、最終網站報告及剩餘限制見 [本輪任務紀錄](harness/node26-review-fixes-2026-11-01.md)。未操作或升級 Obsidian，也未重跑全部技術教學。
+7 個圖表案例通過，新的瀏覽器範圍、最終網站報告及剩餘限制見 [本輪任務紀錄](harness/2026-11-01-node26-review-fixes.md)。未操作或升級 Obsidian，也未重跑全部技術教學。
 
 ## 2026-11-03 Prototype 閱讀整理
 
-新增〈規格寫不清楚時，如何用 Prototype 回答問題？〉，從原有文獻另寫新敘事；既有 138 篇文章與原清單項目保留。正式建置來源目前 139 篇，新篇尚未推送或部署；上方歷史批次的統計與公開狀態保留為當時記錄。本輪驗收及來源限制見 [寫作流程記錄](harness/vault-writing-workflow-2026-11-03.md)。
+新增〈規格寫不清楚時，如何用 Prototype 回答問題？〉，從原有文獻另寫新敘事；既有 138 篇文章與原清單項目保留。正式建置來源目前 139 篇，新篇尚未推送或部署；上方歷史批次的統計與公開狀態保留為當時記錄。本輪驗收及來源限制見 [寫作流程記錄](harness/2026-11-03-vault-writing-workflow.md)。

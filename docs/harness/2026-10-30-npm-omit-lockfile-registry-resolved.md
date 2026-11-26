@@ -5,7 +5,7 @@
 - 使用者要求將 `omit-lockfile-registry-resolved=true` 寫成一篇繁體中文 Blog 筆記。
 - 新增 npm 主題文章，說明 `.npmrc` 設定、鎖檔差異、適用情境、既有鎖檔更新與排錯；同步逐篇清單及新增紀錄。
 - 依 npm 官方文件查核，另用隔離專案確認實際行為；不將設定套用到本站。
-- 保留開工前未提交的 `content/post/other/obsidian-pele.md`、`docs/note-review.json`、`docs/note-review.md` 及未追蹤的 `docs/harness/pele-video-origin-2026-10-26.md`；共用清單與報告僅追加本次內容。
+- 保留開工前未提交的 `content/post/other/obsidian-pele.md`、`docs/note-review.json`、`docs/note-review.md` 及未追蹤的 `docs/harness/2026-10-26-pele-video-origin.md`；共用清單與報告僅追加本次內容。
 - 不提交、推送或部署；不修改主題、版面、安全設定與既有文章。
 
 ## 驗收

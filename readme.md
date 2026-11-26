@@ -107,7 +107,7 @@ npm run test:diagrams
 鎖檔固定套件來源與完整性，vendor 腳本保留 MIT 授權並產生版本與 SHA-256 紀錄。
 更新 Pele 時需一起更新版本、鎖檔及靜態檔，再執行完整網站與實際瀏覽器檢查。
 圖表檢查已納入 `verify-blog.py`，涵蓋真實文章來源、SVG 識別碼、錯誤隔離與載入失敗的退路。
-使用文章見 `content/post/other/obsidian-pele.md`；本輪紀錄見 `docs/harness/pele-obsidian-2026-10-26.md`。
+使用文章見 `content/post/other/obsidian-pele.md`；本輪紀錄見 `docs/harness/2026-10-26-pele-obsidian.md`。
 
 全站使用共用的 RPG 冒險面板，包括首頁、關於頁、文章、分類、標籤、歸檔、分頁與 404 頁：
 

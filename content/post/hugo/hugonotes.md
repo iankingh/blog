@@ -8,7 +8,7 @@ tags:
  - "hugo"
 toc: true
 description: "從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。"
-lastmod: 2026-11-26T22:15:00+08:00
+lastmod: 2026-11-27T07:35:30+08:00
 ---
 
 從文章與圖片到子目錄預覽，建立可重現的 Hugo 內容維護與建置流程。
@@ -27,6 +27,18 @@ hugo --minify --destination /tmp/blog-build-check
 ```
 
 網址依終端顯示，本站含`/blog/`。正式建置不含draft:true；-D僅用於草稿預覽。public是Hugo預設建置輸出，已由Git忽略，可重新產生。正式部署使用暫存產物發布至gh-pages。
+
+## 移除主題前，先比對建置產物
+
+本站的 RPG 首頁早已使用自己的版型，但舊版搜尋索引 `/blog/searchindexes.xml` 仍由 NexT 主題產生。在測試副本裡只刪掉主題，Hugo 會因為找不到設定指定的主題而停止。連同 `theme` 設定一起移除後，首頁和目前使用的 `/blog/search-index.json` 都能正常產生，舊的 XML 索引卻消失了。只打開首頁，很容易漏掉這個差異。
+
+這次用相同的文章和 Hugo 版本，把改動前後的網站各自建置到新的空目錄。先比對輸出檔案清單，找出消失的網址，再比對文章 HTML、搜尋索引的標題與網址，以及程式碼區塊的輸出。本站最後保留 XML 索引模板、上游授權和程式碼渲染方式，才移除主題子模組及 CI 的下載步驟。乾淨副本可以直接用 Hugo Extended 建置，兩次產生的 388 個 HTML 檔案內容完全相同。
+
+### 用日期整理維護紀錄
+
+每次調整建置流程，我會在 `docs/harness/` 用 `YYYY-MM-DD-主題.md` 留一份紀錄。例如這次是 `2026-11-26-standalone-hugo.md`，在檔案清單按名稱排序，就能依日期找到當時的改動。紀錄寫下要保留的網址、重現用的命令、實際結果與測試版本。下次升級 Hugo 時，可以用同一組案例重跑。
+
+新增紀錄時從 `task-template.md` 複製；整理舊檔時沿用原紀錄日期，並同步更新 README 和文章檢核清單裡的引用。歷史驗證輸出若列出當時的 Git 路徑，則保留原值，方便對照當時的提交。
 
 ## 新站與文章
 
@@ -58,6 +70,7 @@ static/images/demo.png對映為images/demo.png，不在網址加/static。baseUR
 - [New content](https://gohugo.io/commands/hugo_new_content/)
 - [Static files](https://gohugo.io/getting-started/directory-structure/)
 - [Front matter](https://gohugo.io/content-management/front-matter/)
+- [本站維護與驗收紀錄](https://github.com/iankingh/blog/tree/main/docs/harness)
 - [右上角github 貓 GitHub Corners](https://tholman.com/github-corners/#)
 - [使用Github部署Hugo靜態網站](https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/)
 - [hugo搭建靜態部落格 | 生信筆記](https://www.bioinfo-scrounger.com/archives/809/)

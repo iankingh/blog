@@ -4,7 +4,7 @@ Method: dual-agent（A: `/root/design_assessment`；B: `/root/design_detector`�
 
 評估對象：`layouts/home.html`，來源 `885d2ce5`，分支 `codex/harness-engineering`。
 2026-10-17 完成安裝、指引閱讀、獨立設計評估、來源掃描與實際瀏覽器檢視。
-以下為修改前的歷史評估。使用者試看 A 工程野帳後明確表示「我比較喜歡原本的排版，我只是不要 AI 味」，因此 A 結構重整已撤回。最終只保留原 RPG 構圖的文案與操作細節修整；本文件的版型建議未全部採用，不能當成待辦清單。實作與最終驗證見 `docs/harness/home-design-skills-2026-10-17.md`。
+以下為修改前的歷史評估。使用者試看 A 工程野帳後明確表示「我比較喜歡原本的排版，我只是不要 AI 味」，因此 A 結構重整已撤回。最終只保留原 RPG 構圖的文案與操作細節修整；本文件的版型建議未全部採用，不能當成待辦清單。實作與最終驗證見 `docs/harness/2026-10-17-home-design-skills.md`。
 
 ## 安裝與實際使用
 

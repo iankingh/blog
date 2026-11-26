@@ -17,7 +17,7 @@
       "https://www.aiposthub.com/",
       "https://github.com/iankingh/agent-skills"
     ],
-    "verification": "2026-10-25 以網頁工具開啟確認 Phind 兩入口回報 404、Poe /ChatGPT 顯示 DEPRECATED，以及保留的官方入口可讀或導向登入；未登入或驗證帳號功能。文章、網站與瀏覽器結果見 docs/harness/ai-skills-and-tools-2026-10-25.md。 2026-10-31：讀取 Tenten 技能年鑑與 AI 郵報公開首頁，確認技能／教學／工作流策展與 AI 新聞／指南定位。來源與生成內容案例、網站基準結果見 docs/harness/ai-learning-resources-2026-10-31.md；本輪未重驗舊工具的帳號功能或個別教學。 本輪技能入口、站內連結與來源保留驗收見 docs/harness/ai-skills-collection-2026-10-31.md；不宣稱已安裝或試用外部技能。",
+    "verification": "2026-10-25 以網頁工具開啟確認 Phind 兩入口回報 404、Poe /ChatGPT 顯示 DEPRECATED，以及保留的官方入口可讀或導向登入；未登入或驗證帳號功能。文章、網站與瀏覽器結果見 docs/harness/2026-10-25-ai-skills-and-tools.md。 2026-10-31：讀取 Tenten 技能年鑑與 AI 郵報公開首頁，確認技能／教學／工作流策展與 AI 新聞／指南定位。來源與生成內容案例、網站基準結果見 docs/harness/2026-10-31-ai-learning-resources.md；本輪未重驗舊工具的帳號功能或個別教學。 本輪技能入口、站內連結與來源保留驗收見 docs/harness/2026-10-31-ai-skills-collection.md；不宣稱已安裝或試用外部技能。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -2237,7 +2237,7 @@
     "title": "Hugo 基礎：建立文章、圖片與本地建置",
     "originalDraft": false,
     "originalDate": "2020-04-21T22:29:36+08:00",
-    "lastmod": "2026-11-26",
+    "lastmod": "2026-11-27",
     "context": "適用：Hugo Extended 與本站 RPG 版面。原文的 TOML／舊設定保留為歷史對照，實際以 config.yaml 及部署固定版本為準。",
     "issues": [
       "缺少摘要"
@@ -2247,9 +2247,10 @@
       "https://gohugo.io/installation/",
       "https://gohugo.io/commands/hugo_new_content/",
       "https://gohugo.io/getting-started/directory-structure/",
-      "https://gohugo.io/content-management/front-matter/"
+      "https://gohugo.io/content-management/front-matter/",
+      "https://github.com/iankingh/blog/tree/main/docs/harness"
     ],
-    "verification": "官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式",
+    "verification": "官方文件／原廠入口與規格查核，程式碼和內部連結完成靜態檢查；需特定平台、帳號、服務或叢集的步驟未實機執行，文內列出讀者確認方式。主題遷移案例與比對數據見 docs/harness/2026-11-26-standalone-hugo.md，紀錄命名見 docs/harness/README.md。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -2301,8 +2302,8 @@
       "https://tholman.com/github-corners/#",
       "https://www.bioinfo-scrounger.com/archives/809/"
     ],
-    "presentationUpdatedAt": "2026-11-26T22:15:00+08:00",
-    "presentationChanges": "更新本站預覽與建置說明，移除已退役的主題子模組初始化指令。"
+    "presentationUpdatedAt": "2026-11-27T07:35:30+08:00",
+    "presentationChanges": "補記移除 NexT 時比對 HTML 與搜尋索引的方法，以及 docs/harness/ 採日期前綴的命名和引用維護方式。"
   },
   {
     "path": "content/post/java/HikariPool-1-error.md",
@@ -4333,7 +4334,7 @@
       "https://gohugo.io/configuration/markup/",
       "https://github.github.com/gfm/#tables-extension-"
     ],
-    "verification": "2026-10-26：28 個來源與建置對應案例通過，原始日期、程式碼內容及來源連結保留；133 篇唯一搜尋索引、新網址與舊頁停用檢查通過。實際瀏覽器確認兩篇新頁、目錄、搜尋及兩個舊網址回傳 404；Mermaid 以 pre 程式碼顯示並保留換行。完整證據與最終網站基準結果見 docs/harness/markdown-mermaid-separation-2026-10-26.md。本輪未操作外部 Live Editor 繪圖或 SVG／PNG 匯出；未重跑其他技術教學。",
+    "verification": "2026-10-26：28 個來源與建置對應案例通過，原始日期、程式碼內容及來源連結保留；133 篇唯一搜尋索引、新網址與舊頁停用檢查通過。實際瀏覽器確認兩篇新頁、目錄、搜尋及兩個舊網址回傳 404；Mermaid 以 pre 程式碼顯示並保留換行。完整證據與最終網站基準結果見 docs/harness/2026-10-26-markdown-mermaid-separation.md。本輪未操作外部 Live Editor 繪圖或 SVG／PNG 匯出；未重跑其他技術教學。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -5033,7 +5034,7 @@
       "https://mermaid.live/",
       "https://www.drawio.com/docs/"
     ],
-    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/pele-obsidian-2026-10-26.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。",
+    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/2026-10-26-pele-obsidian.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。",
     "status": "complete",
     "published": true,
     "originalIssues": {
@@ -8188,7 +8189,7 @@
       "https://code.visualstudio.com/docs/agent-customization/custom-instructions",
       "https://code.visualstudio.com/docs/agent-customization/prompt-files"
     ],
-    "verification": "本輪原稿快照、三個 code block、date 與置頂順序保留；去掉明確新增內容後原文相同，132 筆其他文章紀錄與前輪既有變更不動。OpenAI 官方文件查核、網站 9 項檢查、1440／390px 瀏覽器、新標題搜尋與 Codex 兩表驗收通過。未建立、安裝或實測產品技能載入；CI 固定版本未重現。完整證據見 docs/harness/ai-skills-codex-update-2026-10-25.md。",
+    "verification": "本輪原稿快照、三個 code block、date 與置頂順序保留；去掉明確新增內容後原文相同，132 筆其他文章紀錄與前輪既有變更不動。OpenAI 官方文件查核、網站 9 項檢查、1440／390px 瀏覽器、新標題搜尋與 Codex 兩表驗收通過。未建立、安裝或實測產品技能載入；CI 固定版本未重現。完整證據見 docs/harness/2026-10-25-ai-skills-codex-update.md。",
     "status": "complete",
     "published": true,
     "verificationType": "source-import-and-documentation",
@@ -8228,7 +8229,7 @@
       "https://pele.run/security",
       "https://www.youtube.com/watch?v=-YlDpD8USWY"
     ],
-    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/pele-obsidian-2026-10-26.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。 本次僅補影片出處；來源查核範圍與新的網站驗證結果見 docs/harness/pele-video-origin-2026-10-26.md，前述整合與瀏覽器結果保留為前輪歷史。 2026-11-01：Node 26.13.0 LTS 下重新安裝 Pele 1.13.0，7 個既有圖表案例通過；最終網站基準、瀏覽器結果與限制以 docs/harness/node26-review-fixes-2026-11-01.md 所列新證據為準。未操作或升級 Obsidian。",
+    "verification": "2026-10-26：網站統一驗證 10 項通過，含 7 個圖表回歸測試；17 個整合／來源案例通過。實際瀏覽器確認兩篇圖表繪成 SVG、來源鍵盤操作、134 篇索引中的新文搜尋、深淺色與 390px 無頁面溢位；多圖中個別語法錯誤、缺少函式庫與繪圖腳本時仍保留來源，SVG IDs 無衝突且未產生可執行屬性。證據及最終網站基準以 docs/harness/2026-10-26-pele-obsidian.md 所列紀錄為準。未操作或升級 Obsidian、未測其內建引擎；未操作外部匯出或其他技術教學。 本次僅補影片出處；來源查核範圍與新的網站驗證結果見 docs/harness/2026-10-26-pele-video-origin.md，前述整合與瀏覽器結果保留為前輪歷史。 2026-11-01：Node 26.13.0 LTS 下重新安裝 Pele 1.13.0，7 個既有圖表案例通過；最終網站基準、瀏覽器結果與限制以 docs/harness/2026-11-01-node26-review-fixes.md 所列新證據為準。未操作或升級 Obsidian。",
     "status": "complete",
     "published": true,
     "verificationType": "local-integration-and-documentation",
@@ -8319,7 +8320,7 @@
       "https://docs.npmjs.com/cli/v11/commands/npm-install/",
       "https://docs.npmjs.com/cli/v11/commands/npm-ci/"
     ],
-    "verification": "npm 11.20.0 對臨時 loopback registry 執行真實 npm install／ci；核對預設 false、專案設定、移除既有 registry resolved、保留 version／integrity、直接 tarball URL 保留來源、改用新 registry 安裝且不改鎖檔，以及錯誤雜湊以 EINTEGRITY 失敗。改回 false 不保證補回既有 resolved。結果見 docs/verification/npm-omit-lockfile-results-2026-10-30.json；網站基準與各步日誌見 docs/harness/npm-omit-lockfile-registry-resolved-2026-10-30.md。未測公司代理、認證、Git 依賴、其他 npm 版本或安裝效能；未重跑其他技術教學。",
+    "verification": "npm 11.20.0 對臨時 loopback registry 執行真實 npm install／ci；核對預設 false、專案設定、移除既有 registry resolved、保留 version／integrity、直接 tarball URL 保留來源、改用新 registry 安裝且不改鎖檔，以及錯誤雜湊以 EINTEGRITY 失敗。改回 false 不保證補回既有 resolved。結果見 docs/verification/npm-omit-lockfile-results-2026-10-30.json；網站基準與各步日誌見 docs/harness/2026-10-30-npm-omit-lockfile-registry-resolved.md。未測公司代理、認證、Git 依賴、其他 npm 版本或安裝效能；未重跑其他技術教學。",
     "status": "complete",
     "published": true,
     "verificationType": "local-npm-and-documentation",
@@ -8387,7 +8388,7 @@
       "https://github.com/unclebob/ub-mode/blob/master/README.md",
       "https://github.com/cursor/plugins/blob/main/pstack/README.md"
     ],
-    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/ai-skills-collection-2026-10-31.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
+    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/2026-10-31-ai-skills-collection.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
@@ -8440,7 +8441,7 @@
       "https://github.com/unclebob/dryer/blob/master/README.md",
       "https://github.com/unclebob/mutator/blob/main/README.md"
     ],
-    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/ai-skills-collection-2026-10-31.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
+    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/2026-10-31-ai-skills-collection.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
@@ -8521,7 +8522,7 @@
       "https://github.com/cursor/plugins/blob/main/pstack/docs/harness/claude-code.md",
       "https://github.com/cursor/plugins/blob/main/pstack/README.md"
     ],
-    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/ai-skills-collection-2026-10-31.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
+    "verification": "上游文件與本機專案內容查核，完整來源 Git blob SHA 見 docs/verification/ai-skills-sources-2026-10-31.json；來源／生成內容案例、網站基準與實際瀏覽器結果見 docs/harness/2026-10-31-ai-skills-collection.md。未安裝或試用外部技能、外掛及品質工具，文件查核不代表產品功能實測。",
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
@@ -8606,7 +8607,7 @@
     "sources": [
       "https://www.youtube.com/watch?v=n0VhIVtviC0"
     ],
-    "verification": "本輪讀取既有影片筆記，沿用其自動字幕全段與關鍵畫面閱讀範圍，未重新觀看影片或查核現行技能倉庫。網站與瀏覽器結果記於 docs/harness/vault-writing-workflow-2026-11-03.md；尚未推送或部署。 本輪能力／技能／文章／作品往返、6 項關聯案例與桌面／手機驗收見 docs/harness/adventurer-learning-loop-2026-11-04.md；本機未部署。",
+    "verification": "本輪讀取既有影片筆記，沿用其自動字幕全段與關鍵畫面閱讀範圍，未重新觀看影片或查核現行技能倉庫。網站與瀏覽器結果記於 docs/harness/2026-11-03-vault-writing-workflow.md；尚未推送或部署。 本輪能力／技能／文章／作品往返、6 項關聯案例與桌面／手機驗收見 docs/harness/2026-11-04-adventurer-learning-loop.md；本機未部署。",
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
@@ -8646,7 +8647,7 @@
       "https://docs.gitlab.com/user/project/issue_board/",
       "https://gitlab.com/gitlab-org/gitlab/-/issues/15831"
     ],
-    "verification": "2026-11-17 以原始 Issue 與官方文件核對，範例及網站驗證見 docs/harness/issue-management-2026-11-17.md。未在 GitHub 或 GitLab 專案提交範本、發送或置頂 Issue。",
+    "verification": "2026-11-17 以原始 Issue 與官方文件核對，範例及網站驗證見 docs/harness/2026-11-17-issue-management.md。未在 GitHub 或 GitLab 專案提交範本、發送或置頂 Issue。",
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
@@ -8682,7 +8683,7 @@
       "https://code.visualstudio.com/docs/agent-customization/prompt-files",
       "https://vuejs.org/guide/scaling-up/testing.html"
     ],
-    "verification": "2026-11-20 以 OpenAI、Anthropic、GitHub、VS Code 與 Vue 官方資料核對。目錄與投組驗證是文件範例，未建立 Vue 專案或啟動 Copilot。網站證據見 docs/harness/frontend-ai-workspace-2026-11-20.md。",
+    "verification": "2026-11-20 以 OpenAI、Anthropic、GitHub、VS Code 與 Vue 官方資料核對。目錄與投組驗證是文件範例，未建立 Vue 專案或啟動 Copilot。網站證據見 docs/harness/2026-11-20-frontend-ai-workspace.md。",
     "status": "complete",
     "published": true,
     "verificationType": "documentation",
